@@ -1,0 +1,47 @@
+/* Comments in code. */
+.comment {
+    color: purple;
+}
+
+/* Highlighted changes in code. */
+.highlight {
+    background-color: mistyrose;
+}
+
+/* Manual input. */
+.in {
+    color: darkgreen;
+}
+
+/* Program output. */
+.out {
+    color: darkblue;
+    font-style: italic;
+}
+
+/* Error output. */
+.err {
+    color: darkred;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Explanatory call-out boxes. */
+div.box {
+    background-color: lightgray;
+}
+
+/* Challenge questions. */
+div.challenges {}
+
+/* Key points in summary. */
+div.keypoints {}
+
+/* Main lesson. */
+div.lesson {}
+
+/* Learning objectives. */
+div.objectives {}
+
+/* Continuation paragraph. */
+p.continue {}

@@ -1,0 +1,61 @@
+/* Customizations to Bootstrap's default styles */
+
+/* readability: darken the alert colour for contrast with background */
+.alert {
+  color: rgb(0,0,0);
+}
+
+/* Container for page contents. */
+.container {
+    background-color: white;
+}
+
+.navbar .container {
+    background-color: inherit;
+}
+
+.navbar-inner {
+  min-height: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: #F4F4F4;
+  background-image: none;
+  border: 1px solid #d4d4d4;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+
+code {
+  color: #333333;
+}
+
+.navbar-inverse .navbar-inner {
+  background-color: #20267D;
+  background-image: none;
+  border-color: #20267D;
+}
+
+.navbar-inverse .nav .active > a,
+.navbar-inverse .nav .active > a:hover,
+.navbar-inverse .nav .active > a:focus {
+  color: #ffffff;
+  background-color: #20267D;
+}
+
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle,
+.navbar-inverse .nav li.dropdown.active > .dropdown-toggle,
+.navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
+  color: #ffffff;
+  background-color: #20267D;
+}
+
+.navbar-inverse .nav li.dropdown.active > .dropdown-toggle .caret {
+  border-top-color: #999999;
+  border-bottom-color: #999999;
+}
+
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
