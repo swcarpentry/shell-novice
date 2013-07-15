@@ -200,17 +200,12 @@ dl.gloss {
     /* Empty for now. */
 }
 
-/* FIXME: shouldn't be using iframe's directly (EventBrite and YouTube should be via macro expansion). */
+/* Displaying YouTube videos. */
 iframe.youtube_player {
     border      : 0;
     text-align  : center;
     width       : 640px;
     height      : 500px;
-}
-
-/* Amy Brown's logo in book/stylesheet.html. */
-img.logoARB {
-    float: right;
 }
 
 /* Sections in book chapters. */
@@ -312,4 +307,10 @@ table.bootcamps td.date {
 /* list with checkbox as bullet */
 ul.checklist {
   list-style-image: url('/img/checkbox.png'); 
+}
+
+/* FAQ */
+dl.faq dt {
+    font-style: italic;
+    font-weight: bold;
 }
