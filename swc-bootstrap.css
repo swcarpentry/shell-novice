@@ -10,6 +10,10 @@
     background-color: white;
 }
 
+.navbar .brand {
+  padding-top: 9px;  /* align the logo */
+}
+
 .navbar .container {
     background-color: inherit;
 }
