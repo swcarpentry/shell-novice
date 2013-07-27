@@ -30,6 +30,10 @@ code {
   color: #333333;
 }
 
+.navbar-inverse .nav > li > a {
+  color: #f0f0f0;
+}
+
 .navbar-inverse .navbar-inner {
   background-color: #20267D;
   background-image: none;
@@ -58,4 +62,9 @@ code {
 .navbar-inverse .nav li.dropdown.open > .dropdown-toggle .caret {
   border-top-color: #ffffff;
   border-bottom-color: #ffffff;
+}
+
+.navbar-inverse .navbar-search .search-query {
+  background-color: #ffffff;
+  color: #666666;
 }
