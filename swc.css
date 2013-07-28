@@ -72,8 +72,6 @@ blockquote.testimonial cite {
 
 /* Main body of pages. */
 body {
-    background: #BEC3C6;
-    margin: 20px 0;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     color: rgb(03, 03, 03);
 }
