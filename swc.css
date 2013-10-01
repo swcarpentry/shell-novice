@@ -122,6 +122,7 @@ div.box {
 @media (min-width: 700px) {
     div.box {
         width: 54em;
+        max-width: 80%;
     }
 }
 
