@@ -102,7 +102,6 @@ div.banner a img {
 
 /* Explanatory call-out boxes. */
 div.box {
-    width: 54em;
     background-color: mistyrose;
     display: block;
     margin-left: auto;
@@ -114,6 +113,16 @@ div.box {
     outline-color: gray;
     outline-width: 1px;
     outline-style: solid;
+}
+@media (max-width: 700px) {
+    div.box {
+        width: 80%;
+    }
+}
+@media (min-width: 700px) {
+    div.box {
+        width: 54em;
+    }
 }
 
 /* Level 2 headings inside pages. */
