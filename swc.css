@@ -309,7 +309,7 @@ table.bootcamps td.date {
 
 /* list with checkbox as bullet */
 ul.checklist {
-  list-style-image: url('/img/checkbox.png'); 
+  list-style-image: url('../img/checkbox.png'); 
 }
 
 /* FAQ */
@@ -326,7 +326,7 @@ section.content {
 
 .header {
     height:370px;
-    background: url(/img/header.png) no-repeat center center;
+    background: url(../img/header.png) no-repeat center center;
     background-attachment: fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -352,6 +352,10 @@ section.content {
     border-bottom:1px solid #DDDDDD;
     padding:50px 0 50px 0;
     margin-bottom:20px;
+}
+
+#home-options h4{
+    color:#2b3990;
 }
 
 section.footer {
