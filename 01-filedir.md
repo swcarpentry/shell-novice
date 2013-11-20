@@ -4,7 +4,7 @@ Files and Directories
 =====================
 
 The part of the operating system responsible for managing files and directories
-is called the [file system](../gloss.html#file-system).
+is called the [file system](../gloss.html#filesystem).
 It organizes our data into files,
 which hold information,
 and directories (also called "folders"),
@@ -142,11 +142,11 @@ are plain old files.
 > something". This is just a convention: we can call a file `mythesis` or
 > almost anything else we want. However, most people use two-part names
 > most of the time to help them (and their programs) tell different kinds
-> of files apart. The second part of such a name is called the [filename
-> extension](../gloss.html#filename-extension), and indicates what type of
-> data the file holds: `.txt` signals a plain text file, `.pdf` indicates
-> a PDF document, `.cfg` is a configuration file full of parameters for
-> some program or other, and so on.
+> of files apart. The second part of such a name is called the
+> [filename extension](../gloss.html#filename-extension), and indicates
+> what type of data the file holds: `.txt` signals a plain text file, `.pdf`
+> indicates a PDF document, `.cfg` is a configuration file full of parameters
+> for some program or other, and so on.
 > 
 > It's important to remember that this is just a convention. Files contain
 > bytes: it's up to us and our programs to interpret those bytes according

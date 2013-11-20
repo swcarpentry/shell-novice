@@ -166,9 +166,9 @@ When a computer runs a program&mdash;any program&mdash;it creates a [process](..
 in memory to hold the program's software and its current state.
 Every process has an input channel called [standard input](../gloss.html#standard-input).
 (By this point, you may be surprised that the name is so memorable, but don't worry:
-most Unix programmers call it [stdin](../gloss.html#stdin).)
+most Unix programmers call it "stdin".
 Every process also has a default output channel called [standard output](../gloss.html#standard-output)
-(or [stdout](../gloss.html#stdout)).
+(or "stdout").
 
 The shell is just another program,
 and runs in a process like any other.
