@@ -61,7 +61,10 @@ then run an editor called Nano to create a file called `draft.txt`:
 > another directory the first time you "Save As..."
 
 Let's type in a few lines of text,
-then use Control-O to write our data to disk.
+then use Control-O to write our data to disk:
+
+[Nano in Action](./img/nano-screenshot.png "Nano in Action")
+
 Once our file is saved,
 we can use Control-X to quit the editor and return to the shell.
 `nano` doesn't leave any output on the screen after it exits,

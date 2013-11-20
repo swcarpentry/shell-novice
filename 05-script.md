@@ -66,7 +66,7 @@ We can now run our script like this:
 
 or on a different file like this:
 
-    $ bash middle.sh vitamin_a.pdb
+    $ bash middle.sh vitamin-a.pdb
     ATOM     14  C           1       1.788  -0.987  -0.861
     ATOM     15  C           1       2.994  -0.265  -0.829
     ATOM     16  C           1       4.237  -0.901  -1.024
@@ -79,7 +79,7 @@ Let's fix that by using the special variables `$2` and `$3`:
 
     $ cat middle.sh
     head $2 $1 | tail $3
-    $ bash middle.sh vitamin_a.pdb -20 -5
+    $ bash middle.sh vitamin-a.pdb -20 -5
     ATOM     14  C           1       1.788  -0.987  -0.861
     ATOM     15  C           1       2.994  -0.265  -0.829
     ATOM     16  C           1       4.237  -0.901  -1.024

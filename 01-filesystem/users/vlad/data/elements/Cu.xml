@@ -1,0 +1,9 @@
+<element name="Copper"/>
+  <symbol>Cu</symbol>
+  <atomic-number>29</atomic-number>
+  <atomic-weight>63.546</atomic-weight>
+  <oxidation-states>+1,+2</oxidation-states>
+  <state-at-room-temp>solid, metal</state-at-room-temp>
+  <melting-point>1356.6</melting-point>
+  <boiling-point>2840</boiling-point>
+</element>

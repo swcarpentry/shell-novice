@@ -148,7 +148,7 @@ Again,
 it has a lot of options;
 to show how the simplest ones work, we'll use the directory tree shown below.
 
-FIXME: diagram
+[File Tree for Find Example](./img/find-file-tree.png "File Tree for Find Example")
 
 Vlad's home directory contains one file called `notes.txt` and four subdirectories:
 `thesis` (which is sadly empty),
@@ -294,10 +294,6 @@ by looking for the string "FE" in all the `.pdb` files below the current directo
 > When the time comes to do this, don't be too hard on the shell: many
 > modern programming languages, Python included, have borrowed a lot of
 > ideas from it, and imitation is also the sincerest form of praise.
-
-### Nelle's Pipeline: The Second Stage
-
-FIXME: example using `find` and `grep` on the goo data.
 
 ## Conclusion
 

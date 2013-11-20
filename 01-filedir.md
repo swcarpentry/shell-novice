@@ -82,7 +82,10 @@ Inside that directory are several other directories:
 `data` (for miscellaneous data files),
 `users` (where users' personal directories are located),
 `tmp` (for temporary files that don't need to be stored long-term),
-and so on.
+and so on:
+
+[The Filesystem](./img/filesystem.png "The Filesystem")
+
 We know that our current working directory `/users/vlad` is stored inside `/users`
 because `/users` is the first part of its name.
 Similarly,
@@ -95,6 +98,8 @@ The Mummy's files are stored in `/users/imhotep`,
 Wolfman's in `/users/larry`,
 and ours in `/users/vlad`,
 which is why `vlad` is the last part of the directory's name.
+
+[Home Directories](./img/home-directories.png "Home Directories")
 
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
@@ -109,6 +114,8 @@ which stands for "listing":
     notes.txt    papers    pizza.cfg  solar
     solar.pdf    swc
     $
+
+[Vlad's Home Directory](./img/vlad-homedir.png "Vlad's Home Directory")
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order,
 arranged neatly into columns.
@@ -150,7 +157,7 @@ The second parameter&mdash;the one *without* a leading dash&mdash;tells `ls` tha
 we want a listing of something other than our current working directory:
 
     $ ls -F data
-    amino_acids.txt   elements/     morse.txt
+    amino-acids.txt   elements/     morse.txt
     pdb/              planets.txt   sunspot.txt
     $
 
@@ -210,7 +217,7 @@ because that's where we now are:
     $ pwd
     /users/vlad/data
     $ ls
-    amino_acids.txt   elements/     morse.txt
+    amino-acids.txt   elements/     morse.txt
     pdb/              planets.txt   sunspot.txt
     $
 
@@ -320,7 +327,7 @@ and we will see it in many other tools as we go on.
 
 ### Challenges
 
-FIXME: diagram of file system.
+[Filesystem for Challenge Questions](./img/filesystem-challenge.png alt="Filesystem for Challenge Questions")
 
 1.  If `pwd` displays `/users/thing`, what will `ls ../backup` display?
     1.  `../backup: No such file or directory`

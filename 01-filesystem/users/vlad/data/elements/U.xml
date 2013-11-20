@@ -1,0 +1,9 @@
+<element name="Uranium"/>
+  <symbol>U</symbol>
+  <atomic-number>92</atomic-number>
+  <atomic-weight>238.0289</atomic-weight>
+  <oxidation-states>+3, +4, +5, +6</oxidation-states>
+  <state-at-room-temp>solid, metal</state-at-room-temp>
+  <melting-point>1405.5</melting-point>
+  <boiling-point>4018</boiling-point>
+</element>
