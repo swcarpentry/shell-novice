@@ -4,7 +4,7 @@ Files and Directories
 =====================
 
 The part of the operating system responsible for managing files and directories
-is called the [file system](../gloss.html#filesystem).
+is called the [file system](../../gloss.html#filesystem).
 It organizes our data into files,
 which hold information,
 and directories (also called "folders"),
@@ -21,7 +21,7 @@ in case some evildoer is shoulder surfing behind us:
     password: ********
     $
 
-Once we have logged in we'll see a [prompt](../gloss.html#prompt),
+Once we have logged in we'll see a [prompt](../../gloss.html#prompt),
 which is how the shell tells us that it's waiting for input.
 This is usually just a dollar sign,
 but which may show extra information such as our user ID or the current time.
@@ -39,21 +39,21 @@ More specifically, when we type `whoami` the shell:
 
 1.  finds a program called `whoami`,
 2.  runs it,
-3.  waits for it to display its output, and
+3.  waits for it to produce some output (which the shell displays), and
 4.  displays a new prompt to tell us that it's ready for more commands.
 
 Next,
 let's find out where we are by running a command called `pwd`
 (which stands for "print working directory").
 At any moment,
-our [current working directory](../gloss.html#current-working-directory)
+our [current working directory](../../gloss.html#current-working-directory)
 is our current default directory,
 i.e.,
 the directory that the computer assumes we want to run commands in
 unless we explicitly specify something else.
 Here,
 the computer's response is `/users/vlad`,
-which is Vlad's [home directory](../gloss.html#home-directory):
+which is Vlad's [home directory](../../gloss.html#home-directory):
 
     $ pwd
     /users/vlad
@@ -61,8 +61,8 @@ which is Vlad's [home directory](../gloss.html#home-directory):
 
 > ### Alphabet Soup
 > 
-> If the command to find out *who* we are is `whoami`, the command to find
-> out *where* we are ought to be called `whereami`, so why is it `pwd`
+> If the command to find out who we are is `whoami`, the command to find
+> out where we are ought to be called `whereami`, so why is it `pwd`
 > instead? The usual answer is that in the early 1970s, when Unix was
 > first being developed, every keystroke counted: the devices of the day
 > were slow, and backspacing on a teletype was so painful that cutting the
@@ -74,7 +74,7 @@ which is Vlad's [home directory](../gloss.html#home-directory):
 
 To understand what a "home directory" is,
 let's have a look at how the file system as a whole is organized.
-At the top is the [root directory](../gloss.html#root-directory)
+At the top is the [root directory](../../gloss.html#root-directory)
 that holds everything else.
 We refer to it using a slash character `/` on its own;
 this is the leading slash in `/users/vlad`.
@@ -121,7 +121,7 @@ which stands for "listing":
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order,
 arranged neatly into columns.
-We can make its output more comprehensible by using the [flag](../gloss.html#command-line-flag) `-F`,
+We can make its output more comprehensible by using the [flag](../../gloss.html#command-line-flag) `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
     $ ls -F
@@ -131,10 +131,14 @@ which tells `ls` to add a trailing `/` to the names of directories:
     $
 
 Here,
-we can see that `/users/vlad` contains seven [sub-directories](../gloss.html#sub-directory).
+we can see that `/users/vlad` contains seven [sub-directories](../../gloss.html#sub-directory).
 The names that don't have trailing slashes,
 like `notes.txt`, `pizza.cfg`, and `solar.pdf`,
 are plain old files.
+And note that there is a space between `ls` and `-F`:
+without it,
+the shell thinks we're trying to run a command called `ls-F`,
+which doesn't exist.
 
 > ### What's In A Name?
 > 
@@ -143,7 +147,7 @@ are plain old files.
 > almost anything else we want. However, most people use two-part names
 > most of the time to help them (and their programs) tell different kinds
 > of files apart. The second part of such a name is called the
-> [filename extension](../gloss.html#filename-extension), and indicates
+> [filename extension](../../gloss.html#filename-extension), and indicates
 > what type of data the file holds: `.txt` signals a plain text file, `.pdf`
 > indicates a PDF document, `.cfg` is a configuration file full of parameters
 > for some program or other, and so on.
@@ -172,12 +176,12 @@ but it's a self-defeating strategy.
 Notice, by the way that we spelled the directory name `data`.
 It doesn't have a trailing slash:
 that's added to directory names by `ls` when we use the `-F` flag to help us tell things apart.
-And it doesn't begin with a slash because it's a [relative path](../gloss.html#relative-path),
+And it doesn't begin with a slash because it's a [relative path](../../gloss.html#relative-path),
 i.e., it tells `ls` how to find something from where we are,
 rather than from the root of the file system.
 
 If we run `ls -F /data` (*with* a leading slash) we get a different answer,
-because `/data` is an [absolute path](../gloss.html#absolute-path):
+because `/data` is an [absolute path](../../gloss.html#absolute-path):
 
     $ ls -F /data
     access.log    backup/    hardware.cfg
@@ -239,7 +243,7 @@ but it's almost always simpler to use `cd ..` to go up one level:
 `..` is a special directory name meaning
 "the directory containing this one",
 or more succinctly,
-the [parent](../gloss.html#parent-directory) of the current directory.
+the [parent](../../gloss.html#parent-directory) of the current directory.
 Sure enough,
 if we run `pwd` after running `cd ..`, we're back in `/users/vlad`:
 
@@ -271,7 +275,7 @@ but we'll see some uses for it soon.
 > For example,
 > if we are in `/users/vlad/data`,
 > the command `ls ..` will give us a listing of `/users/vlad`.
-> Programmers call this [orthogonality](../gloss.html#orthogonality):
+> Programmers call this [orthogonality](../../gloss.html#orthogonality):
 > the meanings of the parts are the same no matter how they're combined.
 > Orthogonal systems tend to be easier for people to learn
 > because there are fewer special cases and exceptions to keep track of.
@@ -290,6 +294,14 @@ She used to use names like `conference-paper` and `revised-results`,
 but she found them hard to understand after a couple of years.
 (The final straw was when she found herself creating
 a directory called `revised-revised-results-3`.)
+
+> Nelle names her directories "year-month-day",
+> with leading zeroes for months and days,
+> because the shell displays file and directory names in alphabetical order.
+> If she used month names,
+> December would come before July;
+> if she didn't use leading zeroes,
+> November ('11') would come before July ('7').
 
 Each of her physical samples is labelled according to her lab's convention
 with a unique ten-character ID,
@@ -324,7 +336,7 @@ Pressing tab again does nothing,
 since there are 1520 possibilities;
 pressing tab twice brings up a list of all the files,
 and so on.
-This is called [tab completion](../gloss.html#tab-completion),
+This is called [tab completion](../../gloss.html#tab-completion),
 and we will see it in many other tools as we go on.
 
 ### Challenges

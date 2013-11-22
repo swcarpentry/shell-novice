@@ -7,7 +7,7 @@ We are finally ready to see what makes the shell such a powerful programming env
 We are going to take the commands we repeat frequently and save them in files
 so that we can re-run all those operations again later by typing a single command.
 For historical reasons,
-a bunch of commands saved in a file is usually called a [shell script](../gloss.html#shell-script),
+a bunch of commands saved in a file is usually called a [shell script](../../gloss.html#shell-script),
 but make no mistake:
 these are actually small programs.
 
@@ -16,7 +16,7 @@ Let's start by putting the following line in the file `middle.sh`:
     head -20 cholesterol.pdb | tail -5
 
 This is a variation on the pipe we constructed earlier:
-it selects lines 15-20 of the file `cholesterol.pdb`.
+it selects lines 16-20 of the file `cholesterol.pdb`.
 Remember, we are *not* running it as a command just yet:
 we are putting the commands in a file.
 
@@ -38,10 +38,10 @@ our script's output is exactly what we would get if we ran that pipeline directl
 > 
 > We usually call programs like Microsoft Word or LibreOffice Writer "text
 > editors", but we need to be a bit more careful when it comes to
-> programming. By default, Microsoft Word uses `.doc` files to store not
+> programming. By default, Microsoft Word uses `.docx` files to store not
 > only text, but also formatting information about fonts, headings, and so
 > on. This extra information isn't stored as characters, and doesn't mean
-> anything to the Python interpreter: it expects input files to contain
+> anything to tools like `head`: they expect input files to contain
 > nothing but the letters, digits, and punctuation on a standard computer
 > keyboard. When editing programs, therefore, you must either use a plain
 > text editor, or be careful to save files as plain text.
@@ -140,7 +140,7 @@ If you look at a script like:
 
 you can probably puzzle out what it does.
 On the other hand,
-if you lookat this script:
+if you look at this script:
 
     # List files sorted by number of lines.
     wc -l $* | sort -n
@@ -218,7 +218,8 @@ She can also do this:
 so that the output is just the number of files processed
 rather than the names of the files that were processed.
 
-One thing to note about Nelle's script that it lets the person running it decide what files to process.
+One thing to note about Nelle's script is that
+it lets the person running it decide what files to process.
 She could have written it as:
 
     # Calculate reduced stats for  A and Site B data files at J = 100 c/bp.
@@ -277,8 +278,9 @@ Of course, this introduces another tradeoff between flexibility and complexity.
     before running them. Why do you think it does this?
 
 4.  Joel's `data` directory contains three files: `fructose.dat`,
-    `glucose.dat`, and `sucrose.dat`. Explain what each of the following
-    shell scripts does when run as `bash scriptname *.dat`.
+    `glucose.dat`, and `sucrose.dat`. Explain what a script called
+    `example.sh` would when run as `bash example.sh *.dat`
+    if it contained the following lines:
 
 <table>
   <tr>

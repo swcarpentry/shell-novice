@@ -19,7 +19,7 @@ because that would expand (in the two-file case) to:
 This wouldn't back up our files:
 it would replace the content of `unicorn.dat` with whatever's in `basilisk.dat`.
 
-Instead, we can use a [loop](../gloss.html#for-loop)
+Instead, we can use a [loop](../../gloss.html#for-loop)
 to do some operation once for each thing in a list.
 Here's a simple example that displays the first three lines of each file in turn:
 
@@ -39,7 +39,7 @@ it knows it is supposed to repeat a command (or group of commands) once for each
 In this case, the list is the two filenames.
 Each time through the loop,
 the name of the thing currently being operated on is assigned to
-the [variable](../gloss.html#variable) called `filename`.
+the [variable](../../gloss.html#variable) called `filename`.
 Inside the loop,
 we get the variable's value by putting `$` in front of it:
 `$filename` is `basilisk.dat` the first time through the loop,
@@ -87,7 +87,7 @@ Here's a slightly more complicated loop:
     done
 
 The shell starts by expanding `*.dat` to create the list of files it will process.
-The [loop body](../gloss.html#loop-body)
+The [loop body](../../gloss.html#loop-body)
 then executes two commands for each of those files.
 The first, `echo`, just prints its command-line parameters to standard output.
 For example:
@@ -112,7 +112,7 @@ Note that we can't write this as:
 because then the first time through the loop,
 when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as a program.
 Finally,
-the `head` and `tail` combination selects lines 80-100 from whatever file is being processed.
+the `head` and `tail` combination selects lines 81-100 from whatever file is being processed.
 
 > ### Spaces in Names
 > 
@@ -238,7 +238,7 @@ and Nelle is worried about making mistakes,
 so instead of re-entering her loop,
 she presses the up arrow.
 In response,
-The shell redisplays the wholeloop on one line
+the shell redisplays the whole loop on one line
 (using semi-colons to separate the pieces):
 
     $ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
@@ -273,8 +273,8 @@ tells her that her script will take about two hours to run.
 As a final check,
 she opens another terminal window,
 goes into `north-pacific-gyre/2012-07-03`,
-and uses `cat NENE01729B.
-xt` to examine one of the output files.
+and uses `cat stats-NENE01729B.txt`
+to examine one of the output files.
 It looks good,
 so she decides to get some coffee and catch up on her reading.
 
@@ -285,7 +285,7 @@ so she decides to get some coffee and catch up on her reading.
 > then to use `!123` (where "123" is replaced by the command number) to
 > repeat one of those commands. For example, if Nelle types this:
 > 
->     $ $ history | tail -5
+>     $ history | tail -5
 >       456  ls -l NENE0*.txt
 >       457  rm stats-NENE01729B.txt.txt
 >       458  goostats NENE01729B.txt stats-NENE01729B.txt

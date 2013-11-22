@@ -25,7 +25,7 @@ As you might (or might not) guess from its name,
 `mkdir` means "make directory".
 Since `thesis` is a relative path
 (i.e., doesn't have a leading slash),
-the new directory is made below the current one:
+the new directory is made below the current working directory:
 
     $ ls -F
     bin/         data/     mail/      music/
@@ -37,7 +37,7 @@ However, there's nothing in it yet:
     $ ls -F thesis
 
 Let's change our working directory to `thesis` using `cd`,
-then run an editor called Nano to create a file called `draft.txt`:
+then run a text editor called Nano to create a file called `draft.txt`:
 
     $ cd thesis
     $ nano draft.txt
@@ -82,7 +82,7 @@ to show us how large `draft.txt` is:
        1  draft.txt
 
 Unfortunately,
-Unix reports sizes in [disk blocks](../gloss.html#disk-block) by default,
+Unix reports sizes in [disk blocks](../../gloss.html#disk-block) by default,
 which might be the least helpful default possible.
 If we add the `-h` flag,
 `ls` switches to more human-friendly units:
@@ -204,18 +204,17 @@ the directory name we use is the special directory name `.` that we mentioned ea
 
     $ mv thesis/quotes.txt .
 
-The effect is to move the file from the directory it was in to the current directory.
-`ls` now shows us that `thesis` is empty,
-and that `quotes.txt` is in our current directory:
+The effect is to move the file from the directory it was in to the current working directory.
+`ls` now shows us that `thesis` is empty:
 
     $ ls thesis
+
+Further,
+`ls` with a filename or directory name as an parameter only lists that file or directory.
+We can use this to see that `quotes.txt` is still in our current directory:
+
     $ ls quotes.txt
     quotes.txt
-    $
-
-Notice,
-by the way,
-that `ls` with a filename or directory name as an parameter only lists that file or directory.
 
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
@@ -243,8 +242,7 @@ but it does find the copy in `thesis` that we didn't delete:
 > mean "the current user's home directory". For example, if Vlad's home
 > directory is `/home/vlad`, then `~/data` is equivalent to
 > `/home/vlad/data`. This only works if it is the first character in the
-> path: `/~` is *not* the user's home directory, and
-> `here/there/~/elsewhere` is *not* `/home/vlad/elsewhere`.
+> path: `here/there/~/elsewhere` is *not* `/home/vlad/elsewhere`.
 
 ### Challenges
 

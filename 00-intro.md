@@ -74,12 +74,12 @@ These devices only allowed input and output of the letters, numbers, and punctua
 so programming languages and interfaces had to be designed around that constraint.
 
 This kind of interface is called a
-[command-line user interface](../gloss.html#clui), or CLUI,
+[command-line interface](../../gloss.html#cli), or CLI,
 to distinguish it from the
-[graphical user interface](../gloss.html#gui), or GUI,
+[graphical user interface](../../gloss.html#gui), or GUI,
 that most people now use.
-The heart of a CLUI is a [read-evaluate-print loop](../gloss.html#repl), or REPL:
-when the user types a command,
+The heart of a CLI is a [read-evaluate-print loop](../../gloss.html#repl), or REPL:
+when the user types a command and then presses the enter (or return) key,
 the computer reads it,
 executes it,
 and prints its output.
@@ -90,7 +90,7 @@ This description makes it sound as though the user sends commands directly to th
 and the computer sends output directly to the user.
 In fact,
 there is usually a program in between called a
-[command shell](../gloss.html#shell).
+[command shell](../../gloss.html#shell).
 What the user types goes into the shell;
 it figures out what commands to run and orders the computer to execute them.
 
@@ -105,7 +105,7 @@ Bash is the default shell on most modern implementations of Unix,
 and in most packages that provide Unix-like tools for Windows.
 
 Using Bash or any other shell
-sometimes feels more like programming that like using a mouse.
+sometimes feels more like programming than like using a mouse.
 Commands are terse (often only a couple of characters long),
 their names are frequently cryptic,
 and their output is lines of text rather than something visual like a graph.

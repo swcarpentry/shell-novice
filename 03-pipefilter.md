@@ -4,7 +4,7 @@ Pipes and Filters
 =================
 
 Now that we know a few basic commands,
-we can finally look at its most powerful feature:
+we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
 We'll start with a directory called `molecules`
 that contains six files describing some simple organic molecules.
@@ -33,7 +33,7 @@ so the shell turns `*.pdb` into a complete list of `.pdb` files:
 
 > ### Wildcards
 > 
-> `*` is a [wildcard](../gloss.html#wildcard). It matches zero or more
+> `*` is a [wildcard](../../gloss.html#wildcard). It matches zero or more
 > characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and so on.
 > On the other hand, `p*.pdb` only matches `pentane.pdb` and
 > `propane.pdb`, because the 'p' at the front only matches itself.
@@ -50,7 +50,7 @@ so the shell turns `*.pdb` into a complete list of `.pdb` files:
 > '.p').
 > 
 > When the shell sees a wildcard, it expands it to create a list of
-> filenames *before* passing those names to whatever command is being run.
+> matching filenames *before* running the command that was asked for.
 > This means that commands like `wc` and `ls` never see the wildcard
 > characters, just what those wildcards matched. This is another example
 > of orthogonal design.
@@ -77,7 +77,7 @@ Our first step toward a solution is to run the command:
 
     $ wc -l *.pdb > lengths
 
-The `>` tells the shell to [redirect](../gloss.html#redirection) the command's output
+The `>` tells the shell to [redirect](../../gloss.html#redirection) the command's output
 to a file instead of printing it to the screen.
 The shell will create the file if it doesn't exist,
 or overwrite the contents of that file if it does.
@@ -126,10 +126,11 @@ we can run another command called `head` to get the first few lines in `sorted-l
     $ head -1 sorted-lengths
       9  methane.pdb
 
-Giving `head` the parameter `-1` tells us we only want the first line of the file;
+Using the parameter `-1` with `head` tells it that
+we only want the first line of the file;
 `-20` would get the first 20,
 and so on.
-Since `sorted-lengths` the lengths of our files ordered from least to greatest,
+Since `sorted-lengths` contains the lengths of our files ordered from least to greatest,
 the output of `head` must be the file with the fewest lines.
 
 If you think this is confusing,
@@ -141,7 +142,7 @@ We can make it easier to understand by running `sort` and `head` together:
     $ sort lengths | head -1
       9  methane.pdb
 
-The vertical bar between the two commands is called a [pipe](../gloss.html#pipe).
+The vertical bar between the two commands is called a [pipe](../../gloss.html#pipe).
 It tells the shell that we want to use
 the output of the command on the left
 as the input to the command on the right.
@@ -162,12 +163,12 @@ In our case,
 the calculation is "head of sort of word count of `*.pdb`".
 
 Here's what actually happens behind the scenes when we create a pipe.
-When a computer runs a program&mdash;any program&mdash;it creates a [process](../gloss.html#process)
+When a computer runs a program&mdash;any program&mdash;it creates a [process](../../gloss.html#process)
 in memory to hold the program's software and its current state.
-Every process has an input channel called [standard input](../gloss.html#standard-input).
+Every process has an input channel called [standard input](../../gloss.html#standard-input).
 (By this point, you may be surprised that the name is so memorable, but don't worry:
 most Unix programmers call it "stdin".
-Every process also has a default output channel called [standard output](../gloss.html#standard-output)
+Every process also has a default output channel called [standard output](../../gloss.html#standard-output)
 (or "stdout").
 
 The shell is just another program,
@@ -203,9 +204,9 @@ This simple idea is why Unix has been so successful.
 Instead of creating enormous programs that try to do many different things,
 Unix programmers focus on creating lots of simple tools that each do one job well,
 and that work well with each other.
-This programming model is called [pipes and filters](../gloss.html#pipe-and-filter).
+This programming model is called [pipes and filters](../../gloss.html#pipe-and-filter).
 We've already seen pipes;
-a [filter](../gloss.html#filter) is a program that transforms a stream of input into a stream of output.
+a [filter](../../gloss.html#filter) is a program that transforms a stream of input into a stream of output.
 Almost all of the standard Unix tools can work this way:
 unless told to do otherwise,
 they read from standard input,

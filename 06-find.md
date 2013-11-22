@@ -126,9 +126,9 @@ and (if you're lucky) provides a few examples of how to use it:
 > 
 > `grep`'s real power doesn't come from its options, though; it comes from
 > the fact that patterns can include wildcards. (The technical name for
-> these is [regular expressions](../gloss.html#regular-expression), which
+> these is [regular expressions](../../gloss.html#regular-expression), which
 > is what the "re" in "grep" stands for.) Regular expressions are complex
-> enough that we devotedan entire section of the website to them; if you
+> enough that we devoted an entire section of the website to them; if you
 > want to do complex searches, please check it out. As a taster, we can
 > find lines that have an 'o' in the second position like this:
 > 
