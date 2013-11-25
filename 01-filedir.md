@@ -349,13 +349,13 @@ and we will see it in many other tools as we go on.
     3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
     4.  `original pnas_final pnas_sub`
 
-2.  If `pwd` displays `/users/fly`, what command will display
+2.  If `pwd` displays `/users/backup`, what command will display
 
-        thesis/ papers/ articles/
+        pnas-sub/ pnas-final/ original/
 
     1.  `ls pwd`
     2.  `ls -r -F`
-    3.  `ls -r -F /users/fly`
+    3.  `ls -r -F /users/backup`
     4.  Either \#2 or \#3 above, but not \#1.
 
 3.  What does the command `cd` without a directory name do?
