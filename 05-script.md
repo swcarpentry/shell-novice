@@ -3,6 +3,13 @@
 Shell Scripts
 =============
 
+<div class="objectives">
+*   Write a shell script that runs a command or series of commands for a fixed set of files.
+*   Run a shell script from the command line.
+*   Write a shell script that operates on a set of files defined by the user on the command line.
+*   Create pipelines that include user-written shell scripts.
+</div>
+
 We are finally ready to see what makes the shell such a powerful programming environment.
 We are going to take the commands we repeat frequently and save them in files
 so that we can re-run all those operations again later by typing a single command.
@@ -240,6 +247,15 @@ she could modify her script to check for command-line parameters,
 and use `*[AB].txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
+<div class="keypoints">
+*   Save commands in files (usually called shell scripts) for re-use.
+*   Use `bash filename` to run saved commands.
+*   `$*` refers to all of a shell script's command-line parameters.
+*   `$1`, `$2`, etc., refer to specified command-line parameters.
+*   Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.
+</div>
+
+<div class="challenges">
 ### Challenges
 
 1.  Leah has several hundred data files, each of which is formatted like this:
@@ -311,3 +327,4 @@ echo $*.dat
     </td>
   </tr>
 </table>
+</div>

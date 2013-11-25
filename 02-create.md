@@ -3,6 +3,13 @@
 Creating Things
 ===============
 
+<div class="objectives">
+*   Create a directory hierarchy that matches a given diagram.
+*   Create files in that hierarchy using an editor or by copying and renaming existing files.
+*   Display the contents of a directory using the command line.
+*   Delete specified files and/or directories.
+</div>
+
 We now know how to explore files and directories,
 but how do we create them in the first place?
 Let's go back to Vlad's home directory,
@@ -244,6 +251,19 @@ but it does find the copy in `thesis` that we didn't delete:
 > `/home/vlad/data`. This only works if it is the first character in the
 > path: `here/there/~/elsewhere` is *not* `/home/vlad/elsewhere`.
 
+<div class="keypoints">
+*   Unix documentation uses '^A' to mean "control-A".
+*   The shell does not have a trash bin: once something is deleted, it's really gone.
+*   `mkdir path` creates a new directory.
+*   `cp old new` copies a file.
+*   `mv old new` moves (renames) a file or directory.
+*   `nano` is a very simple text editor&mdash;please use something else for real work.
+*   `touch path` creates an empty file if it doesn't already exist.
+*   `rm path` removes (deletes) a file.
+*   `rmdir path` removes (deletes) an empty directory.
+</div>
+
+<div class="challenges">
 ### Challenges
 
 1.  What is the output of the closing `ls` command in the sequence shown below?
@@ -288,3 +308,4 @@ but it does find the copy in `thesis` that we didn't delete:
     The command `ls -t` lists things by time of last change,
     with most recently changed files or directories first.
     In what order does `ls -R -t` display things?
+</div>

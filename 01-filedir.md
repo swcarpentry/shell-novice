@@ -3,6 +3,15 @@
 Files and Directories
 =====================
 
+<div class="objectives">
+*   Explain the similarities and differences between a file and a directory.
+*   Translate an absolute path into a relative path and vice versa.
+*   Construct absolute and relative paths that identify specific files and directories.
+*   Explain the steps in the shell's read-run-print cycle.
+*   Identify the actual command, flags, and filenames in a command-line call.
+*   Demonstrate the use of tab completion, and explain its advantages.
+</div>
+
 The part of the operating system responsible for managing files and directories
 is called the [file system](../../gloss.html#filesystem).
 It organizes our data into files,
@@ -339,6 +348,29 @@ and so on.
 This is called [tab completion](../../gloss.html#tab-completion),
 and we will see it in many other tools as we go on.
 
+<div class="keypoints">
+*   The file system is responsible for managing information on disk.
+*   Information is stored in files, which are stored in directories (folders).
+*   Directories can also store other directories, which forms a directory tree.
+*   `/` on its own is the root directory of the whole filesystem.
+*   A relative path specifies a location starting from the current location.
+*   An absolute path specifies a location from the root of the filesystem.
+*   Directory names in a path are separated with '/' on Unix, but '\' on Windows.
+*   '..' means "the directory above the current one";
+    '.' on its own means "the current directory".
+*   Most files' names are `something.extension`.
+    The extension isn't required,
+    and doesn't guarantee anything,
+    but is normally used to indicate the type of data in the file.
+*   `cd <em>path</em>` changes the current working directory.
+*   `ls <em>path</em>` prints a listing of a specific file or directory;
+    `ls` on its own lists the current working directory.
+*   `pwd` prints the user's current working directory (current default location in the filesystem).
+*   `whoami` shows the user's current identity.
+*   Most commands take options (flags) which begin with a '-'.
+</div>
+
+<div class="challenges">
 ### Challenges
 
 <img src="./img/filesystem-challenge.png" alt="Filesystem for Challenge Questions" />
@@ -363,3 +395,4 @@ and we will see it in many other tools as we go on.
     2.  It changes the working directory to `/`.
     3.  It changes the working directory to the user's home directory.
     4.  It is an error.
+</div>
