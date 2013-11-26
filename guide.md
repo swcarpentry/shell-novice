@@ -1,8 +1,9 @@
 ---
+layout: lesson
+root: ../..
+title: Instructor's Guide
+level: novice
 ---
-Instructor's Guide
-==================
-
 Many people have questioned whether we should still teach the shell.
 After all,
 anyone who wants to rename several thousand data files

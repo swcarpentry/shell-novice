@@ -1,8 +1,9 @@
 ---
+layout: lesson
+root: ../..
+title: Pipes and Filters
+level: novice
 ---
-Pipes and Filters
-=================
-
 <div class="objectives">
 *   Redirect a command's output to a file.
 *   Process a file instead of keyboard input using redirection.

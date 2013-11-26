@@ -1,8 +1,9 @@
 ---
+layout: lesson
+root: ../..
+title: Creating Things
+level: novice
 ---
-Creating Things
-===============
-
 <div class="objectives">
 *   Create a directory hierarchy that matches a given diagram.
 *   Create files in that hierarchy using an editor or by copying and renaming existing files.

@@ -1,8 +1,9 @@
 ---
+layout: lesson
+root: ../..
+title: Introducing the Shell
+level: novice
 ---
-Introducing the Shell
-=====================
-
 <div class="objectives">
 *   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
 *   Explain when and why command-line interfaces should be used instead of graphical interfaces.

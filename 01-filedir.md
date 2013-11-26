@@ -1,8 +1,9 @@
 ---
+layout: lesson
+root: ../..
+title: Files and Directories
+level: novice
 ---
-Files and Directories
-=====================
-
 <div class="objectives">
 *   Explain the similarities and differences between a file and a directory.
 *   Translate an absolute path into a relative path and vice versa.

@@ -1,8 +1,9 @@
 ---
+layout: lesson
+root: ../..
+title: Finding Things
+level: novice
 ---
-Finding Things
-==============
-
 <div class="objectives">
 *   Use `grep` to select lines from text files that match simple patterns.
 *   Use `find` to find files whose names match simple patterns.
