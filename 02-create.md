@@ -4,7 +4,7 @@ root: ../..
 title: Creating Things
 level: novice
 ---
-<div class="objectives">
+<div class="objectives" markdown="1">
 *   Create a directory hierarchy that matches a given diagram.
 *   Create files in that hierarchy using an editor or by copying and renaming existing files.
 *   Display the contents of a directory using the command line.
