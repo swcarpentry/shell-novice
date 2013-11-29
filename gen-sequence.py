@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+'''Generate random seuqence data for files in `creatures` directory.'''
+
 import sys
 import random
 

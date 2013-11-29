@@ -14,14 +14,22 @@ so that they don't have to type the same things over and over again.
 
 Topics
 ------
-* [Introducing the Shell](00-intro.html)
-* [Files and Directories](01-filedir.html)
-* [Creating Things](02-create.html)
-* [Pipes and Filters](03-pipefilter.html)
-* [Loops](04-loop.html)
-* [Shell Scripts](05-script.html)
-* [Finding Things](06-find.html)
+*   [Introducing the Shell](00-intro.html)
+*   [Files and Directories](01-filedir.html)
+*   [Creating Things](02-create.html)
+*   [Pipes and Filters](03-pipefilter.html)
+*   [Loops](04-loop.html)
+*   [Shell Scripts](05-script.html)
+*   [Finding Things](06-find.html)
 
 See Also
 --------
-* [Instructor's Guide](guide.html)
+*   [Instructor's Guide](guide.html)
+
+Resources
+---------
+*   `filesystem`: filesystem used in "Files and Directories"
+*   `creatures`: DNA data used in "Loops"
+*   `finding`: data using in "Finding Things"
+*   `molecules`: PDB files used in "Pipes and Filters"
+*   `scripting`: files and directories used in "Shell Scripts"
