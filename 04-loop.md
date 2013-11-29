@@ -140,18 +140,22 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 >         head -100 $filename | tail -20
 >     done
 >
-> then `*.dat` will expand to:
+> then the shell will expand `*.dat` to create:
 > 
 >     basilisk.dat red dragon.dat unicorn.dat
 > 
-> If we are using an older version of the Bash,
-> or some other shell,
-> `filename` will be assigned the following values in turn:
+> With older versions of Bash,
+> or most other shells,
+> `filename` will then be assigned the following values in turn:
 > 
 >     basilisk.dat
 >     red
 >     dragon.dat
 >     unicorn.dat
+>
+> That's a problem: `head` can't read files called `red` and `dragon.dat`
+> because they don't exist,
+> and won't be asked to read the file `red dragon.dat`.
 > 
 > We can make our script a little bit more robust
 > by [quoting](../../gloss.html#shell-quoting) our use of the variable:
