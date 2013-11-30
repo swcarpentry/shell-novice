@@ -137,28 +137,35 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 > 
 >     for filename in *.dat
 >     do
->         echo $filename
 >         head -100 $filename | tail -20
 >     done
-> 
-> then `*.dat` will expand to:
+>
+> then the shell will expand `*.dat` to create:
 > 
 >     basilisk.dat red dragon.dat unicorn.dat
 > 
-> which means that `filename` will be assigned each of the following
-> values in turn:
+> With older versions of Bash,
+> or most other shells,
+> `filename` will then be assigned the following values in turn:
 > 
 >     basilisk.dat
 >     red
 >     dragon.dat
 >     unicorn.dat
+>
+> That's a problem: `head` can't read files called `red` and `dragon.dat`
+> because they don't exist,
+> and won't be asked to read the file `red dragon.dat`.
 > 
-> The second and third lines show the problem: instead of getting one name
-> `red dragon.dat`, the commands in the loop will get `red` and
-> `dragon.dat` separately. To make matters worse, the file
-> `red dragon.dat` won't be processed at all. There are ways to get around
-> this, but the safest thing is to use dashes, underscores, or some other
-> printable character instead of spaces.
+> We can make our script a little bit more robust
+> by [quoting](../../gloss.html#shell-quoting) our use of the variable:
+> 
+>     for filename in *.dat
+>     do
+>         head -100 "$filename" | tail -20
+>     done
+>
+> but it's simpler just to avoid using spaces (or other special characters) in filenames.
 
 Going back to our original file renaming problem,
 we can solve it using this loop:

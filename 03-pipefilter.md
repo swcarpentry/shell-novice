@@ -364,11 +364,11 @@ so this matches all the valid data files she has.
 
 2.  What is the difference between:
 
-        wc -l < *.dat
+        wc -l < mydata.dat
 
     and:
 
-        wc -l *.dat
+        wc -l mydata.dat
 
 3.  The command `uniq` removes adjacent duplicated lines from its input.
     For example, if a file `salmon.txt` contains:
