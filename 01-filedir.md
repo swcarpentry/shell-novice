@@ -4,7 +4,8 @@ root: ../..
 title: Files and Directories
 level: novice
 ---
-<div class="objectives">
+<div class="objectives" markdown="1">
+## Objectives
 *   Explain the similarities and differences between a file and a directory.
 *   Translate an absolute path into a relative path and vice versa.
 *   Construct absolute and relative paths that identify specific files and directories.
@@ -12,6 +13,8 @@ level: novice
 *   Identify the actual command, flags, and filenames in a command-line call.
 *   Demonstrate the use of tab completion, and explain its advantages.
 </div>
+
+## Lesson
 
 The part of the operating system responsible for managing files and directories
 is called the [file system](../../gloss.html#filesystem).
@@ -349,7 +352,8 @@ and so on.
 This is called [tab completion](../../gloss.html#tab-completion),
 and we will see it in many other tools as we go on.
 
-<div class="keypoints">
+<div class="keypoints" markdown="1">
+## Key Points
 *   The file system is responsible for managing information on disk.
 *   Information is stored in files, which are stored in directories (folders).
 *   Directories can also store other directories, which forms a directory tree.
@@ -371,8 +375,8 @@ and we will see it in many other tools as we go on.
 *   Most commands take options (flags) which begin with a '-'.
 </div>
 
-<div class="challenges">
-### Challenges
+<div class="challenges" markdown="1">
+## Challenges
 
 <img src="./img/filesystem-challenge.png" alt="Filesystem for Challenge Questions" />
 
