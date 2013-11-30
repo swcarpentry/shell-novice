@@ -4,7 +4,8 @@ root: ../..
 title: Loops
 level: novice
 ---
-<div class="objectives">
+<div class="objectives" markdown="1">
+## Objectives
 *   Write a loop that applies one or more commands separately to each file in a set of files.
 *   Trace the values taken on by a loop variable during execution of the loop.
 *   Explain the difference between a variable's name and its value.
@@ -12,6 +13,8 @@ level: novice
 *   Demonstrate how to see what commands have recently been executed.
 *   Re-run recently executed commands without retyping them.
 </div>
+
+## Lesson
 
 Wildcards and tab completion are two ways to reduce typing (and typing mistakes).
 Another is to tell the shell to do something over and over again.
@@ -312,7 +315,8 @@ so she decides to get some coffee and catch up on her reading.
 > then she can re-run `goostats` on `NENE01729B.txt` simply by typing
 > `!458`.
 
-<div class="keypoints">
+<div class="keypoints" markdown="1">
+## Key Points
 *   Use a `for` loop to repeat commands once for every thing in a list.
 *   Every `for` loop needs a variable to refer to the current "thing".
 *   Use `$name` to expand a variable (i.e., get its value).
@@ -322,8 +326,8 @@ so she decides to get some coffee and catch up on her reading.
 *   Use `history` to display recent commands, and `!number` to repeat a command by number.
 </div>
 
-<div class="challenges">
-### Challenges
+<div class="challenges" markdown="1">
+## Challenges
 
 1.  Suppose that `ls` initially displays:
 
