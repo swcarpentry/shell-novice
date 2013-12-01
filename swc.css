@@ -75,8 +75,6 @@ blockquote.testimonial cite {
 body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     color: rgb(03, 03, 03);
-    /* TODO: fix this */
-    padding:0 !important;
 }
 
 /* Styling for editorial stylesheet */
@@ -358,7 +356,10 @@ section.content {
     color:#2b3990;
 }
 
+h4 a:link, h4 a:visited, a {
+       color:#2b3990; 
+}
 section.footer {
     background:#2b3990;
-    padding:20px;
+    padding:20px 0;
 }
