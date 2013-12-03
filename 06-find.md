@@ -4,12 +4,15 @@ root: ../..
 title: Finding Things
 level: novice
 ---
-<div class="objectives">
+<div class="objectives" markdown="1">
+## Objectives
 *   Use `grep` to select lines from text files that match simple patterns.
 *   Use `find` to find files whose names match simple patterns.
 *   Use the output of one command as the command-line parameters to another command.
 *   Explain what is meant by "text" and "binary" files, and why many common tools don't handle the latter well.
 </div>
+
+## Lesson
 
 You can guess someone's age by how they talk about search:
 young people use "Google" as a verb,
@@ -318,7 +321,8 @@ North Whitehead wrote in 1911, "Civilization advances by extending the
 number of important operations which we can perform without thinking
 about them."
 
-<div class="keypoints">
+<div class="keypoints" markdown="1">
+## Key Points
 *   Everything is stored as bytes, but the bytes in binary files do not represent characters.
 *   Use nested loops to run commands for every combination of two lists of things.
 *   Use `\` to break one logical line into several physical lines.
@@ -329,8 +333,8 @@ about them."
 *   `man command` displays the manual page for a given command.
 </div>
 
-<div class="challenges">
-### Challenges
+<div class="challenges" markdown="1">
+## Challenges
 
 1.  Write a short explanatory comment for the following shell script:
 

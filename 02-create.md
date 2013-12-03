@@ -4,12 +4,15 @@ root: ../..
 title: Creating Things
 level: novice
 ---
-<div class="objectives">
+<div class="objectives" markdown="1">
+## Objectives
 *   Create a directory hierarchy that matches a given diagram.
 *   Create files in that hierarchy using an editor or by copying and renaming existing files.
 *   Display the contents of a directory using the command line.
 *   Delete specified files and/or directories.
 </div>
+
+## Lesson
 
 We now know how to explore files and directories,
 but how do we create them in the first place?
@@ -252,7 +255,8 @@ but it does find the copy in `thesis` that we didn't delete:
 > `/home/vlad/data`. This only works if it is the first character in the
 > path: `here/there/~/elsewhere` is *not* `/home/vlad/elsewhere`.
 
-<div class="keypoints">
+<div class="keypoints" markdown="1">
+## Key Points
 *   Unix documentation uses '^A' to mean "control-A".
 *   The shell does not have a trash bin: once something is deleted, it's really gone.
 *   `mkdir path` creates a new directory.
@@ -264,8 +268,8 @@ but it does find the copy in `thesis` that we didn't delete:
 *   `rmdir path` removes (deletes) an empty directory.
 </div>
 
-<div class="challenges">
-### Challenges
+<div class="challenges" markdown="1">
+## Challenges
 
 1.  What is the output of the closing `ls` command in the sequence shown below?
 
