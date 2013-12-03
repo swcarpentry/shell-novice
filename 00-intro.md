@@ -4,10 +4,13 @@ root: ../..
 title: Introducing the Shell
 level: novice
 ---
-<div class="objectives">
+<div class="objectives" markdown="1">
+## Objectives
 *   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
 *   Explain when and why command-line interfaces should be used instead of graphical interfaces.
 </div>
+
+## Lesson
 
 Nelle Nemo, a marine biologist,
 has just returned from a six-month survey of the
@@ -123,7 +126,8 @@ the command line is often the easiest way to interact with remote machines.
 As clusters and cloud computing become more popular for scientific data crunching,
 being able to drive them is becoming a necessary skill.
 
-<div class="keypoints">
+<div class="keypoints" markdown="1">
+## Key Points
 *   A shell is a program whose primary purpose is to read commands and run other programs.
 *   The shell's main advantages are its high action-to-keystroke ratio,
     its support for automating repetitive tasks,
