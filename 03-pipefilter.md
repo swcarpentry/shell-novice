@@ -1,16 +1,19 @@
----
+-- markdown="1"-
 layout: lesson
 root: ../..
 title: Pipes and Filters
 level: novice
 ---
-<div class="objectives">
+<div class="objectives" markdown="1">
+## Objectives
 *   Redirect a command's output to a file.
 *   Process a file instead of keyboard input using redirection.
 *   Construct command pipelines with two or more stages.
 *   Explain what usually happens if a program or pipeline isn't given any input to process.
 *   Explain Unix's "small pieces, loosely joined" philosophy.
 </div>
+
+## Lesson
 
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
@@ -304,7 +307,8 @@ the '\*' matches any number of characters;
 the expression `[AB]` matches either an 'A' or a 'B',
 so this matches all the valid data files she has.
 
-<div class="keypoints">
+<div class="keypoints" markdown="1">
+## Key Points
 *   `command > file` redirects a command's output to a file.
 *   `first | second` is a pipeline: the output of the first command is used as the input to the second.
 *   The best way to use the shell is to use pipes to combine simple single-purpose programs (filters).
@@ -315,8 +319,8 @@ so this matches all the valid data files she has.
 *   `wc` counts lines, words, and characters in its inputs.
 </div>
 
-<div class="challenges">
-### Challenges
+<div class="challenges" markdown="1">
+## Challenges
 
 1.  If we run `sort` on each of the files shown on the left in the table
     below, *without* the `-n` flag, the output is as shown on the right:
