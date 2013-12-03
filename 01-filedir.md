@@ -285,8 +285,8 @@ but we'll see some uses for it soon.
 > For example,
 > if we are in `/users/vlad/data`,
 > the command `ls ..` will give us a listing of `/users/vlad`.
-> Programmers call this [orthogonality](../../gloss.html#orthogonality):
-> the meanings of the parts are the same no matter how they're combined.
+> When the meanings of the parts are the same no matter how they're combined,
+> programmers say they are [orthogonal](../../gloss.html#orthogonal):
 > Orthogonal systems tend to be easier for people to learn
 > because there are fewer special cases and exceptions to keep track of.
 
