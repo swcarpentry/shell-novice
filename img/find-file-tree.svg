@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.2" width="215.9mm" height="279.4mm" viewBox="0 0 21590 27940" preserveAspectRatio="xMidYMid" fill-rule="evenodd" clip-path="url(#presentation_clip_path)" stroke-width="28.222" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+ <defs class="ClipPathGroup">
+  <clipPath id="presentation_clip_path" clipPathUnits="userSpaceOnUse">
+   <rect x="0" y="0" width="21590" height="27940"/>
+  </clipPath>
+ </defs>
+ <defs class="TextShapeIndex">
+  <g ooo:slide="id1" ooo:id-list="id3 id4 id5 id6 id7 id8 id9 id10 id11 id12 id13 id14 id15 id16 id17 id18 id19 id20 id21 id22 id23 id24 id25 id26 id27 id28 id29 id30 id31 id32 id33 id34 id35 id36 id37 id38 id39 id40 id41 id42 id43 id44 id45 id46 id47 id48 id49 id50 id51 id52 id53 id54 id55 id56"/>
+ </defs>
+ <defs class="EmbeddedBulletChars">
+  <g id="bullet-char-template(57356)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 580,1141 L 1163,571 580,0 -4,571 580,1141 Z"/>
+  </g>
+  <g id="bullet-char-template(57354)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 8,1128 L 1137,1128 1137,0 8,0 8,1128 Z"/>
+  </g>
+  <g id="bullet-char-template(10146)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 174,0 L 602,739 174,1481 1456,739 174,0 Z M 1358,739 L 309,1346 659,739 1358,739 Z"/>
+  </g>
+  <g id="bullet-char-template(10132)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 2015,739 L 1276,0 717,0 1260,543 174,543 174,936 1260,936 717,1481 1274,1481 2015,739 Z"/>
+  </g>
+  <g id="bullet-char-template(10007)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 0,-2 C -7,14 -16,27 -25,37 L 356,567 C 262,823 215,952 215,954 215,979 228,992 255,992 264,992 276,990 289,987 310,991 331,999 354,1012 L 381,999 492,748 772,1049 836,1024 860,1049 C 881,1039 901,1025 922,1006 886,937 835,863 770,784 769,783 710,716 594,584 L 774,223 C 774,196 753,168 711,139 L 727,119 C 717,90 699,76 672,76 641,76 570,178 457,381 L 164,-76 C 142,-110 111,-127 72,-127 30,-127 9,-110 8,-76 1,-67 -2,-52 -2,-32 -2,-23 -1,-13 0,-2 Z"/>
+  </g>
+  <g id="bullet-char-template(10004)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 285,-33 C 182,-33 111,30 74,156 52,228 41,333 41,471 41,549 55,616 82,672 116,743 169,778 240,778 293,778 328,747 346,684 L 369,508 C 377,444 397,411 428,410 L 1163,1116 C 1174,1127 1196,1133 1229,1133 1271,1133 1292,1118 1292,1087 L 1292,965 C 1292,929 1282,901 1262,881 L 442,47 C 390,-6 338,-33 285,-33 Z"/>
+  </g>
+  <g id="bullet-char-template(9679)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 813,0 C 632,0 489,54 383,161 276,268 223,411 223,592 223,773 276,916 383,1023 489,1130 632,1184 813,1184 992,1184 1136,1130 1245,1023 1353,916 1407,772 1407,592 1407,412 1353,268 1245,161 1136,54 992,0 813,0 Z"/>
+  </g>
+  <g id="bullet-char-template(8226)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M 346,457 C 273,457 209,483 155,535 101,586 74,649 74,723 74,796 101,859 155,911 209,963 273,989 346,989 419,989 480,963 531,910 582,859 608,796 608,723 608,648 583,586 532,535 482,483 420,457 346,457 Z"/>
+  </g>
+  <g id="bullet-char-template(8211)" transform="scale(0.00048828125,-0.00048828125)">
+   <path d="M -4,459 L 1135,459 1135,606 -4,606 -4,459 Z"/>
+  </g>
+ </defs>
+ <defs class="TextEmbeddedBitmaps"/>
+ <g>
+  <g id="id2" class="Master_Slide">
+   <g id="bg-id2" class="Background"/>
+   <g id="bo-id2" class="BackgroundObjects"/>
+  </g>
+ </g>
+ <g class="SlideGroup">
+  <g>
+   <g id="id1" class="Slide" clip-path="url(#presentation_clip_path)">
+    <g class="Page">
+     <g class="Group">
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id3">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 9050,2500 L 7900,2500 7900,1400 10200,1400 10200,2500 9050,2500 Z"/>
+        <text class="TextShape"><tspan class="TextParagraph" font-family="Arial, sans-serif" font-size="388px" font-weight="400"><tspan class="TextPosition" x="8695" y="2085"><tspan fill="rgb(0,0,0)" stroke="none">vlad</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id4">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 7900,1400 L 8901,1400 8650,1200 8150,1200 7900,1400 Z"/>
+       </g>
+      </g>
+     </g>
+     <g class="Group">
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id5">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 7250,5300 L 6100,5300 6100,4200 8400,4200 8400,5300 7250,5300 Z"/>
+        <text class="TextShape"><tspan class="TextParagraph" font-family="Arial, sans-serif" font-size="388px" font-weight="400"><tspan class="TextPosition" x="6744" y="4885"><tspan fill="rgb(0,0,0)" stroke="none">thesis</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id6">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 6100,4200 L 7101,4200 6850,4000 6350,4000 6100,4200 Z"/>
+       </g>
+      </g>
+     </g>
+     <g class="Group">
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id7">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 3250,5300 L 2100,5300 2100,4200 4400,4200 4400,5300 3250,5300 Z"/>
+        <text class="TextShape"><tspan class="TextParagraph" font-family="Arial, sans-serif" font-size="388px" font-weight="400"><tspan class="TextPosition" x="2873" y="4885"><tspan fill="rgb(0,0,0)" stroke="none">data</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id8">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 2100,4200 L 3101,4200 2850,4000 2350,4000 2100,4200 Z"/>
+       </g>
+      </g>
+     </g>
+     <g class="Group">
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id9">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 13450,5400 L 12300,5400 12300,4300 14600,4300 14600,5400 13450,5400 Z"/>
+        <text class="TextShape"><tspan class="TextParagraph" font-family="Arial, sans-serif" font-size="388px" font-weight="400"><tspan class="TextPosition" x="13040" y="4985"><tspan fill="rgb(0,0,0)" stroke="none">tools</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id10">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 12300,4300 L 13301,4300 13050,4100 12550,4100 12300,4300 Z"/>
+       </g>
+      </g>
+     </g>
+     <g class="Group">
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id11">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 9792,4300 L 9792,5400"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id12">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 11567,4532 L 11567,5400"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id13">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 9792,5400 L 11567,5400"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id14">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 9792,4300 L 11175,4300"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id15">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 11175,4300 L 11567,4532"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.TextShape">
+       <g id="id16">
+        <text class="TextShape"><tspan class="TextParagraph" font-family="Arial, sans-serif" font-size="388px" font-weight="400"><tspan class="TextPosition" x="9950" y="5023"><tspan fill="rgb(0,0,0)" stroke="none">notes.txt</tspan></tspan></tspan></text>
+       </g>
+      </g>
+     </g>
+     <g class="Group">
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id17">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 16250,8500 L 15100,8500 15100,7400 17400,7400 17400,8500 16250,8500 Z"/>
+        <text class="TextShape"><tspan class="TextParagraph" font-family="Arial, sans-serif" font-size="388px" font-weight="400"><tspan class="TextPosition" x="15992" y="8085"><tspan fill="rgb(0,0,0)" stroke="none">old</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id18">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 15100,7400 L 16101,7400 15850,7200 15350,7200 15100,7400 Z"/>
+       </g>
+      </g>
+     </g>
+     <g class="Group">
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id19">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 9992,7400 L 9992,8500"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id20">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 11767,7632 L 11767,8500"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id21">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 9992,8500 L 11767,8500"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id22">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 9992,7400 L 11375,7400"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id23">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 11375,7400 L 11767,7632"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.TextShape">
+       <g id="id24">
+        <text class="TextShape"><tspan class="TextParagraph" font-family="Arial, sans-serif" font-size="388px" font-weight="400"><tspan class="TextPosition" x="10150" y="8123"><tspan fill="rgb(0,0,0)" stroke="none">format</tspan></tspan></tspan></text>
+       </g>
+      </g>
+     </g>
+     <g class="Group">
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id25">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 3892,7400 L 3892,8500"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id26">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 5667,7632 L 5667,8500"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id27">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 3892,8500 L 5667,8500"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id28">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 3892,7400 L 5275,7400"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id29">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 5275,7400 L 5667,7632"/>
+       </g>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id30">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Arial, sans-serif" font-size="388px" font-weight="400"><tspan class="TextPosition" x="1550" y="8123"><tspan fill="rgb(0,0,0)" stroke="none">one.txt</tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id31">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 3400,3100 L 13500,3100"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id32">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 3400,3100 L 3400,3570"/>
+       <path fill="rgb(0,0,0)" stroke="none" d="M 3400,4000 L 3550,3550 3250,3550 3400,4000 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id33">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 7400,3100 L 7400,3570"/>
+       <path fill="rgb(0,0,0)" stroke="none" d="M 7400,4000 L 7550,3550 7250,3550 7400,4000 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id34">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 10600,3100 L 10600,3570"/>
+       <path fill="rgb(0,0,0)" stroke="none" d="M 10600,4000 L 10750,3550 10450,3550 10600,4000 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id35">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 13500,3100 L 13500,3570"/>
+       <path fill="rgb(0,0,0)" stroke="none" d="M 13500,4000 L 13650,3550 13350,3550 13500,4000 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id36">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 2000,6400 L 4900,6400"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id37">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 2000,6400 L 2000,6870"/>
+       <path fill="rgb(0,0,0)" stroke="none" d="M 2000,7300 L 2150,6850 1850,6850 2000,7300 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id38">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 4900,6400 L 4900,6870"/>
+       <path fill="rgb(0,0,0)" stroke="none" d="M 4900,7300 L 5050,6850 4750,6850 4900,7300 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id39">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 10800,6400 L 10800,6870"/>
+       <path fill="rgb(0,0,0)" stroke="none" d="M 10800,7300 L 10950,6850 10650,6850 10800,7300 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id40">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 16400,6400 L 16400,6870"/>
+       <path fill="rgb(0,0,0)" stroke="none" d="M 16400,7300 L 16550,6850 16250,6850 16400,7300 Z"/>
+      </g>
+     </g>
+     <g class="Group">
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id41">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 1293,7400 L 1293,8500"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id42">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 3068,7632 L 3068,8500"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id43">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 1293,8500 L 3068,8500"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id44">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 1293,7400 L 2676,7400"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id45">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 2676,7400 L 3068,7632"/>
+       </g>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.TextShape">
+      <g id="id46">
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Arial, sans-serif" font-size="388px" font-weight="400"><tspan class="TextPosition" x="4151" y="8124"><tspan fill="rgb(0,0,0)" stroke="none">two.txt</tspan></tspan></tspan></text>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id47">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 3400,5300 L 3400,6400"/>
+      </g>
+     </g>
+     <g class="Group">
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id48">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 12693,7400 L 12693,8500"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id49">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 14468,7632 L 14468,8500"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id50">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 12693,8500 L 14468,8500"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id51">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 12693,7400 L 14076,7400"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.LineShape">
+       <g id="id52">
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="50" d="M 14076,7400 L 14468,7632"/>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.TextShape">
+       <g id="id53">
+        <text class="TextShape"><tspan class="TextParagraph" font-family="Arial, sans-serif" font-size="388px" font-weight="400"><tspan class="TextPosition" x="12851" y="8123"><tspan fill="rgb(0,0,0)" stroke="none">stats</tspan></tspan></tspan></text>
+       </g>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id54">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 13501,5400 L 13501,6870"/>
+       <path fill="rgb(0,0,0)" stroke="none" d="M 13501,7300 L 13651,6850 13351,6850 13501,7300 Z"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id55">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 10800,6400 L 16400,6400"/>
+      </g>
+     </g>
+     <g class="com.sun.star.drawing.LineShape">
+      <g id="id56">
+       <path fill="none" stroke="rgb(0,0,0)" d="M 9100,2500 L 9100,3100"/>
+      </g>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
