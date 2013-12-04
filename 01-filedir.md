@@ -99,7 +99,7 @@ Inside that directory are several other directories:
 `tmp` (for temporary files that don't need to be stored long-term),
 and so on:
 
-<img src="./img/filesystem.svg" alt="The Filesystem" />
+<img src="img/filesystem.svg" alt="The Filesystem" />
 
 We know that our current working directory `/users/vlad` is stored inside `/users`
 because `/users` is the first part of its name.
@@ -114,7 +114,7 @@ Wolfman's in `/users/larry`,
 and ours in `/users/vlad`,
 which is why `vlad` is the last part of the directory's name.
 
-<img src="./img/home-directories.svg" alt="Home Directories" />
+<img src="img/home-directories.svg" alt="Home Directories" />
 
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
@@ -130,7 +130,7 @@ which stands for "listing":
     solar.pdf    swc
     $
 
-<img src="./img/vlad-homedir.svg" alt="Vlad's Home Directory" />
+<img src="img/vlad-homedir.svg" alt="Vlad's Home Directory" />
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order,
 arranged neatly into columns.
@@ -378,7 +378,7 @@ and we will see it in many other tools as we go on.
 <div class="challenges" markdown="1">
 ## Challenges
 
-<img src="./img/filesystem-challenge.svg" alt="Filesystem for Challenge Questions" />
+<img src="img/filesystem-challenge.svg" alt="Filesystem for Challenge Questions" />
 
 1.  If `pwd` displays `/users/thing`, what will `ls ../backup` display?
     1.  `../backup: No such file or directory`
