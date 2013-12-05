@@ -75,6 +75,7 @@ blockquote.testimonial cite {
 body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     color: rgb(03, 03, 03);
+    min-width: 350px;
 }
 
 /* Styling for editorial stylesheet */
@@ -319,11 +320,10 @@ dl.faq dt {
 section.content {
     width:100%;
     background: white;
-    /*padding-top:50px;*/
 }
 
-.header {
-    height:370px;
+.header.home {
+    min-height:430px;
     background: url(../img/header.png) no-repeat center center;
     background-attachment: fixed;
     -webkit-background-size: cover;
@@ -331,19 +331,31 @@ section.content {
     -o-background-size: cover;
     background-size: cover;
     text-align: center;
+    color:#FFF;
+    font-size:14pt;
+}
+
+.header {
+    background:#2b3990;
 }
 
 .header h1 {
     color:#FFF;
     line-height: 1.2;
-    /*font-weight:normal;*/
 }
 
 #logo {
     position: relative;
-    top: 20px;
+    top: 40px;
 }
 
+#nav-logo {
+    width:270px;
+    height:60px;
+    position:fixed;
+    top:0;
+    left:0;
+}
 #home-options {
     background:#F6F6F6;
     border-top:1px solid #DDDDDD;
@@ -356,10 +368,18 @@ section.content {
     color:#2b3990;
 }
 
+/*#nav-logo {
+    background:url('../img/logo-banner-hammer.png') no-repeat;
+    background-size: 250px;
+    width:250px;
+    height:50px;
+}
+*/
 h4 a:link, h4 a:visited, a {
        color:#2b3990; 
 }
-section.footer {
+
+footer {
     background:#2b3990;
     padding:20px 0;
 }

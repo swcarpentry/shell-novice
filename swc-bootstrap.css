@@ -5,30 +5,22 @@
   color: rgb(0,0,0);
 }
 
-/* Container for page contents. */
-.container {
-    /*background-color: white;*/
-}
-
 .navbar .brand {
-  padding-top: 9px;  /* align the logo */
+  padding-top: 0px;  /* align the logo */
 }
 
 .navbar .container {
     background-color: inherit;
+    font-size:12pt;
+    padding:25px 10px 10px 10px;
+    background:url('../img/logo-banner-hammer.png') no-repeat;
+    background-size: 250px;
+    background-position: 0px 10px;
+    height:40px;
 }
 
 .navbar-inner {
   min-height: 40px;
-  padding-right: 20px;
-  padding-left: 20px;
-  padding:20px;
-  background-color: #F4F4F4;
-  background-image: none;
-  border: 1px solid #d4d4d4;
-  -webkit-border-radius: 0;
-     -moz-border-radius: 0;
-          border-radius: 0;
 }
 
 code {
@@ -49,8 +41,9 @@ code {
 .navbar-inverse .nav .active > a,
 .navbar-inverse .nav .active > a:hover,
 .navbar-inverse .nav .active > a:focus {
-  color: #2b3990;
-  background-color: #20267D;
+  /*color: #2b3990;*/
+  color:#fff;
+  /*background-color: #20267D;*/
 }
 
 .navbar-inverse .nav li.dropdown.open > .dropdown-toggle,
@@ -73,6 +66,10 @@ code {
 .navbar-inverse .navbar-search .search-query {
   background-color: #ffffff;
   color: #666666;
+}
+
+.navbar-inverse .nav-collapse .nav > li > a, .navbar-inverse .nav-collapse .dropdown-menu a {
+  color: #fff;
 }
 
 .navbar.transparent.navbar-inverse .navbar-inner {
