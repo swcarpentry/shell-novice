@@ -75,7 +75,7 @@ blockquote.testimonial cite {
 body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     color: rgb(03, 03, 03);
-    min-width: 350px;
+    min-width: 400px;
 }
 
 /* Styling for editorial stylesheet */
@@ -330,9 +330,8 @@ section.content {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    text-align: center;
+    text-align: left;
     color:#FFF;
-    font-size:14pt;
 }
 
 .header {
@@ -341,12 +340,20 @@ section.content {
 
 .header h1 {
     color:#FFF;
-    line-height: 1.2;
+    line-height: 1.1;
+    margin: 0;
+    font-size: 45pt;
+}
+
+#header-text {
+    font-size:17pt;
+    white-space: nowrap;
 }
 
 #logo {
     position: relative;
     top: 40px;
+        text-align: center;
 }
 
 #nav-logo {
@@ -368,13 +375,6 @@ section.content {
     color:#2b3990;
 }
 
-/*#nav-logo {
-    background:url('../img/logo-banner-hammer.png') no-repeat;
-    background-size: 250px;
-    width:250px;
-    height:50px;
-}
-*/
 h4 a:link, h4 a:visited, a {
        color:#2b3990; 
 }
