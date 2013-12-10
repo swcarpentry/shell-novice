@@ -323,7 +323,7 @@ section.content {
 }
 
 .header.home {
-    min-height:430px;
+    min-height:130px;
     background: url(../img/header.png) no-repeat center center;
     background-attachment: fixed;
     -webkit-background-size: cover;
