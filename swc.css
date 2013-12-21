@@ -380,5 +380,16 @@ h4 a:link, h4 a:visited, a {
 footer {
     background:#2b3990;
     padding:20px 0;
+    font-size: 10pt;
+}
+
+footer a, footer a:hover{
+    color:#FFF;
+}
+
+footer ul {
+    float:left;
+    list-style-type: none;
+    padding-right: 20px;
 }
  
