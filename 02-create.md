@@ -94,8 +94,8 @@ we can use Control-X to quit the editor and return to the shell.
 `nano` doesn't leave any output on the screen after it exits,
 but `ls` now shows that we have created a file called `draft.txt`:
 
-
-~~~    $ ls
+~~~
+$ ls
 draft.txt
 ~~~
 
