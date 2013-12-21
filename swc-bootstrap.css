@@ -21,7 +21,7 @@
     padding:27px 10px 10px 10px;
     background:url('../img/software-carpentry-banner.png') no-repeat;
     background-size: 250px;
-    background-position: 0px 10px;
+    background-position: 10px 10px;
     height:40px;
 }
 
@@ -85,9 +85,13 @@ code {
     background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
 }
 
+.container {
+    max-width:900px;
+}
+
 @media (max-width: 767px) {
     .container {
-      padding:0 20px;
+      padding:0 40px;
     }
 
     body {
@@ -99,4 +103,11 @@ code {
       margin-right: 0;
       margin-bottom:0;
     }
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+  .container {
+    max-width: 700px;
+  }
+
 }

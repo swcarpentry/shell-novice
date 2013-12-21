@@ -330,7 +330,6 @@ section.content {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    color:#FFF;
 }
 
 .header {
@@ -350,8 +349,7 @@ section.content {
 
 #nav-logo {
     width:270px;
-    height:60px;
-    position:absolute;
+    height:40px;
     top:0;
     left:0;
 }
