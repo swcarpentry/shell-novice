@@ -23,11 +23,15 @@ When new files arrive,
 we'd like to rename the existing ones to `original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
-    mv *.dat original-*.dat
+~~~
+mv *.dat original-*.dat
+~~~
 
 because that would expand (in the two-file case) to:
 
-    mv basilisk.dat unicorn.dat
+~~~
+mv basilisk.dat unicorn.dat
+~~~
 
 This wouldn't back up our files:
 it would replace the content of `unicorn.dat` with whatever's in `basilisk.dat`.
@@ -36,16 +40,18 @@ Instead, we can use a [loop](../../gloss.html#for-loop)
 to do some operation once for each thing in a list.
 Here's a simple example that displays the first three lines of each file in turn:
 
-    $ for filename in basilisk.dat unicorn.dat
-    > do
-    >    head -3 $filename
-    > done
-    COMMON NAME: basilisk
-    CLASSIFICATION: basiliscus vulgaris
-    UPDATED: 1745-05-02
-    COMMON NAME: unicorn
-    CLASSIFICATION: equus monoceros
-    UPDATED: 1738-11-24
+~~~
+$ for filename in basilisk.dat unicorn.dat
+> do
+>    head -3 $filename
+> done
+COMMON NAME: basilisk
+CLASSIFICATION: basiliscus vulgaris
+UPDATED: 1745-05-02
+COMMON NAME: unicorn
+CLASSIFICATION: equus monoceros
+UPDATED: 1738-11-24
+~~~
 
 When the shell sees the keyword `for`,
 it knows it is supposed to repeat a command (or group of commands) once for each thing in a list.
@@ -73,17 +79,21 @@ in order to make its purpose clearer to human readers.
 The shell itself doesn't care what the variable is called;
 if we wrote this loop as:
 
-    for x in basilisk.dat unicorn.dat
-    do
-        head -3 $x
-    done
+~~~
+for x in basilisk.dat unicorn.dat
+do
+    head -3 $x
+done
+~~~
 
 or:
 
-    for temperature in basilisk.dat unicorn.dat
-    do
-        head -3 $temperature
-    done
+~~~
+for temperature in basilisk.dat unicorn.dat
+do
+    head -3 $temperature
+done
+~~~
 
 it would work exactly the same way.
 *Don't do this.*
@@ -93,11 +103,13 @@ increases the likelihood of the program being wrong.
 
 Here's a slightly more complicated loop:
 
-    for filename in *.dat
-    do
-        echo $filename
-        head -100 $filename | tail -20
-    done
+~~~
+for filename in *.dat
+do
+    echo $filename
+    head -100 $filename | tail -20
+done
+~~~
 
 The shell starts by expanding `*.dat` to create the list of files it will process.
 The [loop body](../../gloss.html#loop-body)
@@ -105,22 +117,28 @@ then executes two commands for each of those files.
 The first, `echo`, just prints its command-line parameters to standard output.
 For example:
 
-    echo hello there
+~~~
+echo hello there
+~~~
 
 prints:
 
-    hello there
+~~~
+hello there
+~~~
 
 In this case,
 since the shell expands `$filename` to be the name of a file,
 `echo $filename` just prints the name of the file.
 Note that we can't write this as:
 
-    for filename in *.dat
-    do
-        $filename
-        head -100 $filename | tail -20
-    done
+~~~
+for filename in *.dat
+do
+    $filename
+    head -100 $filename | tail -20
+done
+~~~
 
 because then the first time through the loop,
 when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as a program.
@@ -132,29 +150,37 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 > Filename expansion in loops is another reason you should not use spaces in filenames.
 > Suppose our data files are named:
 > 
->     basilisk.dat
->     red dragon.dat
->     unicorn.dat
+> ~~~
+> basilisk.dat
+> red dragon.dat
+> unicorn.dat
+> ~~~
 > 
 > If we try to process them using:
 > 
->     for filename in *.dat
->     do
->         head -100 $filename | tail -20
->     done
->
+> ~~~
+> for filename in *.dat
+> do
+>     head -100 $filename | tail -20
+> done
+> ~~~
+> 
 > then the shell will expand `*.dat` to create:
 > 
->     basilisk.dat red dragon.dat unicorn.dat
+> ~~~
+> basilisk.dat red dragon.dat unicorn.dat
+> ~~~
 > 
 > With older versions of Bash,
 > or most other shells,
 > `filename` will then be assigned the following values in turn:
 > 
->     basilisk.dat
->     red
->     dragon.dat
->     unicorn.dat
+> ~~~
+> basilisk.dat
+> red
+> dragon.dat
+> unicorn.dat
+> ~~~
 >
 > That's a problem: `head` can't read files called `red` and `dragon.dat`
 > because they don't exist,
@@ -163,31 +189,39 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 > We can make our script a little bit more robust
 > by [quoting](../../gloss.html#shell-quoting) our use of the variable:
 > 
->     for filename in *.dat
->     do
->         head -100 "$filename" | tail -20
->     done
+> ~~~
+> for filename in *.dat
+> do
+>     head -100 "$filename" | tail -20
+> done
+> ~~~
 >
 > but it's simpler just to avoid using spaces (or other special characters) in filenames.
 
 Going back to our original file renaming problem,
 we can solve it using this loop:
 
-    for filename in *.dat
-    do
-        mv $filename original-$filename
-    done
+~~~
+for filename in *.dat
+do
+    mv $filename original-$filename
+done
+~~~
 
 This loop runs the `mv` command once for each filename.
 The first time,
 when `$filename` expands to `basilisk.dat`,
 the shell executes:
 
-    mv basilisk.dat original-basilisk.dat
+~~~
+mv basilisk.dat original-basilisk.dat
+~~~
 
 The second time, the command is:
 
-    mv unicorn.dat original-unicorn.dat
+~~~
+mv unicorn.dat original-unicorn.dat
+~~~
 
 > ### Measure Twice, Run Once
 > 
@@ -196,15 +230,19 @@ The second time, the command is:
 > is to echo the commands it would run instead of actually running them.
 > For example, we could write our file renaming loop like this:
 > 
->     for filename in *.dat
->     do
->         echo mv $filename original-$filename
->     done
+> ~~~
+> for filename in *.dat
+> do
+>     echo mv $filename original-$filename
+> done
+> ~~~
 > 
 > Instead of running `mv`, this loop runs `echo`, which prints out:
 > 
->     mv basilisk.dat original-basilisk.dat
->     mv unicorn.dat original-unicorn.dat
+> ~~~
+> mv basilisk.dat original-basilisk.dat
+> mv unicorn.dat original-unicorn.dat
+> ~~~
 > 
 > *without* actually running those commands. We can then use up-arrow to
 > redisplay the loop, back-arrow to get to the word `echo`, delete it, and
@@ -220,34 +258,38 @@ she decides to build up the required commands in stages.
 Her first step is to make sure that she can select the right files&mdash;remember,
 these are ones whose names end in 'A' or 'B', rather than 'Z':
 
-    $ cd north-pacific-gyre/2012-07-03
-    $ for datafile in *[AB].txt
-    do
-        echo $datafile
-    done
-    NENE01729A.txt
-    NENE01729B.txt
-    NENE01736A.txt
-    ...
-    NENE02043A.txt
-    NENE02043B.txt
+~~~
+$ cd north-pacific-gyre/2012-07-03
+
+$ for datafile in *[AB].txt
+do
+    echo $datafile
+done
+NENE01729A.txt
+NENE01729B.txt
+NENE01736A.txt
+...
+NENE02043A.txt
+NENE02043B.txt
+~~~
 
 Her next step is to decide
 what to call the files that the `goostat` analysis program will create.
 Prefixing each input file's name with "stats" seems simple,
 so she modifies her loop to do that:
 
-    $ for datafile in *[AB].txt
-    do
-        echo $datafile stats-$datafile
-    done
-    NENE01729A.txt stats-NENE01729A.txt
-    NENE01729B.txt stats-NENE01729B.txt
-    NENE01736A.txt stats-NENE01736A.txt
-    ...
-    NENE02043A.txt stats-NENE02043A.txt
-    NENE02043B.txt stats-NENE02043B.txt
-    $
+~~~
+$ for datafile in *[AB].txt
+do
+    echo $datafile stats-$datafile
+done
+NENE01729A.txt stats-NENE01729A.txt
+NENE01729B.txt stats-NENE01729B.txt
+NENE01736A.txt stats-NENE01736A.txt
+...
+NENE02043A.txt stats-NENE02043A.txt
+NENE02043B.txt stats-NENE02043B.txt
+~~~
 
 She hasn't actually run `goostats` yet,
 but now she's sure she can select the right files and generate the right output filenames.
@@ -261,12 +303,16 @@ In response,
 the shell redisplays the whole loop on one line
 (using semi-colons to separate the pieces):
 
-    $ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
+~~~
+$ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
+~~~
 
 Using the left arrow key,
 Nelle backs up and changes the command `echo` to `goostats`:
 
-    $ for datafile in *[AB].txt; do goostats $datafile stats-$datafile; done
+~~~
+$ for datafile in *[AB].txt; do goostats $datafile stats-$datafile; done
+~~~
 
 When she presses enter,
 the shell runs the modified command.
@@ -277,15 +323,19 @@ She kills the job by typing Control-C,
 uses up-arrow to repeat the command,
 and edits it to read:
 
-    $ for datafile in *[AB].txt; do echo $datafile; goostats $datafile stats-$datafile; done
+~~~
+$ for datafile in *[AB].txt; do echo $datafile; goostats $datafile stats-$datafile; done
+~~~
 
 When she runs her program now,
 it produces one line of output every five seconds or so:
 
-    NENE01729A.txt
-    NENE01729B.txt
-    NENE01736A.txt
-    ...
+~~~
+NENE01729A.txt
+NENE01729B.txt
+NENE01736A.txt
+...
+~~~
 
 1518 times 5 seconds,
 divided by 60,
@@ -305,12 +355,14 @@ so she decides to get some coffee and catch up on her reading.
 > then to use `!123` (where "123" is replaced by the command number) to
 > repeat one of those commands. For example, if Nelle types this:
 > 
->     $ history | tail -5
->       456  ls -l NENE0*.txt
->       457  rm stats-NENE01729B.txt.txt
->       458  goostats NENE01729B.txt stats-NENE01729B.txt
->       459  ls -l NENE0*.txt
->       460  history
+> ~~~
+> $ history | tail -5
+>   456  ls -l NENE0*.txt
+>   457  rm stats-NENE01729B.txt.txt
+>   458  goostats NENE01729B.txt stats-NENE01729B.txt
+>   459  ls -l NENE0*.txt
+>   460  history
+> ~~~
 > 
 > then she can re-run `goostats` on `NENE01729B.txt` simply by typing
 > `!458`.
@@ -331,22 +383,28 @@ so she decides to get some coffee and catch up on her reading.
 
 1.  Suppose that `ls` initially displays:
 
-        fructose.dat    glucose.dat   sucrose.dat
+    ~~~
+    fructose.dat    glucose.dat   sucrose.dat
+    ~~~
 
     What is the output of:
 
-        for datafile in *.dat
-        do
-            ls *.dat
-        done
+    ~~~
+    for datafile in *.dat
+    do
+        ls *.dat
+    done
+    ~~~
 
 2.  In the same directory, what is the effect of this loop?
 
-        for sugar in *.dat
-        do
-            echo $sugar
-            cat $sugar > xylose.dat
-        done
+    ~~~
+    for sugar in *.dat
+    do
+        echo $sugar
+        cat $sugar > xylose.dat
+    done
+    ~~~
 
     1.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and
         copies `sucrose.dat` to create `xylose.dat`.
@@ -358,25 +416,31 @@ so she decides to get some coffee and catch up on her reading.
 
 3.  The `expr` does simple arithmetic using command-line parameters:
 
-        $ expr 3 + 5
-        8
-        $ expr 30 / 5 - 2
-        4
+    ~~~
+    $ expr 3 + 5
+    8
+    $ expr 30 / 5 - 2
+    4
+    ~~~
 
     Given this, what is the output of:
 
-        for left in 2 3
+    ~~~
+    for left in 2 3
+    do
+        for right in $left
         do
-            for right in $left
-            do
-                expr $left + $right
-            done
+            expr $left + $right
         done
+    done
+    ~~~
 
 4.  Describe in words what the following loop does.
 
-        for how in frog11 prcb redig
-        do
-            $how -limit 0.01 NENE01729B.txt
-        done
+    ~~~
+    for how in frog11 prcb redig
+    do
+        $how -limit 0.01 NENE01729B.txt
+    done
+    ~~~
 </div>

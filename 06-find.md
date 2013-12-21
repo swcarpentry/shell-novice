@@ -26,24 +26,28 @@ For our examples,
 we will use a file that contains three haikus taken from a
 [1998 competition in Salon magazine](http://www.salonmagazine.com/21st/chal/1998/01/26chal.html):
 
-    The Tao that is seen
-    Is not the true Tao, until
-    You bring fresh toner.
+~~~
+The Tao that is seen
+Is not the true Tao, until
+You bring fresh toner.
 
-    With searching comes loss
-    and the presence of absence:
-    "My Thesis" not found.
+With searching comes loss
+and the presence of absence:
+"My Thesis" not found.
 
-    Yesterday it worked
-    Today it is not working
-    Software is like that.
+Yesterday it worked
+Today it is not working
+Software is like that.
+~~~
 
 Let's find lines that contain the word "not":
 
-    $ grep not haiku.txt
-    Is not the true Tao, until
-    "My Thesis" not found
-    Today it is not working
+~~~
+$ grep not haiku.txt
+Is not the true Tao, until
+"My Thesis" not found
+Today it is not working
+~~~
 
 Here, `not` is the pattern we're searching for.
 It's pretty simple:
@@ -53,9 +57,11 @@ The output is the three lines in the file that contain the letters "not".
 
 Let's try a different pattern: "day".
 
-    $ grep day haiku.txt
-    Yesterday it worked
-    Today it is not working
+~~~
+$ grep day haiku.txt
+Yesterday it worked
+Today it is not working
+~~~
 
 This time,
 the output is lines containing the words "Yesterday" and "Today",
@@ -64,16 +70,20 @@ If we give `grep` the `-w` flag,
 it restricts matches to word boundaries,
 so that only lines with the word "day" will be printed:
 
-    $ grep -w day haiku.txt
+~~~
+$ grep -w day haiku.txt
+~~~
 
 In this case, there aren't any, so `grep`'s output is empty.
 
 Another useful option is `-n`, which numbers the lines that match:
 
-    $ grep -n it haiku.txt
-    5:With searching comes loss
-    9:Yesterday it worked
-    10:Today it is not working
+~~~
+$ grep -n it haiku.txt
+5:With searching comes loss
+9:Yesterday it worked
+10:Today it is not working
+~~~
 
 Here, we can see that lines 5, 9, and 10 contain the letters "it".
 
@@ -83,14 +93,16 @@ since `-i` makes matching case-insensitive and `-v` inverts the match,
 using them both only prints lines that *don't* match the pattern
 in any mix of upper and lower case:
 
-    $ grep -i -v the haiku.txt
-    You bring fresh toner.
+~~~
+$ grep -i -v the haiku.txt
+You bring fresh toner.
 
-    With searching comes loss
+With searching comes loss
 
-    Yesterday it worked
-    Today it is not working
-    Software is like that.
+Yesterday it worked
+Today it is not working
+Software is like that.
+~~~
 
 `grep` has lots of other options.
 To find out what they are, we can type `man grep`.
@@ -98,40 +110,42 @@ To find out what they are, we can type `man grep`.
 it prints a description of a command and its options,
 and (if you're lucky) provides a few examples of how to use it:
 
-    $ man grep
-    GREP(1)                                                                                              GREP(1)
+~~~
+$ man grep
+GREP(1)                                                                                              GREP(1)
 
-    NAME
-           grep, egrep, fgrep - print lines matching a pattern
+NAME
+grep, egrep, fgrep - print lines matching a pattern
 
-    SYNOPSIS
-           grep [OPTIONS] PATTERN [FILE...]
-           grep [OPTIONS] [-e PATTERN | -f FILE] [FILE...]
+SYNOPSIS
+grep [OPTIONS] PATTERN [FILE...]
+grep [OPTIONS] [-e PATTERN | -f FILE] [FILE...]
 
-    DESCRIPTION
-           grep  searches the named input FILEs (or standard input if no files are named, or if a single hyphen-
-           minus (-) is given as file name) for lines containing a match to the given PATTERN.  By default, grep
-           prints the matching lines.
-           ...        ...        ...
+DESCRIPTION
+grep  searches the named input FILEs (or standard input if no files are named, or if a single hyphen-
+minus (-) is given as file name) for lines containing a match to the given PATTERN.  By default, grep
+prints the matching lines.
+...        ...        ...
 
-    OPTIONS
-       Generic Program Information
-           --help Print  a  usage  message  briefly summarizing these command-line options and the bug-reporting
-                  address, then exit.
+OPTIONS
+Generic Program Information
+--help Print  a  usage  message  briefly summarizing these command-line options and the bug-reporting
+address, then exit.
 
-           -V, --version
-                  Print the version number of grep to the standard output stream.  This version number should be
-                  included in all bug reports (see below).
+-V, --version
+Print the version number of grep to the standard output stream.  This version number should be
+included in all bug reports (see below).
 
-       Matcher Selection
-           -E, --extended-regexp
-                  Interpret  PATTERN  as  an  extended regular expression (ERE, see below).  (-E is specified by
-                  POSIX.)
+Matcher Selection
+-E, --extended-regexp
+Interpret  PATTERN  as  an  extended regular expression (ERE, see below).  (-E is specified by
+POSIX.)
 
-           -F, --fixed-strings
-                  Interpret PATTERN as a list of fixed strings, separated by newlines, any of  which  is  to  be
-                  matched.  (-F is specified by POSIX.)
-        ...        ...        ...
+-F, --fixed-strings
+Interpret PATTERN as a list of fixed strings, separated by newlines, any of  which  is  to  be
+matched.  (-F is specified by POSIX.)
+...        ...        ...
+~~~
 
 > ### Wildcards
 > 
@@ -177,22 +191,26 @@ Sure enough,
 `find`'s output is the names of the five directories in our little tree
 (including `.`):
 
-    $ find . -type d
-    ./
-    ./data
-    ./thesis
-    ./tools
-    ./tools/old
+~~~
+$ find . -type d
+./
+./data
+./thesis
+./tools
+./tools/old
+~~~
 
 If we change `-type d` to `-type f`,
 we get a listing of all the files instead:
 
-    $ find . -type f
-    ./data/first.txt
-    ./data/second.txt
-    ./notes.txt
-    ./tools/format
-    ./tools/stats
+~~~
+$ find . -type f
+./data/first.txt
+./data/second.txt
+./notes.txt
+./tools/format
+./tools/stats
+~~~
 
 `find` automatically goes into subdirectories,
 their subdirectories,
@@ -200,30 +218,38 @@ and so on to find everything that matches the pattern we've given it.
 If we don't want it to,
 we can use `-maxdepth` to restrict the depth of search:
 
-    $ find . -maxdepth 1 -type f
-    ./notes.txt
+~~~
+$ find . -maxdepth 1 -type f
+./notes.txt
+~~~
 
 The opposite of `-maxdepth` is `-mindepth`,
 which tells `find` to only report things that are at or below a certain depth.
 `-mindepth 2` therefore finds all the files that are two or more levels below us:
 
-    $ find . -mindepth 2 -type f
-    ./data/first.txt
-    ./data/second.txt
-    ./tools/format
-    ./tools/stats
+~~~
+$ find . -mindepth 2 -type f
+./data/first.txt
+./data/second.txt
+./tools/format
+./tools/stats
+~~~
 
 Another option is `-empty`,
 which restricts matches to empty files and directories:
 
-    $ find . -empty
-    ./thesis
-    ./tools/old
+~~~
+$ find . -empty
+./thesis
+./tools/old
+~~~
 
 Now let's try matching by name:
 
-    $ find . -name *.txt
-    ./notes.txt
+~~~
+$ find . -name *.txt
+./notes.txt
+~~~
 
 We expected it to find all the text files,
 but it only prints out `./notes.txt`.
@@ -231,7 +257,9 @@ The problem is that the shell expands wildcard characters like `*` *before* comm
 Since `*.txt` in the current directory expands to `notes.txt`,
 the command we actually ran was:
 
-    $ find . -name notes.txt
+~~~
+$ find . -name notes.txt
+~~~
 
 `find` did what we asked; we just asked for the wrong thing.
 
@@ -241,10 +269,12 @@ put `*.txt` in single quotes to prevent the shell from expanding the `*` wildcar
 This way,
 `find` actually gets the pattern `*.txt`, not the expanded filename `notes.txt`:
 
-    $ find . -name '*.txt'
-    ./data/first.txt
-    ./data/second.txt
-    ./notes.txt
+~~~
+$ find . -name '*.txt'
+./data/first.txt
+./data/second.txt
+./notes.txt
+~~~
 
 As we said earlier,
 the command line's power lies in combining tools.
@@ -256,12 +286,14 @@ How can we combine that with `wc -l` to count the lines in all those files?
 
 The simplest way is to put the `find` command inside `$()`:
 
-    $ wc -l $(find . -name '*.txt')
-      70  ./data/first.txt
-     420  ./data/second.txt
-      30  ./notes.txt
-     520  total
-    $
+~~~
+$ wc -l $(find . -name '*.txt')
+70  ./data/first.txt
+420  ./data/second.txt
+30  ./notes.txt
+520  total
+$
+~~~
 
 When the shell executes this command,
 the first thing it does is run whatever is inside the `$()`.
@@ -269,7 +301,9 @@ It then replaces the `$()` expression with that command's output.
 Since the output of `find` is the three filenames `./data/first.txt`, `./data/second.txt`, and `./notes.txt`,
 the shell constructs the command:
 
-    $ wc -l ./data/first.txt ./data/second.txt ./notes.txt
+~~~
+$ wc -l ./data/first.txt ./data/second.txt ./notes.txt
+~~~
 
 which is what we wanted.
 This expansion is exactly what the shell does when it expands wildcards like `*` and `?`,
@@ -281,8 +315,10 @@ the second looks for lines inside those files that match another pattern.
 Here, for example, we can find PDB files that contain iron atoms
 by looking for the string "FE" in all the `.pdb` files below the current directory:
 
-    $ grep FE $(find . -name '*.pdb')
-    ./human/heme.pdb:ATOM  25  FE  1  -0.924  0.535  -0.518
+~~~
+$ grep FE $(find . -name '*.pdb')
+./human/heme.pdb:ATOM  25  FE  1  -0.924  0.535  -0.518
+~~~
 
 > ### Binary Files
 > 
@@ -338,7 +374,9 @@ about them."
 
 1.  Write a short explanatory comment for the following shell script:
 
-        find . -name '*.dat' -print | wc -l | sort -n
+    ~~~
+    find . -name '*.dat' -print | wc -l | sort -n
+    ~~~
 
 2.  The `-v` flag to `grep` inverts pattern matching, so that only lines
     which do *not* match the pattern are printed. Given that, which of

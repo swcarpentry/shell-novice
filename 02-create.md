@@ -20,17 +20,22 @@ Let's go back to Vlad's home directory,
 `/users/vlad`,
 and use `ls -F` to see what it contains:
 
-    $ pwd
-    /users/vlad
-    $ ls -F
-    bin/         data/     mail/      music/
-    notes.txt    papers/   pizza.cfg  solar/
-    solar.pdf    swc/
+~~~
+$ pwd
+/users/vlad
+
+$ ls -F
+bin/         data/     mail/      music/
+notes.txt    papers/   pizza.cfg  solar/
+solar.pdf    swc/
+~~~
 
 Let's create a new directory called `thesis` using the command `mkdir thesis`
 (which has no output):
 
-    $ mkdir thesis
+~~~
+$ mkdir thesis
+~~~
 
 As you might (or might not) guess from its name,
 `mkdir` means "make directory".
@@ -38,20 +43,26 @@ Since `thesis` is a relative path
 (i.e., doesn't have a leading slash),
 the new directory is made below the current working directory:
 
-    $ ls -F
-    bin/         data/     mail/      music/
-    notes.txt    papers/   pizza.cfg  solar/
-    solar.pdf    swc/      thesis/
+~~~
+$ ls -F
+bin/         data/     mail/      music/
+notes.txt    papers/   pizza.cfg  solar/
+solar.pdf    swc/      thesis/
+~~~
 
 However, there's nothing in it yet:
 
-    $ ls -F thesis
+~~~
+$ ls -F thesis
+~~~
 
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
 
-    $ cd thesis
-    $ nano draft.txt
+~~~
+$ cd thesis
+$ nano draft.txt
+~~~
 
 > ### Which Editor?
 > 
@@ -83,14 +94,18 @@ we can use Control-X to quit the editor and return to the shell.
 `nano` doesn't leave any output on the screen after it exits,
 but `ls` now shows that we have created a file called `draft.txt`:
 
-    $ ls
-    draft.txt
+
+~~~    $ ls
+draft.txt
+~~~
 
 We can run `ls` with the `-s` flag (for "size")
 to show us how large `draft.txt` is:
 
-    $ ls -s
-       1  draft.txt
+~~~
+$ ls -s
+   1  draft.txt
+~~~
 
 Unfortunately,
 Unix reports sizes in [disk blocks](../../gloss.html#disk-block) by default,
@@ -98,8 +113,10 @@ which might be the least helpful default possible.
 If we add the `-h` flag,
 `ls` switches to more human-friendly units:
 
-    $ ls -s -h
-     512  draft.txt
+~~~
+$ ls -s -h
+ 512  draft.txt
+~~~
 
 Here, 512 is the number of bytes in the file.
 This is more than we actually typed in because the smallest unit of storage on the disk
@@ -107,14 +124,18 @@ is typically a block of 512 bytes.
 
 Let's tidy up by running `rm draft.txt`:
 
-    $ rm draft.txt
+~~~
+$ rm draft.txt
+~~~
 
 This command removes files ("rm" is short for "remove").
 If we run `ls` again,
 its output is empty once more,
 which tells us that our file is gone:
 
-    $ ls
+~~~
+$ ls
+~~~
 
 > ### Deleting Is Forever
 > 
@@ -127,18 +148,25 @@ which tells us that our file is gone:
 Let's re-create that file
 and then move up one directory to `/users/vlad` using `cd ..`:
 
-    $ pwd
-    /users/vlad/thesis
-    $ nano draft.txt
-    $ ls
-    draft.txt
-    $ cd ..
+~~~
+$ pwd
+/users/vlad/thesis
+
+$ nano draft.txt
+
+$ ls
+draft.txt
+
+$ cd ..
+~~~
 
 If we try to remove the entire `thesis` directory using `rm thesis`,
 we get an error message:
 
-    $ rm thesis
-    rm: cannot remove `thesis': Is a directory
+~~~
+$ rm thesis
+rm: cannot remove `thesis': Is a directory
+~~~
 
 This happens because `rm` only works on files, not directories.
 The right command is `rmdir`,
@@ -146,18 +174,24 @@ which is short for "remove directory".
 It doesn't work yet either, though,
 because the directory we're trying to remove isn't empty:
 
-    $ rmdir thesis
-    rmdir: failed to remove `thesis': Directory not empty
+~~~
+$ rmdir thesis
+rmdir: failed to remove `thesis': Directory not empty
+~~~
 
 This little safety feature can save you a lot of grief,
 particularly if you are a bad typist.
 To really get rid of `thesis` we must first delete the file `draft.txt`:
 
-    $ rm thesis/draft.txt
+~~~
+$ rm thesis/draft.txt
+~~~
 
 The directory is now empty, so `rmdir` can delete it:
 
-    $ rmdir thesis
+~~~
+$ rmdir thesis
+~~~
 
 > ### With Great Power Comes Great Responsibility
 > 
@@ -165,8 +199,9 @@ The directory is now empty, so `rmdir` can delete it:
 > directory quickly becomes tedious. Instead, we can use `rm` with the
 > `-r` flag (which stands for "recursive"):
 > 
->     $ rm -r thesis
->     $
+> ~~~
+> $ rm -r thesis
+> ~~~
 > 
 > This removes everything in the directory, then the directory itself. If
 > the directory contains sub-directories, `rm -r` does the same thing to
@@ -177,18 +212,24 @@ Let's create that directory and file one more time.
 (Note that this time we're running `nano` with the path `thesis/draft.txt`,
 rather than going into the `thesis` directory and running `nano` on `draft.txt` there.)
 
-    $ pwd
-    /users/vlad/thesis
-    $ mkdir thesis
-    $ nano thesis/draft.txt
-    $ ls thesis
-    draft.txt
+~~~
+$ pwd
+/users/vlad/thesis
+
+$ mkdir thesis
+
+$ nano thesis/draft.txt
+$ ls thesis
+draft.txt
+~~~
 
 `draft.txt` isn't a particularly informative name,
 so let's change the file's name using `mv`,
 which is short for "move":
 
-    $ mv thesis/draft.txt thesis/quotes.txt
+~~~
+$ mv thesis/draft.txt thesis/quotes.txt
+~~~
 
 The first parameter tells `mv` what we're "moving",
 while the second is where it's to go.
@@ -198,8 +239,10 @@ which has the same effect as renaming the file.
 Sure enough,
 `ls` shows us that `thesis` now contains one file called `quotes.txt`:
 
-    $ ls thesis
-    quotes.txt
+~~~
+$ ls thesis
+quotes.txt
+~~~
 
 Just for the sake of inconsistency,
 `mv` also works on directories&mdash;there is no separate `mvdir` command.
@@ -213,19 +256,25 @@ but put the file somewhere new.
 In this case,
 the directory name we use is the special directory name `.` that we mentioned earlier.
 
-    $ mv thesis/quotes.txt .
+~~~
+$ mv thesis/quotes.txt .
+~~~
 
 The effect is to move the file from the directory it was in to the current working directory.
 `ls` now shows us that `thesis` is empty:
 
-    $ ls thesis
+~~~
+$ ls thesis
+~~~
 
 Further,
 `ls` with a filename or directory name as an parameter only lists that file or directory.
 We can use this to see that `quotes.txt` is still in our current directory:
 
-    $ ls quotes.txt
-    quotes.txt
+~~~
+$ ls quotes.txt
+quotes.txt
+~~~
 
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
@@ -233,9 +282,12 @@ We can check that it did the right thing using `ls`
 with two paths as parameters&mdash;like most Unix commands,
 `ls` can be given thousands of paths at once:
 
-    $ cp quotes.txt thesis/quotations.txt
-    $ ls quotes.txt thesis/quotations.txt
-    quotes.txt   thesis/quotations.txt
+~~~
+$ cp quotes.txt thesis/quotations.txt
+
+$ ls quotes.txt thesis/quotations.txt
+quotes.txt   thesis/quotations.txt
+~~~
 
 To prove that we made a copy,
 let's delete the `quotes.txt` file in the current directory
@@ -243,9 +295,11 @@ and then run that same `ls` again.
 This time it tells us that it can't find `quotes.txt` in the current directory,
 but it does find the copy in `thesis` that we didn't delete:
 
-    $ ls quotes.txt thesis/quotations.txt
-    ls: cannot access quotes.txt: No such file or directory
-    thesis/quotations.txt
+~~~
+$ ls quotes.txt thesis/quotations.txt
+ls: cannot access quotes.txt: No such file or directory
+thesis/quotations.txt
+~~~
 
 > ### Another Useful Abbreviation
 > 
@@ -273,37 +327,47 @@ but it does find the copy in `thesis` that we didn't delete:
 
 1.  What is the output of the closing `ls` command in the sequence shown below?
 
-        $ pwd
-        /home/thing/data
-        $ ls
-        proteins.dat
-        $ mkdir recombine
-        $ mv proteins.dat recombine
-        $ cp recombine/proteins.dat ../proteins-saved.dat
-        $ ls
+    ~~~
+    $ pwd
+    /home/thing/data
+    $ ls
+    proteins.dat
+    $ mkdir recombine
+    $ mv proteins.dat recombine
+    $ cp recombine/proteins.dat ../proteins-saved.dat
+    $ ls
+    ~~~
 
 2.  Suppose that:
 
-        $ ls -F
-        analyzed/  fructose.dat    raw/   sucrose.dat
+    ~~~
+    $ ls -F
+    analyzed/  fructose.dat    raw/   sucrose.dat
+    ~~~
 
     What command(s) could you run so that the commands below will produce the output shown?
 
-        $ ls
-        analyzed   raw
-        $ ls analyzed
-        fructose.dat    sucrose.dat
+    ~~~
+    $ ls
+    analyzed   raw
+    $ ls analyzed
+    fructose.dat    sucrose.dat
+    ~~~
 
 3.  What does `cp` do when given several filenames and a directory name, as in:
 
-        $ mkdir backup
-        $ cp thesis/citations.txt thesis/quotations.txt backup
+    ~~~
+    $ mkdir backup
+    $ cp thesis/citations.txt thesis/quotations.txt backup
+    ~~~
 
     What does `cp` do when given three or more filenames, as in:
 
-        $ ls -F
-        intro.txt    methods.txt    survey.txt
-        $ cp intro.txt methods.txt survey.txt
+    ~~~
+    $ ls -F
+    intro.txt    methods.txt    survey.txt
+    $ cp intro.txt methods.txt survey.txt
+    ~~~
 
     Why do you think `cp`'s behavior is different from `mv`'s?
 
