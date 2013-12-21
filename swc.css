@@ -264,11 +264,6 @@ table.outlined {
     border-collapse: collapse;
 }
 
-/* Container for content in the bootcamp index page */
-div.bootcamps {
-    text-align: center;
-}
-
 /* Link items (to bootcamp pages) in the bootcamps tables */
 table.bootcamps td.link {
     width: 50%;
