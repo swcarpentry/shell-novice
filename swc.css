@@ -12,7 +12,7 @@ h1, h2 {
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: inherit;
-} 
+}
 
 /* Comments in code. */
 .comment {
@@ -284,14 +284,14 @@ table.bootcamps td.date {
 
 /* Badge modal dialog */
 #assertion-modal {
-    width:700px; 
+    width:700px;
     margin-left:-350px;
 }
 #assertion-modal iframe {
     background-color: transparent;
     border: 0px none transparent;
     padding: 0px;
-    width: 100%; 
+    width: 100%;
     height: 20em;
 }
 
@@ -304,7 +304,7 @@ table.bootcamps td.date {
 
 /* list with checkbox as bullet */
 ul.checklist {
-  list-style-image: url('../img/checkbox.png'); 
+  list-style-image: url('../img/checkbox.png');
 }
 
 /* FAQ */
@@ -368,10 +368,10 @@ section.content {
     color:#2b3990;
 }
 
-h5 a:link, h5 a:visited, a, 
-h4 a:link, h4 a:visited, a, 
+h5 a:link, h5 a:visited, a,
+h4 a:link, h4 a:visited, a,
 h3 a:link, h3 a:visited, a {
-       color:#2b3990; 
+       color:#2b3990;
 }
 
 footer {
