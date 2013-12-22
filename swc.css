@@ -76,7 +76,6 @@ blockquote.testimonial cite {
 body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     color: rgb(03, 03, 03);
-    min-width: 400px;
 }
 
 /* Styling for editorial stylesheet */
@@ -339,7 +338,7 @@ section.content {
 
 #header-text {
     font-size:20pt;
-    white-space: nowrap;
+    margin:0;
 }
 
 #nav-logo {
