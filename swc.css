@@ -368,7 +368,9 @@ section.content {
     color:#2b3990;
 }
 
-h4 a:link, h4 a:visited, a {
+h5 a:link, h5 a:visited, a, 
+h4 a:link, h4 a:visited, a, 
+h3 a:link, h3 a:visited, a {
        color:#2b3990; 
 }
 
@@ -380,11 +382,13 @@ footer {
 
 footer a, footer a:hover{
     color:#FFF;
+    padding-left: 10px;
 }
 
-footer ul {
-    float:left;
-    list-style-type: none;
-    padding-right: 20px;
+footer .container .links{
+    background:url('../img/software-carpentry-banner-white.png') no-repeat;
+    background-size: 200px;
+    background-position: 0;
+    height:40px;
+    padding:40px 0 0 200px;
 }
- 

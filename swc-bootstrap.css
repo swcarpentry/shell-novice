@@ -86,7 +86,7 @@ code {
 }
 
 .container {
-    max-width:900px;
+    max-width:920px;
 }
 
 @media (max-width: 767px) {
