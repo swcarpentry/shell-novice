@@ -91,6 +91,10 @@ code {
     max-width:920px;
 }
 
+blockquote p {
+  font-size:14px;
+}
+
 @media (max-width: 767px) {
     .container {
       padding:0 40px;
