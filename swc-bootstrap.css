@@ -35,6 +35,7 @@ code {
 
 .navbar-inverse .nav > li > a {
   color: #f0f0f0;
+  text-shadow:none;
 }
 
 .navbar-inverse .navbar-inner {
