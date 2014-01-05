@@ -364,10 +364,14 @@ section.content {
     margin-bottom:20px;
 }
 
-h5 a:link, h5 a:visited, a,
-h4 a:link, h4 a:visited, a,
-h3 a:link, h3 a:visited, a {
-       color:#3E51CF;
+h5 a:link, h5 a:visited,
+h4 a:link, h4 a:visited,
+h3 a:link, h3 a:visited {
+    color:#2b3990;
+}
+
+a {
+    color:#3E51CF;
 }
 
 footer {
