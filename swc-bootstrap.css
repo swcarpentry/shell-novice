@@ -7,6 +7,7 @@
 
 .navbar .brand {
   padding-top: 0px;  /* align the logo */
+  text-shadow:none;
 }
 
 .navbar {
