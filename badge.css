@@ -1,0 +1,18 @@
+.badges-section {
+  margin-bottom:30px;
+}
+.badges-section .media {
+  margin-top: 30px;
+}
+h1.badge-title{
+  margin-top: 10px;
+}
+#modal-badge-img {
+  position:absolute;
+  right: 25px;
+  bottom: 25px;
+  opacity: 0.5;
+}
+#assertion-modal.in {
+  color: black;
+}
