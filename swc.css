@@ -344,8 +344,10 @@ section.content {
 #nav-logo {
     width:270px;
     height:40px;
-    top:0;
-    left:0;
+    top:5;
+    left:10;
+    position:absolute;
+    z-index: 10;
 }
 
 #home-options {
@@ -370,14 +372,26 @@ h3 a:link, h3 a:visited {
     color:#2b3990;
 }
 
+h5 a:hover,
+h4 a:hover,
+h3 a:hover {
+    color:#C26D17;
+}
+
 a {
     color:#3E51CF;
+}
+
+a:hover {
+    color:#C26D17;
+    text-decoration: none;
 }
 
 footer {
     background:#2b3990;
     padding:20px 0;
     font-size: 10pt;
+    margin-top:10px;
 }
 
 footer a, footer a:hover{

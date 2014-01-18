@@ -72,8 +72,22 @@ code {
   border-color:#2b3990;
 }
 
+.navbar-inverse .navbar-search {
+  border: none;
+}
+
+.navbar-inverse .nav-collapse .nav > li > a:hover,
+.navbar-inverse .nav-collapse .dropdown-menu a:hover {
+  background-color: transparent;
+}
+
 .navbar-inverse .nav-collapse .nav > li > a, .navbar-inverse .nav-collapse .dropdown-menu a {
   color: #2b3990;
+  text-align: center;
+}
+
+.navbar-inverse .nav-collapse .nav > li:hover > a {
+  color: #935212;
 }
 
 .navbar.transparent.navbar-inverse .navbar-inner {
@@ -93,6 +107,28 @@ code {
 
 blockquote p {
   font-size:14px;
+}
+
+@media (max-width: 979px){
+  .navbar-inverse .nav-collapse .nav > li > a {
+    text-transform: uppercase;
+    font-size: 12pt;
+  }
+
+  .navbar-inverse .nav-collapse .navbar-search {
+    text-align: center;
+    border-top:1px solid #AAA;
+  }
+
+  .navbar-inverse .nav-collapse .navbar-search .search-query {
+    margin:10px 0 0;
+  }
+
+  .navbar-inverse .nav-collapse .nav > li {
+    border-top:1px solid #AAA;
+    padding:10px 0;
+  }
+
 }
 
 @media (max-width: 767px) {
