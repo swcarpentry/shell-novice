@@ -376,15 +376,19 @@ h5 a:hover,
 h4 a:hover,
 h3 a:hover {
     color:#C26D17;
+    text-decoration: none;
 }
 
 a {
     color:#3E51CF;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 a:hover {
-    color:#C26D17;
-    text-decoration: none;
+    color:#965412;
 }
 
 footer {
