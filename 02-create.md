@@ -214,7 +214,7 @@ rather than going into the `thesis` directory and running `nano` on `draft.txt` 
 
 ~~~
 $ pwd
-/users/vlad/thesis
+/users/vlad
 
 $ mkdir thesis
 
