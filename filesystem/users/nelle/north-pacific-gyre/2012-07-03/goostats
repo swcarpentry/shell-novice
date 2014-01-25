@@ -1,0 +1,5 @@
+for filename in *.txt
+do
+     sleep 2
+     head -3 $filename | cut -d , -f 1 | sort | uniq
+done
