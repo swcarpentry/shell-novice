@@ -274,7 +274,7 @@ NENE02043B.txt
 ~~~
 
 Her next step is to decide
-what to call the files that the `goostat` analysis program will create.
+what to call the files that the `goostats` analysis program will create.
 Prefixing each input file's name with "stats" seems simple,
 so she modifies her loop to do that:
 
@@ -311,7 +311,7 @@ Using the left arrow key,
 Nelle backs up and changes the command `echo` to `goostats`:
 
 ~~~
-$ for datafile in *[AB].txt; do goostats $datafile stats-$datafile; done
+$ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
 
 When she presses enter,
@@ -324,7 +324,7 @@ uses up-arrow to repeat the command,
 and edits it to read:
 
 ~~~
-$ for datafile in *[AB].txt; do echo $datafile; goostats $datafile stats-$datafile; done
+$ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
 ~~~
 
 When she runs her program now,
@@ -359,7 +359,7 @@ so she decides to get some coffee and catch up on her reading.
 > $ history | tail -5
 >   456  ls -l NENE0*.txt
 >   457  rm stats-NENE01729B.txt.txt
->   458  goostats NENE01729B.txt stats-NENE01729B.txt
+>   458  bash goostats NENE01729B.txt stats-NENE01729B.txt
 >   459  ls -l NENE0*.txt
 >   460  history
 > ~~~
