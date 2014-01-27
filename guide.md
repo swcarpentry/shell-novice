@@ -107,8 +107,14 @@ Teaching Notes
     including file permissions, job control, and SSH.
     If learners already understand the basic material,
     this can be covered instead using the online lessons as guidelines.
+    These limitations also have follow-on consequences:
+
+    * Without file permissions, it's hard to discuss [script
+      shebangs][shebang] (e.g. `#!/bin/sh`).
 
 *   Installing Bash and a reasonable set of Unix commands on Windows
     always involves some fiddling and frustration.
     Please see the latest set of installation guidelines for advice,
     and try it out yourself *before* teaching a class.
+
+[shebang]: http://en.wikipedia.org/wiki/Shebang_%28Unix%29
