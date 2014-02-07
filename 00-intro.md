@@ -5,12 +5,12 @@ title: Introducing the Shell
 level: novice
 ---
 <div class="objectives" markdown="1">
-## Objectives
+
+#### Objectives
 *   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
 *   Explain when and why command-line interfaces should be used instead of graphical interfaces.
-</div>
 
-## Lesson
+</div>
 
 Nelle Nemo, a marine biologist,
 has just returned from a six-month survey of the
@@ -55,8 +55,7 @@ As a bonus,
 once she has put a processing pipeline together,
 she will be able to use it again whenever she collects more data.
 
-What and Why
-------------
+#### What and Why
 
 At a high level, computers do four things:
 
@@ -72,7 +71,7 @@ most of us use windows, icons, mice, and pointers.
 These technologies didn't become widespread until the 1980s,
 but their roots go back to Doug Engelbart's work in the 1960s,
 which you can see in what has been called
-"[The Mother of All Demos](http://video.google.com/videoplay?docid=-8734787622017763097#)".
+"[The Mother of All Demos](http://www.youtube.com/watch?v=a11JDLBXtPQ)".
 
 Going back even further,
 the only way to interact with early computers was to rewire them.
@@ -127,11 +126,13 @@ As clusters and cloud computing become more popular for scientific data crunchin
 being able to drive them is becoming a necessary skill.
 
 <div class="keypoints" markdown="1">
-## Key Points
+
+#### Key Points
 *   A shell is a program whose primary purpose is to read commands and run other programs.
 *   The shell's main advantages are its high action-to-keystroke ratio,
     its support for automating repetitive tasks,
     and that it can be used to access networked machines.
 *   The shell's main disadvantages are its primarily textual nature
     and how cryptic its commands and operation can be.
+
 </div>

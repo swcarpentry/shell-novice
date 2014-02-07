@@ -5,14 +5,14 @@ title: Shell Scripts
 level: novice
 ---
 <div class="objectives" markdown="1">
-## Objectives
+
+#### Objectives
 *   Write a shell script that runs a command or series of commands for a fixed set of files.
 *   Run a shell script from the command line.
 *   Write a shell script that operates on a set of files defined by the user on the command line.
 *   Create pipelines that include user-written shell scripts.
-</div>
 
-## Lesson
+</div>
 
 We are finally ready to see what makes the shell such a powerful programming environment.
 We are going to take the commands we repeat frequently and save them in files
@@ -49,7 +49,7 @@ ATOM     18  C           1      -4.705   2.108  -0.396  1.00  0.00
 Sure enough,
 our script's output is exactly what we would get if we ran that pipeline directly.
 
-> ### Text vs. Whatever
+> #### Text vs. Whatever
 > 
 > We usually call programs like Microsoft Word or LibreOffice Writer "text
 > editors", but we need to be a bit more careful when it comes to
@@ -112,8 +112,23 @@ ATOM     17  C           1       5.406  -0.117  -1.087
 ATOM     18  C           1      -0.696  -2.628  -0.641
 ~~~
 
+This works,
+but it may take the next person who reads `middle.sh` a moment to figure out what it does.
+We can improve our script by adding some [comments](../../gloss.html#comment) at the top:
+
+~~~
+$ cat middle.sh
+# Select lines from the middle of a file.
+# Usage: middle.sh filename start_line end_line
+head $2 $1 | tail $3
+~~~
+
+A comment starts with a `#` character and runs to the end of the line.
+The computer ignores comments,
+but they're invaluable for helping people understand and use scripts.
+
 What if we want to process many files in a single pipeline?
-For example, if we want to sort our PDB files by length, we would type:
+For example, if we want to sort our `.pdb` files by length, we would type:
 
 ~~~
 $ wc -l *.pdb | sort -n
@@ -122,7 +137,7 @@ $ wc -l *.pdb | sort -n
 because `wc -l` lists the number of lines in the files
 and `sort -n` sorts things numerically.
 We could put this in a file,
-but then it would only ever sort a list of PDB files in the current directory.
+but then it would only ever sort a list of `.pdb` files in the current directory.
 If we want to be able to get a sorted list of other kinds of files,
 we need a way to get all those names into the script.
 We can't use `$1`, `$2`, and so on
@@ -145,7 +160,7 @@ $ bash sorted.sh *.dat backup/*.dat
      182 girmanis.dat
 ~~~
 
-> ### Why Isn't It Doing Anything?
+> #### Why Isn't It Doing Anything?
 > 
 > What happens if a script is supposed to process a bunch of files, but we
 > don't give it any filenames? For example, what if we type:
@@ -211,10 +226,27 @@ The file `redo-figure-3.sh` now contains:
 After a moment's work in an editor to remove the serial numbers on the commands,
 we have a completely accurate record of how we created that figure.
 
-> ### Unnumbering
+> #### Unnumbering
 > 
 > Nelle could also use `colrm` (short for "column removal") to remove the
 > serial numbers on her previous commands.
+> Its parameters are the range of characters to strip from its input:
+>
+> ~~~
+> $ history | tail -5
+>   173  cd /tmp
+>   174  ls
+>   175  mkdir bakup
+>   176  mv bakup backup
+>   177  history | tail -5
+> $ history | tail -5 | colrm 1 7
+> cd /tmp
+> ls
+> mkdir bakup
+> mv bakup backup
+> history | tail -5
+> history | tail -5 | colrm 1 7
+> ~~~
 
 In practice, most people develop shell scripts by running commands at the shell prompt a few times
 to make sure they're doing the right thing,
@@ -223,7 +255,7 @@ This style of work allows people to recycle
 what they discover about their data and their workflow
 with just a few extra keystrokes.
 
-### Nelle's Pipeline: Creating a Script
+#### Nelle's Pipeline: Creating a Script
 
 An off-hand comment from her supervisor has made Nelle realize that
 she should have provided a couple of extra parameters to `goostats` when she processed her files.
@@ -236,12 +268,12 @@ it will probably need to be done a third or fourth time as well.
 She runs the editor and writes the following:
 
 ~~~
-    # Calculate reduced stats for data files at J = 100 c/bp.
-    for datafile in $*
-    do
-        echo $datafile
-        goostats -J 100 -r $datafile stats-$datafile
-    done
+# Calculate reduced stats for data files at J = 100 c/bp.
+for datafile in $*
+do
+    echo $datafile
+    goostats -J 100 -r $datafile stats-$datafile
+done
 ~~~
 
 (The parameters `-J 100` and `-r` are the ones her supervisor said she should have used.)
@@ -286,16 +318,19 @@ and use `*[AB].txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
 <div class="keypoints" markdown="1">
-## Key Points
+
+#### Key Points
 *   Save commands in files (usually called shell scripts) for re-use.
-*   Use `bash filename` to run saved commands.
+*   `bash filename` runs the commands saved in a file.
 *   `$*` refers to all of a shell script's command-line parameters.
 *   `$1`, `$2`, etc., refer to specified command-line parameters.
 *   Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.
+
 </div>
 
 <div class="challenges" markdown="1">
-## Challenges
+
+#### Challenges
 
 1.  Leah has several hundred data files, each of which is formatted like this:
 
@@ -324,7 +359,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
     $ bash largest.sh /tmp/data pdb
     ~~~
 
-    would print the name of the PDB file in `/tmp/data` that has been
+    would print the name of the `.pdb` file in `/tmp/data` that has been
     changed most recently.
 
 3.  If you run the command:
@@ -372,4 +407,5 @@ echo $*.dat
     </td>
   </tr>
 </table>
+
 </div>

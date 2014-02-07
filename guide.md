@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: Instructor's Guide
+title: The Unix Shell
 level: novice
 ---
 Many people have questioned whether we should still teach the shell.
@@ -54,8 +54,7 @@ as long as learners using Windows do not run into roadblocks such as:
     and
 *   the shell refusing to run scripts that include DOS line endings.
 
-Teaching Notes
---------------
+#### Teaching Notes
 
 *   Have learners open a shell
     and then do `whoami`,
@@ -109,12 +108,10 @@ Teaching Notes
     this can be covered instead using the online lessons as guidelines.
     These limitations also have follow-on consequences:
 
-    * Without file permissions, it's hard to discuss [script
-      shebangs][shebang] (e.g. `#!/bin/sh`).
+*   It's hard to discuss `#!` (shebang) wihtout first discussing permissions,
+    which we don't do.
 
 *   Installing Bash and a reasonable set of Unix commands on Windows
     always involves some fiddling and frustration.
     Please see the latest set of installation guidelines for advice,
     and try it out yourself *before* teaching a class.
-
-[shebang]: http://en.wikipedia.org/wiki/Shebang_%28Unix%29

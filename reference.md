@@ -4,8 +4,8 @@ root: ../..
 title: Shell Reference
 level: novice
 ---
-Basic Commands
---------------
+#### Basic Commands
+
 *   `cat` displays the contents of its inputs.
 *   `cd path` changes the current working directory.
 *   `cp old new` copies a file.
@@ -25,8 +25,8 @@ Basic Commands
 *   `wc` counts lines, words, and characters in its inputs.
 *   `whoami` shows the user's current identity.
 
-Paths
------
+#### Paths
+
 *   `/path/from/root` is an absolute path.
 *   `/` on its own refers to the root of the filesystem.
 *   `path/without/leading/slash` is a relative path.
@@ -34,11 +34,11 @@ Paths
 *   `*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`.
 *   `?` matches any single character in a filename, so `?.txt` matches `a.txt` but not `any.txt`.
 
-Combining Commands
-------------------
+#### Combining Commands
+
 *   `command > file` redirects a command's output to a file.
 *   `first | second` connects the output of the first command to the input of the second.
-*   Use a `for` loop to repeat commands once for every thing in a list:
+*   A `for` loop repeats commands once for every thing in a list:
 
         for variable in name_1 name_2 name_3
         do
@@ -46,8 +46,8 @@ Combining Commands
         done
 
 *   Use `$name` to expand a variable (i.e., get its value).
-*   Use `history` to display recent commands, and `!number` to repeat a command by number.
-*   Use `bash filename` to run commands saved in `filename`.
+*   `history` displays recent commands, and `!number` to repeat a command by number.
+*   `bash filename` runs commands saved in `filename`.
 *   `$*` refers to all of a shell script's command-line parameters.
 *   `$1`, `$2`, etc., refer to specified command-line parameters.
-*   Use `$(command)` to insert a command's output in place.
+*   `$(command)` inserts a command's output in place.

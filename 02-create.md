@@ -5,14 +5,14 @@ title: Creating Things
 level: novice
 ---
 <div class="objectives" markdown="1">
-## Objectives
+
+#### Objectives
 *   Create a directory hierarchy that matches a given diagram.
 *   Create files in that hierarchy using an editor or by copying and renaming existing files.
 *   Display the contents of a directory using the command line.
 *   Delete specified files and/or directories.
-</div>
 
-## Lesson
+</div>
 
 We now know how to explore files and directories,
 but how do we create them in the first place?
@@ -64,7 +64,7 @@ $ cd thesis
 $ nano draft.txt
 ~~~
 
-> ### Which Editor?
+> #### Which Editor?
 > 
 > When we say, "`nano` is a text editor," we really do mean "text": it can
 > only work with plain character data, not tables, images, or any other
@@ -91,6 +91,7 @@ then use Control-O to write our data to disk:
 
 Once our file is saved,
 we can use Control-X to quit the editor and return to the shell.
+(Unix documentation often uses the shorthand `^A` to mean "control-A".)
 `nano` doesn't leave any output on the screen after it exits,
 but `ls` now shows that we have created a file called `draft.txt`:
 
@@ -137,7 +138,7 @@ which tells us that our file is gone:
 $ ls
 ~~~
 
-> ### Deleting Is Forever
+> #### Deleting Is Forever
 > 
 > Unix doesn't have a trash bin: when we delete files, they are unhooked
 > from the file system so that their storage space on disk can be
@@ -193,7 +194,7 @@ The directory is now empty, so `rmdir` can delete it:
 $ rmdir thesis
 ~~~
 
-> ### With Great Power Comes Great Responsibility
+> #### With Great Power Comes Great Responsibility
 > 
 > Removing the files in a directory just so that we can remove the
 > directory quickly becomes tedious. Instead, we can use `rm` with the
@@ -268,7 +269,7 @@ $ ls thesis
 ~~~
 
 Further,
-`ls` with a filename or directory name as an parameter only lists that file or directory.
+`ls` with a filename or directory name as a parameter only lists that file or directory.
 We can use this to see that `quotes.txt` is still in our current directory:
 
 ~~~
@@ -301,7 +302,7 @@ ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt
 ~~~
 
-> ### Another Useful Abbreviation
+> #### Another Useful Abbreviation
 > 
 > The shell interprets the character `~` (tilde) at the start of a path to
 > mean "the current user's home directory". For example, if Vlad's home
@@ -310,20 +311,17 @@ thesis/quotations.txt
 > path: `here/there/~/elsewhere` is *not* `/home/vlad/elsewhere`.
 
 <div class="keypoints" markdown="1">
-## Key Points
+
+#### Key Points
 *   Unix documentation uses '^A' to mean "control-A".
 *   The shell does not have a trash bin: once something is deleted, it's really gone.
-*   `mkdir path` creates a new directory.
-*   `cp old new` copies a file.
-*   `mv old new` moves (renames) a file or directory.
-*   `nano` is a very simple text editor&mdash;please use something else for real work.
-*   `touch path` creates an empty file if it doesn't already exist.
-*   `rm path` removes (deletes) a file.
-*   `rmdir path` removes (deletes) an empty directory.
+*   Nano is a very simple text editor&mdash;please use something else for real work.
+
 </div>
 
 <div class="challenges" markdown="1">
-## Challenges
+
+#### Challenges
 
 1.  What is the output of the closing `ls` command in the sequence shown below?
 
@@ -377,4 +375,5 @@ thesis/quotations.txt
     The command `ls -t` lists things by time of last change,
     with most recently changed files or directories first.
     In what order does `ls -R -t` display things?
+
 </div>

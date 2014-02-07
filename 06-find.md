@@ -5,14 +5,14 @@ title: Finding Things
 level: novice
 ---
 <div class="objectives" markdown="1">
-## Objectives
+
+#### Objectives
 *   Use `grep` to select lines from text files that match simple patterns.
 *   Use `find` to find files whose names match simple patterns.
 *   Use the output of one command as the command-line parameters to another command.
 *   Explain what is meant by "text" and "binary" files, and why many common tools don't handle the latter well.
-</div>
 
-## Lesson
+</div>
 
 You can guess someone's age by how they talk about search:
 young people use "Google" as a verb,
@@ -24,7 +24,7 @@ It is also the name of a very useful command-line program.
 `grep` finds and prints lines in files that match a pattern.
 For our examples,
 we will use a file that contains three haikus taken from a
-[1998 competition in Salon magazine](http://www.salonmagazine.com/21st/chal/1998/01/26chal.html):
+1998 competition in *Salon* magazine:
 
 ~~~
 The Tao that is seen
@@ -39,6 +39,12 @@ Yesterday it worked
 Today it is not working
 Software is like that.
 ~~~
+
+> #### Forever, or Five Years
+>
+> We haven't linked to the original haikus because they don't appear to be on *Salon*'s site any longer.
+> As [Jeff Rothenberg said](http://www.clir.org/pubs/archives/ensuring.pdf),
+> "Digital information lasts forever&mdash;or five years, whichever comes first."
 
 Let's find lines that contain the word "not":
 
@@ -147,14 +153,14 @@ matched.  (-F is specified by POSIX.)
 ...        ...        ...
 ~~~
 
-> ### Wildcards
+> #### Wildcards
 > 
 > `grep`'s real power doesn't come from its options, though; it comes from
 > the fact that patterns can include wildcards. (The technical name for
 > these is [regular expressions](../../gloss.html#regular-expression), which
-> is what the "re" in "grep" stands for.) Regular expressions are complex
-> enough that we devoted an entire section of the website to them; if you
-> want to do complex searches, please check it out. As a taster, we can
+> is what the "re" in "grep" stands for.) Regular expressions are both complex
+> and powerful; if you want to do complex searches, please look at the lesson
+> on [our website](http://software-carpentry.org). As a taster, we can
 > find lines that have an 'o' in the second position like this:
 > 
 >     $ grep -E '^.o' haiku.txt
@@ -185,8 +191,12 @@ and an empty subdirectory called `old`.
 
 For our first command,
 let's run `find . -type d`.
-`.` (i.e., the current working directory) is where we want our search to start;
-`-type d` means "things that are directories".
+As always,
+the `.` on its own means the current working directory,
+which is where we want our search to start;
+the other argument,
+`-type d`,
+means "things that are directories".
 Sure enough,
 `find`'s output is the names of the five directories in our little tree
 (including `.`):
@@ -276,6 +286,13 @@ $ find . -name '*.txt'
 ./notes.txt
 ~~~
 
+> #### Listing vs. Finding
+>
+> `ls` and `find` can be made to do similar things given the right options,
+> but under normal circumstances,
+> `ls` lists everything it can,
+> while `find` searches for things with certain properties and shows them.
+
 As we said earlier,
 the command line's power lies in combining tools.
 We've seen how to do that with pipes;
@@ -320,7 +337,7 @@ $ grep FE $(find . -name '*.pdb')
 ./human/heme.pdb:ATOM  25  FE  1  -0.924  0.535  -0.518
 ~~~
 
-> ### Binary Files
+> #### Binary Files
 > 
 > We have focused exclusively on finding things in text files. What if
 > your data is stored as images, in databases, or in some other format?
@@ -344,7 +361,7 @@ $ grep FE $(find . -name '*.pdb')
 > modern programming languages, Python included, have borrowed a lot of
 > ideas from it, and imitation is also the sincerest form of praise.
 
-## Conclusion
+#### Conclusion
 
 The Unix shell is older than most of the people who use it. It has
 survived so long because it is one of the most productive programming
@@ -358,19 +375,17 @@ number of important operations which we can perform without thinking
 about them."
 
 <div class="keypoints" markdown="1">
-## Key Points
-*   Everything is stored as bytes, but the bytes in binary files do not represent characters.
-*   Use nested loops to run commands for every combination of two lists of things.
-*   Use `\` to break one logical line into several physical lines.
-*   Use parentheses `()` to keep things combined.
-*   Use `$(command)` to insert a command's output in place.
-*   `find` finds files with specific properties that match patterns.
-*   `grep` selects lines in files that match patterns.
+
+#### Key Points
+*   Use `find` to find files, and `grep` to find things in files.
+*   `$(command)` inserts a command's output in place.
 *   `man command` displays the manual page for a given command.
+
 </div>
 
 <div class="challenges" markdown="1">
-## Challenges
+
+#### Challenges
 
 1.  Write a short explanatory comment for the following shell script:
 
@@ -391,4 +406,5 @@ about them."
     3. `grep -v temp $(find /data -name '*ose.dat' -print)`
 
     4. None of the above.
+
 </div>
