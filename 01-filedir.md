@@ -5,16 +5,16 @@ title: Files and Directories
 level: novice
 ---
 <div class="objectives" markdown="1">
-## Objectives
+
+#### Objectives
 *   Explain the similarities and differences between a file and a directory.
 *   Translate an absolute path into a relative path and vice versa.
 *   Construct absolute and relative paths that identify specific files and directories.
 *   Explain the steps in the shell's read-run-print cycle.
 *   Identify the actual command, flags, and filenames in a command-line call.
 *   Demonstrate the use of tab completion, and explain its advantages.
-</div>
 
-## Lesson
+</div>
 
 The part of the operating system responsible for managing files and directories
 is called the [file system](../../gloss.html#filesystem).
@@ -25,21 +25,16 @@ which hold files or other directories.
 
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
 To start exploring them,
-let's log in to the computer by typing our user ID and password.
-Most systems will print stars to obscure the password,
-or nothing at all,
-in case some evildoer is shoulder surfing behind us:
+let's open a shell window:
 
 ~~~
-login: vlad
-password: ********
 $
 ~~~
 
-Once we have logged in we'll see a [prompt](../../gloss.html#prompt),
-which is how the shell tells us that it's waiting for input.
-This is usually just a dollar sign,
-but which may show extra information such as our user ID or the current time.
+The dollar sign is a [prompt](../../gloss.html#prompt),
+which shows us that the shell is waiting for input;
+your shell may show something more elaborate.
+
 Type the command `whoami`,
 then press the Enter key (sometimes marked Return) to send the command to the shell.
 The command's output is the ID of the current user,
@@ -54,8 +49,8 @@ vlad
 More specifically, when we type `whoami` the shell:
 
 1.  finds a program called `whoami`,
-2.  runs it,
-3.  waits for it to produce some output (which the shell displays), and
+2.  runs that program,
+3.  displays that program's output, then
 4.  displays a new prompt to tell us that it's ready for more commands.
 
 Next,
@@ -76,7 +71,7 @@ $ pwd
 /users/vlad
 ~~~
 
-> ### Alphabet Soup
+> #### Alphabet Soup
 > 
 > If the command to find out who we are is `whoami`, the command to find
 > out where we are ought to be called `whereami`, so why is it `pwd`
@@ -159,7 +154,7 @@ without it,
 the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
 
-> ### What's In A Name?
+> #### What's In A Name?
 > 
 > You may have noticed that all of Vlad's files' names are "something dot
 > something". This is just a convention: we can call a file `mythesis` or
@@ -170,14 +165,19 @@ which doesn't exist.
 > what type of data the file holds: `.txt` signals a plain text file, `.pdf`
 > indicates a PDF document, `.cfg` is a configuration file full of parameters
 > for some program or other, and so on.
-> 
-> It's important to remember that this is just a convention. Files contain
-> bytes: it's up to us and our programs to interpret those bytes according
-> to the rules for PDF documents, images, and so on. For example, naming a
-> PNG image of a whale as `whale.mp3` doesn't somehow magically turn it
-> into a recording of whalesong.
+>
+> This is just a convention, albeit an important one. Files contain
+> bytes: it's up to us and our programs to interpret those bytes
+> according to the rules for PDF documents, images, and so on.
+>
+> Naming a PNG image of a whale as `whale.mp3` doesn't somehow
+> magically turn it into a recording of whalesong, though it *might*
+> cause the operating system to try to open it with a music player
+> when someone double-clicks it.
 
-Now let's take a look at what's in Vlad's `data` directory by running the command `ls -F data`.
+Now let's take a look at what's in Vlad's `data` directory by running `ls -F data`,
+i.e.,
+the command `ls` with the parameters `-F` and `data`.
 The second parameter&mdash;the one *without* a leading dash&mdash;tells `ls` that
 we want a listing of something other than our current working directory:
 
@@ -266,7 +266,6 @@ but it's almost always simpler to use `cd ..` to go up one level:
 ~~~
 $ pwd
 /users/vlad/data
-
 $ cd ..
 ~~~
 
@@ -301,7 +300,7 @@ which means "the current working directory".
 It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
 
-> ### Orthogonality
+> #### Orthogonality
 > 
 > The special names `.` and `..` don't belong to `ls`;
 > they are interpreted the same way by every program.
@@ -313,7 +312,7 @@ but we'll see some uses for it soon.
 > Orthogonal systems tend to be easier for people to learn
 > because there are fewer special cases and exceptions to keep track of.
 
-## Nelle's Pipeline: Organizing Files
+#### Nelle's Pipeline: Organizing Files
 
 Knowing just this much about files and directories,
 Nelle is ready to organize the files that the protein assay machine will create.
@@ -379,30 +378,28 @@ This is called [tab completion](../../gloss.html#tab-completion),
 and we will see it in many other tools as we go on.
 
 <div class="keypoints" markdown="1">
-## Key Points
-*   The file system is responsible for managing information on disk.
+
+#### Key Points
+*   The file system is responsible for managing information on the disk.
 *   Information is stored in files, which are stored in directories (folders).
 *   Directories can also store other directories, which forms a directory tree.
 *   `/` on its own is the root directory of the whole filesystem.
 *   A relative path specifies a location starting from the current location.
 *   An absolute path specifies a location from the root of the filesystem.
-*   Directory names in a path are separated with '/' on Unix, but '\' on Windows.
+*   Directory names in a path are separated with '/' on Unix, but '\\' on Windows.
 *   '..' means "the directory above the current one";
     '.' on its own means "the current directory".
 *   Most files' names are `something.extension`.
     The extension isn't required,
     and doesn't guarantee anything,
     but is normally used to indicate the type of data in the file.
-*   `cd <em>path</em>` changes the current working directory.
-*   `ls <em>path</em>` prints a listing of a specific file or directory;
-    `ls` on its own lists the current working directory.
-*   `pwd` prints the user's current working directory (current default location in the filesystem).
-*   `whoami` shows the user's current identity.
 *   Most commands take options (flags) which begin with a '-'.
+
 </div>
 
 <div class="challenges" markdown="1">
-## Challenges
+
+#### Challenges
 
 <img src="img/filesystem-challenge.svg" alt="Filesystem for Challenge Questions" />
 
@@ -412,7 +409,9 @@ and we will see it in many other tools as we go on.
     3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
     4.  `original pnas_final pnas_sub`
 
-2.  If `pwd` displays `/users/backup`, what command will display
+2.  If `pwd` displays `/users/backup`,
+    and `-r` tells `ls` to display things in reverse order,
+    what command will display:
 
     ~~~
     pnas-sub/ pnas-final/ original/
@@ -427,5 +426,6 @@ and we will see it in many other tools as we go on.
     1.  It has no effect.
     2.  It changes the working directory to `/`.
     3.  It changes the working directory to the user's home directory.
-    4.  It is an error.
+    4.  It produces an error message.
+
 </div>

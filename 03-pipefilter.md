@@ -5,15 +5,15 @@ title: Pipes and Filters
 level: novice
 ---
 <div class="objectives" markdown="1">
-## Objectives
+
+#### Objectives
 *   Redirect a command's output to a file.
 *   Process a file instead of keyboard input using redirection.
 *   Construct command pipelines with two or more stages.
 *   Explain what usually happens if a program or pipeline isn't given any input to process.
 *   Explain Unix's "small pieces, loosely joined" philosophy.
-</div>
 
-## Lesson
+</div>
 
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
@@ -47,7 +47,7 @@ $ wc *.pdb
  107  819 6081 total
 ~~~
 
-> ### Wildcards
+> #### Wildcards
 > 
 > `*` is a [wildcard](../../gloss.html#wildcard). It matches zero or more
 > characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and so on.
@@ -65,11 +65,11 @@ $ wc *.pdb
 > with 'p') or `preferred.p` (there isn't at least one character after the
 > '.p').
 > 
-> When the shell sees a wildcard, it expands it to create a list of
-> matching filenames *before* running the command that was asked for.
-> This means that commands like `wc` and `ls` never see the wildcard
-> characters, just what those wildcards matched. This is another example
-> of orthogonal design.
+> When the shell sees a wildcard, it expands the wildcard to create a
+> list of matching filenames *before* running the command that was
+> asked for.  This means that commands like `wc` and `ls` never see
+> the wildcard characters, just what those wildcards matched. This is
+> another example of orthogonal design.
 
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
@@ -150,7 +150,6 @@ we can run another command called `head` to get the first few lines in `sorted-l
 
 ~~~
 $ sort lengths > sorted-lengths
-
 $ head -1 sorted-lengths
   9  methane.pdb
 ~~~
@@ -204,8 +203,7 @@ most Unix programmers call it "stdin".
 Every process also has a default output channel called [standard output](../../gloss.html#standard-output)
 (or "stdout").
 
-The shell is just another program,
-and runs in a process like any other.
+The shell is actually just another program.
 Under normal circumstances,
 whatever we type on the keyboard is sent to the shell on its standard input,
 and whatever it produces on standard output is displayed on our screen.
@@ -239,7 +237,8 @@ Unix programmers focus on creating lots of simple tools that each do one job wel
 and that work well with each other.
 This programming model is called [pipes and filters](../../gloss.html#pipe-and-filter).
 We've already seen pipes;
-a [filter](../../gloss.html#filter) is a program that transforms a stream of input into a stream of output.
+a [filter](../../gloss.html#filter) is a program like `wc` or `sort`
+that transforms a stream of input into a stream of output.
 Almost all of the standard Unix tools can work this way:
 unless told to do otherwise,
 they read from standard input,
@@ -252,7 +251,7 @@ can be combined with every other program that behaves this way as well.
 You can *and should* write your programs this way
 so that you and other people can put those programs into pipes to multiply their power.
 
-> ### Redirecting Input
+> #### Redirecting Input
 > 
 > As well as using `>` to redirect a program's output, we can use `<` to
 > redirect its input, i.e., to read from a file instead of from standard
@@ -263,7 +262,7 @@ so that you and other people can put those programs into pipes to multiply their
 > have told the shell to send the contents of `ammonia.pdb` to `wc`'s
 > standard input.
 
-### Nelle's Pipeline: Checking Files
+#### Nelle's Pipeline: Checking Files
 
 Nelle has run her samples through the assay machines
 and created 1520 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
@@ -339,62 +338,57 @@ the expression `[AB]` matches either an 'A' or a 'B',
 so this matches all the valid data files she has.
 
 <div class="keypoints" markdown="1">
-## Key Points
+
+#### Key Points
 *   `command > file` redirects a command's output to a file.
 *   `first | second` is a pipeline: the output of the first command is used as the input to the second.
 *   The best way to use the shell is to use pipes to combine simple single-purpose programs (filters).
-*   `cat` displays the contents of its inputs.
-*   `head` displays the first few lines of its input.
-*   `sort` sorts its inputs.
-*   `tail` displays the last few lines of its input.
-*   `wc` counts lines, words, and characters in its inputs.
+
 </div>
 
 <div class="challenges" markdown="1">
-## Challenges
 
-1.  If we run `sort` on each of the files shown on the left in the table
-    below, *without* the `-n` flag, the output is as shown on the right.
-    Explain why we get different answers for the two files.
+#### Challenges
+
+1.  If we run `sort` on the file shown on the left, we get the output shown on the right:
 
 <table>
   <tr>
-    <td valign="top"><pre>
-1
+    <td valign="top"><pre>1
 10
 2
 19
 22
-6
-    </pre></td>
-    <td valign="top"><pre>
-1
+6</pre></td>
+    <td valign="top"><pre>1
 10
 19
 2
 22
-6
-    </pre></td>
-  </tr>
-  <tr>
-    <td valign="top"><pre>
- 1
-10
- 2
-19
-22
- 6
-    </pre></td>
-    <td valign="top"><pre>
- 1
- 2
- 6
-10
-19
-22
-    </pre></td>
+6</pre></td>
   </tr>
 </table>
+
+    If we run `sort -n` on the same input, we get different output:
+
+<table>
+  <tr>
+    <td valign="top"><pre> 1
+10
+ 2
+19
+22
+ 6</pre></td>
+    <td valign="top"><pre> 1
+ 2
+ 6
+10
+19
+22</pre></td>
+  </tr>
+</table>
+
+    Explain why `-n` has this effect.
 
 2.  What is the difference between:
 
@@ -493,6 +487,7 @@ so this matches all the valid data files she has.
     ~~~
 
     What other command(s) could be added to this in a pipeline to find
-    out what animals have been seen (without any duplicates in the
-    animals' names)?
+    out what animals the file contains (without any duplicates in their
+    names)?
+
 </div>

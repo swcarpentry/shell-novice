@@ -5,16 +5,16 @@ title: Loops
 level: novice
 ---
 <div class="objectives" markdown="1">
-## Objectives
+
+#### Objectives
 *   Write a loop that applies one or more commands separately to each file in a set of files.
 *   Trace the values taken on by a loop variable during execution of the loop.
 *   Explain the difference between a variable's name and its value.
 *   Explain why spaces and some punctuation characters shouldn't be used in files' names.
 *   Demonstrate how to see what commands have recently been executed.
 *   Re-run recently executed commands without retyping them.
-</div>
 
-## Lesson
+</div>
 
 Wildcards and tab completion are two ways to reduce typing (and typing mistakes).
 Another is to tell the shell to do something over and over again.
@@ -68,7 +68,7 @@ Finally,
 the command that's actually being run is our old friend `head`,
 so this loop prints out the first three lines of each data file in turn.
 
-> ### Follow the Prompt
+> #### Follow the Prompt
 >
 > The shell prompt changes from `$` to `>` and back again as we were
 > typing in our loop. The second prompt, `>`, is different to remind
@@ -98,8 +98,8 @@ done
 it would work exactly the same way.
 *Don't do this.*
 Programs are only useful if people can understand them,
-so using meaningless names (like `x`) or misleading names (like `temperature`)
-increases the likelihood of the program being wrong.
+so meaningless names (like `x`) or misleading names (like `temperature`)
+increase the odds that the program won't do what its readers think it does.
 
 Here's a slightly more complicated loop:
 
@@ -145,7 +145,7 @@ when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilis
 Finally,
 the `head` and `tail` combination selects lines 81-100 from whatever file is being processed.
 
-> ### Spaces in Names
+> #### Spaces in Names
 > 
 > Filename expansion in loops is another reason you should not use spaces in filenames.
 > Suppose our data files are named:
@@ -223,7 +223,7 @@ The second time, the command is:
 mv unicorn.dat original-unicorn.dat
 ~~~
 
-> ### Measure Twice, Run Once
+> #### Measure Twice, Run Once
 > 
 > A loop is a way to do many things at once&mdash;or to make many mistakes at
 > once if it does the wrong thing. One way to check what a loop *would* do
@@ -250,7 +250,7 @@ mv unicorn.dat original-unicorn.dat
 > isn't foolproof, but it's a handy way to see what's going to happen when
 > you're still learning how loops work.
 
-### Nelle's Pipeline: Processing Files
+#### Nelle's Pipeline: Processing Files
 
 Nelle is now ready to process her data files.
 Since she's still learning how to use the shell,
@@ -327,6 +327,12 @@ and edits it to read:
 $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
 ~~~
 
+> #### Beginning and End
+>
+> We can move to the beginning of a line in the shell by typing `^A`
+> (which means Control-A)
+> and to the end using `^E`.
+
 When she runs her program now,
 it produces one line of output every five seconds or so:
 
@@ -348,7 +354,7 @@ to examine one of the output files.
 It looks good,
 so she decides to get some coffee and catch up on her reading.
 
-> ### Those Who Know History Can Choose to Repeat It
+> #### Those Who Know History Can Choose to Repeat It
 > 
 > Another way to repeat previous work is to use the `history` command to
 > get a list of the last few hundred commands that have been executed, and
@@ -368,18 +374,21 @@ so she decides to get some coffee and catch up on her reading.
 > `!458`.
 
 <div class="keypoints" markdown="1">
-## Key Points
-*   Use a `for` loop to repeat commands once for every thing in a list.
+
+#### Key Points
+*   A `for` loop repeats commands once for every thing in a list.
 *   Every `for` loop needs a variable to refer to the current "thing".
 *   Use `$name` to expand a variable (i.e., get its value).
 *   Do not use spaces, quotes, or wildcard characters such as '*' or '?' in filenames, as it complicates variable expansion.
 *   Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping.
 *   Use the up-arrow key to scroll up through previous commands to edit and repeat them.
 *   Use `history` to display recent commands, and `!number` to repeat a command by number.
+
 </div>
 
 <div class="challenges" markdown="1">
-## Challenges
+
+#### Challenges
 
 1.  Suppose that `ls` initially displays:
 
@@ -443,4 +452,5 @@ so she decides to get some coffee and catch up on her reading.
         $how -limit 0.01 NENE01729B.txt
     done
     ~~~
+
 </div>
