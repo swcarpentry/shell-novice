@@ -1,5 +1,11 @@
 /* Customizations to Bootstrap's default styles */
 
+blockquote p {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
 /* readability: darken the alert colour for contrast with background */
 .alert {
   color: rgb(0,0,0);
