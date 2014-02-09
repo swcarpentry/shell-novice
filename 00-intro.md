@@ -118,7 +118,7 @@ Commands are terse (often only a couple of characters long),
 their names are frequently cryptic,
 and their output is lines of text rather than something visual like a graph.
 On the other hand,
-the shell allows us to combine existing tools in powerful ways with only a few keystrokes.
+the shell allows us to combine existing tools in powerful ways with only a few keystrokes
 and to set up pipelines to handle large volumes of data automatically.
 In addition,
 the command line is often the easiest way to interact with remote machines.
