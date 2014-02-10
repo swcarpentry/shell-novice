@@ -50,7 +50,7 @@ Sure enough,
 our script's output is exactly what we would get if we ran that pipeline directly.
 
 > #### Text vs. Whatever
-> 
+>
 > We usually call programs like Microsoft Word or LibreOffice Writer "text
 > editors", but we need to be a bit more careful when it comes to
 > programming. By default, Microsoft Word uses `.docx` files to store not
@@ -119,7 +119,7 @@ We can improve our script by adding some [comments](../../gloss.html#comment) at
 ~~~
 $ cat middle.sh
 # Select lines from the middle of a file.
-# Usage: middle.sh filename start_line end_line
+# Usage: middle.sh filename -end_line -num_lines
 head $2 $1 | tail $3
 ~~~
 
@@ -161,17 +161,17 @@ $ bash sorted.sh *.dat backup/*.dat
 ~~~
 
 > #### Why Isn't It Doing Anything?
-> 
+>
 > What happens if a script is supposed to process a bunch of files, but we
 > don't give it any filenames? For example, what if we type:
-> 
+>
 >     $ bash sorted.sh
-> 
+>
 > but don't say `*.dat` (or anything else)? In this case, `$*` expands to
 > nothing at all, so the pipeline inside the script is effectively:
-> 
+>
 >     wc -l | sort -n
-> 
+>
 > Since it doesn't have any filenames, `wc` assumes it is supposed to
 > process standard input, so it just sits there and waits for us to give
 > it some data interactively. From the outside, though, all we see is it
@@ -227,7 +227,7 @@ After a moment's work in an editor to remove the serial numbers on the commands,
 we have a completely accurate record of how we created that figure.
 
 > #### Unnumbering
-> 
+>
 > Nelle could also use `colrm` (short for "column removal") to remove the
 > serial numbers on her previous commands.
 > Its parameters are the range of characters to strip from its input:
