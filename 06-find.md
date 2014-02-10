@@ -27,6 +27,7 @@ we will use a file that contains three haikus taken from a
 1998 competition in *Salon* magazine:
 
 ~~~
+$ cat haiku.txt
 The Tao that is seen
 Is not the true Tao, until
 You bring fresh toner.
@@ -154,7 +155,7 @@ matched.  (-F is specified by POSIX.)
 ~~~
 
 > #### Wildcards
-> 
+>
 > `grep`'s real power doesn't come from its options, though; it comes from
 > the fact that patterns can include wildcards. (The technical name for
 > these is [regular expressions](../../gloss.html#regular-expression), which
@@ -162,12 +163,12 @@ matched.  (-F is specified by POSIX.)
 > and powerful; if you want to do complex searches, please look at the lesson
 > on [our website](http://software-carpentry.org). As a taster, we can
 > find lines that have an 'o' in the second position like this:
-> 
+>
 >     $ grep -E '^.o' haiku.txt
 >     You bring fresh toner.
 >     Today it is not working
 >     Software is like that.
-> 
+>
 > We use the `-E` flag and put the pattern in quotes to prevent the shell
 > from trying to interpret it. (If the pattern contained a '\*', for
 > example, the shell would try to expand it before running `grep`.) The
@@ -338,13 +339,13 @@ $ grep FE $(find . -name '*.pdb')
 ~~~
 
 > #### Binary Files
-> 
+>
 > We have focused exclusively on finding things in text files. What if
 > your data is stored as images, in databases, or in some other format?
 > One option would be to extend tools like `grep` to handle those formats.
 > This hasn't happened, and probably won't, because there are too many
 > formats to support.
-> 
+>
 > The second option is to convert the data to text, or extract the
 > text-ish bits from the data. This is probably the most common approach,
 > since it only requires people to build one tool per data format (to
@@ -354,7 +355,7 @@ $ grep FE $(find . -name '*.pdb')
 > dimensions from image files for `grep` to play with, but how would you
 > write something to find values in a spreadsheet whose cells contained
 > formulas?
-> 
+>
 > The third choice is to recognize that the shell and text processing have
 > their limits, and to use a programming language such as Python instead.
 > When the time comes to do this, don't be too hard on the shell: many
