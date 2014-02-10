@@ -378,7 +378,7 @@ about them."
 <div class="keypoints" markdown="1">
 
 #### Key Points
-*   Use `find` to find files, and `grep` to find things in files.
+*   Use `find` to find files and directories, and `grep` to find text patterns in files.
 *   `$(command)` inserts a command's output in place.
 *   `man command` displays the manual page for a given command.
 
