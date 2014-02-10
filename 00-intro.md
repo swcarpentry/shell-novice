@@ -42,9 +42,9 @@ The bad news is that if she has to run `goostat` and `goodiff` by hand,
 she'll have to enter filenames and click "OK" 45,150 times
 (300 runs of `goostat`, plus 300&times;299/2 runs of `goodiff`).
 At 30 seconds each,
-that will take more than another two weeks.
+that will take more than two weeks.
 Not only would she miss her paper deadline,
-the chances of her getting all 45,150 commands right are practically zero.
+the chances of her typing all of those commands right are practically zero.
 
 The next few lessons will explore what she should do instead.
 More specifically,
