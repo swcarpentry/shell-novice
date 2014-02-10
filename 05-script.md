@@ -252,8 +252,7 @@ In practice, most people develop shell scripts by running commands at the shell 
 to make sure they're doing the right thing,
 then saving them in a file for re-use.
 This style of work allows people to recycle
-what they discover about their data and their workflow
-with just a few extra keystrokes.
+what they discover about their data and their workflow with just a few extra keystrokes: One call to `history`, cleaning up the output, save as shell script.
 
 #### Nelle's Pipeline: Creating a Script
 
