@@ -186,24 +186,23 @@ to show how the simplest ones work, we'll use the directory tree shown below.
 
 Vlad's home directory contains one file called `notes.txt` and four subdirectories:
 `thesis` (which is sadly empty),
-`data` (which contains two files `first.txt` and `second.txt`),
+`data` (which contains two files `one.txt` and `two.txt`),
 a `tools` directory that contains the programs `format` and `stats`,
 and an empty subdirectory called `old`.
 
 For our first command,
-let's run `find . -type d`.
+let's run `find . -type d -print`.
 As always,
 the `.` on its own means the current working directory,
 which is where we want our search to start;
-the other argument,
-`-type d`,
-means "things that are directories".
+`-type d` means "things that are directories",
+and (unsurprisingly) `-print` means "print what's found".
 Sure enough,
 `find`'s output is the names of the five directories in our little tree
 (including `.`):
 
 ~~~
-$ find . -type d
+$ find . -type d -print
 ./
 ./data
 ./thesis
@@ -215,9 +214,9 @@ If we change `-type d` to `-type f`,
 we get a listing of all the files instead:
 
 ~~~
-$ find . -type f
-./data/first.txt
-./data/second.txt
+$ find . -type f -print
+./data/one.txt
+./data/two.txt
 ./notes.txt
 ./tools/format
 ./tools/stats
@@ -230,7 +229,7 @@ If we don't want it to,
 we can use `-maxdepth` to restrict the depth of search:
 
 ~~~
-$ find . -maxdepth 1 -type f
+$ find . -maxdepth 1 -type f -print
 ./notes.txt
 ~~~
 
@@ -239,9 +238,9 @@ which tells `find` to only report things that are at or below a certain depth.
 `-mindepth 2` therefore finds all the files that are two or more levels below us:
 
 ~~~
-$ find . -mindepth 2 -type f
-./data/first.txt
-./data/second.txt
+$ find . -mindepth 2 -type f -print
+./data/one.txt
+./data/two.txt
 ./tools/format
 ./tools/stats
 ~~~
@@ -250,7 +249,7 @@ Another option is `-empty`,
 which restricts matches to empty files and directories:
 
 ~~~
-$ find . -empty
+$ find . -empty -print
 ./thesis
 ./tools/old
 ~~~
@@ -258,7 +257,7 @@ $ find . -empty
 Now let's try matching by name:
 
 ~~~
-$ find . -name *.txt
+$ find . -name *.txt -print
 ./notes.txt
 ~~~
 
@@ -269,7 +268,7 @@ Since `*.txt` in the current directory expands to `notes.txt`,
 the command we actually ran was:
 
 ~~~
-$ find . -name notes.txt
+$ find . -name notes.txt -print
 ~~~
 
 `find` did what we asked; we just asked for the wrong thing.
@@ -281,9 +280,9 @@ This way,
 `find` actually gets the pattern `*.txt`, not the expanded filename `notes.txt`:
 
 ~~~
-$ find . -name '*.txt'
-./data/first.txt
-./data/second.txt
+$ find . -name '*.txt' -print
+./data/one.txt
+./data/two.txt
 ./notes.txt
 ~~~
 
@@ -299,15 +298,15 @@ the command line's power lies in combining tools.
 We've seen how to do that with pipes;
 let's look at another technique.
 As we just saw,
-`find . -name '*.txt'` gives us a list of all text files in or below the current directory.
+`find . -name '*.txt' -print` gives us a list of all text files in or below the current directory.
 How can we combine that with `wc -l` to count the lines in all those files?
 
 The simplest way is to put the `find` command inside `$()`:
 
 ~~~
-$ wc -l $(find . -name '*.txt')
-70  ./data/first.txt
-420  ./data/second.txt
+$ wc -l $(find . -name '*.txt' -print)
+70  ./data/one.txt
+420  ./data/two.txt
 30  ./notes.txt
 520  total
 $
@@ -316,11 +315,11 @@ $
 When the shell executes this command,
 the first thing it does is run whatever is inside the `$()`.
 It then replaces the `$()` expression with that command's output.
-Since the output of `find` is the three filenames `./data/first.txt`, `./data/second.txt`, and `./notes.txt`,
+Since the output of `find` is the three filenames `./data/one.txt`, `./data/two.txt`, and `./notes.txt`,
 the shell constructs the command:
 
 ~~~
-$ wc -l ./data/first.txt ./data/second.txt ./notes.txt
+$ wc -l ./data/one.txt ./data/two.txt ./notes.txt
 ~~~
 
 which is what we wanted.
@@ -334,7 +333,7 @@ Here, for example, we can find PDB files that contain iron atoms
 by looking for the string "FE" in all the `.pdb` files below the current directory:
 
 ~~~
-$ grep FE $(find . -name '*.pdb')
+$ grep FE $(find . -name '*.pdb' -print)
 ./human/heme.pdb:ATOM  25  FE  1  -0.924  0.535  -0.518
 ~~~
 
