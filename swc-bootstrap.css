@@ -16,6 +16,10 @@ blockquote p {
     background-color: white;
 }
 
+.hero-unit {
+  padding: 20px;
+}
+
 .navbar .container {
     background-color: inherit;
 }
