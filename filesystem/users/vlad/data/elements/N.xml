@@ -1,0 +1,9 @@
+<element name="Nitrogen"/>
+  <symbol>N</symbol>
+  <atomic-number>7</atomic-number>
+  <atomic-weight>14.00674</atomic-weight>
+  <oxidation-states>+1,+2,+3,+4,+5,-1,-2,-3</oxidation-states>
+  <state-at-room-temp>gas, nonmetal</state-at-room-temp>
+  <melting-point>63.29</melting-point>
+  <boiling-point>77.4</boiling-point>
+</element>

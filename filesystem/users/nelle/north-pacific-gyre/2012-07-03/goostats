@@ -1,0 +1,2 @@
+sleep 2
+head -3 $1 | cut -d , -f 1 | sort | uniq > $2
