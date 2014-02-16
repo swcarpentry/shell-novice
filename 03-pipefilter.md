@@ -350,43 +350,35 @@ so this matches all the valid data files she has.
 
 #### Challenges
 
-1.  If we run `sort` on the file shown on the left, we get the output shown on the right:
+1.  If we run `sort` on this file:
 
-<table>
-  <tr>
-    <td valign="top"><pre>1
-10
-2
-19
-22
-6</pre></td>
-    <td valign="top"><pre>1
-10
-19
-2
-22
-6</pre></td>
-  </tr>
-</table>
+    ~~~
+    10
+    2
+    19
+    22
+    6
+    ~~~
 
-    If we run `sort -n` on the same input, we get different output:
+    the output is:
 
-<table>
-  <tr>
-    <td valign="top"><pre> 1
-10
- 2
-19
-22
- 6</pre></td>
-    <td valign="top"><pre> 1
- 2
- 6
-10
-19
-22</pre></td>
-  </tr>
-</table>
+    ~~~
+    10
+    19
+    2
+    22
+    6
+    ~~~
+
+    If we run `sort -n` on the same input, we get this instead:
+
+    ~~~
+    2
+    6
+    10
+    19
+    22
+    ~~~
 
     Explain why `-n` has this effect.
 
@@ -440,32 +432,11 @@ so this matches all the valid data files she has.
     2012-11-07,bear
     ~~~
 
-    Fill in the table showing what lines of text pass through each pipe
-    in the pipeline below.
-<table>
-  <tr>
-    <td><code>cat animals.txt</code></td>
-    <td align="center"><code>|</code></td>
-    <td><code>head -5</code></td>
-    <td align="center"><code>|</code></td>
-    <td><code>tail -3</code></td>
-    <td align="center"><code>|</code></td>
-    <td><code>sort -r</code></td>
-    <td align="center"><code>&gt;</code></td>
-    <td><code>final.txt</code></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td width="15%"><hr/></td>
-    <td></td>
-    <td width="15%"><hr/></td>
-    <td></td>
-    <td width="15%"><hr/></td>
-    <td></td>
-    <td width="15%"><hr/></td>
-    <td></td>
-  </tr>
-</table>
+    What text passes through each of the pipes and the final redirect in the pipeline below?
+
+    ~~~
+    cat animals.txt | head -5 | tail -3 | sort -r > final.txt
+    ~~~
 
 5.  The command:
 
