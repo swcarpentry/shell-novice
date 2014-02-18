@@ -23,38 +23,11 @@ div.chapter h2 {
     background-color: azure;
 }
 
-/* Comments in code. */
-.comment {
-    color: purple;
-}
-
-/* Error messages. */
-.err {
-    color: darkred;
-    font-style: italic;
-}
-
 /* Things to fix. */
 .fixme {
     text-decoration: underline;
     color: darkred;
     background-color: lightgray;
-}
-
-/* Highlighted changes in code. */
-.highlight {
-    background-color: mistyrose;
-}
-
-/* Manual input. */
-.in {
-    color: darkgreen;
-}
-
-/* Program output. */
-.out {
-    color: darkblue;
-    font-style: italic;
 }
 
 /* Putting shadows around things. */

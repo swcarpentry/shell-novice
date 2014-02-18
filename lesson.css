@@ -11,12 +11,41 @@
 /* Manual input. */
 .in {
     color: darkgreen;
+    margin-left: 20px;
+}
+
+div.in:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 12px solid #727272;
+    position: relative;
+    left:-16px;
+    top:10px;
+    float:left;
 }
 
 /* Program output. */
 .out {
     color: darkblue;
-    font-style: italic;
+    margin-left: 20px;
+}
+
+div.out:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 12px solid #727272;
+    position: relative;
+    left:-16px;
+    top:10px;
+    float:left;
 }
 
 /* Error output. */
