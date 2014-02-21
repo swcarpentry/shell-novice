@@ -411,3 +411,40 @@ footer .container .links{
     padding:40px 0 0 200px;
     text-align: right;
 }
+
+
+/* For the Request a Bootcamp form */
+#ss-form .ss-q-title {
+    display: block;
+    font-weight: bold;
+}
+#ss-form .ss-required-asterisk {
+    color: #c43b1d;
+}
+#ss-form label {
+    display:inline;
+}
+#ss-form .ss-secondary-text {
+    color: #666;
+}
+#ss-form .ss-form-entry {
+    margin-bottom: 1.5em;
+}
+#ss-form ul {
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+#ss-form ol {
+    margin:0;
+}
+#ss-form .ss-choice-item {
+    line-height: 1.3em;
+}
+#ss-form .ss-q-long {
+    resize: vertical;
+    width: 70%;
+}
+#ss-form .error-message, .required-message {
+    display: none;
+}
