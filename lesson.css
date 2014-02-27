@@ -51,6 +51,7 @@ div.out:before {
 /* Error output. */
 .err {
     color: darkred;
+    margin-left: 20px;
     font-style: italic;
     font-weight: bold;
 }
