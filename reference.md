@@ -2,7 +2,6 @@
 layout: lesson
 root: ../..
 title: Shell Reference
-level: novice
 ---
 #### Basic Commands
 

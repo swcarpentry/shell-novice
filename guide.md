@@ -2,7 +2,6 @@
 layout: lesson
 root: ../..
 title: The Unix Shell
-level: novice
 ---
 Many people have questioned whether we should still teach the shell.
 After all,
