@@ -26,8 +26,10 @@ For our examples,
 we will use a file that contains three haikus taken from a
 1998 competition in *Salon* magazine:
 
-~~~
+<pre class="in">
 $ cat haiku.txt
+</pre>
+<pre class="out">
 The Tao that is seen
 Is not the true Tao, until
 You bring fresh toner.
@@ -39,7 +41,7 @@ and the presence of absence:
 Yesterday it worked
 Today it is not working
 Software is like that.
-~~~
+</pre>
 
 > #### Forever, or Five Years
 >
@@ -49,12 +51,14 @@ Software is like that.
 
 Let's find lines that contain the word "not":
 
-~~~
+<pre class="in">
 $ grep not haiku.txt
+</pre>
+<pre class="out">
 Is not the true Tao, until
 "My Thesis" not found
 Today it is not working
-~~~
+</pre>
 
 Here, `not` is the pattern we're searching for.
 It's pretty simple:
@@ -64,11 +68,13 @@ The output is the three lines in the file that contain the letters "not".
 
 Let's try a different pattern: "day".
 
-~~~
+<pre class="in">
 $ grep day haiku.txt
+</pre>
+<pre class="out">
 Yesterday it worked
 Today it is not working
-~~~
+</pre>
 
 This time,
 the output is lines containing the words "Yesterday" and "Today",
@@ -77,20 +83,22 @@ If we give `grep` the `-w` flag,
 it restricts matches to word boundaries,
 so that only lines with the word "day" will be printed:
 
-~~~
+<pre class="in">
 $ grep -w day haiku.txt
-~~~
+</pre>
 
 In this case, there aren't any, so `grep`'s output is empty.
 
 Another useful option is `-n`, which numbers the lines that match:
 
-~~~
+<pre class="in">
 $ grep -n it haiku.txt
+</pre>
+<pre class="out">
 5:With searching comes loss
 9:Yesterday it worked
 10:Today it is not working
-~~~
+</pre>
 
 Here, we can see that lines 5, 9, and 10 contain the letters "it".
 
@@ -100,8 +108,10 @@ since `-i` makes matching case-insensitive and `-v` inverts the match,
 using them both only prints lines that *don't* match the pattern
 in any mix of upper and lower case:
 
-~~~
+<pre class="in">
 $ grep -i -v the haiku.txt
+</pre>
+<pre class="out">
 You bring fresh toner.
 
 With searching comes loss
@@ -109,7 +119,7 @@ With searching comes loss
 Yesterday it worked
 Today it is not working
 Software is like that.
-~~~
+</pre>
 
 `grep` has lots of other options.
 To find out what they are, we can type `man grep`.
@@ -117,8 +127,10 @@ To find out what they are, we can type `man grep`.
 it prints a description of a command and its options,
 and (if you're lucky) provides a few examples of how to use it:
 
-~~~
+<pre class="in">
 $ man grep
+</pre>
+<pre class="out">
 GREP(1)                                                                                              GREP(1)
 
 NAME
@@ -152,7 +164,7 @@ POSIX.)
 Interpret PATTERN as a list of fixed strings, separated by newlines, any of  which  is  to  be
 matched.  (-F is specified by POSIX.)
 ...        ...        ...
-~~~
+</pre>
 
 > #### Wildcards
 >
@@ -201,26 +213,30 @@ Sure enough,
 `find`'s output is the names of the five directories in our little tree
 (including `.`):
 
-~~~
+<pre class="in">
 $ find . -type d -print
+</pre>
+<pre class="out">
 ./
 ./data
 ./thesis
 ./tools
 ./tools/old
-~~~
+</pre>
 
 If we change `-type d` to `-type f`,
 we get a listing of all the files instead:
 
-~~~
+<pre class="in">
 $ find . -type f -print
+</pre>
+<pre class="out">
 ./data/one.txt
 ./data/two.txt
 ./notes.txt
 ./tools/format
 ./tools/stats
-~~~
+</pre>
 
 `find` automatically goes into subdirectories,
 their subdirectories,
@@ -228,38 +244,46 @@ and so on to find everything that matches the pattern we've given it.
 If we don't want it to,
 we can use `-maxdepth` to restrict the depth of search:
 
-~~~
+<pre class="in">
 $ find . -maxdepth 1 -type f -print
+</pre>
+<pre class="out">
 ./notes.txt
-~~~
+</pre>
 
 The opposite of `-maxdepth` is `-mindepth`,
 which tells `find` to only report things that are at or below a certain depth.
 `-mindepth 2` therefore finds all the files that are two or more levels below us:
 
-~~~
+<pre class="in">
 $ find . -mindepth 2 -type f -print
+</pre>
+<pre class="out">
 ./data/one.txt
 ./data/two.txt
 ./tools/format
 ./tools/stats
-~~~
+</pre>
 
 Another option is `-empty`,
 which restricts matches to empty files and directories:
 
-~~~
+<pre class="in">
 $ find . -empty -print
+</pre>
+<pre class="out">
 ./thesis
 ./tools/old
-~~~
+</pre>
 
 Now let's try matching by name:
 
-~~~
+<pre class="in">
 $ find . -name *.txt -print
+</pre>
+<pre class="out">
 ./notes.txt
-~~~
+</pre>
 
 We expected it to find all the text files,
 but it only prints out `./notes.txt`.
@@ -267,9 +291,9 @@ The problem is that the shell expands wildcard characters like `*` *before* comm
 Since `*.txt` in the current directory expands to `notes.txt`,
 the command we actually ran was:
 
-~~~
+<pre class="in">
 $ find . -name notes.txt -print
-~~~
+</pre>
 
 `find` did what we asked; we just asked for the wrong thing.
 
@@ -279,12 +303,14 @@ put `*.txt` in single quotes to prevent the shell from expanding the `*` wildcar
 This way,
 `find` actually gets the pattern `*.txt`, not the expanded filename `notes.txt`:
 
-~~~
+<pre class="in">
 $ find . -name '*.txt' -print
+</pre>
+<pre class="out">
 ./data/one.txt
 ./data/two.txt
 ./notes.txt
-~~~
+</pre>
 
 > #### Listing vs. Finding
 >
@@ -303,14 +329,15 @@ How can we combine that with `wc -l` to count the lines in all those files?
 
 The simplest way is to put the `find` command inside `$()`:
 
-~~~
+<pre class="in">
 $ wc -l $(find . -name '*.txt' -print)
+</pre>
+<pre class="out">
 70  ./data/one.txt
 420  ./data/two.txt
 30  ./notes.txt
 520  total
-$
-~~~
+</pre>
 
 When the shell executes this command,
 the first thing it does is run whatever is inside the `$()`.
@@ -318,9 +345,9 @@ It then replaces the `$()` expression with that command's output.
 Since the output of `find` is the three filenames `./data/one.txt`, `./data/two.txt`, and `./notes.txt`,
 the shell constructs the command:
 
-~~~
+<pre class="in">
 $ wc -l ./data/one.txt ./data/two.txt ./notes.txt
-~~~
+</pre>
 
 which is what we wanted.
 This expansion is exactly what the shell does when it expands wildcards like `*` and `?`,
@@ -332,10 +359,12 @@ the second looks for lines inside those files that match another pattern.
 Here, for example, we can find PDB files that contain iron atoms
 by looking for the string "FE" in all the `.pdb` files below the current directory:
 
-~~~
+<pre class="in">
 $ grep FE $(find . -name '*.pdb' -print)
+</pre>
+<pre class="out">
 ./human/heme.pdb:ATOM  25  FE  1  -0.924  0.535  -0.518
-~~~
+</pre>
 
 > #### Binary Files
 >
