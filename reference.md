@@ -3,6 +3,7 @@ layout: lesson
 root: ../..
 title: Shell Reference
 ---
+
 #### Basic Commands
 
 *   `cat` displays the contents of its inputs.
