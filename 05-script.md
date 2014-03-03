@@ -23,9 +23,11 @@ these are actually small programs.
 
 Let's start by putting the following line in the file `middle.sh`:
 
-<pre class="file">
+<div class="file" markdown="1">
+~~~
 head -20 cholesterol.pdb | tail -5
-</pre>
+~~~
+</div>
 
 This is a variation on the pipe we constructed earlier:
 it selects lines 16-20 of the file `cholesterol.pdb`.
@@ -36,16 +38,20 @@ Once we have saved the file,
 we can ask the shell to execute the commands it contains.
 Our shell is called `bash`, so we run the following command:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ bash middle.sh
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 ATOM     14  C           1      -1.463  -0.666   1.001  1.00  0.00
 ATOM     15  C           1       0.762  -0.929   0.295  1.00  0.00
 ATOM     16  C           1       0.771  -0.937   1.840  1.00  0.00
 ATOM     17  C           1      -0.664  -0.610   2.293  1.00  0.00
 ATOM     18  C           1      -4.705   2.108  -0.396  1.00  0.00
-</pre>
+~~~
+</div>
 
 Sure enough,
 our script's output is exactly what we would get if we ran that pipeline directly.
@@ -68,74 +74,98 @@ but that would probably take longer than just retyping the command.
 Instead,
 let's edit `middle.sh` and replace `cholesterol.pdb` with a special variable called `$1`:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ cat middle.sh
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 head -20 $1 | tail -5
-</pre>
+~~~
+</div>
 
 Inside a shell script,
 `$1` means "the first filename (or other parameter) on the command line".
 We can now run our script like this:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ bash middle.sh cholesterol.pdb
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 ATOM     14  C           1      -1.463  -0.666   1.001  1.00  0.00
 ATOM     15  C           1       0.762  -0.929   0.295  1.00  0.00
 ATOM     16  C           1       0.771  -0.937   1.840  1.00  0.00
 ATOM     17  C           1      -0.664  -0.610   2.293  1.00  0.00
 ATOM     18  C           1      -4.705   2.108  -0.396  1.00  0.00
-</pre>
+~~~
+</div>
 
 or on a different file like this:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ bash middle.sh vitamin-a.pdb
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 ATOM     14  C           1       1.788  -0.987  -0.861
 ATOM     15  C           1       2.994  -0.265  -0.829
 ATOM     16  C           1       4.237  -0.901  -1.024
 ATOM     17  C           1       5.406  -0.117  -1.087
 ATOM     18  C           1      -0.696  -2.628  -0.641
-</pre>
+~~~
+</div>
 
 We still need to edit `middle.sh` each time we want to adjust the range of lines,
 though.
 Let's fix that by using the special variables `$2` and `$3`:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ cat middle.sh
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 head $2 $1 | tail $3
-</pre>
-<pre class="in">
+~~~
+</div>
+<div class="in" markdown="1">
+~~~
 $ bash middle.sh vitamin-a.pdb -20 -5
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 ATOM     14  C           1       1.788  -0.987  -0.861
 ATOM     15  C           1       2.994  -0.265  -0.829
 ATOM     16  C           1       4.237  -0.901  -1.024
 ATOM     17  C           1       5.406  -0.117  -1.087
 ATOM     18  C           1      -0.696  -2.628  -0.641
-</pre>
+~~~
+</div>
 
 This works,
 but it may take the next person who reads `middle.sh` a moment to figure out what it does.
 We can improve our script by adding some [comments](../../gloss.html#comment) at the top:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ cat middle.sh
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 # Select lines from the middle of a file.
 # Usage: middle.sh filename -end_line -num_lines
 head $2 $1 | tail $3
-</pre>
+~~~
+</div>
 
 A comment starts with a `#` character and runs to the end of the line.
 The computer ignores comments,
@@ -144,9 +174,11 @@ but they're invaluable for helping people understand and use scripts.
 What if we want to process many files in a single pipeline?
 For example, if we want to sort our `.pdb` files by length, we would type:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ wc -l *.pdb | sort -n
-</pre>
+~~~
+</div>
 
 because `wc -l` lists the number of lines in the files
 and `sort -n` sorts things numerically.
@@ -161,23 +193,31 @@ which means,
 "All of the command-line parameters to the shell script."
 Here's an example:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ cat sorted.sh
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 wc -l $* | sort -n
-</pre>
-<pre class="in">
+~~~
+</div>
+<div class="in" markdown="1">
+~~~
 $ bash sorted.sh *.dat backup/*.dat
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
       29 chloratin.dat
       89 backup/chloratin.dat
       91 sphagnoi.dat
      156 sphag2.dat
      172 backup/sphag-merged.dat
      182 girmanis.dat
-</pre>
+~~~
+</div>
 
 > #### Why Isn't It Doing Anything?
 >
@@ -199,18 +239,22 @@ $ bash sorted.sh *.dat backup/*.dat
 We have two more things to do before we're finished with our simple shell scripts.
 If you look at a script like:
 
-<pre class="file">
+<div class="file" markdown="1">
+~~~
 wc -l $* | sort -n
-</pre>
+~~~
+</div>
 
 you can probably puzzle out what it does.
 On the other hand,
 if you look at this script:
 
-<pre class="file">
+<div class="file" markdown="1">
+~~~
 # List files sorted by number of lines.
 wc -l $* | sort -n
-</pre>
+~~~
+</div>
 
 you don't have to puzzle it out&mdash;the comment at the top tells you what it does.
 A line or two of documentation like this make it much easier for other people
@@ -229,18 +273,22 @@ Instead of typing them in again
 (and potentially getting them wrong)
 we can do this:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ history | tail -4 > redo-figure-3.sh
-</pre>
+~~~
+</div>
 
 The file `redo-figure-3.sh` now contains:
 
-<pre class="file">
+<div class="file" markdown="1">
+~~~
 297 goostats -r NENE01729B.txt stats-NENE01729B.txt
 298 goodiff stats-NENE01729B.txt /data/validated/01729.txt > 01729-differences.txt
 299 cut -d ',' -f 2-3 01729-differences.txt > 01729-time-series.txt
 300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png
-</pre>
+~~~
+</div>
 
 After a moment's work in an editor to remove the serial numbers on the commands,
 we have a completely accurate record of how we created that figure.
@@ -287,28 +335,34 @@ But experience has taught her that if something needs to be done twice,
 it will probably need to be done a third or fourth time as well.
 She runs the editor and writes the following:
 
-<pre class="file">
+<div class="file" markdown="1">
+~~~
 # Calculate reduced stats for data files at J = 100 c/bp.
 for datafile in $*
 do
     echo $datafile
     goostats -J 100 -r $datafile stats-$datafile
 done
-</pre>
+~~~
+</div>
 
 (The parameters `-J 100` and `-r` are the ones her supervisor said she should have used.)
 She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ bash do-stats.sh *[AB].txt
-</pre>
+~~~
+</div>
 
 She can also do this:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ bash do-stats.sh *[AB].txt | wc -l
-</pre>
+~~~
+</div>
 
 so that the output is just the number of files processed
 rather than the names of the files that were processed.
@@ -317,14 +371,16 @@ One thing to note about Nelle's script is that
 it lets the person running it decide what files to process.
 She could have written it as:
 
-<pre class="file">
+<div class="file" markdown="1">
+~~~
 # Calculate reduced stats for  A and Site B data files at J = 100 c/bp.
 for datafile in *[AB].txt
 do
     echo $datafile
     goostats -J 100 -r $datafile stats-$datafile
 done
-</pre>
+~~~
+</div>
 
 The advantage is that this always selects the right files:
 she doesn't have to remember to exclude the 'Z' files.
