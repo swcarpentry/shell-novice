@@ -22,15 +22,19 @@ When new files arrive,
 we'd like to rename the existing ones to `original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ mv *.dat original-*.dat
-</pre>
+~~~
+</div>
 
 because that would expand (in the two-file case) to:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ mv basilisk.dat unicorn.dat
-</pre>
+~~~
+</div>
 
 This wouldn't back up our files:
 it would replace the content of `unicorn.dat` with whatever's in `basilisk.dat`.
@@ -39,20 +43,24 @@ Instead, we can use a [loop](../../gloss.html#for-loop)
 to do some operation once for each thing in a list.
 Here's a simple example that displays the first three lines of each file in turn:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ for filename in basilisk.dat unicorn.dat
 > do
 >    head -3 $filename
 > done
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 COMMON NAME: basilisk
 CLASSIFICATION: basiliscus vulgaris
 UPDATED: 1745-05-02
 COMMON NAME: unicorn
 CLASSIFICATION: equus monoceros
 UPDATED: 1738-11-24
-</pre>
+~~~
+</div>
 
 When the shell sees the keyword `for`,
 it knows it is supposed to repeat a command (or group of commands) once for each thing in a list.
@@ -80,21 +88,25 @@ in order to make its purpose clearer to human readers.
 The shell itself doesn't care what the variable is called;
 if we wrote this loop as:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 for x in basilisk.dat unicorn.dat
 do
     head -3 $x
 done
-</pre>
+~~~
+</div>
 
 or:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 for temperature in basilisk.dat unicorn.dat
 do
     head -3 $temperature
 done
-</pre>
+~~~
+</div>
 
 it would work exactly the same way.
 *Don't do this.*
@@ -104,13 +116,15 @@ increase the odds that the program won't do what its readers think it does.
 
 Here's a slightly more complicated loop:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 for filename in *.dat
 do
     echo $filename
     head -100 $filename | tail -20
 done
-</pre>
+~~~
+</div>
 
 The shell starts by expanding `*.dat` to create the list of files it will process.
 The [loop body](../../gloss.html#loop-body)
@@ -118,28 +132,34 @@ then executes two commands for each of those files.
 The first, `echo`, just prints its command-line parameters to standard output.
 For example:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ echo hello there
-</pre>
+~~~
+</div>
 
 prints:
 
-<pre class="out">
+<div class="out" markdown="1">
+~~~
 hello there
-</pre>
+~~~
+</div>
 
 In this case,
 since the shell expands `$filename` to be the name of a file,
 `echo $filename` just prints the name of the file.
 Note that we can't write this as:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 for filename in *.dat
 do
     $filename
     head -100 $filename | tail -20
 done
-</pre>
+~~~
+</div>
 
 because then the first time through the loop,
 when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as a program.
@@ -202,27 +222,33 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 Going back to our original file renaming problem,
 we can solve it using this loop:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 for filename in *.dat
 do
     mv $filename original-$filename
 done
-</pre>
+~~~
+</div>
 
 This loop runs the `mv` command once for each filename.
 The first time,
 when `$filename` expands to `basilisk.dat`,
 the shell executes:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 mv basilisk.dat original-basilisk.dat
-</pre>
+~~~
+</div>
 
 The second time, the command is:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 mv unicorn.dat original-unicorn.dat
-</pre>
+~~~
+</div>
 
 > #### Measure Twice, Run Once
 > 
@@ -259,41 +285,49 @@ she decides to build up the required commands in stages.
 Her first step is to make sure that she can select the right files&mdash;remember,
 these are ones whose names end in 'A' or 'B', rather than 'Z':
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ cd north-pacific-gyre/2012-07-03
 $ for datafile in *[AB].txt
 > do
 >     echo $datafile
 > done
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 NENE01729A.txt
 NENE01729B.txt
 NENE01736A.txt
 ...
 NENE02043A.txt
 NENE02043B.txt
-</pre>
+~~~
+</div>
 
 Her next step is to decide
 what to call the files that the `goostats` analysis program will create.
 Prefixing each input file's name with "stats" seems simple,
 so she modifies her loop to do that:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ for datafile in *[AB].txt
 > do
 >     echo $datafile stats-$datafile
 > done
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 NENE01729A.txt stats-NENE01729A.txt
 NENE01729B.txt stats-NENE01729B.txt
 NENE01736A.txt stats-NENE01736A.txt
 ...
 NENE02043A.txt stats-NENE02043A.txt
 NENE02043B.txt stats-NENE02043B.txt
-</pre>
+~~~
+</div>
 
 She hasn't actually run `goostats` yet,
 but now she's sure she can select the right files and generate the right output filenames.
@@ -307,16 +341,20 @@ In response,
 the shell redisplays the whole loop on one line
 (using semi-colons to separate the pieces):
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
-</pre>
+~~~
+</div>
 
 Using the left arrow key,
 Nelle backs up and changes the command `echo` to `goostats`:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
-</pre>
+~~~
+</div>
 
 When she presses enter,
 the shell runs the modified command.
@@ -327,9 +365,11 @@ She kills the job by typing Control-C,
 uses up-arrow to repeat the command,
 and edits it to read:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
-</pre>
+~~~
+</div>
 
 > #### Beginning and End
 >
@@ -340,12 +380,14 @@ $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$d
 When she runs her program now,
 it produces one line of output every five seconds or so:
 
-<pre class="out">
+<div class="out" markdown="1">
+~~~
 NENE01729A.txt
 NENE01729B.txt
 NENE01736A.txt
 ...
-</pre>
+~~~
+</div>
 
 1518 times 5 seconds,
 divided by 60,
