@@ -22,13 +22,17 @@ that contains six files describing some simple organic molecules.
 The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls molecules
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 cubane.pdb    ethane.pdb    methane.pdb
 octane.pdb    pentane.pdb   propane.pdb
-</pre>
+~~~
+</div>
 
 Let's go into that directory with `cd` and run the command `wc *.pdb`.
 `wc` is the "word count" command:
@@ -36,11 +40,14 @@ it counts the number of lines, words, and characters in files.
 The `*` in `*.pdb` matches zero or more characters,
 so the shell turns `*.pdb` into a complete list of `.pdb` files:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ cd molecules
-  $ wc *.pdb
-</pre>
-<pre class="out">
+$ wc *.pdb
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
   20  156 1158 cubane.pdb
   12   84  622 ethane.pdb
    9   57  422 methane.pdb
@@ -48,7 +55,8 @@ $ cd molecules
   21  165 1226 pentane.pdb
   15  111  825 propane.pdb
  107  819 6081 total
-</pre>
+~~~
+</div>
 
 > #### Wildcards
 > 
@@ -77,10 +85,13 @@ $ cd molecules
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ wc -l *.pdb
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
   20  cubane.pdb
   12  ethane.pdb
    9  methane.pdb
@@ -88,7 +99,8 @@ $ wc -l *.pdb
   21  pentane.pdb
   15  propane.pdb
  107  total
-</pre>
+~~~
+</div>
 
 We can also use `-w` to get only the number of words,
 or `-c` to get only the number of characters.
@@ -98,9 +110,11 @@ It's an easy question to answer when there are only six files,
 but what if there were 6000?
 Our first step toward a solution is to run the command:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ wc -l *.pdb > lengths
-</pre>
+~~~
+</div>
 
 The `>` tells the shell to [redirect](../../gloss.html#redirect) the command's output
 to a file instead of printing it to the screen.
@@ -110,12 +124,16 @@ or overwrite the contents of that file if it does.
 everything that `wc` would have printed has gone into the file `lengths` instead.)
 `ls lengths` confirms that the file exists:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls lengths
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 lengths
-</pre>
+~~~
+</div>
 
 We can now send the content of `lengths` to the screen using `cat lengths`.
 `cat` stands for "concatenate":
@@ -123,10 +141,13 @@ it prints the contents of files one after another.
 There's only one file in this case,
 so `cat` just shows us what it contains:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ cat lengths
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
   20  cubane.pdb
   12  ethane.pdb
    9  methane.pdb
@@ -134,16 +155,20 @@ $ cat lengths
   21  pentane.pdb
   15  propane.pdb
  107  total
-</pre>
+~~~
+</div>
 
 Now let's use the `sort` command to sort its contents.
 This does *not* change the file;
 instead, it sends the sorted result to the screen:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ sort lengths
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
   9  methane.pdb
  12  ethane.pdb
  15  propane.pdb
@@ -151,7 +176,8 @@ $ sort lengths
  21  pentane.pdb
  30  octane.pdb
 107  total
-</pre>
+~~~
+</div>
 
 We can put the sorted list of lines in another temporary file called `sorted-lengths`
 by putting `> sorted-lengths` after the command,
@@ -159,13 +185,17 @@ just as we used `> lengths` to put the output of `wc` into `lengths`.
 Once we've done that,
 we can run another command called `head` to get the first few lines in `sorted-lengths`:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ sort lengths > sorted-lengths
 $ head -1 sorted-lengths
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
   9  methane.pdb
-</pre>
+~~~
+</div>
 
 Using the parameter `-1` with `head` tells it that
 we only want the first line of the file;
@@ -180,12 +210,16 @@ even once you understand what `wc`, `sort`, and `head` do,
 all those intermediate files make it hard to follow what's going on.
 We can make it easier to understand by running `sort` and `head` together:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ sort lengths | head -1
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
   9  methane.pdb
-</pre>
+~~~
+</div>
 
 The vertical bar between the two commands is called a [pipe](../../gloss.html#pipe).
 It tells the shell that we want to use
@@ -199,12 +233,16 @@ we don't have to know or care.
 We can use another pipe to send the output of `wc` directly to `sort`,
 which then sends its output to `head`:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ wc -l *.pdb | sort | head -1
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
   9  methane.pdb
-</pre>
+~~~
+</div>
 
 This is exactly like a mathematician nesting functions like *sin(&pi;x)<sup>2</sup>*
 and saying "the square of the sine of *x* times &pi;".
@@ -285,14 +323,17 @@ Nelle has run her samples through the assay machines
 and created 1520 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
 As a quick sanity check, she types:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ cd north-pacific-gyre/2012-07-03
 $ wc -l *.txt
-</pre>
+~~~
+</div>
 
 The output is 1520 lines that look like this:
 
-<pre class="out">
+<div class="out" markdown="1">
+~~~
 300 NENE01729A.txt
 300 NENE01729B.txt
 300 NENE01736A.txt
@@ -300,20 +341,25 @@ The output is 1520 lines that look like this:
 300 NENE01751B.txt
 300 NENE01812A.txt
 ... ...
-</pre>
+~~~
+</div>
 
 Now she types this:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ wc -l *.txt | sort | head -5
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
  240 NENE02018B.txt
  300 NENE01729A.txt
  300 NENE01729B.txt
  300 NENE01736A.txt
  300 NENE01751A.txt
-</pre>
+~~~
+</div>
 
 Whoops: one of the files is 60 lines shorter than the others.
 When she goes back and checks it,
@@ -323,16 +369,20 @@ and she forgot to reset it.
 Before re-running that sample,
 she checks to see if any files have too much data:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ wc -l *.txt | sort | tail -5
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
  300 NENE02040A.txt
  300 NENE02040B.txt
  300 NENE02040Z.txt
  300 NENE02043A.txt
  300 NENE02043B.txt
-</pre>
+~~~
+</div>
 
 Those numbers look good&mdash;but what's that 'Z' doing there in the third-to-last line?
 All of her samples should be marked 'A' or 'B';
@@ -340,12 +390,16 @@ by convention,
 her lab uses 'Z' to indicate samples with missing information.
 To find others like it, she does this:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls *Z.txt
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 NENE01971Z.txt    NENE02040Z.txt
-</pre>
+~~~
+</div>
 
 Sure enough,
 when she checks the log on her laptop,
