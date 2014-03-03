@@ -1,3 +1,8 @@
+/* pre blocks inherit color from parent */
+pre {
+    color: inherit;
+}
+
 /* Comments in code. */
 .comment {
     color: purple;
@@ -14,38 +19,10 @@
     margin-left: 20px;
 }
 
-div.in:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent;
-    border-left: 12px solid #727272;
-    position: relative;
-    left:-16px;
-    top:10px;
-    float:left;
-}
-
 /* Program output. */
 .out {
     color: darkblue;
     margin-left: 20px;
-}
-
-div.out:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 12px solid transparent;
-    border-bottom: 12px solid transparent;
-    border-right: 12px solid #727272;
-    position: relative;
-    left:-16px;
-    top:10px;
-    float:left;
 }
 
 /* Error output. */
@@ -67,11 +44,5 @@ div.challenges {}
 /* Key points in summary. */
 div.keypoints {}
 
-/* Main lesson. */
-div.lesson {}
-
 /* Learning objectives. */
 div.objectives {}
-
-/* Continuation paragraph. */
-p.continue {}
