@@ -19,17 +19,37 @@ Let's go back to Vlad's home directory,
 `/users/vlad`,
 and use `ls -F` to see what it contains:
 
-<pre class="in">$ pwd</pre>
-<pre class="out">/users/vlad</pre>
-<pre class="in">$ ls -F</pre>
-<pre class="out">bin/         data/     mail/      music/
+<div class="in" markdown="1">
+~~~
+$ pwd
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
+/users/vlad
+~~~
+</div>
+<div class="in" markdown="1">
+~~~
+$ ls -F
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
+bin/         data/     mail/      music/
 notes.txt    papers/   pizza.cfg  solar/
-solar.pdf    swc/</pre>
+solar.pdf    swc/
+~~~
+</div>
 
 Let's create a new directory called `thesis` using the command `mkdir thesis`
 (which has no output):
 
-<pre class="in">$ mkdir thesis</pre>
+<div class="in" markdown="1">
+~~~
+$ mkdir thesis
+~~~
+</div>
 
 As you might (or might not) guess from its name,
 `mkdir` means "make directory".
@@ -37,28 +57,36 @@ Since `thesis` is a relative path
 (i.e., doesn't have a leading slash),
 the new directory is made below the current working directory:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls -F
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 bin/         data/     mail/      music/
 notes.txt    papers/   pizza.cfg  solar/
 solar.pdf    swc/      thesis/
-</pre>
+~~~
+</div>
 
 However, there's nothing in it yet:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls -F thesis
-</pre>
+~~~
+</div>
 
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ cd thesis
 $ nano draft.txt
-</pre>
+~~~
+</div>
 
 > #### Which Editor?
 > 
@@ -91,22 +119,30 @@ we can use Control-X to quit the editor and return to the shell.
 `nano` doesn't leave any output on the screen after it exits,
 but `ls` now shows that we have created a file called `draft.txt`:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 draft.txt
-</pre>
+~~~
+</div>
 
 We can run `ls` with the `-s` flag (for "size")
 to show us how large `draft.txt` is:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls -s
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
    1  draft.txt
-</pre>
+~~~
+</div>
 
 Unfortunately,
 Unix reports sizes in [disk blocks](../../gloss.html#disk-block) by default,
@@ -114,12 +150,16 @@ which might be the least helpful default possible.
 If we add the `-h` flag,
 `ls` switches to more human-friendly units:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls -s -h
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
  512  draft.txt
-</pre>
+~~~
+</div>
 
 Here, 512 is the number of bytes in the file.
 This is more than we actually typed in because the smallest unit of storage on the disk
@@ -127,18 +167,22 @@ is typically a block of 512 bytes.
 
 Let's tidy up by running `rm draft.txt`:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ rm draft.txt
-</pre>
+~~~
+</div>
 
 This command removes files ("rm" is short for "remove").
 If we run `ls` again,
 its output is empty once more,
 which tells us that our file is gone:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls
-</pre>
+~~~
+</div>
 
 > #### Deleting Is Forever
 > 
@@ -151,32 +195,46 @@ $ ls
 Let's re-create that file
 and then move up one directory to `/users/vlad` using `cd ..`:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ pwd
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 /users/vlad/thesis
-</pre>
-<pre class="in">
+~~~
+</div>
+<div class="in" markdown="1">
+~~~
 $ nano draft.txt
 $ ls
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 draft.txt
-</pre>
-<pre class="in">
+~~~
+</div>
+<div class="in" markdown="1">
+~~~
 $ cd ..
-</pre>
+~~~
+</div>
 
 If we try to remove the entire `thesis` directory using `rm thesis`,
 we get an error message:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ rm thesis
-</pre>
-<pre class="err">
+~~~
+</div>
+<div class="err" markdown="1">
+~~~
 rm: cannot remove `thesis': Is a directory
-</pre>
+~~~
+</div>
 
 This happens because `rm` only works on files, not directories.
 The right command is `rmdir`,
@@ -184,26 +242,34 @@ which is short for "remove directory".
 It doesn't work yet either, though,
 because the directory we're trying to remove isn't empty:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ rmdir thesis
-</pre>
-<pre class="err">
+~~~
+</div>
+<div class="err" markdown="1">
+~~~
 rmdir: failed to remove `thesis': Directory not empty
-</pre>
+~~~
+</div>
 
 This little safety feature can save you a lot of grief,
 particularly if you are a bad typist.
 To really get rid of `thesis` we must first delete the file `draft.txt`:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ rm thesis/draft.txt
-</pre>
+~~~
+</div>
 
 The directory is now empty, so `rmdir` can delete it:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ rmdir thesis
-</pre>
+~~~
+</div>
 
 > #### With Great Power Comes Great Responsibility
 > 
@@ -224,30 +290,42 @@ Let's create that directory and file one more time.
 (Note that this time we're running `nano` with the path `thesis/draft.txt`,
 rather than going into the `thesis` directory and running `nano` on `draft.txt` there.)
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ pwd
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 /users/vlad
-</pre>
-<pre class="in">
+~~~
+</div>
+<div class="in" markdown="1">
+~~~
 $ mkdir thesis
-</pre>
-<pre class="in">
+~~~
+</div>
+<div class="in" markdown="1">
+~~~
 $ nano thesis/draft.txt
 $ ls thesis
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 draft.txt
-</pre>
+~~~
+</div>
 
 `draft.txt` isn't a particularly informative name,
 so let's change the file's name using `mv`,
 which is short for "move":
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ mv thesis/draft.txt thesis/quotes.txt
-</pre>
+~~~
+</div>
 
 The first parameter tells `mv` what we're "moving",
 while the second is where it's to go.
@@ -257,12 +335,16 @@ which has the same effect as renaming the file.
 Sure enough,
 `ls` shows us that `thesis` now contains one file called `quotes.txt`:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls thesis
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 quotes.txt
-</pre>
+~~~
+</div>
 
 Just for the sake of inconsistency,
 `mv` also works on directories&mdash;there is no separate `mvdir` command.
@@ -276,27 +358,35 @@ but put the file somewhere new.
 In this case,
 the directory name we use is the special directory name `.` that we mentioned earlier.
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ mv thesis/quotes.txt .
-</pre>
+~~~
+</div>
 
 The effect is to move the file from the directory it was in to the current working directory.
 `ls` now shows us that `thesis` is empty:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls thesis
-</pre>
+~~~
+</div>
 
 Further,
 `ls` with a filename or directory name as a parameter only lists that file or directory.
 We can use this to see that `quotes.txt` is still in our current directory:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls quotes.txt
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 quotes.txt
-</pre>
+~~~
+</div>
 
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
@@ -304,13 +394,17 @@ We can check that it did the right thing using `ls`
 with two paths as parameters&mdash;like most Unix commands,
 `ls` can be given thousands of paths at once:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ cp quotes.txt thesis/quotations.txt
 $ ls quotes.txt thesis/quotations.txt
-</pre>
-<pre class="out">
+~~~
+</div>
+<div class="out" markdown="1">
+~~~
 quotes.txt   thesis/quotations.txt
-</pre>
+~~~
+</div>
 
 To prove that we made a copy,
 let's delete the `quotes.txt` file in the current directory
@@ -318,13 +412,17 @@ and then run that same `ls` again.
 This time it tells us that it can't find `quotes.txt` in the current directory,
 but it does find the copy in `thesis` that we didn't delete:
 
-<pre class="in">
+<div class="in" markdown="1">
+~~~
 $ ls quotes.txt thesis/quotations.txt
-</pre>
-<pre class="err">
+~~~
+</div>
+<div class="err" markdown="1">
+~~~
 ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt
-</pre>
+~~~
+</div>
 
 > #### Another Useful Abbreviation
 > 
