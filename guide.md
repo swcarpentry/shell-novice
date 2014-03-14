@@ -110,7 +110,32 @@ as long as learners using Windows do not run into roadblocks such as:
 *   It's hard to discuss `#!` (shebang) wihtout first discussing permissions,
     which we don't do.
 
-*   Installing Bash and a reasonable set of Unix commands on Windows
-    always involves some fiddling and frustration.
-    Please see the latest set of installation guidelines for advice,
-    and try it out yourself *before* teaching a class.
+#### Windows
+
+Installing Bash and a reasonable set of Unix commands on Windows
+always involves some fiddling and frustration.
+Please see the latest set of installation guidelines for advice,
+and try it out yourself *before* teaching a class.
+Options we have explored include:
+
+1.  [msysGit](http://msysgit.github.io/) (also called "Git Bash"),
+2.  [Cygwin](http://www.cygwin.com/),
+3.  using a desktop virtual machine, and
+4.  having learners connect to a remote Unix machine (typically a VM in the cloud).
+
+Cygwin was the preferred option until mid-2013,
+but once we started teaching Git,
+msysGit proved to work better.
+Desktop virtual machines and cloud-based VMs work well for technically sophisticated learners,
+and can reduce installation and configuration at the start of the bootcamp,
+but:
+
+1.  they don't work well on underpowered machines,
+2.  they're confusing for novices (because simple things like copy and paste work differently),
+3.  learners leave the workshop without a working environment on their operating system of choice, and
+4.  learners may show up without having downloaded the VM or the wireless will go down (or become congested) during the lesson.
+
+Whatever you use,
+please *test it yourself* on a Windows machine *before* your bootcamp:
+things may always have changed behind your back since your last bootcamp.
+And please also make use of our Windows setup helper.
