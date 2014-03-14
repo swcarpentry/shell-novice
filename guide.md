@@ -110,6 +110,25 @@ as long as learners using Windows do not run into roadblocks such as:
 *   It's hard to discuss `#!` (shebang) wihtout first discussing permissions,
     which we don't do.
 
+*   Installing Bash and a reasonable set of Unix commands on Windows
+    always involves some fiddling and frustration.
+    Please see the latest set of installation guidelines for advice,
+    and try it out yourself *before* teaching a class.
+
+*   On Windows, it appears that:
+
+    <div class="in" markdown="1">
+    ~~~
+    $ cd
+    $ cd Desktop
+    ~~~
+    </div>
+
+    will always put someone on their desktop.
+    Have them create the example directory for the shell exercises there
+    so that they can find it easily
+    and watch it evolve.
+
 #### Windows
 
 Installing Bash and a reasonable set of Unix commands on Windows
