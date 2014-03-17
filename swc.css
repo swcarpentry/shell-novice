@@ -84,6 +84,12 @@ div.banner a img {
     padding: 20px 25px;
 }
 
+@media (max-width: 700px) {
+    div.banner a img {
+        padding: 20px 0px;
+    }
+}
+
 /* Explanatory call-out boxes. */
 div.box {
     background-color: mistyrose;
