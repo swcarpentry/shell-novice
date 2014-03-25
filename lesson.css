@@ -33,6 +33,11 @@ pre {
     font-weight: bold;
 }
 
+/* Files. */
+.file {
+    margin-left: 20px;
+}
+
 /* Explanatory call-out boxes. */
 div.box {
     background-color: lightgray;
