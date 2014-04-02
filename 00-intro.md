@@ -16,7 +16,7 @@ has just returned from a six-month survey of the
 [North Pacific Gyre](http://en.wikipedia.org/wiki/North_Pacific_Gyre),
 where she has been sampling gelatinous marine life in the
 [Great Pacific Garbage Patch](http://en.wikipedia.org/wiki/Great_Pacific_Garbage_Patch).
-She has 1520 samples in all, and now needs to:
+She has 300 samples in all, and now needs to:
 
 1.  Run each sample through an assay machine
     that will measure the relative abundance of 300 different proteins.
