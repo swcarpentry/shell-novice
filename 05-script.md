@@ -451,8 +451,8 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 4.  Joel's `data` directory contains three files: `fructose.dat`,
     `glucose.dat`, and `sucrose.dat`. Explain what a script called
-    `example.sh` would when run as `bash example.sh *.dat`
-    if it contained the following lines:
+    `example.sh` would do when run as `bash example.sh *.dat` if it
+    contained the following lines:
 
 <table>
   <tr>
