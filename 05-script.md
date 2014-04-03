@@ -427,16 +427,16 @@ Of course, this introduces another tradeoff between flexibility and complexity.
     those files separately.
 
 2.  Write a shell script called `longest.sh` that takes the name of a
-    directory and a filename extension as its parameters, and prints out
-    the name of the most recently modified file in that directory with
-    that extension. For example:
+    directory and a filename extension as its parameters, and prints
+    out the name of the file with the most lines in that directory
+    with that extension. For example:
 
     ~~~
-    $ bash largest.sh /tmp/data pdb
+    $ bash longest.sh /tmp/data pdb
     ~~~
 
-    would print the name of the `.pdb` file in `/tmp/data` that has been
-    changed most recently.
+    would print the name of the `.pdb` file in `/tmp/data` that has
+    the most lines.
 
 3.  If you run the command:
 
