@@ -130,41 +130,6 @@ draft.txt
 ~~~
 </div>
 
-We can run `ls` with the `-s` flag (for "size")
-to show us how large `draft.txt` is:
-
-<div class="in" markdown="1">
-~~~
-$ ls -s
-~~~
-</div>
-<div class="out" markdown="1">
-~~~
-   1  draft.txt
-~~~
-</div>
-
-Unfortunately,
-Unix reports sizes in [disk blocks](../../gloss.html#disk-block) by default,
-which might be the least helpful default possible.
-If we add the `-h` flag,
-`ls` switches to more human-friendly units:
-
-<div class="in" markdown="1">
-~~~
-$ ls -s -h
-~~~
-</div>
-<div class="out" markdown="1">
-~~~
- 512  draft.txt
-~~~
-</div>
-
-Here, 512 is the number of bytes in the file.
-This is more than we actually typed in because the smallest unit of storage on the disk
-is typically a block of 512 bytes.
-
 Let's tidy up by running `rm draft.txt`:
 
 <div class="in" markdown="1">
