@@ -489,8 +489,6 @@ thesis/quotations.txt
     $ cp intro.txt methods.txt survey.txt
     ~~~
 
-    Why do you think `cp`'s behavior is different from `mv`'s?
-
 4.  The command `ls -R` lists the contents of directories recursively,
     i.e., lists their sub-directories, sub-sub-directories, and so on
     in alphabetical order at each level.
