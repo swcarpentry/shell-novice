@@ -523,4 +523,5 @@ and we will see it in many other tools as we go on.
     3.  It changes the working directory to the user's home directory.
     4.  It produces an error message.
 
+4.  What does the command `ls` do when used with the -s and -h arguments?
 </div>
