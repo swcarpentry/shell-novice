@@ -19,37 +19,32 @@ Let's go back to Vlad's home directory,
 `/users/vlad`,
 and use `ls -F` to see what it contains:
 
-<div class="in" markdown="1">
 ~~~
 $ pwd
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 /users/vlad
 ~~~
-</div>
-<div class="in" markdown="1">
+{:class="out"}
 ~~~
 $ ls -F
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 bin/         data/     mail/      music/
 notes.txt    papers/   pizza.cfg  solar/
 solar.pdf    swc/
 ~~~
-</div>
+{:class="out"}
 
 Let's create a new directory called `thesis` using the command `mkdir thesis`
 (which has no output):
 
-<div class="in" markdown="1">
 ~~~
 $ mkdir thesis
 ~~~
-</div>
+{:class="in"}
 
 As you might (or might not) guess from its name,
 `mkdir` means "make directory".
@@ -57,36 +52,32 @@ Since `thesis` is a relative path
 (i.e., doesn't have a leading slash),
 the new directory is made below the current working directory:
 
-<div class="in" markdown="1">
 ~~~
 $ ls -F
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 bin/         data/     mail/      music/
 notes.txt    papers/   pizza.cfg  solar/
 solar.pdf    swc/      thesis/
 ~~~
-</div>
+{:class="out"}
 
 However, there's nothing in it yet:
 
-<div class="in" markdown="1">
 ~~~
 $ ls -F thesis
 ~~~
-</div>
+{:class="in"}
 
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
 
-<div class="in" markdown="1">
 ~~~
 $ cd thesis
 $ nano draft.txt
 ~~~
-</div>
+{:class="in"}
 
 > #### Which Editor?
 > 
@@ -119,35 +110,31 @@ we can use Control-X to quit the editor and return to the shell.
 `nano` doesn't leave any output on the screen after it exits,
 but `ls` now shows that we have created a file called `draft.txt`:
 
-<div class="in" markdown="1">
 ~~~
 $ ls
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 draft.txt
 ~~~
-</div>
+{:class="out"}
 
 Let's tidy up by running `rm draft.txt`:
 
-<div class="in" markdown="1">
 ~~~
 $ rm draft.txt
 ~~~
-</div>
+{:class="in"}
 
 This command removes files ("rm" is short for "remove").
 If we run `ls` again,
 its output is empty once more,
 which tells us that our file is gone:
 
-<div class="in" markdown="1">
 ~~~
 $ ls
 ~~~
-</div>
+{:class="in"}
 
 > #### Deleting Is Forever
 > 
@@ -160,46 +147,39 @@ $ ls
 Let's re-create that file
 and then move up one directory to `/users/vlad` using `cd ..`:
 
-<div class="in" markdown="1">
 ~~~
 $ pwd
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 /users/vlad/thesis
 ~~~
-</div>
-<div class="in" markdown="1">
+{:class="out"}
 ~~~
 $ nano draft.txt
 $ ls
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 draft.txt
 ~~~
-</div>
-<div class="in" markdown="1">
+{:class="out"}
 ~~~
 $ cd ..
 ~~~
-</div>
+{:class="in"}
 
 If we try to remove the entire `thesis` directory using `rm thesis`,
 we get an error message:
 
-<div class="in" markdown="1">
 ~~~
 $ rm thesis
 ~~~
-</div>
-<div class="err" markdown="1">
+{:class="in"}
 ~~~
 rm: cannot remove `thesis': Is a directory
 ~~~
-</div>
+{:class="err"}
 
 This happens because `rm` only works on files, not directories.
 The right command is `rmdir`,
@@ -207,34 +187,30 @@ which is short for "remove directory".
 It doesn't work yet either, though,
 because the directory we're trying to remove isn't empty:
 
-<div class="in" markdown="1">
 ~~~
 $ rmdir thesis
 ~~~
-</div>
-<div class="err" markdown="1">
+{:class="in"}
 ~~~
 rmdir: failed to remove `thesis': Directory not empty
 ~~~
-</div>
+{:class="err"}
 
 This little safety feature can save you a lot of grief,
 particularly if you are a bad typist.
 To really get rid of `thesis` we must first delete the file `draft.txt`:
 
-<div class="in" markdown="1">
 ~~~
 $ rm thesis/draft.txt
 ~~~
-</div>
+{:class="in"}
 
 The directory is now empty, so `rmdir` can delete it:
 
-<div class="in" markdown="1">
 ~~~
 $ rmdir thesis
 ~~~
-</div>
+{:class="in"}
 
 > #### With Great Power Comes Great Responsibility
 > 
@@ -255,42 +231,36 @@ Let's create that directory and file one more time.
 (Note that this time we're running `nano` with the path `thesis/draft.txt`,
 rather than going into the `thesis` directory and running `nano` on `draft.txt` there.)
 
-<div class="in" markdown="1">
 ~~~
 $ pwd
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 /users/vlad
 ~~~
-</div>
-<div class="in" markdown="1">
+{:class="out"}
 ~~~
 $ mkdir thesis
 ~~~
-</div>
-<div class="in" markdown="1">
+{:class="in"}
 ~~~
 $ nano thesis/draft.txt
 $ ls thesis
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 draft.txt
 ~~~
-</div>
+{:class="out"}
 
 `draft.txt` isn't a particularly informative name,
 so let's change the file's name using `mv`,
 which is short for "move":
 
-<div class="in" markdown="1">
 ~~~
 $ mv thesis/draft.txt thesis/quotes.txt
 ~~~
-</div>
+{:class="in"}
 
 The first parameter tells `mv` what we're "moving",
 while the second is where it's to go.
@@ -300,16 +270,14 @@ which has the same effect as renaming the file.
 Sure enough,
 `ls` shows us that `thesis` now contains one file called `quotes.txt`:
 
-<div class="in" markdown="1">
 ~~~
 $ ls thesis
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 quotes.txt
 ~~~
-</div>
+{:class="out"}
 
 Just for the sake of inconsistency,
 `mv` also works on directories&mdash;there is no separate `mvdir` command.
@@ -323,35 +291,31 @@ but put the file somewhere new.
 In this case,
 the directory name we use is the special directory name `.` that we mentioned earlier.
 
-<div class="in" markdown="1">
 ~~~
 $ mv thesis/quotes.txt .
 ~~~
-</div>
+{:class="in"}
 
 The effect is to move the file from the directory it was in to the current working directory.
 `ls` now shows us that `thesis` is empty:
 
-<div class="in" markdown="1">
 ~~~
 $ ls thesis
 ~~~
-</div>
+{:class="in"}
 
 Further,
 `ls` with a filename or directory name as a parameter only lists that file or directory.
 We can use this to see that `quotes.txt` is still in our current directory:
 
-<div class="in" markdown="1">
 ~~~
 $ ls quotes.txt
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 quotes.txt
 ~~~
-</div>
+{:class="out"}
 
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
@@ -359,17 +323,15 @@ We can check that it did the right thing using `ls`
 with two paths as parameters&mdash;like most Unix commands,
 `ls` can be given thousands of paths at once:
 
-<div class="in" markdown="1">
 ~~~
 $ cp quotes.txt thesis/quotations.txt
 $ ls quotes.txt thesis/quotations.txt
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 quotes.txt   thesis/quotations.txt
 ~~~
-</div>
+{:class="out"}
 
 To prove that we made a copy,
 let's delete the `quotes.txt` file in the current directory
@@ -377,17 +339,15 @@ and then run that same `ls` again.
 This time it tells us that it can't find `quotes.txt` in the current directory,
 but it does find the copy in `thesis` that we didn't delete:
 
-<div class="in" markdown="1">
 ~~~
 $ ls quotes.txt thesis/quotations.txt
 ~~~
-</div>
-<div class="err" markdown="1">
+{:class="in"}
 ~~~
 ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt
 ~~~
-</div>
+{:class="err"}
 
 > #### Another Useful Abbreviation
 > 

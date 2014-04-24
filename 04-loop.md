@@ -22,19 +22,17 @@ When new files arrive,
 we'd like to rename the existing ones to `original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
-<div class="in" markdown="1">
 ~~~
 $ mv *.dat original-*.dat
 ~~~
-</div>
+{:class="in"}
 
 because that would expand (in the two-file case) to:
 
-<div class="in" markdown="1">
 ~~~
 $ mv basilisk.dat unicorn.dat
 ~~~
-</div>
+{:class="in"}
 
 This wouldn't back up our files:
 it would replace the content of `unicorn.dat` with whatever's in `basilisk.dat`.
@@ -43,15 +41,13 @@ Instead, we can use a [loop](../../gloss.html#for-loop)
 to do some operation once for each thing in a list.
 Here's a simple example that displays the first three lines of each file in turn:
 
-<div class="in" markdown="1">
 ~~~
 $ for filename in basilisk.dat unicorn.dat
 > do
 >    head -3 $filename
 > done
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 COMMON NAME: basilisk
 CLASSIFICATION: basiliscus vulgaris
@@ -60,7 +56,7 @@ COMMON NAME: unicorn
 CLASSIFICATION: equus monoceros
 UPDATED: 1738-11-24
 ~~~
-</div>
+{:class="out"}
 
 When the shell sees the keyword `for`,
 it knows it is supposed to repeat a command (or group of commands) once for each thing in a list.
@@ -88,25 +84,23 @@ in order to make its purpose clearer to human readers.
 The shell itself doesn't care what the variable is called;
 if we wrote this loop as:
 
-<div class="in" markdown="1">
 ~~~
 for x in basilisk.dat unicorn.dat
 do
     head -3 $x
 done
 ~~~
-</div>
+{:class="in"}
 
 or:
 
-<div class="in" markdown="1">
 ~~~
 for temperature in basilisk.dat unicorn.dat
 do
     head -3 $temperature
 done
 ~~~
-</div>
+{:class="in"}
 
 it would work exactly the same way.
 *Don't do this.*
@@ -116,7 +110,6 @@ increase the odds that the program won't do what its readers think it does.
 
 Here's a slightly more complicated loop:
 
-<div class="in" markdown="1">
 ~~~
 for filename in *.dat
 do
@@ -124,7 +117,7 @@ do
     head -100 $filename | tail -20
 done
 ~~~
-</div>
+{:class="in"}
 
 The shell starts by expanding `*.dat` to create the list of files it will process.
 The [loop body](../../gloss.html#loop-body)
@@ -132,26 +125,23 @@ then executes two commands for each of those files.
 The first, `echo`, just prints its command-line parameters to standard output.
 For example:
 
-<div class="in" markdown="1">
 ~~~
 $ echo hello there
 ~~~
-</div>
+{:class="in"}
 
 prints:
 
-<div class="out" markdown="1">
 ~~~
 hello there
 ~~~
-</div>
+{:class="out"}
 
 In this case,
 since the shell expands `$filename` to be the name of a file,
 `echo $filename` just prints the name of the file.
 Note that we can't write this as:
 
-<div class="in" markdown="1">
 ~~~
 for filename in *.dat
 do
@@ -159,7 +149,7 @@ do
     head -100 $filename | tail -20
 done
 ~~~
-</div>
+{:class="in"}
 
 because then the first time through the loop,
 when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as a program.
@@ -222,33 +212,30 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 Going back to our original file renaming problem,
 we can solve it using this loop:
 
-<div class="in" markdown="1">
 ~~~
 for filename in *.dat
 do
     mv $filename original-$filename
 done
 ~~~
-</div>
+{:class="in"}
 
 This loop runs the `mv` command once for each filename.
 The first time,
 when `$filename` expands to `basilisk.dat`,
 the shell executes:
 
-<div class="in" markdown="1">
 ~~~
 mv basilisk.dat original-basilisk.dat
 ~~~
-</div>
+{:class="in"}
 
 The second time, the command is:
 
-<div class="in" markdown="1">
 ~~~
 mv unicorn.dat original-unicorn.dat
 ~~~
-</div>
+{:class="in"}
 
 > #### Measure Twice, Run Once
 > 
@@ -285,7 +272,6 @@ she decides to build up the required commands in stages.
 Her first step is to make sure that she can select the right files&mdash;remember,
 these are ones whose names end in 'A' or 'B', rather than 'Z':
 
-<div class="in" markdown="1">
 ~~~
 $ cd north-pacific-gyre/2012-07-03
 $ for datafile in *[AB].txt
@@ -293,8 +279,7 @@ $ for datafile in *[AB].txt
 >     echo $datafile
 > done
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 NENE01729A.txt
 NENE01729B.txt
@@ -303,22 +288,20 @@ NENE01736A.txt
 NENE02043A.txt
 NENE02043B.txt
 ~~~
-</div>
+{:class="out"}
 
 Her next step is to decide
 what to call the files that the `goostats` analysis program will create.
 Prefixing each input file's name with "stats" seems simple,
 so she modifies her loop to do that:
 
-<div class="in" markdown="1">
 ~~~
 $ for datafile in *[AB].txt
 > do
 >     echo $datafile stats-$datafile
 > done
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 NENE01729A.txt stats-NENE01729A.txt
 NENE01729B.txt stats-NENE01729B.txt
@@ -327,7 +310,7 @@ NENE01736A.txt stats-NENE01736A.txt
 NENE02043A.txt stats-NENE02043A.txt
 NENE02043B.txt stats-NENE02043B.txt
 ~~~
-</div>
+{:class="out"}
 
 She hasn't actually run `goostats` yet,
 but now she's sure she can select the right files and generate the right output filenames.
@@ -341,20 +324,18 @@ In response,
 the shell redisplays the whole loop on one line
 (using semi-colons to separate the pieces):
 
-<div class="in" markdown="1">
 ~~~
 $ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
 ~~~
-</div>
+{:class="in"}
 
 Using the left arrow key,
 Nelle backs up and changes the command `echo` to `goostats`:
 
-<div class="in" markdown="1">
 ~~~
 $ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
-</div>
+{:class="in"}
 
 When she presses enter,
 the shell runs the modified command.
@@ -365,11 +346,10 @@ She kills the job by typing Control-C,
 uses up-arrow to repeat the command,
 and edits it to read:
 
-<div class="in" markdown="1">
 ~~~
 $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
 ~~~
-</div>
+{:class="in"}
 
 > #### Beginning and End
 >
@@ -380,14 +360,13 @@ $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$d
 When she runs her program now,
 it produces one line of output every five seconds or so:
 
-<div class="out" markdown="1">
 ~~~
 NENE01729A.txt
 NENE01729B.txt
 NENE01736A.txt
 ...
 ~~~
-</div>
+{:class="out"}
 
 1518 times 5 seconds,
 divided by 60,
