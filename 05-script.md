@@ -38,12 +38,10 @@ Once we have saved the file,
 we can ask the shell to execute the commands it contains.
 Our shell is called `bash`, so we run the following command:
 
-<div class="in" markdown="1">
 ~~~
 $ bash middle.sh
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 ATOM     14  C           1      -1.463  -0.666   1.001  1.00  0.00
 ATOM     15  C           1       0.762  -0.929   0.295  1.00  0.00
@@ -51,7 +49,7 @@ ATOM     16  C           1       0.771  -0.937   1.840  1.00  0.00
 ATOM     17  C           1      -0.664  -0.610   2.293  1.00  0.00
 ATOM     18  C           1      -4.705   2.108  -0.396  1.00  0.00
 ~~~
-</div>
+{:class="out"}
 
 Sure enough,
 our script's output is exactly what we would get if we ran that pipeline directly.
@@ -74,27 +72,23 @@ but that would probably take longer than just retyping the command.
 Instead,
 let's edit `middle.sh` and replace `cholesterol.pdb` with a special variable called `$1`:
 
-<div class="in" markdown="1">
 ~~~
 $ cat middle.sh
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 head -20 $1 | tail -5
 ~~~
-</div>
+{:class="out"}
 
 Inside a shell script,
 `$1` means "the first filename (or other parameter) on the command line".
 We can now run our script like this:
 
-<div class="in" markdown="1">
 ~~~
 $ bash middle.sh cholesterol.pdb
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 ATOM     14  C           1      -1.463  -0.666   1.001  1.00  0.00
 ATOM     15  C           1       0.762  -0.929   0.295  1.00  0.00
@@ -102,16 +96,14 @@ ATOM     16  C           1       0.771  -0.937   1.840  1.00  0.00
 ATOM     17  C           1      -0.664  -0.610   2.293  1.00  0.00
 ATOM     18  C           1      -4.705   2.108  -0.396  1.00  0.00
 ~~~
-</div>
+{:class="out"}
 
 or on a different file like this:
 
-<div class="in" markdown="1">
 ~~~
 $ bash middle.sh vitamin-a.pdb
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 ATOM     14  C           1       1.788  -0.987  -0.861
 ATOM     15  C           1       2.994  -0.265  -0.829
@@ -119,28 +111,24 @@ ATOM     16  C           1       4.237  -0.901  -1.024
 ATOM     17  C           1       5.406  -0.117  -1.087
 ATOM     18  C           1      -0.696  -2.628  -0.641
 ~~~
-</div>
+{:class="out"}
 
 We still need to edit `middle.sh` each time we want to adjust the range of lines,
 though.
 Let's fix that by using the special variables `$2` and `$3`:
 
-<div class="in" markdown="1">
 ~~~
 $ cat middle.sh
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 head $2 $1 | tail $3
 ~~~
-</div>
-<div class="in" markdown="1">
+{:class="out"}
 ~~~
 $ bash middle.sh vitamin-a.pdb -20 -5
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 ATOM     14  C           1       1.788  -0.987  -0.861
 ATOM     15  C           1       2.994  -0.265  -0.829
@@ -148,24 +136,22 @@ ATOM     16  C           1       4.237  -0.901  -1.024
 ATOM     17  C           1       5.406  -0.117  -1.087
 ATOM     18  C           1      -0.696  -2.628  -0.641
 ~~~
-</div>
+{:class="out"}
 
 This works,
 but it may take the next person who reads `middle.sh` a moment to figure out what it does.
 We can improve our script by adding some [comments](../../gloss.html#comment) at the top:
 
-<div class="in" markdown="1">
 ~~~
 $ cat middle.sh
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 # Select lines from the middle of a file.
 # Usage: middle.sh filename -end_line -num_lines
 head $2 $1 | tail $3
 ~~~
-</div>
+{:class="out"}
 
 A comment starts with a `#` character and runs to the end of the line.
 The computer ignores comments,
@@ -174,11 +160,10 @@ but they're invaluable for helping people understand and use scripts.
 What if we want to process many files in a single pipeline?
 For example, if we want to sort our `.pdb` files by length, we would type:
 
-<div class="in" markdown="1">
 ~~~
 $ wc -l *.pdb | sort -n
 ~~~
-</div>
+{:class="in"}
 
 because `wc -l` lists the number of lines in the files
 and `sort -n` sorts things numerically.
@@ -193,22 +178,18 @@ which means,
 "All of the command-line parameters to the shell script."
 Here's an example:
 
-<div class="in" markdown="1">
 ~~~
 $ cat sorted.sh
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
 wc -l $* | sort -n
 ~~~
-</div>
-<div class="in" markdown="1">
+{:class="out"}
 ~~~
 $ bash sorted.sh *.dat backup/*.dat
 ~~~
-</div>
-<div class="out" markdown="1">
+{:class="in"}
 ~~~
       29 chloratin.dat
       89 backup/chloratin.dat
@@ -217,7 +198,7 @@ $ bash sorted.sh *.dat backup/*.dat
      172 backup/sphag-merged.dat
      182 girmanis.dat
 ~~~
-</div>
+{:class="out"}
 
 > #### Why Isn't It Doing Anything?
 >
@@ -273,11 +254,10 @@ Instead of typing them in again
 (and potentially getting them wrong)
 we can do this:
 
-<div class="in" markdown="1">
 ~~~
 $ history | tail -4 > redo-figure-3.sh
 ~~~
-</div>
+{:class="in"}
 
 The file `redo-figure-3.sh` now contains:
 
@@ -350,19 +330,17 @@ done
 She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
 
-<div class="in" markdown="1">
 ~~~
 $ bash do-stats.sh *[AB].txt
 ~~~
-</div>
+{:class="in"}
 
 She can also do this:
 
-<div class="in" markdown="1">
 ~~~
 $ bash do-stats.sh *[AB].txt | wc -l
 ~~~
-</div>
+{:class="in"}
 
 so that the output is just the number of files processed
 rather than the names of the files that were processed.

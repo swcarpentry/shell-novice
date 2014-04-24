@@ -117,12 +117,11 @@ as long as learners using Windows do not run into roadblocks such as:
 
 *   On Windows, it appears that:
 
-    <div class="in" markdown="1">
     ~~~
     $ cd
     $ cd Desktop
     ~~~
-    </div>
+    {:class="in"}
 
     will always put someone on their desktop.
     Have them create the example directory for the shell exercises there
