@@ -382,84 +382,75 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 </div>
 
-<div class="challenges" markdown="1">
+<div class="challenge" markdown="1">
+Leah has several hundred data files, each of which is formatted like this:
 
-#### Challenges
+~~~
+2013-11-05,deer,5
+2013-11-05,rabbit,22
+2013-11-05,raccoon,7
+2013-11-06,rabbit,19
+2013-11-06,deer,2
+2013-11-06,fox,1
+2013-11-07,rabbit,18
+2013-11-07,bear,1
+~~~
 
-1.  Leah has several hundred data files, each of which is formatted like this:
+Write a shell script called `species.sh` that takes any number of
+filenames as command-line parameters, and uses `cut`, `sort`, and
+`uniq` to print a list of the unique species appearing in each of
+those files separately.
+</div>
 
-    ~~~
-    2013-11-05,deer,5
-    2013-11-05,rabbit,22
-    2013-11-05,raccoon,7
-    2013-11-06,rabbit,19
-    2013-11-06,deer,2
-    2013-11-06,fox,1
-    2013-11-07,rabbit,18
-    2013-11-07,bear,1
-    ~~~
+<div class="challenge" markdown="1">
+Write a shell script called `longest.sh` that takes the name of a
+directory and a filename extension as its parameters, and prints
+out the name of the file with the most lines in that directory
+with that extension. For example:
 
-    Write a shell script called `species.sh` that takes any number of
-    filenames as command-line parameters, and uses `cut`, `sort`, and
-    `uniq` to print a list of the unique species appearing in each of
-    those files separately.
+~~~
+$ bash longest.sh /tmp/data pdb
+~~~
 
-2.  Write a shell script called `longest.sh` that takes the name of a
-    directory and a filename extension as its parameters, and prints
-    out the name of the file with the most lines in that directory
-    with that extension. For example:
+would print the name of the `.pdb` file in `/tmp/data` that has
+the most lines.
+</div>
 
-    ~~~
-    $ bash longest.sh /tmp/data pdb
-    ~~~
+<div class="challenge" markdown="1">
+If you run the command:
 
-    would print the name of the `.pdb` file in `/tmp/data` that has
-    the most lines.
+~~~
+history | tail -5 > recent.sh
+~~~
 
-3.  If you run the command:
+the last command in the file is the `history` command itself, i.e.,
+the shell has added `history` to the command log before actually
+running it. In fact, the shell *always* adds commands to the log
+before running them. Why do you think it does this?
+</div>
 
-    ~~~
-    history | tail -5 > recent.sh
-    ~~~
+<div class="challenge" markdown="1">
+Joel's `data` directory contains three files: `fructose.dat`,
+`glucose.dat`, and `sucrose.dat`. Explain what a script called
+`example.sh` would do when run as `bash example.sh *.dat` if it
+contained the following lines:
 
-    the last command in the file is the `history` command itself, i.e.,
-    the shell has added `history` to the command log before actually
-    running it. In fact, the shell *always* adds commands to the log
-    before running them. Why do you think it does this?
-
-4.  Joel's `data` directory contains three files: `fructose.dat`,
-    `glucose.dat`, and `sucrose.dat`. Explain what a script called
-    `example.sh` would do when run as `bash example.sh *.dat` if it
-    contained the following lines:
-
-<table>
-  <tr>
-    <td valign="top">1.</td>
-    <td valign="top">
-<pre>
+~~~
+# Script 1
 echo *.*
-</pre>
-    </td>
-  </tr>
-  <tr>
-    <td valign="top">2.</td>
-    <td valign="top">
-<pre>
+~~~
+
+~~~
+# Script 2
 for filename in $1 $2 $3
 do
     cat $filename
 done
-</pre>
-    </td>
-  </tr>
-  <tr>
-    <td valign="top">3.</td>
-    <td valign="top">
-<pre>
+~~~
+
+~~~
+# Script 3
 echo $*.dat
-</pre>
-    </td>
-  </tr>
-</table>
+~~~
 
 </div>
