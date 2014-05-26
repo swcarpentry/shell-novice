@@ -44,7 +44,9 @@ div.box {
 }
 
 /* Challenge questions. */
-div.challenges {}
+div.challenge {
+    background-color: lightblue;
+}
 
 /* Key points in summary. */
 div.keypoints {}
