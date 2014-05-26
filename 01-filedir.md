@@ -193,8 +193,8 @@ which doesn't exist.
 
 Now let's take a look at what's in Vlad's `data` directory by running `ls -F data`,
 i.e.,
-the command `ls` with the parameters `-F` and `data`.
-The second parameter&mdash;the one *without* a leading dash&mdash;tells `ls` that
+the command `ls` with the [arguments](../../gloss.html#argument) `-F` and `data`.
+The second argument&mdash;the one *without* a leading dash&mdash;tells `ls` that
 we want a listing of something other than our current working directory:
 
 ~~~
@@ -220,6 +220,16 @@ And it doesn't begin with a slash because it's a [relative path](../../gloss.htm
 i.e., it tells `ls` how to find something from where we are,
 rather than from the root of the file system.
 
+> #### Parameters vs. Arguments
+>
+> According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
+> the terms [argument](../../gloss.html#argument) and [parameter](../../gloss.html#parameter)
+> mean slightly different things.
+> In practice,
+> however,
+> most people use them interchangeably or inconsistently,
+> so we will too.
+
 If we run `ls -F /data` (*with* a leading slash) we get a different answer,
 because `/data` is an [absolute path](../../gloss.html#absolute-path):
 
@@ -240,7 +250,7 @@ no matter where we are when we run the command.
 What if we want to change our current working directory?
 Before we do this,
 `pwd` shows us that we're in `/users/vlad`,
-and `ls` without any parameters shows us that directory's contents:
+and `ls` without any arguments shows us that directory's contents:
 
 ~~~
 $ pwd
@@ -274,7 +284,7 @@ $ cd data
 
 `cd` doesn't print anything,
 but if we run `pwd` after it, we can see that we are now in `/users/vlad/data`.
-If we run `ls` without parameters now,
+If we run `ls` without arguments now,
 it lists the contents of `/users/vlad/data`,
 because that's where we now are:
 
