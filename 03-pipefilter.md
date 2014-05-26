@@ -396,119 +396,123 @@ so this matches all the valid data files she has.
 
 </div>
 
-<div class="challenges" markdown="1">
+<div class="challenge" markdown="1">
+If we run `sort` on this file:
 
-#### Challenges
+~~~
+10
+2
+19
+22
+6
+~~~
 
-1.  If we run `sort` on this file:
+the output is:
 
-    ~~~
-    10
-    2
-    19
-    22
-    6
-    ~~~
+~~~
+10
+19
+2
+22
+6
+~~~
 
-    the output is:
+If we run `sort -n` on the same input, we get this instead:
 
-    ~~~
-    10
-    19
-    2
-    22
-    6
-    ~~~
+~~~
+2
+6
+10
+19
+22
+~~~
 
-    If we run `sort -n` on the same input, we get this instead:
+Explain why `-n` has this effect.
+</div>
 
-    ~~~
-    2
-    6
-    10
-    19
-    22
-    ~~~
+<div class="challenge" markdown="1">
+What is the difference between:
 
-    Explain why `-n` has this effect.
+~~~
+wc -l < mydata.dat
+~~~
 
-2.  What is the difference between:
+and:
 
-    ~~~
-    wc -l < mydata.dat
-    ~~~
+~~~
+wc -l mydata.dat
+~~~
+</div>
 
-    and:
+<div class="challenge" markdown="1">
+The command `uniq` removes adjacent duplicated lines from its input.
+For example, if a file `salmon.txt` contains:
 
-    ~~~
-    wc -l mydata.dat
-    ~~~
+~~~
+coho
+coho
+steelhead
+coho
+steelhead
+steelhead
+~~~
 
-3.  The command `uniq` removes adjacent duplicated lines from its input.
-    For example, if a file `salmon.txt` contains:
+then `uniq salmon.txt` produces:
 
-    ~~~
-    coho
-    coho
-    steelhead
-    coho
-    steelhead
-    steelhead
-    ~~~
+~~~
+coho
+steelhead
+coho
+steelhead
+~~~
 
-    then `uniq salmon.txt` produces:
+Why do you think `uniq` only removes *adjacent* duplicated lines?
+(Hint: think about very large data sets.) What other command could
+you combine with it in a pipe to remove all duplicated lines?
+</div>
 
-    ~~~
-    coho
-    steelhead
-    coho
-    steelhead
-    ~~~
+<div class="challenge" markdown="1">
+A file called `animals.txt` contains the following data:
 
-    Why do you think `uniq` only removes *adjacent* duplicated lines?
-    (Hint: think about very large data sets.) What other command could
-    you combine with it in a pipe to remove all duplicated lines?
+~~~
+2012-11-05,deer
+2012-11-05,rabbit
+2012-11-05,raccoon
+2012-11-06,rabbit
+2012-11-06,deer
+2012-11-06,fox
+2012-11-07,rabbit
+2012-11-07,bear
+~~~
 
-4.  A file called `animals.txt` contains the following data:
+What text passes through each of the pipes and the final redirect in the pipeline below?
 
-    ~~~
-    2012-11-05,deer
-    2012-11-05,rabbit
-    2012-11-05,raccoon
-    2012-11-06,rabbit
-    2012-11-06,deer
-    2012-11-06,fox
-    2012-11-07,rabbit
-    2012-11-07,bear
-    ~~~
+~~~
+cat animals.txt | head -5 | tail -3 | sort -r > final.txt
+~~~
+</div>
 
-    What text passes through each of the pipes and the final redirect in the pipeline below?
+<div class="challenge" markdown="1">
+The command:
 
-    ~~~
-    cat animals.txt | head -5 | tail -3 | sort -r > final.txt
-    ~~~
+~~~
+$ cut -d , -f 2 animals.txt
+~~~
 
-5.  The command:
+produces the following output:
 
-    ~~~
-    $ cut -d , -f 2 animals.txt
-    ~~~
+~~~
+deer
+rabbit
+raccoon
+rabbit
+deer
+fox
+rabbit
+bear
+~~~
 
-    produces the following output:
-
-    ~~~
-    deer
-    rabbit
-    raccoon
-    rabbit
-    deer
-    fox
-    rabbit
-    bear
-    ~~~
-
-    What other command(s) could be added to this in a pipeline to find
-    out what animals the file contains (without any duplicates in their
-    names)?
-
+What other command(s) could be added to this in a pipeline to find
+out what animals the file contains (without any duplicates in their
+names)?
 </div>
