@@ -366,59 +366,61 @@ thesis/quotations.txt
 
 </div>
 
-<div class="challenges" markdown="1">
+<div class="challenge" markdown="1">
+What is the output of the closing `ls` command in the sequence shown below?
 
-#### Challenges
+~~~
+$ pwd
+/home/thing/data
+$ ls
+proteins.dat
+$ mkdir recombine
+$ mv proteins.dat recombine
+$ cp recombine/proteins.dat ../proteins-saved.dat
+$ ls
+~~~
+</div>
 
-1.  What is the output of the closing `ls` command in the sequence shown below?
+<div class="challenge" markdown="1">
+Suppose that:
 
-    ~~~
-    $ pwd
-    /home/thing/data
-    $ ls
-    proteins.dat
-    $ mkdir recombine
-    $ mv proteins.dat recombine
-    $ cp recombine/proteins.dat ../proteins-saved.dat
-    $ ls
-    ~~~
+~~~
+$ ls -F
+analyzed/  fructose.dat    raw/   sucrose.dat
+~~~
 
-2.  Suppose that:
+What command(s) could you run so that the commands below will produce the output shown?
 
-    ~~~
-    $ ls -F
-    analyzed/  fructose.dat    raw/   sucrose.dat
-    ~~~
+~~~
+$ ls
+analyzed   raw
+$ ls analyzed
+fructose.dat    sucrose.dat
+~~~
+</div>
 
-    What command(s) could you run so that the commands below will produce the output shown?
+<div class="challenge" markdown="1">
+What does `cp` do when given several filenames and a directory name, as in:
 
-    ~~~
-    $ ls
-    analyzed   raw
-    $ ls analyzed
-    fructose.dat    sucrose.dat
-    ~~~
+~~~
+$ mkdir backup
+$ cp thesis/citations.txt thesis/quotations.txt backup
+~~~
 
-3.  What does `cp` do when given several filenames and a directory name, as in:
+What does `cp` do when given three or more filenames, as in:
 
-    ~~~
-    $ mkdir backup
-    $ cp thesis/citations.txt thesis/quotations.txt backup
-    ~~~
+~~~
+$ ls -F
+intro.txt    methods.txt    survey.txt
+$ cp intro.txt methods.txt survey.txt
+~~~
+</div>
 
-    What does `cp` do when given three or more filenames, as in:
-
-    ~~~
-    $ ls -F
-    intro.txt    methods.txt    survey.txt
-    $ cp intro.txt methods.txt survey.txt
-    ~~~
-
-4.  The command `ls -R` lists the contents of directories recursively,
-    i.e., lists their sub-directories, sub-sub-directories, and so on
-    in alphabetical order at each level.
-    The command `ls -t` lists things by time of last change,
-    with most recently changed files or directories first.
-    In what order does `ls -R -t` display things?
-
+<div class="challenge" markdown="1">
+The command `ls -R` lists the contents of directories recursively,
+i.e., lists their sub-directories, sub-sub-directories, and so on
+in alphabetical order at each level.
+The command `ls -t` lists things by time of last change,
+with most recently changed files or directories first.
+In what order does `ls -R -t` display things?
 </div>
