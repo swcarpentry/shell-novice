@@ -444,30 +444,28 @@ about them."
 
 </div>
 
-<div class="challenges" markdown="1">
+<div class="challenge" markdown="1">
+Write a short explanatory comment for the following shell script:
 
-#### Challenges
+<div class="file" markdown="1">
+~~~
+find . -name '*.dat' -print | wc -l | sort -n
+~~~
+</div>
+</div>
 
-1.  Write a short explanatory comment for the following shell script:
+<div class="challenge" markdown="1">
+The `-v` flag to `grep` inverts pattern matching, so that only lines
+which do *not* match the pattern are printed. Given that, which of
+the following commands will find all files in `/data` whose names
+end in `ose.dat` (e.g., `sucrose.dat` or `maltose.dat`), but do
+*not* contain the word `temp`?
 
-    <div class="file" markdown="1">
-    ~~~
-    find . -name '*.dat' -print | wc -l | sort -n
-    ~~~
-    </div>
+1. `find /data -name '*.dat' -print | grep ose | grep -v temp`
 
-2.  The `-v` flag to `grep` inverts pattern matching, so that only lines
-    which do *not* match the pattern are printed. Given that, which of
-    the following commands will find all files in `/data` whose names
-    end in `ose.dat` (e.g., `sucrose.dat` or `maltose.dat`), but do
-    *not* contain the word `temp`?
+2. `find /data -name ose.dat -print | grep -v temp`
 
-    1. `find /data -name '*.dat' -print | grep ose | grep -v temp`
+3. `grep -v temp $(find /data -name '*ose.dat' -print)`
 
-    2. `find /data -name ose.dat -print | grep -v temp`
-
-    3. `grep -v temp $(find /data -name '*ose.dat' -print)`
-
-    4. None of the above.
-
+4. None of the above.
 </div>
