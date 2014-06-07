@@ -1,148 +1,140 @@
 /* Customizations to Bootstrap's default styles */
 
 blockquote p {
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
 }
-
 /* readability: darken the alert colour for contrast with background */
-.alert {
-  color: rgb(0,0,0);
-}
 
+.alert {
+    color: rgb(0, 0, 0);
+}
 /* Container for page contents. */
+
 .container {
     background-color: white;
 }
-
 .hero-unit {
-  padding: 20px;
+    padding: 20px;
 }
-
 .navbar .container {
     background-color: inherit;
 }
-
 .navbar-inner {
-  min-height: 40px;
-  padding-right: 20px;
-  padding-left: 20px;
-  background-color: #F4F4F4;
-  background-image: none;
-  border: 1px solid #d4d4d4;
-  -webkit-border-radius: 0;
-     -moz-border-radius: 0;
-          border-radius: 0;
+    min-height: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #F4F4F4;
+    background-image: none;
+    border: 1px solid #d4d4d4;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
 }
-
 code {
-  color: #333333;
+    color: #333333;
 }
-
 .navbar-inverse .navbar-inner {
-  background-color: #20267D;
-  background-image: none;
-  border-color: #20267D;
+    background-color: #20267D;
+    background-image: none;
+    border-color: #20267D;
 }
-
 .navbar-inverse .nav .active > a,
-.navbar-inverse .nav .active > a:hover,
-.navbar-inverse .nav .active > a:focus {
-  color: #ffffff;
-  background-color: #20267D;
+.navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
+    color: #ffffff;
+    background-color: #20267D;
 }
-
 .navbar-inverse .nav li.dropdown.open > .dropdown-toggle,
 .navbar-inverse .nav li.dropdown.active > .dropdown-toggle,
 .navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
-  color: #ffffff;
-  background-color: #20267D;
+    color: #ffffff;
+    background-color: #20267D;
 }
-
 .navbar-inverse .nav li.dropdown.active > .dropdown-toggle .caret {
-  border-top-color: #999999;
-  border-bottom-color: #999999;
+    border-top-color: #999999;
+    border-bottom-color: #999999;
 }
-
 .navbar-inverse .nav li.dropdown.open > .dropdown-toggle .caret {
-  border-top-color: #ffffff;
-  border-bottom-color: #ffffff;
+    border-top-color: #ffffff;
+    border-bottom-color: #ffffff;
 }
-
 /* GitHub Ribbon */
 
 #github-ribbon a {
-  background:#000;
-  color:#fff;
-  text-decoration:none;
-  font-family:arial, sans-serif;
-  text-align:center;
-  font-weight:bold;
-  padding:5px 40%;
-  font-size:0.8rem;
-  line-height:1.6rem;
-  position:relative;
-  transition:0.5s;
-  width:100%;
-  margin: 0 auto;
-  white-space: nowrap;
-  z-index:10;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 40%;
+    font-size: 0.8rem;
+    line-height: 1.6rem;
+    position: relative;
+    transition: 0.5s;
+    width: 100%;
+    margin: 0 auto;
+    white-space: nowrap;
+    z-index: 10;
 }
-
 #github-ribbon a:hover {
-  background:#600;
-  color:#fff;
+    background: #600;
+    color: #fff;
 }
-
 #github-ribbon a::before, #github-ribbon a::after {
-  content:"";
-  width:100%;
-  display:block;
-  position:absolute;
-  top:1px;
-  left:0;
-  height:1px;
-  background:#fff;
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 1px;
+    background: #fff;
 }
-
-#github-ribbon a::after{
-  bottom:1px;
-  top:auto;
+#github-ribbon a::after {
+    bottom: 1px;
+    top: auto;
 }
-
 /* github ribbon breaking point */
-@media screen and (min-width:600px){
-  #github-ribbon{
-    position:absolute;
-    display:block;
-    top:0;
-    right:0;
-    width:150px;
-    overflow:hidden;
-    height:150px;
-  }
-  #github-ribbon a{
-    width:200px;
-    position:absolute;
-    padding:5px 40px;
-    top:40px;
-    right:-80px;
-    transform:rotate(45deg);
-    -webkit-transform:rotate(45deg);
-    box-shadow:1px 1px 10px rgba(0,0,0,0.8);
-  }
-  .navbar .btn-navbar {
-    margin-right: 150px;
-  }
+
+@media screen and (min-width: 600px) {
+    .navbar .btn-navbar {
+        margin-right: 150px;
+    }
+    #github-ribbon {
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        width: 150px;
+        overflow: hidden;
+        height: 150px;
+    }
+    #github-ribbon a {
+        width: 200px;
+        position: absolute;
+        padding: 5px 40px;
+        top: 40px;
+        right: -80px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+    }
 }
-
-@media (max-width: 319px) {
-  .header h1 {
-      font-size: 20pt;
-  }
-
-  #header-text {
-      font-size:16pt;
-  }
+@media (max-width: 599px) {
+    .header h1 {
+        font-size: 20pt;
+    }
+    #header-text {
+        font-size: 16pt;
+    }
+    #github-ribbon {
+        width: 100%;
+    }
+    #github-ribbon a {
+        display: block;
+        padding: 0px 0px;
+        margin: 0px 0px;
+    }
 }
