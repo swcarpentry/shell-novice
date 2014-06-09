@@ -15,11 +15,11 @@
    preserveAspectRatio="xMidYMid"
    clip-path="url(#presentation_clip_path)"
    xml:space="preserve"
-   id="svg5827"
+   id="svg2"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="vlad-homedir.svg"
+   sodipodi:docname="nelle-homedir.svg"
    style="fill-rule:evenodd;stroke-width:28.22200012;stroke-linejoin:round"><metadata
-   id="metadata6242"><rdf:RDF><cc:Work
+   id="metadata417"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
    pagecolor="#ffffff"
@@ -32,22 +32,22 @@
    inkscape:pageshadow="2"
    inkscape:window-width="640"
    inkscape:window-height="480"
-   id="namedview6240"
+   id="namedview415"
    showgrid="false"
    fit-margin-top="0"
    fit-margin-left="0"
    fit-margin-right="0"
    fit-margin-bottom="0"
-   inkscape:zoom="0.23838384"
+   inkscape:zoom="0.67425131"
    inkscape:cx="340.86614"
-   inkscape:cy="-192.93307"
+   inkscape:cy="103.69223"
    inkscape:window-x="0"
    inkscape:window-y="0"
    inkscape:window-maximized="0"
-   inkscape:current-layer="svg5827" />
+   inkscape:current-layer="svg2" />
  <defs
    class="ClipPathGroup"
-   id="defs5829">
+   id="defs4">
   <clipPath
    id="presentation_clip_path"
    clipPathUnits="userSpaceOnUse">
@@ -56,26 +56,26 @@
    y="0"
    width="21590"
    height="27940"
-   id="rect5832" />
+   id="rect7" />
   </clipPath>
  </defs>
  <defs
    class="TextShapeIndex"
-   id="defs5834">
+   id="defs9">
   <g
    ooo:slide="id1"
    ooo:id-list="id3 id4 id5 id6 id7 id8 id9 id10 id11 id12 id13 id14 id15 id16 id17 id18 id19 id20 id21 id22 id23 id24 id25 id26 id27 id28 id29 id30 id31 id32 id33 id34 id35 id36 id37 id38 id39 id40 id41 id42 id43 id44 id45 id46 id47 id48 id49"
-   id="g5836" />
+   id="g11" />
  </defs>
  <defs
    class="EmbeddedBulletChars"
-   id="defs5838">
+   id="defs13">
   <g
    id="bullet-char-template(57356)"
    transform="scale(4.8828125e-4,-4.8828125e-4)">
    <path
    d="M 580,1141 1163,571 580,0 -4,571 580,1141 z"
-   id="path5841"
+   id="path16"
    inkscape:connector-curvature="0" />
   </g>
   <g
@@ -83,7 +83,7 @@
    transform="scale(4.8828125e-4,-4.8828125e-4)">
    <path
    d="m 8,1128 1129,0 L 1137,0 8,0 8,1128 z"
-   id="path5844"
+   id="path19"
    inkscape:connector-curvature="0" />
   </g>
   <g
@@ -91,7 +91,7 @@
    transform="scale(4.8828125e-4,-4.8828125e-4)">
    <path
    d="M 174,0 602,739 174,1481 1456,739 174,0 z m 1184,739 -1049,607 350,-607 699,0 z"
-   id="path5847"
+   id="path22"
    inkscape:connector-curvature="0" />
   </g>
   <g
@@ -99,7 +99,7 @@
    transform="scale(4.8828125e-4,-4.8828125e-4)">
    <path
    d="M 2015,739 1276,0 717,0 l 543,543 -1086,0 0,393 1086,0 -543,545 557,0 741,-742 z"
-   id="path5850"
+   id="path25"
    inkscape:connector-curvature="0" />
   </g>
   <g
@@ -107,7 +107,7 @@
    transform="scale(4.8828125e-4,-4.8828125e-4)">
    <path
    d="m 0,-2 c -7,16 -16,29 -25,39 l 381,530 c -94,256 -141,385 -141,387 0,25 13,38 40,38 9,0 21,-2 34,-5 21,4 42,12 65,25 l 27,-13 111,-251 280,301 64,-25 24,25 c 21,-10 41,-24 62,-43 C 886,937 835,863 770,784 769,783 710,716 594,584 L 774,223 c 0,-27 -21,-55 -63,-84 l 16,-20 C 717,90 699,76 672,76 641,76 570,178 457,381 L 164,-76 c -22,-34 -53,-51 -92,-51 -42,0 -63,17 -64,51 -7,9 -10,24 -10,44 0,9 1,19 2,30 z"
-   id="path5853"
+   id="path28"
    inkscape:connector-curvature="0" />
   </g>
   <g
@@ -115,7 +115,7 @@
    transform="scale(4.8828125e-4,-4.8828125e-4)">
    <path
    d="M 285,-33 C 182,-33 111,30 74,156 52,228 41,333 41,471 c 0,78 14,145 41,201 34,71 87,106 158,106 53,0 88,-31 106,-94 l 23,-176 c 8,-64 28,-97 59,-98 l 735,706 c 11,11 33,17 66,17 42,0 63,-15 63,-46 l 0,-122 c 0,-36 -10,-64 -30,-84 L 442,47 C 390,-6 338,-33 285,-33 z"
-   id="path5856"
+   id="path31"
    inkscape:connector-curvature="0" />
   </g>
   <g
@@ -123,7 +123,7 @@
    transform="scale(4.8828125e-4,-4.8828125e-4)">
    <path
    d="M 813,0 C 632,0 489,54 383,161 276,268 223,411 223,592 c 0,181 53,324 160,431 106,107 249,161 430,161 179,0 323,-54 432,-161 108,-107 162,-251 162,-431 0,-180 -54,-324 -162,-431 C 1136,54 992,0 813,0 z"
-   id="path5859"
+   id="path34"
    inkscape:connector-curvature="0" />
   </g>
   <g
@@ -131,7 +131,7 @@
    transform="scale(4.8828125e-4,-4.8828125e-4)">
    <path
    d="m 346,457 c -73,0 -137,26 -191,78 -54,51 -81,114 -81,188 0,73 27,136 81,188 54,52 118,78 191,78 73,0 134,-26 185,-79 51,-51 77,-114 77,-187 0,-75 -25,-137 -76,-188 -50,-52 -112,-78 -186,-78 z"
-   id="path5862"
+   id="path37"
    inkscape:connector-curvature="0" />
   </g>
   <g
@@ -139,15 +139,15 @@
    transform="scale(4.8828125e-4,-4.8828125e-4)">
    <path
    d="m -4,459 1139,0 0,147 -1139,0 0,-147 z"
-   id="path5865"
+   id="path40"
    inkscape:connector-curvature="0" />
   </g>
  </defs>
  <defs
    class="TextEmbeddedBitmaps"
-   id="defs5867" />
+   id="defs42" />
  <g
-   id="g5869"
+   id="g44"
    transform="translate(-1175,-1175)">
   <g
    id="id2"
@@ -162,55 +162,55 @@
  </g>
  <g
    class="SlideGroup"
-   id="g5874"
+   id="g49"
    transform="translate(-1175,-1175)">
   <g
-   id="g5876">
+   id="g51">
    <g
    id="id1"
    class="Slide"
    clip-path="url(#presentation_clip_path)">
     <g
    class="Page"
-   id="g5879">
+   id="g54">
      <g
    class="Group"
-   id="g5881">
+   id="g56">
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g5883">
+   id="g58">
        <g
    id="id3">
         <path
    d="m 10150,2500 -1150,0 0,-1100 2300,0 0,1100 -1150,0 z"
-   id="path5886"
+   id="path61"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
         <text
    class="TextShape"
-   id="text5888"><tspan
+   id="text63"><tspan
      class="TextParagraph"
      font-size="388px"
      font-weight="400"
-     id="tspan5890"
+     id="tspan65"
      style="font-size:388px;font-weight:400;font-family:'Arial, sans-serif'"><tspan
        class="TextPosition"
-       x="9795"
+       x="9740"
        y="2085"
-       id="tspan5892"><tspan
-         id="tspan5894"
-         style="fill:#000000;stroke:none">vlad</tspan></tspan></tspan></text>
+       id="tspan67"><tspan
+         id="tspan69"
+         style="fill:#000000;stroke:none">nelle</tspan></tspan></tspan></text>
 
        </g>
       </g>
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g5896">
+   id="g71">
        <g
    id="id4">
         <path
    d="m 9000,1400 1001,0 -251,-200 -500,0 -250,200 z"
-   id="path5899"
+   id="path74"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
@@ -218,42 +218,42 @@
      </g>
      <g
    class="Group"
-   id="g5901">
+   id="g76">
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g5903">
+   id="g78">
        <g
    id="id5">
         <path
    d="m 8350,5300 -1150,0 0,-1100 2300,0 0,1100 -1150,0 z"
-   id="path5906"
+   id="path81"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
         <text
    class="TextShape"
-   id="text5908"><tspan
+   id="text83"><tspan
      class="TextParagraph"
      font-size="388px"
      font-weight="400"
-     id="tspan5910"
+     id="tspan85"
      style="font-size:388px;font-weight:400;font-family:'Arial, sans-serif'"><tspan
        class="TextPosition"
        x="7995"
        y="4885"
-       id="tspan5912"><tspan
-         id="tspan5914"
+       id="tspan87"><tspan
+         id="tspan89"
          style="fill:#000000;stroke:none">mail</tspan></tspan></tspan></text>
 
        </g>
       </g>
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g5916">
+   id="g91">
        <g
    id="id6">
         <path
    d="m 7200,4200 1001,0 -251,-200 -500,0 -250,200 z"
-   id="path5919"
+   id="path94"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
@@ -261,42 +261,42 @@
      </g>
      <g
    class="Group"
-   id="g5921">
+   id="g96">
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g5923">
+   id="g98">
        <g
    id="id7">
         <path
    d="m 2350,5300 -1150,0 0,-1100 2300,0 0,1100 -1150,0 z"
-   id="path5926"
+   id="path101"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
         <text
    class="TextShape"
-   id="text5928"><tspan
+   id="text103"><tspan
      class="TextParagraph"
      font-size="388px"
      font-weight="400"
-     id="tspan5930"
+     id="tspan105"
      style="font-size:388px;font-weight:400;font-family:'Arial, sans-serif'"><tspan
        class="TextPosition"
        x="2092"
        y="4885"
-       id="tspan5932"><tspan
-         id="tspan5934"
+       id="tspan107"><tspan
+         id="tspan109"
          style="fill:#000000;stroke:none">bin</tspan></tspan></tspan></text>
 
        </g>
       </g>
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g5936">
+   id="g111">
        <g
    id="id8">
         <path
    d="m 1200,4200 1001,0 -251,-200 -500,0 -250,200 z"
-   id="path5939"
+   id="path114"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
@@ -304,42 +304,42 @@
      </g>
      <g
    class="Group"
-   id="g5941">
+   id="g116">
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g5943">
+   id="g118">
        <g
    id="id9">
         <path
    d="m 5350,5300 -1150,0 0,-1100 2300,0 0,1100 -1150,0 z"
-   id="path5946"
+   id="path121"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
         <text
    class="TextShape"
-   id="text5948"><tspan
+   id="text123"><tspan
      class="TextParagraph"
      font-size="388px"
      font-weight="400"
-     id="tspan5950"
+     id="tspan125"
      style="font-size:388px;font-weight:400;font-family:'Arial, sans-serif'"><tspan
        class="TextPosition"
        x="4973"
        y="4885"
-       id="tspan5952"><tspan
-         id="tspan5954"
+       id="tspan127"><tspan
+         id="tspan129"
          style="fill:#000000;stroke:none">data</tspan></tspan></tspan></text>
 
        </g>
       </g>
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g5956">
+   id="g131">
        <g
    id="id10">
         <path
    d="m 4200,4200 1001,0 -251,-200 -500,0 -250,200 z"
-   id="path5959"
+   id="path134"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
@@ -347,42 +347,42 @@
      </g>
      <g
    class="Group"
-   id="g5961">
+   id="g136">
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g5963">
+   id="g138">
        <g
    id="id11">
         <path
    d="m 14550,5400 -1150,0 0,-1100 2300,0 0,1100 -1150,0 z"
-   id="path5966"
+   id="path141"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
         <text
    class="TextShape"
-   id="text5968"><tspan
+   id="text143"><tspan
      class="TextParagraph"
      font-size="388px"
      font-weight="400"
-     id="tspan5970"
+     id="tspan145"
      style="font-size:388px;font-weight:400;font-family:'Arial, sans-serif'"><tspan
        class="TextPosition"
        x="14044"
        y="4985"
-       id="tspan5972"><tspan
-         id="tspan5974"
+       id="tspan147"><tspan
+         id="tspan149"
          style="fill:#000000;stroke:none">music</tspan></tspan></tspan></text>
 
        </g>
       </g>
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g5976">
+   id="g151">
        <g
    id="id12">
         <path
    d="m 13400,4300 1001,0 -251,-200 -500,0 -250,200 z"
-   id="path5979"
+   id="path154"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
@@ -390,42 +390,42 @@
      </g>
      <g
    class="Group"
-   id="g5981">
+   id="g156">
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g5983">
+   id="g158">
        <g
    id="id13">
         <path
    d="m 17550,5400 -1150,0 0,-1100 2300,0 0,1100 -1150,0 z"
-   id="path5986"
+   id="path161"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
         <text
    class="TextShape"
-   id="text5988"><tspan
+   id="text163"><tspan
      class="TextParagraph"
      font-size="388px"
      font-weight="400"
-     id="tspan5990"
+     id="tspan165"
      style="font-size:388px;font-weight:400;font-family:'Arial, sans-serif'"><tspan
        class="TextPosition"
        x="16958"
        y="4985"
-       id="tspan5992"><tspan
-         id="tspan5994"
+       id="tspan167"><tspan
+         id="tspan169"
          style="fill:#000000;stroke:none">papers</tspan></tspan></tspan></text>
 
        </g>
       </g>
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g5996">
+   id="g171">
        <g
    id="id14">
         <path
    d="m 16400,4300 1001,0 -251,-200 -500,0 -250,200 z"
-   id="path5999"
+   id="path174"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
@@ -433,85 +433,85 @@
      </g>
      <g
    class="Group"
-   id="g6001">
+   id="g176">
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6003">
+   id="g178">
        <g
    id="id15">
         <path
    d="m 10892,4300 0,1100"
-   id="path6006"
+   id="path181"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6008">
+   id="g183">
        <g
    id="id16">
         <path
    d="m 12667,4532 0,868"
-   id="path6011"
+   id="path186"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6013">
+   id="g188">
        <g
    id="id17">
         <path
    d="m 10892,5400 1775,0"
-   id="path6016"
+   id="path191"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6018">
+   id="g193">
        <g
    id="id18">
         <path
    d="m 10892,4300 1383,0"
-   id="path6021"
+   id="path196"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6023">
+   id="g198">
        <g
    id="id19">
         <path
    d="m 12275,4300 392,232"
-   id="path6026"
+   id="path201"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.TextShape"
-   id="g6028">
+   id="g203">
        <g
    id="id20">
         <text
    class="TextShape"
-   id="text6031"><tspan
+   id="text206"><tspan
      class="TextParagraph"
      font-size="388px"
      font-weight="400"
-     id="tspan6033"
+     id="tspan208"
      style="font-size:388px;font-weight:400;font-family:'Arial, sans-serif'"><tspan
        class="TextPosition"
        x="11050"
        y="5023"
-       id="tspan6035"><tspan
-         id="tspan6037"
+       id="tspan210"><tspan
+         id="tspan212"
          style="fill:#000000;stroke:none">notes.txt</tspan></tspan></tspan></text>
 
        </g>
@@ -519,42 +519,42 @@
      </g>
      <g
    class="Group"
-   id="g6039">
+   id="g214">
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g6041">
+   id="g216">
        <g
    id="id21">
         <path
    d="m 14150,8500 -1150,0 0,-1100 2300,0 0,1100 -1150,0 z"
-   id="path6044"
+   id="path219"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
         <text
    class="TextShape"
-   id="text6046"><tspan
+   id="text221"><tspan
      class="TextParagraph"
      font-size="388px"
      font-weight="400"
-     id="tspan6048"
+     id="tspan223"
      style="font-size:388px;font-weight:400;font-family:'Arial, sans-serif'"><tspan
        class="TextPosition"
        x="13816"
        y="8085"
-       id="tspan6050"><tspan
-         id="tspan6052"
+       id="tspan225"><tspan
+         id="tspan227"
          style="fill:#000000;stroke:none">swc</tspan></tspan></tspan></text>
 
        </g>
       </g>
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g6054">
+   id="g229">
        <g
    id="id22">
         <path
    d="m 13000,7400 1001,0 -251,-200 -500,0 -250,200 z"
-   id="path6057"
+   id="path232"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
@@ -562,85 +562,85 @@
      </g>
      <g
    class="Group"
-   id="g6059">
+   id="g234">
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6061">
+   id="g236">
        <g
    id="id23">
         <path
    d="m 10492,7400 0,1100"
-   id="path6064"
+   id="path239"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6066">
+   id="g241">
        <g
    id="id24">
         <path
    d="m 12267,7632 0,868"
-   id="path6069"
+   id="path244"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6071">
+   id="g246">
        <g
    id="id25">
         <path
    d="m 10492,8500 1775,0"
-   id="path6074"
+   id="path249"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6076">
+   id="g251">
        <g
    id="id26">
         <path
    d="m 10492,7400 1383,0"
-   id="path6079"
+   id="path254"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6081">
+   id="g256">
        <g
    id="id27">
         <path
    d="m 11875,7400 392,232"
-   id="path6084"
+   id="path259"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.TextShape"
-   id="g6086">
+   id="g261">
        <g
    id="id28">
         <text
    class="TextShape"
-   id="text6089"><tspan
+   id="text264"><tspan
      class="TextParagraph"
      font-size="388px"
      font-weight="400"
-     id="tspan6091"
+     id="tspan266"
      style="font-size:388px;font-weight:400;font-family:'Arial, sans-serif'"><tspan
        class="TextPosition"
        x="10650"
        y="8123"
-       id="tspan6093"><tspan
-         id="tspan6095"
+       id="tspan268"><tspan
+         id="tspan270"
          style="fill:#000000;stroke:none">solar.pdf</tspan></tspan></tspan></text>
 
        </g>
@@ -648,42 +648,42 @@
      </g>
      <g
    class="Group"
-   id="g6097">
+   id="g272">
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g6099">
+   id="g274">
        <g
    id="id29">
         <path
    d="m 8650,8500 -1150,0 0,-1100 2300,0 0,1100 -1150,0 z"
-   id="path6102"
+   id="path277"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
         <text
    class="TextShape"
-   id="text6104"><tspan
+   id="text279"><tspan
      class="TextParagraph"
      font-size="388px"
      font-weight="400"
-     id="tspan6106"
+     id="tspan281"
      style="font-size:388px;font-weight:400;font-family:'Arial, sans-serif'"><tspan
        class="TextPosition"
        x="8229"
        y="8085"
-       id="tspan6108"><tspan
-         id="tspan6110"
+       id="tspan283"><tspan
+         id="tspan285"
          style="fill:#000000;stroke:none">solar</tspan></tspan></tspan></text>
 
        </g>
       </g>
       <g
    class="com.sun.star.drawing.CustomShape"
-   id="g6112">
+   id="g287">
        <g
    id="id30">
         <path
    d="m 7500,7400 1001,0 -251,-200 -500,0 -250,200 z"
-   id="path6115"
+   id="path290"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
@@ -691,63 +691,63 @@
      </g>
      <g
    class="Group"
-   id="g6117">
+   id="g292">
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6119">
+   id="g294">
        <g
    id="id31">
         <path
    d="m 4992,7400 0,1100"
-   id="path6122"
+   id="path297"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6124">
+   id="g299">
        <g
    id="id32">
         <path
    d="m 6767,7632 0,868"
-   id="path6127"
+   id="path302"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6129">
+   id="g304">
        <g
    id="id33">
         <path
    d="m 4992,8500 1775,0"
-   id="path6132"
+   id="path307"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6134">
+   id="g309">
        <g
    id="id34">
         <path
    d="m 4992,7400 1383,0"
-   id="path6137"
+   id="path312"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
       </g>
       <g
    class="com.sun.star.drawing.LineShape"
-   id="g6139">
+   id="g314">
        <g
    id="id35">
         <path
    d="m 6375,7400 392,232"
-   id="path6142"
+   id="path317"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000;stroke-width:50" />
        </g>
@@ -755,228 +755,228 @@
      </g>
      <g
    class="com.sun.star.drawing.TextShape"
-   id="g6144">
+   id="g319">
       <g
    id="id36">
        <text
    class="TextShape"
-   id="text6147"><tspan
+   id="text322"><tspan
      class="TextParagraph"
      font-size="388px"
      font-weight="400"
-     id="tspan6149"
+     id="tspan324"
      style="font-size:388px;font-weight:400;font-family:'Arial, sans-serif'"><tspan
        class="TextPosition"
        x="5150"
        y="8123"
-       id="tspan6151"><tspan
-         id="tspan6153"
+       id="tspan326"><tspan
+         id="tspan328"
          style="fill:#000000;stroke:none">pizza.cfg</tspan></tspan></tspan></text>
 
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6155">
+   id="g330">
       <g
    id="id37">
        <path
    d="m 2500,3100 15200,0"
-   id="path6158"
+   id="path333"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6160">
+   id="g335">
       <g
    id="id38">
        <path
    d="m 2500,3100 0,470"
-   id="path6163"
+   id="path338"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
        <path
    d="m 2500,4000 150,-450 -300,0 150,450 z"
-   id="path6165"
+   id="path340"
    inkscape:connector-curvature="0"
    style="fill:#000000;stroke:none" />
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6167">
+   id="g342">
       <g
    id="id39">
        <path
    d="m 5500,3100 0,470"
-   id="path6170"
+   id="path345"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
        <path
    d="m 5500,4000 150,-450 -300,0 150,450 z"
-   id="path6172"
+   id="path347"
    inkscape:connector-curvature="0"
    style="fill:#000000;stroke:none" />
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6174">
+   id="g349">
       <g
    id="id40">
        <path
    d="m 8500,3100 0,470"
-   id="path6177"
+   id="path352"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
        <path
    d="m 8500,4000 150,-450 -300,0 150,450 z"
-   id="path6179"
+   id="path354"
    inkscape:connector-curvature="0"
    style="fill:#000000;stroke:none" />
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6181">
+   id="g356">
       <g
    id="id41">
        <path
    d="m 11700,3100 0,470"
-   id="path6184"
+   id="path359"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
        <path
    d="m 11700,4000 150,-450 -300,0 150,450 z"
-   id="path6186"
+   id="path361"
    inkscape:connector-curvature="0"
    style="fill:#000000;stroke:none" />
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6188">
+   id="g363">
       <g
    id="id42">
        <path
    d="m 14800,3100 0,470"
-   id="path6191"
+   id="path366"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
        <path
    d="m 14800,4000 150,-450 -300,0 150,450 z"
-   id="path6193"
+   id="path368"
    inkscape:connector-curvature="0"
    style="fill:#000000;stroke:none" />
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6195">
+   id="g370">
       <g
    id="id43">
        <path
    d="m 17700,3100 0,470"
-   id="path6198"
+   id="path373"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
        <path
    d="m 17700,4000 150,-450 -300,0 150,450 z"
-   id="path6200"
+   id="path375"
    inkscape:connector-curvature="0"
    style="fill:#000000;stroke:none" />
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6202">
+   id="g377">
       <g
    id="id44">
        <path
    d="m 10200,2500 0,3900"
-   id="path6205"
+   id="path380"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6207">
+   id="g382">
       <g
    id="id45">
        <path
    d="m 5900,6400 8400,0"
-   id="path6210"
+   id="path385"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6212">
+   id="g387">
       <g
    id="id46">
        <path
    d="m 5900,6400 0,470"
-   id="path6215"
+   id="path390"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
        <path
    d="m 5900,7300 150,-450 -300,0 150,450 z"
-   id="path6217"
+   id="path392"
    inkscape:connector-curvature="0"
    style="fill:#000000;stroke:none" />
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6219">
+   id="g394">
       <g
    id="id47">
        <path
    d="m 8800,6400 0,470"
-   id="path6222"
+   id="path397"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
        <path
    d="m 8800,7300 150,-450 -300,0 150,450 z"
-   id="path6224"
+   id="path399"
    inkscape:connector-curvature="0"
    style="fill:#000000;stroke:none" />
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6226">
+   id="g401">
       <g
    id="id48">
        <path
    d="m 11300,6400 0,470"
-   id="path6229"
+   id="path404"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
        <path
    d="m 11300,7300 150,-450 -300,0 150,450 z"
-   id="path6231"
+   id="path406"
    inkscape:connector-curvature="0"
    style="fill:#000000;stroke:none" />
       </g>
      </g>
      <g
    class="com.sun.star.drawing.LineShape"
-   id="g6233">
+   id="g408">
       <g
    id="id49">
        <path
    d="m 14300,6400 0,470"
-   id="path6236"
+   id="path411"
    inkscape:connector-curvature="0"
    style="fill:none;stroke:#000000" />
        <path
    d="m 14300,7300 150,-450 -300,0 150,450 z"
-   id="path6238"
+   id="path413"
    inkscape:connector-curvature="0"
    style="fill:#000000;stroke:none" />
       </g>
