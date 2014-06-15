@@ -148,11 +148,13 @@ $ cat lengths
 {:class="out"}
 
 Now let's use the `sort` command to sort its contents.
+We will also use the -n flag to specify that the sort is 
+numerical instead of alphabetical.
 This does *not* change the file;
 instead, it sends the sorted result to the screen:
 
 ~~~
-$ sort lengths
+$ sort -n lengths
 ~~~
 {:class="in"}
 ~~~
@@ -173,7 +175,7 @@ Once we've done that,
 we can run another command called `head` to get the first few lines in `sorted-lengths`:
 
 ~~~
-$ sort lengths > sorted-lengths
+$ sort -n lengths > sorted-lengths
 $ head -1 sorted-lengths
 ~~~
 {:class="in"}
@@ -196,7 +198,7 @@ all those intermediate files make it hard to follow what's going on.
 We can make it easier to understand by running `sort` and `head` together:
 
 ~~~
-$ sort lengths | head -1
+$ sort -n lengths | head -1
 ~~~
 {:class="in"}
 ~~~
@@ -217,7 +219,7 @@ We can use another pipe to send the output of `wc` directly to `sort`,
 which then sends its output to `head`:
 
 ~~~
-$ wc -l *.pdb | sort | head -1
+$ wc -l *.pdb | sort -n | head -1
 ~~~
 {:class="in"}
 ~~~
@@ -228,7 +230,7 @@ $ wc -l *.pdb | sort | head -1
 This is exactly like a mathematician nesting functions like *sin(&pi;x)<sup>2</sup>*
 and saying "the square of the sine of *x* times &pi;".
 In our case,
-the calculation is "head of sort of word count of `*.pdb`".
+the calculation is "head of sort of line count of `*.pdb`".
 
 Here's what actually happens behind the scenes when we create a pipe.
 When a computer runs a program&mdash;any program&mdash;it creates a [process](../../gloss.html#process)
@@ -255,14 +257,14 @@ Since we've provided some filenames as parameters,
 And since we've used `>` to redirect output to a file,
 the shell connects the process's standard output to that file.
 
-If we run `wc -l *.pdb | sort` instead,
+If we run `wc -l *.pdb | sort -n` instead,
 the shell creates two processes
 (one for each process in the pipe)
 so that `wc` and `sort` run simultaneously.
 The standard output of `wc` is fed directly to the standard input of `sort`;
 since there's no redirection with `>`,
 `sort`'s output goes to the screen.
-And if we run `wc -l *.pdb | sort | head -1`,
+And if we run `wc -l *.pdb | sort -n | head -1`,
 we get three processes with data flowing from the files,
 through `wc` to `sort`,
 and from `sort` through `head` to the screen.
@@ -326,7 +328,7 @@ The output is 1520 lines that look like this:
 Now she types this:
 
 ~~~
-$ wc -l *.txt | sort | head -5
+$ wc -l *.txt | sort -n | head -5
 ~~~
 {:class="in"}
 ~~~
@@ -347,7 +349,7 @@ Before re-running that sample,
 she checks to see if any files have too much data:
 
 ~~~
-$ wc -l *.txt | sort | tail -5
+$ wc -l *.txt | sort -n | tail -5
 ~~~
 {:class="in"}
 ~~~
