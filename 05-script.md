@@ -303,7 +303,7 @@ what they discover about their data and their workflow with one call to `history
 and a bit of editing to clean up the output
 and save it as a shell script.
 
-#### Nelle's Pipeline: Creating a Script
+### Nelle's Pipeline: Creating a Script
 
 An off-hand comment from her supervisor has made Nelle realize that
 she should have provided a couple of extra parameters to `goostats` when she processed her files.
