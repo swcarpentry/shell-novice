@@ -54,7 +54,7 @@ As a bonus,
 once she has put a processing pipeline together,
 she will be able to use it again whenever she collects more data.
 
-#### What and Why
+### What and Why
 
 At a high level, computers do four things:
 
