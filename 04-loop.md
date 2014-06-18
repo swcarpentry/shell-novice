@@ -264,7 +264,7 @@ mv unicorn.dat original-unicorn.dat
 > isn't foolproof, but it's a handy way to see what's going to happen when
 > you're still learning how loops work.
 
-#### Nelle's Pipeline: Processing Files
+### Nelle's Pipeline: Processing Files
 
 Nelle is now ready to process her data files.
 Since she's still learning how to use the shell,
