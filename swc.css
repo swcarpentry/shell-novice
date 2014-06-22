@@ -303,3 +303,18 @@ table.bootcamps td.date {
 ul.checklist {
   list-style-image: url('/img/checkbox.png');
 }
+
+/* Printing */
+@media print {
+  #github-ribbon {
+    display: none;
+  }
+
+  .banner {
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
+}
