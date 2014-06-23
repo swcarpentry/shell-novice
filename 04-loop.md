@@ -198,7 +198,7 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 > and won't be asked to read the file `red dragon.dat`.
 > 
 > We can make our script a little bit more robust
-> by [quoting](../../gloss.html#shell-quoting) our use of the variable:
+> by [quoting](../../gloss.html#quoting) our use of the variable:
 > 
 > ~~~
 > for filename in *.dat
