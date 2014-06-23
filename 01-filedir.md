@@ -146,7 +146,7 @@ solar.pdf    swc
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order,
 arranged neatly into columns.
-We can make its output more comprehensible by using the [flag](../../gloss.html#command-line-flag) `-F`,
+We can make its output more comprehensible by using the [flag](../../gloss.html#flag) `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
 ~~~
