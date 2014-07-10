@@ -157,3 +157,15 @@ Whatever you use,
 please *test it yourself* on a Windows machine *before* your bootcamp:
 things may always have changed behind your back since your last bootcamp.
 And please also make use of our Windows setup helper.
+
+#### OS X
+
+A number of the pre-installed versions of command line utilities in OS X are old compared
+to those in linux distributions, or subtly different in their options. Avoid using options
+or constructions that may not be work for learners
+
+-   `ls` does not have an `--ignore=` or `-I` option
+-   `head` takes `-n 10` or `-10`, but not the long form of `--lines=10`
+-   Many linux commands allow options to be specified after their arguments (e.g. `ls file1
+    file2 -l`), while most OS X commands require options to come strictly first (`ls -l file1
+    file2`). ([Source](http://stackoverflow.com/a/8057405/1757441))
