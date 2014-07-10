@@ -55,15 +55,6 @@ as long as learners using Windows do not run into roadblocks such as:
 
 #### Teaching Notes
 
-*  Command line utilities in OS X and Windows terminal emulators do include all the extensions beyond POSIX found in many Linux distributions. Avoid using these extensions, as they may not be available for students.  Some examples:
-
-    *   POSIX `ls` does not have an `--ignore=` or `-I` option
-    *   POSIX `head` takes `-n 10` or `-10`, but not the long form of `--lines=10`
-    *   Many Linux commands allow options to be specified after their arguments (e.g. `ls file1
-    file2 -l`), while most POSIX commands require options to come strictly first (`ls -l file1
-    file2`).
-
-
 *   Have learners open a shell
     and then do `whoami`,
     `pwd`,
@@ -136,6 +127,12 @@ as long as learners using Windows do not run into roadblocks such as:
     Have them create the example directory for the shell exercises there
     so that they can find it easily
     and watch it evolve.
+
+*  Stay within POSIX-compliant commands, as all the teaching materials do.
+   Your particular shell may have extensions beyond POSIX that are not available
+   on other machines, especially the default OSX bash and Windows bash emulators.
+   For example, POSIX `ls` does not have an `--ignore=` or `-I` option, and POSIX
+   `head` takes `-n 10` or `-10`, but not the long form of `--lines=10`.
 
 #### Windows
 
