@@ -162,7 +162,7 @@ And please also make use of our Windows setup helper.
 
 A number of the pre-installed versions of command line utilities in OS X are old compared
 to those in linux distributions, or subtly different in their options. Avoid using options
-or constructions that may not be work for learners
+or constructions that may not work for learners.
 
 -   `ls` does not have an `--ignore=` or `-I` option
 -   `head` takes `-n 10` or `-10`, but not the long form of `--lines=10`
