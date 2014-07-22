@@ -128,6 +128,12 @@ as long as learners using Windows do not run into roadblocks such as:
     so that they can find it easily
     and watch it evolve.
 
+*  Stay within POSIX-compliant commands, as all the teaching materials do.
+   Your particular shell may have extensions beyond POSIX that are not available
+   on other machines, especially the default OSX bash and Windows bash emulators.
+   For example, POSIX `ls` does not have an `--ignore=` or `-I` option, and POSIX
+   `head` takes `-n 10` or `-10`, but not the long form of `--lines=10`.
+
 #### Windows
 
 Installing Bash and a reasonable set of Unix commands on Windows
