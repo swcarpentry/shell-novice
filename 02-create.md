@@ -32,9 +32,8 @@ $ ls -F
 ~~~
 {:class="in"}
 ~~~
-bin/         data/     mail/      music/
-notes.txt    papers/   pizza.cfg  solar/
-solar.pdf    swc/
+data/     north-pacific-gyre/  pizza.cfg
+Desktop/  notes.txt            solar.pdf
 ~~~
 {:class="out"}
 
@@ -57,9 +56,8 @@ $ ls -F
 ~~~
 {:class="in"}
 ~~~
-bin/         data/     mail/      music/
-notes.txt    papers/   pizza.cfg  solar/
-solar.pdf    swc/      thesis/
+data/     north-pacific-gyre/  pizza.cfg  thesis/
+Desktop/  notes.txt            solar.pdf
 ~~~
 {:class="out"}
 
@@ -371,7 +369,7 @@ What is the output of the closing `ls` command in the sequence shown below?
 
 ~~~
 $ pwd
-/home/thing/data
+/home/jamie/data
 $ ls
 proteins.dat
 $ mkdir recombine
