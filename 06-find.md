@@ -245,11 +245,13 @@ $ find . -type f
 ~~~
 {:class="in"}
 ~~~
+./haiku.txt
+./tools/stats
+./tools/old/oldtool
+./tools/format
+./thesis/empty-draft.md
 ./data/one.txt
 ./data/two.txt
-./haiku.txt
-./tools/format
-./tools/stats
 ~~~
 {:class="out"}
 

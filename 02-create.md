@@ -32,8 +32,9 @@ $ ls -F
 ~~~
 {:class="in"}
 ~~~
-data/     north-pacific-gyre/  pizza.cfg
-Desktop/  notes.txt            solar.pdf
+creatures/  molecules/           pizza.cfg
+data/       north-pacific-gyre/  solar.pdf
+Desktop/    notes.txt            writing/
 ~~~
 {:class="out"}
 
@@ -56,8 +57,10 @@ $ ls -F
 ~~~
 {:class="in"}
 ~~~
-data/     north-pacific-gyre/  pizza.cfg  thesis/
-Desktop/  notes.txt            solar.pdf
+creatures/  north-pacific-gyre/  thesis/
+data/       notes.txt            writing/
+Desktop/    pizza.cfg
+molecules/  solar.pdf
 ~~~
 {:class="out"}
 
