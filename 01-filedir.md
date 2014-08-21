@@ -161,7 +161,7 @@ Desktop/    notes.txt            writing/
 {:class="out"}
 
 Here,
-we can see that `/users/nelle` contains six [sub-directories](../../gloss.html#sub-directory).
+we can see that `/users/nelle` contains seven [sub-directories](../../gloss.html#sub-directory).
 The names that don't have trailing slashes,
 like `notes.txt`, `pizza.cfg`, and `solar.pdf`,
 are plain old files.
