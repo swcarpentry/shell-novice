@@ -136,8 +136,9 @@ $ ls
 ~~~
 {:class="in"}
 ~~~
-data     north-pacific-gyre  pizza.cfg
-Desktop  notes.txt           solar.pdf
+creatures  molecules           pizza.cfg
+data       north-pacific-gyre  solar.pdf
+Desktop    notes.txt           writing
 ~~~
 {:class="out"}
 
@@ -153,13 +154,14 @@ $ ls -F
 ~~~
 {:class="in"}
 ~~~
-data/     north-pacific-gyre/  pizza.cfg
-Desktop/  notes.txt            solar.pdf
+creatures/  molecules/           pizza.cfg
+data/       north-pacific-gyre/  solar.pdf
+Desktop/    notes.txt            writing/
 ~~~
 {:class="out"}
 
 Here,
-we can see that `/users/nelle` contains three [sub-directories](../../gloss.html#sub-directory).
+we can see that `/users/nelle` contains six [sub-directories](../../gloss.html#sub-directory).
 The names that don't have trailing slashes,
 like `notes.txt`, `pizza.cfg`, and `solar.pdf`,
 are plain old files.
@@ -263,8 +265,9 @@ $ ls
 ~~~
 {:class="in"}
 ~~~
-data     north-pacific-gyre  pizza.cfg
-Desktop  notes.txt           solar.pdf
+creatures  molecules           pizza.cfg
+data       north-pacific-gyre  solar.pdf
+Desktop    notes.txt           writing
 ~~~
 {:class="out"}
 
@@ -351,8 +354,10 @@ $ ls -F -a
 ~~~
 {:class="in"}
 ~~~
-./   data/     north-pacific-gyre/  pizza.cfg
-../  Desktop/  notes.txt            solar.pdf
+./          Desktop/             pizza.cfg
+../         molecules/           solar.pdf
+creatures/  north-pacific-gyre/  writing/
+data/       notes.txt
 ~~~
 {:class="out"}
 
