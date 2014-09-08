@@ -297,7 +297,7 @@ $ pwd
 ~~~
 {:class="out"}
 ~~~
-$ ls
+$ ls -F
 ~~~
 {:class="in"}
 ~~~
@@ -428,7 +428,7 @@ but she can let the shell do most of the work.
 If she types:
 
 ~~~
-$ ls no
+$ ls nor
 ~~~
 {:class="in"}
 
