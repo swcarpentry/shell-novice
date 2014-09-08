@@ -23,9 +23,12 @@ It is also the name of a very useful command-line program.
 `grep` finds and prints lines in files that match a pattern.
 For our examples,
 we will use a file that contains three haikus taken from a
-1998 competition in *Salon* magazine:
+1998 competition in *Salon* magazine. For this set of examples 
+we're going to be working in the writing subdirectory:
 
 ~~~
+$ cd
+$ cd writing
 $ cat haiku.txt
 ~~~
 {:class="in"}
@@ -208,7 +211,7 @@ to show how the simplest ones work, we'll use the directory tree shown below.
 
 <img src="img/find-file-tree.svg" alt="File Tree for Find Example" />
 
-Nelle's home directory contains one file called `haiku.txt` and four subdirectories:
+Nelle's `writing` directory contains one file called `haiku.txt` and four subdirectories:
 `thesis` (which is sadly empty),
 `data` (which contains two files `one.txt` and `two.txt`),
 a `tools` directory that contains the programs `format` and `stats`,
