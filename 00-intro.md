@@ -58,10 +58,10 @@ she will be able to use it again whenever she collects more data.
 
 At a high level, computers do four things:
 
--   run programs;
--   store data;
--   communicate with each other; and
--   interact with us.
+-   run programs
+-   store data
+-   communicate with each other
+-   interact with us
 
 They can do the last of these in many different ways,
 including direct brain-computer links and speech interfaces.
