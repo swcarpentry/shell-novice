@@ -263,20 +263,20 @@ table.outlined {
     border-collapse: collapse;
 }
 
-/* Link items (to bootcamp pages) in the bootcamps tables */
-table.bootcamps td.link {
+/* Link items (to workshop pages) in the workshops tables */
+table.workshops td.link {
     width: 50%;
     text-align: left;
 }
 
-/* Spacer items (i.e. ellipsis) on the bootcamps tables */
-table.bootcamps td.spacer {
+/* Spacer items (i.e. ellipsis) on the workshops tables */
+table.workshops td.spacer {
    max-width: 100%;
    text-align: center;
 }
 
-/* Date columns on the bootcamps tables */
-table.bootcamps td.date {
+/* Date columns on the workshops tables */
+table.workshops td.date {
     width: 50%;
     text-align: right;
 }
@@ -413,7 +413,7 @@ footer .container .links{
 }
 
 
-/* For the Request a Bootcamp form */
+/* For the Request a Workshop form */
 #ss-form .ss-q-title {
     display: block;
     font-weight: bold;
