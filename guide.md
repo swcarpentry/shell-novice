@@ -59,13 +59,13 @@ as long as learners using Windows do not run into roadblocks such as:
     and then do `whoami`,
     `pwd`,
     and `ls`.
-    Then have them create a directory called `bootcamp`
+    Then have them create a directory called `workshop`
     and `cd` into it,
     so that everything else they do during the lesson
     is unlikely to harm whatever files they already have.
 
 *   Get them to run an editor
-    and save a file in their `bootcamp` directory
+    and save a file in their `workshop` directory
     as early as possible.
     Doing this is usually the biggest stumbling block during the entire lesson:
     many will try to run the same editor as the instructor
@@ -151,7 +151,7 @@ Cygwin was the preferred option until mid-2013,
 but once we started teaching Git,
 msysGit proved to work better.
 Desktop virtual machines and cloud-based VMs work well for technically sophisticated learners,
-and can reduce installation and configuration at the start of the bootcamp,
+and can reduce installation and configuration at the start of the workshop,
 but:
 
 1.  they don't work well on underpowered machines,
@@ -160,6 +160,6 @@ but:
 4.  learners may show up without having downloaded the VM or the wireless will go down (or become congested) during the lesson.
 
 Whatever you use,
-please *test it yourself* on a Windows machine *before* your bootcamp:
-things may always have changed behind your back since your last bootcamp.
+please *test it yourself* on a Windows machine *before* your workshop:
+things may always have changed behind your back since your last workshop.
 And please also make use of our Windows setup helper.
