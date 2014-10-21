@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#  check: Ensure that proper formatting has been used.
+
+# Show all of the FIXMEs in the lessons content
+grep -i -n FIXME ??-*.md
