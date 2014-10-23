@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#  build: Build the lesson site.
+
+# Ensure we run from the lesson directory
+cd "$( dirname "${BASH_SOURCE[0]}" )" && cd ..
+
+# Run our checks first
+tools/check
+
+SITE="_site"
+
+jekyll build -t -d $SITE
