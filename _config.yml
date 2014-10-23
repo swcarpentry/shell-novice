@@ -2,8 +2,6 @@ markdown        : kramdown
 kramdown        :
   entity_output : as_input # so that &mdash; is output as &mdash;
   smart_quotes  : [39, 39, 34, 34] # decimal for left/right single/double quotes
+exclude         : [tools]
 contact         : "admin@software-carpentry.org"
-github_url      : "https://github.com/swcarpentry"
-swc_url         : "http://software-carpentry.org"
-twitter_name    : "@swcarpentry"
-twitter_url     : "https://twitter.com/swcarpentry"
+swc_site        : "http://software-carpentry.org"

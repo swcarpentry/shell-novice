@@ -10,10 +10,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="{{site.swc_url}}/v5/reveal.js/css/reveal.min.css" />
-    <link rel="stylesheet" href="{{site.swc_url}}/v5/reveal.js/css/theme/swc_slides.css" id="theme" />
-    <link rel="stylesheet" href="{{site.swc_url}}/v5/css/swc-bootstrap.css" id="theme" />
-    <link rel="stylesheet" href="{{site.swc_url}}/v5/css/bootstrap/bootstrap.css" id="theme" />
+    <link rel="stylesheet" href="{{site.swc_site}}/v5/reveal.js/css/reveal.min.css" />
+    <link rel="stylesheet" href="{{site.swc_site}}/v5/reveal.js/css/theme/swc_slides.css" id="theme" />
+    <link rel="stylesheet" href="{{site.swc_site}}/v5/css/swc-bootstrap.css" id="theme" />
+    <link rel="stylesheet" href="{{site.swc_site}}/v5/css/bootstrap/bootstrap.css" id="theme" />
     <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
@@ -227,8 +227,8 @@
       <h3>{{page.website}}</h3>
     </div>
 
-    <script src="{{site.swc_url}}/v5/reveal.js/lib/js/head.min.js"></script>
-    <script src="{{site.swc_url}}/v5/reveal.js/js/reveal.min.js"></script>
+    <script src="{{site.swc_site}}/v5/reveal.js/lib/js/head.min.js"></script>
+    <script src="{{site.swc_site}}/v5/reveal.js/js/reveal.min.js"></script>
 
     <script>
       // Full list of configuration options available at http://github.com/hakimel/reveal.js#configuration.
@@ -246,12 +246,12 @@
 
         // Optional libraries used to extend on reveal.js
         dependencies: [
-          { src: '{{site.swc_url}}/v5/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: '{{site.swc_url}}/v5/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '{{site.swc_url}}/v5/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: '{{site.swc_url}}/v5/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: '{{site.swc_url}}/v5/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: '{{site.swc_url}}/v5/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          { src: '{{site.swc_site}}/v5/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '{{site.swc_site}}/v5/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '{{site.swc_site}}/v5/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '{{site.swc_site}}/v5/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '{{site.swc_site}}/v5/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: '{{site.swc_site}}/v5/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
 
