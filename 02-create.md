@@ -50,7 +50,7 @@ As you might (or might not) guess from its name,
 `mkdir` means "make directory".
 Since `thesis` is a relative path
 (i.e., doesn't have a leading slash),
-the new directory is made below the current working directory:
+the new directory is created in the current working directory:
 
 ~~~
 $ ls -F
