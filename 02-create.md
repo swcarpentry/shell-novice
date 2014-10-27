@@ -380,6 +380,11 @@ $ mv proteins.dat recombine
 $ cp recombine/proteins.dat ../proteins-saved.dat
 $ ls
 ~~~
+
+1.   proteins-saved.dat recombine
+2.   recombine
+3.   proteins.dat recombine
+4.   proteins-saved.dat
 </div>
 
 <div class="challenge" markdown="1">
