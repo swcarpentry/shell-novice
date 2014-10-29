@@ -99,7 +99,7 @@ In fact,
 there is usually a program in between called a
 [command shell](../../gloss.html#shell).
 What the user types goes into the shell;
-it figures out what commands to run and orders the computer to execute them.
+it figures out what commands to run and orders the computer to execute them. Note, the reason why the shell is called *the shell*: it encloses the operating system in order to hide it's complexity and make it simple to interact with.
 
 A shell is a program like any other.
 What's special about it is that its job is to run other programs
