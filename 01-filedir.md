@@ -106,7 +106,9 @@ Inside that directory are several other directories:
 `tmp` (for temporary files that don't need to be stored long-term),
 and so on:
 
+<div style="text-align: center">
 <img src="img/filesystem.svg" alt="The Filesystem" />
+</div>
 
 We know that our current working directory `/users/nelle` is stored inside `/users`
 because `/users` is the first part of its name.
@@ -121,7 +123,9 @@ Wolfman's in `/users/larry`,
 and ours in `/users/nelle`,
 which is why `nelle` is the last part of the directory's name.
 
+<div style="text-align: center">
 <img src="img/home-directories.svg" alt="Home Directories" />
+</div>
 
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
@@ -142,7 +146,9 @@ Desktop    notes.txt           writing
 ~~~
 {:class="out"}
 
+<div style="text-align: center">
 <img src="img/homedir.svg" alt="Nelle's Home Directory" />
+</div>
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order,
 arranged neatly into columns.
@@ -470,7 +476,9 @@ and we will see it in many other tools as we go on.
 
 </div>
 
+<div style="text-align: center">
 <img src="img/filesystem-challenge.svg" alt="Filesystem for Challenge Questions" />
+</div>
 
 <div class="challenge" markdown="1">
 If `pwd` displays `/users/thing`, what will `ls ../backup` display?
