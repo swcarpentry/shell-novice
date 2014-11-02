@@ -1,3 +1,8 @@
+# Time estimates for instructors
+
+* n = 8
+* median = 3 hours
+
 # Resources
 
 *   `filesystem`: filesystem used in "Files and Directories"
