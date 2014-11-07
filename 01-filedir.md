@@ -24,7 +24,7 @@ which hold files or other directories.
 
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
 To start exploring them,
-let's open a shell window:
+let's open a shell window (which is often called a terminal for historical reasons):
 
 ~~~
 $
@@ -33,7 +33,12 @@ $
 
 The dollar sign is a [prompt](../../gloss.html#prompt),
 which shows us that the shell is waiting for input;
-your shell may show something more elaborate.
+your shell may show something more elaborate, for example:
+
+~~~
+username@machine:directory$ 
+~~~
+{:class="in"}
 
 Type the command `whoami`,
 then press the Enter key (sometimes marked Return) to send the command to the shell.
@@ -60,12 +65,12 @@ More specifically, when we type `whoami` the shell:
 Next,
 let's find out where we are by running a command called `pwd`
 (which stands for "print working directory").
-At any moment,
+Unless we explicitly specify something else,
 our [current working directory](../../gloss.html#current-working-directory)
-is our current default directory,
 i.e.,
-the directory that the computer assumes we want to run commands in
-unless we explicitly specify something else.
+the directory that the computer assumes we want to run commands in,
+is our current default directory (often called our "home").
+
 Here,
 the computer's response is `/users/nelle`,
 which is Nelle's [home directory](../../gloss.html#home-directory):
@@ -127,6 +132,19 @@ which is why `nelle` is the last part of the directory's name.
 > When it appears at the front of a file or directory name,
 > it refers to the root directory. When it appears *inside* a name,
 > it's just a separator.
+
+A very useful shortcut for your home directory is '~'.
+In fact, Nelle will most likely this the following prompt
+when she first starts a shell:
+
+~~~
+nelle@nellesbox:~$ 
+~~~
+{:class="in"}
+
+This prompt gives her username (`nelle`),
+the name of the machine she is logged on (`nellesbox`),
+and the current working directory (`~`, which is `/users/nelle`).
 
 Let's see what's in Nelle's home directory by running `ls`,
 which stands for "listing":
@@ -315,7 +333,25 @@ $ cd /users/nelle
 ~~~
 {:class="in"}
 
-but it's almost always simpler to use `cd ..` to go up one level:
+Note that we can shorten this command using the shortcut for your home:
+
+~~~
+$ cd ~
+~~~
+{:class="in"}
+
+Most systems will even bring you back to your home if you simply call `cd`
+without any additional argument:
+
+~~~
+$ cd
+~~~
+{:class="in"}
+
+This is extremely useful if you are far away from home,
+and feel the need to get back in just a few keystrokes.
+
+That being said, it is almost always simpler to use `cd ..` to go up one level:
 
 ~~~
 $ pwd
@@ -345,6 +381,43 @@ $ pwd
 /users/nelle
 ~~~
 {:class="out"}
+
+But what if you change directories, and want to go back to the previous one?
+For example, you are working in `/users/nelle/data/experiment1/results/`,
+then go to `/users/nelle/projects/goopaper/manuscript/`,
+and realise that you need to look at the results again?
+
+This can be done with ` cd -`:
+
+~~~
+$ pwd
+~~~
+{:class="in"}
+~~~
+/users/nelle/data/experiment1/results/
+~~~
+{:class="out"}
+~~~
+$ cd ~/projects/goopaper/manuscript/
+$ pwd
+~~~
+{:class="in"}
+~~~
+/users/nelle/projects/goopaper/manuscript/
+~~~
+{:class="out"}
+~~~
+$ cd -
+~~~
+{:class="in"}
+~~~
+/users/nelle/data/experiment1/results/
+$
+~~~
+{:class="out"}
+
+As a nice side-effect,
+`cd -` will print out the name of the directory to which it brought you back.
 
 The special directory `..` doesn't usually show up when we run `ls`.
 If we want to display it, we can give `ls` the `-a` flag:
@@ -507,4 +580,13 @@ What does the command `cd` without a directory name do?
 
 <div class="challenge" markdown="1">
 What does the command `ls` do when used with the -s and -h arguments?
+</div>
+
+<div class="challenge" markdown="1">
+Starting from `/users/nelle`, if you type in `cd data/experiment1/`,
+which of the following are true?
+
+1. Typing `cd ..` will bring me to `/users/nelle/data`
+2. Typing `cd -` and `cd` will bring me to `/users/nelle/`
+3. I need to type `cd ../..` to get back to `/users/nelle/`
 </div>
