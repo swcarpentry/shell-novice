@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-#  update: Get the latest versions of shared files
-
-# Ensure we run from the lesson directory
-cd "$( dirname "${BASH_SOURCE[0]}" )" && cd ..
-
-git pull --rebase=false https://github.com/tbekolay/swc-shared.git master
