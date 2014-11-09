@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-# Placeholder for actual conformance checking script (which will
-# probably be Python, not Bash).
-
-grep -i -n 'FIX''ME' $*
