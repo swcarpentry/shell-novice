@@ -29,6 +29,10 @@ and possibly including:
 >
 > An aside of some kind.
 
+or an image from the `figs` directory:
+
+![this is the image's title](fig/example.svg "this is the image's alt text")
+
 > ## Challenge Title {.challenge}
 >
 > Description of a single challenge.
