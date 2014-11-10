@@ -6,6 +6,13 @@ DST_DIR = ..
 SRC_PAGES = $(wildcard *.md)
 DST_PAGES = $(patsubst %.md,$(DST_DIR)/%.html,$(SRC_PAGES))
 
+# Inclusions.
+INCLUDES = \
+	-Vheader="$$(cat ../_includes/header.html)" \
+	-Vbanner="$$(cat ../_includes/banner.html)" \
+	-Vfooter="$$(cat ../_includes/footer.html)" \
+	-Vjavascript="$$(cat ../_includes/javascript.html)"
+
 # Make sure everything is built.
 all : commands
 
@@ -14,7 +21,11 @@ preview : $(DST_PAGES)
 
 # Pattern to build a page with Pandoc.
 $(DST_DIR)/%.html : $(SRC_DIR)/%.md
-	pandoc -s -t html --title-prefix='Software Carpentry' --template=_layouts/page -o $@ $<
+	pandoc -s -t html \
+	--title-prefix='Software Carpentry' \
+	--template=../_layouts/page \
+	$(INCLUDES) \
+	-o $@ $<
 
 ## commands : Display available commands.
 commands : Makefile
