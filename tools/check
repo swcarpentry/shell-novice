@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-#  check: Ensure that proper formatting has been used.
 
-# Ensure we run from the lesson directory
-cd "$( dirname "${BASH_SOURCE[0]}" )" && cd ..
+# Placeholder for actual conformance checking script (which will
+# probably be Python, not Bash).
 
-# Show all of the FIXMEs in the lessons content
-grep -i -n FIXME ??-*.md
+grep -i -n 'FIX''ME' $*

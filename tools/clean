@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# Delete junk files.
-rm -rf $(find . -name '*~' -print)
-rm -rf $(find . -name '*.pyc' -print)
-rm -rf $(find . -name '.DS_Store' -print)
-rm -rf _site
