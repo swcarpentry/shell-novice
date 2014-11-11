@@ -2,14 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
     <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
     $header$
   </head>
   <body>
-    $banner$
-    $if(title)$<h1>$title$</h1>$endif$
-    $body$
-    $footer$
+    <div class="container">
+      $banner$
+      <div class="row-fluid">
+        <div class="span10 offset1">
+          $if(title)$<h1>$title$</h1>$endif$
+          $body$
+        </div>
+      </div>
+      $footer$
+    </div>
     $javascript$
   </body>
 </html>
