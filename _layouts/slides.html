@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=1024, user-scalable=no">
 
-  <title>Your deck.js Presentation</title>
+  <title>Software Carpentry</title>
 
   <!-- Required stylesheet -->
   <link rel="stylesheet" media="screen" href="deck.js/core/deck.core.css">
@@ -33,19 +33,7 @@
   <div class="deck-container">
 
     <!-- Begin slides. Just make elements with a class of slide. -->
-
-    <section class="slide">
-      <h1>Slide</h1>
-    </section>
-
-    <section class="slide">
-      <h1>Content</h1>
-    </section>
-
-    <section class="slide">
-      <h1>Here</h1>
-    </section>
-
+    $body$
     <!-- End slides. -->
 
     <!-- Begin extension snippets. Add or remove as needed. -->
@@ -85,10 +73,10 @@
 <script src="deck.js/extensions/navigation/deck.navigation.js"></script>
 <script src="deck.js/extensions/scale/deck.scale.js"></script>
 
-<!-- Initialize the deck. You can put this in an external file if desired. -->
+<!-- Initialize the deck.  Note that we have to use double dollar signs to escape for Pandoc. -->
 <script>
-  $(function() {
-    $.deck('.slide');
+  $$(function() {
+    $$.deck('.slide');
   });
 </script>
 </body>
