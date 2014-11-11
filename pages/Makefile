@@ -19,7 +19,13 @@ all : commands
 ## preview  : Build website locally for checking.
 preview : $(DST_PAGES)
 
-# Pattern to build a page with Pandoc.
+# Pattern to build slides.
+$(DST_DIR)/motivation.html : $(SRC_DIR)/motivation.md
+	pandoc -s -t html \
+	--template=../_layouts/slides \
+	-o $@ $<
+
+# Pattern to build a generic page.
 $(DST_DIR)/%.html : $(SRC_DIR)/%.md
 	pandoc -s -t html \
 	--title-prefix='Software Carpentry' \
