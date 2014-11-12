@@ -27,15 +27,21 @@ $ mv *.dat original-*.dat
 ~~~
 {:class="in"}
 
-because that would expand (in the two-file case) to:
+because that would expand to:
 
 ~~~
-$ mv basilisk.dat unicorn.dat
+$ mv basilisk.dat unicorn.dat original-*.dat
 ~~~
 {:class="in"}
 
-This wouldn't back up our files:
-it would replace the content of `unicorn.dat` with whatever's in `basilisk.dat`.
+This wouldn't back up our files, instead we get an error
+
+~~~
+mv: target `original-*.dat' is not a directory
+~~~
+{:class="err"}
+
+This is because there are no files matching the wildcard `original-*.dat` and in this case, Bash will pass the unexpanded wildcard as a parameter to the `mv` command.
 
 Instead, we can use a [loop](../../gloss.html#for-loop)
 to do some operation once for each thing in a list.
