@@ -30,6 +30,7 @@ $(DST_DIR)/%.html : $(SRC_DIR)/%.md
 	pandoc -s -t html \
 	--title-prefix='Software Carpentry' \
 	--template=../_layouts/page \
+	--filter=../tools/blockquote2div.py \
 	$(INCLUDES) \
 	-o $@ $<
 
