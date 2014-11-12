@@ -15,6 +15,17 @@ create a new lesson:
 8.  Push your changes to GitHub for viewing.
 9.  Tell us where your lesson is so that we can use it and help you improve it.
 
+### Dependencies
+
+1. [Install Pandoc]http://www.johnmacfarlane.net/pandoc/installing.html)
+
+2. Install pandocfilters, a python module that helps with writing
+   filters for pandoc:
+
+    ~~~
+    pip install pandocfilters
+    ~~~
+
 ## Why Use a Template?
 
 We organize our lessons in a standard way so that:
