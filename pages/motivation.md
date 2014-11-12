@@ -2,18 +2,20 @@
 layout: slides
 title: Why Topic?
 ---
-<section data-markdown>
-  <script type="text/template">
+<section class="slide">
 ## Why Topic?
-  </script>
 </section>
-<section data-markdown>
-  <script type="text/template">
-## Why not topic?
-  </script>
+
+<section class="slide">
+## More Explanation
+
+* With
+* Bullet
+* Points
 </section>
-<section data-markdown>
-  <script type="text/template">
-Thank you.
-  </script>
+
+<section class="slide">
+## Next Steps
+
+Here we go!
 </section>
