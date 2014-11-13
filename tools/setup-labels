@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# This script setup the labels of your GitHub repository.
+#
+# Syntax:
+#
+#     $ tools/setup-label owner repo
+
+owner=$1
+repo=$2
+labels_and_colors="{\"name\":\"getting-started\",\"color\":\"fbca04\"} {\"name\":\"work-in-progress\",\"color\":\"f7c6c7\"} {\"name\":\"discussion\",\"color\":\"5319e7\"}"
+
+echo "Before setup the labels for http://github.com/${owner}/${repo}"
+echo "you must provide some informations."
+echo "Your GitHub username:"
+read username
+echo "Your GitHub password:"
+read -s password
+
+for tuple in ${labels_and_colors}
+do
+    curl -X POST \
+        -u ${username}:${password} \
+        -d "${tuple}" \
+        "https://api.github.com/repos/${owner}/${repo}/labels"
+done
