@@ -450,7 +450,7 @@ interleaved in the lesson itself.  Its structure is:
 
     ---
     layout: page
-    title: Automating Tasks with Make
+    title: Lesson Title
     subtitle: Instructor's Guide
     ---
     ## Legend
