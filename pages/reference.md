@@ -1,5 +1,7 @@
 ---
-layout: reference
+layout: page
+title: Lesson Title
+subtitle: Reference
 ---
 ...commands and examples...
 

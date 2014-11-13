@@ -30,20 +30,19 @@ create a new lesson:
 
 We organize our lessons in a standard way so that:
 
-1.  It's easy to find things in lessons written by different people.
+1.  To give guidance to people who aren't experienced instructional
+    designers.  Requiring learning objectives, challenges, and a short
+    glossary tells people what they ought to create.
 
-2.  People using lessons written by different people can easily given
+2.  It's easy to find things in lessons written by different people.
+
+3.  People using lessons written by different people can easily given
     them the same look and feel.
 
-3.  Contributors know where to put things when they are extending or
+4.  Contributors know where to put things when they are extending or
     modifying lessons.
 
-4.  Content can be checked mechanically.
-
-Most importantly, this template gives guidance to people who aren't
-experienced instructional designers.  Requiring learning objectives,
-challenges, and a short glossary tells people what they ought to
-create.
+5.  Content can be checked mechanically.
 
 Instead of putting the whole lesson in one page, authors should create
 one short page per topic.  Each topic should take 10-15 minutes to
@@ -65,6 +64,9 @@ Along with the lesson materials themselves, each lesson must contain:
     away afterward.  This must include a glossary of terms, not only to
     help learners, but also to help lesson authors summarize what the
     lesson actually covers.
+
+*   A *discussion page* that mentions more advanced ideas and tells
+    learners where to go next.
 
 *   An *instructor's guide* that presents the lesson's legend (or back
     story), summarizes our experiences with the lesson, and discusses
@@ -255,8 +257,18 @@ contain:
     syntax, etc., that can be printed and given to learners. See
     "Reference Guide" below.
 
-6.  `instructors.md`: the instructor's guide for the lesson. See
+6.  `discussion.md`: notes about more advanced ideas that would
+    distract from the main lesson, and pointers to where to go next.
+    See "Discussion Page" below.
+
+7.  `instructors.md`: the instructor's guide for the lesson. See
     "Instructor's Guide" below.
+
+Note that the lesson's title is repeated in several files.  We could
+put this in the Makefile, and insert it into pages when compiling, but
+then authors would have to edit the Makefile (which we're trying to
+avoid requiring).  We could also put it in some sort of configuration
+file, but again, we're trying to avoid those.
 
 ### Home Page
 
@@ -265,7 +277,6 @@ contain:
     ---
     layout: lesson
     title: Lesson Title
-    keywords: ["some", "key terms", "in a list"]
     ---
     Paragraph(s) of introductory material.
 
@@ -275,13 +286,15 @@ contain:
 
     ## Topics
 
-    * [Topic Title 1](01-slug.html)
-    * [Topic Title 2](02-slug.html)
+    1.  [Topic Title 1](01-slug.html)
+    2.  [Topic Title 2](02-slug.html)
 
     ## Other Resources
 
-    * [Reference Guide](reference.html)
-    * [Instructor's Guide](guide.html)
+    *   [Motivation](motivation.html)
+    *   [Reference Guide](reference.html)
+    *   [Next Steps](discussion.html)
+    *   [Instructor's Guide](instructors.html)
 
 **Notes:**
 
@@ -300,16 +313,18 @@ contain:
 Each topic page must be structured as follows:
 
     ---
-    layout: topic
-    title: Topic Title
-    minutes: MM
+    layout: page
+    title: Lesson Title
+    subtitle: Topic Title
+    minutes: 10
     ---
     > ## Learning Objectives {.objectives}
     >
     > * Learning objective 1
     > * Learning objective 2
 
-    Paragraphs of text mixed with:
+    Paragraphs of text --- possibly including **definitions** ---
+    mixed with:
 
     ~~~ {.python}
     some code:
@@ -355,15 +370,37 @@ Each topic page must be structured as follows:
 3.  Every challenge should relate explicitly back to a learning
     objective.
 
+4.  Definitions of terms are marked in **bold** (like `**this**`).
+
 ### Motivational Slides
 
 Every lesson must include a short slide deck suitable for a short
 presentation (3 minutes or less) that the instructor can use to explain
-to learners how knowing the subject will help them.
+to learners how knowing the subject will help them.  The slides must
+be laid out like this:
+
+    ---
+    layout: slides
+    title: Why Make?
+    ---
+    <section class="slide">
+    ## Why This Topic?
+    </section>
+
+    <section class="slide">
+    ## Some Other Point
+    </section>
+
 
 **Notes:**
 
-1.  *We will flesh this out and provide an example.*
+1.  This is the one place where we *must* use HTML tags in our Markdown
+    (to delimit slides).  Everything inside the section markers should
+    be Markdown if possible.
+
+2.  We use [deck.js](http://imakewebthings.com/deck.js/) for our slides
+    as it is simpler and prettier than alternatives like
+    [reveal.js](http://lab.hakim.se/reveal-js/).
 
 ### Reference Guide
 
@@ -376,7 +413,9 @@ The last section of the reference guide must be a glossary laid out as
 a definition list:
 
     ---
-    layout: reference
+    layout: page
+    title: Lesson Title
+    subtitle: Reference
     ---
     ...commands and examples...
 
@@ -388,6 +427,21 @@ a definition list:
     Key Word 2
     :   Definition of second term
 
+### Discussion Page
+
+The discussion page
+
+    ---
+    layout: page
+    title: Lesson Title
+    subtitle: Discussion
+    ---
+    *   First point of general discussion.
+
+        This may span several paragraphs.
+
+    *   Second point of general discussion.
+
 ### Instructor's Guide
 
 Learners may go through lessons outside of class, so it seems best to
@@ -395,20 +449,25 @@ keep material for instructors in a separate document, rather than
 interleaved in the lesson itself.  Its structure is:
 
     ---
-    layout: guide
+    layout: page
+    title: Automating Tasks with Make
+    subtitle: Instructor's Guide
     ---
+    ## Legend
+
+    One or more paragraphs laying out the lesson's legend (i.e., the story
+    behind its running example).
+
     ## Overall
 
-    One or more paragraphs laying out the lesson's legend.
-
-    ## General Points
-
     * Point
+
     * Point
 
     ## [Topic Title 1](01-slug.html)
 
     * Point
+
     * Point
 
     1.  Discussion of first challenge.
@@ -418,6 +477,7 @@ interleaved in the lesson itself.  Its structure is:
     ## [Topic Title 2](02-slug.html)
 
     * Point
+
     * Point
 
     1.  Discussion of first challenge.
