@@ -59,6 +59,6 @@ settings :
 clean :
 	@rm -rf $$(find .. -name '*~' -print)
 
-## sterile  : Remove generated HTML.
-sterile :
+# very-clean : Remove generated HTML.
+very-clean :
 	@rm -f $(DST_PAGES)
