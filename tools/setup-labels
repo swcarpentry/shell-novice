@@ -1,26 +1,54 @@
 #!/bin/bash
 #
-# This script setup the labels of your GitHub repository.
-#
-# Syntax:
-#
-#     $ tools/setup-label owner repo
+## This script sets up labels for issues in your GitHub repository.
+##
+## Syntax:
+##
+##     $ tools/setup-label OWNER REPO
+##
+## Parameters:
+##
+## - OWNER: GitHub username of the owner of the repository
+## - REPO: the name of the repository
+##
+## Example:
+##
+## For set up the labels at https://github.com/wking/swc-modular-shell use
+##
+##     $ tools/setup-label wking swc-modular-shell
 
-owner=$1
-repo=$2
-labels_and_colors="{\"name\":\"getting-started\",\"color\":\"fbca04\"} {\"name\":\"work-in-progress\",\"color\":\"f7c6c7\"} {\"name\":\"discussion\",\"color\":\"5319e7\"}"
+if test $# -lt 2
+then
+    echo "Missing parameters."
+    echo
+    grep '^##' tools/setup-labels | sed 's/## //' | sed 's/##//'
+    exit 1
+fi
 
-echo "Before setup the labels for http://github.com/${owner}/${repo}"
+OWNER=$1
+REPO=$2
+LABELS_AND_COLORS="{\"name\":\"getting-started\",\"color\":\"fbca04\"} {\"name\":\"work-in-progress\",\"color\":\"f7c6c7\"} {\"name\":\"discussion\",\"color\":\"5319e7\"}"
+
+# Test if repository exists
+curl -s --head https://github.com/${OWNER}/${REPO} | head -n 1 | grep -q "HTTP/1.[01] [23].."
+if test $? -ne 0
+then
+    echo "ERROR: this repository doesn't exist"
+    exit $?
+fi
+
+echo "Before setup the labels for http://github.com/${OWNER}/${REPO}"
 echo "you must provide some informations."
 echo "Your GitHub username:"
-read username
+read USERNAME
 echo "Your GitHub password:"
-read -s password
+read -s PASSWORD
 
-for tuple in ${labels_and_colors}
+# Create labels
+for TUPLE in ${LABELS_AND_COLORS}
 do
     curl -X POST \
-        -u ${username}:${password} \
-        -d "${tuple}" \
-        "https://api.github.com/repos/${owner}/${repo}/labels"
+        -u ${USERNAME}:${PASSWORD} \
+        -d "${TUPLE}" \
+        "https://api.github.com/repos/${OWNER}/${REPO}/labels"
 done
