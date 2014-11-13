@@ -1,14 +1,16 @@
 ---
-layout: topic
-title: Topic Two
-minutes: 45
+layout: page
+title: Lesson Title
+subtitle: Topic Title Two
+minutes: 10
 ---
 > ## Learning Objectives {.objectives}
 >
 > * Learning objective 1
 > * Learning objective 2
 
-Paragraphs of text mixed with:
+Paragraphs of text --- possibly including **definitions** ---
+mixed with:
 
 ~~~ {.python}
 some code:
