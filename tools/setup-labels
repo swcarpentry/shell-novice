@@ -27,17 +27,19 @@ fi
 
 OWNER=$1
 REPO=$2
-LABELS_AND_COLORS="{\"name\":\"getting-started\",\"color\":\"fbca04\"} {\"name\":\"work-in-progress\",\"color\":\"f7c6c7\"} {\"name\":\"discussion\",\"color\":\"5319e7\"}"
+GITHUB_URL=https://github.com/${OWNER}/${REPO}
+LABELS=(getting-started working-in-progress discussion)
+COLORS=(fbca04 f7c6c7 5319e7)
 
 # Test if repository exists
-curl -s --head https://github.com/${OWNER}/${REPO} | head -n 1 | grep -q "HTTP/1.[01] [23].."
+curl -s --head ${GITHUB_URL} | head -n 1 | grep -q "HTTP/1.[01] [23].."
 if test $? -ne 0
 then
     echo "ERROR: this repository doesn't exist"
     exit $?
 fi
 
-echo "Before setup the labels for http://github.com/${OWNER}/${REPO}"
+echo "Before setup the labels for ${GITHUB_URL}"
 echo "you must provide some informations."
 echo "Your GitHub username:"
 read USERNAME
@@ -45,10 +47,21 @@ echo "Your GitHub password:"
 read -s PASSWORD
 
 # Create labels
-for TUPLE in ${LABELS_AND_COLORS}
+for INDEX in $(seq 1 ${#LABELS[*]})
 do
-    curl -X POST \
+    curl -s -f -X POST \
         -u ${USERNAME}:${PASSWORD} \
-        -d "${TUPLE}" \
-        "https://api.github.com/repos/${OWNER}/${REPO}/labels"
+        -d "{\"name\":\"${LABELS[${INDEX}]}\",\"color\":\"${COLORS[${INDEX}]}\"}" \
+        "https://api.github.com/repos/${OWNER}/${REPO}/labels" > /dev/null
+    if test $? -ne 0
+    then
+        echo "Failed when trying to create the label ${LABELS[${INDEX}]}."
+        echo "Probably the label ${LABELS[${INDEX}]} already exists."
+        echo "Please check at ${GITHUB_URL}/labels or run"
+        echo
+        echo "    $ curl -X POST -u ${USERNAME} -d \"{\"name\":\"${LABELS[${INDEX}]}\",\"color\":\"${COLORS[${INDEX}]}\"}\" \"https://api.github.com/repos/${OWNER}/${REPO}/labels\""
+        echo
+        echo "to get more information of the error. If you find a bug"
+        echo "report it at https://github.com/swcarpentry/lesson-template/."
+    fi
 done
