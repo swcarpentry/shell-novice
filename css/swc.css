@@ -56,8 +56,19 @@ h1.title {
     margin:40px 0px;
 }
 
+h1, h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: inherit;
+}
+
+/* Chapter titles. */
+div.chapter h2 {
+    text-align: center;
+    font-style: italic;
 }
 
 /* Objectives and key points */
@@ -72,6 +83,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     background-color: lightgray;
 }
 
+/* Putting shadows around things. */
+.shadow {
+    -moz-box-shadow: 0 0 30px 5px #999;
+    -webkit-box-shadow: 0 0 30px 5px #999;
+    box-shadow: 0 0 30px 5px #999;
+}
+
 /* Things to understand (lead-in to sections in book). */
 .understand {
     background-color: lightyellow;
@@ -80,8 +98,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 /* Block quotations. */
 blockquote {
     margin: 1em;
-    padding: 1em 1em .5em 1em;
+    padding: .7em;
     width: 90%;
+}
+
+/* Citation for testimonial quote. */
+blockquote.testimonial cite {
+    font-style: italic;
 }
 
 /* Tables used for displaying choices in challenges. */
@@ -150,6 +173,11 @@ blockquote p {
     font-weight: inherit;
     line-height: inherit;
 }
+
+blockquote h2{
+   margin-top: 0px;
+}
+
 /* readability: darken the alert colour for contrast with background */
 
 .alert {
