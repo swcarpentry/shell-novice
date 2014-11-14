@@ -1,6 +1,122 @@
-#!/usr/bin/env bash
+#!/usr/bin/python
+#
+# Software Carpentry Lesson Validator
+#
+# Check for errors at Software Carpentry lessons.
+#
+# Usage:
+#
+#     $ tools/check
 
-# Placeholder for actual conformance checking script (which will
-# probably be Python, not Bash).
+import os
+import os.path
+import re
 
-grep -i -n 'FIX''ME' $*
+import yaml
+
+def report_error(file_path, line_number, line, error_message):
+    print("Error at line {} of {}:\n\t{}\n{}".format(line_number,
+        file_path, line, error_message))
+
+def report_missing(file_path, missing_element):
+    print("Error on {}: missing {}".format(file_path, missing_element))
+
+def report_missing_metadata(missing_element):
+    print("Error on YAML header: missing {}".format(missing_element))
+
+def report_broken_link(file_path, line_number, link):
+    print("Broken link at line {} of {}:\n\tCan't find {}.".format(line_number,
+        file_path, link))
+
+def check_yaml(metadata, skip=[]):
+    """
+    Check if all metadata are present at YAML header.
+
+    :param skip: list of keys to skip check
+    """
+    metadata_required = ["layout", "title", "minutes"]
+    for key in metadata_required:
+        if key not in skip and key not in metadata:
+            report_missing_metadata(key)
+
+def check_lesson(file_path):
+    pass
+
+def check_discussion(file_path):
+    pass
+
+def check_index(file_path):
+    # State variables
+    in_yaml = False
+    yaml_metadata = []
+    has_prerequisites = False
+    has_topics = False
+    has_other_resources = False
+
+    # Load file and process it
+    with open(file_path, 'r') as lines:
+        for line_number, line in enumerate(lines):
+            if re.match('---', line):
+                in_yaml = not in_yaml
+            elif in_yaml:
+                yaml_metadata.append(line)
+            elif re.match('> ## Prerequisites', line):
+                has_prerequisites = True
+            elif re.match('## Topics', line):
+                has_topics = True
+            elif re.match('## Other Resources', line):
+                has_other_resources = True
+            else:
+                # Check if local links are valid
+                matches = re.search('\[.*\]\((?P<link>.*)\)', line)
+                if matches and not matches.group("link").startswith("http"):
+                    link = os.path.join(os.path.dirname(file_path),
+                            matches.group("link"))
+                    if link.endswith(".html"):
+                        link = link.replace("html", "md")
+                    if not os.path.exists(link):
+                        report_broken_link(file_path, line_number, link)
+
+    # Check YAML
+    yaml_metadata = yaml.load('\n'.join(yaml_metadata))
+    check_yaml(yaml_metadata, ["minutes"])
+
+    # Check sections
+    if not has_prerequisites:
+        report_missing(file_path, "Prerequisites")
+    if not has_topics:
+        report_missing(file_path, "Topics")
+    if not has_other_resources:
+        report_missing(file_path, "Other Resources")
+
+def check_intructors(file_path):
+    pass
+
+def check_motivation(file_path):
+    pass
+
+def check_reference(file_path):
+    pass
+
+def check_file(file_path):
+    if re.search('[0-9]{2}-.*', file_path):
+        check_lesson(file_path)
+    elif re.search('discussion', file_path):
+        check_discussion(file_path)
+    elif re.search('index', file_path):
+        check_index(file_path)
+    elif re.search('instructors', file_path):
+        check_intructors(file_path)
+    elif re.search("motivation", file_path):
+        check_motivation(file_path)
+    elif re.search("reference", file_path):
+        check_reference(file_path)
+
+def main():
+    lessons_file = os.listdir("pages")
+    for lesson in lessons_file:
+        if lesson.endswith('.md'):
+            check_file('pages/{}'.format(lesson))
+
+if __name__ == "__main__":
+    main()
