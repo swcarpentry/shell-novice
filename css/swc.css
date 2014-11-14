@@ -45,7 +45,7 @@ div.chapter h2 {
 /* Block quotations. */
 blockquote {
     margin: 1em;
-    padding: 1em 1em .5em 1em;
+    padding: .7em;
     width: 90%;
 }
 
@@ -349,6 +349,11 @@ blockquote p {
     font-weight: inherit;
     line-height: inherit;
 }
+
+blockquote h2{
+   margin-top: 0px;
+}
+
 /* readability: darken the alert colour for contrast with background */
 
 .alert {
