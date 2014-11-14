@@ -1,30 +1,96 @@
 lesson-template
 ===============
 
-This repository is the template for
-[Software Carpentry](http://software-carpentry.org) lessons.  To
-create a new lesson:
+This repository is the template for creating
+[Software Carpentry](http://software-carpentry.org) lessons.  Do *not*
+fork this repository directly on GitHub.  Instead, follow the
+instructions below.
 
-1.  Create a new (empty) repository on GitHub.
-2.  Clone that empty repository to your desktop.
-3.  Create a `gh-pages` branch in that repository.
-4.  Add this repository as a remote called `template`.
-5.  Pull the content of this repository into your repository.
-6.  Create and edit files (explained below).
-7.  Run the validator to make sure everything is formatted correctly.
-8.  Push your changes to GitHub for viewing.
-9.  Tell us where your lesson is so that we can use it and help you improve it.
+## Manual Setup
 
-### Dependencies
+We will assume that your user ID is `mcurie` and the name of your
+lesson is `data-cleanup`.
 
-1. [Install Pandoc]http://www.johnmacfarlane.net/pandoc/installing.html)
+1.  Create an empty repository on GitHub called `data-cleanup`.
 
-2. Install pandocfilters, a python module that helps with writing
-   filters for pandoc:
+2.  Clone the template repository to your computer in a directory with
+    the same name as your lesson identifier:
+
+    ~~~
+    $ git clone -b gh-pages -o upstream https://github.com/swcarpentry/lesson-template.git data-cleanup
+    ~~~
+
+3.  Go into that directory using
+
+    ~~~
+    $ cd data-cleanup
+    ~~~
+
+4.  Add your GitHub repository as a remote called `origin` using
+
+    ~~~
+    $ git remote add origin https://github.com/mcurie/data-cleanup
+    ~~~
+
+5.  Create and edit files (explained below).
+
+6.  Build the HTML pages for your lesson:
+
+    ~~~
+    $ cd data-cleanup/pages # or just 'cd pages' if you are already in data-cleanup
+    $ make preview
+    ~~~
+
+    Note that this step requires you to have installed Pandoc
+    (described below).  Note also that it is *not* optional: you
+    *must* build the web pages for your lesson yourself and push
+    them to GitHub, rather than relying on GitHub to build them
+    for you.
+
+7.  Commit your changes *and the HTML pages in the root directory of
+    your lesson repository* and push to the `gh-pages` branch of your
+    repository:
+
+    ~~~
+    $ cd data-cleanup # or 'cd ..' if you are in the 'pages' directory
+    $ git add pages/changed-files.md
+    $ git add *.html
+    $ git commit -m "Explanatory message"
+    $ git push origin gh-pages
+    ~~~
+
+8.  Tell us where your lesson is so that we can use it and help you improve it.
+
+Note that SSH cloning (as opposed to the HTTPS cloning used above)
+will also work for those who have set up SSH keys with GitHub.
+
+## Dependencies
+
+Because people may choose to use the IPython Notebook, R Markdown, or
+some other format for parts of their lessons, and because Jekyll (the
+tool GitHub uses to build HTML pages) only supports an impoverished
+form of Markdown, we require lesson authors to build the HTML pages
+for their lessons on their machines with Pandoc and commit those to
+the `gh-pages` branch of their lesson website.  To do this:
+
+1. [Install Pandoc](http://www.johnmacfarlane.net/pandoc/installing.html)
+
+2. Install pandocfilters, a Python module that helps with writing
+   filters for Pandoc:
 
     ~~~
     pip install pandocfilters
     ~~~
+
+3. To convert Markdown pages in the `pages` directory into HTML pages
+   in the root directory, go into the `pages` directory and run:
+
+   ~~~
+   $ make preview
+   ~~~
+
+   You can run `make` on its own to get a list of other things it will
+   do for you.
 
 ## Why Use a Template?
 

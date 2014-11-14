@@ -37,12 +37,6 @@ $(DST_DIR)/%.html : $(SRC_DIR)/%.md ../_layouts/page.html
 commands : Makefile
 	@sed -n 's/^## //p' $<
 
-## check    : Check consistency.
-# FIXME: should run a Python script to do the checking.
-# Note: the line below breaks the keyword into two strings to avoid a false match on the command.
-check :
-	@tools/check Makefile $(SRC_PAGES)
-
 ## update   : Update the shared files from the GitHub repo holding them.
 # FIXME: need to create that repo.
 update :
