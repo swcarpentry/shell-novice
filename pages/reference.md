@@ -7,8 +7,8 @@ subtitle: Reference
 
 ## Glossary
 
-> **Key Word 1**: the definition
-> relevant to the lesson.
+Key Word 1
+:   Definition of first term
 
-> **Key Word 2**: the definition
-> relevant to the lesson.
+Key Word 2
+:   Definition of second term
