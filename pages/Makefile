@@ -13,22 +13,21 @@ INCLUDES = \
 	-Vfooter="$$(cat ../_includes/footer.html)" \
 	-Vjavascript="$$(cat ../_includes/javascript.html)"
 
-# Make sure everything is built.
+# Default action is to show what commands are available.
 all : commands
 
 ## preview  : Build website locally for checking.
 preview : $(DST_PAGES)
 
-# Pattern to build slides.
-$(DST_DIR)/motivation.html : $(SRC_DIR)/motivation.md
+# Pattern for slides (different parameters and template).
+$(DST_DIR)/motivation.html : $(SRC_DIR)/motivation.md ../_layouts/slides.html
 	pandoc -s -t html \
 	--template=../_layouts/slides \
 	-o $@ $<
 
 # Pattern to build a generic page.
-$(DST_DIR)/%.html : $(SRC_DIR)/%.md
+$(DST_DIR)/%.html : $(SRC_DIR)/%.md ../_layouts/page.html
 	pandoc -s -t html \
-	--title-prefix='Software Carpentry' \
 	--template=../_layouts/page \
 	--filter=../tools/blockquote2div.py \
 	$(INCLUDES) \
@@ -59,3 +58,7 @@ settings :
 ## clean    : Clean up temporary and intermediate files.
 clean :
 	@rm -rf $$(find .. -name '*~' -print)
+
+# very-clean : Remove generated HTML.
+very-clean :
+	@rm -f $(DST_PAGES)

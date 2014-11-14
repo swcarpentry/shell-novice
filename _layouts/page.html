@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-    <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
+    <title>Software Carpentry: $pagetitle$</title>
     $header$
   </head>
   <body>
@@ -11,7 +11,8 @@
       $banner$
       <div class="row-fluid">
         <div class="span10 offset1">
-          $if(title)$<h1>$title$</h1>$endif$
+          <h1 class="title">$title$</h1>
+          $if(subtitle)$<h2 class="subtitle">$subtitle$</h2>$endif$
           $body$
         </div>
       </div>
