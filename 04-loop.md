@@ -69,6 +69,14 @@ we get the variable's value by putting `$` in front of it:
 `$filename` is `basilisk.dat` the first time through the loop,
 `unicorn.dat` the second,
 and so on.
+
+By using the dollar sign we are telling the shell interpreter to treat
+`filename` as a variable name and substitute its value on its place,
+but not as some text or external command. When using variables it is also 
+possible to put the names into curly braces to clearly delimit the variable
+name: `$filename` is equivalent to `${filename}`, but is different from
+`${file}name`. You may find this notation in other people's programs.
+
 Finally,
 the command that's actually being run is our old friend `head`,
 so this loop prints out the first three lines of each data file in turn.
