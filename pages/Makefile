@@ -35,7 +35,7 @@ $(DST_DIR)/%.html : $(SRC_DIR)/%.md ../_layouts/page.html
 
 ## commands : Display available commands.
 commands : Makefile
-	@sed -n 's/^## //p' $<
+	@sed -n 's/^##//p' $<
 
 ## update   : Update the shared files from the GitHub repo holding them.
 # FIXME: need to create that repo.
