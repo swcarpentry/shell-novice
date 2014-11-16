@@ -95,6 +95,17 @@ table.outlined {
     border-collapse: collapse;
 }
 
+/* Code sample */
+pre.sourceCode{
+    color: ForestGreen;
+}
+pre.output {
+    color: MediumBlue;
+}
+pre.error {
+    color: Red;
+}
+
 /* Printing */
 @media print {
   h1 {
