@@ -10,37 +10,39 @@
 
 import os
 import re
+import sys
+
 import yaml
 
 #----------------------------------------
 # Error reporting.
 
 def report_error(file_path, line_number, line, error_message):
-    '''
-    FIXME: docstring.
-    '''
+    """
+    Print information about general error.
+    """
     ERR_MSG = "Error at line {} of {}:\n\t{}\n{}"
     print(ERR_MSG.format(line_number, file_path, line, error_message))
 
 def report_missing(present, file_path, missing_element):
-    '''
-    FIXME: docstring.
-    '''
+    """
+    Print information about missing element.
+    """
     ERR_MSG = "Error on {}: missing {}"
     if not present:
         print(ERR_MSG.format(file_path, missing_element))
 
 def report_missing_metadata(missing_element):
-    '''
-    FIXME: docstring.
-    '''
+    """
+    Print information about missing metadata at YAML header.
+    """
     ERR_MSG = "Error on YAML header: missing {}"
     print(ERR_MSG.format(missing_element))
 
 def report_broken_link(file_path, line_number, link):
-    '''
-    FIXME: docstring.
-    '''
+    """
+    Print information about broken link.
+    """
     ERR_MSG = "Broken link at line {} of {}:\n\tCan't find {}."
     print(ERR_MSG.format(line_number, file_path, link))
 
@@ -55,23 +57,50 @@ def check_yaml(metadata):
     for key in METADATA_REQUIRED - set(metadata.keys()):
         report_missing_metadata(key)
 
+# TODO: Implement check_lesson
 def check_lesson(file_path):
-    '''
-    FIXME: docstring telling people what you want them to write here.
-    '''
+    """
+    Checks the file ``pages/[0-9]{2}-.*.md`` for:
+
+    - "layout: topic" at YAML header
+    - "title" as keyword at YAML header
+    - line "> ## Learning Objectives {.objectives}" after YAML header
+    - items at learning objectives begin with "*"
+    - items at learning objective following four space rule
+    - code samples be of type error, output, python, shell, r, matlab, sql
+    - callout box style
+    - line with "> ## Key Points {.keypoints}"
+    - challenge box style
+    """
     pass
 
+# TODO: Implement check_discussion
 def check_discussion(file_path):
-    '''
-    FIXME: docstring telling people what you want them to write here.
-    '''
+    """
+    Checks the file ``pages/discussion.md`` for:
+
+    FIXME: tell what need to check.
+    """
     pass
 
+# TODO: Complete implementation of check_index
+# TODO: break check_index into pieces -- it's too long.
 def check_index(file_path):
-    '''
-    FIXME: docstring.
-    And break this up into pieces -- it's too long.
-    '''
+    """
+    Checks the file ``pages/index.md`` for:
+
+    - "layout: lesson" in YAML header
+    - "title" as keyword in YAML header
+    - introductory paragraph right after YAML header
+    - line with "> ## Prerequisites"
+    - non empty prerequisites
+    - line with "## Topics"
+    - items at topic list begin with "*"
+    - links at topic list are valid
+    - line with "## Other Resources"
+    - items at other resources list begin with "*"
+    - link at other resources list are valid
+    """
     # State variables
     in_yaml = False
     yaml_metadata = []
@@ -80,33 +109,33 @@ def check_index(file_path):
     has_other_resources = False
 
     # Load file and process it
-    with open(file_path, 'r') as lines:
+    with open(file_path, "r") as lines:
         for line_number, line in enumerate(lines):
-            if re.match('---', line): # what if there are multiple YAML blocks??
+            if re.match("---", line): # what if there are multiple YAML blocks??
                 in_yaml = not in_yaml
             elif in_yaml:
                 yaml_metadata.append(line)
-            elif re.match('> ## Prerequisites', line): # check this in the Markdown or in the generated HTML?
+            elif re.match("> ## Prerequisites", line): # check this in the Markdown or in the generated HTML?
                 has_prerequisites = True
-            elif re.match('## Topics', line): # as above?
+            elif re.match("## Topics", line): # as above?
                 has_topics = True
-            elif re.match('## Other Resources', line): # as above
+            elif re.match("## Other Resources", line): # as above
                 has_other_resources = True
             else:
                 ## Push this check into another function - this one is getting too long.
                 # Check if local links are valid
-                matches = re.search('\[.*\]\((?P<link>.*)\)', line)
+                matches = re.search("\[.*\]\((?P<link>.*)\)", line)
                 if matches and not matches.group("link").startswith("http"):
                     link = os.path.join(os.path.dirname(file_path), matches.group("link"))
                     if link.endswith(".html"):
-                        link = link.replace("html", "md") # NO: what about '03-html-editing.html' ?
+                        link = link.replace("html", "md") # NO: what about "03-html-editing.html" ?
                     if not os.path.exists(link):
                         report_broken_link(file_path, line_number, link)
 
     ## Again, this function is too long - break it into sub-functions.
     # Check YAML
-    yaml_metadata = yaml.load('\n'.join(yaml_metadata))
-    check_yaml(yaml_metadata, {"minutes"})
+    yaml_metadata = yaml.load("\n".join(yaml_metadata))
+    check_yaml(yaml_metadata)
 
     # Check sections
     ## Note the refactoring: replaces three conditionals with one.
@@ -114,34 +143,52 @@ def check_index(file_path):
     report_missing(has_topics, file_path, "Topics")
     report_missing(has_other_resources, file_path, "Other Resources")
 
+# TODO Implement check_intructors
 def check_intructors(file_path):
-    '''
-    FIXME: docstring telling people what you want them to write here.
-    '''
+    """
+    Checks the file ``pages/instructors.md`` for:
+
+    - "title: Instructor"s Guide" in YAML header
+    - line with "## Overall"
+    - line with "## General Points"
+    - lines with topics titles begin with "## "
+    - points begin with "*" and following four space rules.
+    """
     pass
 
+# TODO Implement check_motivation
 def check_motivation(file_path):
-    '''
-    FIXME: docstring telling people what you want them to write here.
-    '''
+    """
+    Checks the file ``pages/motivation.md``.
+
+    FIXME: tell what need to check.
+    """
     pass
 
+# TODO Implement check_reference
 def check_reference(file_path):
-    '''
-    FIXME: docstring telling people what you want them to write here.
-    '''
+    """
+    Checks the file ``pages/reference.md`` for:
+
+    -   ``layout: reference`` in YAML header
+    -   line with "## Glossary"
+    -   words definitions after at the "Glossary" as::
+
+        > **Key Word 1**: the definition
+        > relevant to the lesson.
+    """
     pass
 
 def check_file(file_path):
-    '''
-    FIXME: docstring telling people what you want them to write here.
-    '''
-    ## Functions are objects, and so can be put in tables like the one below.
+    """
+    Call the correctly check function based on the name of the file.
+    """
+    # Pair of regex and function to call
     CONTROL = (
-        ('[0-9]{2}-.*', check_lesson),
-        ('discussion',  check_discussion),
-        ('index',       check_index),
-        ('instructors', check_intructors),
+        ("[0-9]{2}-.*", check_lesson),
+        ("discussion",  check_discussion),
+        ("index",       check_index),
+        ("instructors", check_intructors),
         ("motivation",  check_motivation),
         ("reference",   check_reference)
     )
@@ -149,16 +196,18 @@ def check_file(file_path):
         if re.search(pattern, file_path):
             checker(file_path)
 
-## main doesn't take sys.argv[1:] or the like?  Will help with testing...
-def main():
-    '''
-    FIXME: docstring telling people what you want them to write here.
-    '''
-    lessons_file = os.listdir("pages")
-    for lesson in lessons_file:
-        if lesson.endswith('.md'):
-            ## Why not os.path.join('pages', lesson) ?
-            check_file('pages/{}'.format(lesson))
+def main(list_of_files):
+    """
+    Call the check function for every file in ``list_of_files``.
+
+    If ``list_of_files`` is empty load all the files from ``pages`` directory.
+    """
+    if not list_of_files:
+        list_of_files = [os.path.join("pages", filename) for filename in os.listdir("pages")]
+
+    for filename in list_of_files:
+        if filename.endswith(".md"):
+            check_file(filename)
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])
