@@ -64,6 +64,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 /* Objectives and key points */
 .objectives, .keypoints {
     background-color: azure;
+    border: 5px solid azure;
+    margin: 1em 0;
+    padding: 0em 1em;
 }
 
 /* Things to fix. */
@@ -83,6 +86,14 @@ blockquote {
     margin: 1em;
     padding: 1em 1em .5em 1em;
     width: 90%;
+}
+
+/* Callout Box */
+.callout {
+    background-color: #EEE;
+    border: 5px solid #EEE;
+    margin: 1em 0;
+    padding: 0em 1em;
 }
 
 /* Tables used for displaying choices in challenges. */
