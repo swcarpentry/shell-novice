@@ -74,6 +74,9 @@ div.chapter h2 {
 /* Objectives and key points */
 .objectives, .keypoints {
     background-color: azure;
+    border: 5px solid azure;
+    margin: 1em 0;
+    padding: 0em 1em;
 }
 
 /* Things to fix. */
@@ -105,6 +108,14 @@ blockquote {
 /* Citation for testimonial quote. */
 blockquote.testimonial cite {
     font-style: italic;
+}
+
+/* Callout Box */
+.callout {
+    background-color: #EEE;
+    border: 5px solid #EEE;
+    margin: 1em 0;
+    padding: 0em 1em;
 }
 
 /* Tables used for displaying choices in challenges. */
