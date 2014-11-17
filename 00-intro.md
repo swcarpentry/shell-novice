@@ -108,13 +108,17 @@ The most popular Unix shell is Bash,
 the Bourne Again SHell
 (so-called because it's derived from a shell written by Stephen Bourne&mdash;this
 is what passes for wit among programmers).
-Before Bash became popular in the nineties, scientists widely used (and some
-still use) another shell, C-shell, or Csh. Bash and Csh have similar feature
-sets, but their syntax rules are different and this makes them incompatible with
-each other. If you inherit some shell programs from your colleagues
-they may be actually written in Csh, so keep that in mind.
-Bash is the default shell on most modern implementations of Unix,
-and in most packages that provide Unix-like tools for Windows.
+
+Before Bash became popular in the end of nineties, scientists widely used (and
+some still use) another shell, C-shell, or Csh. Bash and Csh have similar
+feature sets, but their syntax rules are different and this makes them
+incompatible with each other. Few other shells have appeared since, including
+ksh, zsh, and a number of others&mdash;they are mostly compatible with Bash, but
+have differences as well. If you inherit some shell programs from your
+colleagues they may be actually written not in Bash, but in Csh or some other
+shell, so keep that in mind.  Bash is the default shell on most modern
+implementations of Unix, and in most packages that provide Unix-like tools for
+Windows.
 
 Using Bash or any other shell
 sometimes feels more like programming than like using a mouse.
