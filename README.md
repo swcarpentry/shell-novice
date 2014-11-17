@@ -4,7 +4,8 @@ lesson-template
 This repository is the template for creating
 [Software Carpentry](http://software-carpentry.org) lessons.  Do *not*
 fork this repository directly on GitHub.  Instead, follow the
-instructions below.
+instructions below to create a lesson repository, and
+[the layout instructions](LAYOUT.md) to create a lesson.
 
 ## Manual Setup
 
