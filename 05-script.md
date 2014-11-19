@@ -198,8 +198,9 @@ because we don't know how many files there are.
 Instead, we use the special variable `$@`,
 which means,
 "All of the command-line parameters to the shell script."
-Like with numbered parameters,
-we should put `$@` inside double-quotes in case any parameters contain spaces.
+We also should put `$@` inside double-quotes
+to handle the case of parameters containing spaces
+(`"$@"` is equivalent to `"$1"` `"$2"` ...)
 Here's an example:
 
 ~~~
