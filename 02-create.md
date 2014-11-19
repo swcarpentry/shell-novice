@@ -71,11 +71,47 @@ $ ls -F thesis
 ~~~
 {:class="in"}
 
-Let's change our working directory to `thesis` using `cd`,
-then run a text editor called Nano to create a file called `draft.txt`:
+One of the simplest ways to create an empty file is via the `touch` command. 
+Change the working directory to `thesis` using `cd`, then create an empty file 
+called `draft.txt`:
 
 ~~~
 $ cd thesis
+$ touch draft.txt
+~~~
+{:class="in"}
+
+If we check the directory contents now, 
+
+~~~
+$ ls -F . 
+~~~
+{:class="in"}
+~~~
+draft.txt
+~~~
+{:class="out"}
+
+we find our newly created empty file. 
+
+If instead we had wanted to add in a simple string, possibly as a placeholder, 
+this can be easily achieved using a simple but powerful technique known 
+as output redirection. Let's create a file called notes.txt that contains a simple 
+message:
+
+~~~
+$ echo "Dont forget to add some content to dratf.txt" > notes.txt
+~~~
+{:class="in"}
+
+Here we've redirected the output of the echo command into our target file. 
+
+
+Often we need to perform more complex editing tasks; for that we need a text editor. 
+To run a simple console based text editor called Nano to edit `draft.txt` we can 
+launch an interactive editor session using the command:
+
+~~~
 $ nano draft.txt
 ~~~
 {:class="in"}
