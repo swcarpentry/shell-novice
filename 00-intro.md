@@ -112,7 +112,7 @@ is what passes for wit among programmers).
 Before Bash became popular in the end of nineties, scientists widely used (and
 some still use) another shell, C-shell, or Csh. Bash and Csh have similar
 feature sets, but their syntax rules are different and this makes them
-incompatible with each other. Few other shells have appeared since, including
+incompatible with each other. A few other shells have appeared since, including
 ksh, zsh, and a number of others&mdash;they are mostly compatible with Bash, but
 have differences as well. If you inherit some shell programs from your
 colleagues they may be actually written not in Bash, but in Csh or some other
