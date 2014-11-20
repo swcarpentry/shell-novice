@@ -584,9 +584,9 @@ What does the command `ls` do when used with the -s and -h arguments?
 
 <div class="challenge" markdown="1">
 Starting from `/users/nelle`, if you type in `cd data/experiment1/`,
-which of the following are true?
+which of the following are true (and if not, why)?
 
 1. Typing `cd ..` will bring me to `/users/nelle/data`
-2. Typing `cd -` and `cd` will bring me to `/users/nelle/`
+2. Typing `cd -`, but not `cd`, will bring me to `/users/nelle/`
 3. I need to type `cd ../..` to get back to `/users/nelle/`
 </div>
