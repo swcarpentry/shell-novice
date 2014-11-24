@@ -275,7 +275,7 @@ We can use `cd` followed by a directory name to change our working directory.
 `cd` stands for "change directory",
 which is a bit misleading:
 the command doesn't change the directory,
-it changes the shell's idea of what directory we are in.
+it changes the shell's idea of what directory we are in.  Note that if there is a space in your file name i.e. "My Computer" you should type it as a "My\ Computer" otherwise your directory won't change.
 
 ~~~
 $ cd data
