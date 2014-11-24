@@ -417,12 +417,14 @@ footer .container .links{
 #ss-form .ss-q-title {
     display: block;
     font-weight: bold;
+    padding-bottom: 0.5em;
 }
 #ss-form .ss-required-asterisk {
     color: #c43b1d;
 }
 #ss-form label {
     display:inline;
+    cursor: default;
 }
 #ss-form .ss-secondary-text {
     color: #666;
@@ -440,6 +442,7 @@ footer .container .links{
 }
 #ss-form .ss-choice-item {
     line-height: 1.3em;
+    padding-bottom: .5em;
 }
 #ss-form .ss-q-long {
     resize: vertical;
@@ -447,4 +450,12 @@ footer .container .links{
 }
 #ss-form .error-message, .required-message {
     display: none;
+}
+#ss-form .ss-form-entry input {
+  vertical-align: middle;
+  margin: 0;
+  padding:0 4px;
+}
+#ss-form .ss-choice-item-control {
+  padding-right: 4px;
 }
