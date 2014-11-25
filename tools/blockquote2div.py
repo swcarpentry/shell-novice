@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Pandoc filter to convert Blockquotes with attributes into Div
 with attributes.
 
