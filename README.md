@@ -346,7 +346,7 @@ file, but again, we're trying to avoid those.
     ---
     Paragraph(s) of introductory material.
 
-    > ## Prerequisites {.prereq}
+    > ## Prerequisites
     >
     > What learners need to know before tackling this lesson.
 
