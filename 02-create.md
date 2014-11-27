@@ -80,6 +80,14 @@ $ nano draft.txt
 ~~~
 {:class="in"}
 
+Alternatively, we could use the unix touch command to create an empty file called draft.txt and immediately return to the shell. This would skip opening a text editor.
+
+~~~
+$ cd thesis
+$ touch draft.txt
+~~~
+{:class="in"}
+
 > #### Which Editor?
 > 
 > When we say, "`nano` is a text editor," we really do mean "text": it can
