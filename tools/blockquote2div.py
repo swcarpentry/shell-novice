@@ -9,10 +9,10 @@ Usage:
 A blockquote will be converted if
 
 1.  it begins with a header
-2.  that
-    1.  match "Prerequisites", "Objectives" or
+2.  that either
+    1.  matches "Prerequisites", "Objectives", "Callout" or "Challenge" OR
     2.  has attributes containing a single class matching
-        one of ['callout', 'challenge']
+        one of ['prereq', 'objectives', 'callout', 'challenge']
 
 For example, this is a valid blockquote:
 
@@ -26,6 +26,18 @@ and it will be converted into this markdown:
     Let's do something.
     </div>
 
+This is also a valid blockquote:
+
+    > ## Prerequisites
+    > Breakfast!
+
+and it will be converted into this markdown:
+
+    <div class='prereq'>
+    ## Prerequisites
+    Breakfast!
+    </div>
+
 
 For debugging purposes you may find it useful to test the filter
 like this:
@@ -37,13 +49,16 @@ import pandocfilters as pf
 
 # These are classes that, if set on the title of a blockquote, will
 # trigger the blockquote to be converted to a div.
-SPECIAL_CLASSES = ['callout', 'challenge']
+SPECIAL_CLASSES = ['callout', 'challenge', 'prereq', 'objectives']
 
 # These are titles of blockquotes that will cause the blockquote to
 # be converted into a div. They are 'title': 'class' pairs, where the
 # 'title' will create a blockquote with the corresponding 'class'.
 SPECIAL_TITLES = {'prerequisites': 'prereq',
-                  'learning objectives': 'objectives'}
+                  'learning objectives': 'objectives',
+                  'objectives': 'objectives',
+                  'challenge': 'challenge',
+                  'callout': 'callout'}
 
 
 def find_header(blockquote):
