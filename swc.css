@@ -216,7 +216,7 @@ section {
 }
 
 /* Person's name in team.html. */
-span.person {
+.person {
     font-weight: bold;
     font-style: italic;
 }
