@@ -1,6 +1,213 @@
-#!/usr/bin/env bash
+#!/usr/bin/python
+#
+# Software Carpentry Lesson Validator
+#
+# Check for errors in lessons built using the Software Carpentry template
+# found at http://github.com/swcarpentry/lesson-template.
+#
+# Usage:
+#
+#     $ tools/check
 
-# Placeholder for actual conformance checking script (which will
-# probably be Python, not Bash).
+import sys
+import os
+import re
+import yaml
 
-grep -i -n 'FIX''ME' $*
+#----------------------------------------
+# Error reporting.
+
+def report_error(file_path, line_number, line, error_message):
+    """
+    Print information about general error.
+    """
+    ERR_MSG = "Error at line {} of {}:\n\t{}\n{}"
+    print(ERR_MSG.format(line_number, file_path, line, error_message))
+
+def report_missing(present, file_path, missing_element):
+    """
+    Print information about missing element.
+    """
+    ERR_MSG = "Error on {}: missing {}"
+    if not present:
+        print(ERR_MSG.format(file_path, missing_element))
+
+def report_missing_metadata(missing_element):
+    """
+    Print information about missing metadata at YAML header.
+    """
+    ERR_MSG = "Error on YAML header: missing {}"
+    print(ERR_MSG.format(missing_element))
+
+def report_broken_link(file_path, line_number, link):
+    """
+    Print information about broken link.
+    """
+    ERR_MSG = "Broken link at line {} of {}:\n\tCan't find {}."
+    print(ERR_MSG.format(line_number, file_path, link))
+
+#----------------------------------------
+# Checking.
+
+def check_yaml(metadata):
+    """
+    Check if all metadata are present at YAML header.
+    """
+    METADATA_REQUIRED = {"layout", "title", "minutes"}
+    for key in METADATA_REQUIRED - set(metadata.keys()):
+        report_missing_metadata(key)
+
+# TODO: Implement check_lesson
+def check_lesson(file_path):
+    """
+    Checks the file ``pages/[0-9]{2}-.*.md`` for:
+
+    - "layout: topic" in YAML header
+    - "title" as keyword in YAML header
+    - line "> ## Learning Objectives {.objectives}" after YAML header
+    - items in learning objectives begin with "*"
+    - items in learning objective following four-space indentation rule
+    - code samples be of type input, error, output, python, shell, r, matlab, or sql
+    - callout box style
+    - challenge box style
+    """
+    pass
+
+# TODO: Implement check_discussion
+def check_discussion(file_path):
+    """
+    Checks the file ``pages/discussion.md`` for:
+
+    FIXME: tell what need to check.
+    """
+    pass
+
+# TODO: Complete implementation of check_index
+# TODO: break check_index into pieces -- it's too long.
+def check_index(file_path):
+    """
+    Checks the file ``pages/index.md`` for:
+
+    - "layout: lesson" in YAML header
+    - "title" as keyword in YAML header
+    - introductory paragraph(s) right after YAML header
+    - line with "> ## Prerequisites"
+    - non-empty prerequisites
+    - title line with "## Topics"
+    - items at topic list begin with "*"
+    - items in topic list follow four-space indentation rule
+    - links at topic list are valid
+    - line with "## Other Resources"
+    - items at other resources list begin with "*"
+    - link at other resources list are valid
+    """
+    # State variables
+    in_yaml = False
+    yaml_metadata = []
+    has_prerequisites = False
+    has_topics = False
+    has_other_resources = False
+
+    # Load file and process it
+    with open(file_path, "r") as lines:
+        for line_number, line in enumerate(lines):
+            if re.match("---", line): # what if there are multiple YAML blocks??
+                in_yaml = not in_yaml
+            elif in_yaml:
+                yaml_metadata.append(line)
+            elif re.match("> ## Prerequisites", line): # check this in the Markdown or in the generated HTML?
+                has_prerequisites = True
+            elif re.match("## Topics", line): # as above?
+                has_topics = True
+            elif re.match("## Other Resources", line): # as above
+                has_other_resources = True
+            else:
+                ## Push this check into another function - this one is getting too long.
+                # Check if local links are valid
+                matches = re.search("\[.*\]\((?P<link>.*)\)", line)
+                if matches and not matches.group("link").startswith("http"):
+                    link = os.path.join(os.path.dirname(file_path), matches.group("link"))
+                    if link.endswith(".html"):
+                        link = link.replace("html", "md") # NO: what about "03-html-editing.html" ?
+                    if not os.path.exists(link):
+                        report_broken_link(file_path, line_number, link)
+
+    ## Again, this function is too long - break it into sub-functions.
+    # Check YAML
+    yaml_metadata = yaml.load("\n".join(yaml_metadata))
+    check_yaml(yaml_metadata)
+
+    # Check sections
+    ## Note the refactoring: replaces three conditionals with one.
+    report_missing(has_prerequisites, file_path, "Prerequisites")
+    report_missing(has_topics, file_path, "Topics")
+    report_missing(has_other_resources, file_path, "Other Resources")
+
+# TODO Implement check_intructors
+def check_intructors(file_path):
+    """
+    Checks the file ``pages/instructors.md`` for:
+
+    - "title: Instructor"s Guide" in YAML header
+    - line with "## Overall"
+    - line with "## General Points"
+    - lines with topics titles begin with "## "
+    - points begin with "*" and following four space rules.
+    """
+    pass
+
+# TODO Implement check_motivation
+def check_motivation(file_path):
+    """
+    Checks the file ``pages/motivation.md``.
+
+    FIXME: tell what need to check.
+    """
+    pass
+
+# TODO Implement check_reference
+def check_reference(file_path):
+    """
+    Checks the file ``pages/reference.md`` for:
+
+    -   ``layout: reference`` in YAML header
+    -   line with "## Glossary"
+    -   words definitions after at the "Glossary" as::
+
+        > **Key Word 1**: the definition
+        > relevant to the lesson.
+    """
+    pass
+
+def check_file(file_path):
+    """
+    Call the correctly check function based on the name of the file.
+    """
+    # Pair of regex and function to call
+    CONTROL = (
+        ("[0-9]{2}-.*", check_lesson),
+        ("discussion",  check_discussion),
+        ("index",       check_index),
+        ("instructors", check_intructors),
+        ("motivation",  check_motivation),
+        ("reference",   check_reference)
+    )
+    for (pattern, checker) in CONTROL:
+        if re.search(pattern, file_path):
+            checker(file_path)
+
+def main(list_of_files):
+    """
+    Call the check function for every file in ``list_of_files``.
+
+    If ``list_of_files`` is empty load all the files from ``pages`` directory.
+    """
+    if not list_of_files:
+        list_of_files = [os.path.join("pages", filename) for filename in os.listdir("pages")]
+
+    for filename in list_of_files:
+        if filename.endswith(".md"):
+            check_file(filename)
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

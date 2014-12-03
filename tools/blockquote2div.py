@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Pandoc filter to convert Blockquotes with attributes into Div
 with attributes.
 
@@ -7,10 +8,11 @@ Usage:
 
 A blockquote will be converted if
 
-1. it begins with a header
-2. that header has attributes
-3. those attributes contain a single class
-4. that class is one of ['objectives', 'callout', 'challenge']
+1.  it begins with a header
+2.  that either
+    1.  matches "Prerequisites", "Objectives", "Callout" or "Challenge" OR
+    2.  has attributes containing a single class matching
+        one of ['prereq', 'objectives', 'callout', 'challenge']
 
 For example, this is a valid blockquote:
 
@@ -24,6 +26,18 @@ and it will be converted into this markdown:
     Let's do something.
     </div>
 
+This is also a valid blockquote:
+
+    > ## Prerequisites
+    > Breakfast!
+
+and it will be converted into this markdown:
+
+    <div class='prereq'>
+    ## Prerequisites
+    Breakfast!
+    </div>
+
 
 For debugging purposes you may find it useful to test the filter
 like this:
@@ -33,10 +47,21 @@ like this:
 import pandocfilters as pf
 
 
-valid_classes = ['objectives', 'callout', 'challenge']
+# These are classes that, if set on the title of a blockquote, will
+# trigger the blockquote to be converted to a div.
+SPECIAL_CLASSES = ['callout', 'challenge', 'prereq', 'objectives']
+
+# These are titles of blockquotes that will cause the blockquote to
+# be converted into a div. They are 'title': 'class' pairs, where the
+# 'title' will create a blockquote with the corresponding 'class'.
+SPECIAL_TITLES = {'prerequisites': 'prereq',
+                  'learning objectives': 'objectives',
+                  'objectives': 'objectives',
+                  'challenge': 'challenge',
+                  'callout': 'callout'}
 
 
-def find_attributes(blockquote):
+def find_header(blockquote):
     """Find attributes in a blockquote if they are defined on a
     header that is the first thing in the block quote.
 
@@ -45,7 +70,7 @@ def find_attributes(blockquote):
     """
     if blockquote[0]['t'] == 'Header':
         level, attr, inline = blockquote[0]['c']
-        return attr
+        return level, attr, inline
 
 
 def remove_attributes(blockquote):
@@ -70,10 +95,21 @@ def blockquote2div(key, value, format, meta):
     """
     if key == 'BlockQuote':
         blockquote = value
-        attr = find_attributes(blockquote)
-        if not attr:
+
+        header = find_header(blockquote)
+        if not header:
             return
-        elif len(attr[1]) == 1 and attr[1][0] in valid_classes:
+        else:
+            level, attr, inlines = header
+
+        id, classes, kvs = attr
+
+        ltitle = pf.stringify(inlines).lower()
+        if ltitle in SPECIAL_TITLES:
+            classes.append(SPECIAL_TITLES[ltitle])
+            return pf.Div(attr, blockquote)
+
+        elif len(classes) == 1 and classes[0] in SPECIAL_CLASSES:
             remove_attributes(blockquote)
             # a blockquote is just a list of blocks, so it can be
             # passed directly to Div, which expects Div(attr, blocks)
