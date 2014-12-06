@@ -16,7 +16,7 @@ def normalize_keyword(keyword):
 
 def keyword2html(keyword_node):
     """Return HTML version of keyword with id."""
-    keyword = ' '.join([word['c'] for word in keyword_node if word['t'] == 'Str'])
+    keyword = pf.stringify(keyword_node)
     id = normalize_keyword(keyword)
     return [{"t": "Span",
              "c": [[id, [],[]],
@@ -24,8 +24,7 @@ def keyword2html(keyword_node):
 
 def id4glossary(key, value, format, meta):
     """Add id to keywords at glossary."""
-    if "subtitle" in meta and \
-            ''.join([string['c'] for string in meta["subtitle"]['c']]) == 'Reference':
+    if "subtitle" in meta and pf.stringify(meta['subtitle']) == 'Reference':
         if key == "DefinitionList":
             for definition in value:
                 definition[0] = keyword2html(definition[0])
