@@ -56,16 +56,20 @@ this template is organized the way it is:
 
 6.  Using Pandoc instead of Jekyll means that we have to compile our
     Markdown into HTML on our own machines and commit it to the
-    `gh-pages` branch of the lesson's GitHub repository.  In order to
-    keep our source files and generated files separate, we put our
-    source files in a sub-directory called `pages`, and compile them
-    "upward" into the root directory of the lesson's repository.
+    `gh-pages` branch of the lesson's GitHub repository.
 
-    **Note:** while it's usually considered bad practice to put
-    computer-generated files under version control, the HTML pages put
-    into the lesson's root directory by Pandoc *must* be committed to
-    version control in order for the lesson to be displayed properly
-    on GitHub.
+    It's considered bad practice to put computer-generated files under
+    version control, but the HTML pages put into the lesson's root
+    directory by Pandoc *must* be committed to version control in
+    order for the lesson to be displayed properly on GitHub.
+
+    It's also considered bad practice to put generated files in the
+    same directory as source files.  We do it because some source
+    files, such as R Markdown and IPython Notebook files, are
+    executable, and contain paths to things like images and data
+    files.  If we put our source files in a sub-directory, those paths
+    won't work (or conversely, if we put our generated files in a
+    different directory, the paths won't work there).
 
 7.  In order to display properly, our generated HTML pages need
     artwork, CSS style files, and a few bits of Javascript.  We could
@@ -76,6 +80,6 @@ this template is organized the way it is:
 One final note: we try not to put HTML inside Markdown because it's
 ugly to read and write, and error-prone to process. Instead, we put
 things that ought to be in `<div>` blocks, like the learning
-objectives and challenge exercises, in blocks indented with `>`, and
-do a bit of post-processing to attach the right CSS classes to these
-blocks.
+objectives and challenge exercises, in blockquotes indented with `>`,
+and do a bit of post-processing to attach the right CSS classes to
+these blocks.

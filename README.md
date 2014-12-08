@@ -38,24 +38,21 @@ lesson is `data-cleanup`.
 6.  Build the HTML pages for your lesson:
 
     ~~~
-    $ cd data-cleanup/pages # or just 'cd pages' if you are already in data-cleanup
     $ make preview
     ~~~
 
-    Note that this step requires you to have installed Pandoc
-    (described below).  Note also that it is *not* optional: you
-    *must* build the web pages for your lesson yourself and push
-    them to GitHub, rather than relying on GitHub to build them
-    for you.
+    This step requires you to have installed Pandoc (described below).
+    It is *not* optional: you *must* build the web pages for your
+    lesson yourself and push them to GitHub, rather than relying on
+    GitHub to build them for you.
 
 7.  Commit your changes *and the HTML pages in the root directory of
     your lesson repository* and push to the `gh-pages` branch of your
     repository:
 
     ~~~
-    $ cd data-cleanup # or 'cd ..' if you are in the 'pages' directory
-    $ git add pages/changed-files.md
-    $ git add *.html
+    $ cd data-cleanup
+    $ git add changed-files.md *.html
     $ git commit -m "Explanatory message"
     $ git push origin gh-pages
     ~~~
@@ -83,8 +80,8 @@ the `gh-pages` branch of their lesson website.  To do this:
     pip install pandocfilters
     ~~~
 
-3. To convert Markdown pages in the `pages` directory into HTML pages
-   in the root directory, go into the `pages` directory and run:
+3. To convert Markdown files into HTML pages in the root directory, go
+   into the root directory of your lesson and run:
 
    ~~~
    $ make preview

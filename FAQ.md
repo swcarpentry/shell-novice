@@ -2,7 +2,7 @@
 
 *   *Where can I get help?*
 
-    Mail us at [admin@software-carpentry.org](mailto:admin@software-carpentry.org),
+    Mail [admin@software-carpentry.org](mailto:admin@software-carpentry.org),
     or join our [discussion list](http://lists.software-carpentry.org/mailman/listinfo/discuss_lists.software-carpentry.org)
     and ask for help there.
 
@@ -21,6 +21,7 @@
 
     Because it supports a richer dialect of Markdown than Jekyll
     (the converter that GitHub uses by default).
+    In particular, Pandoc can do tables and allows us to add styles to headings.
 
 *   *What do the [labels](https://github.com/swcarpentry/lesson-template/issues?q=is%3Aopen+is%3Aissue) mean?*
 
