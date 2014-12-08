@@ -11,8 +11,8 @@ Paragraph of introductory material.
 
 ## Topics
 
-1.  [Topic Title 1](01-one.html)
-2.  [Topic Title 2](02-two.html)
+1.  [Topic Title One](01-one.html)
+2.  [Topic Title Two](02-two.html)
 
 ## Other Resources
 
