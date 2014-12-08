@@ -7,15 +7,17 @@ submodules or clever tricks with symbolic links).
 1.  `README.md`: initially a copy of this file.  It should be
     overwritten with short description of the lesson.
 
-2.  `pages/`: a sub-directory containing the source of the lesson's
-    website.  See "Pages" below.
+2.  Other files in the root directory: the source of the lesson's
+    web pages (and possibly also things like IPython Notebooks and
+    R Markdown files that those pages are generated from).
 
 3.  `code/`, `data/`, and `fig/`: sub-directories containing sample
     code, data files, and figures.  See "Code, Data, and Figures"
     below.
 
-4.  `css/`, `img/`, and `js/`: style sheets, artwork, and Javascript
-    used in the lesson's web site.  See "Support Files" below.
+4.  `css/`, `img/`, `js/`, and `deck.js/`: style sheets, artwork, and
+    Javascript used in the lesson's web site.  See "Support Files"
+    below.
 
 5.  `_layouts/` and `_includes/`: page templates and inclusions. See
     "Support Files" below.
@@ -40,17 +42,22 @@ plots, and diagrams used in the lessons must go in a `fig/` directory.
     data file (since the program's working directory will be the root
     directory, not the `data` directory).
 
-2.  We strongly prefer SVG for line drawings, since they are smaller,
+2.  IPython Notebooks and R Markdown files, which are both code and
+    the source for web pages, should go in the root directory.
+
+3.  We strongly prefer SVG for line drawings, since they are smaller,
     scale better, and are easier to edit. Screenshots and other raster
     images must be PNG or JPEG format.
 
 # Support Files
 
 Files used to display the lesson, such as artwork, CSS, and
-Javascript, are stored in directories of their own.  We keep website
-artwork separate from graphics used in the lesson's to make it simple
-to update the former automatically.  Most authors should not need to
-modify any of the support files themselves.
+Javascript, are stored in `img/`, `css/`, and `js/` directories of
+their own, while the `deck.js/` directory contains files used to make
+HTML slideshows.  We keep website artwork in the `img/` directory
+separate from figures used in the lesson (which are stored in `fig/`)
+to make it simple to update the former automatically.  Most authors
+should not need to modify any of the support files themselves.
 
 The `_layouts/` directory holds the page templates used to translate
 Markdown to HTML, while the `_includes/` directory holds snippets of
@@ -68,8 +75,7 @@ lessons:
 
 # Pages
 
-The `pages/` directory holds the content of the lesson, and must
-contain:
+The root directory holds the content of the lesson, and must contain:
 
 1.  `Makefile`: contains commands to check, preview, and update the
     repository.  Authors should not need to modify this file.
@@ -99,9 +105,9 @@ contain:
 
 Note that the lesson's title is repeated in several files.  We could
 put this in the Makefile, and insert it into pages when compiling, but
-then authors would have to edit the Makefile (which we're trying to
-avoid requiring).  We could also put it in some sort of configuration
-file, but again, we're trying to avoid those.
+then authors would have to edit the Makefile (which we want to avoid).
+We could also put it in some sort of configuration file, but again,
+we're trying to avoid those.
 
 ## Home Page
 
@@ -151,7 +157,7 @@ Each topic page must be structured as follows:
     subtitle: Topic Title
     minutes: 10
     ---
-    > ## Learning Objectives {.objectives}
+    > ## Learning Objectives
     >
     > * Learning objective 1
     > * Learning objective 2
@@ -204,6 +210,8 @@ Each topic page must be structured as follows:
     objective.
 
 4.  Definitions of terms are marked in **bold** (like `**this**`).
+    Nothing else should be marked as bold text --- use *italics* for
+    for all other emphasis.
 
 ## Motivational Slides
 
