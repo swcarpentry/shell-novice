@@ -64,12 +64,13 @@ this template is organized the way it is:
     order for the lesson to be displayed properly on GitHub.
 
     It's also considered bad practice to put generated files in the
-    same directory as source files.  We do it because some source
-    files, such as R Markdown and IPython Notebook files, are
-    executable, and contain paths to things like images and data
-    files.  If we put our source files in a sub-directory, those paths
-    won't work (or conversely, if we put our generated files in a
-    different directory, the paths won't work there).
+    same directory as source files.  We do it because some authors may
+    use auxiliary source files such as R Markdown and IPython Notebook
+    files which are executable, and contain paths to things like
+    images and data files.  If we put our source files in a
+    sub-directory, those paths won't work (or conversely, if we put
+    our generated files in a different directory, the paths won't work
+    there).
 
 7.  In order to display properly, our generated HTML pages need
     artwork, CSS style files, and a few bits of Javascript.  We could

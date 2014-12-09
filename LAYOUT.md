@@ -7,9 +7,9 @@ submodules or clever tricks with symbolic links).
 1.  `README.md`: initially a copy of this file.  It should be
     overwritten with short description of the lesson.
 
-2.  Other files in the root directory: the source of the lesson's
-    web pages (and possibly also things like IPython Notebooks and
-    R Markdown files that those pages are generated from).
+2.  Other files in the root directory: the source of the lesson's web
+    pages (and possibly auxiliary files like IPython Notebooks and R
+    Markdown files).
 
 3.  `code/`, `data/`, and `fig/`: sub-directories containing sample
     code, data files, and figures.  See "Code, Data, and Figures"
@@ -43,7 +43,9 @@ plots, and diagrams used in the lessons must go in a `fig/` directory.
     directory, not the `data` directory).
 
 2.  IPython Notebooks and R Markdown files, which are both code and
-    the source for web pages, should go in the root directory.
+    the source for web pages, should go in the root directory.  These
+    will not be checked by our validation tool, or indexed by other
+    tools we plan to build.
 
 3.  We strongly prefer SVG for line drawings, since they are smaller,
     scale better, and are easier to edit. Screenshots and other raster
