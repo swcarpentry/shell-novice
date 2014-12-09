@@ -29,7 +29,8 @@ $(DST_DIR)/motivation.html : $(SRC_DIR)/motivation.md ../_layouts/slides.html
 $(DST_DIR)/%.html : $(SRC_DIR)/%.md ../_layouts/page.html
 	pandoc -s -t html \
 	--template=../_layouts/page \
-	--filter=../tools/blockquote2div.py \
+	--filter=../tools/filters/blockquote2div.py \
+	--filter=../tools/filters/id4glossary.py \
 	$(INCLUDES) \
 	-o $@ $<
 
