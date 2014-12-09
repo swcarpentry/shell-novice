@@ -30,6 +30,7 @@ $(DST_DIR)/%.html : $(SRC_DIR)/%.md ../_layouts/page.html
 	pandoc -s -t html \
 	--template=../_layouts/page \
 	--filter=../tools/blockquote2div.py \
+	--filter=../tools/id4glossary.py \
 	$(INCLUDES) \
 	-o $@ $<
 
