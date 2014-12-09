@@ -25,7 +25,8 @@ motivation.html : motivation.md _layouts/slides.html
 %.html : %.md _layouts/page.html
 	pandoc -s -t html \
 	--template=_layouts/page \
-	--filter=tools/blockquote2div.py \
+	--filter=tools/filters/blockquote2div.py \
+	--filter=tools/filters/id4glossary.py \
 	$(INCLUDES) \
 	-o $@ $<
 
