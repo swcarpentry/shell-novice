@@ -59,8 +59,7 @@ class MarkdownValidator(object):
         if filename:
             # Expect Markdown files to be in same directory as the input file
             self.markdown_dir = os.path.dirname(filename)
-            self.lesson_dir = os.path.abspath(  # Parent directory of lesson
-                os.path.join(self.markdown_dir, os.pardir))
+            self.lesson_dir = self.markdown_dir
             with open(filename, 'rU') as f:
                 self.markdown = f.read()
         else:
@@ -68,7 +67,7 @@ class MarkdownValidator(object):
             self.lesson_dir = os.path.abspath(
                 os.path.join(os.path.dirname(__file__), os.pardir))
 
-            self.markdown_dir = os.path.join(self.lesson_dir, "pages")
+            self.markdown_dir = self.lesson_dir
             self.markdown = markdown
 
         ast = self._parse_markdown(self.markdown)
@@ -217,7 +216,8 @@ class MarkdownValidator(object):
 
         if re.match(r"^[\w,\s-]+\.(html?)", dest, re.IGNORECASE):
             # HTML files in same folder are made from Markdown; special tests
-            expected_md_fn = os.path.splitext(dest)[0] + os.extsep + "md"
+            fn = dest.split("#")[0]  # Split anchor name from filename
+            expected_md_fn = os.path.splitext(fn)[0] + os.extsep + "md"
             expected_md_path = os.path.join(self.markdown_dir,
                                             expected_md_fn)
             if not os.path.isfile(expected_md_path):
@@ -531,6 +531,9 @@ LESSON_TEMPLATES = {"index": (IndexPageValidator, "^index"),
                     "license": (LicensePageValidator, "^LICENSE"),
                     "discussion": (DiscussionPageValidator, "^discussion")}
 
+# List of files in the lesson directory that should not be validated at all
+SKIP_FILES = ("DESIGN.md", "FAQ.md", "LAYOUT.md", "README.md")
+
 
 def identify_template(filepath):
     """Identify template
@@ -546,6 +549,10 @@ def identify_template(filepath):
 
 def validate_single(filepath, template=None):
     """Validate a single Markdown file based on a specified template"""
+    if os.path.basename(filepath) in SKIP_FILES:
+        # Silently pass certain non-lesson files without validating them
+        return True
+
     template = template or identify_template(filepath)
     if template is None:
         logging.error(

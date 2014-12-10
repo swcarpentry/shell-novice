@@ -7,6 +7,9 @@ check = imp.load_source("check",  # Import non-.py file
 # Make log messages visible to help audit test failures
 check.start_logging(level=logging.DEBUG)
 
+MARKDOWN_DIR = os.path.abspath(
+                os.path.join(os.path.dirname(__file__), os.pardir))
+
 
 class BaseTemplateTest(unittest.TestCase):
     """Common methods for testing template validators"""
@@ -22,7 +25,7 @@ class BaseTemplateTest(unittest.TestCase):
 
 
 class TestAstHelpers(BaseTemplateTest):
-    SAMPLE_FILE = '../pages/index.md'
+    SAMPLE_FILE = os.path.join(MARKDOWN_DIR, 'index.md')
     VALIDATOR = check.MarkdownValidator
 
     def test_link_text_extracted(self):
@@ -38,7 +41,7 @@ class TestAstHelpers(BaseTemplateTest):
 class TestIndexPage(BaseTemplateTest):
     """Test the ability to correctly identify and validate specific sections
         of a markdown file"""
-    SAMPLE_FILE = "../pages/index.md"
+    SAMPLE_FILE = os.path.join(MARKDOWN_DIR, "index.md")
     VALIDATOR = check.IndexPageValidator
 
     def test_sample_file_passes_validation(self):
@@ -250,7 +253,7 @@ SQLite uses the integers 0 and 1 for the former, and represents the latter as di
 
 class TestTopicPage(BaseTemplateTest):
     """Verifies that the topic page validator works as expected"""
-    SAMPLE_FILE = "../pages/01-one.md"
+    SAMPLE_FILE = os.path.join(MARKDOWN_DIR, "01-one.md")
     VALIDATOR = check.TopicPageValidator
 
     def test_sample_file_passes_validation(self):
@@ -260,7 +263,7 @@ class TestTopicPage(BaseTemplateTest):
 
 class TestMotivationPage(BaseTemplateTest):
     """Verifies that the instructors page validator works as expected"""
-    SAMPLE_FILE = "../pages/motivation.md"
+    SAMPLE_FILE = os.path.join(MARKDOWN_DIR, "motivation.md")
     VALIDATOR = check.MotivationPageValidator
 
     def test_sample_file_passes_validation(self):
@@ -270,7 +273,7 @@ class TestMotivationPage(BaseTemplateTest):
 
 class TestReferencePage(BaseTemplateTest):
     """Verifies that the reference page validator works as expected"""
-    SAMPLE_FILE = "../pages/reference.md"
+    SAMPLE_FILE = os.path.join(MARKDOWN_DIR, "reference.md")
     VALIDATOR = check.ReferencePageValidator
 
     def test_missing_glossary_definition(self):
@@ -329,7 +332,7 @@ Key Word 2
 
 class TestInstructorPage(BaseTemplateTest):
     """Verifies that the instructors page validator works as expected"""
-    SAMPLE_FILE = "../pages/instructors.md"
+    SAMPLE_FILE = os.path.join(MARKDOWN_DIR, "instructors.md")
     VALIDATOR = check.InstructorPageValidator
 
     def test_sample_file_passes_validation(self):
@@ -338,7 +341,7 @@ class TestInstructorPage(BaseTemplateTest):
 
 
 class TestLicensePage(BaseTemplateTest):
-    SAMPLE_FILE = '../pages/LICENSE.md'
+    SAMPLE_FILE = os.path.join(MARKDOWN_DIR, "LICENSE.md")
     VALIDATOR = check.LicensePageValidator
 
     def test_sample_file_passes_validation(self):
@@ -354,7 +357,7 @@ class TestLicensePage(BaseTemplateTest):
 
 
 class TestDiscussionPage(BaseTemplateTest):
-    SAMPLE_FILE = '../pages/discussion.md'
+    SAMPLE_FILE = os.path.join(MARKDOWN_DIR, "discussion.md")
     VALIDATOR = check.DiscussionPageValidator
 
     def test_sample_file_passes_validation(self):
