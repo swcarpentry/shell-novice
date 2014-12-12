@@ -77,7 +77,7 @@ the `gh-pages` branch of their lesson website.  To do this:
    filters for Pandoc:
 
     ~~~
-    pip install pandocfilters
+    $ pip install pandocfilters
     ~~~
 
 3. To convert Markdown files into HTML pages in the root directory, go
