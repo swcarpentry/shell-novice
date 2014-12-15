@@ -1,6 +1,10 @@
 #! /usr/bin/env python
 
-import imp, logging, os, unittest
+import imp
+import logging
+import os
+import unittest
+
 check = imp.load_source("check",  # Import non-.py file
                         os.path.join(os.path.dirname(__file__), "check"))
 
@@ -8,16 +12,13 @@ check = imp.load_source("check",  # Import non-.py file
 check.start_logging(level=logging.DEBUG)
 
 MARKDOWN_DIR = os.path.abspath(
-                os.path.join(os.path.dirname(__file__), os.pardir))
+    os.path.join(os.path.dirname(__file__), os.pardir))
 
 
 class BaseTemplateTest(unittest.TestCase):
     """Common methods for testing template validators"""
     SAMPLE_FILE = "" # Path to a file that should pass all tests
     VALIDATOR = check.MarkdownValidator
-
-    def setUp(self):
-        self.sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
 
     def _create_validator(self, markdown):
         """Create validator object from markdown string; useful for failures"""
@@ -45,7 +46,8 @@ class TestIndexPage(BaseTemplateTest):
     VALIDATOR = check.IndexPageValidator
 
     def test_sample_file_passes_validation(self):
-        res = self.sample_validator.validate()
+        sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
+        res = sample_validator.validate()
         self.assertTrue(res)
 
     def test_headers_missing_hrs(self):
@@ -89,11 +91,13 @@ keywords: this is not a list
     # TESTS INVOLVING SECTION TITLES/HEADINGS
     def test_index_has_valid_section_headings(self):
         """The provided index page"""
-        res = self.sample_validator._validate_section_heading_order()
+        sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
+        res = sample_validator._validate_section_heading_order()
         self.assertTrue(res)
 
     def test_index_fail_when_section_heading_absent(self):
-        res = self.sample_validator.ast.has_section_heading("Fake heading")
+        sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
+        res = sample_validator.ast.has_section_heading("Fake heading")
         self.assertFalse(res)
 
     def test_fail_when_section_heading_is_wrong_level(self):
@@ -121,7 +125,6 @@ Paragraph of introductory material.
 *   [Next Steps](discussion.html)
 *   [Instructor's Guide](instructors.html)""")
         self.assertFalse(validator._validate_section_heading_order())
-
 
     def test_fail_when_section_headings_in_wrong_order(self):
         validator = self._create_validator("""---
@@ -182,7 +185,8 @@ Paragraph of introductory material.
 
     # TESTS INVOLVING LINKS TO OTHER CONTENT
     def test_file_links_validate(self):
-        res = self.sample_validator._validate_links()
+        sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
+        res = sample_validator._validate_links()
         self.assertTrue(res)
 
     def test_html_link_to_extant_md_file_passes(self):
@@ -205,7 +209,6 @@ Paragraph of introductory material.
         validator = self._create_validator("""Most databases also support Booleans and date/time values;
 SQLite uses the integers 0 and 1 for the former, and represents the latter as discussed [earlier](#a:dates).""")
         self.assertTrue(validator._validate_links())
-
 
     def test_missing_markdown_file_fails_validation(self):
         """Fail validation when an html file is linked without corresponding
@@ -257,7 +260,8 @@ class TestTopicPage(BaseTemplateTest):
     VALIDATOR = check.TopicPageValidator
 
     def test_sample_file_passes_validation(self):
-        res = self.sample_validator.validate()
+        sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
+        res = sample_validator.validate()
         self.assertTrue(res)
 
 
@@ -267,7 +271,8 @@ class TestMotivationPage(BaseTemplateTest):
     VALIDATOR = check.MotivationPageValidator
 
     def test_sample_file_passes_validation(self):
-        res = self.sample_validator.validate()
+        sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
+        res = sample_validator.validate()
         self.assertTrue(res)
 
 
@@ -326,7 +331,8 @@ Key Word 2
         self.assertTrue(validator._validate_glossary())
 
     def test_sample_file_passes_validation(self):
-        res = self.sample_validator.validate()
+        sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
+        res = sample_validator.validate()
         self.assertTrue(res)
 
 
@@ -336,7 +342,8 @@ class TestInstructorPage(BaseTemplateTest):
     VALIDATOR = check.InstructorPageValidator
 
     def test_sample_file_passes_validation(self):
-        res = self.sample_validator.validate()
+        sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
+        res = sample_validator.validate()
         self.assertTrue(res)
 
 
@@ -345,7 +352,8 @@ class TestLicensePage(BaseTemplateTest):
     VALIDATOR = check.LicensePageValidator
 
     def test_sample_file_passes_validation(self):
-        res = self.sample_validator.validate()
+        sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
+        res = sample_validator.validate()
         self.assertTrue(res)
 
     def test_modified_file_fails_validation(self):
@@ -361,7 +369,8 @@ class TestDiscussionPage(BaseTemplateTest):
     VALIDATOR = check.DiscussionPageValidator
 
     def test_sample_file_passes_validation(self):
-        res = self.sample_validator.validate()
+        sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
+        res = sample_validator.validate()
         self.assertTrue(res)
 
 
