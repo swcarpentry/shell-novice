@@ -83,7 +83,7 @@ $ cat middle.sh
 ~~~
 {:class="in"}
 ~~~
-head -20 $1 | tail -5
+head -20 "$1" | tail -5
 ~~~
 {:class="out"}
 
@@ -119,6 +119,22 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 ~~~
 {:class="out"}
 
+
+> #### Double-quotes around arguments
+>
+> We put the `$1` inside of double-quotes in case the filename happens to contain any spaces.
+> The shell uses whitespace to separate arguments,
+> so we have to be careful when using arguments that might have whitespace in them.
+> If we left out these quotes, and `$1` expanded to a filename like
+> `methyl butane.pdb`,
+> the command in the script would effectively be:
+>
+>     head -20 methyl butane.pdb | tail -5
+>
+> This would call `head` on two separate files, `methyl` and `butane.pdb`,
+> which is probably not what we intended.
+
+
 We still need to edit `middle.sh` each time we want to adjust the range of lines,
 though.
 Let's fix that by using the special variables `$2` and `$3`:
@@ -128,7 +144,7 @@ $ cat middle.sh
 ~~~
 {:class="in"}
 ~~~
-head $2 $1 | tail $3
+head "$2" "$1" | tail "$3"
 ~~~
 {:class="out"}
 ~~~
@@ -155,7 +171,7 @@ $ cat middle.sh
 ~~~
 # Select lines from the middle of a file.
 # Usage: middle.sh filename -end_line -num_lines
-head $2 $1 | tail $3
+head "$2" "$1" | tail "$3"
 ~~~
 {:class="out"}
 
@@ -179,9 +195,12 @@ If we want to be able to get a sorted list of other kinds of files,
 we need a way to get all those names into the script.
 We can't use `$1`, `$2`, and so on
 because we don't know how many files there are.
-Instead, we use the special variable `$*`,
+Instead, we use the special variable `$@`,
 which means,
 "All of the command-line parameters to the shell script."
+We also should put `$@` inside double-quotes
+to handle the case of parameters containing spaces
+(`"$@"` is equivalent to `"$1"` `"$2"` ...)
 Here's an example:
 
 ~~~
@@ -189,7 +208,7 @@ $ cat sorted.sh
 ~~~
 {:class="in"}
 ~~~
-wc -l $* | sort -n
+wc -l "$@" | sort -n
 ~~~
 {:class="out"}
 ~~~
@@ -215,7 +234,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 >
 >     $ bash sorted.sh
 >
-> but don't say `*.dat` (or anything else)? In this case, `$*` expands to
+> but don't say `*.dat` (or anything else)? In this case, `$@` expands to
 > nothing at all, so the pipeline inside the script is effectively:
 >
 >     wc -l | sort -n
@@ -230,7 +249,7 @@ If you look at a script like:
 
 <div class="file" markdown="1">
 ~~~
-wc -l $* | sort -n
+wc -l "$@" | sort -n
 ~~~
 </div>
 
@@ -241,7 +260,7 @@ if you look at this script:
 <div class="file" markdown="1">
 ~~~
 # List files sorted by number of lines.
-wc -l $* | sort -n
+wc -l "$@" | sort -n
 ~~~
 </div>
 
@@ -326,7 +345,7 @@ She runs the editor and writes the following:
 <div class="file" markdown="1">
 ~~~
 # Calculate reduced stats for data files at J = 100 c/bp.
-for datafile in $*
+for datafile in "$@"
 do
     echo $datafile
     goostats -J 100 -r $datafile stats-$datafile
@@ -384,8 +403,9 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 #### Key Points
 *   Save commands in files (usually called shell scripts) for re-use.
 *   `bash filename` runs the commands saved in a file.
-*   `$*` refers to all of a shell script's command-line parameters.
+*   `$@` refers to all of a shell script's command-line parameters.
 *   `$1`, `$2`, etc., refer to specified command-line parameters.
+*   Place variables in quotes if the values might have spaces in them.
 *   Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.
 
 </div>
@@ -458,7 +478,7 @@ done
 
 ~~~
 # Script 3
-echo $*.dat
+echo $@.dat
 ~~~
 
 </div>
