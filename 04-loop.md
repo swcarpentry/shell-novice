@@ -390,73 +390,73 @@ so she decides to get some coffee and catch up on her reading.
 > then she can re-run `goostats` on `NENE01729B.txt` simply by typing
 > `!458`.
 
-<div class="challenge" markdown="1">
-Suppose that `ls` initially displays:
+> ## FIXME {.challenge}
+> 
+> Suppose that `ls` initially displays:
+> 
+> ~~~
+> fructose.dat    glucose.dat   sucrose.dat
+> ~~~
+> 
+> What is the output of:
+> 
+> ~~~
+> for datafile in *.dat
+> do
+>     ls *.dat
+> done
+> ~~~
 
-~~~
-fructose.dat    glucose.dat   sucrose.dat
-~~~
+> ## FIXME {.challenge}
+>
+> In the same directory, what is the effect of this loop?
+> 
+> ~~~
+> for sugar in *.dat
+> do
+>     echo $sugar
+>     cat $sugar > xylose.dat
+> done
+> ~~~
+> 
+> 1.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and
+>     copies `sucrose.dat` to create `xylose.dat`.
+> 2.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and
+>     concatenates all three files to create `xylose.dat`.
+> 3.  Prints `fructose.dat`, `glucose.dat`, `sucrose.dat`, and
+>     `xylose.dat`, and copies `sucrose.dat` to create `xylose.dat`.
+> 4.  None of the above.
 
-What is the output of:
+> ## FIXME {.challenge}
+>
+> The `expr` does simple arithmetic using command-line parameters:
+> 
+> ~~~
+> $ expr 3 + 5
+> 8
+> $ expr 30 / 5 - 2
+> 4
+> ~~~
+> 
+> Given this, what is the output of:
+> 
+> ~~~
+> for left in 2 3
+> do
+>     for right in $left
+>     do
+>         expr $left + $right
+>     done
+> done
+> ~~~
 
-~~~
-for datafile in *.dat
-do
-    ls *.dat
-done
-~~~
-</div>
-
-<div class="challenge" markdown="1">
-In the same directory, what is the effect of this loop?
-
-~~~
-for sugar in *.dat
-do
-    echo $sugar
-    cat $sugar > xylose.dat
-done
-~~~
-
-1.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and
-    copies `sucrose.dat` to create `xylose.dat`.
-2.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and
-    concatenates all three files to create `xylose.dat`.
-3.  Prints `fructose.dat`, `glucose.dat`, `sucrose.dat`, and
-    `xylose.dat`, and copies `sucrose.dat` to create `xylose.dat`.
-4.  None of the above.
-</div>
-
-<div class="challenge" markdown="1">
-The `expr` does simple arithmetic using command-line parameters:
-
-~~~
-$ expr 3 + 5
-8
-$ expr 30 / 5 - 2
-4
-~~~
-
-Given this, what is the output of:
-
-~~~
-for left in 2 3
-do
-    for right in $left
-    do
-        expr $left + $right
-    done
-done
-~~~
-</div>
-
-<div class="challenge" markdown="1">
-Describe in words what the following loop does.
-
-~~~
-for how in frog11 prcb redig
-do
-    $how -limit 0.01 NENE01729B.txt
-done
-~~~
-</div>
+> ## FIXME {.challenge}
+> 
+> Describe in words what the following loop does.
+> 
+> ~~~
+> for how in frog11 prcb redig
+> do
+>     $how -limit 0.01 NENE01729B.txt
+> done
+> ~~~

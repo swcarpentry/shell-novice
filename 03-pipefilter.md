@@ -366,123 +366,123 @@ the '\*' matches any number of characters;
 the expression `[AB]` matches either an 'A' or a 'B',
 so this matches all the valid data files she has.
 
-<div class="challenge" markdown="1">
-If we run `sort` on this file:
+> ## FIXME {.challenge}
+>
+> If we run `sort` on this file:
+> 
+> ~~~
+> 10
+> 2
+> 19
+> 22
+> 6
+> ~~~
+> 
+> the output is:
+> 
+> ~~~
+> 10
+> 19
+> 2
+> 22
+> 6
+> ~~~
+> 
+> If we run `sort -n` on the same input, we get this instead:
+> 
+> ~~~
+> 2
+> 6
+> 10
+> 19
+> 22
+> ~~~
+> 
+> Explain why `-n` has this effect.
 
-~~~
-10
-2
-19
-22
-6
-~~~
+> ## FIXME {.challenge}
+>
+> What is the difference between:
+> 
+> ~~~
+> wc -l < mydata.dat
+> ~~~
+> 
+> and:
+> 
+> ~~~
+> wc -l mydata.dat
+> ~~~
 
-the output is:
+> ## FIXME {.challenge}
+>
+> The command `uniq` removes adjacent duplicated lines from its input.
+> For example, if a file `salmon.txt` contains:
+> 
+> ~~~
+> coho
+> coho
+> steelhead
+> coho
+> steelhead
+> steelhead
+> ~~~
+> 
+> then `uniq salmon.txt` produces:
+> 
+> ~~~
+> coho
+> steelhead
+> coho
+> steelhead
+> ~~~
+> 
+> Why do you think `uniq` only removes *adjacent* duplicated lines?
+> (Hint: think about very large data sets.) What other command could
+> you combine with it in a pipe to remove all duplicated lines?
 
-~~~
-10
-19
-2
-22
-6
-~~~
+> ## FIXME {.challenge}
+>
+> A file called `animals.txt` contains the following data:
+> 
+> ~~~
+> 2012-11-05,deer
+> 2012-11-05,rabbit
+> 2012-11-05,raccoon
+> 2012-11-06,rabbit
+> 2012-11-06,deer
+> 2012-11-06,fox
+> 2012-11-07,rabbit
+> 2012-11-07,bear
+> ~~~
+> 
+> What text passes through each of the pipes and the final redirect in the pipeline below?
+> 
+> ~~~
+> cat animals.txt | head -5 | tail -3 | sort -r > final.txt
+> ~~~
 
-If we run `sort -n` on the same input, we get this instead:
-
-~~~
-2
-6
-10
-19
-22
-~~~
-
-Explain why `-n` has this effect.
-</div>
-
-<div class="challenge" markdown="1">
-What is the difference between:
-
-~~~
-wc -l < mydata.dat
-~~~
-
-and:
-
-~~~
-wc -l mydata.dat
-~~~
-</div>
-
-<div class="challenge" markdown="1">
-The command `uniq` removes adjacent duplicated lines from its input.
-For example, if a file `salmon.txt` contains:
-
-~~~
-coho
-coho
-steelhead
-coho
-steelhead
-steelhead
-~~~
-
-then `uniq salmon.txt` produces:
-
-~~~
-coho
-steelhead
-coho
-steelhead
-~~~
-
-Why do you think `uniq` only removes *adjacent* duplicated lines?
-(Hint: think about very large data sets.) What other command could
-you combine with it in a pipe to remove all duplicated lines?
-</div>
-
-<div class="challenge" markdown="1">
-A file called `animals.txt` contains the following data:
-
-~~~
-2012-11-05,deer
-2012-11-05,rabbit
-2012-11-05,raccoon
-2012-11-06,rabbit
-2012-11-06,deer
-2012-11-06,fox
-2012-11-07,rabbit
-2012-11-07,bear
-~~~
-
-What text passes through each of the pipes and the final redirect in the pipeline below?
-
-~~~
-cat animals.txt | head -5 | tail -3 | sort -r > final.txt
-~~~
-</div>
-
-<div class="challenge" markdown="1">
-The command:
-
-~~~
-$ cut -d , -f 2 animals.txt
-~~~
-
-produces the following output:
-
-~~~
-deer
-rabbit
-raccoon
-rabbit
-deer
-fox
-rabbit
-bear
-~~~
-
-What other command(s) could be added to this in a pipeline to find
-out what animals the file contains (without any duplicates in their
-names)?
-</div>
+> ## FIXME {.challenge}
+>
+> The command:
+> 
+> ~~~
+> $ cut -d , -f 2 animals.txt
+> ~~~
+> 
+> produces the following output:
+> 
+> ~~~
+> deer
+> rabbit
+> raccoon
+> rabbit
+> deer
+> fox
+> rabbit
+> bear
+> ~~~
+> 
+> What other command(s) could be added to this in a pipeline to find
+> out what animals the file contains (without any duplicates in their
+> names)?

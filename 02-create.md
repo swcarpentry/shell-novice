@@ -316,61 +316,61 @@ thesis/quotations.txt
 > `/home/nelle/data`. This only works if it is the first character in the
 > path: `here/there/~/elsewhere` is *not* `/home/nelle/elsewhere`.
 
-<div class="challenge" markdown="1">
-What is the output of the closing `ls` command in the sequence shown below?
+> ## FIXME {.challenge}
+> 
+> What is the output of the closing `ls` command in the sequence shown below?
+> 
+> ~~~
+> $ pwd
+> /home/jamie/data
+> $ ls
+> proteins.dat
+> $ mkdir recombine
+> $ mv proteins.dat recombine
+> $ cp recombine/proteins.dat ../proteins-saved.dat
+> $ ls
+> ~~~
 
-~~~
-$ pwd
-/home/jamie/data
-$ ls
-proteins.dat
-$ mkdir recombine
-$ mv proteins.dat recombine
-$ cp recombine/proteins.dat ../proteins-saved.dat
-$ ls
-~~~
-</div>
+> ## FIXME {.challenge}
+>
+> Suppose that:
+> 
+> ~~~
+> $ ls -F
+> analyzed/  fructose.dat    raw/   sucrose.dat
+> ~~~
+> 
+> What command(s) could you run so that the commands below will produce the output shown?
+> 
+> ~~~
+> $ ls
+> analyzed   raw
+> $ ls analyzed
+> fructose.dat    sucrose.dat
+> ~~~
 
-<div class="challenge" markdown="1">
-Suppose that:
+> ## FIXME {.challenge}
+>
+> What does `cp` do when given several filenames and a directory name, as in:
+> 
+> ~~~
+> $ mkdir backup
+> $ cp thesis/citations.txt thesis/quotations.txt backup
+> ~~~
+> 
+> What does `cp` do when given three or more filenames, as in:
+> 
+> ~~~
+> $ ls -F
+> intro.txt    methods.txt    survey.txt
+> $ cp intro.txt methods.txt survey.txt
+> ~~~
 
-~~~
-$ ls -F
-analyzed/  fructose.dat    raw/   sucrose.dat
-~~~
-
-What command(s) could you run so that the commands below will produce the output shown?
-
-~~~
-$ ls
-analyzed   raw
-$ ls analyzed
-fructose.dat    sucrose.dat
-~~~
-</div>
-
-<div class="challenge" markdown="1">
-What does `cp` do when given several filenames and a directory name, as in:
-
-~~~
-$ mkdir backup
-$ cp thesis/citations.txt thesis/quotations.txt backup
-~~~
-
-What does `cp` do when given three or more filenames, as in:
-
-~~~
-$ ls -F
-intro.txt    methods.txt    survey.txt
-$ cp intro.txt methods.txt survey.txt
-~~~
-</div>
-
-<div class="challenge" markdown="1">
-The command `ls -R` lists the contents of directories recursively,
-i.e., lists their sub-directories, sub-sub-directories, and so on
-in alphabetical order at each level.
-The command `ls -t` lists things by time of last change,
-with most recently changed files or directories first.
-In what order does `ls -R -t` display things?
-</div>
+> ## FIXME {.challenge}
+>
+> The command `ls -R` lists the contents of directories recursively,
+> i.e., lists their sub-directories, sub-sub-directories, and so on
+> in alphabetical order at each level.
+> The command `ls -t` lists things by time of last change,
+> with most recently changed files or directories first.
+> In what order does `ls -R -t` display things?

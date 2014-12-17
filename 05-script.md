@@ -23,14 +23,11 @@ Let's start by going back to `molecules/` and putting the following line in the 
 
 ~~~ {.input}
 $ cd molecules
-$ nano middle.sh
+$ cat middle.sh
 ~~~
-
-<div class="file" markdown="1">
 ~~~
 head -15 octane.pdb | tail -5
 ~~~
-</div>
 
 This is a variation on the pipe we constructed earlier:
 it selects lines 11-15 of the file `octane.pdb`.
@@ -225,22 +222,18 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 We have two more things to do before we're finished with our simple shell scripts.
 If you look at a script like:
 
-<div class="file" markdown="1">
 ~~~
 wc -l "$@" | sort -n
 ~~~
-</div>
 
 you can probably puzzle out what it does.
 On the other hand,
 if you look at this script:
 
-<div class="file" markdown="1">
 ~~~
 # List files sorted by number of lines.
 wc -l "$@" | sort -n
 ~~~
-</div>
 
 you don't have to puzzle it out&mdash;the comment at the top tells you what it does.
 A line or two of documentation like this make it much easier for other people
@@ -265,14 +258,12 @@ $ history | tail -4 > redo-figure-3.sh
 
 The file `redo-figure-3.sh` now contains:
 
-<div class="file" markdown="1">
 ~~~
 297 goostats -r NENE01729B.txt stats-NENE01729B.txt
 298 goodiff stats-NENE01729B.txt /data/validated/01729.txt > 01729-differences.txt
 299 cut -d ',' -f 2-3 01729-differences.txt > 01729-time-series.txt
 300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png
 ~~~
-</div>
 
 After a moment's work in an editor to remove the serial numbers on the commands,
 we have a completely accurate record of how we created that figure.
@@ -319,7 +310,6 @@ But experience has taught her that if something needs to be done twice,
 it will probably need to be done a third or fourth time as well.
 She runs the editor and writes the following:
 
-<div class="file" markdown="1">
 ~~~
 # Calculate reduced stats for data files at J = 100 c/bp.
 for datafile in "$@"
@@ -328,7 +318,6 @@ do
     goostats -J 100 -r $datafile stats-$datafile
 done
 ~~~
-</div>
 
 (The parameters `-J 100` and `-r` are the ones her supervisor said she should have used.)
 She saves this in a file called `do-stats.sh`
@@ -351,7 +340,6 @@ One thing to note about Nelle's script is that
 it lets the person running it decide what files to process.
 She could have written it as:
 
-<div class="file" markdown="1">
 ~~~
 # Calculate reduced stats for  A and Site B data files at J = 100 c/bp.
 for datafile in *[AB].txt
@@ -360,7 +348,6 @@ do
     goostats -J 100 -r $datafile stats-$datafile
 done
 ~~~
-</div>
 
 The advantage is that this always selects the right files:
 she doesn't have to remember to exclude the 'Z' files.
@@ -373,75 +360,74 @@ she could modify her script to check for command-line parameters,
 and use `*[AB].txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
-<div class="challenge" markdown="1">
-Leah has several hundred data files, each of which is formatted like this:
+> ## FIXME {.challenge}
+> 
+> Leah has several hundred data files, each of which is formatted like this:
+> 
+> ~~~
+> 2013-11-05,deer,5
+> 2013-11-05,rabbit,22
+> 2013-11-05,raccoon,7
+> 2013-11-06,rabbit,19
+> 2013-11-06,deer,2
+> 2013-11-06,fox,1
+> 2013-11-07,rabbit,18
+> 2013-11-07,bear,1
+> ~~~
+> 
+> Write a shell script called `species.sh` that takes any number of
+> filenames as command-line parameters, and uses `cut`, `sort`, and
+> `uniq` to print a list of the unique species appearing in each of
+> those files separately.
 
-~~~
-2013-11-05,deer,5
-2013-11-05,rabbit,22
-2013-11-05,raccoon,7
-2013-11-06,rabbit,19
-2013-11-06,deer,2
-2013-11-06,fox,1
-2013-11-07,rabbit,18
-2013-11-07,bear,1
-~~~
+> ## FIXME {.challenge}
+> 
+> Write a shell script called `longest.sh` that takes the name of a
+> directory and a filename extension as its parameters, and prints
+> out the name of the file with the most lines in that directory
+> with that extension. For example:
+> 
+> ~~~
+> $ bash longest.sh /tmp/data pdb
+> ~~~
+> 
+> would print the name of the `.pdb` file in `/tmp/data` that has
+> the most lines.
 
-Write a shell script called `species.sh` that takes any number of
-filenames as command-line parameters, and uses `cut`, `sort`, and
-`uniq` to print a list of the unique species appearing in each of
-those files separately.
-</div>
+> ## FIXME {.challenge}
+> 
+> If you run the command:
+> 
+> ~~~
+> history | tail -5 > recent.sh
+> ~~~
+> 
+> the last command in the file is the `history` command itself, i.e.,
+> the shell has added `history` to the command log before actually
+> running it. In fact, the shell *always* adds commands to the log
+> before running them. Why do you think it does this?
 
-<div class="challenge" markdown="1">
-Write a shell script called `longest.sh` that takes the name of a
-directory and a filename extension as its parameters, and prints
-out the name of the file with the most lines in that directory
-with that extension. For example:
-
-~~~
-$ bash longest.sh /tmp/data pdb
-~~~
-
-would print the name of the `.pdb` file in `/tmp/data` that has
-the most lines.
-</div>
-
-<div class="challenge" markdown="1">
-If you run the command:
-
-~~~
-history | tail -5 > recent.sh
-~~~
-
-the last command in the file is the `history` command itself, i.e.,
-the shell has added `history` to the command log before actually
-running it. In fact, the shell *always* adds commands to the log
-before running them. Why do you think it does this?
-</div>
-
-<div class="challenge" markdown="1">
-Joel's `data` directory contains three files: `fructose.dat`,
-`glucose.dat`, and `sucrose.dat`. Explain what a script called
-`example.sh` would do when run as `bash example.sh *.dat` if it
-contained the following lines:
-
-~~~
-# Script 1
-echo *.*
-~~~
-
-~~~
-# Script 2
-for filename in $1 $2 $3
-do
-    cat $filename
-done
-~~~
-
-~~~
-# Script 3
-echo $@.dat
-~~~
-
-</div>
+> ## FIXME {.challenge}
+> 
+> Joel's `data` directory contains three files: `fructose.dat`,
+> `glucose.dat`, and `sucrose.dat`. Explain what a script called
+> `example.sh` would do when run as `bash example.sh *.dat` if it
+> contained the following lines:
+> 
+> ~~~
+> # Script 1
+> echo *.*
+> ~~~
+> 
+> ~~~
+> # Script 2
+> for filename in $1 $2 $3
+> do
+>     cat $filename
+> done
+> ~~~
+> 
+> ~~~
+> # Script 3
+> echo $@.dat
+> ~~~
