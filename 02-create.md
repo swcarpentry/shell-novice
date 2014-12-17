@@ -95,7 +95,7 @@ $ nano draft.txt
 Let's type in a few lines of text,
 then use Control-O to write our data to disk:
 
-<img src="img/nano-screenshot.png" alt="Nano in Action" />
+<img src="fig/nano-screenshot.png" alt="Nano in Action" />
 
 Once our file is saved,
 we can use Control-X to quit the editor and return to the shell.
