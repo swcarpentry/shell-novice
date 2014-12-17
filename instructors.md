@@ -1,7 +1,7 @@
 ---
-layout: lesson
-root: ../..
+layout: page
 title: The Unix Shell
+subtitle: Instructor's Guide
 ---
 Many people have questioned whether we should still teach the shell.
 After all,

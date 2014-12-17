@@ -1,7 +1,8 @@
 ---
-layout: lesson
-root: ../..
-title: Pipes and Filters
+layout: page
+title: The Unix Shell
+subtitle: Pipes and Filters
+minutes: 15
 ---
 <div class="objectives" markdown="1">
 

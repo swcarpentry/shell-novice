@@ -1,7 +1,8 @@
 ---
-layout: lesson
-root: ../..
-title: Loops
+layout: page
+title: The Unix Shell
+subtitle: Loops
+minutes: 15
 ---
 <div class="objectives" markdown="1">
 

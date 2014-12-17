@@ -1,7 +1,8 @@
 ---
-layout: lesson
-root: ../..
-title: Files and Directories
+layout: page
+title: The Unix Shell
+subtitle: Files and Directories
+minutes: 15
 ---
 <div class="objectives" markdown="1">
 

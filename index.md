@@ -1,6 +1,5 @@
 ---
-layout: lesson
-root: ../..
+layout: page
 title: The Unix Shell
 ---
 The Unix shell has been around longer than most of its users have been alive.

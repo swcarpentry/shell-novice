@@ -1,7 +1,8 @@
 ---
-layout: lesson
-root: ../..
-title: Creating Things
+layout: page
+title: The Unix Shell
+subtitle: Creating Things
+minutes: 15
 ---
 <div class="objectives" markdown="1">
 

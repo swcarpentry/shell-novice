@@ -1,7 +1,8 @@
 ---
-layout: lesson
-root: ../..
-title: Introducing the Shell
+layout: page
+title: The Unix Shell
+subtitle: Introducing the Shell
+minutes: 5
 ---
 <div class="objectives" markdown="1">
 

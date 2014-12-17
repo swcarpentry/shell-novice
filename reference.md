@@ -1,7 +1,7 @@
 ---
-layout: lesson
-root: ../..
-title: Shell Reference
+layout: page
+title: The Unix Shell
+subtitle: Shell Reference
 ---
 
 #### Basic Commands

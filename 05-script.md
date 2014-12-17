@@ -1,7 +1,8 @@
 ---
-layout: lesson
-root: ../..
-title: Shell Scripts
+layout: page
+title: The Unix Shell
+subtitle: Shell Scripts
+minutes: 15
 ---
 <div class="objectives" markdown="1">
 
