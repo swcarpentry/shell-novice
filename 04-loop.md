@@ -43,7 +43,7 @@ This is because there are no files matching the wildcard `original-*.dat`.
 In this case,
 Bash passes the unexpanded wildcard as a parameter to the `mv` command.
 
-Instead, we can use a [loop](../../gloss.html#for-loop)
+Instead, we can use a **loop**
 to do some operation once for each thing in a list.
 Here's a simple example that displays the first three lines of each file in turn:
 
@@ -67,7 +67,7 @@ it knows it is supposed to repeat a command (or group of commands) once for each
 In this case, the list is the two filenames.
 Each time through the loop,
 the name of the thing currently being operated on is assigned to
-the [variable](../../gloss.html#variable) called `filename`.
+the **variable** called `filename`.
 Inside the loop,
 we get the variable's value by putting `$` in front of it:
 `$filename` is `basilisk.dat` the first time through the loop,
@@ -129,7 +129,7 @@ done
 ~~~
 
 The shell starts by expanding `*.dat` to create the list of files it will process.
-The [loop body](../../gloss.html#loop-body)
+The **loop body**
 then executes two commands for each of those files.
 The first, `echo`, just prints its command-line parameters to standard output.
 For example:
@@ -204,7 +204,7 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 > and won't be asked to read the file `red dragon.dat`.
 > 
 > We can make our script a little bit more robust
-> by [quoting](../../gloss.html#quoting) our use of the variable:
+> by **quoting** our use of the variable:
 > 
 > ~~~
 > for filename in *.dat
