@@ -13,8 +13,6 @@ minutes: 15
 > *   Identify the actual command, flags, and filenames in a command-line call.
 > *   Demonstrate the use of tab completion, and explain its advantages.
 
-</div>
-
 The part of the operating system responsible for managing files and directories
 is called the **file system**.
 It organizes our data into files,
