@@ -53,7 +53,17 @@ as long as learners using Windows do not run into roadblocks such as:
     and
 *   the shell refusing to run scripts that include DOS line endings.
 
-#### Teaching Notes
+## Teaching Notes
+
+*   Time esimates:
+    *   @gvwilson: 3 hours
+
+*   Setup:
+    *   Run `tools/gen-nene.py` to regenerate random data files if needed
+        (some are already in the `filesystem` directory).
+    *   Run `tools/gen-sequence.py' to regenerate random sequence data if needed.
+
+*   The `filesystem` directory contains all the files used in examples.
 
 *   Have learners open a shell
     and then do `whoami`,
@@ -133,7 +143,7 @@ as long as learners using Windows do not run into roadblocks such as:
    For example, POSIX `ls` does not have an `--ignore=` or `-I` option, and POSIX
    `head` takes `-n 10` or `-10`, but not the long form of `--lines=10`.
 
-#### Windows
+## Windows
 
 Installing Bash and a reasonable set of Unix commands on Windows
 always involves some fiddling and frustration.
