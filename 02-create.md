@@ -4,15 +4,12 @@ title: The Unix Shell
 subtitle: Creating Things
 minutes: 15
 ---
-<div class="objectives" markdown="1">
-
-#### Objectives
-*   Create a directory hierarchy that matches a given diagram.
-*   Create files in that hierarchy using an editor or by copying and renaming existing files.
-*   Display the contents of a directory using the command line.
-*   Delete specified files and/or directories.
-
-</div>
+> ## Learning Objectives
+>
+> *   Create a directory hierarchy that matches a given diagram.
+> *   Create files in that hierarchy using an editor or by copying and renaming existing files.
+> *   Display the contents of a directory using the command line.
+> *   Delete specified files and/or directories.
 
 We now know how to explore files and directories,
 but how do we create them in the first place?
