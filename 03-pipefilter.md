@@ -212,13 +212,13 @@ $ wc -l *.pdb | sort -n | head -1
   9  methane.pdb
 ~~~
 
-This is exactly like a mathematician nesting functions like *sin(&pi;x)<sup>2</sup>*
-and saying "the square of the sine of *x* times &pi;".
+This is exactly like a mathematician nesting functions like *log(3x)*
+and saying "the log of three times *x*".
 In our case,
 the calculation is "head of sort of line count of `*.pdb`".
 
 Here's what actually happens behind the scenes when we create a pipe.
-When a computer runs a program&mdash;any program&mdash;it creates a **process**
+When a computer runs a program --- any program --- it creates a **process**
 in memory to hold the program's software and its current state.
 Every process has an input channel called **standard input**.
 (By this point, you may be surprised that the name is so memorable, but don't worry:
@@ -323,7 +323,7 @@ $ wc -l *.txt | sort -n | head -5
 
 Whoops: one of the files is 60 lines shorter than the others.
 When she goes back and checks it,
-she sees that she did that assay at 8:00 on a Monday morning&mdash;someone
+she sees that she did that assay at 8:00 on a Monday morning --- someone
 was probably in using the machine on the weekend,
 and she forgot to reset it.
 Before re-running that sample,
@@ -340,7 +340,7 @@ $ wc -l *.txt | sort -n | tail -5
  300 NENE02043B.txt
 ~~~
 
-Those numbers look good&mdash;but what's that 'Z' doing there in the third-to-last line?
+Those numbers look good --- but what's that 'Z' doing there in the third-to-last line?
 All of her samples should be marked 'A' or 'B';
 by convention,
 her lab uses 'Z' to indicate samples with missing information.

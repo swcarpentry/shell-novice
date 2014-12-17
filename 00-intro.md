@@ -37,7 +37,7 @@ this step will "only" take about two weeks.
 
 The bad news is that if she has to run `goostat` and `goodiff` by hand,
 she'll have to enter filenames and click "OK" 45,150 times
-(300 runs of `goostat`, plus 300&times;299/2 runs of `goodiff`).
+(300 runs of `goostat`, plus 300x299/2 runs of `goodiff`).
 At 30 seconds each,
 that will take more than two weeks.
 Not only would she miss her paper deadline,
@@ -104,7 +104,7 @@ What's special about it is that its job is to run other programs
 rather than to do calculations itself.
 The most popular Unix shell is Bash,
 the Bourne Again SHell
-(so-called because it's derived from a shell written by Stephen Bourne&mdash;this
+(so-called because it's derived from a shell written by Stephen Bourne --- this
 is what passes for wit among programmers).
 Bash is the default shell on most modern implementations of Unix,
 and in most packages that provide Unix-like tools for Windows.

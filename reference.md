@@ -44,7 +44,7 @@ subtitle: Shell Reference
 *   `touch path` creates an empty file if it doesn't already exist.
 *   Unix documentation uses '^A' to mean "control-A".
 *   The shell does not have a trash bin: once something is deleted, it's really gone.
-*   Nano is a very simple text editor&mdash;please use something else for real work.
+*   Nano is a very simple text editor --- please use something else for real work.
 
 ## [Pipes and Filters](03-pipefilter.html)
 

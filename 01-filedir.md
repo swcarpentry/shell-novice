@@ -185,7 +185,7 @@ which doesn't exist.
 Now let's take a look at what's in Nelle's `data` directory by running `ls -F data`,
 i.e.,
 the command `ls` with the **arguments** `-F` and `data`.
-The second argument&mdash;the one *without* a leading dash&mdash;tells `ls` that
+The second argument --- the one *without* a leading dash --- tells `ls` that
 we want a listing of something other than our current working directory:
 
 ~~~ {.input}
