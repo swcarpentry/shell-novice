@@ -3,7 +3,6 @@ layout: page
 title: The Unix Shell
 subtitle: Shell Reference
 ---
-
 #### Basic Commands
 
 *   `cat` displays the contents of its inputs.
@@ -51,3 +50,101 @@ subtitle: Shell Reference
 *   `$*` refers to all of a shell script's command-line parameters.
 *   `$1`, `$2`, etc., refer to specified command-line parameters.
 *   `$(command)` inserts a command's output in place.
+
+## Glossary
+
+absolute path
+:   FIXME
+
+argument
+:   FIXME
+
+command shell
+:   FIXME
+
+command-line interface
+:   FIXME
+
+comment
+:   FIXME
+
+current working directory
+:   FIXME
+
+file system
+:   FIXME
+
+filename extension
+:   FIXME
+
+filter
+:   FIXME
+
+flag
+:   FIXME
+
+graphical user interface
+:   FIXME
+
+home directory
+:   FIXME
+
+loop
+:   FIXME
+
+loop body
+:   FIXME
+
+orthogonal
+:   FIXME
+
+parent
+:   FIXME
+
+pipe
+:   FIXME
+
+process
+:   FIXME
+
+prompt
+:   FIXME
+
+quoting
+:   FIXME
+
+read-evaluate-print loop
+:   FIXME
+
+redirect
+:   FIXME
+
+regular expressions
+:   FIXME
+
+relative path
+:   FIXME
+
+root directory
+:   FIXME
+
+shell script
+:   FIXME
+
+standard input
+:   FIXME
+
+standard output
+:   FIXME
+
+sub-directories
+:   FIXME
+
+tab completion
+:   FIXME
+
+variable
+:   FIXME
+
+wildcard
+:   FIXME

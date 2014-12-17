@@ -53,7 +53,7 @@ $ wc *.pdb
 
 > #### Wildcards
 > 
-> `*` is a [wildcard](../../gloss.html#wildcard). It matches zero or more
+> `*` is a **wildcard**. It matches zero or more
 > characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and so on.
 > On the other hand, `p*.pdb` only matches `pentane.pdb` and
 > `propane.pdb`, because the 'p' at the front only matches itself.
@@ -109,7 +109,7 @@ Our first step toward a solution is to run the command:
 $ wc -l *.pdb > lengths
 ~~~
 
-The `>` tells the shell to [redirect](../../gloss.html#redirect) the command's output
+The `>` tells the shell to **redirect** the command's output
 to a file instead of printing it to the screen.
 The shell will create the file if it doesn't exist,
 or overwrite the contents of that file if it does.
@@ -196,7 +196,7 @@ $ sort -n lengths | head -1
   9  methane.pdb
 ~~~
 
-The vertical bar between the two commands is called a [pipe](../../gloss.html#pipe).
+The vertical bar between the two commands is called a **pipe**.
 It tells the shell that we want to use
 the output of the command on the left
 as the input to the command on the right.
@@ -221,12 +221,12 @@ In our case,
 the calculation is "head of sort of line count of `*.pdb`".
 
 Here's what actually happens behind the scenes when we create a pipe.
-When a computer runs a program&mdash;any program&mdash;it creates a [process](../../gloss.html#process)
+When a computer runs a program&mdash;any program&mdash;it creates a **process**
 in memory to hold the program's software and its current state.
-Every process has an input channel called [standard input](../../gloss.html#standard-input).
+Every process has an input channel called **standard input**.
 (By this point, you may be surprised that the name is so memorable, but don't worry:
 most Unix programmers call it "stdin".
-Every process also has a default output channel called [standard output](../../gloss.html#standard-output)
+Every process also has a default output channel called **standard output**
 (or "stdout").
 
 The shell is actually just another program.
@@ -261,9 +261,9 @@ This simple idea is why Unix has been so successful.
 Instead of creating enormous programs that try to do many different things,
 Unix programmers focus on creating lots of simple tools that each do one job well,
 and that work well with each other.
-This programming model is called [pipes and filters](../../gloss.html#pipe-and-filter).
+This programming model is called "pipes and filters".
 We've already seen pipes;
-a [filter](../../gloss.html#filter) is a program like `wc` or `sort`
+a **filter** is a program like `wc` or `sort`
 that transforms a stream of input into a stream of output.
 Almost all of the standard Unix tools can work this way:
 unless told to do otherwise,

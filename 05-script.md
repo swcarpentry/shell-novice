@@ -18,7 +18,7 @@ We are finally ready to see what makes the shell such a powerful programming env
 We are going to take the commands we repeat frequently and save them in files
 so that we can re-run all those operations again later by typing a single command.
 For historical reasons,
-a bunch of commands saved in a file is usually called a [shell script](../../gloss.html#shell-script),
+a bunch of commands saved in a file is usually called a **shell script**,
 but make no mistake:
 these are actually small programs.
 
@@ -150,7 +150,7 @@ TER      18              1
 
 This works,
 but it may take the next person who reads `middle.sh` a moment to figure out what it does.
-We can improve our script by adding some [comments](../../gloss.html#comment) at the top:
+We can improve our script by adding some **comments** at the top:
 
 ~~~ {.input}
 $ cat middle.sh
