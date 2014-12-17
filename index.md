@@ -10,7 +10,13 @@ it helps them combine existing programs in new ways
 and automate repetitive tasks
 so that they don't have to type the same things over and over again.
 
-<div class="toc" markdown="1">
+> ## Prerequisites
+>
+> FIXME
+> A short paragraph describing what learners need to know
+> before tackling this lesson.
+
+## Topics
 
 1.  [Introducing the Shell](00-intro.html)
 2.  [Files and Directories](01-filedir.html)
@@ -20,6 +26,9 @@ so that they don't have to type the same things over and over again.
 6.  [Shell Scripts](05-script.html)
 7.  [Finding Things](06-find.html)
 
-[Reference](../ref/01-shell.html)
+## Other Resources
 
-</div>
+*   [Motivation](motivation.html)
+*   [Reference Guide](reference.html)
+*   [Next Steps](discussion.html)
+*   [Instructor's Guide](instructors.html)
