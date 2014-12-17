@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: The Unix Shell</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <div class="row-fluid">
+        <div class="span10 offset1">
+          <h1 class="title">The Unix Shell</h1>
+          <h2 class="subtitle">Creating Things</h2>
+<div id="learning-objectives" class="objectives">
+<h2>Learning Objectives</h2>
+<ul>
+<li>Create a directory hierarchy that matches a given diagram.</li>
+<li>Create files in that hierarchy using an editor or by copying and renaming existing files.</li>
+<li>Display the contents of a directory using the command line.</li>
+<li>Delete specified files and/or directories.</li>
+</ul>
+</div>
+<p>We now know how to explore files and directories, but how do we create them in the first place? Let's go back to Nelle's home directory, <code>/users/nelle</code>, and use <code>ls -F</code> to see what it contains:</p>
+<pre class="input"><code>$ pwd</code></pre>
+<pre class="output"><code>/users/nelle</code></pre>
+<pre class="input"><code>$ ls -F</code></pre>
+<pre class="output"><code>creatures/  molecules/           pizza.cfg
+data/       north-pacific-gyre/  solar.pdf
+Desktop/    notes.txt            writing/</code></pre>
+<p>Let's create a new directory called <code>thesis</code> using the command <code>mkdir thesis</code> (which has no output):</p>
+<pre class="input"><code>$ mkdir thesis</code></pre>
+<p>As you might (or might not) guess from its name, <code>mkdir</code> means &quot;make directory&quot;. Since <code>thesis</code> is a relative path (i.e., doesn't have a leading slash), the new directory is created in the current working directory:</p>
+<pre class="input"><code>$ ls -F</code></pre>
+<pre class="output"><code>creatures/  north-pacific-gyre/  thesis/
+data/       notes.txt            writing/
+Desktop/    pizza.cfg
+molecules/  solar.pdf</code></pre>
+<p>However, there's nothing in it yet:</p>
+<pre class="input"><code>$ ls -F thesis</code></pre>
+<p>Let's change our working directory to <code>thesis</code> using <code>cd</code>, then run a text editor called Nano to create a file called <code>draft.txt</code>:</p>
+<pre class="input"><code>$ cd thesis
+$ nano draft.txt</code></pre>
+<div id="which-editor" class="callout">
+<h2>Which Editor?</h2>
+<p>When we say, &quot;<code>nano</code> is a text editor,&quot; we really do mean &quot;text&quot;: it can only work with plain character data, not tables, images, or any other human-friendly media. We use it in examples because almost anyone can drive it anywhere without training, but please use something more powerful for real work. On Unix systems (such as Linux and Mac OS X), many programmers use <a href="http://www.gnu.org/software/emacs/">Emacs</a> or <a href="http://www.vim.org/">Vim</a> (both of which are completely unintuitive, even by Unix standards), or a graphical editor such as <a href="http://projects.gnome.org/gedit/">Gedit</a>. On Windows, you may wish to use <a href="http://notepad-plus-plus.org/">Notepad++</a>.</p>
+<p>No matter what editor you use, you will need to know where it searches for and saves files. If you start it from the shell, it will (probably) use your current working directory as its default location. If you use your computer's start menu, it may want to save files in your desktop or documents directory instead. You can change this by navigating to another directory the first time you &quot;Save As...&quot;</p>
+</div>
+<p>Let's type in a few lines of text, then use Control-O to write our data to disk:</p>
+<p><img src="fig/nano-screenshot.png" alt="Nano in Action" /></p>
+<p>Once our file is saved, we can use Control-X to quit the editor and return to the shell. (Unix documentation often uses the shorthand <code>^A</code> to mean &quot;control-A&quot;.) <code>nano</code> doesn't leave any output on the screen after it exits, but <code>ls</code> now shows that we have created a file called <code>draft.txt</code>:</p>
+<pre class="input"><code>$ ls</code></pre>
+<pre class="output"><code>draft.txt</code></pre>
+<p>Let's tidy up by running <code>rm draft.txt</code>:</p>
+<pre class="input"><code>$ rm draft.txt</code></pre>
+<p>This command removes files (&quot;rm&quot; is short for &quot;remove&quot;). If we run <code>ls</code> again, its output is empty once more, which tells us that our file is gone:</p>
+<pre class="input"><code>$ ls</code></pre>
+<div id="deleting-is-forever" class="callout">
+<h2>Deleting Is Forever</h2>
+<p>Unix doesn't have a trash bin: when we delete files, they are unhooked from the file system so that their storage space on disk can be recycled. Tools for finding and recovering deleted files do exist, but there's no guarantee they'll work in any particular situation, since the computer may recycle the file's disk space right away.</p>
+</div>
+<p>Let's re-create that file and then move up one directory to <code>/users/nelle</code> using <code>cd ..</code>:</p>
+<pre class="input"><code>$ pwd</code></pre>
+<pre class="output"><code>/users/nelle/thesis</code></pre>
+<pre class="input"><code>$ nano draft.txt
+$ ls</code></pre>
+<pre class="output"><code>draft.txt</code></pre>
+<pre class="input"><code>$ cd ..</code></pre>
+<p>If we try to remove the entire <code>thesis</code> directory using <code>rm thesis</code>, we get an error message:</p>
+<pre class="input"><code>$ rm thesis</code></pre>
+<pre class="error"><code>rm: cannot remove `thesis&#39;: Is a directory</code></pre>
+<p>This happens because <code>rm</code> only works on files, not directories. The right command is <code>rmdir</code>, which is short for &quot;remove directory&quot;. It doesn't work yet either, though, because the directory we're trying to remove isn't empty:</p>
+<pre class="input"><code>$ rmdir thesis</code></pre>
+<pre class="error"><code>rmdir: failed to remove `thesis&#39;: Directory not empty</code></pre>
+<p>This little safety feature can save you a lot of grief, particularly if you are a bad typist. To really get rid of <code>thesis</code> we must first delete the file <code>draft.txt</code>:</p>
+<pre class="input"><code>$ rm thesis/draft.txt</code></pre>
+<p>The directory is now empty, so <code>rmdir</code> can delete it:</p>
+<pre class="input"><code>$ rmdir thesis</code></pre>
+<div id="with-great-power-comes-great-responsibility" class="callout">
+<h2>With Great Power Comes Great Responsibility</h2>
+<p>Removing the files in a directory just so that we can remove the directory quickly becomes tedious. Instead, we can use <code>rm</code> with the <code>-r</code> flag (which stands for &quot;recursive&quot;):</p>
+<pre><code>$ rm -r thesis</code></pre>
+<p>This removes everything in the directory, then the directory itself. If the directory contains sub-directories, <code>rm -r</code> does the same thing to them, and so on. It's very handy, but can do a lot of damage if used without care.</p>
+</div>
+<p>Let's create that directory and file one more time. (Note that this time we're running <code>nano</code> with the path <code>thesis/draft.txt</code>, rather than going into the <code>thesis</code> directory and running <code>nano</code> on <code>draft.txt</code> there.)</p>
+<pre class="input"><code>$ pwd</code></pre>
+<pre class="output"><code>/users/nelle</code></pre>
+<pre class="input"><code>$ mkdir thesis</code></pre>
+<pre class="input"><code>$ nano thesis/draft.txt
+$ ls thesis</code></pre>
+<pre class="output"><code>draft.txt</code></pre>
+<p><code>draft.txt</code> isn't a particularly informative name, so let's change the file's name using <code>mv</code>, which is short for &quot;move&quot;:</p>
+<pre class="input"><code>$ mv thesis/draft.txt thesis/quotes.txt</code></pre>
+<p>The first parameter tells <code>mv</code> what we're &quot;moving&quot;, while the second is where it's to go. In this case, we're moving <code>thesis/draft.txt</code> to <code>thesis/quotes.txt</code>, which has the same effect as renaming the file. Sure enough, <code>ls</code> shows us that <code>thesis</code> now contains one file called <code>quotes.txt</code>:</p>
+<pre class="input"><code>$ ls thesis</code></pre>
+<pre class="output"><code>quotes.txt</code></pre>
+<p>Just for the sake of inconsistency, <code>mv</code> also works on directories --- there is no separate <code>mvdir</code> command.</p>
+<p>Let's move <code>quotes.txt</code> into the current working directory. We use <code>mv</code> once again, but this time we'll just use the name of a directory as the second parameter to tell <code>mv</code> that we want to keep the filename, but put the file somewhere new. (This is why the command is called &quot;move&quot;.) In this case, the directory name we use is the special directory name <code>.</code> that we mentioned earlier.</p>
+<pre class="input"><code>$ mv thesis/quotes.txt .</code></pre>
+<p>The effect is to move the file from the directory it was in to the current working directory. <code>ls</code> now shows us that <code>thesis</code> is empty:</p>
+<pre class="input"><code>$ ls thesis</code></pre>
+<p>Further, <code>ls</code> with a filename or directory name as a parameter only lists that file or directory. We can use this to see that <code>quotes.txt</code> is still in our current directory:</p>
+<pre class="input"><code>$ ls quotes.txt</code></pre>
+<pre class="output"><code>quotes.txt</code></pre>
+<p>The <code>cp</code> command works very much like <code>mv</code>, except it copies a file instead of moving it. We can check that it did the right thing using <code>ls</code> with two paths as parameters --- like most Unix commands, <code>ls</code> can be given thousands of paths at once:</p>
+<pre class="input"><code>$ cp quotes.txt thesis/quotations.txt
+$ ls quotes.txt thesis/quotations.txt</code></pre>
+<pre class="output"><code>quotes.txt   thesis/quotations.txt</code></pre>
+<p>To prove that we made a copy, let's delete the <code>quotes.txt</code> file in the current directory and then run that same <code>ls</code> again. This time it tells us that it can't find <code>quotes.txt</code> in the current directory, but it does find the copy in <code>thesis</code> that we didn't delete:</p>
+<pre class="input"><code>$ ls quotes.txt thesis/quotations.txt</code></pre>
+<pre class="error"><code>ls: cannot access quotes.txt: No such file or directory
+thesis/quotations.txt</code></pre>
+<div id="another-useful-abbreviation" class="callout">
+<h2>Another Useful Abbreviation</h2>
+<p>The shell interprets the character <code>~</code> (tilde) at the start of a path to mean &quot;the current user's home directory&quot;. For example, if Nelle's home directory is <code>/home/nelle</code>, then <code>~/data</code> is equivalent to <code>/home/nelle/data</code>. This only works if it is the first character in the path: <code>here/there/~/elsewhere</code> is <em>not</em> <code>/home/nelle/elsewhere</code>.</p>
+</div>
+<div id="fixme" class="challenge">
+<h2>FIXME</h2>
+<p>What is the output of the closing <code>ls</code> command in the sequence shown below?</p>
+<pre><code>$ pwd
+/home/jamie/data
+$ ls
+proteins.dat
+$ mkdir recombine
+$ mv proteins.dat recombine
+$ cp recombine/proteins.dat ../proteins-saved.dat
+$ ls</code></pre>
+</div>
+<div id="fixme-1" class="challenge">
+<h2>FIXME</h2>
+<p>Suppose that:</p>
+<pre><code>$ ls -F
+analyzed/  fructose.dat    raw/   sucrose.dat</code></pre>
+<p>What command(s) could you run so that the commands below will produce the output shown?</p>
+<pre><code>$ ls
+analyzed   raw
+$ ls analyzed
+fructose.dat    sucrose.dat</code></pre>
+</div>
+<div id="fixme-2" class="challenge">
+<h2>FIXME</h2>
+<p>What does <code>cp</code> do when given several filenames and a directory name, as in:</p>
+<pre><code>$ mkdir backup
+$ cp thesis/citations.txt thesis/quotations.txt backup</code></pre>
+<p>What does <code>cp</code> do when given three or more filenames, as in:</p>
+<pre><code>$ ls -F
+intro.txt    methods.txt    survey.txt
+$ cp intro.txt methods.txt survey.txt</code></pre>
+</div>
+<div id="fixme-3" class="challenge">
+<h2>FIXME</h2>
+<p>The command <code>ls -R</code> lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on in alphabetical order at each level. The command <code>ls -t</code> lists things by time of last change, with most recently changed files or directories first. In what order does <code>ls -R -t</code> display things?</p>
+</div>
+        </div>
+      </div>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Email</a>
+        <a class="label swc-blue-bg" href="http://github.com/swcarpentry">GitHub</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+        <a class="bugreport label swc-blue-bg" href="mailto:admin@software-carpentry.org?subject=bug%20in%20{{page.path}}">Bug Report</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>

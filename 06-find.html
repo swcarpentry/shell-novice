@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: The Unix Shell</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <div class="row-fluid">
+        <div class="span10 offset1">
+          <h1 class="title">The Unix Shell</h1>
+          <h2 class="subtitle">Finding Things</h2>
+<div id="learning-objectives" class="objectives">
+<h2>Learning Objectives</h2>
+<ul>
+<li>Use <code>grep</code> to select lines from text files that match simple patterns.</li>
+<li>Use <code>find</code> to find files whose names match simple patterns.</li>
+<li>Use the output of one command as the command-line parameters to another command.</li>
+<li>Explain what is meant by &quot;text&quot; and &quot;binary&quot; files, and why many common tools don't handle the latter well.</li>
+</ul>
+</div>
+<p>You can guess someone's age by how they talk about search: young people use &quot;Google&quot; as a verb, while crusty old Unix programmers use &quot;grep&quot;. The word is a contraction of &quot;global/regular expression/print&quot;, a common sequence of operations in early Unix text editors. It is also the name of a very useful command-line program.</p>
+<p><code>grep</code> finds and prints lines in files that match a pattern. For our examples, we will use a file that contains three haikus taken from a 1998 competition in <em>Salon</em> magazine. For this set of examples we're going to be working in the writing subdirectory:</p>
+<pre class="input"><code>$ cd
+$ cd writing
+$ cat haiku.txt</code></pre>
+<pre class="output"><code>The Tao that is seen
+Is not the true Tao, until
+You bring fresh toner.
+
+With searching comes loss
+and the presence of absence:
+&quot;My Thesis&quot; not found.
+
+Yesterday it worked
+Today it is not working
+Software is like that.</code></pre>
+<div id="forever-or-five-years" class="callout">
+<h2>Forever, or Five Years</h2>
+<p>We haven't linked to the original haikus because they don't appear to be on <em>Salon</em>'s site any longer. As <a href="http://www.clir.org/pubs/archives/ensuring.pdf">Jeff Rothenberg said</a>, &quot;Digital information lasts forever --- or five years, whichever comes first.&quot;</p>
+</div>
+<p>Let's find lines that contain the word &quot;not&quot;:</p>
+<pre class="input"><code>$ grep not haiku.txt</code></pre>
+<pre class="output"><code>Is not the true Tao, until
+&quot;My Thesis&quot; not found
+Today it is not working</code></pre>
+<p>Here, <code>not</code> is the pattern we're searching for. It's pretty simple: every alphanumeric character matches against itself. After the pattern comes the name or names of the files we're searching in. The output is the three lines in the file that contain the letters &quot;not&quot;.</p>
+<p>Let's try a different pattern: &quot;day&quot;.</p>
+<pre class="input"><code>$ grep day haiku.txt</code></pre>
+<pre class="output"><code>Yesterday it worked
+Today it is not working</code></pre>
+<p>This time, the output is lines containing the words &quot;Yesterday&quot; and &quot;Today&quot;, which both have the letters &quot;day&quot;. If we give <code>grep</code> the <code>-w</code> flag, it restricts matches to word boundaries, so that only lines with the word &quot;day&quot; will be printed:</p>
+<pre class="input"><code>$ grep -w day haiku.txt</code></pre>
+<p>In this case, there aren't any, so <code>grep</code>'s output is empty.</p>
+<p>Another useful option is <code>-n</code>, which numbers the lines that match:</p>
+<pre class="input"><code>$ grep -n it haiku.txt</code></pre>
+<pre class="output"><code>5:With searching comes loss
+9:Yesterday it worked
+10:Today it is not working</code></pre>
+<p>Here, we can see that lines 5, 9, and 10 contain the letters &quot;it&quot;.</p>
+<p>We can combine flags as we do with other Unix commands. For example, since <code>-i</code> makes matching case-insensitive and <code>-v</code> inverts the match, using them both only prints lines that <em>don't</em> match the pattern in any mix of upper and lower case:</p>
+<pre class="input"><code>$ grep -i -v the haiku.txt</code></pre>
+<pre class="output"><code>You bring fresh toner.
+
+With searching comes loss
+
+Yesterday it worked
+Today it is not working
+Software is like that.</code></pre>
+<p><code>grep</code> has lots of other options. To find out what they are, we can type <code>man grep</code>. <code>man</code> is the Unix &quot;manual&quot; command: it prints a description of a command and its options, and (if you're lucky) provides a few examples of how to use it:</p>
+<pre class="input"><code>$ man grep</code></pre>
+<pre class="output"><code>GREP(1)                                                                                              GREP(1)
+
+NAME
+grep, egrep, fgrep - print lines matching a pattern
+
+SYNOPSIS
+grep [OPTIONS] PATTERN [FILE...]
+grep [OPTIONS] [-e PATTERN | -f FILE] [FILE...]
+
+DESCRIPTION
+grep  searches the named input FILEs (or standard input if no files are named, or if a single hyphen-
+minus (-) is given as file name) for lines containing a match to the given PATTERN.  By default, grep
+prints the matching lines.
+...        ...        ...
+
+OPTIONS
+Generic Program Information
+--help Print  a  usage  message  briefly summarizing these command-line options and the bug-reporting
+address, then exit.
+
+-V, --version
+Print the version number of grep to the standard output stream.  This version number should be
+included in all bug reports (see below).
+
+Matcher Selection
+-E, --extended-regexp
+Interpret  PATTERN  as  an  extended regular expression (ERE, see below).  (-E is specified by
+POSIX.)
+
+-F, --fixed-strings
+Interpret PATTERN as a list of fixed strings, separated by newlines, any of  which  is  to  be
+matched.  (-F is specified by POSIX.)
+...        ...        ...</code></pre>
+<div id="wildcards" class="callout">
+<h2>Wildcards</h2>
+<p><code>grep</code>'s real power doesn't come from its options, though; it comes from the fact that patterns can include wildcards. (The technical name for these is <strong>regular expressions</strong>, which is what the &quot;re&quot; in &quot;grep&quot; stands for.) Regular expressions are both complex and powerful; if you want to do complex searches, please look at the lesson on <a href="http://software-carpentry.org">our website</a>. As a taster, we can find lines that have an 'o' in the second position like this:</p>
+<pre><code>$ grep -E &#39;^.o&#39; haiku.txt
+You bring fresh toner.
+Today it is not working
+Software is like that.</code></pre>
+<p>We use the <code>-E</code> flag and put the pattern in quotes to prevent the shell from trying to interpret it. (If the pattern contained a '*', for example, the shell would try to expand it before running <code>grep</code>.) The '^' in the pattern anchors the match to the start of the line. The '.' matches a single character (just like '?' in the shell), while the 'o' matches an actual 'o'.</p>
+</div>
+<p>While <code>grep</code> finds lines in files, the <code>find</code> command finds files themselves. Again, it has a lot of options; to show how the simplest ones work, we'll use the directory tree shown below.</p>
+<p><img src="fig/find-file-tree.svg" alt="File Tree for Find Example" /></p>
+<p>Nelle's <code>writing</code> directory contains one file called <code>haiku.txt</code> and four subdirectories: <code>thesis</code> (which is sadly empty), <code>data</code> (which contains two files <code>one.txt</code> and <code>two.txt</code>), a <code>tools</code> directory that contains the programs <code>format</code> and <code>stats</code>, and an empty subdirectory called <code>old</code>.</p>
+<p>For our first command, let's run <code>find . -type d</code>. As always, the <code>.</code> on its own means the current working directory, which is where we want our search to start; <code>-type d</code> means &quot;things that are directories&quot;. Sure enough, <code>find</code>'s output is the names of the five directories in our little tree (including <code>.</code>):</p>
+<pre class="input"><code>$ find . -type d</code></pre>
+<pre class="output"><code>./
+./data
+./thesis
+./tools
+./tools/old</code></pre>
+<p>If we change <code>-type d</code> to <code>-type f</code>, we get a listing of all the files instead:</p>
+<pre class="input"><code>$ find . -type f</code></pre>
+<pre class="output"><code>./haiku.txt
+./tools/stats
+./tools/old/oldtool
+./tools/format
+./thesis/empty-draft.md
+./data/one.txt
+./data/two.txt</code></pre>
+<p><code>find</code> automatically goes into subdirectories, their subdirectories, and so on to find everything that matches the pattern we've given it. If we don't want it to, we can use <code>-maxdepth</code> to restrict the depth of search:</p>
+<pre class="input"><code>$ find . -maxdepth 1 -type f</code></pre>
+<pre class="output"><code>./haiku.txt</code></pre>
+<p>The opposite of <code>-maxdepth</code> is <code>-mindepth</code>, which tells <code>find</code> to only report things that are at or below a certain depth. <code>-mindepth 2</code> therefore finds all the files that are two or more levels below us:</p>
+<pre class="input"><code>$ find . -mindepth 2 -type f</code></pre>
+<pre class="output"><code>./data/one.txt
+./data/two.txt
+./tools/format
+./tools/stats</code></pre>
+<p>Now let's try matching by name:</p>
+<pre class="input"><code>$ find . -name *.txt</code></pre>
+<pre class="output"><code>./haiku.txt</code></pre>
+<p>We expected it to find all the text files, but it only prints out <code>./haiku.txt</code>. The problem is that the shell expands wildcard characters like <code>*</code> <em>before</em> commands run. Since <code>*.txt</code> in the current directory expands to <code>haiku.txt</code>, the command we actually ran was:</p>
+<pre class="input"><code>$ find . -name haiku.txt</code></pre>
+<p><code>find</code> did what we asked; we just asked for the wrong thing.</p>
+<p>To get what we want, let's do what we did with <code>grep</code>: put <code>*.txt</code> in single quotes to prevent the shell from expanding the <code>*</code> wildcard. This way, <code>find</code> actually gets the pattern <code>*.txt</code>, not the expanded filename <code>haiku.txt</code>:</p>
+<pre class="input"><code>$ find . -name &#39;*.txt&#39;</code></pre>
+<pre class="output"><code>./data/one.txt
+./data/two.txt
+./haiku.txt</code></pre>
+<div id="listing-vs.-finding" class="callout">
+<h2>Listing vs. Finding</h2>
+<p><code>ls</code> and <code>find</code> can be made to do similar things given the right options, but under normal circumstances, <code>ls</code> lists everything it can, while <code>find</code> searches for things with certain properties and shows them.</p>
+</div>
+<p>As we said earlier, the command line's power lies in combining tools. We've seen how to do that with pipes; let's look at another technique. As we just saw, <code>find . -name '*.txt'</code> gives us a list of all text files in or below the current directory. How can we combine that with <code>wc -l</code> to count the lines in all those files?</p>
+<p>The simplest way is to put the <code>find</code> command inside <code>$()</code>:</p>
+<pre class="input"><code>$ wc -l $(find . -name &#39;*.txt&#39;)</code></pre>
+<pre class="output"><code>11 ./haiku.txt
+300 ./data/two.txt
+70 ./data/one.txt
+381 total</code></pre>
+<p>When the shell executes this command, the first thing it does is run whatever is inside the <code>$()</code>. It then replaces the <code>$()</code> expression with that command's output. Since the output of <code>find</code> is the three filenames <code>./data/one.txt</code>, <code>./data/two.txt</code>, and <code>./haiku.txt</code>, the shell constructs the command:</p>
+<pre class="input"><code>$ wc -l ./data/one.txt ./data/two.txt ./haiku.txt</code></pre>
+<p>which is what we wanted. This expansion is exactly what the shell does when it expands wildcards like <code>*</code> and <code>?</code>, but lets us use any command we want as our own &quot;wildcard&quot;.</p>
+<p>It's very common to use <code>find</code> and <code>grep</code> together. The first finds files that match a pattern; the second looks for lines inside those files that match another pattern. Here, for example, we can find PDB files that contain iron atoms by looking for the string &quot;FE&quot; in all the <code>.pdb</code> files above the current directory:</p>
+<pre class="input"><code>$ grep FE $(find .. -name &#39;*.pdb&#39;)</code></pre>
+<pre class="output"><code>../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518</code></pre>
+<div id="binary-files" class="callout">
+<h2>Binary Files</h2>
+<p>We have focused exclusively on finding things in text files. What if your data is stored as images, in databases, or in some other format? One option would be to extend tools like <code>grep</code> to handle those formats. This hasn't happened, and probably won't, because there are too many formats to support.</p>
+<p>The second option is to convert the data to text, or extract the text-ish bits from the data. This is probably the most common approach, since it only requires people to build one tool per data format (to extract information). On the one hand, it makes simple things easy to do. On the negative side, complex things are usually impossible. For example, it's easy enough to write a program that will extract X and Y dimensions from image files for <code>grep</code> to play with, but how would you write something to find values in a spreadsheet whose cells contained formulas?</p>
+<p>The third choice is to recognize that the shell and text processing have their limits, and to use a programming language such as Python instead. When the time comes to do this, don't be too hard on the shell: many modern programming languages, Python included, have borrowed a lot of ideas from it, and imitation is also the sincerest form of praise.</p>
+</div>
+<h3 id="conclusion">Conclusion</h3>
+<p>The Unix shell is older than most of the people who use it. It has survived so long because it is one of the most productive programming environments ever created --- maybe even <em>the</em> most productive. Its syntax may be cryptic, but people who have mastered it can experiment with different commands interactively, then use what they have learned to automate their work. Graphical user interfaces may be better at the first, but the shell is still unbeaten at the second. And as Alfred North Whitehead wrote in 1911, &quot;Civilization advances by extending the number of important operations which we can perform without thinking about them.&quot;</p>
+<div id="fixme" class="challenge">
+<h2>FIXME</h2>
+<p>Write a short explanatory comment for the following shell script:</p>
+<pre class="input"><code>find . -name &#39;*.dat&#39; | wc -l | sort -n</code></pre>
+</div>
+<div id="fixme-1" class="challenge">
+<h2>FIXME</h2>
+<p>The <code>-v</code> flag to <code>grep</code> inverts pattern matching, so that only lines which do <em>not</em> match the pattern are printed. Given that, which of the following commands will find all files in <code>/data</code> whose names end in <code>ose.dat</code> (e.g., <code>sucrose.dat</code> or <code>maltose.dat</code>), but do <em>not</em> contain the word <code>temp</code>?</p>
+<ol style="list-style-type: decimal">
+<li><p><code>find /data -name '*.dat' | grep ose | grep -v temp</code></p></li>
+<li><p><code>find /data -name ose.dat | grep -v temp</code></p></li>
+<li><p><code>grep -v temp $(find /data -name '*ose.dat')</code></p></li>
+<li><p>None of the above.</p></li>
+</ol>
+</div>
+        </div>
+      </div>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Email</a>
+        <a class="label swc-blue-bg" href="http://github.com/swcarpentry">GitHub</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+        <a class="bugreport label swc-blue-bg" href="mailto:admin@software-carpentry.org?subject=bug%20in%20{{page.path}}">Bug Report</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>

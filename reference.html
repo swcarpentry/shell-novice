@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: The Unix Shell</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <div class="row-fluid">
+        <div class="span10 offset1">
+          <h1 class="title">The Unix Shell</h1>
+          <h2 class="subtitle">Shell Reference</h2>
+<h2 id="introducing-the-shell"><a href="00-intro.html">Introducing the Shell</a></h2>
+<ul>
+<li>A shell is a program whose primary purpose is to read commands and run other programs.</li>
+<li>The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and that it can be used to access networked machines.</li>
+<li>The shell's main disadvantages are its primarily textual nature and how cryptic its commands and operation can be.</li>
+</ul>
+<h2 id="files-and-directories"><a href="01-filedir.html">Files and Directories</a></h2>
+<ul>
+<li>The file system is responsible for managing information on the disk.</li>
+<li>Information is stored in files, which are stored in directories (folders).</li>
+<li>Directories can also store other directories, which forms a directory tree.</li>
+<li><code>cd path</code> changes the current working directory.</li>
+<li><code>ls path</code> prints a listing of a specific file or directory; <code>ls</code> on its own lists the current working directory.</li>
+<li><code>pwd</code> prints the user's current working directory.</li>
+<li><code>whoami</code> shows the user's current identity.</li>
+<li><code>/</code> on its own is the root directory of the whole filesystem.</li>
+<li>A relative path specifies a location starting from the current location.</li>
+<li>An absolute path specifies a location from the root of the filesystem.</li>
+<li>Directory names in a path are separated with '/' on Unix, but '\' on Windows.</li>
+<li>'..' means &quot;the directory above the current one&quot;; '.' on its own means &quot;the current directory&quot;.</li>
+<li>Most files' names are <code>something.extension</code>. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file.</li>
+<li>Most commands take options (flags) which begin with a '-'.</li>
+</ul>
+<h2 id="creating-things"><a href="02-create.html">Creating Things</a></h2>
+<ul>
+<li><code>cp old new</code> copies a file.</li>
+<li><code>mkdir path</code> creates a new directory.</li>
+<li><code>mv old new</code> moves (renames) a file or directory.</li>
+<li><code>rm path</code> removes (deletes) a file.</li>
+<li><code>rmdir path</code> removes (deletes) an empty directory.</li>
+<li><code>touch path</code> creates an empty file if it doesn't already exist.</li>
+<li>Unix documentation uses '^A' to mean &quot;control-A&quot;.</li>
+<li>The shell does not have a trash bin: once something is deleted, it's really gone.</li>
+<li>Nano is a very simple text editor --- please use something else for real work.</li>
+</ul>
+<h2 id="pipes-and-filters"><a href="03-pipefilter.html">Pipes and Filters</a></h2>
+<ul>
+<li><code>cat</code> displays the contents of its inputs.</li>
+<li><code>head</code> displays the first few lines of its input.</li>
+<li><code>tail</code> displays the last few lines of its input.</li>
+<li><code>sort</code> sorts its inputs.</li>
+<li><code>wc</code> counts lines, words, and characters in its inputs.</li>
+<li><code>command &gt; file</code> redirects a command's output to a file.</li>
+<li><code>first | second</code> is a pipeline: the output of the first command is used as the input to the second.</li>
+<li>The best way to use the shell is to use pipes to combine simple single-purpose programs (filters).</li>
+</ul>
+<h2 id="loops"><a href="04-loop.html">Loops</a></h2>
+<ul>
+<li><code>history</code> displays recent commands, and <code>!number</code> to repeat a command by number.</li>
+<li>A <code>for</code> loop repeats commands once for every thing in a list.</li>
+<li>Every <code>for</code> loop needs a variable to refer to the current &quot;thing&quot;.</li>
+<li>Use <code>$name</code> to expand a variable (i.e., get its value).</li>
+<li>Do not use spaces, quotes, or wildcard characters such as '*' or '?' in filenames, as it complicates variable expansion.</li>
+<li>Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping.</li>
+<li>Use the up-arrow key to scroll up through previous commands to edit and repeat them.</li>
+<li>Use <code>history</code> to display recent commands, and <code>!number</code> to repeat a command by number.</li>
+</ul>
+<h2 id="shell-scripts"><a href="05-script.html">Shell Scripts</a></h2>
+<ul>
+<li>Save commands in files (usually called shell scripts) for re-use.</li>
+<li><code>bash filename</code> runs the commands saved in a file.</li>
+<li><code>$*</code> refers to all of a shell script's command-line parameters.</li>
+<li><code>$1</code>, <code>$2</code>, etc., refer to specified command-line parameters.</li>
+<li>Place variables in quotes if the values might have spaces in them.</li>
+<li>Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.</li>
+</ul>
+<h2 id="finding-things"><a href="06-find.html">Finding Things</a></h2>
+<ul>
+<li><code>find</code> finds files with specific properties that match patterns.</li>
+<li><code>grep</code> selects lines in files that match patterns.</li>
+<li><code>man command</code> displays the manual page for a given command.</li>
+<li><code>*</code> matches zero or more characters in a filename, so <code>*.txt</code> matches all files ending in <code>.txt</code>.</li>
+<li><code>?</code> matches any single character in a filename, so <code>?.txt</code> matches <code>a.txt</code> but not <code>any.txt</code>.</li>
+<li><code>$(command)</code> inserts a command's output in place.</li>
+<li><code>man command</code> displays the manual page for a given command.</li>
+</ul>
+<h2 id="glossary">Glossary</h2>
+<dl>
+<dt>absolute path</dt>
+<dd>FIXME
+</dd>
+<dt>argument</dt>
+<dd>FIXME
+</dd>
+<dt>command shell</dt>
+<dd>FIXME
+</dd>
+<dt>command-line interface</dt>
+<dd>FIXME
+</dd>
+<dt>comment</dt>
+<dd>FIXME
+</dd>
+<dt>current working directory</dt>
+<dd>FIXME
+</dd>
+<dt>file system</dt>
+<dd>FIXME
+</dd>
+<dt>filename extension</dt>
+<dd>FIXME
+</dd>
+<dt>filter</dt>
+<dd>FIXME
+</dd>
+<dt>flag</dt>
+<dd>FIXME
+</dd>
+<dt>graphical user interface</dt>
+<dd>FIXME
+</dd>
+<dt>home directory</dt>
+<dd>FIXME
+</dd>
+<dt>loop</dt>
+<dd>FIXME
+</dd>
+<dt>loop body</dt>
+<dd>FIXME
+</dd>
+<dt>orthogonal</dt>
+<dd>FIXME
+</dd>
+<dt>parent</dt>
+<dd>FIXME
+</dd>
+<dt>pipe</dt>
+<dd>FIXME
+</dd>
+<dt>process</dt>
+<dd>FIXME
+</dd>
+<dt>prompt</dt>
+<dd>FIXME
+</dd>
+<dt>quoting</dt>
+<dd>FIXME
+</dd>
+<dt>read-evaluate-print loop</dt>
+<dd>FIXME
+</dd>
+<dt>redirect</dt>
+<dd>FIXME
+</dd>
+<dt>regular expressions</dt>
+<dd>FIXME
+</dd>
+<dt>relative path</dt>
+<dd>FIXME
+</dd>
+<dt>root directory</dt>
+<dd>FIXME
+</dd>
+<dt>shell script</dt>
+<dd>FIXME
+</dd>
+<dt>standard input</dt>
+<dd>FIXME
+</dd>
+<dt>standard output</dt>
+<dd>FIXME
+</dd>
+<dt>sub-directories</dt>
+<dd>FIXME
+</dd>
+<dt>tab completion</dt>
+<dd>FIXME
+</dd>
+<dt>variable</dt>
+<dd>FIXME
+</dd>
+<dt>wildcard</dt>
+<dd>FIXME
+</dd>
+</dl>
+        </div>
+      </div>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Email</a>
+        <a class="label swc-blue-bg" href="http://github.com/swcarpentry">GitHub</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+        <a class="bugreport label swc-blue-bg" href="mailto:admin@software-carpentry.org?subject=bug%20in%20{{page.path}}">Bug Report</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>
