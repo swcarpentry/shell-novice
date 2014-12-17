@@ -393,28 +393,26 @@ North Whitehead wrote in 1911, "Civilization advances by extending the
 number of important operations which we can perform without thinking
 about them."
 
-<div class="challenge" markdown="1">
-Write a short explanatory comment for the following shell script:
+> ## FIXME {.challenge}
+>
+> Write a short explanatory comment for the following shell script:
+> 
+> ~~~ {.input}
+> find . -name '*.dat' | wc -l | sort -n
+> ~~~
 
-<div class="file" markdown="1">
-~~~
-find . -name '*.dat' | wc -l | sort -n
-~~~
-</div>
-</div>
-
-<div class="challenge" markdown="1">
-The `-v` flag to `grep` inverts pattern matching, so that only lines
-which do *not* match the pattern are printed. Given that, which of
-the following commands will find all files in `/data` whose names
-end in `ose.dat` (e.g., `sucrose.dat` or `maltose.dat`), but do
-*not* contain the word `temp`?
-
-1. `find /data -name '*.dat' | grep ose | grep -v temp`
-
-2. `find /data -name ose.dat | grep -v temp`
-
-3. `grep -v temp $(find /data -name '*ose.dat')`
-
-4. None of the above.
-</div>
+> ## FIXME {.challenge}
+> 
+> The `-v` flag to `grep` inverts pattern matching, so that only lines
+> which do *not* match the pattern are printed. Given that, which of
+> the following commands will find all files in `/data` whose names
+> end in `ose.dat` (e.g., `sucrose.dat` or `maltose.dat`), but do
+> *not* contain the word `temp`?
+> 
+> 1. `find /data -name '*.dat' | grep ose | grep -v temp`
+> 
+> 2. `find /data -name ose.dat | grep -v temp`
+> 
+> 3. `grep -v temp $(find /data -name '*ose.dat')`
+> 
+> 4. None of the above.
