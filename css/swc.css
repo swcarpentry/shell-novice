@@ -1,0 +1,357 @@
+/* Headings */
+h1, h2, h3, h4, h5, h6  {
+    color: rgb(03,03,03);
+}
+
+h1, h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: inherit;
+}
+
+/* Chapter titles. */
+div.chapter h2 {
+    text-align: center;
+    font-style: italic;
+}
+
+/* Objectives and key points */
+.objectives, .keypoints {
+    background-color: azure;
+}
+
+/* Things to fix. */
+.fixme {
+    text-decoration: underline;
+    color: darkred;
+    background-color: lightgray;
+}
+
+/* Putting shadows around things. */
+.shadow {
+    -moz-box-shadow: 0 0 30px 5px #999;
+    -webkit-box-shadow: 0 0 30px 5px #999;
+    box-shadow: 0 0 30px 5px #999;
+}
+
+/* Things to understand (lead-in to sections in book). */
+.understand {
+    background-color: lightyellow;
+}
+
+/* Block quotations. */
+blockquote {
+    margin: 1em;
+    padding: .7em;
+    width: 90%;
+}
+
+/* Citation for testimonial quote. */
+blockquote.testimonial cite {
+    font-style: italic;
+}
+
+/* Main body of pages. */
+body {
+    background: #BEC3C6;
+    margin: 20px 0;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    color: rgb(03, 03, 03);
+}
+
+/* Styling for editorial stylesheet */
+body.stylesheet {
+    background: #ffffff;
+    width: 60em;
+    margin: 20 auto;
+}
+
+/* Top banner of every page. */
+div.banner {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 90px;
+    margin: 0px;
+    padding: 0;
+    border-bottom: 1px solid #A6A6A6;
+}
+
+.swc-blue-bg {
+   background-color: #20267D;
+}
+
+/* Padding around image in top banner. */
+div.banner a img {
+    padding: 20px 25px;
+}
+
+@media (max-width: 700px) {
+    div.banner a img {
+        padding: 20px 0px;
+    }
+}
+
+/* Footer of every page. */
+div.footer {
+    clear: both;
+    background: url("/img/main_shadow.png") repeat-x scroll center top #FFFFFF;
+    padding: 4px 10px 7px 10px;
+    border-top: 1px solid #A6A6A6;
+    text-align: right;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6  {
+    color: rgb(03,03,03);
+}
+
+h1.title {
+    margin:40px 0px;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: inherit;
+}
+
+/* Objectives and key points */
+.objectives, .keypoints {
+    background-color: azure;
+    border: 5px solid azure;
+    margin: 1em 0;
+    padding: 0em 1em;
+}
+
+/* Things to fix. */
+.fixme {
+    text-decoration: underline;
+    color: darkred;
+    background-color: lightgray;
+}
+
+/* Things to understand (lead-in to sections in book). */
+.understand {
+    background-color: lightyellow;
+}
+
+/* Block quotations. */
+blockquote {
+    margin: 1em;
+    padding: 1em 1em .5em 1em;
+    width: 90%;
+}
+
+/* Callout Box */
+.callout {
+    background-color: #EEE;
+    border: 5px solid #EEE;
+    margin: 1em 0;
+    padding: 0em 1em;
+}
+
+/* Tables used for displaying choices in challenges. */
+table.choices tr td {
+    vertical-align : top;
+}
+
+/* Database tables do _not_ have double borders */
+table.outlined {
+    border-collapse: collapse;
+}
+
+/* Code sample */
+pre.sourceCode{
+    color: ForestGreen;
+}
+pre.output {
+    color: MediumBlue;
+}
+pre.error {
+    color: Red;
+}
+
+/* Printing */
+@media print {
+  h1 {
+    font-size: 16pt;
+    line-height: 18pt;
+  }
+
+  h2,h3,h4,h5,h6 {
+    font-size: 12pt;
+    line-height: 13pt;
+  }
+
+  p,ul,ol,li,pre,code {
+    font-size: 8pt;
+    line-height: 9pt;
+  }
+
+  code {
+    padding: 0px;
+    border: 0px;
+    background: none;
+  }
+
+  #github-ribbon {
+    display: none;
+  }
+
+  .banner {
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
+}
+
+/*----------------------------------------*/
+/* Override Bootstrap CSS                 */
+/*----------------------------------------*/
+
+blockquote p {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+blockquote h2{
+   margin-top: 0px;
+}
+
+/* readability: darken the alert colour for contrast with background */
+
+.alert {
+    color: rgb(0, 0, 0);
+}
+/* Container for page contents. */
+
+.container {
+    background-color: white;
+}
+.hero-unit {
+    padding: 20px;
+}
+.navbar .container {
+    background-color: inherit;
+}
+.navbar-inner {
+    min-height: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #F4F4F4;
+    background-image: none;
+    border: 1px solid #d4d4d4;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+code {
+    color: #333333;
+}
+.navbar-inverse .navbar-inner {
+    background-color: #20267D;
+    background-image: none;
+    border-color: #20267D;
+}
+.navbar-inverse .nav .active > a,
+.navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
+    color: #ffffff;
+    background-color: #20267D;
+}
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle,
+.navbar-inverse .nav li.dropdown.active > .dropdown-toggle,
+.navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
+    color: #ffffff;
+    background-color: #20267D;
+}
+.navbar-inverse .nav li.dropdown.active > .dropdown-toggle .caret {
+    border-top-color: #999999;
+    border-bottom-color: #999999;
+}
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle .caret {
+    border-top-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+/* GitHub Ribbon */
+#github-ribbon a {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 40%;
+    font-size: 0.8rem;
+    line-height: 1.6rem;
+    position: relative;
+    transition: 0.5s;
+    width: 100%;
+    margin: 0 auto;
+    white-space: nowrap;
+    z-index: 10;
+}
+#github-ribbon a:hover {
+    background: #600;
+    color: #fff;
+}
+#github-ribbon a::before, #github-ribbon a::after {
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 1px;
+    background: #fff;
+}
+#github-ribbon a::after {
+    bottom: 1px;
+    top: auto;
+}
+
+/* GitHub ribbon breaking point */
+@media screen and (min-width: 600px) {
+    .navbar .btn-navbar {
+        margin-right: 150px;
+    }
+    #github-ribbon {
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        width: 150px;
+        overflow: hidden;
+        height: 150px;
+    }
+    #github-ribbon a {
+        width: 200px;
+        position: absolute;
+        padding: 5px 40px;
+        top: 40px;
+        right: -80px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+    }
+}
+@media (max-width: 599px) {
+    .header h1 {
+        font-size: 20pt;
+    }
+    #header-text {
+        font-size: 16pt;
+    }
+    #github-ribbon {
+        width: 100%;
+    }
+    #github-ribbon a {
+        display: block;
+        padding: 0px 0px;
+        margin: 0px 0px;
+    }
+}
