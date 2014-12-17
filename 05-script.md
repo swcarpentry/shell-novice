@@ -55,7 +55,7 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 Sure enough,
 our script's output is exactly what we would get if we ran that pipeline directly.
 
-> #### Text vs. Whatever
+> ## Text vs. Whatever {.callout}
 >
 > We usually call programs like Microsoft Word or LibreOffice Writer "text
 > editors", but we need to be a bit more careful when it comes to
@@ -109,7 +109,7 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 ~~~
 
 
-> #### Double-quotes around arguments
+> ## Double-Quotes Around Arguments {.callout}
 >
 > We put the `$1` inside of double-quotes in case the filename happens to contain any spaces.
 > The shell uses whitespace to separate arguments,
@@ -205,7 +205,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 163 ../creatures/unicorn.dat
 ~~~
 
-> #### Why Isn't It Doing Anything?
+> ## Why Isn't It Doing Anything? {.callout}
 >
 > What happens if a script is supposed to process a bunch of files, but we
 > don't give it any filenames? For example, what if we type:
@@ -277,7 +277,7 @@ The file `redo-figure-3.sh` now contains:
 After a moment's work in an editor to remove the serial numbers on the commands,
 we have a completely accurate record of how we created that figure.
 
-> #### Unnumbering
+> ## Unnumbering {.callout}
 >
 > Nelle could also use `colrm` (short for "column removal") to remove the
 > serial numbers on her previous commands.

@@ -74,7 +74,7 @@ $ pwd
 /users/nelle
 ~~~
 
-> #### Alphabet Soup
+> ## Alphabet Soup {.callout}
 > 
 > If the command to find out who we are is `whoami`, the command to find
 > out where we are ought to be called `whereami`, so why is it `pwd`
@@ -161,7 +161,7 @@ without it,
 the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
 
-> #### What's In A Name?
+> ## What's In A Name? {.callout}
 > 
 > You may have noticed that all of Nelle's files' names are "something dot
 > something". This is just a convention: we can call a file `mythesis` or
@@ -209,7 +209,7 @@ And it doesn't begin with a slash because it's a **relative path**,
 i.e., it tells `ls` how to find something from where we are,
 rather than from the root of the file system.
 
-> #### Parameters vs. Arguments
+> ## Parameters vs. Arguments {.callout}
 >
 > According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
 > the terms argument and **parameter**
@@ -340,7 +340,7 @@ which means "the current working directory".
 It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
 
-> #### Orthogonality
+> ## Orthogonality {.callout}
 > 
 > The special names `.` and `..` don't belong to `ls`;
 > they are interpreted the same way by every program.
