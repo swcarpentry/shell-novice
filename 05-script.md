@@ -373,18 +373,6 @@ she could modify her script to check for command-line parameters,
 and use `*[AB].txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
-<div class="keypoints" markdown="1">
-
-#### Key Points
-*   Save commands in files (usually called shell scripts) for re-use.
-*   `bash filename` runs the commands saved in a file.
-*   `$@` refers to all of a shell script's command-line parameters.
-*   `$1`, `$2`, etc., refer to specified command-line parameters.
-*   Place variables in quotes if the values might have spaces in them.
-*   Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.
-
-</div>
-
 <div class="challenge" markdown="1">
 Leah has several hundred data files, each of which is formatted like this:
 
