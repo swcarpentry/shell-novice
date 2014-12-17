@@ -15,7 +15,10 @@ minutes: 15
 
 Wildcards and tab completion are two ways to reduce typing (and typing mistakes).
 Another is to tell the shell to do something over and over again.
-Suppose we have several hundred genome data files named `basilisk.dat`, `unicorn.dat`, and so on. In this example, we'll use the `creatures` directory which only has two example files, but the principles can be applied to many many more files at once.
+Suppose we have several hundred genome data files named `basilisk.dat`, `unicorn.dat`, and so on.
+In this example,
+we'll use the `creatures` directory which only has two example files,
+but the principles can be applied to many many more files at once.
 When new files arrive,
 we'd like to rename the existing ones to `original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
@@ -239,7 +242,7 @@ mv unicorn.dat original-unicorn.dat
 
 > ## Measure Twice, Run Once {.callout}
 > 
-> A loop is a way to do many things at once&mdash;or to make many mistakes at
+> A loop is a way to do many things at once --- or to make many mistakes at
 > once if it does the wrong thing. One way to check what a loop *would* do
 > is to echo the commands it would run instead of actually running them.
 > For example, we could write our file renaming loop like this:
@@ -269,7 +272,7 @@ mv unicorn.dat original-unicorn.dat
 Nelle is now ready to process her data files.
 Since she's still learning how to use the shell,
 she decides to build up the required commands in stages.
-Her first step is to make sure that she can select the right files&mdash;remember,
+Her first step is to make sure that she can select the right files --- remember,
 these are ones whose names end in 'A' or 'B', rather than 'Z':
 
 ~~~ {.input}
@@ -333,7 +336,7 @@ $ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
 
 When she presses enter,
 the shell runs the modified command.
-However, nothing appears to happen&mdash;there is no output.
+However, nothing appears to happen --- there is no output.
 After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
 she has no idea whether it is running, much less how quickly.
 She kills the job by typing Control-C,

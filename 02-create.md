@@ -247,7 +247,7 @@ quotes.txt
 ~~~
 
 Just for the sake of inconsistency,
-`mv` also works on directories&mdash;there is no separate `mvdir` command.
+`mv` also works on directories --- there is no separate `mvdir` command.
 
 Let's move `quotes.txt` into the current working directory.
 We use `mv` once again,
@@ -283,7 +283,7 @@ quotes.txt
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
 We can check that it did the right thing using `ls`
-with two paths as parameters&mdash;like most Unix commands,
+with two paths as parameters --- like most Unix commands,
 `ls` can be given thousands of paths at once:
 
 ~~~ {.input}

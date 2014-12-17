@@ -235,7 +235,7 @@ if you look at this script:
 wc -l "$@" | sort -n
 ~~~
 
-you don't have to puzzle it out&mdash;the comment at the top tells you what it does.
+you don't have to puzzle it out --- the comment at the top tells you what it does.
 A line or two of documentation like this make it much easier for other people
 (including your future self)
 to re-use your work.
@@ -244,7 +244,7 @@ you should check that the comment is still accurate:
 an explanation that sends the reader in the wrong direction is worse than none at all.
 
 Second,
-suppose we have just run a series of commands that did something useful&mdash;for example,
+suppose we have just run a series of commands that did something useful --- for example,
 that created a graph we'd like to use in a paper.
 We'd like to be able to re-create the graph later if we need to,
 so we want to save the commands in a file.
@@ -351,7 +351,7 @@ done
 
 The advantage is that this always selects the right files:
 she doesn't have to remember to exclude the 'Z' files.
-The disadvantage is that it *always* selects just those files&mdash;she can't run it on all files
+The disadvantage is that it *always* selects just those files --- she can't run it on all files
 (including the 'Z' files),
 or on the 'G' or 'H' files her colleagues in Antarctica are producing,
 without editing the script.

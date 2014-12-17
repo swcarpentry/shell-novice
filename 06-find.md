@@ -47,7 +47,7 @@ Software is like that.
 >
 > We haven't linked to the original haikus because they don't appear to be on *Salon*'s site any longer.
 > As [Jeff Rothenberg said](http://www.clir.org/pubs/archives/ensuring.pdf),
-> "Digital information lasts forever&mdash;or five years, whichever comes first."
+> "Digital information lasts forever --- or five years, whichever comes first."
 
 Let's find lines that contain the word "not":
 
@@ -384,7 +384,7 @@ $ grep FE $(find .. -name '*.pdb')
 
 The Unix shell is older than most of the people who use it. It has
 survived so long because it is one of the most productive programming
-environments ever created&mdash;maybe even *the* most productive. Its syntax
+environments ever created --- maybe even *the* most productive. Its syntax
 may be cryptic, but people who have mastered it can experiment with
 different commands interactively, then use what they have learned to
 automate their work. Graphical user interfaces may be better at the
