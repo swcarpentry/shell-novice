@@ -43,7 +43,7 @@ Today it is not working
 Software is like that.
 ~~~
 
-> #### Forever, or Five Years
+> ## Forever, or Five Years {.callout}
 >
 > We haven't linked to the original haikus because they don't appear to be on *Salon*'s site any longer.
 > As [Jeff Rothenberg said](http://www.clir.org/pubs/archives/ensuring.pdf),
@@ -166,7 +166,7 @@ matched.  (-F is specified by POSIX.)
 ...        ...        ...
 ~~~
 
-> #### Wildcards
+> ## Wildcards {.callout}
 >
 > `grep`'s real power doesn't come from its options, though; it comes from
 > the fact that patterns can include wildcards. (The technical name for
@@ -302,7 +302,7 @@ $ find . -name '*.txt'
 ./haiku.txt
 ~~~
 
-> #### Listing vs. Finding
+> ## Listing vs. Finding {.callout}
 >
 > `ls` and `find` can be made to do similar things given the right options,
 > but under normal circumstances,
@@ -356,7 +356,7 @@ $ grep FE $(find .. -name '*.pdb')
 ../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518
 ~~~
 
-> #### Binary Files
+> ## Binary Files {.callout}
 >
 > We have focused exclusively on finding things in text files. What if
 > your data is stored as images, in databases, or in some other format?

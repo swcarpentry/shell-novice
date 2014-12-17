@@ -82,7 +82,7 @@ Finally,
 the command that's actually being run is our old friend `head`,
 so this loop prints out the first three lines of each data file in turn.
 
-> #### Follow the Prompt
+> ## Follow the Prompt {.callout}
 >
 > The shell prompt changes from `$` to `>` and back again as we were
 > typing in our loop. The second prompt, `>`, is different to remind
@@ -159,7 +159,7 @@ when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilis
 Finally,
 the `head` and `tail` combination selects lines 81-100 from whatever file is being processed.
 
-> #### Spaces in Names
+> ## Spaces in Names {.callout}
 > 
 > Filename expansion in loops is another reason you should not use spaces in filenames.
 > Suppose our data files are named:
@@ -237,7 +237,7 @@ The second time, the command is:
 mv unicorn.dat original-unicorn.dat
 ~~~
 
-> #### Measure Twice, Run Once
+> ## Measure Twice, Run Once {.callout}
 > 
 > A loop is a way to do many things at once&mdash;or to make many mistakes at
 > once if it does the wrong thing. One way to check what a loop *would* do
@@ -344,7 +344,7 @@ and edits it to read:
 $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
 ~~~
 
-> #### Beginning and End
+> ## Beginning and End {.callout}
 >
 > We can move to the beginning of a line in the shell by typing `^A`
 > (which means Control-A)
@@ -371,7 +371,7 @@ to examine one of the output files.
 It looks good,
 so she decides to get some coffee and catch up on her reading.
 
-> #### Those Who Know History Can Choose to Repeat It
+> ## Those Who Know History Can Choose to Repeat It {.callout}
 > 
 > Another way to repeat previous work is to use the `history` command to
 > get a list of the last few hundred commands that have been executed, and

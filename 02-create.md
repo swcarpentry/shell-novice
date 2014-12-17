@@ -69,7 +69,7 @@ $ cd thesis
 $ nano draft.txt
 ~~~
 
-> #### Which Editor?
+> ## Which Editor? {.callout}
 > 
 > When we say, "`nano` is a text editor," we really do mean "text": it can
 > only work with plain character data, not tables, images, or any other
@@ -122,7 +122,7 @@ which tells us that our file is gone:
 $ ls
 ~~~
 
-> #### Deleting Is Forever
+> ## Deleting Is Forever {.callout}
 > 
 > Unix doesn't have a trash bin: when we delete files, they are unhooked
 > from the file system so that their storage space on disk can be
@@ -187,7 +187,7 @@ The directory is now empty, so `rmdir` can delete it:
 $ rmdir thesis
 ~~~
 
-> #### With Great Power Comes Great Responsibility
+> ## With Great Power Comes Great Responsibility {.callout}
 > 
 > Removing the files in a directory just so that we can remove the
 > directory quickly becomes tedious. Instead, we can use `rm` with the
@@ -308,7 +308,7 @@ ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt
 ~~~
 
-> #### Another Useful Abbreviation
+> ## Another Useful Abbreviation {.callout}
 > 
 > The shell interprets the character `~` (tilde) at the start of a path to
 > mean "the current user's home directory". For example, if Nelle's home
