@@ -20,32 +20,27 @@ Let's go back to Nelle's home directory,
 `/users/nelle`,
 and use `ls -F` to see what it contains:
 
-~~~
+~~~ {.input}
 $ pwd
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 /users/nelle
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ ls -F
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 creatures/  molecules/           pizza.cfg
 data/       north-pacific-gyre/  solar.pdf
 Desktop/    notes.txt            writing/
 ~~~
-{:class="out"}
 
 Let's create a new directory called `thesis` using the command `mkdir thesis`
 (which has no output):
 
-~~~
+~~~ {.input}
 $ mkdir thesis
 ~~~
-{:class="in"}
 
 As you might (or might not) guess from its name,
 `mkdir` means "make directory".
@@ -53,33 +48,29 @@ Since `thesis` is a relative path
 (i.e., doesn't have a leading slash),
 the new directory is created in the current working directory:
 
-~~~
+~~~ {.input}
 $ ls -F
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 creatures/  north-pacific-gyre/  thesis/
 data/       notes.txt            writing/
 Desktop/    pizza.cfg
 molecules/  solar.pdf
 ~~~
-{:class="out"}
 
 However, there's nothing in it yet:
 
-~~~
+~~~ {.input}
 $ ls -F thesis
 ~~~
-{:class="in"}
 
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
 
-~~~
+~~~ {.input}
 $ cd thesis
 $ nano draft.txt
 ~~~
-{:class="in"}
 
 > #### Which Editor?
 > 
@@ -112,31 +103,27 @@ we can use Control-X to quit the editor and return to the shell.
 `nano` doesn't leave any output on the screen after it exits,
 but `ls` now shows that we have created a file called `draft.txt`:
 
-~~~
+~~~ {.input}
 $ ls
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 draft.txt
 ~~~
-{:class="out"}
 
 Let's tidy up by running `rm draft.txt`:
 
-~~~
+~~~ {.input}
 $ rm draft.txt
 ~~~
-{:class="in"}
 
 This command removes files ("rm" is short for "remove").
 If we run `ls` again,
 its output is empty once more,
 which tells us that our file is gone:
 
-~~~
+~~~ {.input}
 $ ls
 ~~~
-{:class="in"}
 
 > #### Deleting Is Forever
 > 
@@ -149,39 +136,32 @@ $ ls
 Let's re-create that file
 and then move up one directory to `/users/nelle` using `cd ..`:
 
-~~~
+~~~ {.input}
 $ pwd
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 /users/nelle/thesis
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ nano draft.txt
 $ ls
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 draft.txt
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ cd ..
 ~~~
-{:class="in"}
 
 If we try to remove the entire `thesis` directory using `rm thesis`,
 we get an error message:
 
-~~~
+~~~ {.input}
 $ rm thesis
 ~~~
-{:class="in"}
-~~~
+~~~ {.error}
 rm: cannot remove `thesis': Is a directory
 ~~~
-{:class="err"}
 
 This happens because `rm` only works on files, not directories.
 The right command is `rmdir`,
@@ -189,30 +169,26 @@ which is short for "remove directory".
 It doesn't work yet either, though,
 because the directory we're trying to remove isn't empty:
 
-~~~
+~~~ {.input}
 $ rmdir thesis
 ~~~
-{:class="in"}
-~~~
+~~~ {.error}
 rmdir: failed to remove `thesis': Directory not empty
 ~~~
-{:class="err"}
 
 This little safety feature can save you a lot of grief,
 particularly if you are a bad typist.
 To really get rid of `thesis` we must first delete the file `draft.txt`:
 
-~~~
+~~~ {.input}
 $ rm thesis/draft.txt
 ~~~
-{:class="in"}
 
 The directory is now empty, so `rmdir` can delete it:
 
-~~~
+~~~ {.input}
 $ rmdir thesis
 ~~~
-{:class="in"}
 
 > #### With Great Power Comes Great Responsibility
 > 
@@ -233,36 +209,30 @@ Let's create that directory and file one more time.
 (Note that this time we're running `nano` with the path `thesis/draft.txt`,
 rather than going into the `thesis` directory and running `nano` on `draft.txt` there.)
 
-~~~
+~~~ {.input}
 $ pwd
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 /users/nelle
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ mkdir thesis
 ~~~
-{:class="in"}
-~~~
+~~~ {.input}
 $ nano thesis/draft.txt
 $ ls thesis
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 draft.txt
 ~~~
-{:class="out"}
 
 `draft.txt` isn't a particularly informative name,
 so let's change the file's name using `mv`,
 which is short for "move":
 
-~~~
+~~~ {.input}
 $ mv thesis/draft.txt thesis/quotes.txt
 ~~~
-{:class="in"}
 
 The first parameter tells `mv` what we're "moving",
 while the second is where it's to go.
@@ -272,14 +242,12 @@ which has the same effect as renaming the file.
 Sure enough,
 `ls` shows us that `thesis` now contains one file called `quotes.txt`:
 
-~~~
+~~~ {.input}
 $ ls thesis
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 quotes.txt
 ~~~
-{:class="out"}
 
 Just for the sake of inconsistency,
 `mv` also works on directories&mdash;there is no separate `mvdir` command.
@@ -293,31 +261,27 @@ but put the file somewhere new.
 In this case,
 the directory name we use is the special directory name `.` that we mentioned earlier.
 
-~~~
+~~~ {.input}
 $ mv thesis/quotes.txt .
 ~~~
-{:class="in"}
 
 The effect is to move the file from the directory it was in to the current working directory.
 `ls` now shows us that `thesis` is empty:
 
-~~~
+~~~ {.input}
 $ ls thesis
 ~~~
-{:class="in"}
 
 Further,
 `ls` with a filename or directory name as a parameter only lists that file or directory.
 We can use this to see that `quotes.txt` is still in our current directory:
 
-~~~
+~~~ {.input}
 $ ls quotes.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 quotes.txt
 ~~~
-{:class="out"}
 
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
@@ -325,15 +289,13 @@ We can check that it did the right thing using `ls`
 with two paths as parameters&mdash;like most Unix commands,
 `ls` can be given thousands of paths at once:
 
-~~~
+~~~ {.input}
 $ cp quotes.txt thesis/quotations.txt
 $ ls quotes.txt thesis/quotations.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 quotes.txt   thesis/quotations.txt
 ~~~
-{:class="out"}
 
 To prove that we made a copy,
 let's delete the `quotes.txt` file in the current directory
@@ -341,15 +303,13 @@ and then run that same `ls` again.
 This time it tells us that it can't find `quotes.txt` in the current directory,
 but it does find the copy in `thesis` that we didn't delete:
 
-~~~
+~~~ {.input}
 $ ls quotes.txt thesis/quotations.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.error}
 ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt
 ~~~
-{:class="err"}
 
 > #### Another Useful Abbreviation
 > 

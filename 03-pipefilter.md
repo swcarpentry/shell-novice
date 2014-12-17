@@ -23,15 +23,13 @@ that contains six files describing some simple organic molecules.
 The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
 
-~~~
+~~~ {.input}
 $ ls molecules
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 cubane.pdb    ethane.pdb    methane.pdb
 octane.pdb    pentane.pdb   propane.pdb
 ~~~
-{:class="out"}
 
 Let's go into that directory with `cd` and run the command `wc *.pdb`.
 `wc` is the "word count" command:
@@ -39,12 +37,11 @@ it counts the number of lines, words, and characters in files.
 The `*` in `*.pdb` matches zero or more characters,
 so the shell turns `*.pdb` into a complete list of `.pdb` files:
 
-~~~
+~~~ {.input}
 $ cd molecules
 $ wc *.pdb
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
   20  156 1158 cubane.pdb
   12   84  622 ethane.pdb
    9   57  422 methane.pdb
@@ -53,7 +50,6 @@ $ wc *.pdb
   15  111  825 propane.pdb
  107  819 6081 total
 ~~~
-{:class="out"}
 
 > #### Wildcards
 > 
@@ -88,11 +84,10 @@ $ wc *.pdb
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
 
-~~~
+~~~ {.input}
 $ wc -l *.pdb
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
   20  cubane.pdb
   12  ethane.pdb
    9  methane.pdb
@@ -101,7 +96,6 @@ $ wc -l *.pdb
   15  propane.pdb
  107  total
 ~~~
-{:class="out"}
 
 We can also use `-w` to get only the number of words,
 or `-c` to get only the number of characters.
@@ -111,10 +105,9 @@ It's an easy question to answer when there are only six files,
 but what if there were 6000?
 Our first step toward a solution is to run the command:
 
-~~~
+~~~ {.input}
 $ wc -l *.pdb > lengths
 ~~~
-{:class="in"}
 
 The `>` tells the shell to [redirect](../../gloss.html#redirect) the command's output
 to a file instead of printing it to the screen.
@@ -124,14 +117,12 @@ or overwrite the contents of that file if it does.
 everything that `wc` would have printed has gone into the file `lengths` instead.)
 `ls lengths` confirms that the file exists:
 
-~~~
+~~~ {.input}
 $ ls lengths
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 lengths
 ~~~
-{:class="out"}
 
 We can now send the content of `lengths` to the screen using `cat lengths`.
 `cat` stands for "concatenate":
@@ -139,11 +130,10 @@ it prints the contents of files one after another.
 There's only one file in this case,
 so `cat` just shows us what it contains:
 
-~~~
+~~~ {.input}
 $ cat lengths
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
   20  cubane.pdb
   12  ethane.pdb
    9  methane.pdb
@@ -152,7 +142,6 @@ $ cat lengths
   15  propane.pdb
  107  total
 ~~~
-{:class="out"}
 
 Now let's use the `sort` command to sort its contents.
 We will also use the -n flag to specify that the sort is 
@@ -160,11 +149,10 @@ numerical instead of alphabetical.
 This does *not* change the file;
 instead, it sends the sorted result to the screen:
 
-~~~
+~~~ {.input}
 $ sort -n lengths
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
   9  methane.pdb
  12  ethane.pdb
  15  propane.pdb
@@ -173,7 +161,6 @@ $ sort -n lengths
  30  octane.pdb
 107  total
 ~~~
-{:class="out"}
 
 We can put the sorted list of lines in another temporary file called `sorted-lengths`
 by putting `> sorted-lengths` after the command,
@@ -181,15 +168,13 @@ just as we used `> lengths` to put the output of `wc` into `lengths`.
 Once we've done that,
 we can run another command called `head` to get the first few lines in `sorted-lengths`:
 
-~~~
+~~~ {.input}
 $ sort -n lengths > sorted-lengths
 $ head -1 sorted-lengths
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
   9  methane.pdb
 ~~~
-{:class="out"}
 
 Using the parameter `-1` with `head` tells it that
 we only want the first line of the file;
@@ -204,14 +189,12 @@ even once you understand what `wc`, `sort`, and `head` do,
 all those intermediate files make it hard to follow what's going on.
 We can make it easier to understand by running `sort` and `head` together:
 
-~~~
+~~~ {.input}
 $ sort -n lengths | head -1
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
   9  methane.pdb
 ~~~
-{:class="out"}
 
 The vertical bar between the two commands is called a [pipe](../../gloss.html#pipe).
 It tells the shell that we want to use
@@ -225,14 +208,12 @@ we don't have to know or care.
 We can use another pipe to send the output of `wc` directly to `sort`,
 which then sends its output to `head`:
 
-~~~
+~~~ {.input}
 $ wc -l *.pdb | sort -n | head -1
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
   9  methane.pdb
 ~~~
-{:class="out"}
 
 This is exactly like a mathematician nesting functions like *sin(&pi;x)<sup>2</sup>*
 and saying "the square of the sine of *x* times &pi;".
@@ -313,15 +294,14 @@ Nelle has run her samples through the assay machines
 and created 1520 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
 As a quick sanity check, she types:
 
-~~~
+~~~ {.input}
 $ cd north-pacific-gyre/2012-07-03
 $ wc -l *.txt
 ~~~
-{:class="in"}
 
 The output is 1520 lines that look like this:
 
-~~~
+~~~ {.output}
 300 NENE01729A.txt
 300 NENE01729B.txt
 300 NENE01736A.txt
@@ -330,22 +310,19 @@ The output is 1520 lines that look like this:
 300 NENE01812A.txt
 ... ...
 ~~~
-{:class="out"}
 
 Now she types this:
 
-~~~
+~~~ {.input}
 $ wc -l *.txt | sort -n | head -5
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
  240 NENE02018B.txt
  300 NENE01729A.txt
  300 NENE01729B.txt
  300 NENE01736A.txt
  300 NENE01751A.txt
 ~~~
-{:class="out"}
 
 Whoops: one of the files is 60 lines shorter than the others.
 When she goes back and checks it,
@@ -355,18 +332,16 @@ and she forgot to reset it.
 Before re-running that sample,
 she checks to see if any files have too much data:
 
-~~~
+~~~ {.input}
 $ wc -l *.txt | sort -n | tail -5
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
  300 NENE02040A.txt
  300 NENE02040B.txt
  300 NENE02040Z.txt
  300 NENE02043A.txt
  300 NENE02043B.txt
 ~~~
-{:class="out"}
 
 Those numbers look good&mdash;but what's that 'Z' doing there in the third-to-last line?
 All of her samples should be marked 'A' or 'B';
@@ -374,14 +349,12 @@ by convention,
 her lab uses 'Z' to indicate samples with missing information.
 To find others like it, she does this:
 
-~~~
+~~~ {.input}
 $ ls *Z.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 NENE01971Z.txt    NENE02040Z.txt
 ~~~
-{:class="out"}
 
 Sure enough,
 when she checks the log on her laptop,

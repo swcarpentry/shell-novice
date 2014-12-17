@@ -27,10 +27,9 @@ Several commands are frequently used to create, inspect, rename, and delete file
 To start exploring them,
 let's open a shell window:
 
-~~~
+~~~ {.input}
 $
 ~~~
-{:class="in"}
 
 The dollar sign is a [prompt](../../gloss.html#prompt),
 which shows us that the shell is waiting for input;
@@ -42,14 +41,12 @@ The command's output is the ID of the current user,
 i.e.,
 it shows us who the shell thinks we are:
 
-~~~
+~~~ {.input}
 $ whoami
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 nelle
 ~~~
-{:class="out"}
 
 More specifically, when we type `whoami` the shell:
 
@@ -71,14 +68,12 @@ Here,
 the computer's response is `/users/nelle`,
 which is Nelle's [home directory](../../gloss.html#home-directory):
 
-~~~
+~~~ {.input}
 $ pwd
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 /users/nelle
 ~~~
-{:class="out"}
 
 > #### Alphabet Soup
 > 
@@ -132,16 +127,14 @@ which is why `nelle` is the last part of the directory's name.
 Let's see what's in Nelle's home directory by running `ls`,
 which stands for "listing":
 
-~~~
+~~~ {.input}
 $ ls
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 creatures  molecules           pizza.cfg
 data       north-pacific-gyre  solar.pdf
 Desktop    notes.txt           writing
 ~~~
-{:class="out"}
 
 <img src="img/homedir.svg" alt="Nelle's Home Directory" />
 
@@ -150,16 +143,14 @@ arranged neatly into columns.
 We can make its output more comprehensible by using the [flag](../../gloss.html#flag) `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
-~~~
+~~~ {.input}
 $ ls -F
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 creatures/  molecules/           pizza.cfg
 data/       north-pacific-gyre/  solar.pdf
 Desktop/    notes.txt            writing/
 ~~~
-{:class="out"}
 
 Here,
 we can see that `/users/nelle` contains seven [sub-directories](../../gloss.html#sub-directory).
@@ -198,15 +189,13 @@ the command `ls` with the [arguments](../../gloss.html#argument) `-F` and `data`
 The second argument&mdash;the one *without* a leading dash&mdash;tells `ls` that
 we want a listing of something other than our current working directory:
 
-~~~
+~~~ {.input}
 $ ls -F data
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 amino-acids.txt   elements/     morse.txt
 pdb/              planets.txt   sunspot.txt
 ~~~
-{:class="out"}
 
 The output shows us that there are four text files and two sub-sub-directories.
 Organizing things hierarchically in this way helps us keep track of our work:
@@ -234,15 +223,13 @@ rather than from the root of the file system.
 If we run `ls -F /data` (*with* a leading slash) we get a different answer,
 because `/data` is an [absolute path](../../gloss.html#absolute-path):
 
-~~~
+~~~ {.input}
 $ ls -F /data
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 access.log    backup/    hardware.cfg
 network.cfg
 ~~~
-{:class="out"}
 
 The leading `/` tells the computer to follow the path from the root of the filesystem,
 so it always refers to exactly one directory,
@@ -253,24 +240,20 @@ Before we do this,
 `pwd` shows us that we're in `/users/nelle`,
 and `ls` without any arguments shows us that directory's contents:
 
-~~~
+~~~ {.input}
 $ pwd
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 /users/nelle
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ ls
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 creatures  molecules           pizza.cfg
 data       north-pacific-gyre  solar.pdf
 Desktop    notes.txt           writing
 ~~~
-{:class="out"}
 
 We can use `cd` followed by a directory name to change our working directory.
 `cd` stands for "change directory",
@@ -278,10 +261,9 @@ which is a bit misleading:
 the command doesn't change the directory,
 it changes the shell's idea of what directory we are in.
 
-~~~
+~~~ {.input}
 $ cd data
 ~~~
-{:class="in"}
 
 `cd` doesn't print anything,
 but if we run `pwd` after it, we can see that we are now in `/users/nelle/data`.
@@ -289,47 +271,39 @@ If we run `ls` without arguments now,
 it lists the contents of `/users/nelle/data`,
 because that's where we now are:
 
-~~~
+~~~ {.input}
 $ pwd
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 /users/nelle/data
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ ls -F
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 amino-acids.txt   elements/     morse.txt
 pdb/              planets.txt   sunspot.txt
 ~~~
-{:class="out"}
 
 We now know how to go down the directory tree:
 how do we go up?
 We could use an absolute path:
 
-~~~
+~~~ {.input}
 $ cd /users/nelle
 ~~~
-{:class="in"}
 
 but it's almost always simpler to use `cd ..` to go up one level:
 
-~~~
+~~~ {.input}
 $ pwd
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 /users/nelle/data
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ cd ..
 ~~~
-{:class="in"}
 
 `..` is a special directory name meaning
 "the directory containing this one",
@@ -338,29 +312,25 @@ the [parent](../../gloss.html#parent-directory) of the current directory.
 Sure enough,
 if we run `pwd` after running `cd ..`, we're back in `/users/nelle`:
 
-~~~
+~~~ {.input}
 $ pwd
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 /users/nelle
 ~~~
-{:class="out"}
 
 The special directory `..` doesn't usually show up when we run `ls`.
 If we want to display it, we can give `ls` the `-a` flag:
 
-~~~
+~~~ {.input}
 $ ls -F -a
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ./          Desktop/             pizza.cfg
 ../         molecules/           solar.pdf
 creatures/  north-pacific-gyre/  writing/
 data/       notes.txt
 ~~~
-{:class="out"}
 
 `-a` stands for "show all";
 it forces `ls` to show us file and directory names that begin with `.`,
@@ -419,27 +389,24 @@ All 1520 files will go into the same directory.
 If she is in her home directory,
 Nelle can see what files she has using the command:
 
-~~~
+~~~ {.input}
 $ ls north-pacific-gyre/2012-07-03/
 ~~~
-{:class="in"}
 
 This is a lot to type,
 but she can let the shell do most of the work.
 If she types:
 
-~~~
+~~~ {.input}
 $ ls nor
 ~~~
-{:class="in"}
 
 and then presses tab,
 the shell automatically completes the directory name for her:
 
-~~~
+~~~ {.input}
 $ ls north-pacific-gyre/
 ~~~
-{:class="in"}
 
 If she presses tab again,
 Bash will add `2012-07-03/` to the command,

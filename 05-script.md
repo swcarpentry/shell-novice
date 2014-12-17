@@ -24,11 +24,10 @@ these are actually small programs.
 
 Let's start by going back to `molecules/` and putting the following line in the file `middle.sh`:
 
-~~~
+~~~ {.input}
 $ cd molecules
 $ nano middle.sh
 ~~~
-{:class="in"}
 
 <div class="file" markdown="1">
 ~~~
@@ -45,18 +44,16 @@ Once we have saved the file,
 we can ask the shell to execute the commands it contains.
 Our shell is called `bash`, so we run the following command:
 
-~~~
+~~~ {.input}
 $ bash middle.sh
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
 ATOM     10  H           1      -5.254  -0.243  -0.537  1.00  0.00
 ATOM     11  H           1      -4.357   1.252  -0.895  1.00  0.00
 ATOM     12  H           1      -3.009  -0.741  -1.467  1.00  0.00
 ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 ~~~
-{:class="out"}
 
 Sure enough,
 our script's output is exactly what we would get if we ran that pipeline directly.
@@ -79,46 +76,40 @@ but that would probably take longer than just retyping the command.
 Instead,
 let's edit `middle.sh` and replace `octane.pdb` with a special variable called `$1`:
 
-~~~
+~~~ {.input}
 $ cat middle.sh
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 head -20 "$1" | tail -5
 ~~~
-{:class="out"}
 
 Inside a shell script,
 `$1` means "the first filename (or other parameter) on the command line".
 We can now run our script like this:
 
-~~~
+~~~ {.input}
 $ bash middle.sh octane.pdb
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
 ATOM     10  H           1      -5.254  -0.243  -0.537  1.00  0.00
 ATOM     11  H           1      -4.357   1.252  -0.895  1.00  0.00
 ATOM     12  H           1      -3.009  -0.741  -1.467  1.00  0.00
 ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 ~~~
-{:class="out"}
 
 or on a different file like this:
 
-~~~
+~~~ {.input}
 $ bash middle.sh pentane.pdb
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ATOM      9  H           1       1.324   0.350  -1.332  1.00  0.00
 ATOM     10  H           1       1.271   1.378   0.122  1.00  0.00
 ATOM     11  H           1      -0.074  -0.384   1.288  1.00  0.00
 ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
 ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 ~~~
-{:class="out"}
 
 
 > #### Double-quotes around arguments
@@ -140,41 +131,35 @@ We still need to edit `middle.sh` each time we want to adjust the range of lines
 though.
 Let's fix that by using the special variables `$2` and `$3`:
 
-~~~
+~~~ {.input}
 $ cat middle.sh
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 head "$2" "$1" | tail "$3"
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ bash middle.sh pentane.pdb -20 -5
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ATOM     14  H           1      -1.259   1.420   0.112  1.00  0.00
 ATOM     15  H           1      -2.608  -0.407   1.130  1.00  0.00
 ATOM     16  H           1      -2.540  -1.303  -0.404  1.00  0.00
 ATOM     17  H           1      -3.393   0.254  -0.321  1.00  0.00
 TER      18              1
 ~~~
-{:class="out"}
 
 This works,
 but it may take the next person who reads `middle.sh` a moment to figure out what it does.
 We can improve our script by adding some [comments](../../gloss.html#comment) at the top:
 
-~~~
+~~~ {.input}
 $ cat middle.sh
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 # Select lines from the middle of a file.
 # Usage: middle.sh filename -end_line -num_lines
 head "$2" "$1" | tail "$3"
 ~~~
-{:class="out"}
 
 A comment starts with a `#` character and runs to the end of the line.
 The computer ignores comments,
@@ -183,10 +168,9 @@ but they're invaluable for helping people understand and use scripts.
 What if we want to process many files in a single pipeline?
 For example, if we want to sort our `.pdb` files by length, we would type:
 
-~~~
+~~~ {.input}
 $ wc -l *.pdb | sort -n
 ~~~
-{:class="in"}
 
 because `wc -l` lists the number of lines in the files
 and `sort -n` sorts things numerically.
@@ -204,19 +188,16 @@ to handle the case of parameters containing spaces
 (`"$@"` is equivalent to `"$1"` `"$2"` ...)
 Here's an example:
 
-~~~
+~~~ {.input}
 $ cat sorted.sh
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 wc -l "$@" | sort -n
 ~~~
-{:class="out"}
-~~~
+~~~ {.input}
 $ bash sorted.sh *.pdb ../creatures/*.dat
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 9 methane.pdb
 12 ethane.pdb
 15 propane.pdb
@@ -226,7 +207,6 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 163 ../creatures/basilisk.dat
 163 ../creatures/unicorn.dat
 ~~~
-{:class="out"}
 
 > #### Why Isn't It Doing Anything?
 >
@@ -282,10 +262,9 @@ Instead of typing them in again
 (and potentially getting them wrong)
 we can do this:
 
-~~~
+~~~ {.input}
 $ history | tail -4 > redo-figure-3.sh
 ~~~
-{:class="in"}
 
 The file `redo-figure-3.sh` now contains:
 
@@ -358,17 +337,15 @@ done
 She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
 
-~~~
+~~~ {.input}
 $ bash do-stats.sh *[AB].txt
 ~~~
-{:class="in"}
 
 She can also do this:
 
-~~~
+~~~ {.input}
 $ bash do-stats.sh *[AB].txt | wc -l
 ~~~
-{:class="in"}
 
 so that the output is just the number of files processed
 rather than the names of the files that were processed.

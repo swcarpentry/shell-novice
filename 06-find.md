@@ -27,13 +27,12 @@ we will use a file that contains three haikus taken from a
 1998 competition in *Salon* magazine. For this set of examples 
 we're going to be working in the writing subdirectory:
 
-~~~
+~~~ {.input}
 $ cd
 $ cd writing
 $ cat haiku.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 The Tao that is seen
 Is not the true Tao, until
 You bring fresh toner.
@@ -46,7 +45,6 @@ Yesterday it worked
 Today it is not working
 Software is like that.
 ~~~
-{:class="out"}
 
 > #### Forever, or Five Years
 >
@@ -56,16 +54,14 @@ Software is like that.
 
 Let's find lines that contain the word "not":
 
-~~~
+~~~ {.input}
 $ grep not haiku.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 Is not the true Tao, until
 "My Thesis" not found
 Today it is not working
 ~~~
-{:class="out"}
 
 Here, `not` is the pattern we're searching for.
 It's pretty simple:
@@ -75,15 +71,13 @@ The output is the three lines in the file that contain the letters "not".
 
 Let's try a different pattern: "day".
 
-~~~
+~~~ {.input}
 $ grep day haiku.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 Yesterday it worked
 Today it is not working
 ~~~
-{:class="out"}
 
 This time,
 the output is lines containing the words "Yesterday" and "Today",
@@ -92,25 +86,22 @@ If we give `grep` the `-w` flag,
 it restricts matches to word boundaries,
 so that only lines with the word "day" will be printed:
 
-~~~
+~~~ {.input}
 $ grep -w day haiku.txt
 ~~~
-{:class="in"}
 
 In this case, there aren't any, so `grep`'s output is empty.
 
 Another useful option is `-n`, which numbers the lines that match:
 
-~~~
+~~~ {.input}
 $ grep -n it haiku.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 5:With searching comes loss
 9:Yesterday it worked
 10:Today it is not working
 ~~~
-{:class="out"}
 
 Here, we can see that lines 5, 9, and 10 contain the letters "it".
 
@@ -120,11 +111,10 @@ since `-i` makes matching case-insensitive and `-v` inverts the match,
 using them both only prints lines that *don't* match the pattern
 in any mix of upper and lower case:
 
-~~~
+~~~ {.input}
 $ grep -i -v the haiku.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 You bring fresh toner.
 
 With searching comes loss
@@ -133,7 +123,6 @@ Yesterday it worked
 Today it is not working
 Software is like that.
 ~~~
-{:class="out"}
 
 `grep` has lots of other options.
 To find out what they are, we can type `man grep`.
@@ -141,11 +130,10 @@ To find out what they are, we can type `man grep`.
 it prints a description of a command and its options,
 and (if you're lucky) provides a few examples of how to use it:
 
-~~~
+~~~ {.input}
 $ man grep
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 GREP(1)                                                                                              GREP(1)
 
 NAME
@@ -180,7 +168,6 @@ Interpret PATTERN as a list of fixed strings, separated by newlines, any of  whi
 matched.  (-F is specified by POSIX.)
 ...        ...        ...
 ~~~
-{:class="out"}
 
 > #### Wildcards
 >
@@ -228,27 +215,24 @@ Sure enough,
 `find`'s output is the names of the five directories in our little tree
 (including `.`):
 
-~~~
+~~~ {.input}
 $ find . -type d
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ./
 ./data
 ./thesis
 ./tools
 ./tools/old
 ~~~
-{:class="out"}
 
 If we change `-type d` to `-type f`,
 we get a listing of all the files instead:
 
-~~~
+~~~ {.input}
 $ find . -type f
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ./haiku.txt
 ./tools/stats
 ./tools/old/oldtool
@@ -257,7 +241,6 @@ $ find . -type f
 ./data/one.txt
 ./data/two.txt
 ~~~
-{:class="out"}
 
 `find` automatically goes into subdirectories,
 their subdirectories,
@@ -265,41 +248,35 @@ and so on to find everything that matches the pattern we've given it.
 If we don't want it to,
 we can use `-maxdepth` to restrict the depth of search:
 
-~~~
+~~~ {.input}
 $ find . -maxdepth 1 -type f
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ./haiku.txt
 ~~~
-{:class="out"}
 
 The opposite of `-maxdepth` is `-mindepth`,
 which tells `find` to only report things that are at or below a certain depth.
 `-mindepth 2` therefore finds all the files that are two or more levels below us:
 
-~~~
+~~~ {.input}
 $ find . -mindepth 2 -type f
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ./data/one.txt
 ./data/two.txt
 ./tools/format
 ./tools/stats
 ~~~
-{:class="out"}
 
 Now let's try matching by name:
 
-~~~
+~~~ {.input}
 $ find . -name *.txt
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ./haiku.txt
 ~~~
-{:class="out"}
 
 We expected it to find all the text files,
 but it only prints out `./haiku.txt`.
@@ -307,10 +284,9 @@ The problem is that the shell expands wildcard characters like `*` *before* comm
 Since `*.txt` in the current directory expands to `haiku.txt`,
 the command we actually ran was:
 
-~~~
+~~~ {.input}
 $ find . -name haiku.txt
 ~~~
-{:class="in"}
 
 `find` did what we asked; we just asked for the wrong thing.
 
@@ -320,16 +296,14 @@ put `*.txt` in single quotes to prevent the shell from expanding the `*` wildcar
 This way,
 `find` actually gets the pattern `*.txt`, not the expanded filename `haiku.txt`:
 
-~~~
+~~~ {.input}
 $ find . -name '*.txt'
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ./data/one.txt
 ./data/two.txt
 ./haiku.txt
 ~~~
-{:class="out"}
 
 > #### Listing vs. Finding
 >
@@ -348,17 +322,15 @@ How can we combine that with `wc -l` to count the lines in all those files?
 
 The simplest way is to put the `find` command inside `$()`:
 
-~~~
+~~~ {.input}
 $ wc -l $(find . -name '*.txt')
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 11 ./haiku.txt
 300 ./data/two.txt
 70 ./data/one.txt
 381 total
 ~~~
-{:class="out"}
 
 When the shell executes this command,
 the first thing it does is run whatever is inside the `$()`.
@@ -366,10 +338,9 @@ It then replaces the `$()` expression with that command's output.
 Since the output of `find` is the three filenames `./data/one.txt`, `./data/two.txt`, and `./haiku.txt`,
 the shell constructs the command:
 
-~~~
+~~~ {.input}
 $ wc -l ./data/one.txt ./data/two.txt ./haiku.txt
 ~~~
-{:class="in"}
 
 which is what we wanted.
 This expansion is exactly what the shell does when it expands wildcards like `*` and `?`,
@@ -381,14 +352,12 @@ the second looks for lines inside those files that match another pattern.
 Here, for example, we can find PDB files that contain iron atoms
 by looking for the string "FE" in all the `.pdb` files above the current directory:
 
-~~~
+~~~ {.input}
 $ grep FE $(find .. -name '*.pdb')
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 ../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518
 ~~~
-{:class="out"}
 
 > #### Binary Files
 >

@@ -117,11 +117,10 @@ as long as learners using Windows do not run into roadblocks such as:
 
 *   On Windows, it appears that:
 
-    ~~~
+    ~~~ {.input}
     $ cd
     $ cd Desktop
     ~~~
-    {:class="in"}
 
     will always put someone on their desktop.
     Have them create the example directory for the shell exercises there

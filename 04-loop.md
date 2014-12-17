@@ -23,39 +23,37 @@ When new files arrive,
 we'd like to rename the existing ones to `original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
-~~~
+~~~ {.input}
 $ mv *.dat original-*.dat
 ~~~
-{:class="in"}
 
 because that would expand to:
 
-~~~
+~~~ {.input}
 $ mv basilisk.dat unicorn.dat original-*.dat
 ~~~
-{:class="in"}
 
 This wouldn't back up our files, instead we get an error
 
-~~~
+~~~ {.error}
 mv: target `original-*.dat' is not a directory
 ~~~
-{:class="err"}
 
-This is because there are no files matching the wildcard `original-*.dat` and in this case, Bash will pass the unexpanded wildcard as a parameter to the `mv` command.
+This is because there are no files matching the wildcard `original-*.dat`.
+In this case,
+Bash passes the unexpanded wildcard as a parameter to the `mv` command.
 
 Instead, we can use a [loop](../../gloss.html#for-loop)
 to do some operation once for each thing in a list.
 Here's a simple example that displays the first three lines of each file in turn:
 
-~~~
+~~~ {.input}
 $ for filename in basilisk.dat unicorn.dat
 > do
 >    head -3 $filename
 > done
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 COMMON NAME: basilisk
 CLASSIFICATION: basiliscus vulgaris
 UPDATED: 1745-05-02
@@ -63,7 +61,6 @@ COMMON NAME: unicorn
 CLASSIFICATION: equus monoceros
 UPDATED: 1738-11-24
 ~~~
-{:class="out"}
 
 When the shell sees the keyword `for`,
 it knows it is supposed to repeat a command (or group of commands) once for each thing in a list.
@@ -99,23 +96,21 @@ in order to make its purpose clearer to human readers.
 The shell itself doesn't care what the variable is called;
 if we wrote this loop as:
 
-~~~
+~~~ {.input}
 for x in basilisk.dat unicorn.dat
 do
     head -3 $x
 done
 ~~~
-{:class="in"}
 
 or:
 
-~~~
+~~~ {.input}
 for temperature in basilisk.dat unicorn.dat
 do
     head -3 $temperature
 done
 ~~~
-{:class="in"}
 
 it would work exactly the same way.
 *Don't do this.*
@@ -125,14 +120,13 @@ increase the odds that the program won't do what its readers think it does.
 
 Here's a slightly more complicated loop:
 
-~~~
+~~~ {.input}
 for filename in *.dat
 do
     echo $filename
     head -100 $filename | tail -20
 done
 ~~~
-{:class="in"}
 
 The shell starts by expanding `*.dat` to create the list of files it will process.
 The [loop body](../../gloss.html#loop-body)
@@ -140,31 +134,28 @@ then executes two commands for each of those files.
 The first, `echo`, just prints its command-line parameters to standard output.
 For example:
 
-~~~
+~~~ {.input}
 $ echo hello there
 ~~~
-{:class="in"}
 
 prints:
 
-~~~
+~~~ {.output}
 hello there
 ~~~
-{:class="out"}
 
 In this case,
 since the shell expands `$filename` to be the name of a file,
 `echo $filename` just prints the name of the file.
 Note that we can't write this as:
 
-~~~
+~~~ {.input}
 for filename in *.dat
 do
     $filename
     head -100 $filename | tail -20
 done
 ~~~
-{:class="in"}
 
 because then the first time through the loop,
 when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as a program.
@@ -227,30 +218,27 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 Going back to our original file renaming problem,
 we can solve it using this loop:
 
-~~~
+~~~ {.input}
 for filename in *.dat
 do
     mv $filename original-$filename
 done
 ~~~
-{:class="in"}
 
 This loop runs the `mv` command once for each filename.
 The first time,
 when `$filename` expands to `basilisk.dat`,
 the shell executes:
 
-~~~
+~~~ {.input}
 mv basilisk.dat original-basilisk.dat
 ~~~
-{:class="in"}
 
 The second time, the command is:
 
-~~~
+~~~ {.input}
 mv unicorn.dat original-unicorn.dat
 ~~~
-{:class="in"}
 
 > #### Measure Twice, Run Once
 > 
@@ -287,15 +275,14 @@ she decides to build up the required commands in stages.
 Her first step is to make sure that she can select the right files&mdash;remember,
 these are ones whose names end in 'A' or 'B', rather than 'Z':
 
-~~~
+~~~ {.input}
 $ cd north-pacific-gyre/2012-07-03
 $ for datafile in *[AB].txt
 > do
 >     echo $datafile
 > done
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 NENE01729A.txt
 NENE01729B.txt
 NENE01736A.txt
@@ -303,21 +290,19 @@ NENE01736A.txt
 NENE02043A.txt
 NENE02043B.txt
 ~~~
-{:class="out"}
 
 Her next step is to decide
 what to call the files that the `goostats` analysis program will create.
 Prefixing each input file's name with "stats" seems simple,
 so she modifies her loop to do that:
 
-~~~
+~~~ {.input}
 $ for datafile in *[AB].txt
 > do
 >     echo $datafile stats-$datafile
 > done
 ~~~
-{:class="in"}
-~~~
+~~~ {.output}
 NENE01729A.txt stats-NENE01729A.txt
 NENE01729B.txt stats-NENE01729B.txt
 NENE01736A.txt stats-NENE01736A.txt
@@ -325,7 +310,6 @@ NENE01736A.txt stats-NENE01736A.txt
 NENE02043A.txt stats-NENE02043A.txt
 NENE02043B.txt stats-NENE02043B.txt
 ~~~
-{:class="out"}
 
 She hasn't actually run `goostats` yet,
 but now she's sure she can select the right files and generate the right output filenames.
@@ -339,18 +323,16 @@ In response,
 the shell redisplays the whole loop on one line
 (using semi-colons to separate the pieces):
 
-~~~
+~~~ {.input}
 $ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
 ~~~
-{:class="in"}
 
 Using the left arrow key,
 Nelle backs up and changes the command `echo` to `goostats`:
 
-~~~
+~~~ {.input}
 $ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
-{:class="in"}
 
 When she presses enter,
 the shell runs the modified command.
@@ -361,10 +343,9 @@ She kills the job by typing Control-C,
 uses up-arrow to repeat the command,
 and edits it to read:
 
-~~~
+~~~ {.input}
 $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
 ~~~
-{:class="in"}
 
 > #### Beginning and End
 >
@@ -375,13 +356,12 @@ $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$d
 When she runs her program now,
 it produces one line of output every five seconds or so:
 
-~~~
+~~~ {.output}
 NENE01729A.txt
 NENE01729B.txt
 NENE01736A.txt
 ...
 ~~~
-{:class="out"}
 
 1518 times 5 seconds,
 divided by 60,
