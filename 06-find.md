@@ -393,7 +393,7 @@ North Whitehead wrote in 1911, "Civilization advances by extending the
 number of important operations which we can perform without thinking
 about them."
 
-> ## FIXME {.challenge}
+> ## `find` pipeline reading comprehension {.challenge}
 >
 > Write a short explanatory comment for the following shell script:
 > 
@@ -401,7 +401,7 @@ about them."
 > find . -name '*.dat' | wc -l | sort -n
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Matching `ose.dat` but not `temp` {.challenge}
 > 
 > The `-v` flag to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
