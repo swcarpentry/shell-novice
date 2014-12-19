@@ -30,6 +30,11 @@ motivation.html : motivation.md _layouts/slides.html
 	$(INCLUDES) \
 	-o $@ $<
 
+## unittest : Run unit test (for Python 2 and 3)
+unittest: tools/check tools/validation_helpers.py tools/test_check.py
+	cd tools/ && python2 test_check.py
+	cd tools/ && python3 test_check.py
+
 ## commands : Display available commands.
 commands : Makefile
 	@sed -n 's/^##//p' $<
