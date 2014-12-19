@@ -360,7 +360,7 @@ she could modify her script to check for command-line parameters,
 and use `*[AB].txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
-> ## FIXME {.challenge}
+> ## List unique species {.challenge}
 > 
 > Leah has several hundred data files, each of which is formatted like this:
 > 
@@ -380,7 +380,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > `uniq` to print a list of the unique species appearing in each of
 > those files separately.
 
-> ## FIXME {.challenge}
+> ## Find the longest file with a given extension {.challenge}
 > 
 > Write a shell script called `longest.sh` that takes the name of a
 > directory and a filename extension as its parameters, and prints
@@ -394,7 +394,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > would print the name of the `.pdb` file in `/tmp/data` that has
 > the most lines.
 
-> ## FIXME {.challenge}
+> ## Why record commands in the history before running them? {.challenge}
 > 
 > If you run the command:
 > 
@@ -407,7 +407,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > running it. In fact, the shell *always* adds commands to the log
 > before running them. Why do you think it does this?
 
-> ## FIXME {.challenge}
+> ## Script reading comprehension {.challenge}
 > 
 > Joel's `data` directory contains three files: `fructose.dat`,
 > `glucose.dat`, and `sucrose.dat`. Explain what a script called
