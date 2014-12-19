@@ -431,7 +431,7 @@ class ReferencePageValidator(MarkdownValidator):
         if len(glossary_entry) < 2:
             logging.error(
                     "In {0}:"
-                    "Glossary entry \"{}\" must have at least two lines- "
+                    "Glossary entry '{1}' must have at least two lines- "
                     "a term and a definition.".format(
                         glossary_keyword, self.filename))
             return False
@@ -442,7 +442,7 @@ class ReferencePageValidator(MarkdownValidator):
                 if not re.match("^:   ", line):
                     logging.error(
                             "In {0}:"
-                            "At glossary entry \"{}\" "
+                            "At glossary entry '{1}' "
                             "First line of definition must "
                             "start with ':    '.".format(
                                 glossary_keyword, self.filename))
@@ -451,7 +451,7 @@ class ReferencePageValidator(MarkdownValidator):
                 if not re.match("^    ", line):
                     logging.error(
                             "In {0}:"
-                            "At glossary entry \"{}\" "
+                            "At glossary entry '{1}' "
                             "Subsequent lines of definition must "
                             "start with '     '.".format(
                                 glossary_keyword, self.filename))
