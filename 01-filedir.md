@@ -417,7 +417,7 @@ and we will see it in many other tools as we go on.
 
 <img src="fig/filesystem-challenge.svg" alt="Filesystem for Challenge Questions" />
 
-> ## FIXME {.challenge}
+> ## Relative path resolution {.challenge}
 >
 > If `pwd` displays `/users/thing`, what will `ls ../backup` display?
 > 
@@ -426,7 +426,7 @@ and we will see it in many other tools as we go on.
 > 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
 > 4.  `original pnas_final pnas_sub`
 
-> ## FIXME {.challenge}
+> ## `ls` reading comprehension {.challenge}
 >
 > If `pwd` displays `/users/backup`,
 > and `-r` tells `ls` to display things in reverse order,
@@ -441,7 +441,7 @@ and we will see it in many other tools as we go on.
 > 3.  `ls -r -F /users/backup`
 > 4.  Either \#2 or \#3 above, but not \#1.
 
-> ## FIXME {.challenge}
+> ## Default `cd` action {.challenge}
 >
 > What does the command `cd` without a directory name do?
 > 
@@ -450,6 +450,7 @@ and we will see it in many other tools as we go on.
 > 3.  It changes the working directory to the user's home directory.
 > 4.  It produces an error message.
 
-> ## FIXME {.challenge}
+> ## Exploring more `ls` arguments {.challenge}
 >
-> What does the command `ls` do when used with the -s and -h arguments?
+> What does the command `ls` do when used with the `-s` and `-h`
+> arguments?
