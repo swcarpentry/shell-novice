@@ -12,9 +12,14 @@ so that they don't have to type the same things over and over again.
 
 > ## Prerequisites
 >
-> FIXME
-> A short paragraph describing what learners need to know
-> before tackling this lesson.
+> This lesson guides you through the basics of filesystems and the
+> shell.  If you have stored files on a computer at all and recognize
+> the word “file” and either “directory” or “folder” (two common words
+> for the same thing), you're ready for this lesson.
+>
+> If you're already comfortable manipulating files and directories,
+> searching for files with `grep` and `find`, and writing simple loops
+> and scripts, you probably won't learn much from this lesson.
 
 ## Topics
 
