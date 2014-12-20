@@ -29,6 +29,6 @@ so that they don't have to type the same things over and over again.
 ## Other Resources
 
 *   [Motivation](motivation.html)
-*   [Reference Guide](reference.html)
-*   [Next Steps](discussion.html)
+*   [Reference](reference.html)
+*   [Discussion](discussion.html)
 *   [Instructor's Guide](instructors.html)
