@@ -24,12 +24,11 @@ def keyword2html(keyword_node):
 
 def id4glossary(key, value, format, meta):
     """Add id to keywords at glossary."""
-    if "subtitle" in meta and pf.stringify(meta['subtitle']) == 'Reference':
-        if key == "DefinitionList":
-            for definition in value:
-                definition[0] = keyword2html(definition[0])
-            return {"t": key,
-                    "c": value}
+    if key == "DefinitionList":
+        for definition in value:
+            definition[0] = keyword2html(definition[0])
+        return {"t": key,
+                "c": value}
 
 if __name__ == '__main__':
     pf.toJSONFilter(id4glossary)
