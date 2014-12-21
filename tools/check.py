@@ -102,8 +102,8 @@ class MarkdownValidator(object):
         if not validate_header:
             logging.error(
                 "In {0}: "
-                "Document header field for label {1} "
-                "does not follow expected format".format(self.filename, label))
+                "Contents of document header field for label {1} "
+                "do not follow expected format".format(self.filename, label))
         return validate_header
 
     # Methods related to specific validation. Can override specific tests.
@@ -113,18 +113,29 @@ class MarkdownValidator(object):
         Pass only if the header of the document contains the specified
             sections with the expected contents"""
 
-        # Header section should be wrapped in hrs
+        # Test: Header section should be wrapped in hrs
         has_hrs = self._validate_hrs()
 
-        # Labeled sections in the actual headers should match expected format
+        # Test: Labeled sections in the actual headers should match expected format
         header_node = self.ast.children[1]
         test_headers = [self._validate_one_doc_header_row(s)
                         for s in header_node.strings]
 
-        # Must have all expected header lines, and no others.
+        # Test: Must have all expected header lines, and no others.
         only_headers = (len(header_node.strings) == len(self.DOC_HEADERS))
 
-        # Headings must appear in the order expected
+        # If expected headings are missing, print an informative message
+        heading_labels = [s.split(":")[0]
+                          for s in header_node.strings]
+        missing_headings = [h for h in self.DOC_HEADERS
+                            if h not in heading_labels]
+
+        for h in missing_headings:
+            logging.error("In {0}: "
+                          "Header section is missing expected "
+                          "row {1}".format(self.filename, h))
+
+        # Test: Headings must appear in the order expected
         valid_order = self._validate_section_heading_order()
 
         return has_hrs and all(test_headers) and only_headers and valid_order
@@ -330,8 +341,8 @@ class IndexPageValidator(MarkdownValidator):
         return super(IndexPageValidator, self)._validate_links(links_to_skip)
 
     def _run_tests(self):
-        tests = [self._validate_intro_section()]
         parent_tests = super(IndexPageValidator, self)._run_tests()
+        tests = [self._validate_intro_section()]
         return all(tests) and parent_tests
 
 
@@ -383,9 +394,9 @@ class TopicPageValidator(MarkdownValidator):
         return False
 
     def _run_tests(self):
+        parent_tests = super(TopicPageValidator, self)._run_tests()
         tests = [self._validate_has_no_headings(),
                  self._validate_learning_objective()]
-        parent_tests = super(TopicPageValidator, self)._run_tests()
         return all(tests) and parent_tests
 
 
@@ -647,7 +658,3 @@ def main(parsed_args_obj):
 if __name__ == "__main__":
     parsed_args = command_line()
     main(parsed_args)
-
-    #### Sample of how validator is used directly
-    # validator = HomePageValidator('../index.md')
-    # print validator.validate()
