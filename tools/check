@@ -406,7 +406,8 @@ class TopicPageValidator(MarkdownValidator):
 class MotivationPageValidator(MarkdownValidator):
     """Validate motivation.md"""
     DOC_HEADERS = {"layout": vh.is_str,
-                   "title": vh.is_str}
+                   "title": vh.is_str,
+                   "subtitle": vh.is_str}
     # TODO: How to validate? May be a mix of reveal.js (HTML) + markdown.
 
 
