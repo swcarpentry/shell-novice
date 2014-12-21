@@ -30,8 +30,8 @@
   min-height: 40px;
 }
 
-code {
-  color: #333333;
+.navbar .nav > li > a {
+  padding: 10px;
 }
 
 .navbar-inverse .nav > li > a {
@@ -102,6 +102,10 @@ code {
     background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
 }
 
+code {
+  color: #333333;
+}
+
 .container {
     max-width:920px;
 }
@@ -109,7 +113,6 @@ code {
 blockquote p {
   font-size:14px;
 }
-
 
 /* GitHub Ribbon */
 
@@ -151,7 +154,6 @@ blockquote p {
   bottom:1px;
   top:auto;
 }
-
 
 /* Media Queries */
 
