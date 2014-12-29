@@ -151,6 +151,10 @@ flag
     while DOS applications use a slash, such as `/V`.
     Depending on the application, a flag may be followed by a single argument, as in `-o /tmp/output.txt`.
 
+for loop
+:   A loop that is executed once for each value in some kind of set, list, or range.
+    See also: [while loop](#while-loop).
+
 graphical user interface
 :   A graphical user interface,
     usually controlled by using a mouse.
@@ -160,13 +164,21 @@ home directory
 :   The default directory associated with an account on a computer system.
     By convention, all of a user's files are stored in or below her home directory.
 
-
 loop
-:   FIXME
+:   CHECKME A set of instructions to be executed multiple times. Consists of a [loop body](#loop-body) and (usually) a 
+    condition for exiting the loop. See also [for loop](#for-loop) and [while loop](#while-loop).
 
 loop body
 :   The set of statements or commands that are repeated inside a [for loop](#for-loop)
     or [while loop](#while-loop).
+
+MIME type
+:   CHECKME MIME (Multi-Purpose Internet Mail Extensions) types describe different file types for exchange on the Internet,
+    for example images, audio, and documents.
+
+operating system
+:   CHECKME Software that manages interactions between users, hardware, and software [processes](#process). Common
+    examples are Linux, OS X, and Windows.
 
 orthogonal
 :   To have meanings or behaviors that are independent of each other.
@@ -229,8 +241,13 @@ relative path
     See also: [absolute path](#absolute-path).
 
 root directory
-:   The top-most directory in a [filesystem](#filesystem).
+:   The top-most directory in a [file system](#file-system).
     Its name is "/" on Unix (including Linux and Mac OS X) and "\\" on Microsoft Windows.
+
+shell
+:   A [command-line interface](#cli) such as Bash (the Bourne-Again Shell)
+    or the Microsoft Windows DOS shell
+    that allows a user to interact with the [operating system](#operating-system).
 
 shell script
 :   A set of [shell](#shell) commands stored in a file for re-use.
@@ -241,7 +258,7 @@ shell script
 standard input
 :   A process's default input stream.
     In interactive command-line applications,
-    it is typically connected to the keyboard;;
+    it is typically connected to the keyboard;
     in a [pipe](#pipe),
     it receives data from the [standard output](#standard-output) of the preceding process.
 
@@ -264,8 +281,12 @@ tab completion
 variable
 :   A name in a program that is associated with a value or a collection of values.
 
+while loop
+:   A loop that keeps executing as long as some condition is true.
+    See also: [for loop](#for-loop).
+
 wildcard
 :   A character used in pattern matching.
     In the Unix shell,
-    the wildcard "*" matches zero or more characters,
+    the wildcard `*` matches zero or more characters,
     so that `*.txt` matches all files whose names end in `.txt`.
