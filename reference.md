@@ -105,8 +105,8 @@ command shell
 
 command-line interface
 :   An interface based on typing commands,
-    usually at a [REPL](#repl).
-    See also: [graphical user interface](#gui).
+    usually at a [REPL](#read-evaluate-print-loop).
+    See also: [graphical user interface](#graphical-user-interface).
 
 comment
 :   A remark in a program that is intended to help human readers understand what is going on,
@@ -158,7 +158,7 @@ for loop
 graphical user interface
 :   A graphical user interface,
     usually controlled by using a mouse.
-    See also: [command-line interface](#cli).
+    See also: [command-line interface](#command-line-interface).
 
 home directory
 :   The default directory associated with an account on a computer system.
@@ -212,7 +212,7 @@ process
 
 
 prompt
-:   A character or characters display by a [REPL](#repl) to show that
+:   A character or characters display by a [REPL](#read-evaluate-print-loop) to show that
     it is waiting for its next command.
 
 quoting
@@ -223,7 +223,7 @@ quoting
     so that the shell will not try to expand the `*` wildcard.
 
 read-evaluate-print loop
-:   A [command-line interface](#cli) that reads a command from the user,
+:   (REPL): A [command-line interface](#command-line-interface) that reads a command from the user,
     executes it, prints the result, and waits for another command.
 
 redirect
