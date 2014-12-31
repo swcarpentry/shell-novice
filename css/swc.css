@@ -79,6 +79,14 @@ div.chapter h2 {
     padding: 0em 1em;
 }
 
+/* Challenges */
+.challenge {
+    background-color: #CCFFCC;
+    border: 5px solid #CCFFCC;
+    margin: 1em 0;
+    padding: 0em 1em;
+}
+
 /* Things to fix. */
 .fixme {
     text-decoration: underline;
