@@ -21,6 +21,7 @@ import re
 import sys
 
 import CommonMark
+import yaml
 
 import validation_helpers as vh
 
@@ -87,9 +88,8 @@ class MarkdownValidator(object):
                 valid = False
         return valid
 
-    def _validate_one_doc_header_row(self, text):
+    def _validate_one_doc_header_row(self, label, content):
         """Validate a single row of the document header section"""
-        label, content = text.split(":", 1)
         if label not in self.DOC_HEADERS:
             logging.warning(
                 "In {0}: "
@@ -116,29 +116,34 @@ class MarkdownValidator(object):
         # Test: Header section should be wrapped in hrs
         has_hrs = self._validate_hrs()
 
-        # Test: Labeled sections in the actual headers should match expected format
         header_node = self.ast.children[1]
-        test_headers = [self._validate_one_doc_header_row(s)
-                        for s in header_node.strings]
+        header_text = '\n'.join(header_node.strings)
+
+        # Parse headers as YAML. Don't check if parser returns None or str.
+        header_yaml = yaml.load(header_text)
+        if not isinstance(header_yaml, dict):
+            logging.error("In {0}: "
+                          "Expected YAML markup with labels "
+                          "{1}".format(self.filename, self.DOC_HEADERS.keys()))
+            return False
+
+        # Test: Labeled YAML should match expected format
+        test_headers = [self._validate_one_doc_header_row(k, v)
+                        for k, v in header_yaml.items()]
 
         # Test: Must have all expected header lines, and no others.
-        only_headers = (len(header_node.strings) == len(self.DOC_HEADERS))
+        only_headers = (len(header_yaml) == len(self.DOC_HEADERS))
 
         # If expected headings are missing, print an informative message
-        heading_labels = [s.split(":")[0]
-                          for s in header_node.strings]
         missing_headings = [h for h in self.DOC_HEADERS
-                            if h not in heading_labels]
+                            if h not in header_yaml]
 
         for h in missing_headings:
             logging.error("In {0}: "
                           "Header section is missing expected "
                           "row {1}".format(self.filename, h))
 
-        # Test: Headings must appear in the order expected
-        valid_order = self._validate_section_heading_order()
-
-        return has_hrs and all(test_headers) and only_headers and valid_order
+        return has_hrs and all(test_headers) and only_headers
 
     def _validate_section_heading_order(self, ast_node=None, headings=None):
         """Verify that section headings appear, and in the order expected"""
