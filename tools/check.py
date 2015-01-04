@@ -20,21 +20,7 @@ import os
 import re
 import sys
 
-try:
-    # Code tested with CommonMark version 0.5.4; API may change
-    import CommonMark
-except ImportError:
-    ERROR_MESSAGE = """This program requires the CommonMark python package.
-Install using
-
-    # pip install commonmark
-
-or
-
-    # easy_install commonmark
-"""
-    print(ERROR_MESSAGE)
-    sys.exit(1)
+import CommonMark
 
 import validation_helpers as vh
 

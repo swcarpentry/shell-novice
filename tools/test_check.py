@@ -7,14 +7,11 @@ Some of these tests require looking for example files, which exist only on
 the gh-pages branch.   Some tests may therefore fail on branch "core".
 """
 
-
-import imp
 import logging
 import os
 import unittest
 
-check = imp.load_source("check",  # Import non-.py file
-                        os.path.join(os.path.dirname(__file__), "check"))
+import check
 
 # Make log messages visible to help audit test failures
 check.start_logging(level=logging.DEBUG)
