@@ -18,11 +18,6 @@ div.chapter h2 {
     font-style: italic;
 }
 
-/* Objectives and key points */
-.objectives, .keypoints {
-    background-color: azure;
-}
-
 /* Things to fix. */
 .fixme {
     text-decoration: underline;
@@ -120,6 +115,14 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 .objectives, .keypoints {
     background-color: azure;
     border: 5px solid azure;
+    margin: 1em 0;
+    padding: 0em 1em;
+}
+
+/* Challenges */
+.challenge {
+    background-color: #CCFFCC;
+    border: 5px solid #CCFFCC;
     margin: 1em 0;
     padding: 0em 1em;
 }
