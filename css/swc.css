@@ -61,6 +61,10 @@ h1, h2 {
     margin-bottom: 10px;
 }
 
+h1:first-child, h2:first-child {
+    margin-top: 10px;
+}
+
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: inherit;
 }
@@ -71,20 +75,25 @@ div.chapter h2 {
     font-style: italic;
 }
 
-/* Objectives and key points */
-.objectives, .keypoints {
-    background-color: azure;
-    border: 5px solid azure;
+/* Objectives, Callout Box and Challenges */
+.objectives, .keypoints, .callout, .challenge {
     margin: 1em 0;
     padding: 0em 1em;
 }
 
-/* Challenges */
+.objectives, .keypoints {
+    background-color: azure;
+    border: 5px solid azure;
+}
+
+.callout {
+    background-color: #EEE;
+    border: 5px solid #EEE;
+}
+
 .challenge {
     background-color: #CCFFCC;
     border: 5px solid #CCFFCC;
-    margin: 1em 0;
-    padding: 0em 1em;
 }
 
 /* Things to fix. */
@@ -118,14 +127,6 @@ blockquote.testimonial cite {
     font-style: italic;
 }
 
-/* Callout Box */
-.callout {
-    background-color: #EEE;
-    border: 5px solid #EEE;
-    margin: 1em 0;
-    padding: 0em 1em;
-}
-
 /* Tables used for displaying choices in challenges. */
 table.choices tr td {
     vertical-align : top;
@@ -137,7 +138,8 @@ table.outlined {
 }
 
 /* Code sample */
-pre.sourceCode{
+pre.sourceCode,
+pre.input {
     color: ForestGreen;
 }
 pre.output {
@@ -159,6 +161,22 @@ pre.error {
     line-height: 13pt;
   }
 
+  /* Objectives, Callout Box and Challenges */
+  .objectives, .keypoints {
+      background-color: unset;
+      border: 5px solid;
+  }
+
+  .callout {
+      background-color: unset;
+      border: 5px solid;
+  }
+
+  .challenge {
+      background-color: unset;
+      border: 5px solid;
+  }
+
   p,ul,ol,li,pre,code {
     font-size: 8pt;
     line-height: 9pt;
@@ -167,7 +185,29 @@ pre.error {
   code {
     padding: 0px;
     border: 0px;
-    background: none;
+    background: unset;
+  }
+
+  pre.sourceCode::before,
+  pre.input::before. {
+      content: "Input:";
+  }
+
+  pre.output::before {
+      content: "Output:";
+  }
+
+  pre.error::before {
+      content: "Error:";
+  }
+
+  pre.sourceCode code,
+  pre.input code,
+  pre.output code,
+  pre.error code {
+      display: block;
+      margin-top: 1em;
+      margin-left: 2em;
   }
 
   #github-ribbon {
