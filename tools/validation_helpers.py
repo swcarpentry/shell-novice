@@ -121,21 +121,27 @@ class CommonMarkHelper(object):
 
         return dest, link_text
 
-    def find_external_links(self, ast_node=None):
+    def find_external_links(self, ast_node=None, parent_crit=None):
         """Recursive function that locates all references to external content
          under specified node. (links or images)"""
         ast_node = ast_node or self.data
+        if parent_crit is None:
+            # User can optionally provide a function to filter link list
+            # based on where link appears. (eg, only links in headings)
+            # If no filter is provided, accept all links in that node.
+            parent_crit = lambda n: True
 
         # Link can be node itself, or hiding in inline content
         links = [n for n in ast_node.inline_content
-                 if self.is_external(n)]
+                 if self.is_external(n) and parent_crit(ast_node)]
 
         if self.is_external(ast_node):
             links.append(ast_node)
 
         # Also look for links in sub-nodes
         for n in ast_node.children:
-            links.extend(self.find_external_links(n))
+            links.extend(self.find_external_links(n,
+                                                  parent_crit=parent_crit))
 
         return links
 
