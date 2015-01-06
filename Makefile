@@ -1,6 +1,11 @@
 # Files.
-SRC_PAGES = $(wildcard *.md)
+MARKDOWN = $(wildcard *.md)
+EXCLUDES = README.md LAYOUT.md FAQ.md DESIGN.md
+SRC_PAGES = $(filter-out $(EXCLUDES), $(MARKDOWN))
 DST_PAGES = $(patsubst %.md,%.html,$(SRC_PAGES))
+
+# Pandoc filters
+FILTERS = $(wildcard tools/filters/*.py)
 
 # Inclusions.
 INCLUDES = \
@@ -22,13 +27,17 @@ motivation.html : motivation.md _layouts/slides.html
 	-o $@ $<
 
 # Pattern to build a generic page.
-%.html : %.md _layouts/page.html
+%.html : %.md _layouts/page.html $(FILTERS)
 	pandoc -s -t html \
 	--template=_layouts/page \
 	--filter=tools/filters/blockquote2div.py \
 	--filter=tools/filters/id4glossary.py \
 	$(INCLUDES) \
 	-o $@ $<
+
+# Pattern to convert R Markdown to Markdown.
+%.md: %.Rmd $(R_CHUNK_OPTS)
+	Rscript -e "knitr::knit('$$(basename $<)', output = '$$(basename $@)')"
 
 ## unittest : Run unit test (for Python 2 and 3)
 unittest: tools/check.py tools/validation_helpers.py tools/test_check.py
