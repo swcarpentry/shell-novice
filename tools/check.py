@@ -20,21 +20,8 @@ import os
 import re
 import sys
 
-try:
-    # Code tested with CommonMark version 0.5.4; API may change
-    import CommonMark
-except ImportError:
-    ERROR_MESSAGE = """This program requires the CommonMark python package.
-Install using
-
-    # pip install commonmark
-
-or
-
-    # easy_install commonmark
-"""
-    print(ERROR_MESSAGE)
-    sys.exit(1)
+import CommonMark
+import yaml
 
 import validation_helpers as vh
 
@@ -101,9 +88,8 @@ class MarkdownValidator(object):
                 valid = False
         return valid
 
-    def _validate_one_doc_header_row(self, text):
+    def _validate_one_doc_header_row(self, label, content):
         """Validate a single row of the document header section"""
-        label, content = text.split(":", 1)
         if label not in self.DOC_HEADERS:
             logging.warning(
                 "In {0}: "
@@ -116,8 +102,8 @@ class MarkdownValidator(object):
         if not validate_header:
             logging.error(
                 "In {0}: "
-                "Document header field for label {1} "
-                "does not follow expected format".format(self.filename, label))
+                "Contents of document header field for label {1} "
+                "do not follow expected format".format(self.filename, label))
         return validate_header
 
     # Methods related to specific validation. Can override specific tests.
@@ -127,21 +113,37 @@ class MarkdownValidator(object):
         Pass only if the header of the document contains the specified
             sections with the expected contents"""
 
-        # Header section should be wrapped in hrs
+        # Test: Header section should be wrapped in hrs
         has_hrs = self._validate_hrs()
 
-        # Labeled sections in the actual headers should match expected format
         header_node = self.ast.children[1]
-        test_headers = [self._validate_one_doc_header_row(s)
-                        for s in header_node.strings]
+        header_text = '\n'.join(header_node.strings)
 
-        # Must have all expected header lines, and no others.
-        only_headers = (len(header_node.strings) == len(self.DOC_HEADERS))
+        # Parse headers as YAML. Don't check if parser returns None or str.
+        header_yaml = yaml.load(header_text)
+        if not isinstance(header_yaml, dict):
+            logging.error("In {0}: "
+                          "Expected YAML markup with labels "
+                          "{1}".format(self.filename, self.DOC_HEADERS.keys()))
+            return False
 
-        # Headings must appear in the order expected
-        valid_order = self._validate_section_heading_order()
+        # Test: Labeled YAML should match expected format
+        test_headers = [self._validate_one_doc_header_row(k, v)
+                        for k, v in header_yaml.items()]
 
-        return has_hrs and all(test_headers) and only_headers and valid_order
+        # Test: Must have all expected header lines, and no others.
+        only_headers = (len(header_yaml) == len(self.DOC_HEADERS))
+
+        # If expected headings are missing, print an informative message
+        missing_headings = [h for h in self.DOC_HEADERS
+                            if h not in header_yaml]
+
+        for h in missing_headings:
+            logging.error("In {0}: "
+                          "Header section is missing expected "
+                          "row {1}".format(self.filename, h))
+
+        return has_hrs and all(test_headers) and only_headers
 
     def _validate_section_heading_order(self, ast_node=None, headings=None):
         """Verify that section headings appear, and in the order expected"""
@@ -344,8 +346,8 @@ class IndexPageValidator(MarkdownValidator):
         return super(IndexPageValidator, self)._validate_links(links_to_skip)
 
     def _run_tests(self):
-        tests = [self._validate_intro_section()]
         parent_tests = super(IndexPageValidator, self)._run_tests()
+        tests = [self._validate_intro_section()]
         return all(tests) and parent_tests
 
 
@@ -397,16 +399,17 @@ class TopicPageValidator(MarkdownValidator):
         return False
 
     def _run_tests(self):
+        parent_tests = super(TopicPageValidator, self)._run_tests()
         tests = [self._validate_has_no_headings(),
                  self._validate_learning_objective()]
-        parent_tests = super(TopicPageValidator, self)._run_tests()
         return all(tests) and parent_tests
 
 
 class MotivationPageValidator(MarkdownValidator):
     """Validate motivation.md"""
     DOC_HEADERS = {"layout": vh.is_str,
-                   "title": vh.is_str}
+                   "title": vh.is_str,
+                   "subtitle": vh.is_str}
     # TODO: How to validate? May be a mix of reveal.js (HTML) + markdown.
 
 
@@ -426,13 +429,14 @@ class ReferencePageValidator(MarkdownValidator):
         ```definition_lists``` extension.
 
         That syntax isn't supported by the CommonMark parser, so we identify
-         terms manually."""
+        terms manually."""
+        glossary_keyword = glossary_entry[0]
         if len(glossary_entry) < 2:
             logging.error(
                     "In {0}:"
-                    "Glossary entry must have at least two lines- "
+                    "Glossary entry '{1}' must have at least two lines- "
                     "a term and a definition.".format(
-                        self.filename))
+                        glossary_keyword, self.filename))
             return False
 
         entry_is_valid = True
@@ -441,17 +445,19 @@ class ReferencePageValidator(MarkdownValidator):
                 if not re.match("^:   ", line):
                     logging.error(
                             "In {0}:"
+                            "At glossary entry '{1}' "
                             "First line of definition must "
                             "start with ':    '.".format(
-                                self.filename))
+                                glossary_keyword, self.filename))
                     entry_is_valid = False
             elif line_index > 1:
                 if not re.match("^    ", line):
                     logging.error(
                             "In {0}:"
+                            "At glossary entry '{1}' "
                             "Subsequent lines of definition must "
                             "start with '     '.".format(
-                                self.filename))
+                                glossary_keyword, self.filename))
                     entry_is_valid = False
         return entry_is_valid
 
@@ -495,7 +501,7 @@ class LicensePageValidator(MarkdownValidator):
     def _run_tests(self):
         """Skip the base tests; just check md5 hash"""
         # TODO: This hash is specific to the license for english-language repo
-        expected_hash = '258aa6822fa77f7c49c37c3759017891'
+        expected_hash = 'cd5742b6596a1f2f35c602ad43fa24b2'
         m = hashlib.md5()
         try:
             m.update(self.markdown)
@@ -657,7 +663,3 @@ def main(parsed_args_obj):
 if __name__ == "__main__":
     parsed_args = command_line()
     main(parsed_args)
-
-    #### Sample of how validator is used directly
-    # validator = HomePageValidator('../index.md')
-    # print validator.validate()
