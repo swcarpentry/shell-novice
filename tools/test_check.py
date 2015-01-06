@@ -295,6 +295,14 @@ minutes: not a number
 ---""")
         self.assertFalse(validator._validate_doc_headers())
 
+    def test_topic_page_should_have_no_headings(self):
+        """Requirement according to spec; may be relaxed in future"""
+        validator = self._create_validator("""
+## Heading that should not be present
+
+Some text""")
+        self.assertFalse(validator._validate_has_no_headings())
+
     def test_sample_file_passes_validation(self):
         sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
         res = sample_validator.validate()
