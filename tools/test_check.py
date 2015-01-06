@@ -7,14 +7,11 @@ Some of these tests require looking for example files, which exist only on
 the gh-pages branch.   Some tests may therefore fail on branch "core".
 """
 
-
-import imp
 import logging
 import os
 import unittest
 
-check = imp.load_source("check",  # Import non-.py file
-                        os.path.join(os.path.dirname(__file__), "check"))
+import check
 
 # Make log messages visible to help audit test failures
 check.start_logging(level=logging.DEBUG)
@@ -63,7 +60,6 @@ class TestIndexPage(BaseTemplateTest):
 
 layout: lesson
 title: Lesson Title
-keywords: ["some", "key terms", "in a list"]
 
 Another section that isn't an HR
 """)
@@ -74,7 +70,6 @@ Another section that isn't an HR
         """One of the required headers is missing"""
         validator = self._create_validator("""---
 layout: lesson
-keywords: ["some", "key terms", "in a list"]
 ---""")
         self.assertFalse(validator._validate_doc_headers())
 
@@ -83,16 +78,14 @@ keywords: ["some", "key terms", "in a list"]
         validator = self._create_validator("""---
 layout: lesson
 title: Lesson Title
-keywords: ["some", "key terms", "in a list"]
 otherline: Nothing
 ---""")
         self.assertFalse(validator._validate_doc_headers())
 
-    def test_headers_fail_because_invalid_content(self):
+    def test_fail_when_headers_not_yaml_dict(self):
+        """Fail when the headers can't be parsed to a dict of YAML data"""
         validator = self._create_validator("""---
-layout: lesson
-title: Lesson Title
-keywords: this is not a list
+This will parse as a string, not a dictionary
 ---""")
         self.assertFalse(validator._validate_doc_headers())
 
@@ -158,7 +151,6 @@ Paragraph of introductory material.
         validator = self._create_validator("""---
 layout: lesson
 title: Lesson Title
-keywords: ["some", "key terms", "in a list"]
 ---
 Paragraph of introductory material.
 
@@ -185,7 +177,6 @@ Paragraph of introductory material.
         validator = self._create_validator("""---
 layout: lesson
 title: Lesson Title
-keywords: ["some", "key terms", "in a list"]
 ---
 Paragraph of introductory material.
 
@@ -200,7 +191,6 @@ Paragraph of introductory material.
         validator = self._create_validator("""---
 layout: lesson
 title: Lesson Title
-keywords: ["some", "key terms", "in a list"]
 ---
 Paragraph of introductory material.
 
@@ -294,6 +284,16 @@ class TestTopicPage(BaseTemplateTest):
     """Verifies that the topic page validator works as expected"""
     SAMPLE_FILE = os.path.join(MARKDOWN_DIR, "01-one.md")
     VALIDATOR = check.TopicPageValidator
+
+    def test_headers_fail_because_invalid_content(self):
+        """The value provided as YAML does not match the expected datatype"""
+        validator = self._create_validator("""---
+layout: lesson
+title: Lesson Title
+subtitle: A page
+minutes: not a number
+---""")
+        self.assertFalse(validator._validate_doc_headers())
 
     def test_sample_file_passes_validation(self):
         sample_validator = self.VALIDATOR(self.SAMPLE_FILE)

@@ -31,7 +31,7 @@ motivation.html : motivation.md _layouts/slides.html
 	-o $@ $<
 
 ## unittest : Run unit test (for Python 2 and 3)
-unittest: tools/check tools/validation_helpers.py tools/test_check.py
+unittest: tools/check.py tools/validation_helpers.py tools/test_check.py
 	cd tools/ && python2 test_check.py
 	cd tools/ && python3 test_check.py
 
