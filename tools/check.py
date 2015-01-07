@@ -141,7 +141,7 @@ class MarkdownValidator(object):
         for h in missing_headings:
             logging.error("In {0}: "
                           "Header section is missing expected "
-                          "row {1}".format(self.filename, h))
+                          "row '{1}'".format(self.filename, h))
 
         return has_hrs and all(test_headers) and only_headers
 
@@ -371,9 +371,9 @@ class TopicPageValidator(MarkdownValidator):
         if node_tests is False:
             logging.error(
                 "In {0}: "
-                "Learning Objectives should not be empty.".format(
-                    self.filename))
-
+                "Page should contain a blockquoted section with level 2 "
+                "title 'Learning Objectives'. Section should not "
+                "be empty.".format(self.filename))
         return node_tests
 
     def _validate_has_no_headings(self):
@@ -385,17 +385,13 @@ class TopicPageValidator(MarkdownValidator):
         if len(heading_nodes) == 0:
             return True
 
+        # Individual heading msgs are logged by validate_section_heading_order
         logging.error(
             "In {0}: "
             "The topic page should not have sub-headings "
             "outside of special blocks. "
             "If a topic needs sub-headings, "
             "it should be broken into multiple topics.".format(self.filename))
-        for n in heading_nodes:
-            logging.warning(
-                "In {0}: "
-                "The following sub-heading should be removed: {1}".format(
-                    self.filename, n.strings[0]))
         return False
 
     def _run_tests(self):
@@ -433,10 +429,10 @@ class ReferencePageValidator(MarkdownValidator):
         glossary_keyword = glossary_entry[0]
         if len(glossary_entry) < 2:
             logging.error(
-                    "In {0}:"
-                    "Glossary entry '{1}' must have at least two lines- "
-                    "a term and a definition.".format(
-                        glossary_keyword, self.filename))
+                "In {0}: "
+                "Glossary entry '{1}' must have at least two lines- "
+                "a term and a definition.".format(
+                    self.filename, glossary_keyword))
             return False
 
         entry_is_valid = True
@@ -444,20 +440,20 @@ class ReferencePageValidator(MarkdownValidator):
             if line_index == 1:
                 if not re.match("^:   ", line):
                     logging.error(
-                            "In {0}:"
-                            "At glossary entry '{1}' "
-                            "First line of definition must "
-                            "start with ':    '.".format(
-                                glossary_keyword, self.filename))
+                        "In {0}: "
+                        "At glossary entry '{1}' "
+                        "First line of definition must "
+                        "start with ':    '.".format(
+                            self.filename, glossary_keyword))
                     entry_is_valid = False
             elif line_index > 1:
                 if not re.match("^    ", line):
                     logging.error(
-                            "In {0}:"
-                            "At glossary entry '{1}' "
-                            "Subsequent lines of definition must "
-                            "start with '     '.".format(
-                                glossary_keyword, self.filename))
+                        "In {0}: "
+                        "At glossary entry '{1}' "
+                        "Subsequent lines of definition must "
+                        "start with '     '.".format(
+                            self.filename,  glossary_keyword, ))
                     entry_is_valid = False
         return entry_is_valid
 
