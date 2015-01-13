@@ -416,3 +416,21 @@ about them."
 > 3. `grep -v temp $(find /data -name '*ose.dat')`
 > 
 > 4. None of the above.
+> ## FIXME {.challenge}
+>
+> You and your friend Joseph, having just finished reading *Little Women* by Louisa Ma
+Alcott, are in an argument. Of the four sisters in the book, Jo, Meg, Beth, and Amy,
+Joseph thinks that Jo was the most mentioned. You, however, are certain it was Amy.
+Luckily, you have a file `LittleWomen.txt` containing the full text of the novel. Using
+a`for` loop how would you tabulate the number of times each of the four sisters is
+mentioned in the book? Hint: one solution might employ the commands `grep` and `wc` and 
+a `|`, while another might utilize `grep` options.
+> ~~~ {.input}
+> One solution
+> for woman in Jo Meg Beth Amy
+> do
+> 		echo $woman
+> 		grep -o $woman LittleWomen.txt| wc 
+> done 
+> ~~~
+> The winner is Jo, by the way. 
