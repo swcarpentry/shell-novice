@@ -202,6 +202,18 @@ Paragraph of introductory material.
         self.assertFalse(validator._validate_intro_section())
 
     # TESTS INVOLVING LINKS TO OTHER CONTENT
+    def test_should_check_text_of_all_links_in_index(self):
+        """Text of every local-html link in index.md should
+        match dest page title"""
+        validator = self._create_validator("""
+## [This link is in a heading](reference.html)
+[Topic Title One](01-one.html#anchor)""")
+        links = validator.ast.find_external_links()
+        check_text, dont_check_text = validator._partition_links()
+
+        self.assertEqual(len(dont_check_text), 0)
+        self.assertEqual(len(check_text), 2)
+
     def test_file_links_validate(self):
         """Verify that all links in a sample file validate.
         Involves checking for example files; may fail on "core" branch"""
@@ -295,6 +307,26 @@ minutes: not a number
 ---""")
         self.assertFalse(validator._validate_doc_headers())
 
+    def test_topic_page_should_have_no_headings(self):
+        """Requirement according to spec; may be relaxed in future"""
+        validator = self._create_validator("""
+## Heading that should not be present
+
+Some text""")
+        self.assertFalse(validator._validate_has_no_headings())
+
+    def test_should_not_check_text_of_links_in_topic(self):
+        """Never check that text of local-html links in topic
+        matches dest title """
+        validator = self._create_validator("""
+## [This link is in a heading](reference.html)
+[Topic Title One](01-one.html#anchor)""")
+        links = validator.ast.find_external_links()
+        check_text, dont_check_text = validator._partition_links()
+
+        self.assertEqual(len(dont_check_text), 2)
+        self.assertEqual(len(check_text), 0)
+
     def test_sample_file_passes_validation(self):
         sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
         res = sample_validator.validate()
@@ -376,6 +408,28 @@ class TestInstructorPage(BaseTemplateTest):
     """Verifies that the instructors page validator works as expected"""
     SAMPLE_FILE = os.path.join(MARKDOWN_DIR, "instructors.md")
     VALIDATOR = check.InstructorPageValidator
+
+    def test_should_selectively_check_text_of_links_in_topic(self):
+        """Only verify that text of local-html links in topic
+        matches dest title if the link is in a heading"""
+        validator = self._create_validator("""
+## [Reference](reference.html)
+
+[Topic Title One](01-one.html#anchor)""")
+        check_text, dont_check_text = validator._partition_links()
+
+        self.assertEqual(len(dont_check_text), 1)
+        self.assertEqual(len(check_text), 1)
+
+    def test_link_dest_bad_while_text_ignored(self):
+        validator = self._create_validator("""
+[ignored text](nonexistent.html)""")
+        self.assertFalse(validator._validate_links())
+
+    def test_link_dest_good_while_text_ignored(self):
+        validator = self._create_validator("""
+[ignored text](01-one.html)""")
+        self.assertTrue(validator._validate_links())
 
     def test_sample_file_passes_validation(self):
         sample_validator = self.VALIDATOR(self.SAMPLE_FILE)

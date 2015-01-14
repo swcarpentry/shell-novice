@@ -10,7 +10,6 @@ Contains validators for several kinds of template.
 
 Call at command line with flag -h to see options and usage instructions.
 """
-from __future__ import print_function
 
 import argparse
 import glob
@@ -141,7 +140,7 @@ class MarkdownValidator(object):
         for h in missing_headings:
             logging.error("In {0}: "
                           "Header section is missing expected "
-                          "row {1}".format(self.filename, h))
+                          "row '{1}'".format(self.filename, h))
 
         return has_hrs and all(test_headers) and only_headers
 
@@ -203,33 +202,31 @@ class MarkdownValidator(object):
         return (len(missing_headings) == 0) and \
                valid_order and no_extra and correct_level
 
-    def _validate_one_link(self, link_node):
-        """Logic to validate a single external asset (image or link)
-
+    # Link validation methods
+    def _validate_one_html_link(self, link_node, check_text=False):
+        """
         Any local html file being linked was generated as part of the lesson.
         Therefore, file links (.html) must have a Markdown file
             in the expected folder.
 
         The title of the linked Markdown document should match the link text.
-
-        For other assets (links or images), just verify that a file exists
         """
         dest, link_text = self.ast.get_link_info(link_node)
 
-        if re.match(r"^[\w,\s-]+\.(html?)", dest, re.IGNORECASE):
-            # HTML files in same folder are made from Markdown; special tests
-            fn = dest.split("#")[0]  # Split anchor name from filename
-            expected_md_fn = os.path.splitext(fn)[0] + os.extsep + "md"
-            expected_md_path = os.path.join(self.markdown_dir,
-                                            expected_md_fn)
-            if not os.path.isfile(expected_md_path):
-                logging.error(
-                    "In {0}: "
-                    "The document links to {1}, but could not find "
-                    "the expected markdown file {2}".format(
-                        self.filename, dest, expected_md_path))
-                return False
+        # HTML files in same folder are made from Markdown; special tests
+        fn = dest.split("#")[0]  # Split anchor name from filename
+        expected_md_fn = os.path.splitext(fn)[0] + os.extsep + "md"
+        expected_md_path = os.path.join(self.markdown_dir,
+                                        expected_md_fn)
+        if not os.path.isfile(expected_md_path):
+            logging.error(
+                "In {0}: "
+                "The document links to {1}, but could not find "
+                "the expected markdown file {2}".format(
+                    self.filename, fn, expected_md_path))
+            return False
 
+        if check_text is True:
             # If file exists, parse and validate link text = node title
             with open(expected_md_path, 'rU') as link_dest_file:
                 dest_contents = link_dest_file.read()
@@ -247,37 +244,68 @@ class MarkdownValidator(object):
                         self.filename, dest,
                         link_text, dest_page_title))
                 return False
-        elif not re.match(r"^((https?|ftp)://)", dest, re.IGNORECASE)\
+        return True
+
+    def _validate_one_link(self, link_node, check_text=False):
+        """Logic to validate a single link to a file asset
+
+        Performs special checks for links to a local markdown file.
+
+        For links or images, just verify that a file exists.
+        """
+        dest, link_text = self.ast.get_link_info(link_node)
+
+        if re.match(r"^[\w,\s-]+\.(html?)", dest, re.IGNORECASE):
+            # Validate local html links have matching md file
+            return self._validate_one_html_link(link_node,
+                                                check_text=check_text)
+        elif not re.match(r"^((https?|ftp)://.+)", dest, re.IGNORECASE)\
                 and not re.match(r"^#.*", dest):
             # If not web URL, and not anchor on same page, then
             #  verify that local file exists
             dest_path = os.path.join(self.lesson_dir, dest)
+            dest_path = dest_path.split("#")[0]  # Split anchor from filename
             if not os.path.isfile(dest_path):
+                fn = dest.split("#")[0]  # Split anchor name from filename
                 logging.error(
                     "In {0}: "
                     "Could not find the linked asset file "
                     "{1} in {2}. If this is a URL, it must be "
                     "prefixed with http(s):// or ftp://.".format(
-                        self.filename, dest, dest_path))
+                        self.filename, fn, dest_path))
                 return False
         else:
-            logging.warning(
+            logging.debug(
                 "In {0}: "
                 "Skipped validation of link {1}".format(self.filename, dest))
         return True
 
-    def _validate_links(self, links_to_skip=()):
+    def _partition_links(self):
+        """Fetch links in document. If this template has special requirements
+        for link text (eg only some links' text should match dest page title),
+        filter the list accordingly.
+
+        Default behavior: don't check the text of any links"""
+        check_text = []
+        no_check_text = self.ast.find_external_links()
+
+        return check_text, no_check_text
+
+    def _validate_links(self):
         """Validate all references to external content
 
         This includes links AND images: these are the two types of node that
         CommonMark assigns a .destination property"""
-        links = self.ast.find_external_links()
+        check_text, no_check_text = self._partition_links()
 
         valid = True
-        for link_node in links:
-            if link_node.destination not in links_to_skip:
-                res = self._validate_one_link(link_node)
-                valid = valid and res
+        for link_node in check_text:
+            res = self._validate_one_link(link_node, check_text=True)
+            valid = valid and res
+
+        for link_node in no_check_text:
+            res = self._validate_one_link(link_node, check_text=False)
+            valid = valid and res
         return valid
 
     def _run_tests(self):
@@ -309,6 +337,11 @@ class IndexPageValidator(MarkdownValidator):
     DOC_HEADERS = {'layout': vh.is_str,
                    'title': vh.is_str}
 
+    def _partition_links(self):
+        """Check the text of every link in index.md"""
+        check_text = self.ast.find_external_links()
+        return check_text, []
+
     def _validate_intro_section(self):
         """Validate the intro section
 
@@ -339,12 +372,6 @@ class IndexPageValidator(MarkdownValidator):
                     self.filename))
         return intro_section and prereqs_tests
 
-    def _validate_links(self, links_to_skip=('motivation.html',
-                                             'reference.html',
-                                             'discussion.html',
-                                             'instructors.html')):
-        return super(IndexPageValidator, self)._validate_links(links_to_skip)
-
     def _run_tests(self):
         parent_tests = super(IndexPageValidator, self)._run_tests()
         tests = [self._validate_intro_section()]
@@ -371,9 +398,9 @@ class TopicPageValidator(MarkdownValidator):
         if node_tests is False:
             logging.error(
                 "In {0}: "
-                "Learning Objectives should not be empty.".format(
-                    self.filename))
-
+                "Page should contain a blockquoted section with level 2 "
+                "title 'Learning Objectives'. Section should not "
+                "be empty.".format(self.filename))
         return node_tests
 
     def _validate_has_no_headings(self):
@@ -385,17 +412,13 @@ class TopicPageValidator(MarkdownValidator):
         if len(heading_nodes) == 0:
             return True
 
+        # Individual heading msgs are logged by validate_section_heading_order
         logging.error(
             "In {0}: "
             "The topic page should not have sub-headings "
             "outside of special blocks. "
             "If a topic needs sub-headings, "
             "it should be broken into multiple topics.".format(self.filename))
-        for n in heading_nodes:
-            logging.warning(
-                "In {0}: "
-                "The following sub-heading should be removed: {1}".format(
-                    self.filename, n.strings[0]))
         return False
 
     def _run_tests(self):
@@ -422,6 +445,15 @@ class ReferencePageValidator(MarkdownValidator):
                    "title": vh.is_str,
                    "subtitle": vh.is_str}
 
+    def _partition_links(self):
+        """For reference.md, only check that text of link matches
+        dest page subtitle if the link is in a heading"""
+        all_links = self.ast.find_external_links()
+        check_text = self.ast.find_external_links(
+            parent_crit=self.ast.is_heading)
+        dont_check_text = [n for n in all_links if n not in check_text]
+        return check_text, dont_check_text
+
     def _validate_glossary_entry(self, glossary_entry):
         """Validate glossary entry
 
@@ -433,10 +465,10 @@ class ReferencePageValidator(MarkdownValidator):
         glossary_keyword = glossary_entry[0]
         if len(glossary_entry) < 2:
             logging.error(
-                    "In {0}:"
-                    "Glossary entry '{1}' must have at least two lines- "
-                    "a term and a definition.".format(
-                        glossary_keyword, self.filename))
+                "In {0}: "
+                "Glossary entry '{1}' must have at least two lines- "
+                "a term and a definition.".format(
+                    self.filename, glossary_keyword))
             return False
 
         entry_is_valid = True
@@ -444,20 +476,20 @@ class ReferencePageValidator(MarkdownValidator):
             if line_index == 1:
                 if not re.match("^:   ", line):
                     logging.error(
-                            "In {0}:"
-                            "At glossary entry '{1}' "
-                            "First line of definition must "
-                            "start with ':    '.".format(
-                                glossary_keyword, self.filename))
+                        "In {0}: "
+                        "At glossary entry '{1}' "
+                        "First line of definition must "
+                        "start with ':    '.".format(
+                            self.filename, glossary_keyword))
                     entry_is_valid = False
             elif line_index > 1:
                 if not re.match("^    ", line):
                     logging.error(
-                            "In {0}:"
-                            "At glossary entry '{1}' "
-                            "Subsequent lines of definition must "
-                            "start with '     '.".format(
-                                glossary_keyword, self.filename))
+                        "In {0}: "
+                        "At glossary entry '{1}' "
+                        "Subsequent lines of definition must "
+                        "start with '     '.".format(
+                            self.filename,  glossary_keyword, ))
                     entry_is_valid = False
         return entry_is_valid
 
@@ -494,6 +526,15 @@ class InstructorPageValidator(MarkdownValidator):
     DOC_HEADERS = {"layout": vh.is_str,
                    "title": vh.is_str,
                    "subtitle": vh.is_str}
+
+    def _partition_links(self):
+        """For instructors.md, only check that text of link matches
+        dest page subtitle if the link is in a heading"""
+        all_links = self.ast.find_external_links()
+        check_text = self.ast.find_external_links(
+            parent_crit=self.ast.is_heading)
+        dont_check_text = [n for n in all_links if n not in check_text]
+        return check_text, dont_check_text
 
 
 class LicensePageValidator(MarkdownValidator):
