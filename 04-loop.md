@@ -393,7 +393,7 @@ so she decides to get some coffee and catch up on her reading.
 > then she can re-run `goostats` on `NENE01729B.txt` simply by typing
 > `!458`.
 
-> ## FIXME {.challenge}
+> ## Loop reading comprehension {.challenge}
 > 
 > Suppose that `ls` initially displays:
 > 
@@ -410,7 +410,7 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Loop reading comprehension with `echo` {.challenge}
 >
 > In the same directory, what is the effect of this loop?
 > 
@@ -430,7 +430,7 @@ so she decides to get some coffee and catch up on her reading.
 >     `xylose.dat`, and copies `sucrose.dat` to create `xylose.dat`.
 > 4.  None of the above.
 
-> ## FIXME {.challenge}
+> ## Nested loop reading comprehension {.challenge}
 >
 > The `expr` does simple arithmetic using command-line parameters:
 > 
@@ -453,7 +453,7 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Leading variable reading comprehension {.challenge}
 > 
 > Describe in words what the following loop does.
 > 
