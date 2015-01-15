@@ -430,6 +430,33 @@ so she decides to get some coffee and catch up on her reading.
 >     `xylose.dat`, and copies `sucrose.dat` to create `xylose.dat`.
 > 4.  None of the above.
 
+> ## Loop dry run {.challenge}
+>
+> Suppose we want to preview the commands the following loop will execute
+> without actually running those commands.
+>
+> ~~~
+> for file in *.dat
+> do
+>   someCommand $file > analyzed-$file
+> done
+> ~~~
+>
+> What is the difference between the the two loops below, and which one would we
+> want to run?
+>
+> ~~~
+> for file in *.dat
+> do
+>   echo someCommand $file > analyzed-$file
+> done
+>
+> for file in *.dat
+> do
+>   echo "someCommand $file > analyzed-$file"
+> done
+> ~~~
+
 > ## FIXME {.challenge}
 >
 > The `expr` does simple arithmetic using command-line parameters:
