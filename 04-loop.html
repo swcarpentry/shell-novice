@@ -215,6 +215,24 @@ done</code></pre>
 <li>None of the above.</li>
 </ol>
 </div>
+<div id="loop-dry-run" class="challenge">
+<h2>Loop dry run</h2>
+<p>Suppose we want to preview the commands the following loop will execute without actually running those commands.</p>
+<pre><code>for file in *.dat
+do
+  someCommand $file &gt; analyzed-$file
+done</code></pre>
+<p>What is the difference between the the two loops below, and which one would we want to run?</p>
+<pre><code>for file in *.dat
+do
+  echo someCommand $file &gt; analyzed-$file
+done
+
+for file in *.dat
+do
+  echo &quot;someCommand $file &gt; analyzed-$file&quot;
+done</code></pre>
+</div>
 <div id="fixme-2" class="challenge">
 <h2>FIXME</h2>
 <p>The <code>expr</code> does simple arithmetic using command-line parameters:</p>
