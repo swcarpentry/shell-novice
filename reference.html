@@ -106,100 +106,121 @@
 <h2 id="glossary">Glossary</h2>
 <dl>
 <dt><span id="absolute-path">absolute path</span></dt>
-<dd>FIXME
+<dd>A <a href="#path">path</a> that refers to a particular location in a file system. Absolute paths are usually written with respect to the file system's <a href="#root-directory">root directory</a>, and begin with either &quot;/&quot; (on Unix) or &quot;\&quot; (on Microsoft Windows). See also: <a href="#relative-path">relative path</a>.
 </dd>
 <dt><span id="argument">argument</span></dt>
-<dd>FIXME
+<dd>A value given to a function or program when it runs. The term is often used interchangeably (and inconsistently) with <a href="#parameter">parameter</a>.
 </dd>
 <dt><span id="command-shell">command shell</span></dt>
 <dd>FIXME
 </dd>
 <dt><span id="command-line-interface">command-line interface</span></dt>
-<dd>FIXME
+<dd>An interface based on typing commands, usually at a <a href="#read-evaluate-print-loop">REPL</a>. See also: <a href="#graphical-user-interface">graphical user interface</a>.
 </dd>
 <dt><span id="comment">comment</span></dt>
-<dd>FIXME
+<dd>A remark in a program that is intended to help human readers understand what is going on, but is ignored by the computer. Comments in Python, R, and the Unix shell start with a <code>#</code> character and run to the end of the line; comments in SQL start with <code>--</code>, and other languages have other conventions.
 </dd>
 <dt><span id="current-working-directory">current working directory</span></dt>
-<dd>FIXME
+<dd>The directory that <a href="#relative-path">relative paths</a> are calculated from; equivalently, the place where files referenced by name only are searched for. Every <a href="#process">process</a> has a current working directory. The current working directory is usually referred to using the shorthand notation <code>.</code> (pronounced &quot;dot&quot;).
 </dd>
 <dt><span id="file-system">file system</span></dt>
-<dd>FIXME
+<dd>A set of files, directories, and I/O devices (such as keyboards and screens). A filesystem may be spread across many physical devices, or many filesystems may be stored on a single physical device; the <a href="#operating-system">operating system</a> manages access.
 </dd>
 <dt><span id="filename-extension">filename extension</span></dt>
-<dd>FIXME
+<dd>The portion of a file's name that comes after the final &quot;.&quot; character. By convention this identifies the file's type: <code>.txt</code> means &quot;text file&quot;, <code>.png</code> means &quot;Portable Network Graphics file&quot;, and so on. These conventions are not enforced by most operating systems: it is perfectly possible to name an MP3 sound file <code>homepage.html</code>. Since many applications use filename extensions to identify the <a href="#mime-type">MIME type</a> of the file, misnaming files may cause those applications to fail.
 </dd>
 <dt><span id="filter">filter</span></dt>
-<dd>FIXME
+<dd>A program that transforms a stream of data. Many Unix command-line tools are written as filters: they read data from <a href="#standard-input">standard input</a>, process it, and write the result to <a href="#standard-output">standard output</a>.
 </dd>
 <dt><span id="flag">flag</span></dt>
-<dd>FIXME
+<dd>A terse way to specify an option or setting to a command-line program. By convention Unix applications use a dash followed by a single letter, such as <code>-v</code>, or two dashes followed by a word, such as <code>--verbose</code>, while DOS applications use a slash, such as <code>/V</code>. Depending on the application, a flag may be followed by a single argument, as in <code>-o /tmp/output.txt</code>.
+</dd>
+<dt><span id="for-loop">for loop</span></dt>
+<dd>A loop that is executed once for each value in some kind of set, list, or range. See also: <a href="#while-loop">while loop</a>.
 </dd>
 <dt><span id="graphical-user-interface">graphical user interface</span></dt>
-<dd>FIXME
+<dd>A graphical user interface, usually controlled by using a mouse. See also: <a href="#command-line-interface">command-line interface</a>.
 </dd>
 <dt><span id="home-directory">home directory</span></dt>
-<dd>FIXME
+<dd>The default directory associated with an account on a computer system. By convention, all of a user's files are stored in or below her home directory.
 </dd>
 <dt><span id="loop">loop</span></dt>
-<dd>FIXME
+<dd>A set of instructions to be executed multiple times. Consists of a <a href="#loop-body">loop body</a> and (usually) a condition for exiting the loop. See also <a href="#for-loop">for loop</a> and <a href="#while-loop">while loop</a>.
 </dd>
 <dt><span id="loop-body">loop body</span></dt>
-<dd>FIXME
+<dd>The set of statements or commands that are repeated inside a <a href="#for-loop">for loop</a> or <a href="#while-loop">while loop</a>.
+</dd>
+<dt><span id="mime-type">MIME type</span></dt>
+<dd>MIME (Multi-Purpose Internet Mail Extensions) types describe different file types for exchange on the Internet, for example images, audio, and documents.
+</dd>
+<dt><span id="operating-system">operating system</span></dt>
+<dd>Software that manages interactions between users, hardware, and software <a href="#process">processes</a>. Common examples are Linux, OS X, and Windows.
 </dd>
 <dt><span id="orthogonal">orthogonal</span></dt>
-<dd>FIXME
+<dd>To have meanings or behaviors that are independent of each other. If a set of concepts or tools are orthogonal, they can be combined in any way.
 </dd>
-<dt><span id="parent">parent</span></dt>
-<dd>FIXME
+<dt><span id="parameter">parameter</span></dt>
+<dd>A variable named in the function's declaration that is used to hold a value passed into the call. The term is often used interchangeably (and inconsistently) with <a href="#argument">argument</a>.
+</dd>
+<dt><span id="parent-directory">parent directory</span></dt>
+<dd>The directory that &quot;contains&quot; the one in question. Every directory in a file system except the <a href="#root-directory">root directory</a> has a parent. A directory's parent is usually referred to using the shorthand notation <code>..</code> (pronounced &quot;dot dot&quot;).
+</dd>
+<dt><span id="path">path</span></dt>
+<dd>A description that specifies the location of a file or directory within a <a href="#file-system">file system</a>. See also: <a href="#absolute-path">absolute path</a>, <a href="#relative-path">relative path</a>.
 </dd>
 <dt><span id="pipe">pipe</span></dt>
-<dd>FIXME
+<dd>A connection from the output of one program to the input of another. When two or more programs are connected in this way, they are called a &quot;pipeline&quot;.
 </dd>
 <dt><span id="process">process</span></dt>
-<dd>FIXME
+<dd>A running instance of a program, containing code, variable values, open files and network connections, and so on. Processes are the &quot;actors&quot; that the <a href="#operating-system">operating system</a> manages; it typically runs each process for a few milliseconds at a time to give the impression that they are executing simultaneously.
 </dd>
 <dt><span id="prompt">prompt</span></dt>
-<dd>FIXME
+<dd>A character or characters display by a <a href="#read-evaluate-print-loop">REPL</a> to show that it is waiting for its next command.
 </dd>
 <dt><span id="quoting">quoting</span></dt>
-<dd>FIXME
+<dd>(in the shell): Using quotation marks of various kinds to prevent the shell from interpreting special characters. For example, to pass the string <code>*.txt</code> to a program, it is usually necessary to write it as <code>'*.txt'</code> (with single quotes) so that the shell will not try to expand the <code>*</code> wildcard.
 </dd>
 <dt><span id="read-evaluate-print-loop">read-evaluate-print loop</span></dt>
-<dd>FIXME
+<dd>(REPL): A <a href="#command-line-interface">command-line interface</a> that reads a command from the user, executes it, prints the result, and waits for another command.
 </dd>
 <dt><span id="redirect">redirect</span></dt>
-<dd>FIXME
+<dd>To send a command's output to a file rather than to the screen or another command, or equivalently to read a command's input from a file.
 </dd>
-<dt><span id="regular-expressions">regular expressions</span></dt>
-<dd>FIXME
+<dt><span id="regular-expression">regular expression</span></dt>
+<dd>A pattern that specifies a set of character strings. REs are most often used to find sequences of characters in strings.
 </dd>
 <dt><span id="relative-path">relative path</span></dt>
-<dd>FIXME
+<dd>A <a href="#path">path</a> that specifies the location of a file or directory with respect to the <a href="#current-working-directory">current working directory</a>. Any path that does not begin with a separator character (&quot;/&quot; or &quot;\&quot;) is a relative path. See also: <a href="#absolute-path">absolute path</a>.
 </dd>
 <dt><span id="root-directory">root directory</span></dt>
-<dd>FIXME
+<dd>The top-most directory in a <a href="#file-system">file system</a>. Its name is &quot;/&quot; on Unix (including Linux and Mac OS X) and &quot;\&quot; on Microsoft Windows.
+</dd>
+<dt><span id="shell">shell</span></dt>
+<dd>A <a href="#cli">command-line interface</a> such as Bash (the Bourne-Again Shell) or the Microsoft Windows DOS shell that allows a user to interact with the <a href="#operating-system">operating system</a>.
 </dd>
 <dt><span id="shell-script">shell script</span></dt>
-<dd>FIXME
+<dd>A set of <a href="#shell">shell</a> commands stored in a file for re-use. A shell script is a program executed by the shell; the name &quot;script&quot; is used for historical reasons.
 </dd>
 <dt><span id="standard-input">standard input</span></dt>
-<dd>FIXME
+<dd>A process's default input stream. In interactive command-line applications, it is typically connected to the keyboard; in a <a href="#pipe">pipe</a>, it receives data from the <a href="#standard-output">standard output</a> of the preceding process.
 </dd>
 <dt><span id="standard-output">standard output</span></dt>
-<dd>FIXME
+<dd>A process's default output stream. In interactive command-line applications, data sent to standard output is displayed on the screen; in a <a href="#pipe">pipe</a>, it is passed to the <a href="#standard-input">standard input</a> of the next process.
 </dd>
-<dt><span id="sub-directories">sub-directories</span></dt>
-<dd>FIXME
+<dt><span id="sub-directory">sub-directory</span></dt>
+<dd>A directory contained within another directory.
 </dd>
 <dt><span id="tab-completion">tab completion</span></dt>
-<dd>FIXME
+<dd>A feature provided by many interactive systems in which pressing the Tab key triggers automatic completion of the current word or command.
 </dd>
 <dt><span id="variable">variable</span></dt>
-<dd>FIXME
+<dd>A name in a program that is associated with a value or a collection of values.
+</dd>
+<dt><span id="while-loop">while loop</span></dt>
+<dd>A loop that keeps executing as long as some condition is true. See also: <a href="#for-loop">for loop</a>.
 </dd>
 <dt><span id="wildcard">wildcard</span></dt>
-<dd>FIXME
+<dd>A character used in pattern matching. In the Unix shell, the wildcard <code>*</code> matches zero or more characters, so that <code>*.txt</code> matches all files whose names end in <code>.txt</code>.
 </dd>
 </dl>
         </div>
