@@ -53,6 +53,15 @@ Desktop/    pizza.cfg
 molecules/  solar.pdf</code></pre>
 <p>However, there's nothing in it yet:</p>
 <pre class="input"><code>$ ls -F thesis</code></pre>
+<div id="touching-files" class="callout">
+<h2>Touching Files</h2>
+<p>One of the simplest ways to create an empty file is via the <code>touch</code> command. Change the working directory to <code>thesis</code> using <code>cd</code>, then touch an empty file called <code>draft.txt</code>:</p>
+<pre class="input"><code>$ cd thesis
+$ touch draft.txt</code></pre>
+<p>If we check the directory contents now,</p>
+<pre class="input"><code>$ ls -F .</code></pre>
+<pre class="output"><code>draft.txt</code></pre>
+</div>
 <p>Let's change our working directory to <code>thesis</code> using <code>cd</code>, then run a text editor called Nano to create a file called <code>draft.txt</code>:</p>
 <pre class="input"><code>$ cd thesis
 $ nano draft.txt</code></pre>
