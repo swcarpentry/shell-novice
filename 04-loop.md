@@ -430,30 +430,34 @@ so she decides to get some coffee and catch up on her reading.
 >     `xylose.dat`, and copies `sucrose.dat` to create `xylose.dat`.
 > 4.  None of the above.
 
-> ## Loop dry run {.challenge}
+> ## Doing a Dry Run {.challenge}
 >
 > Suppose we want to preview the commands the following loop will execute
-> without actually running those commands.
+> without actually running those commands:
 >
-> ~~~
+> ~~~ {.input}
 > for file in *.dat
 > do
->   someCommand $file > analyzed-$file
+>   analyze $file > analyzed-$file
 > done
 > ~~~
 >
 > What is the difference between the the two loops below, and which one would we
 > want to run?
 >
-> ~~~
+> ~~~ {.input}
+> # Version 1
 > for file in *.dat
 > do
->   echo someCommand $file > analyzed-$file
+>   echo analyze $file > analyzed-$file
 > done
+> ~~~
 >
+> ~~~ {.input}
+> # Version 2
 > for file in *.dat
 > do
->   echo "someCommand $file > analyzed-$file"
+>   echo "analyze $file > analyzed-$file"
 > done
 > ~~~
 
