@@ -51,15 +51,6 @@ import pandocfilters as pf
 # trigger the blockquote to be converted to a div.
 SPECIAL_CLASSES = ['callout', 'challenge', 'prereq', 'objectives']
 
-# These are titles of blockquotes that will cause the blockquote to
-# be converted into a div. They are 'title': 'class' pairs, where the
-# 'title' will create a blockquote with the corresponding 'class'.
-SPECIAL_TITLES = {'prerequisites': 'prereq',
-                  'learning objectives': 'objectives',
-                  'objectives': 'objectives',
-                  'challenge': 'challenge',
-                  'callout': 'callout'}
-
 
 def find_header(blockquote):
     """Find attributes in a blockquote if they are defined on a
@@ -105,11 +96,8 @@ def blockquote2div(key, value, format, meta):
         id, classes, kvs = attr
 
         ltitle = pf.stringify(inlines).lower()
-        if ltitle in SPECIAL_TITLES:
-            classes.append(SPECIAL_TITLES[ltitle])
-            return pf.Div(attr, blockquote)
 
-        elif len(classes) == 1 and classes[0] in SPECIAL_CLASSES:
+        if len(classes) == 1 and classes[0] in SPECIAL_CLASSES:
             remove_attributes(blockquote)
             # a blockquote is just a list of blocks, so it can be
             # passed directly to Div, which expects Div(attr, blocks)
