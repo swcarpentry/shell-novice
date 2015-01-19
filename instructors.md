@@ -92,7 +92,7 @@ as long as learners using Windows do not run into roadblocks such as:
     and neither are wildcard expansion and `for` loops.
     Each one is an opportunity to repeat one of the big ideas of Software Carpentry:
     if the computer *can* repeat it,
-    some programmer somewhere will almost certainly have built 
+    some programmer somewhere will almost certainly have built
     some way for the computer *to* repeat it.
 
 *   Building up a pipeline with four or five stages,
@@ -155,6 +155,7 @@ Options we have explored include:
 2.  [Cygwin](http://www.cygwin.com/),
 3.  using a desktop virtual machine, and
 4.  having learners connect to a remote Unix machine (typically a VM in the cloud).
+5.  [CoreUtils](http://gnuwin32.sourceforge.net/packages/coreutils.htm) (from GNU) to add Unix shell commands to Windows.  
 
 Cygwin was the preferred option until mid-2013,
 but once we started teaching Git,
