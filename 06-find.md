@@ -142,41 +142,8 @@ $ grep -n -w -v the haiku.txt
 11:Software is like that.
 ~~~
 
-Exercise: Using the grep function and the options we have learned so far, 
+#### Mini-Exercise: Using the grep function and the options we have learned so far, 
 please find the lines that do not contain any appearance of the word 'the'.
-#since `-i` makes matching case-insensitive and `-v` inverts the match,
-#using them both only prints lines that *don't* match the pattern
-#in any mix of upper and lower case:
-
-# Solution:
-# (a) With word boundaries:
-#~~~ {.input}
-#$ grep -i -n -w -v the haiku.txt
-#~~~
-#~~~ {.output}
-#3:You bring fresh toner.
-#4:
-#5:With searching comes loss
-#7:"My Thesis" not found.
-#8:
-#9:Yesterday it worked
-#10:Today it is not working
-#11:Software is like that.
-#~~~
-#
-# (b) No word boundaries:
-#~~~ {.input}
-#$ grep -i -n -v the haiku.txt
-#~~~
-#~~~ {.output}
-3:You bring fresh toner.
-4:
-5:With searching comes loss
-8:
-9:Yesterday it worked
-10:Today it is not working
-11:Software is like that.
-#~~~
 
 `grep` has lots of other options.
 To find out what they are, we can type `man grep`.
