@@ -142,7 +142,9 @@ $ grep -n -w -v the haiku.txt
 11:Software is like that.
 ~~~
 
-#### Mini-Exercise: Using the grep function and the options we have learned so far, 
+#### Mini-Exercise: 
+
+Using the grep function and the options we have learned so far, 
 please find the lines that do not contain any appearance of the word 'the'.
 
 `grep` has lots of other options.
