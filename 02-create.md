@@ -144,11 +144,13 @@ $ ls
 
 > ## Deleting Is Forever {.callout}
 > 
-> Unix doesn't have a trash bin: when we delete files, they are unhooked
-> from the file system so that their storage space on disk can be
-> recycled. Tools for finding and recovering deleted files do exist, but
-> there's no guarantee they'll work in any particular situation, since the
-> computer may recycle the file's disk space right away.
+> The Unix shell doesn't have a trash bin that we can recover deleted
+> files from (though most graphical interfaces to Unix do).  Instead,
+> when we delete files, they are unhooked from the file system so that
+> their storage space on disk can be recycled. Tools for finding and
+> recovering deleted files do exist, but there's no guarantee they'll
+> work in any particular situation, since the computer may recycle the
+> file's disk space right away.
 
 Let's re-create that file
 and then move up one directory to `/users/nelle` using `cd ..`:
