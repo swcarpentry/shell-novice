@@ -138,8 +138,8 @@ thesis/quotations.txt</code></pre>
 <h2>Another Useful Abbreviation</h2>
 <p>The shell interprets the character <code>~</code> (tilde) at the start of a path to mean &quot;the current user's home directory&quot;. For example, if Nelle's home directory is <code>/home/nelle</code>, then <code>~/data</code> is equivalent to <code>/home/nelle/data</code>. This only works if it is the first character in the path: <code>here/there/~/elsewhere</code> is <em>not</em> <code>/home/nelle/elsewhere</code>.</p>
 </div>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="moving-and-copying" class="challenge">
+<h2>Moving and Copying</h2>
 <p>What is the output of the closing <code>ls</code> command in the sequence shown below?</p>
 <pre><code>$ pwd
 /home/jamie/data
@@ -149,20 +149,26 @@ $ mkdir recombine
 $ mv proteins.dat recombine
 $ cp recombine/proteins.dat ../proteins-saved.dat
 $ ls</code></pre>
+<ol style="list-style-type: decimal">
+<li><code>proteins-saved.dat recombine</code></li>
+<li><code>recombine</code></li>
+<li><code>proteins.dat recombine</code></li>
+<li><code>proteins-saved.dat</code></li>
+</ol>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<div id="listing-directories-and-files" class="challenge">
+<h2>Listing Directories and Files</h2>
 <p>Suppose that:</p>
 <pre><code>$ ls -F
 analyzed/  fructose.dat    raw/   sucrose.dat</code></pre>
 <p>What command(s) could you run so that the commands below will produce the output shown?</p>
 <pre><code>$ ls
-analyzed   raw
+analyzed/   raw/
 $ ls analyzed
 fructose.dat    sucrose.dat</code></pre>
 </div>
-<div id="fixme-2" class="challenge">
-<h2>FIXME</h2>
+<div id="copy-with-multiple-filenames" class="challenge">
+<h2>Copy with Multiple Filenames</h2>
 <p>What does <code>cp</code> do when given several filenames and a directory name, as in:</p>
 <pre><code>$ mkdir backup
 $ cp thesis/citations.txt thesis/quotations.txt backup</code></pre>
@@ -171,8 +177,8 @@ $ cp thesis/citations.txt thesis/quotations.txt backup</code></pre>
 intro.txt    methods.txt    survey.txt
 $ cp intro.txt methods.txt survey.txt</code></pre>
 </div>
-<div id="fixme-3" class="challenge">
-<h2>FIXME</h2>
+<div id="listing-recursively-and-by-time" class="challenge">
+<h2>Listing Recursively and By Time</h2>
 <p>The command <code>ls -R</code> lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on in alphabetical order at each level. The command <code>ls -t</code> lists things by time of last change, with most recently changed files or directories first. In what order does <code>ls -R -t</code> display things?</p>
 </div>
         </div>

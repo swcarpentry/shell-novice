@@ -336,7 +336,7 @@ thesis/quotations.txt
 > `/home/nelle/data`. This only works if it is the first character in the
 > path: `here/there/~/elsewhere` is *not* `/home/nelle/elsewhere`.
 
-> ## FIXME {.challenge}
+> ## Moving and Copying {.challenge}
 > 
 > What is the output of the closing `ls` command in the sequence shown below?
 > 
@@ -350,8 +350,13 @@ thesis/quotations.txt
 > $ cp recombine/proteins.dat ../proteins-saved.dat
 > $ ls
 > ~~~
+>
+> 1.   `proteins-saved.dat recombine`
+> 2.   `recombine`
+> 3.   `proteins.dat recombine`
+> 4.   `proteins-saved.dat`
 
-> ## FIXME {.challenge}
+> ## Listing Directories and Files {.challenge}
 >
 > Suppose that:
 > 
@@ -364,12 +369,12 @@ thesis/quotations.txt
 > 
 > ~~~
 > $ ls
-> analyzed   raw
+> analyzed/   raw/
 > $ ls analyzed
 > fructose.dat    sucrose.dat
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Copy with Multiple Filenames {.challenge}
 >
 > What does `cp` do when given several filenames and a directory name, as in:
 > 
@@ -386,7 +391,7 @@ thesis/quotations.txt
 > $ cp intro.txt methods.txt survey.txt
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Listing Recursively and By Time {.challenge}
 >
 > The command `ls -R` lists the contents of directories recursively,
 > i.e., lists their sub-directories, sub-sub-directories, and so on
