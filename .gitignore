@@ -5,3 +5,4 @@ DESIGN.html
 *~
 *.pyc
 _site
+.DS_Store
