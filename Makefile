@@ -3,11 +3,16 @@ SRC_RMD = $(wildcard ??-*.Rmd)
 DST_RMD = $(patsubst %.Rmd,%.md,$(SRC_RMD))
 
 # All Markdown files (hand-written and generated).
-SRC_MD = $(wildcard *.md) $(DST_RMD)
+ALL_MD = $(wildcard *.md) $(DST_RMD)
+EXCLUDE_MD = README.md LAYOUT.md FAQ.md DESIGN.md
+SRC_MD = $(filter-out $(EXCLUDE_MD),$(ALL_MD))
 DST_HTML = $(patsubst %.md,%.html,$(SRC_MD))
 
 # All outputs.
 DST_ALL = $(DST_HTML)
+
+# Pandoc filters.
+FILTERS = $(wildcard tools/filters/*.py)
 
 # Inclusions.
 INCLUDES = \
@@ -32,7 +37,7 @@ motivation.html : motivation.md _layouts/slides.html
 	-o $@ $<
 
 # Pattern to build a generic page.
-%.html : %.md _layouts/page.html
+%.html : %.md _layouts/page.html $(FILTERS)
 	pandoc -s -t html \
 	--template=_layouts/page \
 	--filter=tools/filters/blockquote2div.py \
@@ -63,7 +68,3 @@ settings :
 ## clean    : Clean up temporary and intermediate files.
 clean :
 	@rm -rf $$(find . -name '*~' -print)
-
-# very-clean : Remove generated HTML.
-very-clean :
-	@rm -f $(DST_MD)
