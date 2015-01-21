@@ -95,8 +95,6 @@ def blockquote2div(key, value, format, meta):
 
         id, classes, kvs = attr
 
-        ltitle = pf.stringify(inlines).lower()
-
         if len(classes) == 1 and classes[0] in SPECIAL_CLASSES:
             remove_attributes(blockquote)
             # a blockquote is just a list of blocks, so it can be
