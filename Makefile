@@ -68,7 +68,3 @@ settings :
 ## clean    : Clean up temporary and intermediate files.
 clean :
 	@rm -rf $$(find . -name '*~' -print)
-
-# very-clean : Remove generated HTML.
-very-clean :
-	@rm -f $(DST_MD)
