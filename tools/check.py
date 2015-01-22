@@ -667,6 +667,7 @@ def command_line():
 
     return parser.parse_args()
 
+
 def check_required_files(dir_to_validate):
     """Check if required files exists."""
     REQUIRED_FILES = ["01-*.md",
@@ -688,16 +689,17 @@ def check_required_files(dir_to_validate):
 
     return valid
 
+
 def get_files_to_validate(file_or_path):
     """Generate list of files to validate."""
     files_to_validate = []
-    dir_to_validate = None
+    dirs_to_validate = []
 
     for fn in file_or_path:
         if os.path.isdir(fn):
             search_str = os.path.join(fn, "*.md")
             files_to_validate.extend(glob.glob(search_str))
-            dir_to_validate = fn
+            dirs_to_validate.append(fn)
         elif os.path.isfile(fn):
             files_to_validate.append(fn)
         else:
@@ -705,7 +707,8 @@ def get_files_to_validate(file_or_path):
                 "The specified file or folder {0} does not exist; "
                 "could not perform validation".format(fn))
 
-    return files_to_validate, dir_to_validate
+    return files_to_validate, dirs_to_validate
+
 
 def main(parsed_args_obj):
     if parsed_args_obj.debug:
@@ -718,11 +721,12 @@ def main(parsed_args_obj):
 
     all_valid = True
 
-    files_to_validate, dir_to_validate = get_files_to_validate(parsed_args_obj.file_or_path)
+    files_to_validate, dirs_to_validate = get_files_to_validate(
+        parsed_args_obj.file_or_path)
 
     # If user ask to validate only one file don't check for required files.
-    if dir_to_validate:
-        all_valid = all_valid and check_required_files(dir_to_validate)
+    for d in dirs_to_validate:
+        all_valid = all_valid and check_required_files(d)
 
     for fn in files_to_validate:
         res = validate_single(fn, template=template)
