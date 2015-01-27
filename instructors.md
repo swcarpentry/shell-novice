@@ -61,7 +61,7 @@ as long as learners using Windows do not run into roadblocks such as:
 *   Setup:
     *   Run `tools/gen-nene.py` to regenerate random data files if needed
         (some are already in the `filesystem` directory).
-    *   Run `tools/gen-sequence.py' to regenerate random sequence data if needed.
+    *   Run `tools/gen-sequence.py` to regenerate random sequence data if needed.
 
 *   The `filesystem` directory contains all the files used in examples.
 
