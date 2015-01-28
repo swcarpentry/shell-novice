@@ -1,3 +1,5 @@
+/* Customizations to Bootstrap's default styles */
+
 /* readability: darken the alert colour for contrast with background */
 .alert {
   color: rgb(0,0,0);

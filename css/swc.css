@@ -1,3 +1,76 @@
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(03,03,03);
+    font-family: "Montserrat", "Helvetica", "Arial";
+}
+
+h1, h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: inherit;
+}
+
+/* Comments in code. */
+.comment {
+    color: purple;
+}
+
+/* Error messages. */
+.err {
+    color: darkred;
+    font-style: italic;
+}
+
+/* Things to fix. */
+.fixme {
+    text-decoration: underline;
+    color: darkred;
+    background-color: lightgray;
+}
+
+/* Highlighted changes in code. */
+.highlight {
+    background-color: mistyrose;
+}
+
+/* Manual input. */
+.in {
+    color: darkgreen;
+}
+
+/* Program output. */
+.out {
+    color: darkblue;
+    font-style: italic;
+}
+
+/* Putting shadows around things. */
+.shadow {
+    -moz-box-shadow: 0 0 30px 5px #999;
+    -webkit-box-shadow: 0 0 30px 5px #999;
+    box-shadow: 0 0 30px 5px #999;
+}
+
+/* Things to understand (lead-in to sections in book). */
+.understand {
+    background-color: lightyellow;
+}
+
+/* Block quotations. */
+blockquote {
+    margin: 1em;
+    padding: 1em 1em .5em 1em;
+    width: 90%;
+}
+
+/* Citation for testimonial quote. */
+blockquote.testimonial cite {
+    font-style: italic;
+}
+
 /* Main body of pages. */
 body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -86,60 +159,13 @@ div.toc {
     border: 1px solid grey;
 }
 
-h1, h2 {
-    margin-top: 40px;
-    margin-bottom: 10px;
+
+/* Title styling */
+h1.title {
+    margin: 40px 0px;
+    border-bottom: 1px solid #515151;
 }
 
-h1:first-child, h2:first-child {
-    margin-top: 10px;
-}
-
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    color: inherit;
-}
-
-/* Chapter titles. */
-div.chapter h2 {
-    text-align: center;
-    font-style: italic;
-}
-
-/* Objectives, Callout Box and Challenges */
-.objectives, .keypoints, .callout, .challenge {
-    margin: 1em 0;
-    padding: 0em 1em;
-
-/* Things to fix. */
-.fixme {
-    text-decoration: underline;
-    color: darkred;
-    background-color: lightgray;
-}
-
-/* Putting shadows around things. */
-.shadow {
-    -moz-box-shadow: 0 0 30px 5px #999;
-    -webkit-box-shadow: 0 0 30px 5px #999;
-    box-shadow: 0 0 30px 5px #999;
-}
-
-/* Things to understand (lead-in to sections in book). */
-.understand {
-    background-color: lightyellow;
-}
-
-/* Block quotations. */
-blockquote {
-    margin: 1em;
-    padding: 1em 1em .5em 1em;
-    width: 90%;
-}
-
-/* Citation for testimonial quote. */
-blockquote.testimonial cite {
-    font-style: italic;
-}
 /* YouTube video embed. */
 div.youtube {
     text-align: center;
@@ -200,11 +226,6 @@ table.blogcalendar tr td {
 table.blogindex td.date {
     text-align: left ;
     width:10em;
-}
-
-/* Citation for testimonial quote. */
-blockquote.testimonial cite {
-    font-style: italic;
 }
 
 /* Tables used for displaying choices in challenges. */
