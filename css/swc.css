@@ -1,6 +1,7 @@
 /* Headings */
-h1, h2, h3, h4, h5, h6  {
+h1, h2, h3, h4, h5, h6 {
     color: rgb(03,03,03);
+    font-family: "Montserrat", "Helvetica", "Arial";
 }
 
 h1, h2 {
@@ -12,15 +13,15 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: inherit;
 }
 
-/* Chapter titles. */
-div.chapter h2 {
-    text-align: center;
-    font-style: italic;
+/* Comments in code. */
+.comment {
+    color: purple;
 }
 
-/* Objectives and key points */
-.objectives, .keypoints {
-    background-color: azure;
+/* Error messages. */
+.err {
+    color: darkred;
+    font-style: italic;
 }
 
 /* Things to fix. */
@@ -28,6 +29,22 @@ div.chapter h2 {
     text-decoration: underline;
     color: darkred;
     background-color: lightgray;
+}
+
+/* Highlighted changes in code. */
+.highlight {
+    background-color: mistyrose;
+}
+
+/* Manual input. */
+.in {
+    color: darkgreen;
+}
+
+/* Program output. */
+.out {
+    color: darkblue;
+    font-style: italic;
 }
 
 /* Putting shadows around things. */
@@ -56,8 +73,6 @@ blockquote.testimonial cite {
 
 /* Main body of pages. */
 body {
-    background: #BEC3C6;
-    margin: 20px 0;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     color: rgb(03, 03, 03);
 }
@@ -69,29 +84,9 @@ body.stylesheet {
     margin: 20 auto;
 }
 
-/* Top banner of every page. */
-div.banner {
-    background-color: #FFFFFF;
-    width: 100%;
-    height: 90px;
-    margin: 0px;
-    padding: 0;
-    border-bottom: 1px solid #A6A6A6;
-}
-
-/* Padding around image in top banner. */
-div.banner a img {
-    padding: 20px 25px;
-}
-
-@media (max-width: 700px) {
-    div.banner a img {
-        padding: 20px 0px;
-    }
-}
-
 /* Explanatory call-out boxes. */
 div.box {
+    width: 54em;
     background-color: mistyrose;
     display: block;
     margin-left: auto;
@@ -103,17 +98,6 @@ div.box {
     outline-color: gray;
     outline-width: 1px;
     outline-style: solid;
-}
-@media (max-width: 700px) {
-    div.box {
-        width: 80%;
-    }
-}
-@media (min-width: 700px) {
-    div.box {
-        width: 54em;
-        max-width: 80%;
-    }
 }
 
 /* Level 2 headings inside pages. */
@@ -130,17 +114,10 @@ div.files {
     padding: 10px;
 }
 
-/* Footer of every page. */
-div.footer {
-    clear: both;
-    background: url("/img/main_shadow.png") repeat-x scroll center top #FFFFFF;
-    padding: 4px 10px 7px 10px;
-    border-top: 1px solid #A6A6A6;
-    text-align: right;
-}
-
 .swc-blue-bg {
-   background-color: #20267D;
+   /*background-color: #20267D;*/
+   /* svg colour is slightly different? */
+    background: #2b3990;
 }
 
 /* Main menu at the top of every page. */
@@ -150,17 +127,17 @@ div.mainmenu {
     margin: 0px;
     padding: 3px 0px 3px 25px;
     border-bottom: 1px solid #A6A6A6;
-    height:30px
+    height: 30px
 }
 
 #menubar {
-    float:left;
-    margin-top:4px;
+    float: left;
+    margin-top: 4px;
 }
 
 #searchbar {
-    float:right;
-    margin-right:20px;
+    float: right;
+    margin-right: 20px;
 }
 
 /* Narration for audio-only lectures. */
@@ -185,8 +162,8 @@ div.toc {
 
 /* Title styling */
 h1.title {
-    margin:40px 0px;
-    border-bottom:1px solid #515151;
+    margin: 40px 0px;
+    border-bottom: 1px solid #515151;
 }
 
 /* YouTube video embed. */
@@ -200,22 +177,27 @@ dl.gloss {
     /* Empty for now. */
 }
 
-/* FIXME: shouldn't be using iframe's directly (EventBrite and YouTube should be via macro expansion). */
+/* Displaying YouTube videos. */
 iframe.youtube_player {
-    border      : 0;
-    text-align  : center;
-    width       : 640px;
-    height      : 500px;
+    border: 0;
+    text-align: center;
+    width: 640px;
+    height: 500px;
 }
 
-/* Amy Brown's logo in book/stylesheet.html. */
-img.logoARB {
-    float: right;
+/* Sections in book chapters. */
+section {
+    clear: both;
 }
 
 /* Person's name in team.html. */
-span.person {
+.person {
     font-weight: bold;
+    font-style: italic;
+}
+
+/* Short review of book in bibliography. */
+span.review {
     font-style: italic;
 }
 
@@ -254,11 +236,6 @@ table.choices tr td {
 /* Database tables do _not_ have double borders */
 table.outlined {
     border-collapse: collapse;
-}
-
-/* Container for content in the workshop index page */
-div.workshops {
-    text-align: center;
 }
 
 /* Link items (to workshop pages) in the workshops tables */
@@ -301,41 +278,159 @@ table.workshops td.date {
 
 /* list with checkbox as bullet */
 ul.checklist {
-  list-style-image: url('/img/checkbox.png');
+  list-style-image: url('../img/checkbox.png');
 }
 
-/* Printing */
-@media print {
-  h1 {
-    font-size: 16pt;
-    line-height: 18pt;
-  }
+/* FAQ */
+dl.faq dt {
+    font-style: italic;
+    font-weight: bold;
+}
 
-  h2,h3,h4,h5,h6 {
-    font-size: 12pt;
-    line-height: 13pt;
-  }
+section.content {
+    width:100%;
+    background: white;
+}
 
-  p,ul,ol,li,pre,code {
-    font-size: 8pt;
-    line-height: 9pt;
-  }
+.header.home {
+    background: url(../img/header.png) no-repeat center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
-  code {
-    padding: 0px;
-    border: 0px;
-    background: none;
-  }
+.header {
+    background:#2b3990;
+}
 
-  #github-ribbon {
+.header h1 {
+    line-height: 1.1;
+    margin: 60px 0px 80px;
+    font-size: 40pt;
+}
+
+#header-text {
+    font-size:20pt;
+    margin:0;
+}
+
+#nav-logo {
+    width:270px;
+    height:40px;
+    top:5;
+    left:10;
+    position:absolute;
+    z-index: 10;
+}
+
+#home-options {
+    background:#F6F6F6;
+    border-top:1px solid #DDDDDD;
+    border-bottom:1px solid #DDDDDD;
+    padding:20px 0;
+    margin-bottom:20px;
+}
+
+#title {
+    background:#F6F6F6;
+    border-top:1px solid #DDDDDD;
+    border-bottom:1px solid #DDDDDD;
+    padding:0 0 20px;
+    margin-bottom:20px;
+}
+
+h5 a:link, h5 a:visited,
+h4 a:link, h4 a:visited,
+h3 a:link, h3 a:visited {
+    color:#2b3990;
+}
+
+h5 a:hover,
+h4 a:hover,
+h3 a:hover {
+    color:#C26D17;
+    text-decoration: none;
+}
+
+a {
+    color:#3E51CF;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color:#965412;
+}
+
+footer {
+    background:#2b3990;
+    padding:20px 0;
+    font-size: 10pt;
+    margin-top:10px;
+}
+
+footer a, footer a:hover{
+    color:#FFF;
+    padding-left: 10px;
+}
+
+footer .container .links{
+    background:url('../img/software-carpentry-banner-white.png') no-repeat;
+    background-size: 200px;
+    background-position: 0;
+    height:40px;
+    padding:40px 0 0 200px;
+    text-align: right;
+}
+
+
+/* For the Request a Workshop form */
+#ss-form .ss-q-title {
+    display: block;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+}
+#ss-form .ss-required-asterisk {
+    color: #c43b1d;
+}
+#ss-form label {
+    display:inline;
+    cursor: default;
+}
+#ss-form .ss-secondary-text {
+    color: #666;
+}
+#ss-form .ss-form-entry {
+    margin-bottom: 1.5em;
+}
+#ss-form ul {
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+#ss-form ol {
+    margin:0;
+}
+#ss-form .ss-choice-item {
+    line-height: 1.3em;
+    padding-bottom: .5em;
+}
+#ss-form .ss-q-long {
+    resize: vertical;
+    width: 70%;
+}
+#ss-form .error-message, .required-message {
     display: none;
-  }
-
-  .banner {
-    display: none;
-  }
-
-  .footer {
-    display: none;
-  }
+}
+#ss-form .ss-form-entry input {
+  vertical-align: middle;
+  margin: 0;
+  padding:0 4px;
+}
+#ss-form .ss-choice-item-control {
+  padding-right: 4px;
 }
