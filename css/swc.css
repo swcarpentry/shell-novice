@@ -45,6 +45,16 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 .challenge {
     background-color: #CCFFCC;
     border: 5px solid #CCFFCC;
+
+/* Comments in code. */
+.comment {
+    color: purple;
+}
+
+/* Error messages. */
+.err {
+    color: darkred;
+    font-style: italic;
 }
 
 /* Things to fix. */
@@ -52,6 +62,22 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     text-decoration: underline;
     color: darkred;
     background-color: lightgray;
+}
+
+/* Highlighted changes in code. */
+.highlight {
+    background-color: mistyrose;
+}
+
+/* Manual input. */
+.in {
+    color: darkgreen;
+}
+
+/* Program output. */
+.out {
+    color: darkblue;
+    font-style: italic;
 }
 
 /* Putting shadows around things. */
@@ -80,7 +106,7 @@ blockquote.testimonial cite {
 
 /* Main body of pages. */
 body {
-    font-family: "Open Sans", "Helvetica", "Arial", "sans-serif";
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
     color: rgb(03, 03, 03);
 }
 
@@ -95,6 +121,7 @@ body.stylesheet {
     width: 60em;
     margin: 20px auto;
 }
+
 
 
 /* Code sample */
@@ -217,7 +244,6 @@ div.banner {
 div.banner a img {
 	padding: 20px 25px;
 }
-
 
 /* Explanatory call-out boxes. */
 div.box {
@@ -534,8 +560,6 @@ div.chapter h2 {
 }
 
 
-
-
 /* For the Request a Workshop form */
 #ss-form .ss-q-title {
     display: block;
@@ -582,7 +606,6 @@ div.chapter h2 {
 #ss-form .ss-choice-item-control {
   padding-right: 4px;
 }
-
 
 
 /* GitHub Ribbon */
