@@ -366,7 +366,7 @@ the '\*' matches any number of characters;
 the expression `[AB]` matches either an 'A' or a 'B',
 so this matches all the valid data files she has.
 
-> ## FIXME {.challenge}
+> ## What does `sort -n` do? {.challenge}
 >
 > If we run `sort` on this file:
 > 
@@ -400,7 +400,7 @@ so this matches all the valid data files she has.
 > 
 > Explain why `-n` has this effect.
 
-> ## FIXME {.challenge}
+> ## What does `<` mean? {.challenge}
 >
 > What is the difference between:
 > 
@@ -414,7 +414,7 @@ so this matches all the valid data files she has.
 > wc -l mydata.dat
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Why does `uniq` only remove adjacent duplicates? {.challenge}
 >
 > The command `uniq` removes adjacent duplicated lines from its input.
 > For example, if a file `salmon.txt` contains:
@@ -441,7 +441,7 @@ so this matches all the valid data files she has.
 > (Hint: think about very large data sets.) What other command could
 > you combine with it in a pipe to remove all duplicated lines?
 
-> ## FIXME {.challenge}
+> ## Pipe reading comprehension {.challenge}
 >
 > A file called `animals.txt` contains the following data:
 > 
@@ -462,7 +462,7 @@ so this matches all the valid data files she has.
 > cat animals.txt | head -5 | tail -3 | sort -r > final.txt
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Pipe construction {.challenge}
 >
 > The command:
 > 
