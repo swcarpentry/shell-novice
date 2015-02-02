@@ -129,7 +129,7 @@ as long as learners using Windows do not run into roadblocks such as:
     this can be covered instead using the online lessons as guidelines.
     These limitations also have follow-on consequences:
 
-*   It's hard to discuss `#!` (shebang) wihtout first discussing permissions,
+*   It's hard to discuss `#!` (shebang) without first discussing permissions,
     which we don't do.
 
 *   Installing Bash and a reasonable set of Unix commands on Windows
