@@ -3,6 +3,9 @@ layout: page
 title: The Unix Shell
 subtitle: Instructor's Guide
 ---
+
+## Legend
+
 Many people have questioned whether we should still teach the shell.
 After all,
 anyone who wants to rename several thousand data files
@@ -52,6 +55,15 @@ as long as learners using Windows do not run into roadblocks such as:
 *   not being able to run a plain text editor;
     and
 *   the shell refusing to run scripts that include DOS line endings.
+
+## Overall
+
+*   introduce learners how to interact with the shell, and with related
+    ideas like standard input and output.
+*   focus on the idea that they should get the computer to repeat things
+    rather than doing the job themselves.
+*   teach learners to think about programming in terms of function 
+    composition.
 
 ## Teaching Notes
 
@@ -117,7 +129,7 @@ as long as learners using Windows do not run into roadblocks such as:
     this can be covered instead using the online lessons as guidelines.
     These limitations also have follow-on consequences:
 
-*   It's hard to discuss `#!` (shebang) wihtout first discussing permissions,
+*   It's hard to discuss `#!` (shebang) without first discussing permissions,
     which we don't do.
 
 *   Installing Bash and a reasonable set of Unix commands on Windows
