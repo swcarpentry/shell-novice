@@ -456,6 +456,31 @@ done
 </div>
 
 <div class="challenge" markdown="1">
+In another directory, where `ls` returns:
+
+~~~
+fructose.dat    glucose.dat   sucrose.dat   maltose.txt
+~~~
+
+What would be the output of the following loop?
+
+~~~
+for datafile in *.dat
+do
+    cat $datafile >> sugar.dat
+done
+~~~
+
+1.  All of the text from `fructose.dat`, `glucose.dat` and `sucrose.dat` would be 
+    concatenated and saved to a file called `sugar.dat`.
+2.  The text from `sucrose.dat` will be saved to a file called `sugar.dat`.
+3.  All of the text from `fructose.dat`, `glucose.dat`, `sucrose.dat` and `maltose.txt`
+    would be concatenated and saved to a file called `sugar.dat`.
+4.  All of the text from `fructose.dat`, `glucose.dat` and `sucrose.dat` would be printed
+    to the screen and saved to a file called `sugar.dat`
+</div>
+
+<div class="challenge" markdown="1">
 The `expr` does simple arithmetic using command-line parameters:
 
 ~~~

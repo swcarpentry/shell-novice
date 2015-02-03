@@ -447,6 +447,17 @@ wc -l mydata.dat
 </div>
 
 <div class="challenge" markdown="1">
+In our current directory, we want to find the 3 files which have the least number of 
+lines. Which command listed below would work?
+
+1. `wc -l * > sort -n > head -3`
+2. `wc -l * | sort -n | head 1-3`
+3. `wc -l * | head -3 | sort -n`
+4. `wc -l * | sort -n | head -3`
+
+</div>
+
+<div class="challenge" markdown="1">
 The command `uniq` removes adjacent duplicated lines from its input.
 For example, if a file `salmon.txt` contains:
 

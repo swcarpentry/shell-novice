@@ -368,6 +368,19 @@ thesis/quotations.txt
 </div>
 
 <div class="challenge" markdown="1">
+Suppose that you created a `.txt` file in your current directory to contain a list of the 
+statistical tests you will need to do to analyze your data, and named it: `statstics.txt`
+
+After creating and saving this file you realize you misspelled the filename! You want to 
+correct the mistake, which of the following commands could you use to do so?
+
+1. `cp statstics.txt statistics.txt`
+2. `mv statstics.txt statistics.txt`
+3. `mv statstics.txt .`
+4. `cp statstics.txt .`
+</div>
+
+<div class="challenge" markdown="1">
 What is the output of the closing `ls` command in the sequence shown below?
 
 ~~~
