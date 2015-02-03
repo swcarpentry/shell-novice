@@ -18,6 +18,7 @@ title: Loops
 Wildcards and tab completion are two ways to reduce typing (and typing mistakes).
 Another is to tell the shell to do something over and over again.
 Suppose we have several hundred genome data files named `basilisk.dat`, `unicorn.dat`, and so on. In this example, we'll use the `creatures` directory which only has two example files, but the principles can be applied to many many more files at once. We would like to modify the files, but also save a version of the original files and rename them as `original-basilisk.dat` and `original-unicorn.dat`.
+
 We can't use:
 
 ~~~
@@ -25,15 +26,16 @@ $ mv *.dat original-*.dat
 ~~~
 {:class="in"}
 
-because that would expand (in the two-file case) to:
+because the shell would first attempt to expand the wildcards, and then pass this list of 
+files to mv. This is a problem because when mv receives more than two inputs, it expects 
+the last input to be a directory where it can move all the files it was passed to. Since 
+there is no directory named `original-*.dat` in the `creatures` directory we get an error:
 
 ~~~
-$ mv basilisk.dat unicorn.dat
+usage: mv [-f | -i | -n] [-v] source target
+       mv [-f | -i | -n] [-v] source ... directory
 ~~~
 {:class="in"}
-
-This wouldn't back up our files:
-it would replace the content of `unicorn.dat` with whatever's in `basilisk.dat`.
 
 Instead, we can use a [loop](../../gloss.html#for-loop)
 to do some operation once for each thing in a list.
