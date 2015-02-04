@@ -157,6 +157,90 @@ pre.error {
 /* Override Bootstrap CSS                 */
 /*----------------------------------------*/
 
+
+/* navbar */
+.navbar-nav {
+  margin: 0px 10px 0px 0px;
+}
+
+#swc-navbar {
+    border-top: 5px solid #2b3990;
+    width: 100%;
+    background:  #d6d6d6;
+    border-bottom: 1px solid #CCC;
+}
+
+.navbar-nav .container-fluid {
+    padding: 27px 10px 0px 10px;
+    width: 80%;
+}
+
+.navbar-brand {
+   position: absolute;
+   top: 0px;
+   left: 15%;
+}
+
+.navbar-brand img {
+    width: 250px;
+    height: 50px;
+}
+
+#swc-navbar-search {
+  background-color: #ffffff;
+  color: #666666;
+  border-color:#2b3990;
+  width:150px;
+}
+
+.navbar-nav a {
+   color: #20267D;
+}
+
+.navbar-nav li {
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.navbar-nav .navbar {
+    diplay: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.navbar-nav .nav-collapse .nav > li > a,
+.navbar-nav .nav-collapse .dropdown-menu a {
+  color: #2b3990;
+  text-align: center;
+}
+
+.navbar-nav .nav .active > a,
+.navbar-nav .nav .active > a:hover, .navbar-nav .nav .active > a:focus {
+    color: #ffffff;
+    background-color: #20267D;
+}
+
+.navbar-nav .nav li.dropdown.open > .dropdown-toggle,
+.navbar-nav .nav li.dropdown.active > .dropdown-toggle,
+.navbar-nav .nav li.dropdown.open.active > .dropdown-toggle {
+    color: #ffffff;
+     background-color: #20267D;
+}
+.navbar-nav .nav li.dropdown.active > .dropdown-toggle .caret {
+    border-top-color: #999999;
+    border-bottom-color: #999999;
+}
+.navbar-nav .nav li.dropdown.open > .dropdown-toggle .caret {
+    border-top-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+
+
+
 blockquote p {
     font-size: inherit;
     font-weight: inherit;
@@ -173,20 +257,6 @@ blockquote h2{
     color: rgb(0, 0, 0);
 }
 
-.navbar-nav {
-  margin:0;
-}
-
-.navbar-nav .container {
-    font-size:11pt;
-    padding: 27px 10px 0px 10px;
-    background: url('../img/software-carpentry-banner.png') no-repeat #d6d6d6;
-    border-top: 5px solid #2b3990;
-    background-size: 250px;
-    background-position: 10px 10px;
-    border-bottom: 1px solid #CCC;
-}
-
 
 /* Container for page contents. */
 .container-full-width {
@@ -197,50 +267,10 @@ blockquote h2{
     padding: 20px;
 }
 
-.navbar .container {
-    background-color: inherit;
-}
-
-.navbar-inner {
-    min-height: 40px;
-    padding-right: 20px;
-    padding-left: 20px;
-    background-color: #F4F4F4;
-    background-image: none;
-    border: 1px solid #d4d4d4;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-}
-
 code {
     color: #333333;
 }
 
-.navbar-inverse .navbar-inner {
-    background-color: #20267D;
-    background-image: none;
-    border-color: #20267D;
-}
-.navbar-inverse .nav .active > a,
-.navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
-    color: #ffffff;
-    background-color: #20267D;
-}
-.navbar-inverse .nav li.dropdown.open > .dropdown-toggle,
-.navbar-inverse .nav li.dropdown.active > .dropdown-toggle,
-.navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
-    color: #ffffff;
-    background-color: #20267D;
-}
-.navbar-inverse .nav li.dropdown.active > .dropdown-toggle .caret {
-    border-top-color: #999999;
-    border-bottom-color: #999999;
-}
-.navbar-inverse .nav li.dropdown.open > .dropdown-toggle .caret {
-    border-top-color: #ffffff;
-    border-bottom-color: #ffffff;
-}
 
 /* Top banner of every page. */
 div.banner {
@@ -472,15 +502,6 @@ section.content {
     margin:0;
 }
 
-#nav-logo {
-    width: 270px;
-    height: 40px;
-    top: 5px;
-    left: 10px;
-    position: absolute;
-    z-index: 10;
-}
-
 #home-options {
     background:#F6F6F6;
     border-top:1px solid #DDDDDD;
@@ -649,9 +670,6 @@ div.chapter h2 {
 
 /* GitHub ribbon breaking point */
 @media screen and (min-width: 600px) {
-    .navbar .btn-navbar {
-        margin-right: 150px;
-    }
     #github-ribbon {
         position: absolute;
         display: block;
