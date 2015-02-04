@@ -303,16 +303,6 @@ div.mainmenu {
     height: 30px
 }
 
-#menubar {
-    float: left;
-    margin-top: 4px;
-}
-
-#searchbar {
-    float: right;
-    margin-right: 20px;
-}
-
 /* Narration for audio-only lectures. */
 div.narration {
     text-align: center;
