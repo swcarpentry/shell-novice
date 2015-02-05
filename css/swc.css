@@ -678,16 +678,13 @@ div.chapter h2 {
         width: 150px;
         overflow: hidden;
         height: 150px;
-	-webkit-box-sizing: unset;
-	-moz-box-sizing: unset;
-	box-sizing: unset;
     }
     #github-ribbon a {
         width: 200px;
         position: absolute;
         padding: 5px 40px;
         top: 40px;
-        right: -80px;
+        right: -40px;
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
         box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
