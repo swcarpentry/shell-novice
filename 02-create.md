@@ -4,7 +4,7 @@ title: The Unix Shell
 subtitle: Creating Things
 minutes: 15
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Create a directory hierarchy that matches a given diagram.
 > *   Create files in that hierarchy using an editor or by copying and renaming existing files.
