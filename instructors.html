@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: The Unix Shell</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -27,6 +29,7 @@
         <div class="span10 offset1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Instructor's Guide</h2>
+<h2 id="legend">Legend</h2>
 <p>Many people have questioned whether we should still teach the shell. After all, anyone who wants to rename several thousand data files can easily do so interactively in the Python interpreter, and anyone who's doing serious data analysis is probably going to do most of their work inside the IPython Notebook or R Studio. So why teach the shell?</p>
 <p>The first answer is, &quot;Because so much else depends on it.&quot; Installing software, configuring your default editor, and controlling remote machines frequently assume a basic familiarity with the shell, and with related ideas like standard input and output. Many tools also use its terminology (for example, the <code>%ls</code> and <code>%cd</code> magic commands in IPython).</p>
 <p>The second answer is, &quot;Because it's an easy way to introduce some fundamental ideas about how to use computers.&quot; As we teach people how to use the Unix shell, we teach them that they should get the computer to repeat things (via tab completion, <code>!</code> followed by a command number, and <code>for</code> loops) rather than repeating things themselves. We also teach them to take things they've discovered they do frequently and save them for later re-use (via shell scripts), to give things sensible names, and to write a little bit of documentation (like comment at the top of shell scripts) to make their future selves' lives better.</p>
@@ -36,6 +39,12 @@
 <li>not being able to figure out where their home directory is (particularly if they're using Cygwin);</li>
 <li>not being able to run a plain text editor; and</li>
 <li>the shell refusing to run scripts that include DOS line endings.</li>
+</ul>
+<h2 id="overall">Overall</h2>
+<ul>
+<li>introduce learners how to interact with the shell, and with related ideas like standard input and output.</li>
+<li>focus on the idea that they should get the computer to repeat things rather than doing the job themselves.</li>
+<li>teach learners to think about programming in terms of function composition.</li>
 </ul>
 <h2 id="teaching-notes">Teaching Notes</h2>
 <ul>
@@ -54,7 +63,7 @@
 <li><p>Tab completion sounds like a small thing: it isn't. Re-running old commands using <code>!123</code> or <code>!wc</code> isn't a small thing either, and neither are wildcard expansion and <code>for</code> loops. Each one is an opportunity to repeat one of the big ideas of Software Carpentry: if the computer <em>can</em> repeat it, some programmer somewhere will almost certainly have built some way for the computer <em>to</em> repeat it.</p></li>
 <li><p>Building up a pipeline with four or five stages, then putting it in a shell script for re-use and calling that script inside a <code>for</code> loop, is a great opportunity to show how &quot;seven plus or minus two&quot; connects to programming. Once we have figured out how to do something moderately complicated, we make it re-usable and give it a name so that it only takes up one slot in working memory rather than several. It is also a good opportunity to talk about exploratory programming: rather than designing a program up front, we can do a few useful things and then retroactively decide which are worth encapsulating for future re-use.</p></li>
 <li><p>We have to leave out many important things because of time constraints, including file permissions, job control, and SSH. If learners already understand the basic material, this can be covered instead using the online lessons as guidelines. These limitations also have follow-on consequences:</p></li>
-<li><p>It's hard to discuss <code>#!</code> (shebang) wihtout first discussing permissions, which we don't do.</p></li>
+<li><p>It's hard to discuss <code>#!</code> (shebang) without first discussing permissions, which we don't do.</p></li>
 <li><p>Installing Bash and a reasonable set of Unix commands on Windows always involves some fiddling and frustration. Please see the latest set of installation guidelines for advice, and try it out yourself <em>before</em> teaching a class.</p></li>
 <li><p>On Windows, it appears that:</p>
 <pre class="input"><code>$ cd
