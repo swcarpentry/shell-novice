@@ -409,7 +409,7 @@ about them."
 > Software is like that.
 > ~~~
 >
-> From the above text, contained in the file haiku.txt, which command would result in the 
+> From the above text, contained in the file `haiku.txt`, which command would result in the 
 > following output:
 >
 > ~~~

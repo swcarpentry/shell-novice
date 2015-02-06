@@ -39,7 +39,7 @@ This wouldn't back up our files, instead we get an error
 mv: target `original-*.dat' is not a directory
 ~~~
 
-This is a problem arises when mv receives more than two inputs. When this happens, it 
+This is a problem arises when `mv` receives more than two inputs. When this happens, it 
 expects the last input to be a directory where it can move all the files it was passed to. 
 Since there is no directory named `original-*.dat` in the `creatures` directory we get an 
 error.
