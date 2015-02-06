@@ -18,7 +18,7 @@ When editing lesson pages, you need only change and commit the `.md` source file
 
 Even if you don't have any changes to make, we welcome comments on  pull requests, or discussion among issues.  
 
-##Other Resources
+###Other Resources
 
 This lesson is based on the template found at  https://github.com/swcarpentry/lesson-template.  Visit that repository for instructions on formatting, building, and submitting Software Carpentry lessons, or run make in this directory for a list of helpful commands.
 
