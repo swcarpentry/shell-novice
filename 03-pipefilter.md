@@ -414,6 +414,16 @@ so this matches all the valid data files she has.
 > wc -l mydata.dat
 > ~~~
 
+> ## Piping commands together {.challenge}
+>
+> In our current directory, we want to find the 3 files which have the least number of 
+> lines. Which command listed below would work?
+>
+> 1. `wc -l * > sort -n > head -3`
+> 2. `wc -l * | sort -n | head 1-3`
+> 3. `wc -l * | head -3 | sort -n`
+> 4. `wc -l * | sort -n | head -3`
+
 > ## Why does `uniq` only remove adjacent duplicates? {.challenge}
 >
 > The command `uniq` removes adjacent duplicated lines from its input.
