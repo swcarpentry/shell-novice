@@ -506,6 +506,8 @@ class TopicPageValidator(MarkdownValidator):
 
 class MotivationPageValidator(MarkdownValidator):
     """Validate motivation.md"""
+    WARN_ON_EXTRA_HEADINGS = False
+
     DOC_HEADERS = {"layout": vh.is_str,
                    "title": vh.is_str,
                    "subtitle": vh.is_str}
