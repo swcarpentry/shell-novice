@@ -10,9 +10,9 @@ By contributing, you are agreeing that Software Carpentry may redistribute your 
 
 ###Making and Submitting Changes
 
-Don't know where to start?  See the current list of [issues][issues] for ideas for contributing to this repository. 
+Don't know where to start?  See the current list of [issues] [issues] for ideas for contributing to this repository. 
 
-For making your contribution, we use the GitHub flow, which is nicely explained in the chapter [Contributing to a Project in Pro Git by Scott Chacon][github-flow].  For this repository, you should branch from and then submit a pull request against the `gh-pages` branch.  
+For making your contribution, we use the GitHub flow, which is nicely explained in the chapter [Contributing to a Project in Pro Git by Scott Chacon] [github-flow].  For this repository, you should branch from and then submit a pull request against the `gh-pages` branch.  
 
 When editing lesson pages, you need only change and commit the `.md` source file.  
 
@@ -26,7 +26,7 @@ For a list of helpful commands run `make` in this directory.
 
 ###Contact
 
-The maintainers for this repository are [Christina Koch][christina] and [Gabriel Devenyi][gabriel].  Feel free to contact them if you have any questions or languishing pull requests.  
+The maintainers for this repository are [Christina Koch] [christina] and [Gabriel Devenyi] [gabriel].  Feel free to contact them if you have any questions or languishing pull requests.  
 
 [issues] https://github.com/swcarpentry/shell-novice/issues
 [github-flow] http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
