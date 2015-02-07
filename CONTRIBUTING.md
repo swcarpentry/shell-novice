@@ -28,7 +28,7 @@ For a list of helpful commands run `make` in this directory.
 
 The maintainers for this repository are [Christina Koch] [christina] and [Gabriel Devenyi] [gabriel].  Feel free to contact them if you have any questions or languishing pull requests.  
 
-[issues] https://github.com/swcarpentry/shell-novice/issues
-[github-flow] http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
-[christina] https://github.com/ChristinaLK
-[gabriel] https://github.com/gdevenyi
+[issues]: https://github.com/swcarpentry/shell-novice/issues
+[github-flow]: http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
+[christina]: https://github.com/ChristinaLK
+[gabriel]: https://github.com/gdevenyi
