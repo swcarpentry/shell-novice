@@ -4,7 +4,7 @@ title: The Unix Shell
 subtitle: Introducing the Shell
 minutes: 5
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
 > *   Explain when and why command-line interfaces should be used instead of graphical interfaces.

@@ -1,0 +1,263 @@
+/* Customizations to Bootstrap's default styles */
+
+/* readability: darken the alert colour for contrast with background */
+.alert {
+  color: rgb(0,0,0);
+}
+
+.navbar .brand {
+  padding-top: 0px;  /* align the logo */
+  text-shadow:none;
+}
+
+.navbar {
+  margin:0;
+  border-top:5px solid #2b3990;
+  border-bottom:1px solid #CCC;
+}
+
+.navbar .container {
+    background-color: inherit;
+    font-size:11pt;
+    padding:27px 10px 0px 10px;
+    background:url('../img/software-carpentry-banner.png') no-repeat;
+    background-size: 250px;
+    background-position: 10px 10px;
+    height:50px;
+}
+
+.navbar-inner {
+  min-height: 40px;
+}
+
+.navbar .nav > li > a {
+  padding: 10px;
+}
+
+.navbar-inverse .nav > li > a {
+  color: #f0f0f0;
+  text-shadow:none;
+}
+
+.navbar-inverse .navbar-inner {
+  background:#D6D6D6;
+}
+
+.navbar-inverse .nav .active > a,
+.navbar-inverse .nav .active > a:hover,
+.navbar-inverse .nav .active > a:focus {
+  color: #2b3990;
+}
+
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle,
+.navbar-inverse .nav li.dropdown.active > .dropdown-toggle,
+.navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
+  color: #ffffff;
+  background-color: #B9B9C4;
+}
+
+.navbar-inverse .nav li.dropdown.active > .dropdown-toggle .caret {
+  border-top-color: #999999;
+  border-bottom-color: #999999;
+}
+
+.navbar-inverse .nav li.dropdown.open > .dropdown-toggle .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.navbar-inverse .navbar-search .search-query {
+  background-color: #ffffff;
+  color: #666666;
+  border-color:#2b3990;
+  width:150px;
+}
+
+.navbar-inverse .navbar-search {
+  border: none;
+}
+
+.navbar-inverse .nav-collapse .nav > li > a:hover,
+.navbar-inverse .nav-collapse .dropdown-menu a:hover {
+  background-color: transparent;
+}
+
+.navbar-inverse .nav-collapse .nav > li > a, .navbar-inverse .nav-collapse .dropdown-menu a {
+  color: #2b3990;
+  text-align: center;
+}
+
+.navbar-inverse .nav-collapse .nav > li:hover > a {
+  color: #935212;
+}
+
+.navbar.transparent.navbar-inverse .navbar-inner {
+    border-width: 0px;
+    -webkit-box-shadow: 0px 0px;
+    box-shadow: 0px 0px;
+    border-radius:0;
+    -webkit-border-radius:0;
+    background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
+    background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+    background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+}
+
+code {
+  color: #333333;
+}
+
+.container {
+    max-width:920px;
+}
+
+blockquote p {
+  font-size:14px;
+}
+
+/* GitHub Ribbon */
+
+#github-ribbon a {
+  background:#000;
+  color:#fff;
+  text-decoration:none;
+  font-family:arial, sans-serif;
+  text-align:center;
+  font-weight:bold;
+  padding:5px 40%;
+  font-size:0.8rem;
+  line-height:1.6rem;
+  position:relative;
+  transition:0.5s;
+  width:100%;
+  margin: 0 auto;
+  white-space: nowrap;
+  z-index:10;
+}
+
+#github-ribbon a:hover {
+  background:#600;
+  color:#fff;
+}
+
+#github-ribbon a::before, #github-ribbon a::after {
+  content:"";
+  width:100%;
+  display:block;
+  position:absolute;
+  top:1px;
+  left:0;
+  height:1px;
+  background:#fff;
+}
+
+#github-ribbon a::after{
+  bottom:1px;
+  top:auto;
+}
+
+/* Media Queries */
+
+@media (max-width: 979px){
+  .navbar-inverse .nav-collapse ul{
+    margin:20px 0 0;
+  }
+
+  .navbar-inverse .nav-collapse .nav > li > a {
+    font-size: 12pt;
+  }
+
+  .navbar-inverse .nav-collapse .navbar-search {
+    text-align: center;
+    border-top:1px solid #AAA;
+    margin:0;
+  }
+
+  .navbar-inverse .nav-collapse .navbar-search .search-query {
+    margin:10px 0;
+  }
+
+  .navbar-inverse .nav-collapse .nav > li {
+    border-top:1px solid #AAA;
+    padding:10px 0;
+  }
+
+}
+
+@media (max-width: 767px) {
+    .container {
+      padding:0 40px;
+    }
+
+    body {
+      padding:0;
+    }
+
+    .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom:0;
+    }
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+  .container {
+    max-width: 700px;
+  }
+
+}
+
+@media (max-width: 400px) {
+  .header h1 {
+      font-size: 24pt;
+  }
+
+  #header-text {
+      font-size:16pt;
+  }
+
+  .navbar .container {
+    background-size: 200px;
+    background-position: 10px 20px;
+  }
+
+  #nav-logo {
+    width:190px;
+    height:40px;
+  }
+}
+
+/* github ribbon breaking point */
+@media screen and (min-width:600px){
+  #github-ribbon{
+    position:absolute;
+    display:block;
+    top:0;
+    right:0;
+    width:150px;
+    overflow:hidden;
+    height:150px;
+  }
+  #github-ribbon a{
+    width:200px;
+    position:absolute;
+    padding:5px 40px;
+    top:40px;
+    right:-80px;
+    transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    box-shadow:1px 1px 10px rgba(0,0,0,0.8);
+  }
+  .navbar .btn-navbar {
+    margin-right: 150px;
+  }
+}
+
+@media (max-width: 319px) {
+  .header h1 {
+      font-size: 20pt;
+  }
+
+  #header-text {
+      font-size:16pt;
+  }
+}
