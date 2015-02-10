@@ -48,12 +48,12 @@ motivation.html : motivation.md _layouts/slides.html
 	$(INCLUDES) \
 	-o $@ $<
 
-## unittest : Run unit test (for Python 2 and 3)
+## unittest : Run internal tests to ensure the validator is working correctly (for Python 2 and 3)
 unittest: tools/check.py tools/validation_helpers.py tools/test_check.py
 	cd tools/ && python2 test_check.py
 	cd tools/ && python3 test_check.py
 
-# Template validation:
+## check    : Validate all lesson content against the template
 check: $(ALL_MD)
 	python tools/check.py .
 
