@@ -53,6 +53,10 @@ unittest: tools/check.py tools/validation_helpers.py tools/test_check.py
 	cd tools/ && python2 test_check.py
 	cd tools/ && python3 test_check.py
 
+# Template validation:
+check: $(ALL_MD)
+	python tools/check.py .
+
 # Pattern to convert R Markdown to Markdown.
 %.md: %.Rmd $(R_CHUNK_OPTS)
 	Rscript -e "knitr::knit('$$(basename $<)', output = '$$(basename $@)')"
