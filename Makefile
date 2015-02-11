@@ -30,6 +30,14 @@ R_CHUNK_OPTS = tools/chunk-options.R
 # Default action is to show what commands are available.
 all : commands
 
+## check    : Validate all lesson content against the template.
+check: $(ALL_MD)
+	python tools/check.py .
+
+## clean    : Clean up temporary and intermediate files.
+clean :
+	@rm -rf $$(find . -name '*~' -print)
+
 ## preview  : Build website locally for checking.
 preview : $(DST_ALL)
 
@@ -48,15 +56,6 @@ motivation.html : motivation.md _layouts/slides.html
 	$(INCLUDES) \
 	-o $@ $<
 
-## unittest : Run internal tests to ensure the validator is working correctly (for Python 2 and 3)
-unittest: tools/check.py tools/validation_helpers.py tools/test_check.py
-	cd tools/ && python2 test_check.py
-	cd tools/ && python3 test_check.py
-
-## check    : Validate all lesson content against the template
-check: $(ALL_MD)
-	python tools/check.py .
-
 # Pattern to convert R Markdown to Markdown.
 %.md: %.Rmd $(R_CHUNK_OPTS)
 	Rscript -e "knitr::knit('$$(basename $<)', output = '$$(basename $@)')"
@@ -72,6 +71,7 @@ settings :
 	@echo 'SRC_MD:' $(SRC_MD)
 	@echo 'DST_HTML:' $(DST_HTML)
 
-## clean    : Clean up temporary and intermediate files.
-clean :
-	@rm -rf $$(find . -name '*~' -print)
+## unittest : Run internal tests to ensure the validator is working correctly (for Python 2 and 3).
+unittest: tools/check.py tools/validation_helpers.py tools/test_check.py
+	cd tools/ && python2 test_check.py
+	cd tools/ && python3 test_check.py
