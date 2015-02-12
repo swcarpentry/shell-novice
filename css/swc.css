@@ -555,12 +555,12 @@ footer a, footer a:hover{
     padding-left: 10px;
 }
 
-footer .container .links{
+footer .container .links {
     background:url('../img/software-carpentry-banner-white.png') no-repeat;
     background-size: 200px;
     background-position: 0;
-    height:40px;
-    padding:40px 0 0 200px;
+    height: 40px;
+    padding: 20px 0px 0px 200px;
     text-align: right;
 }
 
