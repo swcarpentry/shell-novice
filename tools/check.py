@@ -74,6 +74,19 @@ class MarkdownValidator(object):
         ast = parser.parse(markdown)
         return ast
 
+    def _validate_no_fixme(self):
+        """Validate that the file contains no lines marked 'FIXME'
+        This will be based on the raw markdown, not the ast"""
+        valid = True
+        for i, line in enumerate(self.markdown.splitlines()):
+            if re.search("FIXME", line, re.IGNORECASE):
+                logging.error(
+                    "In {0}: "
+                    "Line {1} contains FIXME, indicating "
+                    "work in progress".format(self.filename, i+1))
+                valid = False
+        return valid
+
     def _validate_hrs(self):
         """Validate header
 
@@ -418,7 +431,8 @@ class MarkdownValidator(object):
 
         Error trapping is handled by the validate() wrapper method.
         """
-        tests = [self._validate_doc_headers(),
+        tests = [self._validate_no_fixme(),
+                 self._validate_doc_headers(),
                  self._validate_section_heading_order(),
                  self._validate_callouts(),
                  self._validate_links()]
@@ -620,7 +634,7 @@ class LicensePageValidator(MarkdownValidator):
     def _run_tests(self):
         """Skip the base tests; just check md5 hash"""
         # TODO: This hash is specific to the license for english-language repo
-        expected_hash = 'cd5742b6596a1f2f35c602ad43fa24b2'
+        expected_hash = '051a04b8ffe580ba6b7018fb4fd72a50'
         m = hashlib.md5()
         try:
             m.update(self.markdown)

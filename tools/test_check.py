@@ -353,6 +353,17 @@ A spacer paragraph
 """)
         self.assertFalse(validator._validate_callouts())
 
+    def test_fail_if_fixme_present_all_caps(self):
+        """Validation should fail if a line contains the word FIXME (exact)"""
+        validator = self._create_validator("""Incomplete sentence (FIXME).""")
+        self.assertFalse(validator._validate_no_fixme())
+
+    def test_fail_if_fixme_present_mixed_case(self):
+        """Validation should fail if a line contains the word FIXME
+        (in any capitalization)"""
+        validator = self._create_validator("""Incomplete sentence (FiXmE).""")
+        self.assertFalse(validator._validate_no_fixme())
+
 
 class TestTopicPage(BaseTemplateTest):
     """Verifies that the topic page validator works as expected"""
