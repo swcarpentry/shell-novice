@@ -647,7 +647,7 @@ div.chapter h2 {
     width: 100%;
     margin: 0 auto;
     white-space: nowrap;
-    z-index: 10;
+    z-index: 99999;
 }
 #github-ribbon a:hover {
     background: #600;
