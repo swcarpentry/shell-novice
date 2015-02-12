@@ -74,6 +74,19 @@ class MarkdownValidator(object):
         ast = parser.parse(markdown)
         return ast
 
+    def _validate_no_fixme(self):
+        """Validate that the file contains no lines marked 'FIXME'
+        This will be based on the raw markdown, not the ast"""
+        valid = True
+        for i, line in enumerate(self.markdown.splitlines()):
+            if re.search("FIXME", line, re.IGNORECASE):
+                logging.error(
+                    "In {0}: "
+                    "Line {1} contains FIXME, indicating "
+                    "work in progress".format(self.filename, i+1))
+                valid = False
+        return valid
+
     def _validate_hrs(self):
         """Validate header
 
@@ -418,7 +431,8 @@ class MarkdownValidator(object):
 
         Error trapping is handled by the validate() wrapper method.
         """
-        tests = [self._validate_doc_headers(),
+        tests = [self._validate_no_fixme(),
+                 self._validate_doc_headers(),
                  self._validate_section_heading_order(),
                  self._validate_callouts(),
                  self._validate_links()]
