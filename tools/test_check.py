@@ -188,18 +188,13 @@ Paragraph of introductory material.
         self.assertTrue(validator._validate_intro_section())
 
     def test_fail_when_prereq_section_has_incorrect_heading_level(self):
-        validator = self._create_validator("""---
-layout: lesson
-title: Lesson Title
----
-Paragraph of introductory material.
-
-> # Prerequisites
+        validator = self._create_validator("""
+> # Prerequisites {.prereq}
 >
 > A short paragraph describing what learners need to know
 > before tackling this lesson.
 """)
-        self.assertFalse(validator._validate_intro_section())
+        self.assertFalse(validator._validate_callouts())
 
     # TESTS INVOLVING LINKS TO OTHER CONTENT
     def test_should_check_text_of_all_links_in_index(self):
@@ -291,6 +286,73 @@ SQLite uses the integers 0 and 1 for the former, and represents the latter as di
             """Use [this CSV](data.csv) for the exercise.""")
         self.assertFalse(validator._validate_links())
 
+    ### Tests involving callout/blockquote sections
+    def test_one_prereq_callout_passes(self):
+        """index.md should have one, and only one, prerequisites box"""
+        validator = self._create_validator("""> ## Prerequisites {.prereq}
+>
+> What learners need to know before tackling this lesson.
+""")
+        self.assertTrue(validator._validate_callouts())
+
+    def test_two_prereq_callouts_fail(self):
+        """More than one prereq callout box is not allowed"""
+        validator = self._create_validator("""> ## Prerequisites {.prereq}
+>
+> What learners need to know before tackling this lesson.
+
+A spacer paragraph
+
+> ## Prerequisites {.prereq}
+>
+> A second prerequisites box should cause an error
+""")
+        self.assertFalse(validator._validate_callouts())
+
+    def test_callout_without_style_fails(self):
+        """A callout box will fail if it is missing the required style"""
+        validator = self._create_validator("""> ## Prerequisites
+>
+> What learners need to know before tackling this lesson.
+""")
+        self.assertFalse(validator._validate_callouts())
+
+    def test_callout_with_wrong_title_fails(self):
+        """A callout box will fail if it has the wrong title"""
+        validator = self._create_validator("""> ## Wrong title {.prereq}
+>
+> What learners need to know before tackling this lesson.
+""")
+        self.assertFalse(validator._validate_callouts())
+
+    def test_unknown_callout_style_fails(self):
+        """A callout whose style is unrecognized by template is invalid"""
+        validator = self._create_validator("""> ## Any title {.callout}
+>
+> What learners need to know before tackling this lesson.
+""")
+        callout_node = validator.ast.get_callouts()[0]
+        self.assertFalse(validator._validate_one_callout(callout_node))
+
+    def test_block_ignored_sans_heading(self):
+        """
+        Blockquotes only count as callouts if they have a heading
+        """
+        validator = self._create_validator("""> Prerequisites {.prereq}
+>
+> What learners need to know before tackling this lesson.
+""")
+        callout_nodes = validator.ast.get_callouts()
+        self.assertEqual(len(callout_nodes), 0)
+
+    def test_callout_heading_must_be_l2(self):
+        """Callouts will fail validation if the heading is not level 2"""
+        validator = self._create_validator("""> ### Prerequisites {.prereq}
+>
+> What learners need to know before tackling this lesson.
+""")
+        self.assertFalse(validator._validate_callouts())
+
 
 class TestTopicPage(BaseTemplateTest):
     """Verifies that the topic page validator works as expected"""
@@ -326,6 +388,44 @@ Some text""")
 
         self.assertEqual(len(dont_check_text), 2)
         self.assertEqual(len(check_text), 0)
+
+    def test_pass_when_optional_callouts_absent(self):
+        """Optional block titles should be optional"""
+        validator = self._create_validator("""> ## Learning Objectives {.objectives}
+>
+> * All topic pages must have this callout""")
+        self.assertTrue(validator._validate_callouts())
+
+
+    def test_callout_style_passes_regardless_of_title(self):
+        """Verify that certain kinds of callout box can be recognized solely
+        by style, regardless of the heading title"""
+        validator = self._create_validator("""> ## Learning Objectives {.objectives}
+>
+> * All topic pages must have this callout
+
+> ## Some random title {.callout}
+>
+> Some informative text""")
+
+        self.assertTrue(validator._validate_callouts())
+
+    def test_callout_style_allows_duplicates(self):
+        """Multiple blockquoted sections with style 'callout' are allowed"""
+        validator = self._create_validator("""> ## Learning Objectives {.objectives}
+>
+> * All topic pages must have this callout
+
+> ##  Callout box one {.callout}
+>
+> Some informative text
+
+Spacer paragraph
+
+> ## Callout box two {.callout}
+>
+> Further exposition""")
+        self.assertTrue(validator._validate_callouts())
 
     def test_sample_file_passes_validation(self):
         sample_validator = self.VALIDATOR(self.SAMPLE_FILE)
@@ -397,6 +497,19 @@ Key Word 2
 :   Definition of second term
 """)
         self.assertTrue(validator._validate_glossary())
+
+    def test_callout_fails_when_none_specified(self):
+        """The presence of a callout box should cause validation to fail
+           when the template doesn't define any recognized callouts
+
+           (No "unknown" blockquote sections are allowed)
+           """
+        validator = self._create_validator("""> ## Learning Objectives {.objectives}
+>
+> * Learning objective 1
+> * Learning objective 2""")
+
+        self.assertFalse(validator._validate_callouts())
 
     def test_sample_file_passes_validation(self):
         sample_validator = self.VALIDATOR(self.SAMPLE_FILE)

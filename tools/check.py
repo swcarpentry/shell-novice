@@ -12,6 +12,7 @@ Call at command line with flag -h to see options and usage instructions.
 """
 
 import argparse
+import collections
 import glob
 import hashlib
 import logging
@@ -31,9 +32,15 @@ class MarkdownValidator(object):
     Contains basic validation skeleton to be extended for specific page types
     """
     HEADINGS = []  # List of strings containing expected heading text
+
+    # Callout boxes (blockquote items) have special rules.
+    # Dict of tuples for each callout type: {style: (title, min, max)}
+    CALLOUTS = {}
+
     WARN_ON_EXTRA_HEADINGS = True  # Warn when other headings are present?
 
-    DOC_HEADERS = {}  # Rows in header section (first few lines of document).
+    # Validate YAML doc headers: dict of {header text: validation_func}
+    DOC_HEADERS = {}
 
     def __init__(self, filename=None, markdown=None):
         """Perform validation on a Markdown document.
@@ -58,6 +65,9 @@ class MarkdownValidator(object):
 
         ast = self._parse_markdown(self.markdown)
         self.ast = vh.CommonMarkHelper(ast)
+
+        # Keep track of how many times callout box styles are used
+        self._callout_counts = collections.Counter()
 
     def _parse_markdown(self, markdown):
         parser = CommonMark.DocParser()
@@ -146,7 +156,6 @@ class MarkdownValidator(object):
 
     def _validate_section_heading_order(self, ast_node=None, headings=None):
         """Verify that section headings appear, and in the order expected"""
-        # TODO: Refactor into individual tests in the future
         if ast_node is None:
             ast_node = self.ast.data
             headings = self.HEADINGS
@@ -200,7 +209,101 @@ class MarkdownValidator(object):
                 "the order specified by the template".format(self.filename))
 
         return (len(missing_headings) == 0) and \
-               valid_order and no_extra and correct_level
+            valid_order and no_extra and correct_level
+
+    def _validate_one_callout(self, callout_node):
+        """
+        Logic to validate a single callout box (defined as a blockquoted
+        section that starts with a heading). Checks that:
+
+        * First child of callout box should be a lvl 2 header with
+          known title & CSS style
+        * Callout box must have at least one child after the heading
+
+        An additional test is done in another function:
+        * Checks # times callout style appears in document, minc <= n <= maxc
+        """
+        heading_node = callout_node.children[0]
+        valid_head_lvl = self.ast.is_heading(heading_node, heading_level=2)
+        title, styles = self.ast.get_heading_info(heading_node)
+
+        if not valid_head_lvl:
+            logging.error("In {0}: "
+                          "Callout box titled '{1}' must start with a "
+                          "level 2 heading".format(self.filename, title))
+
+        try:
+            style = styles[0]
+        except IndexError:
+            logging.error(
+                "In {0}: "
+                "Callout section titled '{1}' must specify "
+                "a CSS style".format(self.filename, title))
+            return False
+
+        # Track # times this style is used in any callout
+        self._callout_counts[style] += 1
+
+        # Verify style actually in callout spec
+        if style not in self.CALLOUTS:
+            spec_title = None
+            valid_style = False
+        else:
+            spec_title, _, _ = self.CALLOUTS[style]
+            valid_style = True
+
+        has_children = self.ast.has_number_children(callout_node, minc=2)
+        if spec_title is not None and title != spec_title:
+            # Callout box must have specified heading title
+            logging.error(
+                "In {0}: "
+                "Callout section with style '{1}' should have "
+                "title '{2}'".format(self.filename, style, spec_title))
+            valid_title = False
+        else:
+            valid_title = True
+
+        res = (valid_style and valid_title and has_children and valid_head_lvl)
+        return res
+
+    def _validate_callouts(self):
+        """
+        Validate all sections that appear as callouts
+
+        The style is a better determinant of callout than the title
+        """
+        callout_nodes = self.ast.get_callouts()
+        callouts_valid = True
+
+        # Validate all the callout nodes present
+        for n in callout_nodes:
+            res = self._validate_one_callout(n)
+            callouts_valid = callouts_valid and res
+
+        found_styles = self._callout_counts
+
+        # Issue error if style is not present correct # times
+        missing_styles = [style
+                          for style, (title, minc, maxc) in self.CALLOUTS.items()
+                          if not ((minc or 0) <= found_styles[style]
+                                  <= (maxc or sys.maxsize))]
+        unknown_styles = [k for k in found_styles if k not in self.CALLOUTS]
+
+        for style in unknown_styles:
+            logging.error("In {0}: "
+                          "Found callout box with unrecognized "
+                          "style '{1}'".format(self.filename, style))
+
+        for style in missing_styles:
+            minc = self.CALLOUTS[style][1]
+            maxc = self.CALLOUTS[style][2]
+            logging.error("In {0}: "
+                          "Expected between min {1} and max {2} callout boxes "
+                          "with style '{3}'".format(
+                self.filename, minc, maxc, style))
+
+        return (callouts_valid and
+                len(missing_styles) == 0 and len(unknown_styles) == 0)
 
     # Link validation methods
     def _validate_one_html_link(self, link_node, check_text=False):
@@ -259,9 +362,10 @@ class MarkdownValidator(object):
             # Validate local html links have matching md file
             return self._validate_one_html_link(link_node,
                                                 check_text=check_text)
-        elif not re.match(r"^((https?|ftp)://.+)", dest, re.IGNORECASE)\
+        elif not re.match(r"^((https?|ftp)://.+)|mailto:",
+                          dest, re.IGNORECASE)\
                 and not re.match(r"^#.*", dest):
-            # If not web URL, and not anchor on same page, then
+            # If not web or email URL, and not anchor on same page, then
             #  verify that local file exists
             dest_path = os.path.join(self.lesson_dir, dest)
             dest_path = dest_path.split("#")[0]  # Split anchor from filename
@@ -316,6 +420,7 @@ class MarkdownValidator(object):
         """
         tests = [self._validate_doc_headers(),
                  self._validate_section_heading_order(),
+                 self._validate_callouts(),
                  self._validate_links()]
 
         return all(tests)
@@ -337,6 +442,8 @@ class IndexPageValidator(MarkdownValidator):
     DOC_HEADERS = {'layout': vh.is_str,
                    'title': vh.is_str}
 
+    CALLOUTS = {'prereq': ("Prerequisites", 1, 1)}
+
     def _partition_links(self):
         """Check the text of every link in index.md"""
         check_text = self.ast.find_external_links()
@@ -354,23 +461,7 @@ class IndexPageValidator(MarkdownValidator):
                 "Expected paragraph of introductory text at {1}".format(
                     self.filename, intro_block.start_line))
 
-        # Validate the prerequisites block
-        prereqs_block = self.ast.get_block_titled("Prerequisites",
-                                                  heading_level=2)
-        if prereqs_block:
-            # Found the expected block; now check contents
-            prereqs_tests = self.ast.has_number_children(prereqs_block[0],
-                                                         minc=2)
-        else:
-            prereqs_tests = False
-
-        if prereqs_tests is False:
-            logging.error(
-                "In {0}: "
-                "Intro should contain a blockquoted section with level 2 "
-                "title 'Prerequisites'. Section should not be empty.".format(
-                    self.filename))
-        return intro_section and prereqs_tests
+        return intro_section
 
     def _run_tests(self):
         parent_tests = super(IndexPageValidator, self)._run_tests()
@@ -385,23 +476,9 @@ class TopicPageValidator(MarkdownValidator):
                    "subtitle": vh.is_str,
                    "minutes": vh.is_numeric}
 
-    # TODO: Write validator for, eg, challenge section
-    def _validate_learning_objective(self):
-        learn_node = self.ast.get_block_titled("Learning Objectives",
-                                               heading_level=2)
-        if learn_node:
-            # In addition to title, the node must have some content
-            node_tests = self.ast.has_number_children(learn_node[0], minc=2)
-        else:
-            node_tests = False
-
-        if node_tests is False:
-            logging.error(
-                "In {0}: "
-                "Page should contain a blockquoted section with level 2 "
-                "title 'Learning Objectives'. Section should not "
-                "be empty.".format(self.filename))
-        return node_tests
+    CALLOUTS = {"objectives": ("Learning Objectives", 1, 1),
+                "callout": (None, 0, None),
+                "challenge": (None, 0, None)}
 
     def _validate_has_no_headings(self):
         """Check headings
@@ -423,13 +500,14 @@ class TopicPageValidator(MarkdownValidator):
 
     def _run_tests(self):
         parent_tests = super(TopicPageValidator, self)._run_tests()
-        tests = [self._validate_has_no_headings(),
-                 self._validate_learning_objective()]
+        tests = [self._validate_has_no_headings()]
         return all(tests) and parent_tests
 
 
 class MotivationPageValidator(MarkdownValidator):
     """Validate motivation.md"""
+    WARN_ON_EXTRA_HEADINGS = False
+
     DOC_HEADERS = {"layout": vh.is_str,
                    "title": vh.is_str,
                    "subtitle": vh.is_str}
@@ -668,6 +746,48 @@ def command_line():
     return parser.parse_args()
 
 
+def check_required_files(dir_to_validate):
+    """Check if required files exists."""
+    REQUIRED_FILES = ["01-*.md",
+                      "discussion.md",
+                      "index.md",
+                      "instructors.md",
+                      "LICENSE.md",
+                      "motivation.md",
+                      "README.md",
+                      "reference.md"]
+    valid = True
+
+    for required in REQUIRED_FILES:
+        req_fn = os.path.join(dir_to_validate, required)
+        if not glob.glob(req_fn):
+            logging.error(
+                "Missing file {0}.".format(required))
+            valid = False
+
+    return valid
+
+
+def get_files_to_validate(file_or_path):
+    """Generate list of files to validate."""
+    files_to_validate = []
+    dirs_to_validate = []
+
+    for fn in file_or_path:
+        if os.path.isdir(fn):
+            search_str = os.path.join(fn, "*.md")
+            files_to_validate.extend(glob.glob(search_str))
+            dirs_to_validate.append(fn)
+        elif os.path.isfile(fn):
+            files_to_validate.append(fn)
+        else:
+            logging.error(
+                "The specified file or folder {0} does not exist; "
+                "could not perform validation".format(fn))
+
+    return files_to_validate, dirs_to_validate
+
+
 def main(parsed_args_obj):
     if parsed_args_obj.debug:
         log_level = "DEBUG"
@@ -678,16 +798,16 @@ def main(parsed_args_obj):
     template = parsed_args_obj.template
 
     all_valid = True
-    for fn in parsed_args_obj.file_or_path:
-        if os.path.isdir(fn):
-            res = validate_folder(fn, template=template)
-        elif os.path.isfile(fn):
-            res = validate_single(fn, template=template)
-        else:
-            res = False
-            logging.error(
-                "The specified file or folder {0} does not exist; "
-                "could not perform validation".format(fn))
+
+    files_to_validate, dirs_to_validate = get_files_to_validate(
+        parsed_args_obj.file_or_path)
+
+    # If user ask to validate only one file don't check for required files.
+    for d in dirs_to_validate:
+        all_valid = all_valid and check_required_files(d)
+
+    for fn in files_to_validate:
+        res = validate_single(fn, template=template)
 
         all_valid = all_valid and res
 

@@ -24,6 +24,9 @@ INCLUDES = \
 # Chunk options for knitr (used in R conversion).
 R_CHUNK_OPTS = tools/chunk-options.R
 
+# Ensure that intermediate (generated) Markdown files from R are kept.
+.SECONDARY: $(DST_RMD)
+
 # Default action is to show what commands are available.
 all : commands
 
