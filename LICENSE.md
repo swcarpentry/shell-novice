@@ -2,7 +2,7 @@
 layout: page
 title: Licenses
 ---
-### Instructional Material
+## Instructional Material
 
 All Software Carpentry instructional material is made available under
 the [Creative Commons Attribution license][cc-by-human]. The following
@@ -43,12 +43,12 @@ Notices:
   rights such as publicity, privacy, or moral rights may limit how you
   use the material.
 
-### Software
+## Software
 
 Except where otherwise noted, the example programs and other software
 provided by Software Carpentry are made available under the
-[OSI](http://opensource.org)-approved
-[MIT license](http://opensource.org/licenses/mit-license.html).
+[OSI][osi]-approved
+[MIT license][mit-license].
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -69,16 +69,13 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-### Other Material
-
-Our [code of conduct](CODE_OF_CONDUCT.html) is taken from
-[this site](https://github.com/Bantik/contributor_covenant/blob/master/LICENSE),
-and is made available under the same MIT License as our software.
-
-### Trademark
+## Trademark
 
 "Software Carpentry" and the Software Carpentry logo are registered
-trademarks of Software Carpentry, Ltd.
+trademarks of [NumFOCUS][numfocus].
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
+[mit-license]: http://opensource.org/licenses/mit-license.html
+[numfocus]: http://numfocus.org/
+[osi]: http://opensource.org
