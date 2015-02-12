@@ -634,7 +634,7 @@ class LicensePageValidator(MarkdownValidator):
     def _run_tests(self):
         """Skip the base tests; just check md5 hash"""
         # TODO: This hash is specific to the license for english-language repo
-        expected_hash = 'cd5742b6596a1f2f35c602ad43fa24b2'
+        expected_hash = '051a04b8ffe580ba6b7018fb4fd72a50'
         m = hashlib.md5()
         try:
             m.update(self.markdown)
