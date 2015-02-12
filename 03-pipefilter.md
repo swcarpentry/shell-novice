@@ -106,7 +106,7 @@ Our first step toward a solution is to run the command:
 $ wc -l *.pdb > lengths
 ~~~
 
-The right arrow, `>`, tells the shell to **redirect** the command's output
+The greater than symbol, `>`, tells the shell to **redirect** the command's output
 to a file instead of printing it to the screen.
 The shell will create the file if it doesn't exist,
 or overwrite the contents of that file if it does.
