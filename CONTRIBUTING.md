@@ -1,7 +1,3 @@
----
-layout: page
-title: How to Contribute
----
 Software Carpentry is an open source project,
 and we welcome contributions of all kinds:
 new lessons,
@@ -11,7 +7,7 @@ and reviews of proposed changes are all equally welcome.
 
 By contributing,
 you are agreeing that Software Carpentry may redistribute your work under
-[these licenses](LICENSE.md).
+[these licenses](LICENSE.html).
 
 ## Getting Started
 
@@ -20,13 +16,13 @@ you are agreeing that Software Carpentry may redistribute your work under
     in Scott Chacon's book *Pro Git*.
 
 2.  For our lessons,
-    you should branch from and submit pull requests against the `gh-pages` branch.  
+    you should branch from and submit pull requests against the `gh-pages` branch.
 
 3.  When editing lesson pages, you need only commit changes to the Markdown source files.
 
 4.  If you're looking for things to work on,
     please see the current list of [issues](https://github.com/swcarpentry/lesson-template/issues).
-    We also welcome comments on pull requests and discussion on issues.  
+    We also welcome comments on pull requests and discussion on issues.
 
 ## Other Resources
 
