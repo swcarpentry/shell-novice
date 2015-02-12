@@ -144,9 +144,10 @@ prints:
 hello there
 ~~~
 
-In this case,
-since the shell expands `$filename` to be the name of a file,
-`echo $filename` just prints the name of the file.
+The shell expands all special tokens before calling program specified. In this case,
+the shell expands `$filename` to be the name of a file before calling `echo`, therefore
+printing the name of the file rather than the name of the variable specified in your script.
+In fact `echo` has no way of knowing the variable used, only its contents!
 Note that we can't write this as:
 
 ~~~ {.input}
