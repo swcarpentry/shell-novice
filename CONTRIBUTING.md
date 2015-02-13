@@ -21,8 +21,10 @@ you are agreeing that Software Carpentry may redistribute your work under
 3.  When editing lesson pages, you need only commit changes to the Markdown source files.
 
 4.  If you're looking for things to work on,
-    please see the current list of [issues](https://github.com/swcarpentry/lesson-template/issues).
-    We also welcome comments on pull requests and discussion on issues.
+    please see the current list of issues
+    for [this repository](https://github.com/swcarpentry/lesson-template/issues),
+    or for [http://software-carpentry.org/lessons.html](our other lessons).
+    Comments on issues and reviews of pull requests are equally welcome.
 
 ## Other Resources
 
