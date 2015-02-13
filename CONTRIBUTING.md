@@ -1,34 +1,51 @@
-##Contributing to this repository
+Software Carpentry is an open source project,
+and we welcome contributions of all kinds:
+new lessons,
+fixes to existing material,
+bug reports,
+and reviews of proposed changes are all equally welcome.
 
-Welcome!  Thanks for your interest in contributing to Software Carpentry's introductory shell lesson.  
+By contributing,
+you are agreeing that Software Carpentry may redistribute your work under
+[these licenses][license].
 
-###Intro
+## Getting Started
 
-Software Carpentry is an open source project, and we welcome contributions of all kinds: new and improved lessons, bug reports, and small fixes to existing material are all useful.
+1.  We use GitHub flow to manage changes,
+    which is explained in the chapter [Contributing to a Project][pro-git-chapter]
+    in Scott Chacon's book *Pro Git*.
 
-By contributing, you are agreeing that Software Carpentry may redistribute your work under [these licenses](LICENSE.md).
+2.  For our lessons,
+    you should branch from and submit pull requests against the `gh-pages` branch.
 
-###Making and Submitting Changes
+3.  When editing lesson pages, you need only commit changes to the Markdown source files.
 
-Don't know where to start?  See the current list of [issues] [issues] for ideas for contributing to this repository. 
+4.  If you're looking for things to work on,
+    please see [the list of issues for this repository][issues],
+    or for [our other lessons][swc-lessons].
+    Comments on issues and reviews of pull requests are equally welcome.
 
-For making your contribution, we use the GitHub flow, which is nicely explained in the chapter [Contributing to a Project in Pro Git by Scott Chacon] [github-flow].  For this repository, you should branch from and then submit a pull request against the `gh-pages` branch.  
+5.  The maintainers for this repository are [Christina Koch][christina] and [Gabriel Devenyi][gabriel].
+    Feel free to contact them if you have any questions or languishing pull requests.  
 
-When editing lesson pages, you need only change and commit the `.md` source file.  
+## Other Resources
 
-Even if you don't have any changes to make, we welcome comments on  pull requests and discussion on issues.  
+1.  This lesson is based on the template found at
+    [https://github.com/swcarpentry/lesson-template](https://github.com/swcarpentry/lesson-template).
+    That repository has instructions on formatting and previewing lessons.
 
-###Other Resources
+2.  For a list of helpful commands run `make` in this directory.
 
-This lesson is based on the template found at  https://github.com/swcarpentry/lesson-template.  Visit that repository for instructions on formatting, building, and submitting Software Carpentry lessons.  
+3.  The [list of maintainers][swc-maintainers]
+    on the [Software Carpentry website][swc-website]
+    lists the people currently responsible for managing this repository.
+    Feel free to contact them if you have any questions or languishing pull requests.
 
-For a list of helpful commands run `make` in this directory.  
-
-###Contact
-
-The maintainers for this repository are [Christina Koch] [christina] and [Gabriel Devenyi] [gabriel].  Feel free to contact them if you have any questions or languishing pull requests.  
-
-[issues]: https://github.com/swcarpentry/shell-novice/issues
-[github-flow]: http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
 [christina]: https://github.com/ChristinaLK
 [gabriel]: https://github.com/gdevenyi
+[issues]: https://github.com/swcarpentry/lesson-template/issues
+[license]: LICENSE.md
+[pro-git]: http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
+[swc-lessons]: http://software-carpentry.org/lessons.html
+[swc-maintainers]: http://software-carpentry.org/lessons.html#maintainers
+[swc-website]: http://software-carpentry.org
