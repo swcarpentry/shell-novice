@@ -4,7 +4,7 @@ title: The Unix Shell
 subtitle: Loops
 minutes: 15
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Write a loop that applies one or more commands separately to each file in a set of files.
 > *   Trace the values taken on by a loop variable during execution of the loop.
@@ -393,7 +393,7 @@ so she decides to get some coffee and catch up on her reading.
 > then she can re-run `goostats` on `NENE01729B.txt` simply by typing
 > `!458`.
 
-> ## FIXME {.challenge}
+> ## Challenge 1 {.challenge}
 > 
 > Suppose that `ls` initially displays:
 > 
@@ -410,7 +410,7 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Challenge 2 {.challenge}
 >
 > In the same directory, what is the effect of this loop?
 > 
@@ -461,7 +461,7 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Loopy Arithmetic {.challenge}
 >
 > The `expr` does simple arithmetic using command-line parameters:
 > 
@@ -484,7 +484,7 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
-> ## FIXME {.challenge}
+> ## What am I? {.challenge}
 > 
 > Describe in words what the following loop does.
 > 

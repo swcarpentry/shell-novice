@@ -4,7 +4,7 @@ title: The Unix Shell
 subtitle: Finding Things
 minutes: 15
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Use `grep` to select lines from text files that match simple patterns.
 > *   Use `find` to find files whose names match simple patterns.

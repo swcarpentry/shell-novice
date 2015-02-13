@@ -4,7 +4,7 @@ title: The Unix Shell
 subtitle: Files and Directories
 minutes: 15
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Explain the similarities and differences between a file and a directory.
 > *   Translate an absolute path into a relative path and vice versa.
@@ -116,6 +116,8 @@ which is why `nelle` is the last part of the directory's name.
 
 <img src="fig/home-directories.svg" alt="Home Directories" />
 
+> ## Tip: '/' {.callout}
+>
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
 > it refers to the root directory. When it appears *inside* a name,
@@ -365,6 +367,8 @@ but she found them hard to understand after a couple of years.
 (The final straw was when she found herself creating
 a directory called `revised-revised-results-3`.)
 
+> ## Sorting by date {.callout}
+>
 > Nelle names her directories "year-month-day",
 > with leading zeroes for months and days,
 > because the shell displays file and directory names in alphabetical order.
