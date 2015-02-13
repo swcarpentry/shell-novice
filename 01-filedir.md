@@ -323,10 +323,10 @@ If we want to display it, we can give `ls` the `-a` flag:
 $ ls -F -a
 ~~~
 ~~~ {.output}
-./          Desktop/             pizza.cfg
-../         molecules/           solar.pdf
-creatures/  north-pacific-gyre/  writing/
-data/       notes.txt
+./                  creatures/          notes.txt
+../                 data/               pizza.cfg
+.bash_profile       molecules/          solar.pdf
+Desktop/            north-pacific-gyre/ writing/
 ~~~
 
 `-a` stands for "show all";
@@ -336,7 +336,10 @@ As you can see,
 it also displays another special directory that's just called `.`,
 which means "the current working directory".
 It may seem redundant to have a name for it,
-but we'll see some uses for it soon.
+but we'll see some uses for it soon.  
+Finally, we also see a file called `.bash_profile`. This file usually contains settings to customize the shell (terminal). There may also be similar files called `.bashrc` or `.bash_login`. For this lesson material it does not contain any settings.
+
+
 
 > ## Orthogonality {.callout}
 > 
