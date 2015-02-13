@@ -19,6 +19,10 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: inherit;
 }
 
+h2 code, h3 code, h4 code, h5 code, h6 code {
+    font-size: inherit;
+}
+
 /* Objectives, Callout Box and Challenges */
 .objectives, .keypoints, .callout, .challenge {
     margin: 1em 0;
