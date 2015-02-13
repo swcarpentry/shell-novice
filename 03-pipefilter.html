@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: The Unix Shell</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -27,7 +29,7 @@
         <div class="span10 offset1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Pipes and Filters</h2>
-<blockquote>
+<div id="learning-objectives" class="objectives">
 <h2>Learning Objectives</h2>
 <ul>
 <li>Redirect a command's output to a file.</li>
@@ -36,7 +38,7 @@
 <li>Explain what usually happens if a program or pipeline isn't given any input to process.</li>
 <li>Explain Unix's &quot;small pieces, loosely joined&quot; philosophy.</li>
 </ul>
-</blockquote>
+</div>
 <p>Now that we know a few basic commands, we can finally look at the shell's most powerful feature: the ease with which it lets us combine existing programs in new ways. We'll start with a directory called <code>molecules</code> that contains six files describing some simple organic molecules. The <code>.pdb</code> extension indicates that these files are in Protein Data Bank format, a simple text format that specifies the type and position of each atom in the molecule.</p>
 <pre class="input"><code>$ ls molecules</code></pre>
 <pre class="output"><code>cubane.pdb    ethane.pdb    methane.pdb
@@ -69,7 +71,7 @@ $ wc *.pdb</code></pre>
 <p>We can also use <code>-w</code> to get only the number of words, or <code>-c</code> to get only the number of characters.</p>
 <p>Which of these files is shortest? It's an easy question to answer when there are only six files, but what if there were 6000? Our first step toward a solution is to run the command:</p>
 <pre class="input"><code>$ wc -l *.pdb &gt; lengths</code></pre>
-<p>The <code>&gt;</code> tells the shell to <strong>redirect</strong> the command's output to a file instead of printing it to the screen. The shell will create the file if it doesn't exist, or overwrite the contents of that file if it does. (This is why there is no screen output: everything that <code>wc</code> would have printed has gone into the file <code>lengths</code> instead.) <code>ls lengths</code> confirms that the file exists:</p>
+<p>The greater than symbol, <code>&gt;</code>, tells the shell to <strong>redirect</strong> the command's output to a file instead of printing it to the screen. The shell will create the file if it doesn't exist, or overwrite the contents of that file if it does. (This is why there is no screen output: everything that <code>wc</code> would have printed has gone into the file <code>lengths</code> instead.) <code>ls lengths</code> confirms that the file exists:</p>
 <pre class="input"><code>$ ls lengths</code></pre>
 <pre class="output"><code>lengths</code></pre>
 <p>We can now send the content of <code>lengths</code> to the screen using <code>cat lengths</code>. <code>cat</code> stands for &quot;concatenate&quot;: it prints the contents of files one after another. There's only one file in this case, so <code>cat</code> just shows us what it contains:</p>
@@ -143,8 +145,8 @@ $ wc -l *.txt</code></pre>
 <pre class="input"><code>$ ls *Z.txt</code></pre>
 <pre class="output"><code>NENE01971Z.txt    NENE02040Z.txt</code></pre>
 <p>Sure enough, when she checks the log on her laptop, there's no depth recorded for either of those samples. Since it's too late to get the information any other way, she must exclude those two files from her analysis. She could just delete them using <code>rm</code>, but there are actually some analyses she might do later where depth doesn't matter, so instead, she'll just be careful later on to select files using the wildcard expression <code>*[AB].txt</code>. As always, the '*' matches any number of characters; the expression <code>[AB]</code> matches either an 'A' or a 'B', so this matches all the valid data files she has.</p>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="what-does-sort--n-do" class="challenge">
+<h2>What does <code>sort -n</code> do?</h2>
 <p>If we run <code>sort</code> on this file:</p>
 <pre><code>10
 2
@@ -165,15 +167,15 @@ $ wc -l *.txt</code></pre>
 22</code></pre>
 <p>Explain why <code>-n</code> has this effect.</p>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<div id="what-does-mean" class="challenge">
+<h2>What does <code>&lt;</code> mean?</h2>
 <p>What is the difference between:</p>
 <pre><code>wc -l &lt; mydata.dat</code></pre>
 <p>and:</p>
 <pre><code>wc -l mydata.dat</code></pre>
 </div>
-<div id="fixme-2" class="challenge">
-<h2>FIXME</h2>
+<div id="why-does-uniq-only-remove-adjacent-duplicates" class="challenge">
+<h2>Why does <code>uniq</code> only remove adjacent duplicates?</h2>
 <p>The command <code>uniq</code> removes adjacent duplicated lines from its input. For example, if a file <code>salmon.txt</code> contains:</p>
 <pre><code>coho
 coho
@@ -188,8 +190,8 @@ coho
 steelhead</code></pre>
 <p>Why do you think <code>uniq</code> only removes <em>adjacent</em> duplicated lines? (Hint: think about very large data sets.) What other command could you combine with it in a pipe to remove all duplicated lines?</p>
 </div>
-<div id="fixme-3" class="challenge">
-<h2>FIXME</h2>
+<div id="pipe-reading-comprehension" class="challenge">
+<h2>Pipe reading comprehension</h2>
 <p>A file called <code>animals.txt</code> contains the following data:</p>
 <pre><code>2012-11-05,deer
 2012-11-05,rabbit
@@ -202,8 +204,8 @@ steelhead</code></pre>
 <p>What text passes through each of the pipes and the final redirect in the pipeline below?</p>
 <pre><code>cat animals.txt | head -5 | tail -3 | sort -r &gt; final.txt</code></pre>
 </div>
-<div id="fixme-4" class="challenge">
-<h2>FIXME</h2>
+<div id="pipe-construction" class="challenge">
+<h2>Pipe construction</h2>
 <p>The command:</p>
 <pre><code>$ cut -d , -f 2 animals.txt</code></pre>
 <p>produces the following output:</p>

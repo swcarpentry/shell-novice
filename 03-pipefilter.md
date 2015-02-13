@@ -4,7 +4,7 @@ title: The Unix Shell
 subtitle: Pipes and Filters
 minutes: 15
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Redirect a command's output to a file.
 > *   Process a file instead of keyboard input using redirection.

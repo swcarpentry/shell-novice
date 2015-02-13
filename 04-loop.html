@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: The Unix Shell</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -190,8 +192,8 @@ NENE01736A.txt
   460  history</code></pre>
 <p>then she can re-run <code>goostats</code> on <code>NENE01729B.txt</code> simply by typing <code>!458</code>.</p>
 </div>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="challenge-1" class="challenge">
+<h2>Challenge 1</h2>
 <p>Suppose that <code>ls</code> initially displays:</p>
 <pre><code>fructose.dat    glucose.dat   sucrose.dat</code></pre>
 <p>What is the output of:</p>
@@ -200,8 +202,8 @@ do
     ls *.dat
 done</code></pre>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<div id="challenge-2" class="challenge">
+<h2>Challenge 2</h2>
 <p>In the same directory, what is the effect of this loop?</p>
 <pre><code>for sugar in *.dat
 do
@@ -234,8 +236,8 @@ do
   echo &quot;analyze $file &gt; analyzed-$file&quot;
 done</code></pre>
 </div>
-<div id="fixme-2" class="challenge">
-<h2>FIXME</h2>
+<div id="loopy-arithmetic" class="challenge">
+<h2>Loopy Arithmetic</h2>
 <p>The <code>expr</code> does simple arithmetic using command-line parameters:</p>
 <pre><code>$ expr 3 + 5
 8
@@ -250,8 +252,8 @@ do
     done
 done</code></pre>
 </div>
-<div id="fixme-3" class="challenge">
-<h2>FIXME</h2>
+<div id="what-am-i" class="challenge">
+<h2>What am I?</h2>
 <p>Describe in words what the following loop does.</p>
 <pre><code>for how in frog11 prcb redig
 do
