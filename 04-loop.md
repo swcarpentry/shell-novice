@@ -19,8 +19,8 @@ Suppose we have several hundred genome data files named `basilisk.dat`, `unicorn
 In this example,
 we'll use the `creatures` directory which only has two example files,
 but the principles can be applied to many many more files at once.
-When new files arrive,
-we'd like to rename the existing ones to `original-basilisk.dat` and `original-unicorn.dat`.
+We would like to modify these files, but also save a version of the original files and rename them 
+as `original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
 ~~~ {.input}
@@ -39,9 +39,10 @@ This wouldn't back up our files, instead we get an error
 mv: target `original-*.dat' is not a directory
 ~~~
 
-This is because there are no files matching the wildcard `original-*.dat`.
-In this case,
-Bash passes the unexpanded wildcard as a parameter to the `mv` command.
+This is a problem arises when `mv` receives more than two inputs. When this happens, it 
+expects the last input to be a directory where it can move all the files it was passed to. 
+Since there is no directory named `original-*.dat` in the `creatures` directory we get an 
+error.
 
 Instead, we can use a **loop**
 to do some operation once for each thing in a list.
@@ -393,7 +394,7 @@ so she decides to get some coffee and catch up on her reading.
 > then she can re-run `goostats` on `NENE01729B.txt` simply by typing
 > `!458`.
 
-> ## FIXME {.challenge}
+> ## Variables in loops {.challenge}
 > 
 > Suppose that `ls` initially displays:
 > 
@@ -409,8 +410,19 @@ so she decides to get some coffee and catch up on her reading.
 >     ls *.dat
 > done
 > ~~~
+>
+> Now, what is the output of:
+>
+> ~~~
+> for datafile in *.dat
+> do
+>	ls $datafile
+> done
+> ~~~
+>
+> Why do these two loops give you different outputs?
 
-> ## FIXME {.challenge}
+> ## Saving to a file in a loop - part one {.challenge}
 >
 > In the same directory, what is the effect of this loop?
 > 
@@ -429,6 +441,31 @@ so she decides to get some coffee and catch up on her reading.
 > 3.  Prints `fructose.dat`, `glucose.dat`, `sucrose.dat`, and
 >     `xylose.dat`, and copies `sucrose.dat` to create `xylose.dat`.
 > 4.  None of the above.
+
+> ## Saving to a file in a loop - part two {.challenge}
+>
+> In another directory, where `ls` returns:
+>
+> ~~~
+> fructose.dat    glucose.dat   sucrose.dat   maltose.txt
+> ~~~
+> 
+> What would be the output of the following loop?
+>
+> ~~~
+> for datafile in *.dat
+> do
+>     cat $datafile >> sugar.dat
+> done
+> ~~~
+>
+> 1.  All of the text from `fructose.dat`, `glucose.dat` and `sucrose.dat` would be 
+>     concatenated and saved to a file called `sugar.dat`.
+> 2.  The text from `sucrose.dat` will be saved to a file called `sugar.dat`.
+> 3.  All of the text from `fructose.dat`, `glucose.dat`, `sucrose.dat` and `maltose.txt`
+>     would be concatenated and saved to a file called `sugar.dat`.
+> 4.  All of the text from `fructose.dat`, `glucose.dat` and `sucrose.dat` would be printed
+>     to the screen and saved to a file called `sugar.dat`
 
 > ## Doing a Dry Run {.challenge}
 >
