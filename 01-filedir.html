@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: The Unix Shell</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -27,7 +29,7 @@
         <div class="span10 offset1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Files and Directories</h2>
-<blockquote>
+<div id="learning-objectives" class="objectives">
 <h2>Learning Objectives</h2>
 <ul>
 <li>Explain the similarities and differences between a file and a directory.</li>
@@ -37,7 +39,7 @@
 <li>Identify the actual command, flags, and filenames in a command-line call.</li>
 <li>Demonstrate the use of tab completion, and explain its advantages.</li>
 </ul>
-</blockquote>
+</div>
 <p>The part of the operating system responsible for managing files and directories is called the <strong>file system</strong>. It organizes our data into files, which hold information, and directories (also called &quot;folders&quot;), which hold files or other directories.</p>
 <p>Several commands are frequently used to create, inspect, rename, and delete files and directories. To start exploring them, let's open a shell window:</p>
 <pre class="input"><code>$</code></pre>
@@ -65,9 +67,10 @@
 <p>We know that our current working directory <code>/users/nelle</code> is stored inside <code>/users</code> because <code>/users</code> is the first part of its name. Similarly, we know that <code>/users</code> is stored inside the root directory <code>/</code> because its name begins with <code>/</code>.</p>
 <p>Underneath <code>/users</code>, we find one directory for each user with an account on this machine. The Mummy's files are stored in <code>/users/imhotep</code>, Wolfman's in <code>/users/larry</code>, and ours in <code>/users/nelle</code>, which is why <code>nelle</code> is the last part of the directory's name.</p>
 <p><img src="fig/home-directories.svg" alt="Home Directories" /></p>
-<blockquote>
+<div id="tip" class="callout">
+<h2>Tip: '/'</h2>
 <p>Notice that there are two meanings for the <code>/</code> character. When it appears at the front of a file or directory name, it refers to the root directory. When it appears <em>inside</em> a name, it's just a separator.</p>
-</blockquote>
+</div>
 <p>Let's see what's in Nelle's home directory by running <code>ls</code>, which stands for &quot;listing&quot;:</p>
 <pre class="input"><code>$ ls</code></pre>
 <pre class="output"><code>creatures  molecules           pizza.cfg
@@ -138,9 +141,10 @@ data/       notes.txt</code></pre>
 </div>
 <h3 id="nelles-pipeline-organizing-files">Nelle's Pipeline: Organizing Files</h3>
 <p>Knowing just this much about files and directories, Nelle is ready to organize the files that the protein assay machine will create. First, she creates a directory called <code>north-pacific-gyre</code> (to remind herself where the data came from). Inside that, she creates a directory called <code>2012-07-03</code>, which is the date she started processing the samples. She used to use names like <code>conference-paper</code> and <code>revised-results</code>, but she found them hard to understand after a couple of years. (The final straw was when she found herself creating a directory called <code>revised-revised-results-3</code>.)</p>
-<blockquote>
+<div id="sorting-by-date" class="callout">
+<h2>Sorting by date</h2>
 <p>Nelle names her directories &quot;year-month-day&quot;, with leading zeroes for months and days, because the shell displays file and directory names in alphabetical order. If she used month names, December would come before July; if she didn't use leading zeroes, November ('11') would come before July ('7').</p>
-</blockquote>
+</div>
 <p>Each of her physical samples is labelled according to her lab's convention with a unique ten-character ID, such as &quot;NENE01729A&quot;. This is what she used in her collection log to record the location, time, depth, and other characteristics of the sample, so she decides to use it as part of each data file's name. Since the assay machine's output is plain text, she will call her files <code>NENE01729A.txt</code>, <code>NENE01812A.txt</code>, and so on. All 1520 files will go into the same directory.</p>
 <p>If she is in her home directory, Nelle can see what files she has using the command:</p>
 <pre class="input"><code>$ ls north-pacific-gyre/2012-07-03/</code></pre>
@@ -150,8 +154,8 @@ data/       notes.txt</code></pre>
 <pre class="input"><code>$ ls north-pacific-gyre/</code></pre>
 <p>If she presses tab again, Bash will add <code>2012-07-03/</code> to the command, since it's the only possible completion. Pressing tab again does nothing, since there are 1520 possibilities; pressing tab twice brings up a list of all the files, and so on. This is called <strong>tab completion</strong>, and we will see it in many other tools as we go on.</p>
 <p><img src="fig/filesystem-challenge.svg" alt="Filesystem for Challenge Questions" /></p>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="relative-path-resolution" class="challenge">
+<h2>Relative path resolution</h2>
 <p>If <code>pwd</code> displays <code>/users/thing</code>, what will <code>ls ../backup</code> display?</p>
 <ol style="list-style-type: decimal">
 <li><code>../backup: No such file or directory</code></li>
@@ -160,8 +164,8 @@ data/       notes.txt</code></pre>
 <li><code>original pnas_final pnas_sub</code></li>
 </ol>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<div id="ls-reading-comprehension" class="challenge">
+<h2><code>ls</code> reading comprehension</h2>
 <p>If <code>pwd</code> displays <code>/users/backup</code>, and <code>-r</code> tells <code>ls</code> to display things in reverse order, what command will display:</p>
 <pre><code>pnas-sub/ pnas-final/ original/</code></pre>
 <ol style="list-style-type: decimal">
@@ -171,8 +175,8 @@ data/       notes.txt</code></pre>
 <li>Either #2 or #3 above, but not #1.</li>
 </ol>
 </div>
-<div id="fixme-2" class="challenge">
-<h2>FIXME</h2>
+<div id="default-cd-action" class="challenge">
+<h2>Default <code>cd</code> action</h2>
 <p>What does the command <code>cd</code> without a directory name do?</p>
 <ol style="list-style-type: decimal">
 <li>It has no effect.</li>
@@ -181,9 +185,9 @@ data/       notes.txt</code></pre>
 <li>It produces an error message.</li>
 </ol>
 </div>
-<div id="fixme-3" class="challenge">
-<h2>FIXME</h2>
-<p>What does the command <code>ls</code> do when used with the -s and -h arguments?</p>
+<div id="exploring-more-ls-arguments" class="challenge">
+<h2>Exploring more <code>ls</code> arguments</h2>
+<p>What does the command <code>ls</code> do when used with the <code>-s</code> and <code>-h</code> arguments?</p>
 </div>
         </div>
       </div>
