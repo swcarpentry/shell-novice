@@ -466,6 +466,19 @@ section.content {
     font-size: 40pt;
 }
 
+thead .header {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+table th, table td {
+    padding: 5px;
+}
+
+table {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    margin-bottom: 15px;
+}
+
 #header-text {
     font-size:20pt;
     margin:0;
