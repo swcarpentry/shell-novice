@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: The Unix Shell</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -27,15 +29,15 @@
         <div class="span10 offset1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Finding Things</h2>
-<div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+<blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
 <ul>
 <li>Use <code>grep</code> to select lines from text files that match simple patterns.</li>
 <li>Use <code>find</code> to find files whose names match simple patterns.</li>
 <li>Use the output of one command as the command-line parameters to another command.</li>
 <li>Explain what is meant by &quot;text&quot; and &quot;binary&quot; files, and why many common tools don't handle the latter well.</li>
 </ul>
-</div>
+</blockquote>
 <p>You can guess someone's age by how they talk about search: young people use &quot;Google&quot; as a verb, while crusty old Unix programmers use &quot;grep&quot;. The word is a contraction of &quot;global/regular expression/print&quot;, a common sequence of operations in early Unix text editors. It is also the name of a very useful command-line program.</p>
 <p><code>grep</code> finds and prints lines in files that match a pattern. For our examples, we will use a file that contains three haikus taken from a 1998 competition in <em>Salon</em> magazine. For this set of examples we're going to be working in the writing subdirectory:</p>
 <pre class="input"><code>$ cd
@@ -190,15 +192,39 @@ Software is like that.</code></pre>
 <p>The second option is to convert the data to text, or extract the text-ish bits from the data. This is probably the most common approach, since it only requires people to build one tool per data format (to extract information). On the one hand, it makes simple things easy to do. On the negative side, complex things are usually impossible. For example, it's easy enough to write a program that will extract X and Y dimensions from image files for <code>grep</code> to play with, but how would you write something to find values in a spreadsheet whose cells contained formulas?</p>
 <p>The third choice is to recognize that the shell and text processing have their limits, and to use a programming language such as Python instead. When the time comes to do this, don't be too hard on the shell: many modern programming languages, Python included, have borrowed a lot of ideas from it, and imitation is also the sincerest form of praise.</p>
 </div>
-<h3 id="conclusion">Conclusion</h3>
+<blockquote>
+<h2 id="conclusion">Conclusion</h2>
 <p>The Unix shell is older than most of the people who use it. It has survived so long because it is one of the most productive programming environments ever created --- maybe even <em>the</em> most productive. Its syntax may be cryptic, but people who have mastered it can experiment with different commands interactively, then use what they have learned to automate their work. Graphical user interfaces may be better at the first, but the shell is still unbeaten at the second. And as Alfred North Whitehead wrote in 1911, &quot;Civilization advances by extending the number of important operations which we can perform without thinking about them.&quot;</p>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+</blockquote>
+<div id="using-grep" class="challenge">
+<h2>Using grep</h2>
+<pre><code>The Tao that is seen
+Is not the true Tao, until
+You bring fresh toner.
+
+With searching comes loss
+and the presence of absence:
+&quot;My Thesis&quot; not found.
+
+Yesterday it worked
+Today it is not working
+Software is like that.</code></pre>
+<p>From the above text, contained in the file <code>haiku.txt</code>, which command would result in the following output:</p>
+<pre><code>and the presence of absence</code></pre>
+<ol style="list-style-type: decimal">
+<li><code>grep of haiku.txt</code></li>
+<li><code>grep -E of haiku.txt</code></li>
+<li><code>grep -w of haiku.txt</code></li>
+<li><code>grep -i of haiku.txt</code></li>
+</ol>
+</div>
+<div id="find-pipeline-reading-comprehension" class="challenge">
+<h2><code>find</code> pipeline reading comprehension</h2>
 <p>Write a short explanatory comment for the following shell script:</p>
 <pre class="input"><code>find . -name &#39;*.dat&#39; | wc -l | sort -n</code></pre>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<blockquote>
+<h2 id="matching-ose.dat-but-not-temp">Matching <code>ose.dat</code> but not <code class="challenge">temp</code></h2>
 <p>The <code>-v</code> flag to <code>grep</code> inverts pattern matching, so that only lines which do <em>not</em> match the pattern are printed. Given that, which of the following commands will find all files in <code>/data</code> whose names end in <code>ose.dat</code> (e.g., <code>sucrose.dat</code> or <code>maltose.dat</code>), but do <em>not</em> contain the word <code>temp</code>?</p>
 <ol style="list-style-type: decimal">
 <li><p><code>find /data -name '*.dat' | grep ose | grep -v temp</code></p></li>
@@ -206,7 +232,7 @@ Software is like that.</code></pre>
 <li><p><code>grep -v temp $(find /data -name '*ose.dat')</code></p></li>
 <li><p>None of the above.</p></li>
 </ol>
-</div>
+</blockquote>
 <div id="little-women" class="challenge">
 <h2>Little Women</h2>
 <p>You and your friend, having just finished reading <em>Little Women</em> by Louisa May Alcott, are in an argument. Of the four sisters in the book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the most mentioned. You, however, are certain it was Amy. Luckily, you have a file <code>LittleWomen.txt</code> containing the full text of the novel. Using a<code>for</code> loop, how would you tabulate the number of times each of the four sisters is mentioned? Hint: one solution might employ the commands <code>grep</code> and <code>wc</code> and a <code>|</code>, while another might utilize <code>grep</code> options.</p>

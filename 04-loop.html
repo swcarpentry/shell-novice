@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: The Unix Shell</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -27,8 +29,8 @@
         <div class="span10 offset1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Loops</h2>
-<div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+<blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
 <ul>
 <li>Write a loop that applies one or more commands separately to each file in a set of files.</li>
 <li>Trace the values taken on by a loop variable during execution of the loop.</li>
@@ -37,14 +39,14 @@
 <li>Demonstrate how to see what commands have recently been executed.</li>
 <li>Re-run recently executed commands without retyping them.</li>
 </ul>
-</div>
-<p>Wildcards and tab completion are two ways to reduce typing (and typing mistakes). Another is to tell the shell to do something over and over again. Suppose we have several hundred genome data files named <code>basilisk.dat</code>, <code>unicorn.dat</code>, and so on. In this example, we'll use the <code>creatures</code> directory which only has two example files, but the principles can be applied to many many more files at once. When new files arrive, we'd like to rename the existing ones to <code>original-basilisk.dat</code> and <code>original-unicorn.dat</code>. We can't use:</p>
+</blockquote>
+<p>Wildcards and tab completion are two ways to reduce typing (and typing mistakes). Another is to tell the shell to do something over and over again. Suppose we have several hundred genome data files named <code>basilisk.dat</code>, <code>unicorn.dat</code>, and so on. In this example, we'll use the <code>creatures</code> directory which only has two example files, but the principles can be applied to many many more files at once. We would like to modify these files, but also save a version of the original files and rename them as <code>original-basilisk.dat</code> and <code>original-unicorn.dat</code>. We can't use:</p>
 <pre class="input"><code>$ mv *.dat original-*.dat</code></pre>
 <p>because that would expand to:</p>
 <pre class="input"><code>$ mv basilisk.dat unicorn.dat original-*.dat</code></pre>
 <p>This wouldn't back up our files, instead we get an error</p>
 <pre class="error"><code>mv: target `original-*.dat&#39; is not a directory</code></pre>
-<p>This is because there are no files matching the wildcard <code>original-*.dat</code>. In this case, Bash passes the unexpanded wildcard as a parameter to the <code>mv</code> command.</p>
+<p>This a problem arises when <code>mv</code> receives more than two inputs. When this happens, it expects the last input to be a directory where it can move all the files it was passed to. Since there is no directory named <code>original-*.dat</code> in the <code>creatures</code> directory we get an error.</p>
 <p>Instead, we can use a <strong>loop</strong> to do some operation once for each thing in a list. Here's a simple example that displays the first three lines of each file in turn:</p>
 <pre class="input"><code>$ for filename in basilisk.dat unicorn.dat
 &gt; do
@@ -190,8 +192,8 @@ NENE01736A.txt
   460  history</code></pre>
 <p>then she can re-run <code>goostats</code> on <code>NENE01729B.txt</code> simply by typing <code>!458</code>.</p>
 </div>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="variables-in-loops" class="challenge">
+<h2>Variables in loops</h2>
 <p>Suppose that <code>ls</code> initially displays:</p>
 <pre><code>fructose.dat    glucose.dat   sucrose.dat</code></pre>
 <p>What is the output of:</p>
@@ -199,9 +201,15 @@ NENE01736A.txt
 do
     ls *.dat
 done</code></pre>
+<p>Now, what is the output of:</p>
+<pre><code>for datafile in *.dat
+do
+  ls $datafile
+done</code></pre>
+<p>Why do these two loops give you different outputs?</p>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<div id="saving-to-a-file-in-a-loop---part-one" class="challenge">
+<h2>Saving to a file in a loop - part one</h2>
 <p>In the same directory, what is the effect of this loop?</p>
 <pre><code>for sugar in *.dat
 do
@@ -213,6 +221,22 @@ done</code></pre>
 <li>Prints <code>fructose.dat</code>, <code>glucose.dat</code>, and <code>sucrose.dat</code>, and concatenates all three files to create <code>xylose.dat</code>.</li>
 <li>Prints <code>fructose.dat</code>, <code>glucose.dat</code>, <code>sucrose.dat</code>, and <code>xylose.dat</code>, and copies <code>sucrose.dat</code> to create <code>xylose.dat</code>.</li>
 <li>None of the above.</li>
+</ol>
+</div>
+<div id="saving-to-a-file-in-a-loop---part-two" class="challenge">
+<h2>Saving to a file in a loop - part two</h2>
+<p>In another directory, where <code>ls</code> returns:</p>
+<pre><code>fructose.dat    glucose.dat   sucrose.dat   maltose.txt</code></pre>
+<p>What would be the output of the following loop?</p>
+<pre><code>for datafile in *.dat
+do
+    cat $datafile &gt;&gt; sugar.dat
+done</code></pre>
+<ol style="list-style-type: decimal">
+<li>All of the text from <code>fructose.dat</code>, <code>glucose.dat</code> and <code>sucrose.dat</code> would be concatenated and saved to a file called <code>sugar.dat</code>.</li>
+<li>The text from <code>sucrose.dat</code> will be saved to a file called <code>sugar.dat</code>.</li>
+<li>All of the text from <code>fructose.dat</code>, <code>glucose.dat</code>, <code>sucrose.dat</code> and <code>maltose.txt</code> would be concatenated and saved to a file called <code>sugar.dat</code>.</li>
+<li>All of the text from <code>fructose.dat</code>, <code>glucose.dat</code> and <code>sucrose.dat</code> would be printed to the screen and saved to a file called <code>sugar.dat</code></li>
 </ol>
 </div>
 <div id="doing-a-dry-run" class="challenge">
@@ -234,7 +258,7 @@ do
   echo &quot;analyze $file &gt; analyzed-$file&quot;
 done</code></pre>
 </div>
-<div id="fixme-2" class="challenge">
+<div id="fixme" class="challenge">
 <h2>FIXME</h2>
 <p>The <code>expr</code> does simple arithmetic using command-line parameters:</p>
 <pre><code>$ expr 3 + 5
@@ -250,7 +274,7 @@ do
     done
 done</code></pre>
 </div>
-<div id="fixme-3" class="challenge">
+<div id="fixme-1" class="challenge">
 <h2>FIXME</h2>
 <p>Describe in words what the following loop does.</p>
 <pre><code>for how in frog11 prcb redig

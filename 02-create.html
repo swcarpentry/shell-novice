@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: The Unix Shell</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -27,15 +29,15 @@
         <div class="span10 offset1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Creating Things</h2>
-<div id="learning-objectives" class="objectives">
-<h2>Learning Objectives</h2>
+<blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
 <ul>
 <li>Create a directory hierarchy that matches a given diagram.</li>
 <li>Create files in that hierarchy using an editor or by copying and renaming existing files.</li>
 <li>Display the contents of a directory using the command line.</li>
 <li>Delete specified files and/or directories.</li>
 </ul>
-</div>
+</blockquote>
 <p>We now know how to explore files and directories, but how do we create them in the first place? Let's go back to Nelle's home directory, <code>/users/nelle</code>, and use <code>ls -F</code> to see what it contains:</p>
 <pre class="input"><code>$ pwd</code></pre>
 <pre class="output"><code>/users/nelle</code></pre>
@@ -137,6 +139,17 @@ thesis/quotations.txt</code></pre>
 <div id="another-useful-abbreviation" class="callout">
 <h2>Another Useful Abbreviation</h2>
 <p>The shell interprets the character <code>~</code> (tilde) at the start of a path to mean &quot;the current user's home directory&quot;. For example, if Nelle's home directory is <code>/home/nelle</code>, then <code>~/data</code> is equivalent to <code>/home/nelle/data</code>. This only works if it is the first character in the path: <code>here/there/~/elsewhere</code> is <em>not</em> <code>/home/nelle/elsewhere</code>.</p>
+</div>
+<div id="renaming-files" class="challenge">
+<h2>Renaming files</h2>
+<p>Suppose that you created a <code>.txt</code> file in your current directory to contain a list of the statistical tests you will need to do to analyze your data, and named it: <code>statstics.txt</code></p>
+<p>After creating and saving this file you realize you misspelled the filename! You want to correct the mistake, which of the following commands could you use to do so?</p>
+<ol style="list-style-type: decimal">
+<li><code>cp statstics.txt statistics.txt</code></li>
+<li><code>mv statstics.txt statistics.txt</code></li>
+<li><code>mv statstics.txt .</code></li>
+<li><code>cp statstics.txt .</code></li>
+</ol>
 </div>
 <div id="moving-and-copying" class="challenge">
 <h2>Moving and Copying</h2>

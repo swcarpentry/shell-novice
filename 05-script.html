@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: The Unix Shell</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -28,7 +30,7 @@
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Shell Scripts</h2>
 <blockquote>
-<h2>Learning Objectives</h2>
+<h2 id="learning-objectives">Learning Objectives</h2>
 <ul>
 <li>Write a shell script that runs a command or series of commands for a fixed set of files.</li>
 <li>Run a shell script from the command line.</li>
@@ -168,8 +170,23 @@ do
     goostats -J 100 -r $datafile stats-$datafile
 done</code></pre>
 <p>The advantage is that this always selects the right files: she doesn't have to remember to exclude the 'Z' files. The disadvantage is that it <em>always</em> selects just those files --- she can't run it on all files (including the 'Z' files), or on the 'G' or 'H' files her colleagues in Antarctica are producing, without editing the script. If she wanted to be more adventurous, she could modify her script to check for command-line parameters, and use <code>*[AB].txt</code> if none were provided. Of course, this introduces another tradeoff between flexibility and complexity.</p>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="variables-in-shell-scripts" class="challenge">
+<h2>Variables in shell scripts</h2>
+<p>In the molecules directory, you have a shell script called <code>script.sh</code> containing the following commands:</p>
+<pre><code>head $2 $1
+tail $3 $1</code></pre>
+<p>While you are in the molecules directory, you type the following command:</p>
+<pre><code>bash script.sh &#39;*.pdb&#39; -1 -1</code></pre>
+<p>Which of the following outputs would you expect to see?</p>
+<ol style="list-style-type: decimal">
+<li>All of the lines between the first and the last lines of each file ending in <code>*.pdb</code> in the molecules directory</li>
+<li>The first and the last line of each file ending in <code>*.pdb</code> in the molecules directory</li>
+<li>The first and the last line of each file in the molecules directory</li>
+<li>An error because of the quotes around <code>*.pdb</code></li>
+</ol>
+</div>
+<div id="list-unique-species" class="challenge">
+<h2>List unique species</h2>
 <p>Leah has several hundred data files, each of which is formatted like this:</p>
 <pre><code>2013-11-05,deer,5
 2013-11-05,rabbit,22
@@ -181,20 +198,20 @@ done</code></pre>
 2013-11-07,bear,1</code></pre>
 <p>Write a shell script called <code>species.sh</code> that takes any number of filenames as command-line parameters, and uses <code>cut</code>, <code>sort</code>, and <code>uniq</code> to print a list of the unique species appearing in each of those files separately.</p>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<div id="find-the-longest-file-with-a-given-extension" class="challenge">
+<h2>Find the longest file with a given extension</h2>
 <p>Write a shell script called <code>longest.sh</code> that takes the name of a directory and a filename extension as its parameters, and prints out the name of the file with the most lines in that directory with that extension. For example:</p>
 <pre><code>$ bash longest.sh /tmp/data pdb</code></pre>
 <p>would print the name of the <code>.pdb</code> file in <code>/tmp/data</code> that has the most lines.</p>
 </div>
-<div id="fixme-2" class="challenge">
-<h2>FIXME</h2>
+<div id="why-record-commands-in-the-history-before-running-them" class="challenge">
+<h2>Why record commands in the history before running them?</h2>
 <p>If you run the command:</p>
 <pre><code>history | tail -5 &gt; recent.sh</code></pre>
 <p>the last command in the file is the <code>history</code> command itself, i.e., the shell has added <code>history</code> to the command log before actually running it. In fact, the shell <em>always</em> adds commands to the log before running them. Why do you think it does this?</p>
 </div>
-<div id="fixme-3" class="challenge">
-<h2>FIXME</h2>
+<div id="script-reading-comprehension" class="challenge">
+<h2>Script reading comprehension</h2>
 <p>Joel's <code>data</code> directory contains three files: <code>fructose.dat</code>, <code>glucose.dat</code>, and <code>sucrose.dat</code>. Explain what a script called <code>example.sh</code> would do when run as <code>bash example.sh *.dat</code> if it contained the following lines:</p>
 <pre><code># Script 1
 echo *.*</code></pre>
