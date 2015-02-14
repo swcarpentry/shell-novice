@@ -466,17 +466,31 @@ section.content {
     font-size: 40pt;
 }
 
-thead .header {
-    background: rgba(0, 0, 0, 0.15);
+table {
+    margin-bottom: 15px;
 }
 
 table th, table td {
-    padding: 5px;
+    padding: 5px 10px;
 }
 
-table {
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    margin-bottom: 15px;
+table > thead > .header {
+    background: transparent;
+}
+
+table > thead > tr > td, table > thead > tr > th,
+table > tbody > tr > td, table > tbody > tr > th,
+table > tfoot > tr > td, table > tfoot > tr > th {
+    border: 1px solid #DDD;
+}
+
+table > thead > tr > th,
+table > thead > tr > td {
+    border-bottom-width: 2px;
+}
+
+table tbody > tr:nth-of-type(2n+1) {
+    background-color: #F9F9F9;
 }
 
 #header-text {
