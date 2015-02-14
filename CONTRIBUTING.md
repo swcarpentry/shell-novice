@@ -36,14 +36,9 @@ you are agreeing that Software Carpentry may redistribute your work under
 
 2.  For a list of helpful commands run `make` in this directory.
 
-3.  The [list of maintainers][swc-maintainers]
-    on the [Software Carpentry website][swc-website]
-    lists the people currently responsible for managing this repository.
-    Feel free to contact them if you have any questions or languishing pull requests.
-
 [christina]: https://github.com/ChristinaLK
 [gabriel]: https://github.com/gdevenyi
-[issues]: https://github.com/swcarpentry/lesson-template/issues
+[issues]: https://github.com/swcarpentry/shell-novice/issues
 [license]: LICENSE.md
 [pro-git]: http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
 [swc-lessons]: http://software-carpentry.org/lessons.html
