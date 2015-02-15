@@ -118,6 +118,6 @@ On the other hand,
 the shell allows us to combine existing tools in powerful ways with only a few keystrokes
 and to set up pipelines to handle large volumes of data automatically.
 In addition,
-the command line is often the easiest way to interact with remote machines.
-As clusters and cloud computing become more popular for scientific data crunching,
-being able to drive them is becoming a necessary skill.
+the command line is often the easiest way to interact with remote machines and supercomputers. 
+Familiarity with the shell is near essential to run a variety of specialised tools and resources including high-peformance computing systems. As clusters and cloud computing become more popular for scientific data crunching,
+being able to drive them is becoming a necessary skill. We can build on the command-line skills covered here to tackle a wide range of scientific questions and computational challenges.
