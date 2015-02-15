@@ -91,6 +91,14 @@ At the top is the **root directory**
 that holds everything else.
 We refer to it using a slash character `/` on its own;
 this is the leading slash in `/users/nelle`.
+The user's home directory can also be specified with the tilde '~' symbol.
+
+~~~ {.input}
+$ pwd ~
+~~~
+~~~ {.output}
+/users/nelle
+~~~
 
 Inside that directory are several other directories:
 `bin` (which is where some built-in programs are stored),
