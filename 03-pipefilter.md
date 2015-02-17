@@ -103,7 +103,7 @@ but what if there were 6000?
 Our first step toward a solution is to run the command:
 
 ~~~ {.input}
-$ wc -l *.pdb > lengths
+$ wc -l *.pdb > lengths.txt
 ~~~
 
 The greater than symbol, `>`, tells the shell to **redirect** the command's output
@@ -111,24 +111,24 @@ to a file instead of printing it to the screen.
 The shell will create the file if it doesn't exist,
 or overwrite the contents of that file if it does.
 (This is why there is no screen output:
-everything that `wc` would have printed has gone into the file `lengths` instead.)
-`ls lengths` confirms that the file exists:
+everything that `wc` would have printed has gone into the file `lengths.txt` instead.)
+`ls lengths.txt` confirms that the file exists:
 
 ~~~ {.input}
-$ ls lengths
+$ ls lengths.txt
 ~~~
 ~~~ {.output}
-lengths
+lengths.txt
 ~~~
 
-We can now send the content of `lengths` to the screen using `cat lengths`.
+We can now send the content of `lengths.txt` to the screen using `cat lengths.txt`.
 `cat` stands for "concatenate":
 it prints the contents of files one after another.
 There's only one file in this case,
 so `cat` just shows us what it contains:
 
 ~~~ {.input}
-$ cat lengths
+$ cat lengths.txt
 ~~~
 ~~~ {.output}
   20  cubane.pdb
@@ -147,7 +147,7 @@ This does *not* change the file;
 instead, it sends the sorted result to the screen:
 
 ~~~ {.input}
-$ sort -n lengths
+$ sort -n lengths.txt
 ~~~
 ~~~ {.output}
   9  methane.pdb
@@ -159,15 +159,15 @@ $ sort -n lengths
 107  total
 ~~~
 
-We can put the sorted list of lines in another temporary file called `sorted-lengths`
-by putting `> sorted-lengths` after the command,
-just as we used `> lengths` to put the output of `wc` into `lengths`.
+We can put the sorted list of lines in another temporary file called `sorted-lengths.txt`
+by putting `> sorted-lengths.txt` after the command,
+just as we used `> lengths.txt` to put the output of `wc` into `lengths.txt`.
 Once we've done that,
-we can run another command called `head` to get the first few lines in `sorted-lengths`:
+we can run another command called `head` to get the first few lines in `sorted-lengths.txt`:
 
 ~~~ {.input}
-$ sort -n lengths > sorted-lengths
-$ head -1 sorted-lengths
+$ sort -n lengths.txt > sorted-lengths.txt
+$ head -1 sorted-lengths.txt
 ~~~
 ~~~ {.output}
   9  methane.pdb
@@ -177,7 +177,7 @@ Using the parameter `-1` with `head` tells it that
 we only want the first line of the file;
 `-20` would get the first 20,
 and so on.
-Since `sorted-lengths` contains the lengths of our files ordered from least to greatest,
+Since `sorted-lengths.txt` contains the lengths of our files ordered from least to greatest,
 the output of `head` must be the file with the fewest lines.
 
 If you think this is confusing,
@@ -187,7 +187,7 @@ all those intermediate files make it hard to follow what's going on.
 We can make it easier to understand by running `sort` and `head` together:
 
 ~~~ {.input}
-$ sort -n lengths | head -1
+$ sort -n lengths.txt | head -1
 ~~~
 ~~~ {.output}
   9  methane.pdb
@@ -235,7 +235,7 @@ it creates a new process
 and temporarily sends whatever we type on our keyboard to that process's standard input,
 and whatever the process sends to standard output to the screen.
 
-Here's what happens when we run `wc -l *.pdb > lengths`.
+Here's what happens when we run `wc -l *.pdb > lengths.txt`.
 The shell starts by telling the computer to create a new process to run the `wc` program.
 Since we've provided some filenames as parameters,
 `wc` reads from them instead of from standard input.
