@@ -319,16 +319,17 @@ quotes.txt   thesis/quotations.txt
 To prove that we made a copy,
 let's delete the `quotes.txt` file in the current directory
 and then run that same `ls` again.
-This time it tells us that it can't find `quotes.txt` in the current directory,
-but it does find the copy in `thesis` that we didn't delete:
 
 ~~~ {.input}
+$ rm quotes.txt
 $ ls quotes.txt thesis/quotations.txt
 ~~~
 ~~~ {.error}
 ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt
 ~~~
+This time it tells us that it can't find `quotes.txt` in the current directory,
+but it does find the copy in `thesis` that we didn't delete.
 
 > ## Another Useful Abbreviation {.callout}
 > 
