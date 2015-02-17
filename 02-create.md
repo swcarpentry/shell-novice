@@ -322,8 +322,6 @@ and then run that same `ls` again.
 
 ~~~ {.input}
 $ rm quotes.txt
-~~~
-~~~ {.input}
 $ ls quotes.txt thesis/quotations.txt
 ~~~
 ~~~ {.error}
