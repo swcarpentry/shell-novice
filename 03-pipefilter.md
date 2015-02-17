@@ -292,7 +292,7 @@ and created 1520 files in the `north-pacific-gyre/2012-07-03` directory describe
 As a quick sanity check, she types:
 
 ~~~ {.input}
-$ cd north-pacific-gyre/2012-07-03
+$ cd ../north-pacific-gyre/2012-07-03
 $ wc -l *.txt
 ~~~
 
