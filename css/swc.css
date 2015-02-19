@@ -102,11 +102,13 @@ blockquote {
     margin: 1em;
     padding: 1em 1em .5em 1em;
     width: 90%;
+    font-size: inherit;
 }
 
 /* Citation for testimonial quote. */
 blockquote.testimonial cite {
     font-style: italic;
+    font-size: inherit;
 }
 
 /* Main body of pages. */
