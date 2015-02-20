@@ -456,3 +456,42 @@ $ grep FE $(find .. -name '*.pdb')
 > of the four sisters is mentioned?  Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+>
+> ## Grep, being more specific with your search {.challenge}
+> In the `writing` directory which contains the file `haiku.txt` when you try the following command, what do you think will happen?
+>
+> ~~~ {.input}
+> grep the presence haiku.txt
+> ~~~
+>
+> a) Nothing becuase there are too many arguments.
+>
+> ~~~ {.input}
+> ~~~
+>
+> b) Prints all lines that contain the pattern "the presence".
+>
+> ~~~ {.input}
+> and the presence of absence:
+> ~~~
+>
+> c) Prints all lines that contain the pattern "presence" .
+>
+> ~~~ {.input}
+> and the presence of absence:
+> ~~~
+>
+> d) Prints all lines that contain the pattern "the" .
+>
+> ~~~ {.input}
+> Is not the true Tao, until
+> and the presence of absence:
+> ~~~
+>
+> e)  The second and third argument are treated as files, an error is printed because the file `presence` does not exist, followed by all lines that contain the pattern "the", prefaced with the file name
+>
+> ~~~ {.input}
+> grep: presence: No such file or directory
+> haiku.txt:Is not the true Tao, until
+> haiku.txt:and the presence of absence:
+> ~~~
