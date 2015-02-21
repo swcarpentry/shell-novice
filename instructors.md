@@ -123,6 +123,16 @@ as long as learners using Windows do not run into roadblocks such as:
     and then retroactively decide which are worth encapsulating
     for future re-use.
 
+*   If everything is going well, you can drive home the point that file 
+    extensions are essetially there to help computers (and human 
+    readers) understand file content and are not a requirement of files 
+    (covered briefly in [Files and Directories](01-filedir.html)). 
+    This can be done in the [Pipes and Filters](03-pipefilter.html) section by showing that you 
+    can redirect standard output to a file without the .txt extension 
+    (e.g., lengths), and that the resulting file is still a perfectly usable text file. 
+    Make the point that if double-clicked in the GUI, the computer will 
+    probably ask you what you want to do.
+
 *   We have to leave out many important things because of time constraints,
     including file permissions, job control, and SSH.
     If learners already understand the basic material,
