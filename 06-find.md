@@ -194,7 +194,7 @@ Again,
 it has a lot of options;
 to show how the simplest ones work, we'll use the directory tree shown below.
 
-<img src="fig/find-file-tree.svg" alt="File Tree for Find Example" />
+![File Tree for Find Example](fig/find-file-tree.svg)
 
 Nelle's `writing` directory contains one file called `haiku.txt` and four subdirectories:
 `thesis` (which is sadly empty),
