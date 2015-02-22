@@ -67,7 +67,7 @@ as long as learners using Windows do not run into roadblocks such as:
 
 ## Teaching Notes
 
-*   Time esimates:
+*   Time estimates:
     *   @gvwilson: 3 hours
 
 *   Setup:
