@@ -77,11 +77,11 @@ Today it is not working
 ~~~
 
 This time,
-the output is lines containing the words "Yesterday" and "Today",
-which both have the letters "day".
-If we give `grep` the `-w` flag,
-it restricts matches to word boundaries,
-so that only lines with the word "day" will be printed:
+two lines that include the letters "day" are outputted.
+However, these letters are contained within larger words.
+To restrict matches to lines containing the word "day" on its own,
+we can give `grep` with the `-w` flag.
+This will limit matches to word boundaries.
 
 ~~~ {.input}
 $ grep -w day haiku.txt
@@ -125,7 +125,12 @@ Software is like that.
 To find out what they are, we can type `man grep`.
 `man` is the Unix "manual" command:
 it prints a description of a command and its options,
-and (if you're lucky) provides a few examples of how to use it:
+and (if you're lucky) provides a few examples of how to use it.
+
+To navigate through the `man` pages,
+you may use the up and down arrow keys to move line-by-line,
+or try the "b" and spacebar keys to skip up and down by full page.
+Quit the `man` pages by typing "q".
 
 ~~~ {.input}
 $ man grep
