@@ -717,6 +717,16 @@ div.chapter h2 {
 	}
 }
 
+@media (max-width: 600px) {
+    .navbar-toggle {
+	margin-right: 20px;
+    }
+    .navbar-brand img {
+	width: 180px;
+	height: 36px;
+	margin-top: 10px
+    }
+}
 /* GitHub ribbon breaking point */
 @media screen and (min-width: 600px) {
     #github-ribbon {
