@@ -167,6 +167,7 @@ $ wc -l *.pdb | sort -n
 ~~~
 
 because `wc -l` lists the number of lines in the files
+(recall that wc stands for 'word count', adding the -l flag means 'count lines' instead)
 and `sort -n` sorts things numerically.
 We could put this in a file,
 but then it would only ever sort a list of `.pdb` files in the current directory.
