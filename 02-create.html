@@ -30,7 +30,7 @@
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Creating Things</h2>
 <blockquote>
-<h2 id="learning-objectives">Learning Objectives</h2>
+<h2>Learning Objectives</h2>
 <ul>
 <li>Create a directory hierarchy that matches a given diagram.</li>
 <li>Create files in that hierarchy using an editor or by copying and renaming existing files.</li>
@@ -73,7 +73,9 @@ $ nano draft.txt</code></pre>
 <p>No matter what editor you use, you will need to know where it searches for and saves files. If you start it from the shell, it will (probably) use your current working directory as its default location. If you use your computer's start menu, it may want to save files in your desktop or documents directory instead. You can change this by navigating to another directory the first time you &quot;Save As...&quot;</p>
 </div>
 <p>Let's type in a few lines of text, then use Control-O to write our data to disk:</p>
-<p><img src="fig/nano-screenshot.png" alt="Nano in Action" /></p>
+<div class="figure">
+<img src="nano-screenshot.png" alt="Nano in action" /><p class="caption">Nano in action</p>
+</div>
 <p>Once our file is saved, we can use Control-X to quit the editor and return to the shell. (Unix documentation often uses the shorthand <code>^A</code> to mean &quot;control-A&quot;.) <code>nano</code> doesn't leave any output on the screen after it exits, but <code>ls</code> now shows that we have created a file called <code>draft.txt</code>:</p>
 <pre class="input"><code>$ ls</code></pre>
 <pre class="output"><code>draft.txt</code></pre>
@@ -132,10 +134,12 @@ $ ls thesis</code></pre>
 <pre class="input"><code>$ cp quotes.txt thesis/quotations.txt
 $ ls quotes.txt thesis/quotations.txt</code></pre>
 <pre class="output"><code>quotes.txt   thesis/quotations.txt</code></pre>
-<p>To prove that we made a copy, let's delete the <code>quotes.txt</code> file in the current directory and then run that same <code>ls</code> again. This time it tells us that it can't find <code>quotes.txt</code> in the current directory, but it does find the copy in <code>thesis</code> that we didn't delete:</p>
-<pre class="input"><code>$ ls quotes.txt thesis/quotations.txt</code></pre>
+<p>To prove that we made a copy, let's delete the <code>quotes.txt</code> file in the current directory and then run that same <code>ls</code> again.</p>
+<pre class="input"><code>$ rm quotes.txt
+$ ls quotes.txt thesis/quotations.txt</code></pre>
 <pre class="error"><code>ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt</code></pre>
+<p>This time it tells us that it can't find <code>quotes.txt</code> in the current directory, but it does find the copy in <code>thesis</code> that we didn't delete.</p>
 <div id="another-useful-abbreviation" class="callout">
 <h2>Another Useful Abbreviation</h2>
 <p>The shell interprets the character <code>~</code> (tilde) at the start of a path to mean &quot;the current user's home directory&quot;. For example, if Nelle's home directory is <code>/home/nelle</code>, then <code>~/data</code> is equivalent to <code>/home/nelle/data</code>. This only works if it is the first character in the path: <code>here/there/~/elsewhere</code> is <em>not</em> <code>/home/nelle/elsewhere</code>.</p>

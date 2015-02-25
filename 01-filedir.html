@@ -30,7 +30,7 @@
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Files and Directories</h2>
 <blockquote>
-<h2 id="learning-objectives">Learning Objectives</h2>
+<h2>Learning Objectives</h2>
 <ul>
 <li>Explain the similarities and differences between a file and a directory.</li>
 <li>Translate an absolute path into a relative path and vice versa.</li>
@@ -63,10 +63,14 @@
 </div>
 <p>To understand what a &quot;home directory&quot; is, let's have a look at how the file system as a whole is organized. At the top is the <strong>root directory</strong> that holds everything else. We refer to it using a slash character <code>/</code> on its own; this is the leading slash in <code>/users/nelle</code>.</p>
 <p>Inside that directory are several other directories: <code>bin</code> (which is where some built-in programs are stored), <code>data</code> (for miscellaneous data files), <code>users</code> (where users' personal directories are located), <code>tmp</code> (for temporary files that don't need to be stored long-term), and so on:</p>
-<p><img src="fig/filesystem.svg" alt="The Filesystem" /></p>
+<div class="figure">
+<img src="fig/filesystem.svg" alt="The Filesystem" /><p class="caption">The Filesystem</p>
+</div>
 <p>We know that our current working directory <code>/users/nelle</code> is stored inside <code>/users</code> because <code>/users</code> is the first part of its name. Similarly, we know that <code>/users</code> is stored inside the root directory <code>/</code> because its name begins with <code>/</code>.</p>
 <p>Underneath <code>/users</code>, we find one directory for each user with an account on this machine. The Mummy's files are stored in <code>/users/imhotep</code>, Wolfman's in <code>/users/larry</code>, and ours in <code>/users/nelle</code>, which is why <code>nelle</code> is the last part of the directory's name.</p>
-<p><img src="fig/home-directories.svg" alt="Home Directories" /></p>
+<div class="figure">
+<img src="fig/home-directories.svg" alt="Home Directories" /><p class="caption">Home Directories</p>
+</div>
 <blockquote>
 <p>Notice that there are two meanings for the <code>/</code> character. When it appears at the front of a file or directory name, it refers to the root directory. When it appears <em>inside</em> a name, it's just a separator.</p>
 </blockquote>
@@ -75,7 +79,9 @@
 <pre class="output"><code>creatures  molecules           pizza.cfg
 data       north-pacific-gyre  solar.pdf
 Desktop    notes.txt           writing</code></pre>
-<p><img src="fig/homedir.svg" alt="Nelle's Home Directory" /></p>
+<div class="figure">
+<img src="fig/homedir.svg" alt="Nelle&#39;s Home Directory" /><p class="caption">Nelle's Home Directory</p>
+</div>
 <p><code>ls</code> prints the names of the files and directories in the current directory in alphabetical order, arranged neatly into columns. We can make its output more comprehensible by using the <strong>flag</strong> <code>-F</code>, which tells <code>ls</code> to add a trailing <code>/</code> to the names of directories:</p>
 <pre class="input"><code>$ ls -F</code></pre>
 <pre class="output"><code>creatures/  molecules/           pizza.cfg
@@ -151,7 +157,9 @@ Desktop/            north-pacific-gyre/ writing/</code></pre>
 <p>and then presses tab, the shell automatically completes the directory name for her:</p>
 <pre class="input"><code>$ ls north-pacific-gyre/</code></pre>
 <p>If she presses tab again, Bash will add <code>2012-07-03/</code> to the command, since it's the only possible completion. Pressing tab again does nothing, since there are 1520 possibilities; pressing tab twice brings up a list of all the files, and so on. This is called <strong>tab completion</strong>, and we will see it in many other tools as we go on.</p>
-<p><img src="fig/filesystem-challenge.svg" alt="Filesystem for Challenge Questions" /></p>
+<div class="figure">
+<img src="fig/filesystem-challenge.svg" alt="Filesystem for Challange Questions" /><p class="caption">Filesystem for Challange Questions</p>
+</div>
 <div id="relative-path-resolution" class="challenge">
 <h2>Relative path resolution</h2>
 <p>If <code>pwd</code> displays <code>/users/thing</code>, what will <code>ls ../backup</code> display?</p>

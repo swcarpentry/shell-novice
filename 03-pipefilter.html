@@ -30,7 +30,7 @@
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Pipes and Filters</h2>
 <blockquote>
-<h2 id="learning-objectives">Learning Objectives</h2>
+<h2>Learning Objectives</h2>
 <ul>
 <li>Redirect a command's output to a file.</li>
 <li>Process a file instead of keyboard input using redirection.</li>
@@ -70,12 +70,12 @@ $ wc *.pdb</code></pre>
  107  total</code></pre>
 <p>We can also use <code>-w</code> to get only the number of words, or <code>-c</code> to get only the number of characters.</p>
 <p>Which of these files is shortest? It's an easy question to answer when there are only six files, but what if there were 6000? Our first step toward a solution is to run the command:</p>
-<pre class="input"><code>$ wc -l *.pdb &gt; lengths</code></pre>
-<p>The greater than symbol, <code>&gt;</code>, tells the shell to <strong>redirect</strong> the command's output to a file instead of printing it to the screen. The shell will create the file if it doesn't exist, or overwrite the contents of that file if it does. (This is why there is no screen output: everything that <code>wc</code> would have printed has gone into the file <code>lengths</code> instead.) <code>ls lengths</code> confirms that the file exists:</p>
-<pre class="input"><code>$ ls lengths</code></pre>
-<pre class="output"><code>lengths</code></pre>
-<p>We can now send the content of <code>lengths</code> to the screen using <code>cat lengths</code>. <code>cat</code> stands for &quot;concatenate&quot;: it prints the contents of files one after another. There's only one file in this case, so <code>cat</code> just shows us what it contains:</p>
-<pre class="input"><code>$ cat lengths</code></pre>
+<pre class="input"><code>$ wc -l *.pdb &gt; lengths.txt</code></pre>
+<p>The greater than symbol, <code>&gt;</code>, tells the shell to <strong>redirect</strong> the command's output to a file instead of printing it to the screen. The shell will create the file if it doesn't exist, or overwrite the contents of that file if it does. (This is why there is no screen output: everything that <code>wc</code> would have printed has gone into the file <code>lengths.txt</code> instead.) <code>ls lengths.txt</code> confirms that the file exists:</p>
+<pre class="input"><code>$ ls lengths.txt</code></pre>
+<pre class="output"><code>lengths.txt</code></pre>
+<p>We can now send the content of <code>lengths.txt</code> to the screen using <code>cat lengths.txt</code>. <code>cat</code> stands for &quot;concatenate&quot;: it prints the contents of files one after another. There's only one file in this case, so <code>cat</code> just shows us what it contains:</p>
+<pre class="input"><code>$ cat lengths.txt</code></pre>
 <pre class="output"><code>  20  cubane.pdb
   12  ethane.pdb
    9  methane.pdb
@@ -84,7 +84,7 @@ $ wc *.pdb</code></pre>
   15  propane.pdb
  107  total</code></pre>
 <p>Now let's use the <code>sort</code> command to sort its contents. We will also use the -n flag to specify that the sort is numerical instead of alphabetical. This does <em>not</em> change the file; instead, it sends the sorted result to the screen:</p>
-<pre class="input"><code>$ sort -n lengths</code></pre>
+<pre class="input"><code>$ sort -n lengths.txt</code></pre>
 <pre class="output"><code>  9  methane.pdb
  12  ethane.pdb
  15  propane.pdb
@@ -92,13 +92,13 @@ $ wc *.pdb</code></pre>
  21  pentane.pdb
  30  octane.pdb
 107  total</code></pre>
-<p>We can put the sorted list of lines in another temporary file called <code>sorted-lengths</code> by putting <code>&gt; sorted-lengths</code> after the command, just as we used <code>&gt; lengths</code> to put the output of <code>wc</code> into <code>lengths</code>. Once we've done that, we can run another command called <code>head</code> to get the first few lines in <code>sorted-lengths</code>:</p>
-<pre class="input"><code>$ sort -n lengths &gt; sorted-lengths
-$ head -1 sorted-lengths</code></pre>
+<p>We can put the sorted list of lines in another temporary file called <code>sorted-lengths.txt</code> by putting <code>&gt; sorted-lengths.txt</code> after the command, just as we used <code>&gt; lengths.txt</code> to put the output of <code>wc</code> into <code>lengths.txt</code>. Once we've done that, we can run another command called <code>head</code> to get the first few lines in <code>sorted-lengths.txt</code>:</p>
+<pre class="input"><code>$ sort -n lengths.txt &gt; sorted-lengths.txt
+$ head -1 sorted-lengths.txt</code></pre>
 <pre class="output"><code>  9  methane.pdb</code></pre>
-<p>Using the parameter <code>-1</code> with <code>head</code> tells it that we only want the first line of the file; <code>-20</code> would get the first 20, and so on. Since <code>sorted-lengths</code> contains the lengths of our files ordered from least to greatest, the output of <code>head</code> must be the file with the fewest lines.</p>
+<p>Using the parameter <code>-1</code> with <code>head</code> tells it that we only want the first line of the file; <code>-20</code> would get the first 20, and so on. Since <code>sorted-lengths.txt</code> contains the lengths of our files ordered from least to greatest, the output of <code>head</code> must be the file with the fewest lines.</p>
 <p>If you think this is confusing, you're in good company: even once you understand what <code>wc</code>, <code>sort</code>, and <code>head</code> do, all those intermediate files make it hard to follow what's going on. We can make it easier to understand by running <code>sort</code> and <code>head</code> together:</p>
-<pre class="input"><code>$ sort -n lengths | head -1</code></pre>
+<pre class="input"><code>$ sort -n lengths.txt | head -1</code></pre>
 <pre class="output"><code>  9  methane.pdb</code></pre>
 <p>The vertical bar between the two commands is called a <strong>pipe</strong>. It tells the shell that we want to use the output of the command on the left as the input to the command on the right. The computer might create a temporary file if it needs to, or copy data from one program to the other in memory, or something else entirely; we don't have to know or care.</p>
 <p>We can use another pipe to send the output of <code>wc</code> directly to <code>sort</code>, which then sends its output to <code>head</code>:</p>
@@ -107,7 +107,7 @@ $ head -1 sorted-lengths</code></pre>
 <p>This is exactly like a mathematician nesting functions like <em>log(3x)</em> and saying &quot;the log of three times <em>x</em>&quot;. In our case, the calculation is &quot;head of sort of line count of <code>*.pdb</code>&quot;.</p>
 <p>Here's what actually happens behind the scenes when we create a pipe. When a computer runs a program --- any program --- it creates a <strong>process</strong> in memory to hold the program's software and its current state. Every process has an input channel called <strong>standard input</strong>. (By this point, you may be surprised that the name is so memorable, but don't worry: most Unix programmers call it &quot;stdin&quot;. Every process also has a default output channel called <strong>standard output</strong> (or &quot;stdout&quot;).</p>
 <p>The shell is actually just another program. Under normal circumstances, whatever we type on the keyboard is sent to the shell on its standard input, and whatever it produces on standard output is displayed on our screen. When we tell the shell to run a program, it creates a new process and temporarily sends whatever we type on our keyboard to that process's standard input, and whatever the process sends to standard output to the screen.</p>
-<p>Here's what happens when we run <code>wc -l *.pdb &gt; lengths</code>. The shell starts by telling the computer to create a new process to run the <code>wc</code> program. Since we've provided some filenames as parameters, <code>wc</code> reads from them instead of from standard input. And since we've used <code>&gt;</code> to redirect output to a file, the shell connects the process's standard output to that file.</p>
+<p>Here's what happens when we run <code>wc -l *.pdb &gt; lengths.txt</code>. The shell starts by telling the computer to create a new process to run the <code>wc</code> program. Since we've provided some filenames as parameters, <code>wc</code> reads from them instead of from standard input. And since we've used <code>&gt;</code> to redirect output to a file, the shell connects the process's standard output to that file.</p>
 <p>If we run <code>wc -l *.pdb | sort -n</code> instead, the shell creates two processes (one for each process in the pipe) so that <code>wc</code> and <code>sort</code> run simultaneously. The standard output of <code>wc</code> is fed directly to the standard input of <code>sort</code>; since there's no redirection with <code>&gt;</code>, <code>sort</code>'s output goes to the screen. And if we run <code>wc -l *.pdb | sort -n | head -1</code>, we get three processes with data flowing from the files, through <code>wc</code> to <code>sort</code>, and from <code>sort</code> through <code>head</code> to the screen.</p>
 <p>This simple idea is why Unix has been so successful. Instead of creating enormous programs that try to do many different things, Unix programmers focus on creating lots of simple tools that each do one job well, and that work well with each other. This programming model is called &quot;pipes and filters&quot;. We've already seen pipes; a <strong>filter</strong> is a program like <code>wc</code> or <code>sort</code> that transforms a stream of input into a stream of output. Almost all of the standard Unix tools can work this way: unless told to do otherwise, they read from standard input, do something with what they've read, and write to standard output.</p>
 <p>The key is that any program that reads lines of text from standard input and writes lines of text to standard output can be combined with every other program that behaves this way as well. You can <em>and should</em> write your programs this way so that you and other people can put those programs into pipes to multiply their power.</p>

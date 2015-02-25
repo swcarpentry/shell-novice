@@ -30,7 +30,7 @@
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Shell Scripts</h2>
 <blockquote>
-<h2 id="learning-objectives">Learning Objectives</h2>
+<h2>Learning Objectives</h2>
 <ul>
 <li>Write a shell script that runs a command or series of commands for a fixed set of files.</li>
 <li>Run a shell script from the command line.</li>
@@ -96,7 +96,7 @@ head &quot;$2&quot; &quot;$1&quot; | tail &quot;$3&quot;</code></pre>
 <p>A comment starts with a <code>#</code> character and runs to the end of the line. The computer ignores comments, but they're invaluable for helping people understand and use scripts.</p>
 <p>What if we want to process many files in a single pipeline? For example, if we want to sort our <code>.pdb</code> files by length, we would type:</p>
 <pre class="input"><code>$ wc -l *.pdb | sort -n</code></pre>
-<p>because <code>wc -l</code> lists the number of lines in the files and <code>sort -n</code> sorts things numerically. We could put this in a file, but then it would only ever sort a list of <code>.pdb</code> files in the current directory. If we want to be able to get a sorted list of other kinds of files, we need a way to get all those names into the script. We can't use <code>$1</code>, <code>$2</code>, and so on because we don't know how many files there are. Instead, we use the special variable <code>$@</code>, which means, &quot;All of the command-line parameters to the shell script.&quot; We also should put <code>$@</code> inside double-quotes to handle the case of parameters containing spaces (<code>&quot;$@&quot;</code> is equivalent to <code>&quot;$1&quot;</code> <code>&quot;$2&quot;</code> ...) Here's an example:</p>
+<p>because <code>wc -l</code> lists the number of lines in the files (recall that wc stands for 'word count', adding the -l flag means 'count lines' instead) and <code>sort -n</code> sorts things numerically. We could put this in a file, but then it would only ever sort a list of <code>.pdb</code> files in the current directory. If we want to be able to get a sorted list of other kinds of files, we need a way to get all those names into the script. We can't use <code>$1</code>, <code>$2</code>, and so on because we don't know how many files there are. Instead, we use the special variable <code>$@</code>, which means, &quot;All of the command-line parameters to the shell script.&quot; We also should put <code>$@</code> inside double-quotes to handle the case of parameters containing spaces (<code>&quot;$@&quot;</code> is equivalent to <code>&quot;$1&quot;</code> <code>&quot;$2&quot;</code> ...) Here's an example:</p>
 <pre class="input"><code>$ cat sorted.sh</code></pre>
 <pre class="output"><code>wc -l &quot;$@&quot; | sort -n</code></pre>
 <pre class="input"><code>$ bash sorted.sh *.pdb ../creatures/*.dat</code></pre>
