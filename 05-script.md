@@ -260,8 +260,8 @@ $ history | tail -4 > redo-figure-3.sh
 The file `redo-figure-3.sh` now contains:
 
 ~~~
-297 goostats -r NENE01729B.txt stats-NENE01729B.txt
-298 goodiff stats-NENE01729B.txt /data/validated/01729.txt > 01729-differences.txt
+297 bash goostats -r NENE01729B.txt stats-NENE01729B.txt
+298 bash goodiff stats-NENE01729B.txt /data/validated/01729.txt > 01729-differences.txt
 299 cut -d ',' -f 2-3 01729-differences.txt > 01729-time-series.txt
 300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png
 ~~~
@@ -316,7 +316,7 @@ She runs the editor and writes the following:
 for datafile in "$@"
 do
     echo $datafile
-    goostats -J 100 -r $datafile stats-$datafile
+    bash goostats -J 100 -r $datafile stats-$datafile
 done
 ~~~
 
@@ -346,7 +346,7 @@ She could have written it as:
 for datafile in *[AB].txt
 do
     echo $datafile
-    goostats -J 100 -r $datafile stats-$datafile
+    bash goostats -J 100 -r $datafile stats-$datafile
 done
 ~~~
 
