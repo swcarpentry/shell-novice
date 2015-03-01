@@ -8,6 +8,8 @@ and reviews of proposed changes are all equally welcome.
 By contributing,
 you are agreeing that Software Carpentry may redistribute your work under
 [these licenses][license].
+You also agree to abide by our
+[contributor code of conduct][conduct].
 
 ## Getting Started
 
@@ -38,6 +40,7 @@ you are agreeing that Software Carpentry may redistribute your work under
     lists the people currently responsible for managing this repository.
     Feel free to contact them if you have any questions or languishing pull requests.
 
+[conduct]: CONDUCT.md
 [lesson-template-issues]: https://github.com/swcarpentry/lesson-template/issues
 [license]: LICENSE.md
 [pro-git]: http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
