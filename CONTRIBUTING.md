@@ -43,7 +43,7 @@ You also agree to abide by our
 [conduct]: CONDUCT.md
 [lesson-template-issues]: https://github.com/swcarpentry/lesson-template/issues
 [license]: LICENSE.md
-[pro-git]: http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
+[pro-git-chapter]: http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
 [swc-lessons]: http://software-carpentry.org/lessons.html
 [swc-maintainers]: http://software-carpentry.org/lessons.html#maintainers
 [swc-website]: http://software-carpentry.org

@@ -30,9 +30,9 @@ fi
 OWNER=$1
 REPO=$2
 GITHUB_URL=https://github.com/${OWNER}/${REPO}
-LABELS=(bug defer discussion duplicate enhancement filed-by-newcomer getting-started help-wanted left-as-was suitable-for-newcomer work-in-progress)
-COLORS=(FF0000 66FF00 0000FF 98FB98 E0115F FFFF00 808000 89CFF0 568203 FCE883 545AA7)
-LABELS_TO_DELETE=(help%20wanted invalid question wontfix)
+LABELS=(bug    build  defer  discussion documentation enhancement newcomer-friendly upstream work-in-progress)
+COLORS=(FF0000 551033 66FF00 0000FF     D4318C        E0115F      FCE883            83F52C   545AA7)
+LABELS_TO_DELETE=(duplicate filed-by-newcomer getting-started help%20wanted help-wanted invalid left-as-was suitable-for-newcomer question wontfix)
 
 # Test if repository exists
 curl -s --head ${GITHUB_URL} | head -n 1 | grep -q "HTTP/1.[01] [23].."
