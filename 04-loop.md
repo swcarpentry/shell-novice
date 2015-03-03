@@ -4,7 +4,7 @@ title: The Unix Shell
 subtitle: Loops
 minutes: 15
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Write a loop that applies one or more commands separately to each file in a set of files.
 > *   Trace the values taken on by a loop variable during execution of the loop.
@@ -268,7 +268,7 @@ mv unicorn.dat original-unicorn.dat
 > isn't foolproof, but it's a handy way to see what's going to happen when
 > you're still learning how loops work.
 
-### Nelle's Pipeline: Processing Files
+## Nelle's Pipeline: Processing Files
 
 Nelle is now ready to process her data files.
 Since she's still learning how to use the shell,
@@ -498,7 +498,7 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Command-Line Expressions {.challenge}
 >
 > The `expr` does simple arithmetic using command-line parameters:
 > 
@@ -521,7 +521,7 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Explain This Loop {.challenge}
 > 
 > Describe in words what the following loop does.
 > 
