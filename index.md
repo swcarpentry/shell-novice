@@ -9,6 +9,9 @@ More importantly,
 it helps them combine existing programs in new ways
 and automate repetitive tasks
 so that they don't have to type the same things over and over again.
+Use of the shell is fundamental to using a wide range of other powerful tools 
+and computing resources (including "high performance computing" supercomputers).
+This is the beginning of an exciting journey towards using these resources effectively.
 
 > ## Prerequisites
 >
