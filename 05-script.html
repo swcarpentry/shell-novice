@@ -125,8 +125,8 @@ wc -l &quot;$@&quot; | sort -n</code></pre>
 <p>Second, suppose we have just run a series of commands that did something useful --- for example, that created a graph we'd like to use in a paper. We'd like to be able to re-create the graph later if we need to, so we want to save the commands in a file. Instead of typing them in again (and potentially getting them wrong) we can do this:</p>
 <pre class="input"><code>$ history | tail -4 &gt; redo-figure-3.sh</code></pre>
 <p>The file <code>redo-figure-3.sh</code> now contains:</p>
-<pre><code>297 goostats -r NENE01729B.txt stats-NENE01729B.txt
-298 goodiff stats-NENE01729B.txt /data/validated/01729.txt &gt; 01729-differences.txt
+<pre><code>297 bash goostats -r NENE01729B.txt stats-NENE01729B.txt
+298 bash goodiff stats-NENE01729B.txt /data/validated/01729.txt &gt; 01729-differences.txt
 299 cut -d &#39;,&#39; -f 2-3 01729-differences.txt &gt; 01729-time-series.txt
 300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png</code></pre>
 <p>After a moment's work in an editor to remove the serial numbers on the commands, we have a completely accurate record of how we created that figure.</p>
@@ -155,7 +155,7 @@ history | tail -5 | colrm 1 7</code></pre>
 for datafile in &quot;$@&quot;
 do
     echo $datafile
-    goostats -J 100 -r $datafile stats-$datafile
+    bash goostats -J 100 -r $datafile stats-$datafile
 done</code></pre>
 <p>(The parameters <code>-J 100</code> and <code>-r</code> are the ones her supervisor said she should have used.) She saves this in a file called <code>do-stats.sh</code> so that she can now re-do the first stage of her analysis by typing:</p>
 <pre class="input"><code>$ bash do-stats.sh *[AB].txt</code></pre>
@@ -167,7 +167,7 @@ done</code></pre>
 for datafile in *[AB].txt
 do
     echo $datafile
-    goostats -J 100 -r $datafile stats-$datafile
+    bash goostats -J 100 -r $datafile stats-$datafile
 done</code></pre>
 <p>The advantage is that this always selects the right files: she doesn't have to remember to exclude the 'Z' files. The disadvantage is that it <em>always</em> selects just those files --- she can't run it on all files (including the 'Z' files), or on the 'G' or 'H' files her colleagues in Antarctica are producing, without editing the script. If she wanted to be more adventurous, she could modify her script to check for command-line parameters, and use <code>*[AB].txt</code> if none were provided. Of course, this introduces another tradeoff between flexibility and complexity.</p>
 <div id="variables-in-shell-scripts" class="challenge">
