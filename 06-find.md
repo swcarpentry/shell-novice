@@ -103,7 +103,8 @@ $ grep -n it haiku.txt
 Here, we can see that lines 5, 9, and 10 contain the letters "it".
 
 We can combine options (i.e. flags) as we do with other Unix commands.
-For example, let's find the lines that contain the word 'the'.
+For example, let's find the lines that contain the word "the". We can combine
+the option `-w` to find the lines that contain the word "the" and `-n` to number the lines that match:
 
 ~~~ {.input}
 $ grep -n -w the haiku.txt
