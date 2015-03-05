@@ -125,7 +125,7 @@ $ grep -n -w -i the haiku.txt
 6:and the presence of absence:
 ~~~
 
-And we want to use the option '-v' to invert our search, i.e., we want to output
+Now, we want to use the option `-v` to invert our search, i.e., we want to output
 the lines that do not contain the word 'the'.
 
 ~~~ {.input}
