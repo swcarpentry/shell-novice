@@ -112,7 +112,7 @@ $ nano draft.txt
 Let's type in a few lines of text,
 then use Control-O to write our data to disk:
 
-<img src="fig/nano-screenshot.png" alt="Nano in Action" />
+![Nano in action](nano-screenshot.png)
 
 Once our file is saved,
 we can use Control-X to quit the editor and return to the shell.
@@ -144,11 +144,13 @@ $ ls
 
 > ## Deleting Is Forever {.callout}
 > 
-> Unix doesn't have a trash bin: when we delete files, they are unhooked
-> from the file system so that their storage space on disk can be
-> recycled. Tools for finding and recovering deleted files do exist, but
-> there's no guarantee they'll work in any particular situation, since the
-> computer may recycle the file's disk space right away.
+> The Unix shell doesn't have a trash bin that we can recover deleted
+> files from (though most graphical interfaces to Unix do).  Instead,
+> when we delete files, they are unhooked from the file system so that
+> their storage space on disk can be recycled. Tools for finding and
+> recovering deleted files do exist, but there's no guarantee they'll
+> work in any particular situation, since the computer may recycle the
+> file's disk space right away.
 
 Let's re-create that file
 and then move up one directory to `/users/nelle` using `cd ..`:
@@ -317,16 +319,17 @@ quotes.txt   thesis/quotations.txt
 To prove that we made a copy,
 let's delete the `quotes.txt` file in the current directory
 and then run that same `ls` again.
-This time it tells us that it can't find `quotes.txt` in the current directory,
-but it does find the copy in `thesis` that we didn't delete:
 
 ~~~ {.input}
+$ rm quotes.txt
 $ ls quotes.txt thesis/quotations.txt
 ~~~
 ~~~ {.error}
 ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt
 ~~~
+This time it tells us that it can't find `quotes.txt` in the current directory,
+but it does find the copy in `thesis` that we didn't delete.
 
 > ## Another Useful Abbreviation {.callout}
 > 
@@ -336,7 +339,20 @@ thesis/quotations.txt
 > `/home/nelle/data`. This only works if it is the first character in the
 > path: `here/there/~/elsewhere` is *not* `/home/nelle/elsewhere`.
 
-> ## FIXME {.challenge}
+> ## Renaming files {.challenge}
+>
+> Suppose that you created a `.txt` file in your current directory to contain a list of the 
+> statistical tests you will need to do to analyze your data, and named it: `statstics.txt`
+>
+> After creating and saving this file you realize you misspelled the filename! You want to 
+> correct the mistake, which of the following commands could you use to do so?
+>
+> 1. `cp statstics.txt statistics.txt`
+> 2. `mv statstics.txt statistics.txt`
+> 3. `mv statstics.txt .`
+> 4. `cp statstics.txt .`
+
+> ## Moving and Copying {.challenge}
 > 
 > What is the output of the closing `ls` command in the sequence shown below?
 > 
@@ -350,8 +366,13 @@ thesis/quotations.txt
 > $ cp recombine/proteins.dat ../proteins-saved.dat
 > $ ls
 > ~~~
+>
+> 1.   `proteins-saved.dat recombine`
+> 2.   `recombine`
+> 3.   `proteins.dat recombine`
+> 4.   `proteins-saved.dat`
 
-> ## FIXME {.challenge}
+> ## Listing Directories and Files {.challenge}
 >
 > Suppose that:
 > 
@@ -364,12 +385,12 @@ thesis/quotations.txt
 > 
 > ~~~
 > $ ls
-> analyzed   raw
+> analyzed/   raw/
 > $ ls analyzed
 > fructose.dat    sucrose.dat
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Copy with Multiple Filenames {.challenge}
 >
 > What does `cp` do when given several filenames and a directory name, as in:
 > 
@@ -386,7 +407,7 @@ thesis/quotations.txt
 > $ cp intro.txt methods.txt survey.txt
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Listing Recursively and By Time {.challenge}
 >
 > The command `ls -R` lists the contents of directories recursively,
 > i.e., lists their sub-directories, sub-sub-directories, and so on
