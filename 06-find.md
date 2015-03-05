@@ -77,11 +77,11 @@ Today it is not working
 ~~~
 
 This time,
-the output is lines containing the words "Yesterday" and "Today",
-which both have the letters "day".
-If we give `grep` the `-w` flag,
-it restricts matches to word boundaries,
-so that only lines with the word "day" will be printed:
+two lines that include the letters "day" are outputted.
+However, these letters are contained within larger words.
+To restrict matches to lines containing the word "day" on its own,
+we can give `grep` with the `-w` flag.
+This will limit matches to word boundaries.
 
 ~~~ {.input}
 $ grep -w day haiku.txt
@@ -151,7 +151,12 @@ please find the lines that do not contain any appearance of the word 'the'.
 To find out what they are, we can type `man grep`.
 `man` is the Unix "manual" command:
 it prints a description of a command and its options,
-and (if you're lucky) provides a few examples of how to use it:
+and (if you're lucky) provides a few examples of how to use it.
+
+To navigate through the `man` pages,
+you may use the up and down arrow keys to move line-by-line,
+or try the "b" and spacebar keys to skip up and down by full page.
+Quit the `man` pages by typing "q".
 
 ~~~ {.input}
 $ man grep
@@ -220,7 +225,7 @@ Again,
 it has a lot of options;
 to show how the simplest ones work, we'll use the directory tree shown below.
 
-<img src="fig/find-file-tree.svg" alt="File Tree for Find Example" />
+![File Tree for Find Example](fig/find-file-tree.svg)
 
 Nelle's `writing` directory contains one file called `haiku.txt` and four subdirectories:
 `thesis` (which is sadly empty),
@@ -406,20 +411,48 @@ $ grep FE $(find .. -name '*.pdb')
 > modern programming languages, Python included, have borrowed a lot of
 > ideas from it, and imitation is also the sincerest form of praise.
 
-### Conclusion
+> ## Conclusion
+> 
+> The Unix shell is older than most of the people who use it. It has
+> survived so long because it is one of the most productive programming
+> environments ever created --- maybe even *the* most productive. Its syntax
+> may be cryptic, but people who have mastered it can experiment with
+> different commands interactively, then use what they have learned to
+> automate their work. Graphical user interfaces may be better at the
+> first, but the shell is still unbeaten at the second. And as Alfred
+> North Whitehead wrote in 1911, "Civilization advances by extending the
+> number of important operations which we can perform without thinking
+> about them."
 
-The Unix shell is older than most of the people who use it. It has
-survived so long because it is one of the most productive programming
-environments ever created --- maybe even *the* most productive. Its syntax
-may be cryptic, but people who have mastered it can experiment with
-different commands interactively, then use what they have learned to
-automate their work. Graphical user interfaces may be better at the
-first, but the shell is still unbeaten at the second. And as Alfred
-North Whitehead wrote in 1911, "Civilization advances by extending the
-number of important operations which we can perform without thinking
-about them."
+> ## Using grep {.challenge}
+>
+> ~~~
+> The Tao that is seen
+> Is not the true Tao, until
+> You bring fresh toner.
+>
+> With searching comes loss
+> and the presence of absence:
+> "My Thesis" not found.
+>
+> Yesterday it worked
+> Today it is not working
+> Software is like that.
+> ~~~
+>
+> From the above text, contained in the file `haiku.txt`, which command would result in the 
+> following output:
+>
+> ~~~
+> and the presence of absence
+> ~~~
+>
+> 1. `grep of haiku.txt`
+> 2. `grep -E of haiku.txt`
+> 3. `grep -w of haiku.txt`
+> 4. `grep -i of haiku.txt`
 
-> ## FIXME {.challenge}
+> ## `find` pipeline reading comprehension {.challenge}
 >
 > Write a short explanatory comment for the following shell script:
 > 
@@ -427,7 +460,7 @@ about them."
 > find . -name '*.dat' | wc -l | sort -n
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Matching `ose.dat` but not `temp` {.challenge}
 > 
 > The `-v` flag to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of

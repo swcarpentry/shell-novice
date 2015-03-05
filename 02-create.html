@@ -5,10 +5,12 @@
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: The Unix Shell</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
+    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -16,8 +18,8 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <div class="container">
+  <body class="lesson">
+    <div class="container container-full-width card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
@@ -27,7 +29,7 @@
         <div class="span10 offset1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Creating Things</h2>
-<div id="learning-objectives" class="objectives">
+<blockquote>
 <h2>Learning Objectives</h2>
 <ul>
 <li>Create a directory hierarchy that matches a given diagram.</li>
@@ -35,7 +37,7 @@
 <li>Display the contents of a directory using the command line.</li>
 <li>Delete specified files and/or directories.</li>
 </ul>
-</div>
+</blockquote>
 <p>We now know how to explore files and directories, but how do we create them in the first place? Let's go back to Nelle's home directory, <code>/users/nelle</code>, and use <code>ls -F</code> to see what it contains:</p>
 <pre class="input"><code>$ pwd</code></pre>
 <pre class="output"><code>/users/nelle</code></pre>
@@ -71,7 +73,9 @@ $ nano draft.txt</code></pre>
 <p>No matter what editor you use, you will need to know where it searches for and saves files. If you start it from the shell, it will (probably) use your current working directory as its default location. If you use your computer's start menu, it may want to save files in your desktop or documents directory instead. You can change this by navigating to another directory the first time you &quot;Save As...&quot;</p>
 </div>
 <p>Let's type in a few lines of text, then use Control-O to write our data to disk:</p>
-<p><img src="fig/nano-screenshot.png" alt="Nano in Action" /></p>
+<div class="figure">
+<img src="nano-screenshot.png" alt="Nano in action" /><p class="caption">Nano in action</p>
+</div>
 <p>Once our file is saved, we can use Control-X to quit the editor and return to the shell. (Unix documentation often uses the shorthand <code>^A</code> to mean &quot;control-A&quot;.) <code>nano</code> doesn't leave any output on the screen after it exits, but <code>ls</code> now shows that we have created a file called <code>draft.txt</code>:</p>
 <pre class="input"><code>$ ls</code></pre>
 <pre class="output"><code>draft.txt</code></pre>
@@ -81,7 +85,7 @@ $ nano draft.txt</code></pre>
 <pre class="input"><code>$ ls</code></pre>
 <div id="deleting-is-forever" class="callout">
 <h2>Deleting Is Forever</h2>
-<p>Unix doesn't have a trash bin: when we delete files, they are unhooked from the file system so that their storage space on disk can be recycled. Tools for finding and recovering deleted files do exist, but there's no guarantee they'll work in any particular situation, since the computer may recycle the file's disk space right away.</p>
+<p>The Unix shell doesn't have a trash bin that we can recover deleted files from (though most graphical interfaces to Unix do). Instead, when we delete files, they are unhooked from the file system so that their storage space on disk can be recycled. Tools for finding and recovering deleted files do exist, but there's no guarantee they'll work in any particular situation, since the computer may recycle the file's disk space right away.</p>
 </div>
 <p>Let's re-create that file and then move up one directory to <code>/users/nelle</code> using <code>cd ..</code>:</p>
 <pre class="input"><code>$ pwd</code></pre>
@@ -130,16 +134,29 @@ $ ls thesis</code></pre>
 <pre class="input"><code>$ cp quotes.txt thesis/quotations.txt
 $ ls quotes.txt thesis/quotations.txt</code></pre>
 <pre class="output"><code>quotes.txt   thesis/quotations.txt</code></pre>
-<p>To prove that we made a copy, let's delete the <code>quotes.txt</code> file in the current directory and then run that same <code>ls</code> again. This time it tells us that it can't find <code>quotes.txt</code> in the current directory, but it does find the copy in <code>thesis</code> that we didn't delete:</p>
-<pre class="input"><code>$ ls quotes.txt thesis/quotations.txt</code></pre>
+<p>To prove that we made a copy, let's delete the <code>quotes.txt</code> file in the current directory and then run that same <code>ls</code> again.</p>
+<pre class="input"><code>$ rm quotes.txt
+$ ls quotes.txt thesis/quotations.txt</code></pre>
 <pre class="error"><code>ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt</code></pre>
+<p>This time it tells us that it can't find <code>quotes.txt</code> in the current directory, but it does find the copy in <code>thesis</code> that we didn't delete.</p>
 <div id="another-useful-abbreviation" class="callout">
 <h2>Another Useful Abbreviation</h2>
 <p>The shell interprets the character <code>~</code> (tilde) at the start of a path to mean &quot;the current user's home directory&quot;. For example, if Nelle's home directory is <code>/home/nelle</code>, then <code>~/data</code> is equivalent to <code>/home/nelle/data</code>. This only works if it is the first character in the path: <code>here/there/~/elsewhere</code> is <em>not</em> <code>/home/nelle/elsewhere</code>.</p>
 </div>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="renaming-files" class="challenge">
+<h2>Renaming files</h2>
+<p>Suppose that you created a <code>.txt</code> file in your current directory to contain a list of the statistical tests you will need to do to analyze your data, and named it: <code>statstics.txt</code></p>
+<p>After creating and saving this file you realize you misspelled the filename! You want to correct the mistake, which of the following commands could you use to do so?</p>
+<ol style="list-style-type: decimal">
+<li><code>cp statstics.txt statistics.txt</code></li>
+<li><code>mv statstics.txt statistics.txt</code></li>
+<li><code>mv statstics.txt .</code></li>
+<li><code>cp statstics.txt .</code></li>
+</ol>
+</div>
+<div id="moving-and-copying" class="challenge">
+<h2>Moving and Copying</h2>
 <p>What is the output of the closing <code>ls</code> command in the sequence shown below?</p>
 <pre><code>$ pwd
 /home/jamie/data
@@ -149,20 +166,26 @@ $ mkdir recombine
 $ mv proteins.dat recombine
 $ cp recombine/proteins.dat ../proteins-saved.dat
 $ ls</code></pre>
+<ol style="list-style-type: decimal">
+<li><code>proteins-saved.dat recombine</code></li>
+<li><code>recombine</code></li>
+<li><code>proteins.dat recombine</code></li>
+<li><code>proteins-saved.dat</code></li>
+</ol>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<div id="listing-directories-and-files" class="challenge">
+<h2>Listing Directories and Files</h2>
 <p>Suppose that:</p>
 <pre><code>$ ls -F
 analyzed/  fructose.dat    raw/   sucrose.dat</code></pre>
 <p>What command(s) could you run so that the commands below will produce the output shown?</p>
 <pre><code>$ ls
-analyzed   raw
+analyzed/   raw/
 $ ls analyzed
 fructose.dat    sucrose.dat</code></pre>
 </div>
-<div id="fixme-2" class="challenge">
-<h2>FIXME</h2>
+<div id="copy-with-multiple-filenames" class="challenge">
+<h2>Copy with Multiple Filenames</h2>
 <p>What does <code>cp</code> do when given several filenames and a directory name, as in:</p>
 <pre><code>$ mkdir backup
 $ cp thesis/citations.txt thesis/quotations.txt backup</code></pre>
@@ -171,8 +194,8 @@ $ cp thesis/citations.txt thesis/quotations.txt backup</code></pre>
 intro.txt    methods.txt    survey.txt
 $ cp intro.txt methods.txt survey.txt</code></pre>
 </div>
-<div id="fixme-3" class="challenge">
-<h2>FIXME</h2>
+<div id="listing-recursively-and-by-time" class="challenge">
+<h2>Listing Recursively and By Time</h2>
 <p>The command <code>ls -R</code> lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on in alphabetical order at each level. The command <code>ls -t</code> lists things by time of last change, with most recently changed files or directories first. In what order does <code>ls -R -t</code> display things?</p>
 </div>
         </div>
