@@ -113,7 +113,7 @@ $ grep -n -w the haiku.txt
 6:and the presence of absence:
 ~~~
 
-Now we want to use the option '-i' to make our search case-insensitive:
+Now we want to use the option `-i` to make our search case-insensitive:
 
 ~~~ {.input}
 $ grep -n -w -i the haiku.txt
