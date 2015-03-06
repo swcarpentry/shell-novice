@@ -143,11 +143,6 @@ $ grep -n -w -v the haiku.txt
 11:Software is like that.
 ~~~
 
-#### Mini-Exercise: 
-
-Using the grep function and the options we have learned so far, 
-please find the lines that do not contain any appearance of the word 'the'.
-
 `grep` has lots of other options.
 To find out what they are, we can type `man grep`.
 `man` is the Unix "manual" command:
@@ -452,6 +447,9 @@ $ grep FE $(find .. -name '*.pdb')
 > 2. `grep -E of haiku.txt`
 > 3. `grep -w of haiku.txt`
 > 4. `grep -i of haiku.txt`
+
+> Using the grep function and the options we have learned so far, 
+> please find the lines that do not contain any appearance of the word "the".
 
 > ## `find` pipeline reading comprehension {.challenge}
 >
