@@ -109,8 +109,8 @@ because its name begins with `/`.
 
 Underneath `/users`,
 we find one directory for each user with an account on this machine.
-The Mummy's files are stored in `/users/imhotep`,
-Wolfman's in `/users/larry`,
+The Mummy's files are stored in `/users/dru`,
+Wolfman's in `/users/gorgon`,
 and ours in `/users/nelle`,
 which is why `nelle` is the last part of the directory's name.
 
@@ -128,9 +128,9 @@ which stands for "listing":
 $ ls
 ~~~
 ~~~ {.output}
-creatures  molecules           pizza.cfg
-data       north-pacific-gyre  solar.pdf
-Desktop    notes.txt           writing
+creatures  molecules           pizza.cfg    writing
+data       north-pacific-gyre  thesis
+Desktop    notes.txt           solar.pdf
 ~~~
 
 ![Nelle's Home Directory](fig/homedir.svg)
@@ -144,9 +144,9 @@ which tells `ls` to add a trailing `/` to the names of directories:
 $ ls -F
 ~~~
 ~~~ {.output}
-creatures/  molecules/           pizza.cfg
-data/       north-pacific-gyre/  solar.pdf
-Desktop/    notes.txt            writing/
+creatures/  molecules/           pizza.cfg    writing/
+data/       north-pacific-gyre/  thesis/
+Desktop/    notes.txt            solar.pdf
 ~~~
 
 Here,
