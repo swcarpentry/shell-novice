@@ -112,7 +112,7 @@ $ nano draft.txt
 Let's type in a few lines of text,
 then use Control-O to write our data to disk:
 
-![Nano in action](nano-screenshot.png)
+![Nano in action](fig/nano-screenshot.png)
 
 Once our file is saved,
 we can use Control-X to quit the editor and return to the shell.
