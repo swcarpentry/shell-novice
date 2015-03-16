@@ -29,7 +29,7 @@
         <div class="span10 offset1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Loops</h2>
-<blockquote>
+<div id="learning-objectives" class="objectives">
 <h2>Learning Objectives</h2>
 <ul>
 <li>Write a loop that applies one or more commands separately to each file in a set of files.</li>
@@ -39,7 +39,7 @@
 <li>Demonstrate how to see what commands have recently been executed.</li>
 <li>Re-run recently executed commands without retyping them.</li>
 </ul>
-</blockquote>
+</div>
 <p>Wildcards and tab completion are two ways to reduce typing (and typing mistakes). Another is to tell the shell to do something over and over again. Suppose we have several hundred genome data files named <code>basilisk.dat</code>, <code>unicorn.dat</code>, and so on. In this example, we'll use the <code>creatures</code> directory which only has two example files, but the principles can be applied to many many more files at once. We would like to modify these files, but also save a version of the original files and rename them as <code>original-basilisk.dat</code> and <code>original-unicorn.dat</code>. We can't use:</p>
 <pre class="input"><code>$ mv *.dat original-*.dat</code></pre>
 <p>because that would expand to:</p>
@@ -140,7 +140,7 @@ done</code></pre>
 mv unicorn.dat original-unicorn.dat</code></pre>
 <p><em>without</em> actually running those commands. We can then use up-arrow to redisplay the loop, back-arrow to get to the word <code>echo</code>, delete it, and then press &quot;enter&quot; to run the loop with the actual <code>mv</code> commands. This isn't foolproof, but it's a handy way to see what's going to happen when you're still learning how loops work.</p>
 </div>
-<h3 id="nelles-pipeline-processing-files">Nelle's Pipeline: Processing Files</h3>
+<h2 id="nelles-pipeline-processing-files">Nelle's Pipeline: Processing Files</h2>
 <p>Nelle is now ready to process her data files. Since she's still learning how to use the shell, she decides to build up the required commands in stages. Her first step is to make sure that she can select the right files --- remember, these are ones whose names end in 'A' or 'B', rather than 'Z':</p>
 <pre class="input"><code>$ cd north-pacific-gyre/2012-07-03
 $ for datafile in *[AB].txt
@@ -193,7 +193,7 @@ NENE01736A.txt
 <p>then she can re-run <code>goostats</code> on <code>NENE01729B.txt</code> simply by typing <code>!458</code>.</p>
 </div>
 <div id="variables-in-loops" class="challenge">
-<h2>Variables in loops</h2>
+<h2>Variables in Loops</h2>
 <p>Suppose that <code>ls</code> initially displays:</p>
 <pre><code>fructose.dat    glucose.dat   sucrose.dat</code></pre>
 <p>What is the output of:</p>
@@ -209,7 +209,7 @@ done</code></pre>
 <p>Why do these two loops give you different outputs?</p>
 </div>
 <div id="saving-to-a-file-in-a-loop---part-one" class="challenge">
-<h2>Saving to a file in a loop - part one</h2>
+<h2>Saving to a File in a Loop - Part One</h2>
 <p>In the same directory, what is the effect of this loop?</p>
 <pre><code>for sugar in *.dat
 do
@@ -224,7 +224,7 @@ done</code></pre>
 </ol>
 </div>
 <div id="saving-to-a-file-in-a-loop---part-two" class="challenge">
-<h2>Saving to a file in a loop - part two</h2>
+<h2>Saving to a File in a Loop - Part Two</h2>
 <p>In another directory, where <code>ls</code> returns:</p>
 <pre><code>fructose.dat    glucose.dat   sucrose.dat   maltose.txt</code></pre>
 <p>What would be the output of the following loop?</p>
@@ -258,8 +258,8 @@ do
   echo &quot;analyze $file &gt; analyzed-$file&quot;
 done</code></pre>
 </div>
-<div id="fixme" class="challenge">
-<h2>FIXME</h2>
+<div id="nested-loops-and-command-line-expressions" class="challenge">
+<h2>Nested Loops and Command-Line Expressions</h2>
 <p>The <code>expr</code> does simple arithmetic using command-line parameters:</p>
 <pre><code>$ expr 3 + 5
 8
@@ -274,8 +274,8 @@ do
     done
 done</code></pre>
 </div>
-<div id="fixme-1" class="challenge">
-<h2>FIXME</h2>
+<div id="explain-this-loop" class="challenge">
+<h2>Explain This Loop</h2>
 <p>Describe in words what the following loop does.</p>
 <pre><code>for how in frog11 prcb redig
 do

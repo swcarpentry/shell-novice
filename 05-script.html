@@ -29,7 +29,7 @@
         <div class="span10 offset1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Shell Scripts</h2>
-<blockquote>
+<div id="learning-objectives" class="objectives">
 <h2>Learning Objectives</h2>
 <ul>
 <li>Write a shell script that runs a command or series of commands for a fixed set of files.</li>
@@ -37,7 +37,7 @@
 <li>Write a shell script that operates on a set of files defined by the user on the command line.</li>
 <li>Create pipelines that include user-written shell scripts.</li>
 </ul>
-</blockquote>
+</div>
 <p>We are finally ready to see what makes the shell such a powerful programming environment. We are going to take the commands we repeat frequently and save them in files so that we can re-run all those operations again later by typing a single command. For historical reasons, a bunch of commands saved in a file is usually called a <strong>shell script</strong>, but make no mistake: these are actually small programs.</p>
 <p>Let's start by going back to <code>molecules/</code> and putting the following line in the file <code>middle.sh</code>:</p>
 <pre class="input"><code>$ cd molecules
@@ -148,7 +148,7 @@ history | tail -5
 history | tail -5 | colrm 1 7</code></pre>
 </div>
 <p>In practice, most people develop shell scripts by running commands at the shell prompt a few times to make sure they're doing the right thing, then saving them in a file for re-use. This style of work allows people to recycle what they discover about their data and their workflow with one call to <code>history</code> and a bit of editing to clean up the output and save it as a shell script.</p>
-<h3 id="nelles-pipeline-creating-a-script">Nelle's Pipeline: Creating a Script</h3>
+<h2 id="nelles-pipeline-creating-a-script">Nelle's Pipeline: Creating a Script</h2>
 <p>An off-hand comment from her supervisor has made Nelle realize that she should have provided a couple of extra parameters to <code>goostats</code> when she processed her files. This might have been a disaster if she had done all the analysis by hand, but thanks to for loops, it will only take a couple of hours to re-do.</p>
 <p>But experience has taught her that if something needs to be done twice, it will probably need to be done a third or fourth time as well. She runs the editor and writes the following:</p>
 <pre><code># Calculate reduced stats for data files at J = 100 c/bp.
