@@ -21,6 +21,6 @@ The shell allows users to automate repetitive tasks and capture small data manip
 - Built-in commands allow for easy data manipulation (e.g. sort, grep, etc.)
 - Every step can be captured in the shell script and allow reproducibility and easy troubleshooting
 
-##  Let's see how the shell can be used in research data analysis..
+##  Let's see how the shell can be used in research data analysis...
 
 [Starting with the Unix shell](00-intro.html)
