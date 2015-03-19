@@ -1,0 +1,74 @@
+/* Printing */
+@media print {
+  h1 {
+    font-size: 16pt;
+    line-height: 18pt;
+  }
+
+  h2,h3,h4,h5,h6 {
+    font-size: 12pt;
+    line-height: 13pt;
+  }
+
+  /* Objectives, Callout Box and Challenges */
+  .objectives, .keypoints {
+      background-color: unset;
+      border: 5px solid;
+  }
+
+  .callout {
+      background-color: unset;
+      border: 5px solid;
+  }
+
+  .challenge {
+      background-color: unset;
+      border: 5px solid;
+  }
+
+  p,ul,ol,li,pre,code {
+    font-size: 8pt;
+    line-height: 9pt;
+  }
+
+  code {
+    padding: 0px;
+    border: 0px;
+    background: unset;
+  }
+
+  pre.sourceCode::before,
+  pre.input::before. {
+      content: "Input:";
+  }
+
+  pre.output::before {
+      content: "Output:";
+  }
+
+  pre.error::before {
+      content: "Error:";
+  }
+
+  pre.sourceCode code,
+  pre.input code,
+  pre.output code,
+  pre.error code {
+      display: block;
+      margin-top: 1em;
+      margin-left: 2em;
+  }
+
+  #github-ribbon {
+    display: none;
+  }
+
+  .banner {
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
+}
+
