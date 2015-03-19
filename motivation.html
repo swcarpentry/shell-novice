@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <title>Software Carpentry</title>
+
+  <!-- Required stylesheet -->
+  <script src="js/deckjs-custom.js"></script>
+  <script>includedeck(["css/slideshow.css"],{});</script>
+  <style>
+    .slide.title-slide h1 {padding-bottom: 0;} /* title is long... */
+    a {text-decoration: underline;} /* make links clearer */
+    pre {font-size: 75%;} /* make code blocks smaller */
+  </style>
+
+  <!-- Required Modernizr file -->
+  <script src="js/modernizr.custom.js"></script>
+</head>
+<body>
+  <div class="deck-container">
+
+    <!-- Begin slides. Just make elements with a class of slide. -->
+<h2 id="why-do-we-learn-to-use-the-shell">Why do we learn to use the shell?</h2>
+<p>The shell allows users to automate repetitive tasks and capture small data manipulation steps that are normally not recorded to make research reproducible</p>
+<h2 id="the-problem">The Problem</h2>
+<ul>
+<li>Running the same workflow on several samples can be unnecessarily labour intensive</li>
+<li>Manual manipulation of data files:</li>
+<li>is often not captured in documentation</li>
+<li>is hard to reproduce</li>
+<li>is hard to troubleshoot, review, or improve</li>
+</ul>
+<h2 id="the-shell">The Shell</h2>
+<ul>
+<li>Workflows can be automated through the use of shell scripts</li>
+<li>Built-in commands allow for easy data manipulation (e.g. sort, grep, etc.)</li>
+<li>Every step can be captured in the shell script and allow reproducibility and easy troubleshooting</li>
+</ul>
+<h2 id="lets-see-how-the-shell-can-be-used-in-research-data-analysis...">Let's see how the shell can be used in research data analysis...</h2>
+<p><a href="00-intro.html">Starting with the Unix shell</a></p>
+    <!-- End slides. -->
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.status snippet -->
+    <p class="deck-status" aria-role="status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <!-- End extension snippets. -->
+  </div>
+</body>
+</html>
