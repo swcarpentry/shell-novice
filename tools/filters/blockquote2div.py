@@ -21,7 +21,7 @@ For example, this is a valid blockquote:
 
 and it will be converted into this markdown:
 
-    <div class='callout'>
+    <div class='callout panel panel-info'>
     ## Callout time!
     Let's do something.
     </div>
@@ -33,7 +33,7 @@ This is also a valid blockquote:
 
 and it will be converted into this markdown:
 
-    <div class='prereq'>
+    <div class='prereq panel panel-warning'>
     ## Prerequisites
     Breakfast!
     </div>
@@ -46,10 +46,14 @@ like this:
 """
 import pandocfilters as pf
 
-
 # These are classes that, if set on the title of a blockquote, will
 # trigger the blockquote to be converted to a div.
-SPECIAL_CLASSES = ['callout', 'challenge', 'prereq', 'objectives']
+SPECIAL_CLASSES = {
+    "callout": ("panel-info", "glyphicon-pushpin"),
+    "challenge": ("panel-success", "glyphicon-pencil"),
+    "prereq": ("panel-warning", "glyphicon-education"),
+    "objectives": ("panel-warning", "glyphicon-certificate"),
+}
 
 
 def find_header(blockquote):
@@ -62,18 +66,6 @@ def find_header(blockquote):
     if blockquote[0]['t'] == 'Header':
         level, attr, inline = blockquote[0]['c']
         return level, attr, inline
-
-
-def remove_attributes(blockquote):
-    """Remove attributes from a blockquote if they are defined on a
-    header that is the first thing in the blockquote.
-
-    Modifies the blockquote inplace.
-    """
-    if blockquote[0]['t'] == 'Header':
-        level, attr, inlines = blockquote[0]['c']
-        attr = pf.attributes({})
-        blockquote[0] = pf.Header(level, attr, inlines)
 
 
 def blockquote2div(key, value, format, meta):
@@ -96,10 +88,32 @@ def blockquote2div(key, value, format, meta):
         id, classes, kvs = attr
 
         if len(classes) == 1 and classes[0] in SPECIAL_CLASSES:
-            remove_attributes(blockquote)
+            panel_kind, glyphicon_kind = SPECIAL_CLASSES[classes[0]]
+
+            h_level, h_attr, h_inlines = blockquote[0]['c']
+
+            # insert an icon as the first sub-item of the header
+            span = pf.Span(["", ["glyphicon", glyphicon_kind], []], [])
+            h_inlines.insert(0, span)
+
+            # only the header goes into panel-heading
+            # WARNING: pandoc doesn't preserve header attributes when the
+            #          header is nested under blockquote.  This makes it
+            #          impossible to alter header's "class" attribute, for
+            #          example.
+            header = pf.Header(h_level, h_attr, h_inlines)
+            panel_header = pf.Div(("", ["panel-heading"], []), [header])
+
+            # the rest of the blockquote goes into panel-body
+            panel_body = pf.Div(("", ["panel-body"], []), blockquote[1:])
+
+            # apply Bootstrap panel classes to the div
+            classes.append("panel")
+            classes.append(panel_kind)
+
             # a blockquote is just a list of blocks, so it can be
             # passed directly to Div, which expects Div(attr, blocks)
-            return pf.Div(attr, blockquote)
+            return pf.Div((id, classes, kvs), [panel_header, panel_body])
 
 
 if __name__ == '__main__':
