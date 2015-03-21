@@ -27,32 +27,34 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     font-size: inherit;
 }
 
-/* Objectives, Callout Box and Challenges */
-.objectives, .keypoints, .callout, .challenge {
-    margin: 1em 0;
-    padding: 0em 1em;
+/* Objectives, Callout Box, Challenges and prerequisites are now rendered as
+Bootstrap panels.  There's a pandoc error with rendering headers nested under
+blockquote: these headers don't preserve attributes.  It means we have to
+manually set styles for these headers to look like Bootstrap's "panel-title"
+class. */
+.panel-heading h1,
+.panel-heading h2,
+.panel-heading h3,
+.panel-heading h4,
+.panel-heading h5,
+.panel-heading h6 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: inherit;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
 }
 
-.objectives h2:first-child,
-.keypoints h2:first-child,
-.callout h2:first-child,
-.challenge h2:first-child {
-    margin-top: 10px;
-}
-
-.objectives, .keypoints {
-    background-color: azure;
-    border: 5px solid azure;
-}
-
-.callout {
-    background-color: #EEE;
-    border: 5px solid #EEE;
-}
-
-.challenge {
-    background-color: #CCFFCC;
-    border: 5px solid #CCFFCC;
+/* Make space between the glyphicon and the rest of the header */
+.panel-heading h1 span,
+.panel-heading h2 span,
+.panel-heading h3 span,
+.panel-heading h4 span,
+.panel-heading h5 span,
+.panel-heading h6 span {
+    padding-right: 10px;
 }
 
 /* Comments in code. */
