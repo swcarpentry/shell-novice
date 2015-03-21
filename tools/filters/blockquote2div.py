@@ -52,7 +52,7 @@ SPECIAL_CLASSES = {
     "callout": ("panel-info", "glyphicon-pushpin"),
     "challenge": ("panel-success", "glyphicon-pencil"),
     "prereq": ("panel-warning", "glyphicon-education"),
-    "objectives": ("panel-primary", "glyphicon-certificate"),
+    "objectives": ("panel-warning", "glyphicon-certificate"),
 }
 
 
