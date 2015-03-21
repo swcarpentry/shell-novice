@@ -1,7 +1,6 @@
-/* Container */
-
-div.container {
-    background: white;
+/* Card is used only at lessons */
+div.container.card {
+	background-color: white;
 }
 
 /* Headings */
@@ -135,8 +134,6 @@ body.stylesheet {
     margin: 20px auto;
 }
 
-
-
 /* Code sample */
 pre.sourceCode,
 pre.input {
@@ -149,26 +146,15 @@ pre.error {
     color: Red;
 }
 
-
-.card {
-	background-color: white;
-}
-
-
-
-
 @media (max-width: 700px) {
     div.banner a img {
         padding: 20px 0px;
     }
 }
 
-
-
 /*----------------------------------------*/
 /* Override Bootstrap CSS                 */
 /*----------------------------------------*/
-
 
 /* navbar */
 .navbar {
@@ -249,9 +235,6 @@ pre.error {
     border-bottom-color: #ffffff;
 }
 
-
-
-
 blockquote p {
     font-size: inherit;
     font-weight: inherit;
@@ -268,11 +251,9 @@ blockquote h2{
     color: rgb(0, 0, 0);
 }
 
-
 code {
     color: #333333;
 }
-
 
 /* Top banner of every page. */
 div.banner {
