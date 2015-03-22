@@ -28,7 +28,7 @@ The shell allows users to automate repetitive tasks and capture small data manip
 </section>
 
 <section class="slide">
-##  Let's see how the shell can be used in research data analysis...
+##  Let's begin...
 
 [Starting with the Unix shell](00-intro.html)
 </section>
