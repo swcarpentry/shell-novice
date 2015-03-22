@@ -1,8 +1,12 @@
+/* Card is used only at lessons */
+div.container.card {
+	background-color: white;
+}
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    color: rgb(03,03,03);
-    font-family: "Montserrat", "Helvetica", "Arial";
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+    font-weight: bold;
 }
 
 h1, h2 {
@@ -10,8 +14,57 @@ h1, h2 {
     margin-bottom: 10px;
 }
 
+h1.title {
+    margin: 40px 0px;
+}
+
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: inherit;
+}
+
+h2 code, h3 code, h4 code, h5 code, h6 code {
+    font-size: inherit;
+}
+
+/* Objectives, Callout Box, Challenges and prerequisites are now rendered as
+Bootstrap panels.  There's a pandoc error with rendering headers nested under
+blockquote: these headers don't preserve attributes.  It means we have to
+manually set styles for these headers to look like Bootstrap's "panel-title"
+class. */
+.panel-heading h1,
+.panel-heading h2,
+.panel-heading h3,
+.panel-heading h4,
+.panel-heading h5,
+.panel-heading h6 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: inherit;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+/* Make space between the glyphicon and the rest of the header */
+.panel-heading h1 span,
+.panel-heading h2 span,
+.panel-heading h3 span,
+.panel-heading h4 span,
+.panel-heading h5 span,
+.panel-heading h6 span {
+    padding-right: 10px;
+}
+
+/* Comments in code. */
+.comment {
+    color: purple;
+}
+
+/* Error messages. */
+.err {
+    color: darkred;
+    font-style: italic;
 }
 
 /* Things to fix. */
@@ -19,6 +72,22 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     text-decoration: underline;
     color: darkred;
     background-color: lightgray;
+}
+
+/* Highlighted changes in code. */
+.highlight {
+    background-color: mistyrose;
+}
+
+/* Manual input. */
+.in {
+    color: darkgreen;
+}
+
+/* Program output. */
+.out {
+    color: darkblue;
+    font-style: italic;
 }
 
 /* Putting shadows around things. */
@@ -38,24 +107,167 @@ blockquote {
     margin: 1em;
     padding: 1em 1em .5em 1em;
     width: 90%;
+    font-size: inherit;
 }
 
 /* Citation for testimonial quote. */
 blockquote.testimonial cite {
     font-style: italic;
+    font-size: inherit;
 }
 
 /* Main body of pages. */
 body {
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
     color: rgb(03, 03, 03);
+}
+
+body.workshop, body.lesson {
+	background-color: #BEC3C6;
+	margin: 20px 0;
 }
 
 /* Styling for editorial stylesheet */
 body.stylesheet {
     background: #ffffff;
     width: 60em;
-    margin: 20 auto;
+    margin: 20px auto;
+}
+
+/* Code sample */
+pre.sourceCode,
+pre.input {
+    color: ForestGreen;
+}
+pre.output {
+    color: MediumBlue;
+}
+pre.error {
+    color: Red;
+}
+
+@media (max-width: 700px) {
+    div.banner a img {
+        padding: 20px 0px;
+    }
+}
+
+/*----------------------------------------*/
+/* Override Bootstrap CSS                 */
+/*----------------------------------------*/
+
+/* navbar */
+.navbar {
+    min-height: 85px;
+    margin-bottom: 0;
+}
+
+.navbar-nav {
+  margin: 15px 10px 0px 0px;
+}
+
+#swc-navbar {
+    border-top: 5px solid #2b3990;
+    width: 100%;
+    background:  #d6d6d6;
+    border-bottom: 1px solid #CCC;
+}
+
+.navbar-brand {
+   position: absolute;
+   padding-top: 7px;
+}
+
+.navbar-brand img {
+    width: 250px;
+    height: 50px;
+}
+
+#swc-navbar-search {
+  background-color: #ffffff;
+  color: #666666;
+  border-color:#2b3990;
+  width: 150px;
+}
+
+.navbar-default .navbar-nav > li > a {
+   color: #20267D;
+}
+
+.navbar-nav li {
+    margin-right: -7px;
+    margin-left: -7px;
+}
+
+.navbar-nav .navbar {
+    diplay: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.navbar-nav .nav-collapse .nav > li > a,
+.navbar-nav .nav-collapse .dropdown-menu a {
+  color: #2b3990;
+  text-align: center;
+}
+
+.navbar-nav .nav .active > a,
+.navbar-nav .nav .active > a:hover, .navbar-nav .nav .active > a:focus {
+    color: #ffffff;
+    background-color: #20267D;
+}
+
+.navbar-nav .nav li.dropdown.open > .dropdown-toggle,
+.navbar-nav .nav li.dropdown.active > .dropdown-toggle,
+.navbar-nav .nav li.dropdown.open.active > .dropdown-toggle {
+    color: #ffffff;
+     background-color: #20267D;
+}
+.navbar-nav .nav li.dropdown.active > .dropdown-toggle .caret {
+    border-top-color: #999999;
+    border-bottom-color: #999999;
+}
+.navbar-nav .nav li.dropdown.open > .dropdown-toggle .caret {
+    border-top-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+blockquote p {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+blockquote h2{
+   margin-top: 0px;
+}
+
+/* readability: darken the alert colour for contrast with background */
+
+.alert {
+    color: rgb(0, 0, 0);
+}
+
+code {
+    color: #333333;
+}
+
+/* Top banner of every page. */
+div.banner {
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 90px;
+	margin: 0px;
+	padding: 0;
+	border-bottom: 1px solid #A6A6A6;
+}
+
+/* Padding around image in top banner. */
+div.banner a img {
+	padding: 20px 25px;
 }
 
 /* Explanatory call-out boxes. */
@@ -102,16 +314,6 @@ div.mainmenu {
     padding: 3px 0px 3px 25px;
     border-bottom: 1px solid #A6A6A6;
     height: 30px
-}
-
-#menubar {
-    float: left;
-    margin-top: 4px;
-}
-
-#searchbar {
-    float: right;
-    margin-right: 20px;
 }
 
 /* Narration for audio-only lectures. */
@@ -259,6 +461,10 @@ section.content {
     background: white;
 }
 
+dd {
+    margin-left: 10px;
+}
+
 .header.home {
     background: url(../img/header.png) no-repeat center center;
     background-attachment: fixed;
@@ -278,18 +484,36 @@ section.content {
     font-size: 40pt;
 }
 
+table {
+    margin-bottom: 15px;
+}
+
+table th, table td {
+    padding: 5px 10px;
+}
+
+table > thead > .header {
+    background: transparent;
+}
+
+table > thead > tr > td, table > thead > tr > th,
+table > tbody > tr > td, table > tbody > tr > th,
+table > tfoot > tr > td, table > tfoot > tr > th {
+    border: 1px solid #DDD;
+}
+
+table > thead > tr > th,
+table > thead > tr > td {
+    border-bottom-width: 2px;
+}
+
+table tbody > tr:nth-of-type(2n+1) {
+    background-color: #F9F9F9;
+}
+
 #header-text {
     font-size:20pt;
     margin:0;
-}
-
-#nav-logo {
-    width:270px;
-    height:40px;
-    top:5;
-    left:10;
-    position:absolute;
-    z-index: 10;
 }
 
 #home-options {
@@ -334,10 +558,10 @@ a:hover {
 }
 
 footer {
-    background:#2b3990;
-    padding:20px 0;
+    background: #2b3990;
+    padding: 20px 0;
     font-size: 10pt;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 footer a, footer a:hover{
@@ -345,13 +569,32 @@ footer a, footer a:hover{
     padding-left: 10px;
 }
 
-footer .container .links{
+footer .container .links {
     background:url('../img/software-carpentry-banner-white.png') no-repeat;
     background-size: 200px;
     background-position: 0;
-    height:40px;
-    padding:40px 0 0 200px;
+    min-height: 40px;
+    padding: 20px 0px 0px 200px;
     text-align: right;
+}
+
+
+/* Footer of every page. */
+/* TODO -- might clash with site footer */
+div.footer {
+    clear: both;
+    background: url("/img/main_shadow.png") repeat-x scroll center top #FFFFFF;
+    padding: 4px 10px 7px 10px;
+   border-top: 1px solid #A6A6A6;
+    text-align: right;
+}
+
+
+/* doesn't seem to be used on site, workshop or lesson */
+/* Chapter titles. */
+div.chapter h2 {
+    text-align: center;
+    font-style: italic;
 }
 
 
@@ -400,4 +643,138 @@ footer .container .links{
 }
 #ss-form .ss-choice-item-control {
   padding-right: 4px;
+}
+
+
+/* GitHub Ribbon */
+#github-ribbon a {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-family: arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 40%;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    position: relative;
+    transition: 0.5s;
+    width: 100%;
+    margin: 0 auto;
+    white-space: nowrap;
+    z-index: 99999;
+}
+#github-ribbon a:hover {
+    background: #600;
+    color: #fff;
+}
+#github-ribbon a::before, #github-ribbon a::after {
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 1px;
+    background: #fff;
+}
+#github-ribbon a::after {
+    bottom: 1px;
+    top: auto;
+}
+
+/* Collapse navbar */
+@media (max-width: 993px) {
+    .navbar-header {
+        float: none;
+	min-height: 80px;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+	background-color: #2b3990;
+	margin-top: 22px;
+	margin-right: 100px;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+		top: 0;
+		border-width: 0 0 1px;
+	}
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+  		display:block !important;
+	}
+}
+
+@media (max-width: 600px) {
+    .navbar-toggle {
+	margin-right: 20px;
+    }
+    .navbar-brand img {
+	width: 180px;
+	height: 36px;
+	margin-top: 10px
+    }
+    footer .container .links {
+	background:url('../img/software-carpentry-banner-white.png') no-repeat;
+	background-size: 180px;
+	background-position: 0;
+    }
+}
+
+/* GitHub ribbon breaking point */
+@media screen and (min-width: 600px) {
+    #github-ribbon {
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        width: 150px;
+        overflow: hidden;
+        height: 150px;
+    }
+    #github-ribbon a {
+        width: 200px;
+        position: absolute;
+        padding: 5px 40px;
+        top: 40px;
+        right: -40px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+    }
+}
+@media (max-width: 599px) {
+    .header h1 {
+        font-size: 20pt;
+    }
+    #header-text {
+        font-size: 16pt;
+    }
+    #github-ribbon {
+        width: 100%;
+    }
+    #github-ribbon a {
+        display: block;
+        padding: 0px 0px;
+        margin: 0px 0px;
+    }
 }
