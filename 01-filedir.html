@@ -7,10 +7,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
-    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -19,14 +17,14 @@
     <![endif]-->
   </head>
   <body class="lesson">
-    <div class="container container-full-width card">
+    <div class="container card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
-      <div class="row-fluid">
-        <div class="span10 offset1">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Files and Directories</h2>
 <blockquote>
@@ -57,9 +55,13 @@
 <p>Next, let's find out where we are by running a command called <code>pwd</code> (which stands for &quot;print working directory&quot;). At any moment, our <strong>current working directory</strong> is our current default directory, i.e., the directory that the computer assumes we want to run commands in unless we explicitly specify something else. Here, the computer's response is <code>/users/nelle</code>, which is Nelle's <strong>home directory</strong>:</p>
 <pre class="input"><code>$ pwd</code></pre>
 <pre class="output"><code>/users/nelle</code></pre>
-<div id="alphabet-soup" class="callout">
-<h2>Alphabet Soup</h2>
+<div id="alphabet-soup" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Alphabet Soup</h2>
+</div>
+<div class="panel-body">
 <p>If the command to find out who we are is <code>whoami</code>, the command to find out where we are ought to be called <code>whereami</code>, so why is it <code>pwd</code> instead? The usual answer is that in the early 1970s, when Unix was first being developed, every keystroke counted: the devices of the day were slow, and backspacing on a teletype was so painful that cutting the number of keystrokes in order to cut the number of typing mistakes was actually a win for usability. The reality is that commands were added to Unix one by one, without any master plan, by people who were immersed in its jargon. The result is as inconsistent as the roolz uv Inglish speling, but we're stuck with it now.</p>
+</div>
 </div>
 <p>To understand what a &quot;home directory&quot; is, let's have a look at how the file system as a whole is organized. At the top is the <strong>root directory</strong> that holds everything else. We refer to it using a slash character <code>/</code> on its own; this is the leading slash in <code>/users/nelle</code>.</p>
 <p>Inside that directory are several other directories: <code>bin</code> (which is where some built-in programs are stored), <code>data</code> (for miscellaneous data files), <code>users</code> (where users' personal directories are located), <code>tmp</code> (for temporary files that don't need to be stored long-term), and so on:</p>
@@ -88,11 +90,15 @@ Desktop    notes.txt           writing</code></pre>
 data/       north-pacific-gyre/  solar.pdf
 Desktop/    notes.txt            writing/</code></pre>
 <p>Here, we can see that <code>/users/nelle</code> contains seven <strong>sub-directories</strong>. The names that don't have trailing slashes, like <code>notes.txt</code>, <code>pizza.cfg</code>, and <code>solar.pdf</code>, are plain old files. And note that there is a space between <code>ls</code> and <code>-F</code>: without it, the shell thinks we're trying to run a command called <code>ls-F</code>, which doesn't exist.</p>
-<div id="whats-in-a-name" class="callout">
-<h2>What's In A Name?</h2>
+<div id="whats-in-a-name" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>What's In A Name?</h2>
+</div>
+<div class="panel-body">
 <p>You may have noticed that all of Nelle's files' names are &quot;something dot something&quot;. This is just a convention: we can call a file <code>mythesis</code> or almost anything else we want. However, most people use two-part names most of the time to help them (and their programs) tell different kinds of files apart. The second part of such a name is called the <strong>filename extension</strong>, and indicates what type of data the file holds: <code>.txt</code> signals a plain text file, <code>.pdf</code> indicates a PDF document, <code>.cfg</code> is a configuration file full of parameters for some program or other, and so on.</p>
 <p>This is just a convention, albeit an important one. Files contain bytes: it's up to us and our programs to interpret those bytes according to the rules for PDF documents, images, and so on.</p>
 <p>Naming a PNG image of a whale as <code>whale.mp3</code> doesn't somehow magically turn it into a recording of whalesong, though it <em>might</em> cause the operating system to try to open it with a music player when someone double-clicks it.</p>
+</div>
 </div>
 <p>Now let's take a look at what's in Nelle's <code>data</code> directory by running <code>ls -F data</code>, i.e., the command <code>ls</code> with the <strong>arguments</strong> <code>-F</code> and <code>data</code>. The second argument --- the one <em>without</em> a leading dash --- tells <code>ls</code> that we want a listing of something other than our current working directory:</p>
 <pre class="input"><code>$ ls -F data</code></pre>
@@ -100,9 +106,13 @@ Desktop/    notes.txt            writing/</code></pre>
 pdb/              planets.txt   sunspot.txt</code></pre>
 <p>The output shows us that there are four text files and two sub-sub-directories. Organizing things hierarchically in this way helps us keep track of our work: it's possible to put hundreds of files in our home directory, just as it's possible to pile hundreds of printed papers on our desk, but it's a self-defeating strategy.</p>
 <p>Notice, by the way that we spelled the directory name <code>data</code>. It doesn't have a trailing slash: that's added to directory names by <code>ls</code> when we use the <code>-F</code> flag to help us tell things apart. And it doesn't begin with a slash because it's a <strong>relative path</strong>, i.e., it tells <code>ls</code> how to find something from where we are, rather than from the root of the file system.</p>
-<div id="parameters-vs.-arguments" class="callout">
-<h2>Parameters vs. Arguments</h2>
+<div id="parameters-vs.-arguments" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Parameters vs. Arguments</h2>
+</div>
+<div class="panel-body">
 <p>According to <a href="https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments">Wikipedia</a>, the terms argument and <strong>parameter</strong> mean slightly different things. In practice, however, most people use them interchangeably or inconsistently, so we will too.</p>
+</div>
 </div>
 <p>If we run <code>ls -F /data</code> (<em>with</em> a leading slash) we get a different answer, because <code>/data</code> is an <strong>absolute path</strong>:</p>
 <pre class="input"><code>$ ls -F /data</code></pre>
@@ -140,9 +150,13 @@ pdb/              planets.txt   sunspot.txt</code></pre>
 .bash_profile       molecules/          solar.pdf
 Desktop/            north-pacific-gyre/ writing/</code></pre>
 <p><code>-a</code> stands for &quot;show all&quot;; it forces <code>ls</code> to show us file and directory names that begin with <code>.</code>, such as <code>..</code> (which, if we're in <code>/users/nelle</code>, refers to the <code>/users</code> directory). As you can see, it also displays another special directory that's just called <code>.</code>, which means &quot;the current working directory&quot;. It may seem redundant to have a name for it, but we'll see some uses for it soon.<br />Finally, we also see a file called <code>.bash_profile</code>. This file usually contains settings to customize the shell (terminal). There may also be similar files called <code>.bashrc</code> or <code>.bash_login</code>. For this lesson material it does not contain any settings.</p>
-<div id="orthogonality" class="callout">
-<h2>Orthogonality</h2>
+<div id="orthogonality" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Orthogonality</h2>
+</div>
+<div class="panel-body">
 <p>The special names <code>.</code> and <code>..</code> don't belong to <code>ls</code>; they are interpreted the same way by every program. For example, if we are in <code>/users/nelle/data</code>, the command <code>ls ..</code> will give us a listing of <code>/users/nelle</code>. When the meanings of the parts are the same no matter how they're combined, programmers say they are <strong>orthogonal</strong>: Orthogonal systems tend to be easier for people to learn because there are fewer special cases and exceptions to keep track of.</p>
+</div>
 </div>
 <h3 id="nelles-pipeline-organizing-files">Nelle's Pipeline: Organizing Files</h3>
 <p>Knowing just this much about files and directories, Nelle is ready to organize the files that the protein assay machine will create. First, she creates a directory called <code>north-pacific-gyre</code> (to remind herself where the data came from). Inside that, she creates a directory called <code>2012-07-03</code>, which is the date she started processing the samples. She used to use names like <code>conference-paper</code> and <code>revised-results</code>, but she found them hard to understand after a couple of years. (The final straw was when she found herself creating a directory called <code>revised-revised-results-3</code>.)</p>
@@ -160,8 +174,11 @@ Desktop/            north-pacific-gyre/ writing/</code></pre>
 <div class="figure">
 <img src="fig/filesystem-challenge.svg" alt="Filesystem for Challange Questions" /><p class="caption">Filesystem for Challange Questions</p>
 </div>
-<div id="relative-path-resolution" class="challenge">
-<h2>Relative path resolution</h2>
+<div id="relative-path-resolution" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Relative path resolution</h2>
+</div>
+<div class="panel-body">
 <p>If <code>pwd</code> displays <code>/users/thing</code>, what will <code>ls ../backup</code> display?</p>
 <ol style="list-style-type: decimal">
 <li><code>../backup: No such file or directory</code></li>
@@ -170,8 +187,12 @@ Desktop/            north-pacific-gyre/ writing/</code></pre>
 <li><code>original pnas_final pnas_sub</code></li>
 </ol>
 </div>
-<div id="ls-reading-comprehension" class="challenge">
-<h2><code>ls</code> reading comprehension</h2>
+</div>
+<div id="ls-reading-comprehension" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span><code>ls</code> reading comprehension</h2>
+</div>
+<div class="panel-body">
 <p>If <code>pwd</code> displays <code>/users/backup</code>, and <code>-r</code> tells <code>ls</code> to display things in reverse order, what command will display:</p>
 <pre><code>pnas-sub/ pnas-final/ original/</code></pre>
 <ol style="list-style-type: decimal">
@@ -181,8 +202,12 @@ Desktop/            north-pacific-gyre/ writing/</code></pre>
 <li>Either #2 or #3 above, but not #1.</li>
 </ol>
 </div>
-<div id="default-cd-action" class="challenge">
-<h2>Default <code>cd</code> action</h2>
+</div>
+<div id="default-cd-action" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Default <code>cd</code> action</h2>
+</div>
+<div class="panel-body">
 <p>What does the command <code>cd</code> without a directory name do?</p>
 <ol style="list-style-type: decimal">
 <li>It has no effect.</li>
@@ -191,9 +216,14 @@ Desktop/            north-pacific-gyre/ writing/</code></pre>
 <li>It produces an error message.</li>
 </ol>
 </div>
-<div id="exploring-more-ls-arguments" class="challenge">
-<h2>Exploring more <code>ls</code> arguments</h2>
+</div>
+<div id="exploring-more-ls-arguments" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Exploring more <code>ls</code> arguments</h2>
+</div>
+<div class="panel-body">
 <p>What does the command <code>ls</code> do when used with the <code>-s</code> and <code>-h</code> arguments?</p>
+</div>
 </div>
         </div>
       </div>
@@ -206,6 +236,6 @@ Desktop/            north-pacific-gyre/ writing/</code></pre>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
-    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
   </body>
 </html>
