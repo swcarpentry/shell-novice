@@ -165,11 +165,12 @@ Interpret PATTERN as a list of fixed strings, separated by newlines, any of  whi
 matched.  (-F is specified by POSIX.)
 ...        ...        ...
 ~~~
-
-At first, the syntax used in a man page can be confusing. Here are some quick tips to help you use a man page effectively:
-* [ and ] in the SYNOPSIS indicate optional parameters to the program. For example in in `grep` [FILE...] means that passing files to the program is optional, in this case because `grep` can read from standard input (stdin)
-* The | character means logical OR. For example, in the SYNOPSIS, [-e PATTERN | -f FILE] means that you may optionally call `grep` with -e PATTERN or -f FILE
-* When browsing a man page, you can quickly search for a key word by typing '/' to enter search mode, followed by the key word. For example, typing '/recursive' will quickly take you the first occurence of the word 'recursvie'. You can move to the next occurence by pressing the 'n' key.
+> ## Man Pages {.callout}
+> At first, the syntax used in a man page can be confusing. Here are some quick tips to help you use a man page 
+> effectively:
+> * [ and ] in the SYNOPSIS indicate optional parameters to the program. For example in in grep [FILE...] means > that passing files to the program is optional, in this case because grep can read from standard input (stdin)
+> * The | character means logical OR. For example, in the SYNOPSIS, [-e PATTERN | -f FILE] means that you may
+> optionally call grep with -e PATTERN or -f FILE
 
 > ## Wildcards {.callout}
 >
