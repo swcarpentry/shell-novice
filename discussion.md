@@ -16,3 +16,10 @@ and Bash is the default shell on most modern implementations of Unix
 (including most packages that provide Unix-like tools for Windows)
 but if you get strange errors in shell scripts written by colleagues,
 check to see which shell they were written for.
+
+### Man Pages
+At first, the syntax used in a man page can be confusing. Here are some quick tips to help you use a man page 
+ effectively:
+* [ and ] in the SYNOPSIS indicate optional parameters to the program. For example in in grep [FILE...] means > that passing files to the program is optional, in this case because grep can read from standard input (stdin)
+* The | character means logical OR. For example, in the SYNOPSIS, [-e PATTERN | -f FILE] means that you may
+optionally call grep with -e PATTERN or -f FILE
