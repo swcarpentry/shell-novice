@@ -29,7 +29,7 @@
           <h2 class="subtitle">Shell Scripts</h2>
 <div id="learning-objectives" class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -56,7 +56,7 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00</code></pre>
 <p>Sure enough, our script's output is exactly what we would get if we ran that pipeline directly.</p>
 <div id="text-vs.-whatever" class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Text vs. Whatever</h2>
+<h2 id="text-vs.-whatever" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Text vs. Whatever</h2>
 </div>
 <div class="panel-body">
 <p>We usually call programs like Microsoft Word or LibreOffice Writer &quot;text editors&quot;, but we need to be a bit more careful when it comes to programming. By default, Microsoft Word uses <code>.docx</code> files to store not only text, but also formatting information about fonts, headings, and so on. This extra information isn't stored as characters, and doesn't mean anything to tools like <code>head</code>: they expect input files to contain nothing but the letters, digits, and punctuation on a standard computer keyboard. When editing programs, therefore, you must either use a plain text editor, or be careful to save files as plain text.</p>
@@ -81,7 +81,7 @@ ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
 ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00</code></pre>
 <div id="double-quotes-around-arguments" class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Double-Quotes Around Arguments</h2>
+<h2 id="double-quotes-around-arguments" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Double-Quotes Around Arguments</h2>
 </div>
 <div class="panel-body">
 <p>We put the <code>$1</code> inside of double-quotes in case the filename happens to contain any spaces. The shell uses whitespace to separate arguments, so we have to be careful when using arguments that might have whitespace in them. If we left out these quotes, and <code>$1</code> expanded to a filename like <code>methyl butane.pdb</code>, the command in the script would effectively be:</p>
@@ -120,7 +120,7 @@ head &quot;$2&quot; &quot;$1&quot; | tail &quot;$3&quot;</code></pre>
 163 ../creatures/unicorn.dat</code></pre>
 <div id="why-isnt-it-doing-anything" class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Why Isn't It Doing Anything?</h2>
+<h2 id="why-isnt-it-doing-anything" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Why Isn't It Doing Anything?</h2>
 </div>
 <div class="panel-body">
 <p>What happens if a script is supposed to process a bunch of files, but we don't give it any filenames? For example, what if we type:</p>
@@ -146,7 +146,7 @@ wc -l &quot;$@&quot; | sort -n</code></pre>
 <p>After a moment's work in an editor to remove the serial numbers on the commands, we have a completely accurate record of how we created that figure.</p>
 <div id="unnumbering" class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Unnumbering</h2>
+<h2 id="unnumbering" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Unnumbering</h2>
 </div>
 <div class="panel-body">
 <p>Nelle could also use <code>colrm</code> (short for &quot;column removal&quot;) to remove the serial numbers on her previous commands. Its parameters are the range of characters to strip from its input:</p>
@@ -190,7 +190,7 @@ done</code></pre>
 <p>The advantage is that this always selects the right files: she doesn't have to remember to exclude the 'Z' files. The disadvantage is that it <em>always</em> selects just those files --- she can't run it on all files (including the 'Z' files), or on the 'G' or 'H' files her colleagues in Antarctica are producing, without editing the script. If she wanted to be more adventurous, she could modify her script to check for command-line parameters, and use <code>*[AB].txt</code> if none were provided. Of course, this introduces another tradeoff between flexibility and complexity.</p>
 <div id="variables-in-shell-scripts" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Variables in shell scripts</h2>
+<h2 id="variables-in-shell-scripts" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Variables in shell scripts</h2>
 </div>
 <div class="panel-body">
 <p>In the molecules directory, you have a shell script called <code>script.sh</code> containing the following commands:</p>
@@ -209,7 +209,7 @@ tail $3 $1</code></pre>
 </div>
 <div id="list-unique-species" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>List unique species</h2>
+<h2 id="list-unique-species" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>List unique species</h2>
 </div>
 <div class="panel-body">
 <p>Leah has several hundred data files, each of which is formatted like this:</p>
@@ -226,7 +226,7 @@ tail $3 $1</code></pre>
 </div>
 <div id="find-the-longest-file-with-a-given-extension" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Find the longest file with a given extension</h2>
+<h2 id="find-the-longest-file-with-a-given-extension" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Find the longest file with a given extension</h2>
 </div>
 <div class="panel-body">
 <p>Write a shell script called <code>longest.sh</code> that takes the name of a directory and a filename extension as its parameters, and prints out the name of the file with the most lines in that directory with that extension. For example:</p>
@@ -236,7 +236,7 @@ tail $3 $1</code></pre>
 </div>
 <div id="why-record-commands-in-the-history-before-running-them" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Why record commands in the history before running them?</h2>
+<h2 id="why-record-commands-in-the-history-before-running-them" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Why record commands in the history before running them?</h2>
 </div>
 <div class="panel-body">
 <p>If you run the command:</p>
@@ -246,7 +246,7 @@ tail $3 $1</code></pre>
 </div>
 <div id="script-reading-comprehension" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Script reading comprehension</h2>
+<h2 id="script-reading-comprehension" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Script reading comprehension</h2>
 </div>
 <div class="panel-body">
 <p>Joel's <code>data</code> directory contains three files: <code>fructose.dat</code>, <code>glucose.dat</code>, and <code>sucrose.dat</code>. Explain what a script called <code>example.sh</code> would do when run as <code>bash example.sh *.dat</code> if it contained the following lines:</p>

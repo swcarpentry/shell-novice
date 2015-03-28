@@ -28,7 +28,7 @@
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Pipes and Filters</h2>
 <blockquote>
-<h2>Learning Objectives</h2>
+<h2 id="learning-objectives">Learning Objectives</h2>
 <ul>
 <li>Redirect a command's output to a file.</li>
 <li>Process a file instead of keyboard input using redirection.</li>
@@ -53,7 +53,7 @@ $ wc *.pdb</code></pre>
  107  819 6081 total</code></pre>
 <div id="wildcards" class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Wildcards</h2>
+<h2 id="wildcards" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Wildcards</h2>
 </div>
 <div class="panel-body">
 <p><code>*</code> is a <strong>wildcard</strong>. It matches zero or more characters, so <code>*.pdb</code> matches <code>ethane.pdb</code>, <code>propane.pdb</code>, and so on. On the other hand, <code>p*.pdb</code> only matches <code>pentane.pdb</code> and <code>propane.pdb</code>, because the 'p' at the front only matches itself.</p>
@@ -115,14 +115,14 @@ $ head -1 sorted-lengths.txt</code></pre>
 <p>The key is that any program that reads lines of text from standard input and writes lines of text to standard output can be combined with every other program that behaves this way as well. You can <em>and should</em> write your programs this way so that you and other people can put those programs into pipes to multiply their power.</p>
 <div id="redirecting-input" class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Redirecting Input</h2>
+<h2 id="redirecting-input" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Redirecting Input</h2>
 </div>
 <div class="panel-body">
 <p>As well as using <code>&gt;</code> to redirect a program's output, we can use <code>&lt;</code> to redirect its input, i.e., to read from a file instead of from standard input. For example, instead of writing <code>wc ammonia.pdb</code>, we could write <code>wc &lt; ammonia.pdb</code>. In the first case, <code>wc</code> gets a command line parameter telling it what file to open. In the second, <code>wc</code> doesn't have any command line parameters, so it reads from standard input, but we have told the shell to send the contents of <code>ammonia.pdb</code> to <code>wc</code>'s standard input.</p>
 </div>
 </div>
 <h3 id="nelles-pipeline-checking-files">Nelle's Pipeline: Checking Files</h3>
-<p>Nelle has run her samples through the assay machines and created 1520 files in the <code>north-pacific-gyre/2012-07-03</code> directory described earlier. As a quick sanity check, she types:</p>
+<p>Nelle has run her samples through the assay machines and created 1520 files in the <code>north-pacific-gyre/2012-07-03</code> directory described earlier. As a quick sanity check, starting from her home directory, Nelle types:</p>
 <pre class="input"><code>$ cd north-pacific-gyre/2012-07-03
 $ wc -l *.txt</code></pre>
 <p>The output is 1520 lines that look like this:</p>
@@ -153,7 +153,7 @@ $ wc -l *.txt</code></pre>
 <p>Sure enough, when she checks the log on her laptop, there's no depth recorded for either of those samples. Since it's too late to get the information any other way, she must exclude those two files from her analysis. She could just delete them using <code>rm</code>, but there are actually some analyses she might do later where depth doesn't matter, so instead, she'll just be careful later on to select files using the wildcard expression <code>*[AB].txt</code>. As always, the '*' matches any number of characters; the expression <code>[AB]</code> matches either an 'A' or a 'B', so this matches all the valid data files she has.</p>
 <div id="what-does-sort--n-do" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>What does <code>sort -n</code> do?</h2>
+<h2 id="what-does-sort--n-do" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>What does <code>sort -n</code> do?</h2>
 </div>
 <div class="panel-body">
 <p>If we run <code>sort</code> on this file:</p>
@@ -179,7 +179,7 @@ $ wc -l *.txt</code></pre>
 </div>
 <div id="what-does-mean" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>What does <code>&lt;</code> mean?</h2>
+<h2 id="what-does-mean" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>What does <code>&lt;</code> mean?</h2>
 </div>
 <div class="panel-body">
 <p>What is the difference between:</p>
@@ -190,7 +190,7 @@ $ wc -l *.txt</code></pre>
 </div>
 <div id="piping-commands-together" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Piping commands together</h2>
+<h2 id="piping-commands-together" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Piping commands together</h2>
 </div>
 <div class="panel-body">
 <p>In our current directory, we want to find the 3 files which have the least number of lines. Which command listed below would work?</p>
@@ -204,7 +204,7 @@ $ wc -l *.txt</code></pre>
 </div>
 <div id="why-does-uniq-only-remove-adjacent-duplicates" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Why does <code>uniq</code> only remove adjacent duplicates?</h2>
+<h2 id="why-does-uniq-only-remove-adjacent-duplicates" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Why does <code>uniq</code> only remove adjacent duplicates?</h2>
 </div>
 <div class="panel-body">
 <p>The command <code>uniq</code> removes adjacent duplicated lines from its input. For example, if a file <code>salmon.txt</code> contains:</p>
@@ -224,7 +224,7 @@ steelhead</code></pre>
 </div>
 <div id="pipe-reading-comprehension" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Pipe reading comprehension</h2>
+<h2 id="pipe-reading-comprehension" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Pipe reading comprehension</h2>
 </div>
 <div class="panel-body">
 <p>A file called <code>animals.txt</code> contains the following data:</p>
@@ -242,7 +242,7 @@ steelhead</code></pre>
 </div>
 <div id="pipe-construction" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Pipe construction</h2>
+<h2 id="pipe-construction" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Pipe construction</h2>
 </div>
 <div class="panel-body">
 <p>The command:</p>
