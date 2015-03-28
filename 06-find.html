@@ -7,10 +7,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
-    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -19,14 +17,14 @@
     <![endif]-->
   </head>
   <body class="lesson">
-    <div class="container container-full-width card">
+    <div class="container card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
-      <div class="row-fluid">
-        <div class="span10 offset1">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Finding Things</h2>
 <blockquote>
@@ -54,9 +52,13 @@ and the presence of absence:
 Yesterday it worked
 Today it is not working
 Software is like that.</code></pre>
-<div id="forever-or-five-years" class="callout">
-<h2>Forever, or Five Years</h2>
+<div id="forever-or-five-years" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Forever, or Five Years</h2>
+</div>
+<div class="panel-body">
 <p>We haven't linked to the original haikus because they don't appear to be on <em>Salon</em>'s site any longer. As <a href="http://www.clir.org/pubs/archives/ensuring.pdf">Jeff Rothenberg said</a>, &quot;Digital information lasts forever --- or five years, whichever comes first.&quot;</p>
+</div>
 </div>
 <p>Let's find lines that contain the word &quot;not&quot;:</p>
 <pre class="input"><code>$ grep not haiku.txt</code></pre>
@@ -122,14 +124,18 @@ POSIX.)
 Interpret PATTERN as a list of fixed strings, separated by newlines, any of  which  is  to  be
 matched.  (-F is specified by POSIX.)
 ...        ...        ...</code></pre>
-<div id="wildcards" class="callout">
-<h2>Wildcards</h2>
+<div id="wildcards" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Wildcards</h2>
+</div>
+<div class="panel-body">
 <p><code>grep</code>'s real power doesn't come from its options, though; it comes from the fact that patterns can include wildcards. (The technical name for these is <strong>regular expressions</strong>, which is what the &quot;re&quot; in &quot;grep&quot; stands for.) Regular expressions are both complex and powerful; if you want to do complex searches, please look at the lesson on <a href="http://software-carpentry.org">our website</a>. As a taster, we can find lines that have an 'o' in the second position like this:</p>
 <pre><code>$ grep -E &#39;^.o&#39; haiku.txt
 You bring fresh toner.
 Today it is not working
 Software is like that.</code></pre>
 <p>We use the <code>-E</code> flag and put the pattern in quotes to prevent the shell from trying to interpret it. (If the pattern contained a '*', for example, the shell would try to expand it before running <code>grep</code>.) The '^' in the pattern anchors the match to the start of the line. The '.' matches a single character (just like '?' in the shell), while the 'o' matches an actual 'o'.</p>
+</div>
 </div>
 <p>While <code>grep</code> finds lines in files, the <code>find</code> command finds files themselves. Again, it has a lot of options; to show how the simplest ones work, we'll use the directory tree shown below.</p>
 <div class="figure">
@@ -172,9 +178,13 @@ Software is like that.</code></pre>
 <pre class="output"><code>./data/one.txt
 ./data/two.txt
 ./haiku.txt</code></pre>
-<div id="listing-vs.-finding" class="callout">
-<h2>Listing vs. Finding</h2>
+<div id="listing-vs.-finding" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Listing vs. Finding</h2>
+</div>
+<div class="panel-body">
 <p><code>ls</code> and <code>find</code> can be made to do similar things given the right options, but under normal circumstances, <code>ls</code> lists everything it can, while <code>find</code> searches for things with certain properties and shows them.</p>
+</div>
 </div>
 <p>As we said earlier, the command line's power lies in combining tools. We've seen how to do that with pipes; let's look at another technique. As we just saw, <code>find . -name '*.txt'</code> gives us a list of all text files in or below the current directory. How can we combine that with <code>wc -l</code> to count the lines in all those files?</p>
 <p>The simplest way is to put the <code>find</code> command inside <code>$()</code>:</p>
@@ -189,18 +199,25 @@ Software is like that.</code></pre>
 <p>It's very common to use <code>find</code> and <code>grep</code> together. The first finds files that match a pattern; the second looks for lines inside those files that match another pattern. Here, for example, we can find PDB files that contain iron atoms by looking for the string &quot;FE&quot; in all the <code>.pdb</code> files above the current directory:</p>
 <pre class="input"><code>$ grep FE $(find .. -name &#39;*.pdb&#39;)</code></pre>
 <pre class="output"><code>../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518</code></pre>
-<div id="binary-files" class="callout">
-<h2>Binary Files</h2>
+<div id="binary-files" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Binary Files</h2>
+</div>
+<div class="panel-body">
 <p>We have focused exclusively on finding things in text files. What if your data is stored as images, in databases, or in some other format? One option would be to extend tools like <code>grep</code> to handle those formats. This hasn't happened, and probably won't, because there are too many formats to support.</p>
 <p>The second option is to convert the data to text, or extract the text-ish bits from the data. This is probably the most common approach, since it only requires people to build one tool per data format (to extract information). On the one hand, it makes simple things easy to do. On the negative side, complex things are usually impossible. For example, it's easy enough to write a program that will extract X and Y dimensions from image files for <code>grep</code> to play with, but how would you write something to find values in a spreadsheet whose cells contained formulas?</p>
 <p>The third choice is to recognize that the shell and text processing have their limits, and to use a programming language such as Python instead. When the time comes to do this, don't be too hard on the shell: many modern programming languages, Python included, have borrowed a lot of ideas from it, and imitation is also the sincerest form of praise.</p>
+</div>
 </div>
 <blockquote>
 <h2>Conclusion</h2>
 <p>The Unix shell is older than most of the people who use it. It has survived so long because it is one of the most productive programming environments ever created --- maybe even <em>the</em> most productive. Its syntax may be cryptic, but people who have mastered it can experiment with different commands interactively, then use what they have learned to automate their work. Graphical user interfaces may be better at the first, but the shell is still unbeaten at the second. And as Alfred North Whitehead wrote in 1911, &quot;Civilization advances by extending the number of important operations which we can perform without thinking about them.&quot;</p>
 </blockquote>
-<div id="using-grep" class="challenge">
-<h2>Using grep</h2>
+<div id="using-grep" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Using grep</h2>
+</div>
+<div class="panel-body">
 <pre><code>The Tao that is seen
 Is not the true Tao, until
 You bring fresh toner.
@@ -221,10 +238,15 @@ Software is like that.</code></pre>
 <li><code>grep -i of haiku.txt</code></li>
 </ol>
 </div>
-<div id="find-pipeline-reading-comprehension" class="challenge">
-<h2><code>find</code> pipeline reading comprehension</h2>
+</div>
+<div id="find-pipeline-reading-comprehension" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span><code>find</code> pipeline reading comprehension</h2>
+</div>
+<div class="panel-body">
 <p>Write a short explanatory comment for the following shell script:</p>
 <pre class="input"><code>find . -name &#39;*.dat&#39; | wc -l | sort -n</code></pre>
+</div>
 </div>
 <blockquote>
 <h2>Matching <code>ose.dat</code> but not <code class="challenge">temp</code></h2>
@@ -236,9 +258,13 @@ Software is like that.</code></pre>
 <li><p>None of the above.</p></li>
 </ol>
 </blockquote>
-<div id="little-women" class="challenge">
-<h2>Little Women</h2>
+<div id="little-women" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Little Women</h2>
+</div>
+<div class="panel-body">
 <p>You and your friend, having just finished reading <em>Little Women</em> by Louisa May Alcott, are in an argument. Of the four sisters in the book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the most mentioned. You, however, are certain it was Amy. Luckily, you have a file <code>LittleWomen.txt</code> containing the full text of the novel. Using a<code>for</code> loop, how would you tabulate the number of times each of the four sisters is mentioned? Hint: one solution might employ the commands <code>grep</code> and <code>wc</code> and a <code>|</code>, while another might utilize <code>grep</code> options.</p>
+</div>
 </div>
         </div>
       </div>
@@ -251,6 +277,6 @@ Software is like that.</code></pre>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
-    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
   </body>
 </html>

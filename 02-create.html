@@ -7,10 +7,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc-workshop-and-lesson.css" />
-    <link rel="stylesheet" type="text/css" href="css/lesson.css" />
     <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
     <meta charset="UTF-8" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -19,14 +17,14 @@
     <![endif]-->
   </head>
   <body class="lesson">
-    <div class="container container-full-width card">
+    <div class="container card">
       <div class="banner">
         <a href="http://software-carpentry.org" title="Software Carpentry">
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
-      <div class="row-fluid">
-        <div class="span10 offset1">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Creating Things</h2>
 <blockquote>
@@ -55,8 +53,11 @@ Desktop/    pizza.cfg
 molecules/  solar.pdf</code></pre>
 <p>However, there's nothing in it yet:</p>
 <pre class="input"><code>$ ls -F thesis</code></pre>
-<div id="touching-files" class="callout">
-<h2>Touching Files</h2>
+<div id="touching-files" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Touching Files</h2>
+</div>
+<div class="panel-body">
 <p>One of the simplest ways to create an empty file is via the <code>touch</code> command. Change the working directory to <code>thesis</code> using <code>cd</code>, then touch an empty file called <code>draft.txt</code>:</p>
 <pre class="input"><code>$ cd thesis
 $ touch draft.txt</code></pre>
@@ -64,13 +65,18 @@ $ touch draft.txt</code></pre>
 <pre class="input"><code>$ ls -F .</code></pre>
 <pre class="output"><code>draft.txt</code></pre>
 </div>
+</div>
 <p>Let's change our working directory to <code>thesis</code> using <code>cd</code>, then run a text editor called Nano to create a file called <code>draft.txt</code>:</p>
 <pre class="input"><code>$ cd thesis
 $ nano draft.txt</code></pre>
-<div id="which-editor" class="callout">
-<h2>Which Editor?</h2>
+<div id="which-editor" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Which Editor?</h2>
+</div>
+<div class="panel-body">
 <p>When we say, &quot;<code>nano</code> is a text editor,&quot; we really do mean &quot;text&quot;: it can only work with plain character data, not tables, images, or any other human-friendly media. We use it in examples because almost anyone can drive it anywhere without training, but please use something more powerful for real work. On Unix systems (such as Linux and Mac OS X), many programmers use <a href="http://www.gnu.org/software/emacs/">Emacs</a> or <a href="http://www.vim.org/">Vim</a> (both of which are completely unintuitive, even by Unix standards), or a graphical editor such as <a href="http://projects.gnome.org/gedit/">Gedit</a>. On Windows, you may wish to use <a href="http://notepad-plus-plus.org/">Notepad++</a>.</p>
 <p>No matter what editor you use, you will need to know where it searches for and saves files. If you start it from the shell, it will (probably) use your current working directory as its default location. If you use your computer's start menu, it may want to save files in your desktop or documents directory instead. You can change this by navigating to another directory the first time you &quot;Save As...&quot;</p>
+</div>
 </div>
 <p>Let's type in a few lines of text, then use Control-O to write our data to disk:</p>
 <div class="figure">
@@ -83,9 +89,13 @@ $ nano draft.txt</code></pre>
 <pre class="input"><code>$ rm draft.txt</code></pre>
 <p>This command removes files (&quot;rm&quot; is short for &quot;remove&quot;). If we run <code>ls</code> again, its output is empty once more, which tells us that our file is gone:</p>
 <pre class="input"><code>$ ls</code></pre>
-<div id="deleting-is-forever" class="callout">
-<h2>Deleting Is Forever</h2>
+<div id="deleting-is-forever" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Deleting Is Forever</h2>
+</div>
+<div class="panel-body">
 <p>The Unix shell doesn't have a trash bin that we can recover deleted files from (though most graphical interfaces to Unix do). Instead, when we delete files, they are unhooked from the file system so that their storage space on disk can be recycled. Tools for finding and recovering deleted files do exist, but there's no guarantee they'll work in any particular situation, since the computer may recycle the file's disk space right away.</p>
+</div>
 </div>
 <p>Let's re-create that file and then move up one directory to <code>/users/nelle</code> using <code>cd ..</code>:</p>
 <pre class="input"><code>$ pwd</code></pre>
@@ -104,11 +114,15 @@ $ ls</code></pre>
 <pre class="input"><code>$ rm thesis/draft.txt</code></pre>
 <p>The directory is now empty, so <code>rmdir</code> can delete it:</p>
 <pre class="input"><code>$ rmdir thesis</code></pre>
-<div id="with-great-power-comes-great-responsibility" class="callout">
-<h2>With Great Power Comes Great Responsibility</h2>
+<div id="with-great-power-comes-great-responsibility" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>With Great Power Comes Great Responsibility</h2>
+</div>
+<div class="panel-body">
 <p>Removing the files in a directory just so that we can remove the directory quickly becomes tedious. Instead, we can use <code>rm</code> with the <code>-r</code> flag (which stands for &quot;recursive&quot;):</p>
 <pre><code>$ rm -r thesis</code></pre>
 <p>This removes everything in the directory, then the directory itself. If the directory contains sub-directories, <code>rm -r</code> does the same thing to them, and so on. It's very handy, but can do a lot of damage if used without care.</p>
+</div>
 </div>
 <p>Let's create that directory and file one more time. (Note that this time we're running <code>nano</code> with the path <code>thesis/draft.txt</code>, rather than going into the <code>thesis</code> directory and running <code>nano</code> on <code>draft.txt</code> there.)</p>
 <pre class="input"><code>$ pwd</code></pre>
@@ -140,12 +154,19 @@ $ ls quotes.txt thesis/quotations.txt</code></pre>
 <pre class="error"><code>ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt</code></pre>
 <p>This time it tells us that it can't find <code>quotes.txt</code> in the current directory, but it does find the copy in <code>thesis</code> that we didn't delete.</p>
-<div id="another-useful-abbreviation" class="callout">
-<h2>Another Useful Abbreviation</h2>
+<div id="another-useful-abbreviation" class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Another Useful Abbreviation</h2>
+</div>
+<div class="panel-body">
 <p>The shell interprets the character <code>~</code> (tilde) at the start of a path to mean &quot;the current user's home directory&quot;. For example, if Nelle's home directory is <code>/home/nelle</code>, then <code>~/data</code> is equivalent to <code>/home/nelle/data</code>. This only works if it is the first character in the path: <code>here/there/~/elsewhere</code> is <em>not</em> <code>/home/nelle/elsewhere</code>.</p>
 </div>
-<div id="renaming-files" class="challenge">
-<h2>Renaming files</h2>
+</div>
+<div id="renaming-files" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Renaming files</h2>
+</div>
+<div class="panel-body">
 <p>Suppose that you created a <code>.txt</code> file in your current directory to contain a list of the statistical tests you will need to do to analyze your data, and named it: <code>statstics.txt</code></p>
 <p>After creating and saving this file you realize you misspelled the filename! You want to correct the mistake, which of the following commands could you use to do so?</p>
 <ol style="list-style-type: decimal">
@@ -155,8 +176,12 @@ thesis/quotations.txt</code></pre>
 <li><code>cp statstics.txt .</code></li>
 </ol>
 </div>
-<div id="moving-and-copying" class="challenge">
-<h2>Moving and Copying</h2>
+</div>
+<div id="moving-and-copying" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Moving and Copying</h2>
+</div>
+<div class="panel-body">
 <p>What is the output of the closing <code>ls</code> command in the sequence shown below?</p>
 <pre><code>$ pwd
 /home/jamie/data
@@ -173,8 +198,12 @@ $ ls</code></pre>
 <li><code>proteins-saved.dat</code></li>
 </ol>
 </div>
-<div id="listing-directories-and-files" class="challenge">
-<h2>Listing Directories and Files</h2>
+</div>
+<div id="listing-directories-and-files" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Listing Directories and Files</h2>
+</div>
+<div class="panel-body">
 <p>Suppose that:</p>
 <pre><code>$ ls -F
 analyzed/  fructose.dat    raw/   sucrose.dat</code></pre>
@@ -184,8 +213,12 @@ analyzed/   raw/
 $ ls analyzed
 fructose.dat    sucrose.dat</code></pre>
 </div>
-<div id="copy-with-multiple-filenames" class="challenge">
-<h2>Copy with Multiple Filenames</h2>
+</div>
+<div id="copy-with-multiple-filenames" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Copy with Multiple Filenames</h2>
+</div>
+<div class="panel-body">
 <p>What does <code>cp</code> do when given several filenames and a directory name, as in:</p>
 <pre><code>$ mkdir backup
 $ cp thesis/citations.txt thesis/quotations.txt backup</code></pre>
@@ -194,9 +227,14 @@ $ cp thesis/citations.txt thesis/quotations.txt backup</code></pre>
 intro.txt    methods.txt    survey.txt
 $ cp intro.txt methods.txt survey.txt</code></pre>
 </div>
-<div id="listing-recursively-and-by-time" class="challenge">
-<h2>Listing Recursively and By Time</h2>
+</div>
+<div id="listing-recursively-and-by-time" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Listing Recursively and By Time</h2>
+</div>
+<div class="panel-body">
 <p>The command <code>ls -R</code> lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on in alphabetical order at each level. The command <code>ls -t</code> lists things by time of last change, with most recently changed files or directories first. In what order does <code>ls -R -t</code> display things?</p>
+</div>
 </div>
         </div>
       </div>
@@ -209,6 +247,6 @@ $ cp intro.txt methods.txt survey.txt</code></pre>
     </div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
-    <script src="http://software-carpentry.org/v5/js/bootstrap/bootstrap.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
   </body>
 </html>
