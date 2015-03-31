@@ -414,6 +414,22 @@ so this matches all the valid data files she has.
 > wc -l mydata.dat
 > ~~~
 
+> ## What does `>>` mean? {.challenge}
+>
+> What is the difference between:
+>
+> ~~~
+> echo hello > testfile01.txt
+> ~~~
+>
+> and:
+>
+> ~~~
+> echo hello >> testfile02.txt
+> ~~~
+>
+> Hint: Try executing each command twice in a row and then examining the output files.
+
 > ## Piping commands together {.challenge}
 >
 > In our current directory, we want to find the 3 files which have the least number of 
