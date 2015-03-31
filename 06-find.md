@@ -448,9 +448,6 @@ $ grep FE $(find .. -name '*.pdb')
 > 3. `grep -w of haiku.txt`
 > 4. `grep -i of haiku.txt`
 
-> Using the grep function and the options we have learned so far, 
-> please find the lines that do not contain any appearance of the word "the".
-
 > ## `find` pipeline reading comprehension {.challenge}
 >
 > Write a short explanatory comment for the following shell script:
