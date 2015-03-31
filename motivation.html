@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+  <title>The Unix Shell</title>
+
+
+  <script src="js/deckjs-custom.js"></script>
+  <script>
+      // TODO: finer filter on what is needed (vs profile-5)
+      includedeck("css/swc-slides.css", {
+         BEFOREINIT: function() {
+            $(".slide.auto li:not(li li):not(.notslide)").addClass("slide");
+         }
+      });
+  </script>
+</head>
+<body>
+  <div class="deck-container">
+
+    <div class="slide title-slide" data-container-class="no-status">
+        <h1 class="var-title"></h1>
+        <img class="logo" src="img/software-carpentry-banner.png" alt="Software Carpentry"/>
+    </div>
+
+    <!-- Begin slides. Just make elements with a class of slide. -->
+<section class="slide level2">
+
+<section class="slide">
+</section>
+<section id="why-do-we-learn-to-use-the-shell" class="slide level2">
+<h1>Why do we learn to use the shell?</h1>
+The shell allows users to automate repetitive tasks and capture small data manipulation steps that are normally not recorded to make research reproducible
+</section>
+<section class="slide">
+</section>
+<section id="the-problem" class="slide level2">
+<h1>The Problem</h1>
+<ul>
+<li>Running the same workflow on several samples can be unnecessarily labour intensive</li>
+<li>Manual manipulation of data files:</li>
+<li>is often not captured in documentation</li>
+<li>is hard to reproduce</li>
+<li>is hard to troubleshoot, review, or improve</li>
+</ul>
+</section>
+<section class="slide">
+</section>
+<section id="the-shell" class="slide level2">
+<h1>The Shell</h1>
+<ul>
+<li>Workflows can be automated through the use of shell scripts</li>
+<li>Built-in commands allow for easy data manipulation (e.g. sort, grep, etc.)</li>
+<li>Every step can be captured in the shell script and allow reproducibility and easy troubleshooting</li>
+</ul>
+</section>
+<section class="slide">
+</section>
+<section id="lets-see-how-the-shell-can-be-used-in-research-data-analysis..." class="slide level2">
+<h1>Let's see how the shell can be used in research data analysis...</h1>
+<a href="00-intro.html">Starting with the Unix shell</a>
+</section>
+</section>
+    <!-- End slides. -->
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- footer -->
+    <p class="deck-status deck-progress-10"> <span class="deck-status-current"></span> / <span class="deck-status-total"></span> − <span class="var-title">will be replaced by the title</span></p>
+    <!-- progress bar -->
+    <div class="progress-bar" data-progress-size=":spe.bottom(0, 1) ; left: slide.left+'px' ; height: designRatio+'px'" data-progress="width: detail.p * slide.width" style="position: absolute;"> </div>
+
+    <!-- End extension snippets. -->
+  </div>
+
+</body>
+</html>

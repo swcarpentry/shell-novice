@@ -1,0 +1,10 @@
+span.subtitle {
+  color: #030303;
+  display: block;
+  font-family: inherit;
+  font-size: 31.5px;
+  font-weight: bold;
+  line-height: 40px;
+  margin: 40px 0px 10px 0px;
+  text-rendering: optimizelegibility;
+}

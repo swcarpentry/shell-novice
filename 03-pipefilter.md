@@ -289,7 +289,7 @@ so that you and other people can put those programs into pipes to multiply their
 
 Nelle has run her samples through the assay machines
 and created 1520 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
-As a quick sanity check, she types:
+As a quick sanity check, starting from her home directory, Nelle types:
 
 ~~~ {.input}
 $ cd north-pacific-gyre/2012-07-03

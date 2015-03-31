@@ -4,7 +4,7 @@ title: The Unix Shell
 subtitle: Loops
 minutes: 15
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Write a loop that applies one or more commands separately to each file in a set of files.
 > *   Trace the values taken on by a loop variable during execution of the loop.
@@ -268,13 +268,13 @@ mv unicorn.dat original-unicorn.dat
 > isn't foolproof, but it's a handy way to see what's going to happen when
 > you're still learning how loops work.
 
-### Nelle's Pipeline: Processing Files
+## Nelle's Pipeline: Processing Files
 
 Nelle is now ready to process her data files.
 Since she's still learning how to use the shell,
 she decides to build up the required commands in stages.
 Her first step is to make sure that she can select the right files --- remember,
-these are ones whose names end in 'A' or 'B', rather than 'Z':
+these are ones whose names end in 'A' or 'B', rather than 'Z'. Starting from her home directory, Nelle types:
 
 ~~~ {.input}
 $ cd north-pacific-gyre/2012-07-03
@@ -394,7 +394,7 @@ so she decides to get some coffee and catch up on her reading.
 > then she can re-run `goostats` on `NENE01729B.txt` simply by typing
 > `!458`.
 
-> ## Variables in loops {.challenge}
+> ## Variables in Loops {.challenge}
 > 
 > Suppose that `ls` initially displays:
 > 
@@ -422,7 +422,7 @@ so she decides to get some coffee and catch up on her reading.
 >
 > Why do these two loops give you different outputs?
 
-> ## Saving to a file in a loop - part one {.challenge}
+> ## Saving to a File in a Loop - Part One {.challenge}
 >
 > In the same directory, what is the effect of this loop?
 > 
@@ -442,7 +442,7 @@ so she decides to get some coffee and catch up on her reading.
 >     `xylose.dat`, and copies `sucrose.dat` to create `xylose.dat`.
 > 4.  None of the above.
 
-> ## Saving to a file in a loop - part two {.challenge}
+> ## Saving to a File in a Loop - Part Two {.challenge}
 >
 > In another directory, where `ls` returns:
 >
@@ -498,7 +498,7 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Nested Loops and Command-Line Expressions {.challenge}
 >
 > The `expr` does simple arithmetic using command-line parameters:
 > 
@@ -521,7 +521,7 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
-> ## FIXME {.challenge}
+> ## Explain This Loop {.challenge}
 > 
 > Describe in words what the following loop does.
 > 

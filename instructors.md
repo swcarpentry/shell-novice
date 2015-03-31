@@ -39,6 +39,11 @@ and to write a little bit of documentation
 (like comment at the top of shell scripts)
 to make their future selves' lives better.
 
+The third answer is,
+"Because it enables use of many domain-specific tools and compute resources researchers cannot access otherwise."
+Familiarity with the shell is very useful for remote accessing machines, using high-performance computing infrastructure, and runnning new specialist tools in many disciplines. We do not teach HPC or domain-specific skills
+here but lay the groundwork for further development of these skills. In particular, understand syntax of commands,  flags, and help systems is useful for domain specific tools and understanding the file system (and how to navigate it) is useful for remote access.
+
 Finally,
 and perhaps most importantly,
 teaching people the shell lets us teach them
