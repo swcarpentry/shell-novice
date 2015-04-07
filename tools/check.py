@@ -671,7 +671,8 @@ LESSON_TEMPLATES = {"index": (IndexPageValidator, "^index"),
                     "discussion": (DiscussionPageValidator, "^discussion")}
 
 # List of files in the lesson directory that should not be validated at all
-SKIP_FILES = ("DESIGN.md", "FAQ.md", "LAYOUT.md", "README.md")
+SKIP_FILES = ("CONDUCT.md", "CONTRIBUTING.md",
+              "DESIGN.md", "FAQ.md", "LAYOUT.md", "README.md")
 
 
 def identify_template(filepath):
