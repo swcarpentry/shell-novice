@@ -671,7 +671,8 @@ LESSON_TEMPLATES = {"index": (IndexPageValidator, "^index"),
                     "discussion": (DiscussionPageValidator, "^discussion")}
 
 # List of files in the lesson directory that should not be validated at all
-SKIP_FILES = ("DESIGN.md", "FAQ.md", "LAYOUT.md", "README.md")
+SKIP_FILES = ("CONDUCT.md", "CONTRIBUTING.md",
+              "DESIGN.md", "FAQ.md", "LAYOUT.md", "README.md")
 
 
 def identify_template(filepath):
@@ -763,6 +764,8 @@ def command_line():
 def check_required_files(dir_to_validate):
     """Check if required files exists."""
     REQUIRED_FILES = ["01-*.md",
+                      "CONDUCT.md",
+                      "CONTRIBUTING.md",
                       "discussion.md",
                       "index.md",
                       "instructors.md",
