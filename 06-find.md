@@ -4,7 +4,7 @@ title: The Unix Shell
 subtitle: Finding Things
 minutes: 15
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Use `grep` to select lines from text files that match simple patterns.
 > *   Use `find` to find files whose names match simple patterns.
@@ -385,18 +385,16 @@ $ grep FE $(find .. -name '*.pdb')
 > modern programming languages, Python included, have borrowed a lot of
 > ideas from it, and imitation is also the sincerest form of praise.
 
-> ## Conclusion
-> 
-> The Unix shell is older than most of the people who use it. It has
-> survived so long because it is one of the most productive programming
-> environments ever created --- maybe even *the* most productive. Its syntax
-> may be cryptic, but people who have mastered it can experiment with
-> different commands interactively, then use what they have learned to
-> automate their work. Graphical user interfaces may be better at the
-> first, but the shell is still unbeaten at the second. And as Alfred
-> North Whitehead wrote in 1911, "Civilization advances by extending the
-> number of important operations which we can perform without thinking
-> about them."
+The Unix shell is older than most of the people who use it. It has
+survived so long because it is one of the most productive programming
+environments ever created --- maybe even *the* most productive. Its syntax
+may be cryptic, but people who have mastered it can experiment with
+different commands interactively, then use what they have learned to
+automate their work. Graphical user interfaces may be better at the
+first, but the shell is still unbeaten at the second. And as Alfred
+North Whitehead wrote in 1911, "Civilization advances by extending the
+number of important operations which we can perform without thinking
+about them."
 
 > ## Using grep {.challenge}
 >
