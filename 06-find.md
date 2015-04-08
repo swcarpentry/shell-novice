@@ -102,23 +102,45 @@ $ grep -n it haiku.txt
 
 Here, we can see that lines 5, 9, and 10 contain the letters "it".
 
-We can combine flags as we do with other Unix commands.
-For example,
-since `-i` makes matching case-insensitive and `-v` inverts the match,
-using them both only prints lines that *don't* match the pattern
-in any mix of upper and lower case:
+We can combine options (i.e. flags) as we do with other Unix commands.
+For example, let's find the lines that contain the word "the". We can combine
+the option `-w` to find the lines that contain the word "the" and `-n` to number the lines that match:
 
 ~~~ {.input}
-$ grep -i -v the haiku.txt
+$ grep -n -w the haiku.txt
 ~~~
 ~~~ {.output}
-You bring fresh toner.
+2:Is not the true Tao, until
+6:and the presence of absence:
+~~~
 
-With searching comes loss
+Now we want to use the option `-i` to make our search case-insensitive:
 
-Yesterday it worked
-Today it is not working
-Software is like that.
+~~~ {.input}
+$ grep -n -w -i the haiku.txt
+~~~
+~~~ {.output}
+1:The Tao that is seen
+2:Is not the true Tao, until
+6:and the presence of absence:
+~~~
+
+Now, we want to use the option `-v` to invert our search, i.e., we want to output
+the lines that do not contain the word "the".
+
+~~~ {.input}
+$ grep -n -w -v the haiku.txt 
+~~~
+~~~ {.output}
+1:The Tao that is seen
+3:You bring fresh toner.
+4:
+5:With searching comes loss
+7:"My Thesis" not found.
+8:
+9:Yesterday it worked
+10:Today it is not working
+11:Software is like that.
 ~~~
 
 `grep` has lots of other options.
