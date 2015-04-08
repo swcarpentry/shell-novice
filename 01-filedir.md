@@ -4,7 +4,7 @@ title: The Unix Shell
 subtitle: Files and Directories
 minutes: 15
 ---
-> ## Learning Objectives
+> ## Learning Objectives {.objectives}
 >
 > *   Explain the similarities and differences between a file and a directory.
 > *   Translate an absolute path into a relative path and vice versa.

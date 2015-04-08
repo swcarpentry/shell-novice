@@ -13,7 +13,7 @@ Use of the shell is fundamental to using a wide range of other powerful tools
 and computing resources (including "high-performance computing" supercomputers).
 These lessons will start you on a path towards using these resources effectively.
 
-> ## Prerequisites
+> ## Prerequisites {.prereq}
 >
 > This lesson guides you through the basics of filesystems and the
 > shell.  If you have stored files on a computer at all and recognize
