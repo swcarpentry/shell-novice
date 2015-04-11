@@ -76,11 +76,16 @@ as long as learners using Windows do not run into roadblocks such as:
     *   @gvwilson: 3 hours
 	
 *	How to use the materials in the shell-novice repository (or, lesson planning)
+	* For a great general list of tips, see [this swcarpentry blog post](http://software-carpentry.org/blog/2015/03/teaching-tips.html)
 	* Use the `filesystem` directory for in-workshop exercises and live coding examples.  
-	The easiest way to get can get these files is by cloning the entire shell-novice directory.  Alternatives include creating a zipped copy of the `filesystem` directory and making that available to learners.  
-	* Website: Can give links to learners so they can follow along and see exercises (particularly if you're following the lesson content without many changes).  Make sure to point to website as a post-workshop reference.  
+	The easiest way to get can get these files is by cloning the entire shell-novice directory OR clicking the "Download Zip" button on the repository's main page.  If you want learners to just have the `filesystem` directory (without other material), you'll have to do the separating out on your own. 
+	* Website: various practices have been used.  
+		* Option 1: Can give links to learners before the lesson so they can follow along, catch up, and see exercises (particularly if you're following the lesson content without many changes).  
+		* Option 2: Don't show the website to the learners during the lesson, as it can be distracting - students may read instead of listen, and having another window open is an additional cognitive load.  
+		* In any case, make sure to point to website as a post-workshop reference.  
 	* Content: Unless you have a truly generous amount of time (4+ hours), it is likely that you will not cover ALL the material in this lesson in a single half-day session.  Plan ahead on what you might skip, what you really want to emphasize, etc.  
-	* Exercises: Think in advance about how you might want to handle exercises during the lesson.  Do you want everyone to try it and then you show the solution?  Have a learner show the solution?  Have groups each do a different exercise and present their solutions.  
+	* Exercises: Think in advance about how you might want to handle exercises during the lesson.  How are you assigning them (website, slide, handout)?  Do you want everyone to try it and then you show the solution?  Have a learner show the solution?  Have groups each do a different exercise and present their solutions?  
+	* `reference.md` can be printed out and given to students as a reference, your choice.  
 	* Other preparation: Feel free to add your own examples or side comments, but know that it shouldn't be necessary - the topics and commands can be taught as given on the lesson pages!  If you think there is a place where the lesson is lacking, feel free to raise an [issue](https://github.com/swcarpentry/shell-novice/issues) or submit a [pull request](https://github.com/swcarpentry/shell-novice/pulls).  
 	
 *   Setup:
