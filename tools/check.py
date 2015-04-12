@@ -738,7 +738,9 @@ def validate_folder(path, template=None):
 
 def start_logging(level=logging.INFO):
     """Initialize logging and print messages to console."""
-    logging.basicConfig(stream=sys.stdout, level=level)
+    logging.basicConfig(stream=sys.stdout,
+                        level=level,
+                        format="%(levelname)s: %(message)s")
 
 
 def command_line():
