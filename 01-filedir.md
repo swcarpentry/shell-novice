@@ -150,7 +150,7 @@ Desktop/    notes.txt            writing/
 ~~~
 
 Here,
-we can see that `/users/nelle` contains seven **sub-directories**.
+we can see that `/users/nelle` contains six **sub-directories**.
 The names that don't have trailing slashes,
 like `notes.txt`, `pizza.cfg`, and `solar.pdf`,
 are plain old files.
