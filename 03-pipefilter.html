@@ -27,8 +27,11 @@
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Pipes and Filters</h2>
-<blockquote>
-<h2 id="learning-objectives">Learning Objectives</h2>
+<div id="learning-objectives" class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
 <ul>
 <li>Redirect a command's output to a file.</li>
 <li>Process a file instead of keyboard input using redirection.</li>
@@ -36,7 +39,8 @@
 <li>Explain what usually happens if a program or pipeline isn't given any input to process.</li>
 <li>Explain Unix's &quot;small pieces, loosely joined&quot; philosophy.</li>
 </ul>
-</blockquote>
+</div>
+</div>
 <p>Now that we know a few basic commands, we can finally look at the shell's most powerful feature: the ease with which it lets us combine existing programs in new ways. We'll start with a directory called <code>molecules</code> that contains six files describing some simple organic molecules. The <code>.pdb</code> extension indicates that these files are in Protein Data Bank format, a simple text format that specifies the type and position of each atom in the molecule.</p>
 <pre class="input"><code>$ ls molecules</code></pre>
 <pre class="output"><code>cubane.pdb    ethane.pdb    methane.pdb
@@ -186,6 +190,18 @@ $ wc -l *.txt</code></pre>
 <pre><code>wc -l &lt; mydata.dat</code></pre>
 <p>and:</p>
 <pre><code>wc -l mydata.dat</code></pre>
+</div>
+</div>
+<div id="what-does-mean-1" class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="what-does-mean-1" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>What does <code>&gt;&gt;</code> mean?</h2>
+</div>
+<div class="panel-body">
+<p>What is the difference between:</p>
+<pre><code>echo hello &gt; testfile01.txt</code></pre>
+<p>and:</p>
+<pre><code>echo hello &gt;&gt; testfile02.txt</code></pre>
+<p>Hint: Try executing each command twice in a row and then examining the output files.</p>
 </div>
 </div>
 <div id="piping-commands-together" class="challenge panel panel-success">

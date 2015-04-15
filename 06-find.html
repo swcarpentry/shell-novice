@@ -27,15 +27,19 @@
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Finding Things</h2>
-<blockquote>
-<h2 id="learning-objectives">Learning Objectives</h2>
+<div id="learning-objectives" class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
 <ul>
 <li>Use <code>grep</code> to select lines from text files that match simple patterns.</li>
 <li>Use <code>find</code> to find files whose names match simple patterns.</li>
 <li>Use the output of one command as the command-line parameters to another command.</li>
 <li>Explain what is meant by &quot;text&quot; and &quot;binary&quot; files, and why many common tools don't handle the latter well.</li>
 </ul>
-</blockquote>
+</div>
+</div>
 <p>You can guess someone's age by how they talk about search: young people use &quot;Google&quot; as a verb, while crusty old Unix programmers use &quot;grep&quot;. The word is a contraction of &quot;global/regular expression/print&quot;, a common sequence of operations in early Unix text editors. It is also the name of a very useful command-line program.</p>
 <p><code>grep</code> finds and prints lines in files that match a pattern. For our examples, we will use a file that contains three haikus taken from a 1998 competition in <em>Salon</em> magazine. For this set of examples we're going to be working in the writing subdirectory:</p>
 <pre class="input"><code>$ cd
@@ -79,15 +83,26 @@ Today it is not working</code></pre>
 9:Yesterday it worked
 10:Today it is not working</code></pre>
 <p>Here, we can see that lines 5, 9, and 10 contain the letters &quot;it&quot;.</p>
-<p>We can combine flags as we do with other Unix commands. For example, since <code>-i</code> makes matching case-insensitive and <code>-v</code> inverts the match, using them both only prints lines that <em>don't</em> match the pattern in any mix of upper and lower case:</p>
-<pre class="input"><code>$ grep -i -v the haiku.txt</code></pre>
-<pre class="output"><code>You bring fresh toner.
-
-With searching comes loss
-
-Yesterday it worked
-Today it is not working
-Software is like that.</code></pre>
+<p>We can combine options (i.e. flags) as we do with other Unix commands. For example, let's find the lines that contain the word &quot;the&quot;. We can combine the option <code>-w</code> to find the lines that contain the word &quot;the&quot; and <code>-n</code> to number the lines that match:</p>
+<pre class="input"><code>$ grep -n -w the haiku.txt</code></pre>
+<pre class="output"><code>2:Is not the true Tao, until
+6:and the presence of absence:</code></pre>
+<p>Now we want to use the option <code>-i</code> to make our search case-insensitive:</p>
+<pre class="input"><code>$ grep -n -w -i the haiku.txt</code></pre>
+<pre class="output"><code>1:The Tao that is seen
+2:Is not the true Tao, until
+6:and the presence of absence:</code></pre>
+<p>Now, we want to use the option <code>-v</code> to invert our search, i.e., we want to output the lines that do not contain the word &quot;the&quot;.</p>
+<pre class="input"><code>$ grep -n -w -v the haiku.txt </code></pre>
+<pre class="output"><code>1:The Tao that is seen
+3:You bring fresh toner.
+4:
+5:With searching comes loss
+7:&quot;My Thesis&quot; not found.
+8:
+9:Yesterday it worked
+10:Today it is not working
+11:Software is like that.</code></pre>
 <p><code>grep</code> has lots of other options. To find out what they are, we can type <code>man grep</code>. <code>man</code> is the Unix &quot;manual&quot; command: it prints a description of a command and its options, and (if you're lucky) provides a few examples of how to use it.</p>
 <p>To navigate through the <code>man</code> pages, you may use the up and down arrow keys to move line-by-line, or try the &quot;b&quot; and spacebar keys to skip up and down by full page. Quit the <code>man</code> pages by typing &quot;q&quot;.</p>
 <pre class="input"><code>$ man grep</code></pre>
@@ -210,10 +225,7 @@ Software is like that.</code></pre>
 <p>The third choice is to recognize that the shell and text processing have their limits, and to use a programming language such as Python instead. When the time comes to do this, don't be too hard on the shell: many modern programming languages, Python included, have borrowed a lot of ideas from it, and imitation is also the sincerest form of praise.</p>
 </div>
 </div>
-<blockquote>
-<h2 id="conclusion">Conclusion</h2>
 <p>The Unix shell is older than most of the people who use it. It has survived so long because it is one of the most productive programming environments ever created --- maybe even <em>the</em> most productive. Its syntax may be cryptic, but people who have mastered it can experiment with different commands interactively, then use what they have learned to automate their work. Graphical user interfaces may be better at the first, but the shell is still unbeaten at the second. And as Alfred North Whitehead wrote in 1911, &quot;Civilization advances by extending the number of important operations which we can perform without thinking about them.&quot;</p>
-</blockquote>
 <div id="using-grep" class="challenge panel panel-success">
 <div class="panel-heading">
 <h2 id="using-grep" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Using grep</h2>

@@ -27,8 +27,11 @@
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Files and Directories</h2>
-<blockquote>
-<h2 id="learning-objectives">Learning Objectives</h2>
+<div id="learning-objectives" class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
 <ul>
 <li>Explain the similarities and differences between a file and a directory.</li>
 <li>Translate an absolute path into a relative path and vice versa.</li>
@@ -37,7 +40,8 @@
 <li>Identify the actual command, flags, and filenames in a command-line call.</li>
 <li>Demonstrate the use of tab completion, and explain its advantages.</li>
 </ul>
-</blockquote>
+</div>
+</div>
 <p>The part of the operating system responsible for managing files and directories is called the <strong>file system</strong>. It organizes our data into files, which hold information, and directories (also called &quot;folders&quot;), which hold files or other directories.</p>
 <p>Several commands are frequently used to create, inspect, rename, and delete files and directories. To start exploring them, let's open a shell window:</p>
 <pre class="input"><code>$</code></pre>
@@ -92,7 +96,7 @@ Desktop    notes.txt           writing</code></pre>
 <pre class="output"><code>creatures/  molecules/           pizza.cfg
 data/       north-pacific-gyre/  solar.pdf
 Desktop/    notes.txt            writing/</code></pre>
-<p>Here, we can see that <code>/users/nelle</code> contains seven <strong>sub-directories</strong>. The names that don't have trailing slashes, like <code>notes.txt</code>, <code>pizza.cfg</code>, and <code>solar.pdf</code>, are plain old files. And note that there is a space between <code>ls</code> and <code>-F</code>: without it, the shell thinks we're trying to run a command called <code>ls-F</code>, which doesn't exist.</p>
+<p>Here, we can see that <code>/users/nelle</code> contains six <strong>sub-directories</strong>. The names that don't have trailing slashes, like <code>notes.txt</code>, <code>pizza.cfg</code>, and <code>solar.pdf</code>, are plain old files. And note that there is a space between <code>ls</code> and <code>-F</code>: without it, the shell thinks we're trying to run a command called <code>ls-F</code>, which doesn't exist.</p>
 <div id="whats-in-a-name" class="callout panel panel-info">
 <div class="panel-heading">
 <h2 id="whats-in-a-name" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>What's In A Name?</h2>
@@ -152,7 +156,8 @@ pdb/              planets.txt   sunspot.txt</code></pre>
 ../                 data/               pizza.cfg
 .bash_profile       molecules/          solar.pdf
 Desktop/            north-pacific-gyre/ writing/</code></pre>
-<p><code>-a</code> stands for &quot;show all&quot;; it forces <code>ls</code> to show us file and directory names that begin with <code>.</code>, such as <code>..</code> (which, if we're in <code>/users/nelle</code>, refers to the <code>/users</code> directory). As you can see, it also displays another special directory that's just called <code>.</code>, which means &quot;the current working directory&quot;. It may seem redundant to have a name for it, but we'll see some uses for it soon.<br />Finally, we also see a file called <code>.bash_profile</code>. This file usually contains settings to customize the shell (terminal). There may also be similar files called <code>.bashrc</code> or <code>.bash_login</code>. For this lesson material it does not contain any settings.</p>
+<p><code>-a</code> stands for &quot;show all&quot;; it forces <code>ls</code> to show us file and directory names that begin with <code>.</code>, such as <code>..</code> (which, if we're in <code>/users/nelle</code>, refers to the <code>/users</code> directory). As you can see, it also displays another special directory that's just called <code>.</code>, which means &quot;the current working directory&quot;. It may seem redundant to have a name for it, but we'll see some uses for it soon.<br />
+Finally, we also see a file called <code>.bash_profile</code>. This file usually contains settings to customize the shell (terminal). There may also be similar files called <code>.bashrc</code> or <code>.bash_login</code>. For this lesson material it does not contain any settings.</p>
 <div id="orthogonality" class="callout panel panel-info">
 <div class="panel-heading">
 <h2 id="orthogonality" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Orthogonality</h2>
