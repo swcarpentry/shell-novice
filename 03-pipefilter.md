@@ -254,6 +254,7 @@ we get three processes with data flowing from the files,
 through `wc` to `sort`,
 and from `sort` through `head` to the screen.
 
+![Redirects and Pipes](fig/redirects-and-pipes.png)
 <img src="img/redirects-and-pipes.svg" alt="Redirects and Pipes" />
 
 This simple idea is why Unix has been so successful.
