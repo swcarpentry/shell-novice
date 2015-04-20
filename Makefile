@@ -1,3 +1,6 @@
+PANDOC ?= pandoc
+PANDOC_FLAGS = --smart
+
 # R Markdown files.
 SRC_RMD = $(wildcard ??-*.Rmd)
 DST_RMD = $(patsubst %.Rmd,%.md,$(SRC_RMD))
@@ -43,18 +46,20 @@ preview : $(DST_ALL)
 
 # Pattern for slides (different parameters and template).
 motivation.html : motivation.md _layouts/slides.revealjs Makefile
-	pandoc -s -t revealjs --slide-level 2 \
-	--template=_layouts/slides \
-	-o $@ $<
+	${PANDOC} -s -t revealjs --slide-level 2 \
+	    ${PANDOC_FLAGS} \
+	    --template=_layouts/slides \
+	    -o $@ $<
 
 # Pattern to build a generic page.
 %.html : %.md _layouts/page.html $(FILTERS)
-	pandoc -s -t html \
-	--template=_layouts/page \
-	--filter=tools/filters/blockquote2div.py \
-	--filter=tools/filters/id4glossary.py \
-	$(INCLUDES) \
-	-o $@ $<
+	${PANDOC} -s -t html \
+	    ${PANDOC_FLAGS} \
+	    --template=_layouts/page \
+	    --filter=tools/filters/blockquote2div.py \
+	    --filter=tools/filters/id4glossary.py \
+	    $(INCLUDES) \
+	    -o $@ $<
 
 # Pattern to convert R Markdown to Markdown.
 %.md: %.Rmd $(R_CHUNK_OPTS)
@@ -66,6 +71,7 @@ commands : Makefile
 
 ## settings : Show variables and settings.
 settings :
+	@echo 'PANDOC:' $(PANDOC)
 	@echo 'SRC_RMD:' $(SRC_RMD)
 	@echo 'DST_RMD:' $(DST_RMD)
 	@echo 'SRC_MD:' $(SRC_MD)
