@@ -62,18 +62,18 @@ i.e.,
 the directory that the computer assumes we want to run commands in
 unless we explicitly specify something else.
 Here,
-the computer's response is `/users/nelle`,
+the computer's response is `/Users/nelle`,
 which is Nelle's **home directory**:
 
 ~~~ {.input}
 $ pwd
 ~~~
 ~~~ {.output}
-/users/nelle
+/Users/nelle
 ~~~
 
 > ## Alphabet Soup {.callout}
-> 
+>
 > If the command to find out who we are is `whoami`, the command to find
 > out where we are ought to be called `whereami`, so why is it `pwd`
 > instead? The usual answer is that in the early 1970s, when Unix was
@@ -90,7 +90,7 @@ let's have a look at how the file system as a whole is organized.
 At the top is the **root directory**
 that holds everything else.
 We refer to it using a slash character `/` on its own;
-this is the leading slash in `/users/nelle`.
+this is the leading slash in `/Users/nelle`.
 
 Inside that directory are several other directories:
 `bin` (which is where some built-in programs are stored),
@@ -101,17 +101,17 @@ and so on:
 
 ![The Filesystem](fig/filesystem.svg)
 
-We know that our current working directory `/users/nelle` is stored inside `/users`
-because `/users` is the first part of its name.
+We know that our current working directory `/Users/nelle` is stored inside `/Users`
+because `/Users` is the first part of its name.
 Similarly,
-we know that `/users` is stored inside the root directory `/`
+we know that `/Users` is stored inside the root directory `/`
 because its name begins with `/`.
 
-Underneath `/users`,
+Underneath `/Users`,
 we find one directory for each user with an account on this machine.
-The Mummy's files are stored in `/users/imhotep`,
-Wolfman's in `/users/larry`,
-and ours in `/users/nelle`,
+The Mummy's files are stored in `/Users/imhotep`,
+Wolfman's in `/Users/larry`,
+and ours in `/Users/nelle`,
 which is why `nelle` is the last part of the directory's name.
 
 ![Home Directories](fig/home-directories.svg)
@@ -150,7 +150,7 @@ Desktop/    notes.txt            writing/
 ~~~
 
 Here,
-we can see that `/users/nelle` contains six **sub-directories**.
+we can see that `/Users/nelle` contains six **sub-directories**.
 The names that don't have trailing slashes,
 like `notes.txt`, `pizza.cfg`, and `solar.pdf`,
 are plain old files.
@@ -160,7 +160,7 @@ the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
 
 > ## What's In A Name? {.callout}
-> 
+>
 > You may have noticed that all of Nelle's files' names are "something dot
 > something". This is just a convention: we can call a file `mythesis` or
 > almost anything else we want. However, most people use two-part names
@@ -234,14 +234,14 @@ no matter where we are when we run the command.
 
 What if we want to change our current working directory?
 Before we do this,
-`pwd` shows us that we're in `/users/nelle`,
+`pwd` shows us that we're in `/Users/nelle`,
 and `ls` without any arguments shows us that directory's contents:
 
 ~~~ {.input}
 $ pwd
 ~~~
 ~~~ {.output}
-/users/nelle
+/Users/nelle
 ~~~
 ~~~ {.input}
 $ ls
@@ -263,16 +263,16 @@ $ cd data
 ~~~
 
 `cd` doesn't print anything,
-but if we run `pwd` after it, we can see that we are now in `/users/nelle/data`.
+but if we run `pwd` after it, we can see that we are now in `/Users/nelle/data`.
 If we run `ls` without arguments now,
-it lists the contents of `/users/nelle/data`,
+it lists the contents of `/Users/nelle/data`,
 because that's where we now are:
 
 ~~~ {.input}
 $ pwd
 ~~~
 ~~~ {.output}
-/users/nelle/data
+/Users/nelle/data
 ~~~
 ~~~ {.input}
 $ ls -F
@@ -287,7 +287,7 @@ how do we go up?
 We could use an absolute path:
 
 ~~~ {.input}
-$ cd /users/nelle
+$ cd /Users/nelle
 ~~~
 
 but it's almost always simpler to use `cd ..` to go up one level:
@@ -296,7 +296,7 @@ but it's almost always simpler to use `cd ..` to go up one level:
 $ pwd
 ~~~
 ~~~ {.output}
-/users/nelle/data
+/Users/nelle/data
 ~~~
 ~~~ {.input}
 $ cd ..
@@ -307,13 +307,13 @@ $ cd ..
 or more succinctly,
 the **parent** of the current directory.
 Sure enough,
-if we run `pwd` after running `cd ..`, we're back in `/users/nelle`:
+if we run `pwd` after running `cd ..`, we're back in `/Users/nelle`:
 
 ~~~ {.input}
 $ pwd
 ~~~
 ~~~ {.output}
-/users/nelle
+/Users/nelle
 ~~~
 
 The special directory `..` doesn't usually show up when we run `ls`.
@@ -331,23 +331,23 @@ Desktop/            north-pacific-gyre/ writing/
 
 `-a` stands for "show all";
 it forces `ls` to show us file and directory names that begin with `.`,
-such as `..` (which, if we're in `/users/nelle`, refers to the `/users` directory).
+such as `..` (which, if we're in `/Users/nelle`, refers to the `/Users` directory).
 As you can see,
 it also displays another special directory that's just called `.`,
 which means "the current working directory".
 It may seem redundant to have a name for it,
-but we'll see some uses for it soon.  
+but we'll see some uses for it soon.
 Finally, we also see a file called `.bash_profile`. This file usually contains settings to customize the shell (terminal). There may also be similar files called `.bashrc` or `.bash_login`. For this lesson material it does not contain any settings.
 
 
 
 > ## Orthogonality {.callout}
-> 
+>
 > The special names `.` and `..` don't belong to `ls`;
 > they are interpreted the same way by every program.
 > For example,
-> if we are in `/users/nelle/data`,
-> the command `ls ..` will give us a listing of `/users/nelle`.
+> if we are in `/Users/nelle/data`,
+> the command `ls ..` will give us a listing of `/Users/nelle`.
 > When the meanings of the parts are the same no matter how they're combined,
 > programmers say they are **orthogonal**:
 > Orthogonal systems tend to be easier for people to learn
@@ -422,8 +422,8 @@ and we will see it in many other tools as we go on.
 
 > ## Relative path resolution {.challenge}
 >
-> If `pwd` displays `/users/thing`, what will `ls ../backup` display?
-> 
+> If `pwd` displays `/Users/thing`, what will `ls ../backup` display?
+>
 > 1.  `../backup: No such file or directory`
 > 2.  `2012-12-01 2013-01-08 2013-01-27`
 > 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
@@ -431,23 +431,23 @@ and we will see it in many other tools as we go on.
 
 > ## `ls` reading comprehension {.challenge}
 >
-> If `pwd` displays `/users/backup`,
+> If `pwd` displays `/Users/backup`,
 > and `-r` tells `ls` to display things in reverse order,
 > what command will display:
-> 
+>
 > ~~~
 > pnas-sub/ pnas-final/ original/
 > ~~~
-> 
+>
 > 1.  `ls pwd`
 > 2.  `ls -r -F`
-> 3.  `ls -r -F /users/backup`
+> 3.  `ls -r -F /Users/backup`
 > 4.  Either \#2 or \#3 above, but not \#1.
 
 > ## Default `cd` action {.challenge}
 >
 > What does the command `cd` without a directory name do?
-> 
+>
 > 1.  It has no effect.
 > 2.  It changes the working directory to `/`.
 > 3.  It changes the working directory to the user's home directory.
