@@ -72,8 +72,16 @@ $ pwd
 /users/nelle
 ~~~
 
+> ## Home directory {.callout}
+>
+> The home directory path will look different on different operating systems.
+> On Linux it would look like `/home/nelle`,
+> and on Windows it will be similar to `C:\Documents and Settings\nelle`.
+> Note that it may look slightly different for different versions of Windows.
+
+
 > ## Alphabet Soup {.callout}
-> 
+>
 > If the command to find out who we are is `whoami`, the command to find
 > out where we are ought to be called `whereami`, so why is it `pwd`
 > instead? The usual answer is that in the early 1970s, when Unix was
@@ -160,7 +168,7 @@ the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
 
 > ## What's In A Name? {.callout}
-> 
+>
 > You may have noticed that all of Nelle's files' names are "something dot
 > something". This is just a convention: we can call a file `mythesis` or
 > almost anything else we want. However, most people use two-part names
@@ -336,13 +344,13 @@ As you can see,
 it also displays another special directory that's just called `.`,
 which means "the current working directory".
 It may seem redundant to have a name for it,
-but we'll see some uses for it soon.  
+but we'll see some uses for it soon.
 Finally, we also see a file called `.bash_profile`. This file usually contains settings to customize the shell (terminal). There may also be similar files called `.bashrc` or `.bash_login`. For this lesson material it does not contain any settings.
 
 
 
 > ## Orthogonality {.callout}
-> 
+>
 > The special names `.` and `..` don't belong to `ls`;
 > they are interpreted the same way by every program.
 > For example,
@@ -423,7 +431,7 @@ and we will see it in many other tools as we go on.
 > ## Relative path resolution {.challenge}
 >
 > If `pwd` displays `/users/thing`, what will `ls ../backup` display?
-> 
+>
 > 1.  `../backup: No such file or directory`
 > 2.  `2012-12-01 2013-01-08 2013-01-27`
 > 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
@@ -434,11 +442,11 @@ and we will see it in many other tools as we go on.
 > If `pwd` displays `/users/backup`,
 > and `-r` tells `ls` to display things in reverse order,
 > what command will display:
-> 
+>
 > ~~~
 > pnas-sub/ pnas-final/ original/
 > ~~~
-> 
+>
 > 1.  `ls pwd`
 > 2.  `ls -r -F`
 > 3.  `ls -r -F /users/backup`
@@ -447,7 +455,7 @@ and we will see it in many other tools as we go on.
 > ## Default `cd` action {.challenge}
 >
 > What does the command `cd` without a directory name do?
-> 
+>
 > 1.  It has no effect.
 > 2.  It changes the working directory to `/`.
 > 3.  It changes the working directory to the user's home directory.
