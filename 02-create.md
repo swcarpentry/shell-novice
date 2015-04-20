@@ -61,26 +61,6 @@ However, there's nothing in it yet:
 $ ls -F thesis
 ~~~
 
-> ## Touching Files {.callout}
->
-> One of the simplest ways to create an empty file is via the `touch` command.
-> Change the working directory to `thesis` using `cd`,
-> then touch an empty file called `draft.txt`:
->
-> ~~~ {.input}
-> $ cd thesis
-> $ touch draft.txt
-> ~~~
->
-> If we check the directory contents now,
->
-> ~~~ {.input}
-> $ ls -F .
-> ~~~
-> ~~~ {.output}
-> draft.txt
-> ~~~
-
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
 
@@ -90,7 +70,7 @@ $ nano draft.txt
 ~~~
 
 > ## Which Editor? {.callout}
-> 
+>
 > When we say, "`nano` is a text editor," we really do mean "text": it can
 > only work with plain character data, not tables, images, or any other
 > human-friendly media. We use it in examples because almost anyone can
@@ -101,7 +81,7 @@ $ nano draft.txt
 > even by Unix standards), or a graphical editor such as
 > [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
 > use [Notepad++](http://notepad-plus-plus.org/).
-> 
+>
 > No matter what editor you use, you will need to know where it searches
 > for and saves files. If you start it from the shell, it will (probably)
 > use your current working directory as its default location. If you use
@@ -143,7 +123,7 @@ $ ls
 ~~~
 
 > ## Deleting Is Forever {.callout}
-> 
+>
 > The Unix shell doesn't have a trash bin that we can recover deleted
 > files from (though most graphical interfaces to Unix do).  Instead,
 > when we delete files, they are unhooked from the file system so that
@@ -210,15 +190,15 @@ $ rmdir thesis
 ~~~
 
 > ## With Great Power Comes Great Responsibility {.callout}
-> 
+>
 > Removing the files in a directory just so that we can remove the
 > directory quickly becomes tedious. Instead, we can use `rm` with the
 > `-r` flag (which stands for "recursive"):
-> 
+>
 > ~~~
 > $ rm -r thesis
 > ~~~
-> 
+>
 > This removes everything in the directory, then the directory itself. If
 > the directory contains sub-directories, `rm -r` does the same thing to
 > them, and so on. It's very handy, but can do a lot of damage if used
@@ -332,7 +312,7 @@ This time it tells us that it can't find `quotes.txt` in the current directory,
 but it does find the copy in `thesis` that we didn't delete.
 
 > ## Another Useful Abbreviation {.callout}
-> 
+>
 > The shell interprets the character `~` (tilde) at the start of a path to
 > mean "the current user's home directory". For example, if Nelle's home
 > directory is `/home/nelle`, then `~/data` is equivalent to
@@ -341,10 +321,10 @@ but it does find the copy in `thesis` that we didn't delete.
 
 > ## Renaming files {.challenge}
 >
-> Suppose that you created a `.txt` file in your current directory to contain a list of the 
+> Suppose that you created a `.txt` file in your current directory to contain a list of the
 > statistical tests you will need to do to analyze your data, and named it: `statstics.txt`
 >
-> After creating and saving this file you realize you misspelled the filename! You want to 
+> After creating and saving this file you realize you misspelled the filename! You want to
 > correct the mistake, which of the following commands could you use to do so?
 >
 > 1. `cp statstics.txt statistics.txt`
@@ -353,9 +333,9 @@ but it does find the copy in `thesis` that we didn't delete.
 > 4. `cp statstics.txt .`
 
 > ## Moving and Copying {.challenge}
-> 
+>
 > What is the output of the closing `ls` command in the sequence shown below?
-> 
+>
 > ~~~
 > $ pwd
 > /home/jamie/data
@@ -375,14 +355,14 @@ but it does find the copy in `thesis` that we didn't delete.
 > ## Listing Directories and Files {.challenge}
 >
 > Suppose that:
-> 
+>
 > ~~~
 > $ ls -F
 > analyzed/  fructose.dat    raw/   sucrose.dat
 > ~~~
-> 
+>
 > What command(s) could you run so that the commands below will produce the output shown?
-> 
+>
 > ~~~
 > $ ls
 > analyzed/   raw/
@@ -393,14 +373,14 @@ but it does find the copy in `thesis` that we didn't delete.
 > ## Copy with Multiple Filenames {.challenge}
 >
 > What does `cp` do when given several filenames and a directory name, as in:
-> 
+>
 > ~~~
 > $ mkdir backup
 > $ cp thesis/citations.txt thesis/quotations.txt backup
 > ~~~
-> 
+>
 > What does `cp` do when given three or more filenames, as in:
-> 
+>
 > ~~~
 > $ ls -F
 > intro.txt    methods.txt    survey.txt
