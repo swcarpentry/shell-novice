@@ -56,6 +56,22 @@ class. */
     padding-right: 10px;
 }
 
+/* Make the CSS compatible with Pandoc <= 1.13.2 and Pandoc > 1.14. */
+h1.panel,
+h2.panel,
+h3.panel,
+h4.panel,
+h5.panel,
+h6.panel {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border: 0px;
+    color: inherit;
+    background-color: inherit;
+    background-image: inherit;
+    box-shadow: none;
+}
+
 /* Comments in code. */
 .comment {
     color: purple;
@@ -114,6 +130,29 @@ blockquote {
 blockquote.testimonial cite {
     font-style: italic;
     font-size: inherit;
+}
+
+/* Images
+ *
+ * Rules from http://getbootstrap.com/css/#images-responsive.
+ *
+ * This is compatible with Pandoc behavior for HTML and HTML5. */
+article img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+article div.figure,
+article figure {
+    text-align: center;
+}
+
+article p.caption::before,
+article figcaption::before {
+    content: "Figure: ";
 }
 
 /* Main body of pages. */
@@ -443,6 +482,16 @@ table.workshops td.date {
     right: 15px;
     bottom: 35px;
     opacity: 0.5;
+}
+
+#modal-badge-img {
+  position:absolute;
+  right: 25px;
+  bottom: 25px;
+  opacity: 0.5;
+}
+#assertion-modal.in {
+  color: black;
 }
 
 /* list with checkbox as bullet */
