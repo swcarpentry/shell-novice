@@ -116,6 +116,29 @@ blockquote.testimonial cite {
     font-size: inherit;
 }
 
+/* Images
+ *
+ * Rules from http://getbootstrap.com/css/#images-responsive.
+ *
+ * This is compatible with Pandoc behavior for HTML and HTML5. */
+article img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+article div.figure,
+article figure {
+    text-align: center;
+}
+
+article p.caption::before,
+article figcaption::before {
+    content: "Figure: ";
+}
+
 /* Main body of pages. */
 body {
     font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
