@@ -445,6 +445,16 @@ table.workshops td.date {
     opacity: 0.5;
 }
 
+#modal-badge-img {
+  position:absolute;
+  right: 25px;
+  bottom: 25px;
+  opacity: 0.5;
+}
+#assertion-modal.in {
+  color: black;
+}
+
 /* list with checkbox as bullet */
 ul.checklist {
   list-style-image: url('../img/checkbox.png');
