@@ -56,6 +56,22 @@ class. */
     padding-right: 10px;
 }
 
+/* Make the CSS compatible with Pandoc <= 1.13.2 and Pandoc > 1.14. */
+h1.panel,
+h2.panel,
+h3.panel,
+h4.panel,
+h5.panel,
+h6.panel {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border: 0px;
+    color: inherit;
+    background-color: inherit;
+    background-image: inherit;
+    box-shadow: none;
+}
+
 /* Comments in code. */
 .comment {
     color: purple;
