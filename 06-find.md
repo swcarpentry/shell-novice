@@ -383,6 +383,20 @@ $ grep FE $(find .. -name '*.pdb')
 ../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518
 ~~~
 
+Note that `$()` can be used in conjunction with other commands, or in
+loops. For example, the loop below finds both "FE" or "CA" (Calcium)
+in all the `.pdb` files located in the current directory and separates
+the occurrences in each file by a line of dashes.
+
+~~~ {.input}
+$ for filename in $(find . -name '*.pdb')
+> do
+>  grep FE $filename
+>  grep CA $filename
+>  echo "---------------------------"
+> done
+~~~
+
 > ## Binary Files {.callout}
 >
 > We have focused exclusively on finding things in text files. What if
