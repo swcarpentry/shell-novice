@@ -565,24 +565,14 @@ class ReferencePageValidator(MarkdownValidator):
 
         entry_is_valid = True
         for line_index, line in enumerate(glossary_entry):
-            if line_index == 1:
-                if not re.match("^:   ", line):
-                    logging.error(
-                        "In {0}: "
-                        "At glossary entry '{1}' "
-                        "First line of definition must "
-                        "start with ':    '.".format(
-                            self.filename, glossary_keyword))
-                    entry_is_valid = False
-            elif line_index > 1:
-                if not re.match("^    ", line):
-                    logging.error(
-                        "In {0}: "
-                        "At glossary entry '{1}' "
-                        "Subsequent lines of definition must "
-                        "start with '     '.".format(
-                            self.filename,  glossary_keyword, ))
-                    entry_is_valid = False
+            if line_index == 1 and not re.match("^:   ", line):
+                logging.error(
+                    "In {0}: "
+                    "At glossary entry '{1}' "
+                    "First line of definition must "
+                    "start with ':    '.".format(
+                        self.filename, glossary_keyword))
+                entry_is_valid = False
         return entry_is_valid
 
     def _validate_glossary(self):
