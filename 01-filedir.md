@@ -72,6 +72,14 @@ $ pwd
 /Users/nelle
 ~~~
 
+> ## Home directory {.callout}
+>
+> The home directory path will look different on different operating systems.
+> On Linux it will look like `/home/nelle`,
+> and on Windows it will be similar to `C:\Documents and Settings\nelle`.
+> Note that it may look slightly different for different versions of Windows.
+
+
 > ## Alphabet Soup {.callout}
 >
 > If the command to find out who we are is `whoami`, the command to find
