@@ -61,26 +61,6 @@ However, there's nothing in it yet:
 $ ls -F thesis
 ~~~
 
-> ## Touching Files {.callout}
->
-> One of the simplest ways to create an empty file is via the `touch` command.
-> Change the working directory to `thesis` using `cd`,
-> then touch an empty file called `draft.txt`:
->
-> ~~~ {.input}
-> $ cd thesis
-> $ touch draft.txt
-> ~~~
->
-> If we check the directory contents now,
->
-> ~~~ {.input}
-> $ ls -F .
-> ~~~
-> ~~~ {.output}
-> draft.txt
-> ~~~
-
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
 
