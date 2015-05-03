@@ -23,19 +23,20 @@
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
+      <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">The Unix Shell</h1>
-          <h2 class="subtitle">Instructor's Guide</h2>
+          <h2 class="subtitle">Instructor’s Guide</h2>
 <h2 id="legend">Legend</h2>
-<p>Many people have questioned whether we should still teach the shell. After all, anyone who wants to rename several thousand data files can easily do so interactively in the Python interpreter, and anyone who's doing serious data analysis is probably going to do most of their work inside the IPython Notebook or R Studio. So why teach the shell?</p>
-<p>The first answer is, &quot;Because so much else depends on it.&quot; Installing software, configuring your default editor, and controlling remote machines frequently assume a basic familiarity with the shell, and with related ideas like standard input and output. Many tools also use its terminology (for example, the <code>%ls</code> and <code>%cd</code> magic commands in IPython).</p>
-<p>The second answer is, &quot;Because it's an easy way to introduce some fundamental ideas about how to use computers.&quot; As we teach people how to use the Unix shell, we teach them that they should get the computer to repeat things (via tab completion, <code>!</code> followed by a command number, and <code>for</code> loops) rather than repeating things themselves. We also teach them to take things they've discovered they do frequently and save them for later re-use (via shell scripts), to give things sensible names, and to write a little bit of documentation (like comment at the top of shell scripts) to make their future selves' lives better.</p>
-<p>The third answer is, &quot;Because it enables use of many domain-specific tools and compute resources researchers cannot access otherwise.&quot; Familiarity with the shell is very useful for remote accessing machines, using high-performance computing infrastructure, and runnning new specialist tools in many disciplines. We do not teach HPC or domain-specific skills here but lay the groundwork for further development of these skills. In particular, understand syntax of commands, flags, and help systems is useful for domain specific tools and understanding the file system (and how to navigate it) is useful for remote access.</p>
-<p>Finally, and perhaps most importantly, teaching people the shell lets us teach them to think about programming in terms of function composition. In the case of the shell, this takes the form of pipelines rather than nested function calls, but the core idea of &quot;small pieces, loosely joined&quot; is the same.</p>
+<p>Many people have questioned whether we should still teach the shell. After all, anyone who wants to rename several thousand data files can easily do so interactively in the Python interpreter, and anyone who’s doing serious data analysis is probably going to do most of their work inside the IPython Notebook or R Studio. So why teach the shell?</p>
+<p>The first answer is, “Because so much else depends on it.” Installing software, configuring your default editor, and controlling remote machines frequently assume a basic familiarity with the shell, and with related ideas like standard input and output. Many tools also use its terminology (for example, the <code>%ls</code> and <code>%cd</code> magic commands in IPython).</p>
+<p>The second answer is, “Because it’s an easy way to introduce some fundamental ideas about how to use computers.” As we teach people how to use the Unix shell, we teach them that they should get the computer to repeat things (via tab completion, <code>!</code> followed by a command number, and <code>for</code> loops) rather than repeating things themselves. We also teach them to take things they’ve discovered they do frequently and save them for later re-use (via shell scripts), to give things sensible names, and to write a little bit of documentation (like comment at the top of shell scripts) to make their future selves’ lives better.</p>
+<p>The third answer is, “Because it enables use of many domain-specific tools and compute resources researchers cannot access otherwise.” Familiarity with the shell is very useful for remote accessing machines, using high-performance computing infrastructure, and running new specialist tools in many disciplines. We do not teach HPC or domain-specific skills here but lay the groundwork for further development of these skills. In particular, understand syntax of commands, flags, and help systems is useful for domain specific tools and understanding the file system (and how to navigate it) is useful for remote access.</p>
+<p>Finally, and perhaps most importantly, teaching people the shell lets us teach them to think about programming in terms of function composition. In the case of the shell, this takes the form of pipelines rather than nested function calls, but the core idea of “small pieces, loosely joined” is the same.</p>
 <p>All of this material can be covered in three hours as long as learners using Windows do not run into roadblocks such as:</p>
 <ul>
-<li>not being able to figure out where their home directory is (particularly if they're using Cygwin);</li>
+<li>not being able to figure out where their home directory is (particularly if they’re using Cygwin);</li>
 <li>not being able to run a plain text editor; and</li>
 <li>the shell refusing to run scripts that include DOS line endings.</li>
 </ul>
@@ -51,19 +52,33 @@
 <ul>
 <li><span class="citation">@gvwilson</span>: 3 hours</li>
 </ul></li>
+<li>How to use the materials in the shell-novice repository (or, lesson planning)
+<ul>
+<li>For a great general list of tips, see <a href="http://software-carpentry.org/blog/2015/03/teaching-tips.html">this swcarpentry blog post</a></li>
+<li>Use the <code>filesystem</code> directory for in-workshop exercises and live coding examples. The easiest way to get can get these files is by cloning the entire shell-novice directory OR clicking the “Download Zip” button on the repository’s main page. If you want learners to just have the <code>filesystem</code> directory (without other material), you’ll have to do the separating out on your own.</li>
+<li>Website: various practices have been used.
+<ul>
+<li>Option 1: Can give links to learners before the lesson so they can follow along, catch up, and see exercises (particularly if you’re following the lesson content without many changes).</li>
+<li>Option 2: Don’t show the website to the learners during the lesson, as it can be distracting - students may read instead of listen, and having another window open is an additional cognitive load.</li>
+<li>In any case, make sure to point to website as a post-workshop reference.</li>
+</ul></li>
+<li>Content: Unless you have a truly generous amount of time (4+ hours), it is likely that you will not cover ALL the material in this lesson in a single half-day session. Plan ahead on what you might skip, what you really want to emphasize, etc.</li>
+<li>Exercises: Think in advance about how you might want to handle exercises during the lesson. How are you assigning them (website, slide, handout)? Do you want everyone to try it and then you show the solution? Have a learner show the solution? Have groups each do a different exercise and present their solutions?</li>
+<li><code>reference.md</code> can be printed out and given to students as a reference, your choice.</li>
+<li>Other preparation: Feel free to add your own examples or side comments, but know that it shouldn’t be necessary - the topics and commands can be taught as given on the lesson pages! If you think there is a place where the lesson is lacking, feel free to raise an <a href="https://github.com/swcarpentry/shell-novice/issues">issue</a> or submit a <a href="https://github.com/swcarpentry/shell-novice/pulls">pull request</a>.</li>
+</ul></li>
 <li>Setup:
 <ul>
 <li>Run <code>tools/gen-nene.py</code> to regenerate random data files if needed (some are already in the <code>filesystem</code> directory).</li>
 <li>Run <code>tools/gen-sequence.py</code> to regenerate random sequence data if needed.</li>
 </ul></li>
-<li><p>The <code>filesystem</code> directory contains all the files used in examples.</p></li>
 <li><p>Have learners open a shell and then do <code>whoami</code>, <code>pwd</code>, and <code>ls</code>. Then have them create a directory called <code>workshop</code> and <code>cd</code> into it, so that everything else they do during the lesson is unlikely to harm whatever files they already have.</p></li>
 <li><p>Get them to run an editor and save a file in their <code>workshop</code> directory as early as possible. Doing this is usually the biggest stumbling block during the entire lesson: many will try to run the same editor as the instructor (which may leave them trapped in the awful nether hell that is Vim), or will not know how to navigate to the right directory to save their file, or will run a word processor rather than a plain text editor. The quickest way past these problems is to have more knowledgeable learners help those who need it.</p></li>
-<li><p>Tab completion sounds like a small thing: it isn't. Re-running old commands using <code>!123</code> or <code>!wc</code> isn't a small thing either, and neither are wildcard expansion and <code>for</code> loops. Each one is an opportunity to repeat one of the big ideas of Software Carpentry: if the computer <em>can</em> repeat it, some programmer somewhere will almost certainly have built some way for the computer <em>to</em> repeat it.</p></li>
-<li><p>Building up a pipeline with four or five stages, then putting it in a shell script for re-use and calling that script inside a <code>for</code> loop, is a great opportunity to show how &quot;seven plus or minus two&quot; connects to programming. Once we have figured out how to do something moderately complicated, we make it re-usable and give it a name so that it only takes up one slot in working memory rather than several. It is also a good opportunity to talk about exploratory programming: rather than designing a program up front, we can do a few useful things and then retroactively decide which are worth encapsulating for future re-use.</p></li>
-<li><p>If everything is going well, you can drive home the point that file extensions are essetially there to help computers (and human readers) understand file content and are not a requirement of files (covered briefly in <a href="01-filedir.html">Files and Directories</a>). This can be done in the <a href="03-pipefilter.html">Pipes and Filters</a> section by showing that you can redirect standard output to a file without the .txt extension (e.g., lengths), and that the resulting file is still a perfectly usable text file. Make the point that if double-clicked in the GUI, the computer will probably ask you what you want to do.</p></li>
+<li><p>Tab completion sounds like a small thing: it isn’t. Re-running old commands using <code>!123</code> or <code>!wc</code> isn’t a small thing either, and neither are wildcard expansion and <code>for</code> loops. Each one is an opportunity to repeat one of the big ideas of Software Carpentry: if the computer <em>can</em> repeat it, some programmer somewhere will almost certainly have built some way for the computer <em>to</em> repeat it.</p></li>
+<li><p>Building up a pipeline with four or five stages, then putting it in a shell script for re-use and calling that script inside a <code>for</code> loop, is a great opportunity to show how “seven plus or minus two” connects to programming. Once we have figured out how to do something moderately complicated, we make it re-usable and give it a name so that it only takes up one slot in working memory rather than several. It is also a good opportunity to talk about exploratory programming: rather than designing a program up front, we can do a few useful things and then retroactively decide which are worth encapsulating for future re-use.</p></li>
+<li><p>If everything is going well, you can drive home the point that file extensions are essentially there to help computers (and human readers) understand file content and are not a requirement of files (covered briefly in <a href="01-filedir.html">Files and Directories</a>). This can be done in the <a href="03-pipefilter.html">Pipes and Filters</a> section by showing that you can redirect standard output to a file without the .txt extension (e.g., lengths), and that the resulting file is still a perfectly usable text file. Make the point that if double-clicked in the GUI, the computer will probably ask you what you want to do.</p></li>
 <li><p>We have to leave out many important things because of time constraints, including file permissions, job control, and SSH. If learners already understand the basic material, this can be covered instead using the online lessons as guidelines. These limitations also have follow-on consequences:</p></li>
-<li><p>It's hard to discuss <code>#!</code> (shebang) without first discussing permissions, which we don't do.</p></li>
+<li><p>It’s hard to discuss <code>#!</code> (shebang) without first discussing permissions, which we don’t do.</p></li>
 <li><p>Installing Bash and a reasonable set of Unix commands on Windows always involves some fiddling and frustration. Please see the latest set of installation guidelines for advice, and try it out yourself <em>before</em> teaching a class.</p></li>
 <li><p>On Windows, it appears that:</p>
 <pre class="input"><code>$ cd
@@ -74,21 +89,22 @@ $ cd Desktop</code></pre>
 <h2 id="windows">Windows</h2>
 <p>Installing Bash and a reasonable set of Unix commands on Windows always involves some fiddling and frustration. Please see the latest set of installation guidelines for advice, and try it out yourself <em>before</em> teaching a class. Options we have explored include:</p>
 <ol style="list-style-type: decimal">
-<li><a href="http://msysgit.github.io/">msysGit</a> (also called &quot;Git Bash&quot;),</li>
+<li><a href="http://msysgit.github.io/">msysGit</a> (also called “Git Bash”),</li>
 <li><a href="http://www.cygwin.com/">Cygwin</a>,</li>
 <li>using a desktop virtual machine, and</li>
 <li>having learners connect to a remote Unix machine (typically a VM in the cloud).</li>
 </ol>
 <p>Cygwin was the preferred option until mid-2013, but once we started teaching Git, msysGit proved to work better. Desktop virtual machines and cloud-based VMs work well for technically sophisticated learners, and can reduce installation and configuration at the start of the workshop, but:</p>
 <ol style="list-style-type: decimal">
-<li>they don't work well on underpowered machines,</li>
-<li>they're confusing for novices (because simple things like copy and paste work differently),</li>
+<li>they don’t work well on underpowered machines,</li>
+<li>they’re confusing for novices (because simple things like copy and paste work differently),</li>
 <li>learners leave the workshop without a working environment on their operating system of choice, and</li>
 <li>learners may show up without having downloaded the VM or the wireless will go down (or become congested) during the lesson.</li>
 </ol>
 <p>Whatever you use, please <em>test it yourself</em> on a Windows machine <em>before</em> your workshop: things may always have changed behind your back since your last workshop. And please also make use of our Windows setup helper.</p>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/shell-novice">Source</a>

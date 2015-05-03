@@ -23,33 +23,34 @@
           <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
         </a>
       </div>
+      <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Loops</h2>
 <div id="learning-objectives" class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2 id="learning-objectives" class="objectives panel panel-warning"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
 <li>Write a loop that applies one or more commands separately to each file in a set of files.</li>
 <li>Trace the values taken on by a loop variable during execution of the loop.</li>
-<li>Explain the difference between a variable's name and its value.</li>
-<li>Explain why spaces and some punctuation characters shouldn't be used in files' names.</li>
+<li>Explain the difference between a variable’s name and its value.</li>
+<li>Explain why spaces and some punctuation characters shouldn’t be used in files’ names.</li>
 <li>Demonstrate how to see what commands have recently been executed.</li>
 <li>Re-run recently executed commands without retyping them.</li>
 </ul>
 </div>
 </div>
-<p>Wildcards and tab completion are two ways to reduce typing (and typing mistakes). Another is to tell the shell to do something over and over again. Suppose we have several hundred genome data files named <code>basilisk.dat</code>, <code>unicorn.dat</code>, and so on. In this example, we'll use the <code>creatures</code> directory which only has two example files, but the principles can be applied to many many more files at once. We would like to modify these files, but also save a version of the original files and rename them as <code>original-basilisk.dat</code> and <code>original-unicorn.dat</code>. We can't use:</p>
+<p>Wildcards and tab completion are two ways to reduce typing (and typing mistakes). Another is to tell the shell to do something over and over again. Suppose we have several hundred genome data files named <code>basilisk.dat</code>, <code>unicorn.dat</code>, and so on. In this example, we’ll use the <code>creatures</code> directory which only has two example files, but the principles can be applied to many many more files at once. We would like to modify these files, but also save a version of the original files and rename them as <code>original-basilisk.dat</code> and <code>original-unicorn.dat</code>. We can’t use:</p>
 <pre class="input"><code>$ mv *.dat original-*.dat</code></pre>
 <p>because that would expand to:</p>
 <pre class="input"><code>$ mv basilisk.dat unicorn.dat original-*.dat</code></pre>
-<p>This wouldn't back up our files, instead we get an error</p>
+<p>This wouldn’t back up our files, instead we get an error</p>
 <pre class="error"><code>mv: target `original-*.dat&#39; is not a directory</code></pre>
-<p>This a problem arises when <code>mv</code> receives more than two inputs. When this happens, it expects the last input to be a directory where it can move all the files it was passed to. Since there is no directory named <code>original-*.dat</code> in the <code>creatures</code> directory we get an error.</p>
-<p>Instead, we can use a <strong>loop</strong> to do some operation once for each thing in a list. Here's a simple example that displays the first three lines of each file in turn:</p>
+<p>This a problem arises when <code>mv</code> receives more than two inputs. When this happens, it expects the last input to be a directory where it can move all the files it was passed. Since there is no directory named <code>original-*.dat</code> in the <code>creatures</code> directory we get an error.</p>
+<p>Instead, we can use a <strong>loop</strong> to do some operation once for each thing in a list. Here’s a simple example that displays the first three lines of each file in turn:</p>
 <pre class="input"><code>$ for filename in basilisk.dat unicorn.dat
 &gt; do
 &gt;    head -3 $filename
@@ -60,18 +61,18 @@ UPDATED: 1745-05-02
 COMMON NAME: unicorn
 CLASSIFICATION: equus monoceros
 UPDATED: 1738-11-24</code></pre>
-<p>When the shell sees the keyword <code>for</code>, it knows it is supposed to repeat a command (or group of commands) once for each thing in a list. In this case, the list is the two filenames. Each time through the loop, the name of the thing currently being operated on is assigned to the <strong>variable</strong> called <code>filename</code>. Inside the loop, we get the variable's value by putting <code>$</code> in front of it: <code>$filename</code> is <code>basilisk.dat</code> the first time through the loop, <code>unicorn.dat</code> the second, and so on.</p>
-<p>By using the dollar sign we are telling the shell interpreter to treat <code>filename</code> as a variable name and substitute its value on its place, but not as some text or external command. When using variables it is also possible to put the names into curly braces to clearly delimit the variable name: <code>$filename</code> is equivalent to <code>${filename}</code>, but is different from <code>${file}name</code>. You may find this notation in other people's programs.</p>
-<p>Finally, the command that's actually being run is our old friend <code>head</code>, so this loop prints out the first three lines of each data file in turn.</p>
+<p>When the shell sees the keyword <code>for</code>, it knows it is supposed to repeat a command (or group of commands) once for each thing in a list. In this case, the list is the two filenames. Each time through the loop, the name of the thing currently being operated on is assigned to the <strong>variable</strong> called <code>filename</code>. Inside the loop, we get the variable’s value by putting <code>$</code> in front of it: <code>$filename</code> is <code>basilisk.dat</code> the first time through the loop, <code>unicorn.dat</code> the second, and so on.</p>
+<p>By using the dollar sign we are telling the shell interpreter to treat <code>filename</code> as a variable name and substitute its value on its place, but not as some text or external command. When using variables it is also possible to put the names into curly braces to clearly delimit the variable name: <code>$filename</code> is equivalent to <code>${filename}</code>, but is different from <code>${file}name</code>. You may find this notation in other people’s programs.</p>
+<p>Finally, the command that’s actually being run is our old friend <code>head</code>, so this loop prints out the first three lines of each data file in turn.</p>
 <div id="follow-the-prompt" class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="follow-the-prompt" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Follow the Prompt</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Follow the Prompt</h2>
 </div>
 <div class="panel-body">
-<p>The shell prompt changes from <code>$</code> to <code>&gt;</code> and back again as we were typing in our loop. The second prompt, <code>&gt;</code>, is different to remind us that we haven't finished typing a complete command yet.</p>
+<p>The shell prompt changes from <code>$</code> to <code>&gt;</code> and back again as we were typing in our loop. The second prompt, <code>&gt;</code>, is different to remind us that we haven’t finished typing a complete command yet.</p>
 </div>
 </div>
-<p>We have called the variable in this loop <code>filename</code> in order to make its purpose clearer to human readers. The shell itself doesn't care what the variable is called; if we wrote this loop as:</p>
+<p>We have called the variable in this loop <code>filename</code> in order to make its purpose clearer to human readers. The shell itself doesn’t care what the variable is called; if we wrote this loop as:</p>
 <pre class="input"><code>for x in basilisk.dat unicorn.dat
 do
     head -3 $x
@@ -81,8 +82,8 @@ done</code></pre>
 do
     head -3 $temperature
 done</code></pre>
-<p>it would work exactly the same way. <em>Don't do this.</em> Programs are only useful if people can understand them, so meaningless names (like <code>x</code>) or misleading names (like <code>temperature</code>) increase the odds that the program won't do what its readers think it does.</p>
-<p>Here's a slightly more complicated loop:</p>
+<p>it would work exactly the same way. <em>Don’t do this.</em> Programs are only useful if people can understand them, so meaningless names (like <code>x</code>) or misleading names (like <code>temperature</code>) increase the odds that the program won’t do what its readers think it does.</p>
+<p>Here’s a slightly more complicated loop:</p>
 <pre class="input"><code>for filename in *.dat
 do
     echo $filename
@@ -92,7 +93,7 @@ done</code></pre>
 <pre class="input"><code>$ echo hello there</code></pre>
 <p>prints:</p>
 <pre class="output"><code>hello there</code></pre>
-<p>In this case, since the shell expands <code>$filename</code> to be the name of a file, <code>echo $filename</code> just prints the name of the file. Note that we can't write this as:</p>
+<p>In this case, since the shell expands <code>$filename</code> to be the name of a file, <code>echo $filename</code> just prints the name of the file. Note that we can’t write this as:</p>
 <pre class="input"><code>for filename in *.dat
 do
     $filename
@@ -101,7 +102,7 @@ done</code></pre>
 <p>because then the first time through the loop, when <code>$filename</code> expanded to <code>basilisk.dat</code>, the shell would try to run <code>basilisk.dat</code> as a program. Finally, the <code>head</code> and <code>tail</code> combination selects lines 81-100 from whatever file is being processed.</p>
 <div id="spaces-in-names" class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="spaces-in-names" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Spaces in Names</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Spaces in Names</h2>
 </div>
 <div class="panel-body">
 <p>Filename expansion in loops is another reason you should not use spaces in filenames. Suppose our data files are named:</p>
@@ -120,13 +121,13 @@ done</code></pre>
 red
 dragon.dat
 unicorn.dat</code></pre>
-<p>That's a problem: <code>head</code> can't read files called <code>red</code> and <code>dragon.dat</code> because they don't exist, and won't be asked to read the file <code>red dragon.dat</code>.</p>
+<p>That’s a problem: <code>head</code> can’t read files called <code>red</code> and <code>dragon.dat</code> because they don’t exist, and won’t be asked to read the file <code>red dragon.dat</code>.</p>
 <p>We can make our script a little bit more robust by <strong>quoting</strong> our use of the variable:</p>
 <pre><code>for filename in *.dat
 do
     head -100 &quot;$filename&quot; | tail -20
 done</code></pre>
-<p>but it's simpler just to avoid using spaces (or other special characters) in filenames.</p>
+<p>but it’s simpler just to avoid using spaces (or other special characters) in filenames.</p>
 </div>
 </div>
 <p>Going back to our original file renaming problem, we can solve it using this loop:</p>
@@ -140,10 +141,10 @@ done</code></pre>
 <pre class="input"><code>mv unicorn.dat original-unicorn.dat</code></pre>
 <div id="measure-twice-run-once" class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="measure-twice-run-once" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Measure Twice, Run Once</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Measure Twice, Run Once</h2>
 </div>
 <div class="panel-body">
-<p>A loop is a way to do many things at once --- or to make many mistakes at once if it does the wrong thing. One way to check what a loop <em>would</em> do is to echo the commands it would run instead of actually running them. For example, we could write our file renaming loop like this:</p>
+<p>A loop is a way to do many things at once — or to make many mistakes at once if it does the wrong thing. One way to check what a loop <em>would</em> do is to echo the commands it would run instead of actually running them. For example, we could write our file renaming loop like this:</p>
 <pre><code>for filename in *.dat
 do
     echo mv $filename original-$filename
@@ -151,11 +152,11 @@ done</code></pre>
 <p>Instead of running <code>mv</code>, this loop runs <code>echo</code>, which prints out:</p>
 <pre><code>mv basilisk.dat original-basilisk.dat
 mv unicorn.dat original-unicorn.dat</code></pre>
-<p><em>without</em> actually running those commands. We can then use up-arrow to redisplay the loop, back-arrow to get to the word <code>echo</code>, delete it, and then press &quot;enter&quot; to run the loop with the actual <code>mv</code> commands. This isn't foolproof, but it's a handy way to see what's going to happen when you're still learning how loops work.</p>
+<p><em>without</em> actually running those commands. We can then use up-arrow to redisplay the loop, back-arrow to get to the word <code>echo</code>, delete it, and then press “enter” to run the loop with the actual <code>mv</code> commands. This isn’t foolproof, but it’s a handy way to see what’s going to happen when you’re still learning how loops work.</p>
 </div>
 </div>
-<h2 id="nelles-pipeline-processing-files">Nelle's Pipeline: Processing Files</h2>
-<p>Nelle is now ready to process her data files. Since she's still learning how to use the shell, she decides to build up the required commands in stages. Her first step is to make sure that she can select the right files --- remember, these are ones whose names end in 'A' or 'B', rather than 'Z'. Starting from her home directory, Nelle types:</p>
+<h2 id="nelles-pipeline-processing-files">Nelle’s Pipeline: Processing Files</h2>
+<p>Nelle is now ready to process her data files. Since she’s still learning how to use the shell, she decides to build up the required commands in stages. Her first step is to make sure that she can select the right files — remember, these are ones whose names end in ‘A’ or ‘B’, rather than ‘Z’. Starting from her home directory, Nelle types:</p>
 <pre class="input"><code>$ cd north-pacific-gyre/2012-07-03
 $ for datafile in *[AB].txt
 &gt; do
@@ -167,7 +168,7 @@ NENE01736A.txt
 ...
 NENE02043A.txt
 NENE02043B.txt</code></pre>
-<p>Her next step is to decide what to call the files that the <code>goostats</code> analysis program will create. Prefixing each input file's name with &quot;stats&quot; seems simple, so she modifies her loop to do that:</p>
+<p>Her next step is to decide what to call the files that the <code>goostats</code> analysis program will create. Prefixing each input file’s name with “stats” seems simple, so she modifies her loop to do that:</p>
 <pre class="input"><code>$ for datafile in *[AB].txt
 &gt; do
 &gt;     echo $datafile stats-$datafile
@@ -178,16 +179,16 @@ NENE01736A.txt stats-NENE01736A.txt
 ...
 NENE02043A.txt stats-NENE02043A.txt
 NENE02043B.txt stats-NENE02043B.txt</code></pre>
-<p>She hasn't actually run <code>goostats</code> yet, but now she's sure she can select the right files and generate the right output filenames.</p>
+<p>She hasn’t actually run <code>goostats</code> yet, but now she’s sure she can select the right files and generate the right output filenames.</p>
 <p>Typing in commands over and over again is becoming tedious, though, and Nelle is worried about making mistakes, so instead of re-entering her loop, she presses the up arrow. In response, the shell redisplays the whole loop on one line (using semi-colons to separate the pieces):</p>
 <pre class="input"><code>$ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done</code></pre>
 <p>Using the left arrow key, Nelle backs up and changes the command <code>echo</code> to <code>goostats</code>:</p>
 <pre class="input"><code>$ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done</code></pre>
-<p>When she presses enter, the shell runs the modified command. However, nothing appears to happen --- there is no output. After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer, she has no idea whether it is running, much less how quickly. She kills the job by typing Control-C, uses up-arrow to repeat the command, and edits it to read:</p>
+<p>When she presses enter, the shell runs the modified command. However, nothing appears to happen — there is no output. After a moment, Nelle realizes that since her script doesn’t print anything to the screen any longer, she has no idea whether it is running, much less how quickly. She kills the job by typing Control-C, uses up-arrow to repeat the command, and edits it to read:</p>
 <pre class="input"><code>$ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done</code></pre>
 <div id="beginning-and-end" class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="beginning-and-end" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Beginning and End</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Beginning and End</h2>
 </div>
 <div class="panel-body">
 <p>We can move to the beginning of a line in the shell by typing <code>^A</code> (which means Control-A) and to the end using <code>^E</code>.</p>
@@ -201,10 +202,10 @@ NENE01736A.txt
 <p>1518 times 5 seconds, divided by 60, tells her that her script will take about two hours to run. As a final check, she opens another terminal window, goes into <code>north-pacific-gyre/2012-07-03</code>, and uses <code>cat stats-NENE01729B.txt</code> to examine one of the output files. It looks good, so she decides to get some coffee and catch up on her reading.</p>
 <div id="those-who-know-history-can-choose-to-repeat-it" class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="those-who-know-history-can-choose-to-repeat-it" class="callout panel panel-info"><span class="glyphicon glyphicon-pushpin"></span>Those Who Know History Can Choose to Repeat It</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Those Who Know History Can Choose to Repeat It</h2>
 </div>
 <div class="panel-body">
-<p>Another way to repeat previous work is to use the <code>history</code> command to get a list of the last few hundred commands that have been executed, and then to use <code>!123</code> (where &quot;123&quot; is replaced by the command number) to repeat one of those commands. For example, if Nelle types this:</p>
+<p>Another way to repeat previous work is to use the <code>history</code> command to get a list of the last few hundred commands that have been executed, and then to use <code>!123</code> (where “123” is replaced by the command number) to repeat one of those commands. For example, if Nelle types this:</p>
 <pre><code>$ history | tail -5
   456  ls -l NENE0*.txt
   457  rm stats-NENE01729B.txt.txt
@@ -216,7 +217,7 @@ NENE01736A.txt
 </div>
 <div id="variables-in-loops" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="variables-in-loops" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Variables in Loops</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Variables in Loops</h2>
 </div>
 <div class="panel-body">
 <p>Suppose that <code>ls</code> initially displays:</p>
@@ -236,7 +237,7 @@ done</code></pre>
 </div>
 <div id="saving-to-a-file-in-a-loop---part-one" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="saving-to-a-file-in-a-loop---part-one" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Saving to a File in a Loop - Part One</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Saving to a File in a Loop - Part One</h2>
 </div>
 <div class="panel-body">
 <p>In the same directory, what is the effect of this loop?</p>
@@ -255,7 +256,7 @@ done</code></pre>
 </div>
 <div id="saving-to-a-file-in-a-loop---part-two" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="saving-to-a-file-in-a-loop---part-two" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Saving to a File in a Loop - Part Two</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Saving to a File in a Loop - Part Two</h2>
 </div>
 <div class="panel-body">
 <p>In another directory, where <code>ls</code> returns:</p>
@@ -275,7 +276,7 @@ done</code></pre>
 </div>
 <div id="doing-a-dry-run" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="doing-a-dry-run" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Doing a Dry Run</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Doing a Dry Run</h2>
 </div>
 <div class="panel-body">
 <p>Suppose we want to preview the commands the following loop will execute without actually running those commands:</p>
@@ -298,7 +299,7 @@ done</code></pre>
 </div>
 <div id="nested-loops-and-command-line-expressions" class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="nested-loops-and-command-line-expressions" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Nested Loops and Command-Line Expressions</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Nested Loops and Command-Line Expressions</h2>
 </div>
 <div class="panel-body">
 <p>The <code>expr</code> does simple arithmetic using command-line parameters:</p>
@@ -316,20 +317,9 @@ do
 done</code></pre>
 </div>
 </div>
-<div id="explain-this-loop" class="challenge panel panel-success">
-<div class="panel-heading">
-<h2 id="explain-this-loop" class="challenge panel panel-success"><span class="glyphicon glyphicon-pencil"></span>Explain This Loop</h2>
-</div>
-<div class="panel-body">
-<p>Describe in words what the following loop does.</p>
-<pre><code>for how in frog11 prcb redig
-do
-    $how -limit 0.01 NENE01729B.txt
-done</code></pre>
-</div>
-</div>
         </div>
       </div>
+      </article>
       <div class="footer">
         <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
         <a class="label swc-blue-bg" href="https://github.com/swcarpentry/shell-novice">Source</a>
