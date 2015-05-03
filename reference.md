@@ -41,7 +41,6 @@ subtitle: Reference
 *   `mv old new` moves (renames) a file or directory.
 *   `rm path` removes (deletes) a file.
 *   `rmdir path` removes (deletes) an empty directory.
-*   `touch path` creates an empty file if it doesn't already exist.
 *   Unix documentation uses '^A' to mean "control-A".
 *   The shell does not have a trash bin: once something is deleted, it's really gone.
 *   Nano is a very simple text editor --- please use something else for real work.
@@ -97,7 +96,7 @@ absolute path
     See also: [relative path](#relative-path).
 
 argument
-:   A value given to a function or program when it runs. 
+:   A value given to a function or program when it runs.
     The term is often used interchangeably (and inconsistently) with [parameter](#parameter).
 
 command shell
@@ -165,7 +164,7 @@ home directory
     By convention, all of a user's files are stored in or below her home directory.
 
 loop
-:   A set of instructions to be executed multiple times. Consists of a [loop body](#loop-body) and (usually) a 
+:   A set of instructions to be executed multiple times. Consists of a [loop body](#loop-body) and (usually) a
     condition for exiting the loop. See also [for loop](#for-loop) and [while loop](#while-loop).
 
 loop body
@@ -204,7 +203,7 @@ pipe
     When two or more programs are connected in this way, they are called a "pipeline".
 
 process
-:   A running instance of a program, containing code, variable values, 
+:   A running instance of a program, containing code, variable values,
     open files and network connections, and so on.
     Processes are the "actors" that the [operating system](#operating-system) manages;
     it typically runs each process for a few milliseconds at a time
