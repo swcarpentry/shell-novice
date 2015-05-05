@@ -35,9 +35,9 @@ so programming languages and interfaces had to be designed around that constrain
 
 This kind of interface is called a
 **command-line interface**, or CLI,
-to distinguish it from the
+to distinguish it from a
 **graphical user interface**, or GUI,
-that most people now use.
+which most people now use.
 The heart of a CLI is a **read-evaluate-print loop**, or REPL:
 when the user types a command and then presses the enter (or return) key,
 the computer reads it,
@@ -51,8 +51,8 @@ and the computer sends output directly to the user.
 In fact,
 there is usually a program in between called a
 **command shell**.
-What the user types goes into the shell;
-it figures out what commands to run and orders the computer to execute them. Note, the reason why the shell is called *the shell*: it encloses the operating system in order to hide some of its complexity and make it simpler to interact with.
+What the user types goes into the shell,
+which then figures out what commands to run and orders the computer to execute them. Note, the shell is called *the shell* because it encloses the operating system in order to hide some of its complexity and make it simpler to interact with.
 
 A shell is a program like any other.
 What's special about it is that its job is to run other programs
@@ -61,7 +61,7 @@ The most popular Unix shell is Bash,
 the Bourne Again SHell
 (so-called because it's derived from a shell written by Stephen Bourne --- this
 is what passes for wit among programmers).
-Bash is the default shell on most modern implementations of Unix,
+Bash is the default shell on most modern implementations of Unix
 and in most packages that provide Unix-like tools for Windows.
 
 Using Bash or any other shell
@@ -73,8 +73,8 @@ On the other hand,
 the shell allows us to combine existing tools in powerful ways with only a few keystrokes
 and to set up pipelines to handle large volumes of data automatically.
 In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
-Familiarity with the shell is near essential to run a variety of specialised tools and resources including high-performance computing systems. As clusters and cloud computing become more popular for scientific data crunching,
-being able to drive them is becoming a necessary skill. We can build on the command-line skills covered here to tackle a wide range of scientific questions and computational challenges.
+Familiarity with the shell is near essential to run a variety of specialised tools and resources including high-performance computing systems. As clusters and cloud computing systems become more popular for scientific data crunching,
+being able to interact with them is becoming a necessary skill. We can build on the command-line skills covered here to tackle a wide range of scientific questions and computational challenges.
 
 ## Nelle's Pipeline: Starting Point
 
@@ -94,12 +94,12 @@ She has 300 samples in all, and now needs to:
 3.  Compare the statistics for each protein
     with corresponding statistics for each other protein
     using a program one of the other graduate students wrote called `goodiff`.
-4.  Write up.
+4.  Write up results.
     Her supervisor would really like her to do this by the end of the month
     so that her paper can appear in an upcoming special issue of *Aquatic Goo Letters*.
 
 It takes about half an hour for the assay machine to process each sample.
-The good news is,
+The good news is:
 it only takes two minutes to set each one up.
 Since her lab has eight assay machines that she can use in parallel,
 this step will "only" take about two weeks.
