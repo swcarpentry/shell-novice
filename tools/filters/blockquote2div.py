@@ -113,7 +113,16 @@ def blockquote2div(key, value, format, meta):
 
             # a blockquote is just a list of blocks, so it can be
             # passed directly to Div, which expects Div(attr, blocks)
-            return pf.Div((id, classes, kvs), [panel_header, panel_body])
+            if classes[0] == "callout":
+                return [{"t": "RawBlock", "c": [ "html", "<aside class=\"{0}\">".format(' '.join(classes)) ]},
+                        panel_header,
+                        panel_body,
+                        {"t": "RawBlock", "c": [ "html", "</aside>" ]}]
+            else:
+                return [{"t": "RawBlock", "c": [ "html", "<section class=\"{0}\">".format(' '.join(classes)) ]},
+                        panel_header,
+                        panel_body,
+                        {"t": "RawBlock", "c": [ "html", "</section>" ]}]
 
 
 if __name__ == '__main__':
