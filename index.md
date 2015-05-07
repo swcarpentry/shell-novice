@@ -24,6 +24,19 @@ These lessons will start you on a path towards using these resources effectively
 > searching for files with `grep` and `find`, and writing simple loops
 > and scripts, you probably won't learn much from this lesson.
 
+> ## Getting ready {.prereq}
+>
+> You need to download some files to follow this lesson:
+> 
+> 1. Make a new folder in your Desktop called `shell-novice`.
+> 2. Download [shell-novice-data.zip](./shell-novice-data.zip) and move the file to this folder.
+> 3. If it's not unzipped yet, double-click on it to unzip it. You should end up with a new folder called `data`.
+> 4. You can access this folder from the Unix shell with:
+>
+> ~~~ {.input}
+> $ cd && cd Desktop/shell-novice/data
+> ~~~
+
 ## Topics
 
 1.  [Introducing the Shell](00-intro.html)
