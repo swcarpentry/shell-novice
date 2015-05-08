@@ -52,6 +52,7 @@ SPECIAL_CLASSES = {
     "callout": ("panel-info", "glyphicon-pushpin"),
     "challenge": ("panel-success", "glyphicon-pencil"),
     "prereq": ("panel-warning", "glyphicon-education"),
+    "getready": ("panel-warning", "glyphicon-check"),
     "objectives": ("panel-warning", "glyphicon-certificate"),
 }
 
@@ -97,11 +98,7 @@ def blockquote2div(key, value, format, meta):
             h_inlines.insert(0, span)
 
             # only the header goes into panel-heading
-            # WARNING: pandoc doesn't preserve header attributes when the
-            #          header is nested under blockquote.  This makes it
-            #          impossible to alter header's "class" attribute, for
-            #          example.
-            header = pf.Header(h_level, h_attr, h_inlines)
+            header = pf.Header(h_level, [h_attr[0], [], []], h_inlines)
             panel_header = pf.Div(("", ["panel-heading"], []), [header])
 
             # the rest of the blockquote goes into panel-body
@@ -113,7 +110,16 @@ def blockquote2div(key, value, format, meta):
 
             # a blockquote is just a list of blocks, so it can be
             # passed directly to Div, which expects Div(attr, blocks)
-            return pf.Div((id, classes, kvs), [panel_header, panel_body])
+            if classes[0] == "callout":
+                return [{"t": "RawBlock", "c": [ "html", "<aside class=\"{0}\">".format(' '.join(classes)) ]},
+                        panel_header,
+                        panel_body,
+                        {"t": "RawBlock", "c": [ "html", "</aside>" ]}]
+            else:
+                return [{"t": "RawBlock", "c": [ "html", "<section class=\"{0}\">".format(' '.join(classes)) ]},
+                        panel_header,
+                        panel_body,
+                        {"t": "RawBlock", "c": [ "html", "</section>" ]}]
 
 
 if __name__ == '__main__':
