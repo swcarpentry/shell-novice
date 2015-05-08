@@ -454,8 +454,8 @@ about them."
 > find . -name '*.dat' | wc -l | sort -n
 > ~~~
 
-> ## Matching `ose.dat` but not `temp` {.challenge}
-> 
+> ## Matching `ose.dat` but not `temp` {}{.challenge}
+>
 > The `-v` flag to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
 > the following commands will find all files in `/data` whose names
