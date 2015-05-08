@@ -456,7 +456,8 @@ class IndexPageValidator(MarkdownValidator):
     DOC_HEADERS = {'layout': vh.is_str,
                    'title': vh.is_str}
 
-    CALLOUTS = {'prereq': ("Prerequisites", 1, 1)}
+    CALLOUTS = {'prereq': ("Prerequisites", 1, 1),
+                'getready': ("Getting ready", 1, 1)}
 
     def _partition_links(self):
         """Check the text of every link in index.md"""
