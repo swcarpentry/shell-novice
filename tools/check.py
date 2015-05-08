@@ -37,7 +37,7 @@ class MarkdownValidator(object):
     # Dict of tuples for each callout type: {style: (title, min, max)}
     CALLOUTS = {}
 
-    WARN_ON_EXTRA_HEADINGS = True  # Warn when other headings are present?
+    WARN_ON_EXTRA_HEADINGS = False  # Warn when other headings are present?
 
     # Validate YAML doc headers: dict of {header text: validation_func}
     DOC_HEADERS = {}
@@ -500,17 +500,16 @@ class TopicPageValidator(MarkdownValidator):
         The top-level document has no headings indicating subtopics.
         The only valid subheadings are nested in blockquote elements"""
         heading_nodes = self.ast.get_section_headings()
-        if len(heading_nodes) == 0:
-            return True
+        if len(heading_nodes) != 0:
+            # Individual heading msgs are logged by validate_section_heading_order
+            logging.warning(
+                "In {0}: "
+                "Sub-headings are often a sign "
+                "a lesson needs to be split into multiple topics. "
+                "Please make sure this subsection doesn't belong "
+                "in a separate lesson.".format(self.filename))
 
-        # Individual heading msgs are logged by validate_section_heading_order
-        logging.error(
-            "In {0}: "
-            "The topic page should not have sub-headings "
-            "outside of special blocks. "
-            "If a topic needs sub-headings, "
-            "it should be broken into multiple topics.".format(self.filename))
-        return False
+        return True
 
     def _run_tests(self):
         parent_tests = super(TopicPageValidator, self)._run_tests()
