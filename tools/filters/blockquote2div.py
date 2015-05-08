@@ -98,11 +98,7 @@ def blockquote2div(key, value, format, meta):
             h_inlines.insert(0, span)
 
             # only the header goes into panel-heading
-            # WARNING: pandoc doesn't preserve header attributes when the
-            #          header is nested under blockquote.  This makes it
-            #          impossible to alter header's "class" attribute, for
-            #          example.
-            header = pf.Header(h_level, h_attr, h_inlines)
+            header = pf.Header(h_level, [h_attr[0], [], []], h_inlines)
             panel_header = pf.Div(("", ["panel-heading"], []), [header])
 
             # the rest of the blockquote goes into panel-body
