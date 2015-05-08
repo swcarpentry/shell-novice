@@ -28,9 +28,9 @@
         <div class="col-md-10 col-md-offset-1">
           <h1 class="title">The Unix Shell</h1>
           <h2 class="subtitle">Finding Things</h2>
-<div id="learning-objectives" class="objectives panel panel-warning">
+<section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -40,7 +40,7 @@
 <li>Explain what is meant by “text” and “binary” files, and why many common tools don’t handle the latter well.</li>
 </ul>
 </div>
-</div>
+</section>
 <p>You can guess someone’s age by how they talk about search: young people use “Google” as a verb, while crusty old Unix programmers use “grep”. The word is a contraction of “global/regular expression/print”, a common sequence of operations in early Unix text editors. It is also the name of a very useful command-line program.</p>
 <p><code>grep</code> finds and prints lines in files that match a pattern. For our examples, we will use a file that contains three haikus taken from a 1998 competition in <em>Salon</em> magazine. For this set of examples we’re going to be working in the writing subdirectory:</p>
 <pre class="input"><code>$ cd
@@ -57,14 +57,14 @@ and the presence of absence:
 Yesterday it worked
 Today it is not working
 Software is like that.</code></pre>
-<div id="forever-or-five-years" class="callout panel panel-info">
+<aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Forever, or Five Years</h2>
+<h2 id="forever-or-five-years"><span class="glyphicon glyphicon-pushpin"></span>Forever, or Five Years</h2>
 </div>
 <div class="panel-body">
 <p>We haven’t linked to the original haikus because they don’t appear to be on <em>Salon</em>’s site any longer. As <a href="http://www.clir.org/pubs/archives/ensuring.pdf">Jeff Rothenberg said</a>, “Digital information lasts forever — or five years, whichever comes first.”</p>
 </div>
-</div>
+</aside>
 <p>Let’s find lines that contain the word “not”:</p>
 <pre class="input"><code>$ grep not haiku.txt</code></pre>
 <pre class="output"><code>Is not the true Tao, until
@@ -140,9 +140,9 @@ POSIX.)
 Interpret PATTERN as a list of fixed strings, separated by newlines, any of  which  is  to  be
 matched.  (-F is specified by POSIX.)
 ...        ...        ...</code></pre>
-<div id="wildcards" class="callout panel panel-info">
+<aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Wildcards</h2>
+<h2 id="wildcards"><span class="glyphicon glyphicon-pushpin"></span>Wildcards</h2>
 </div>
 <div class="panel-body">
 <p><code>grep</code>‘s real power doesn’t come from its options, though; it comes from the fact that patterns can include wildcards. (The technical name for these is <strong>regular expressions</strong>, which is what the “re” in “grep” stands for.) Regular expressions are both complex and powerful; if you want to do complex searches, please look at the lesson on <a href="http://software-carpentry.org">our website</a>. As a taster, we can find lines that have an ’o’ in the second position like this:</p>
@@ -152,10 +152,11 @@ Today it is not working
 Software is like that.</code></pre>
 <p>We use the <code>-E</code> flag and put the pattern in quotes to prevent the shell from trying to interpret it. (If the pattern contained a ‘*’, for example, the shell would try to expand it before running <code>grep</code>.) The ‘^’ in the pattern anchors the match to the start of the line. The ‘.’ matches a single character (just like ‘?’ in the shell), while the ‘o’ matches an actual ‘o’.</p>
 </div>
-</div>
+</aside>
 <p>While <code>grep</code> finds lines in files, the <code>find</code> command finds files themselves. Again, it has a lot of options; to show how the simplest ones work, we’ll use the directory tree shown below.</p>
 <div class="figure">
-<img src="fig/find-file-tree.svg" alt="File Tree for Find Example" /><p class="caption">File Tree for Find Example</p>
+<img src="fig/find-file-tree.svg" alt="File Tree for Find Example" />
+<p class="caption">File Tree for Find Example</p>
 </div>
 <p>Nelle’s <code>writing</code> directory contains one file called <code>haiku.txt</code> and four subdirectories: <code>thesis</code> (which is sadly empty), <code>data</code> (which contains two files <code>one.txt</code> and <code>two.txt</code>), a <code>tools</code> directory that contains the programs <code>format</code> and <code>stats</code>, and an empty subdirectory called <code>old</code>.</p>
 <p>For our first command, let’s run <code>find . -type d</code>. As always, the <code>.</code> on its own means the current working directory, which is where we want our search to start; <code>-type d</code> means “things that are directories”. Sure enough, <code>find</code>’s output is the names of the five directories in our little tree (including <code>.</code>):</p>
@@ -194,14 +195,14 @@ Software is like that.</code></pre>
 <pre class="output"><code>./data/one.txt
 ./data/two.txt
 ./haiku.txt</code></pre>
-<div id="listing-vs.finding" class="callout panel panel-info">
+<aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Listing vs. Finding</h2>
+<h2 id="listing-vs.finding"><span class="glyphicon glyphicon-pushpin"></span>Listing vs. Finding</h2>
 </div>
 <div class="panel-body">
 <p><code>ls</code> and <code>find</code> can be made to do similar things given the right options, but under normal circumstances, <code>ls</code> lists everything it can, while <code>find</code> searches for things with certain properties and shows them.</p>
 </div>
-</div>
+</aside>
 <p>As we said earlier, the command line’s power lies in combining tools. We’ve seen how to do that with pipes; let’s look at another technique. As we just saw, <code>find . -name '*.txt'</code> gives us a list of all text files in or below the current directory. How can we combine that with <code>wc -l</code> to count the lines in all those files?</p>
 <p>The simplest way is to put the <code>find</code> command inside <code>$()</code>:</p>
 <pre class="input"><code>$ wc -l $(find . -name &#39;*.txt&#39;)</code></pre>
@@ -215,20 +216,20 @@ Software is like that.</code></pre>
 <p>It’s very common to use <code>find</code> and <code>grep</code> together. The first finds files that match a pattern; the second looks for lines inside those files that match another pattern. Here, for example, we can find PDB files that contain iron atoms by looking for the string “FE” in all the <code>.pdb</code> files above the current directory:</p>
 <pre class="input"><code>$ grep FE $(find .. -name &#39;*.pdb&#39;)</code></pre>
 <pre class="output"><code>../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518</code></pre>
-<div id="binary-files" class="callout panel panel-info">
+<aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Binary Files</h2>
+<h2 id="binary-files"><span class="glyphicon glyphicon-pushpin"></span>Binary Files</h2>
 </div>
 <div class="panel-body">
 <p>We have focused exclusively on finding things in text files. What if your data is stored as images, in databases, or in some other format? One option would be to extend tools like <code>grep</code> to handle those formats. This hasn’t happened, and probably won’t, because there are too many formats to support.</p>
 <p>The second option is to convert the data to text, or extract the text-ish bits from the data. This is probably the most common approach, since it only requires people to build one tool per data format (to extract information). On the one hand, it makes simple things easy to do. On the negative side, complex things are usually impossible. For example, it’s easy enough to write a program that will extract X and Y dimensions from image files for <code>grep</code> to play with, but how would you write something to find values in a spreadsheet whose cells contained formulas?</p>
 <p>The third choice is to recognize that the shell and text processing have their limits, and to use a programming language such as Python instead. When the time comes to do this, don’t be too hard on the shell: many modern programming languages, Python included, have borrowed a lot of ideas from it, and imitation is also the sincerest form of praise.</p>
 </div>
-</div>
+</aside>
 <p>The Unix shell is older than most of the people who use it. It has survived so long because it is one of the most productive programming environments ever created — maybe even <em>the</em> most productive. Its syntax may be cryptic, but people who have mastered it can experiment with different commands interactively, then use what they have learned to automate their work. Graphical user interfaces may be better at the first, but the shell is still unbeaten at the second. And as Alfred North Whitehead wrote in 1911, “Civilization advances by extending the number of important operations which we can perform without thinking about them.”</p>
-<div id="using-grep" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Using grep</h2>
+<h2 id="using-grep"><span class="glyphicon glyphicon-pencil"></span>Using grep</h2>
 </div>
 <div class="panel-body">
 <pre><code>The Tao that is seen
@@ -251,18 +252,18 @@ Software is like that.</code></pre>
 <li><code>grep -i of haiku.txt</code></li>
 </ol>
 </div>
-</div>
-<div id="find-pipeline-reading-comprehension" class="challenge panel panel-success">
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span><code>find</code> pipeline reading comprehension</h2>
+<h2 id="find-pipeline-reading-comprehension"><span class="glyphicon glyphicon-pencil"></span><code>find</code> pipeline reading comprehension</h2>
 </div>
 <div class="panel-body">
 <p>Write a short explanatory comment for the following shell script:</p>
 <pre class="input"><code>find . -name &#39;*.dat&#39; | wc -l | sort -n</code></pre>
 </div>
-</div>
+</section>
 <blockquote>
-<h2>Matching <code>ose.dat</code> but not <code class="challenge">temp</code></h2>
+<h2 id="matching-ose.dat-but-not-temp">Matching <code>ose.dat</code> but not <code class="challenge">temp</code></h2>
 <p>The <code>-v</code> flag to <code>grep</code> inverts pattern matching, so that only lines which do <em>not</em> match the pattern are printed. Given that, which of the following commands will find all files in <code>/data</code> whose names end in <code>ose.dat</code> (e.g., <code>sucrose.dat</code> or <code>maltose.dat</code>), but do <em>not</em> contain the word <code>temp</code>?</p>
 <ol style="list-style-type: decimal">
 <li><p><code>find /data -name '*.dat' | grep ose | grep -v temp</code></p></li>
@@ -271,14 +272,14 @@ Software is like that.</code></pre>
 <li><p>None of the above.</p></li>
 </ol>
 </blockquote>
-<div id="little-women" class="challenge panel panel-success">
+<section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Little Women</h2>
+<h2 id="little-women"><span class="glyphicon glyphicon-pencil"></span>Little Women</h2>
 </div>
 <div class="panel-body">
 <p>You and your friend, having just finished reading <em>Little Women</em> by Louisa May Alcott, are in an argument. Of the four sisters in the book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the most mentioned. You, however, are certain it was Amy. Luckily, you have a file <code>LittleWomen.txt</code> containing the full text of the novel. Using a<code>for</code> loop, how would you tabulate the number of times each of the four sisters is mentioned? Hint: one solution might employ the commands <code>grep</code> and <code>wc</code> and a <code>|</code>, while another might utilize <code>grep</code> options.</p>
 </div>
-</div>
+</section>
         </div>
       </div>
       </article>
