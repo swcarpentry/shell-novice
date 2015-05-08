@@ -13,6 +13,7 @@ Call at command line with flag -h to see options and usage instructions.
 
 import argparse
 import collections
+import functools
 import glob
 import hashlib
 import logging
@@ -24,6 +25,19 @@ import CommonMark
 import yaml
 
 import validation_helpers as vh
+
+NUMBER_OF_ERRORS = 0
+
+def incr_error(func):
+    """Wrapper to count the number of errors"""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        global NUMBER_OF_ERRORS
+        NUMBER_OF_ERRORS += 1
+        return func(*args, **kwargs)
+    return wrapper
+
+logging.error = incr_error(logging.error)
 
 
 class MarkdownValidator(object):
@@ -822,12 +836,11 @@ def main(parsed_args_obj):
 
     if all_valid is True:
         logging.debug("All Markdown files successfully passed validation.")
-        sys.exit(0)
     else:
         logging.warning(
-            "Some errors were encountered during validation. "
-            "See log for details.")
-        sys.exit(1)
+            "{0} errors were encountered during validation. "
+            "See log for details.".format(NUMBER_OF_ERRORS))
+    sys.exit(NUMBER_OF_ERRORS)
 
 
 if __name__ == "__main__":
