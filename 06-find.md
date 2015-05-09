@@ -24,7 +24,7 @@ we will use a file that contains three haikus taken from a
 1998 competition in *Salon* magazine. For this set of examples 
 we're going to be working in the writing subdirectory:
 
-~~~ {.input}
+~~~ {.bash}
 $ cd
 $ cd writing
 $ cat haiku.txt
@@ -51,7 +51,7 @@ Software is like that.
 
 Let's find lines that contain the word "not":
 
-~~~ {.input}
+~~~ {.bash}
 $ grep not haiku.txt
 ~~~
 ~~~ {.output}
@@ -68,7 +68,7 @@ The output is the three lines in the file that contain the letters "not".
 
 Let's try a different pattern: "day".
 
-~~~ {.input}
+~~~ {.bash}
 $ grep day haiku.txt
 ~~~
 ~~~ {.output}
@@ -83,7 +83,7 @@ To restrict matches to lines containing the word "day" on its own,
 we can give `grep` with the `-w` flag.
 This will limit matches to word boundaries.
 
-~~~ {.input}
+~~~ {.bash}
 $ grep -w day haiku.txt
 ~~~
 
@@ -91,7 +91,7 @@ In this case, there aren't any, so `grep`'s output is empty.
 
 Another useful option is `-n`, which numbers the lines that match:
 
-~~~ {.input}
+~~~ {.bash}
 $ grep -n it haiku.txt
 ~~~
 ~~~ {.output}
@@ -106,7 +106,7 @@ We can combine options (i.e. flags) as we do with other Unix commands.
 For example, let's find the lines that contain the word "the". We can combine
 the option `-w` to find the lines that contain the word "the" and `-n` to number the lines that match:
 
-~~~ {.input}
+~~~ {.bash}
 $ grep -n -w the haiku.txt
 ~~~
 ~~~ {.output}
@@ -116,7 +116,7 @@ $ grep -n -w the haiku.txt
 
 Now we want to use the option `-i` to make our search case-insensitive:
 
-~~~ {.input}
+~~~ {.bash}
 $ grep -n -w -i the haiku.txt
 ~~~
 ~~~ {.output}
@@ -128,7 +128,7 @@ $ grep -n -w -i the haiku.txt
 Now, we want to use the option `-v` to invert our search, i.e., we want to output
 the lines that do not contain the word "the".
 
-~~~ {.input}
+~~~ {.bash}
 $ grep -n -w -v the haiku.txt 
 ~~~
 ~~~ {.output}
@@ -154,7 +154,7 @@ you may use the up and down arrow keys to move line-by-line,
 or try the "b" and spacebar keys to skip up and down by full page.
 Quit the `man` pages by typing "q".
 
-~~~ {.input}
+~~~ {.bash}
 $ man grep
 ~~~
 ~~~ {.output}
@@ -239,7 +239,7 @@ Sure enough,
 `find`'s output is the names of the five directories in our little tree
 (including `.`):
 
-~~~ {.input}
+~~~ {.bash}
 $ find . -type d
 ~~~
 ~~~ {.output}
@@ -253,7 +253,7 @@ $ find . -type d
 If we change `-type d` to `-type f`,
 we get a listing of all the files instead:
 
-~~~ {.input}
+~~~ {.bash}
 $ find . -type f
 ~~~
 ~~~ {.output}
@@ -272,7 +272,7 @@ and so on to find everything that matches the pattern we've given it.
 If we don't want it to,
 we can use `-maxdepth` to restrict the depth of search:
 
-~~~ {.input}
+~~~ {.bash}
 $ find . -maxdepth 1 -type f
 ~~~
 ~~~ {.output}
@@ -283,7 +283,7 @@ The opposite of `-maxdepth` is `-mindepth`,
 which tells `find` to only report things that are at or below a certain depth.
 `-mindepth 2` therefore finds all the files that are two or more levels below us:
 
-~~~ {.input}
+~~~ {.bash}
 $ find . -mindepth 2 -type f
 ~~~
 ~~~ {.output}
@@ -295,7 +295,7 @@ $ find . -mindepth 2 -type f
 
 Now let's try matching by name:
 
-~~~ {.input}
+~~~ {.bash}
 $ find . -name *.txt
 ~~~
 ~~~ {.output}
@@ -308,7 +308,7 @@ The problem is that the shell expands wildcard characters like `*` *before* comm
 Since `*.txt` in the current directory expands to `haiku.txt`,
 the command we actually ran was:
 
-~~~ {.input}
+~~~ {.bash}
 $ find . -name haiku.txt
 ~~~
 
@@ -320,7 +320,7 @@ put `*.txt` in single quotes to prevent the shell from expanding the `*` wildcar
 This way,
 `find` actually gets the pattern `*.txt`, not the expanded filename `haiku.txt`:
 
-~~~ {.input}
+~~~ {.bash}
 $ find . -name '*.txt'
 ~~~
 ~~~ {.output}
@@ -346,7 +346,7 @@ How can we combine that with `wc -l` to count the lines in all those files?
 
 The simplest way is to put the `find` command inside `$()`:
 
-~~~ {.input}
+~~~ {.bash}
 $ wc -l $(find . -name '*.txt')
 ~~~
 ~~~ {.output}
@@ -362,7 +362,7 @@ It then replaces the `$()` expression with that command's output.
 Since the output of `find` is the three filenames `./data/one.txt`, `./data/two.txt`, and `./haiku.txt`,
 the shell constructs the command:
 
-~~~ {.input}
+~~~ {.bash}
 $ wc -l ./data/one.txt ./data/two.txt ./haiku.txt
 ~~~
 
@@ -376,7 +376,7 @@ the second looks for lines inside those files that match another pattern.
 Here, for example, we can find PDB files that contain iron atoms
 by looking for the string "FE" in all the `.pdb` files above the current directory:
 
-~~~ {.input}
+~~~ {.bash}
 $ grep FE $(find .. -name '*.pdb')
 ~~~
 ~~~ {.output}
@@ -450,7 +450,7 @@ about them."
 >
 > Write a short explanatory comment for the following shell script:
 > 
-> ~~~ {.input}
+> ~~~ {.bash}
 > find . -name '*.dat' | wc -l | sort -n
 > ~~~
 

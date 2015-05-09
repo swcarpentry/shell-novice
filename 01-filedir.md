@@ -24,7 +24,7 @@ Several commands are frequently used to create, inspect, rename, and delete file
 To start exploring them,
 let's open a shell window:
 
-~~~ {.input}
+~~~ {.bash}
 $
 ~~~
 
@@ -38,7 +38,7 @@ The command's output is the ID of the current user,
 i.e.,
 it shows us who the shell thinks we are:
 
-~~~ {.input}
+~~~ {.bash}
 $ whoami
 ~~~
 ~~~ {.output}
@@ -65,7 +65,7 @@ Here,
 the computer's response is `/Users/nelle`,
 which is Nelle's **home directory**:
 
-~~~ {.input}
+~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
@@ -132,7 +132,7 @@ which is why `nelle` is the last part of the directory's name.
 Let's see what's in Nelle's home directory by running `ls`,
 which stands for "listing":
 
-~~~ {.input}
+~~~ {.bash}
 $ ls
 ~~~
 ~~~ {.output}
@@ -148,7 +148,7 @@ arranged neatly into columns.
 We can make its output more comprehensible by using the **flag** `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls -F
 ~~~
 ~~~ {.output}
@@ -194,7 +194,7 @@ the command `ls` with the **arguments** `-F` and `data`.
 The second argument --- the one *without* a leading dash --- tells `ls` that
 we want a listing of something other than our current working directory:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls -F data
 ~~~
 ~~~ {.output}
@@ -228,7 +228,7 @@ rather than from the root of the file system.
 If we run `ls -F /data` (*with* a leading slash) we get a different answer,
 because `/data` is an **absolute path**:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls -F /data
 ~~~
 ~~~ {.output}
@@ -245,13 +245,13 @@ Before we do this,
 `pwd` shows us that we're in `/Users/nelle`,
 and `ls` without any arguments shows us that directory's contents:
 
-~~~ {.input}
+~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
 /Users/nelle
 ~~~
-~~~ {.input}
+~~~ {.bash}
 $ ls
 ~~~
 ~~~ {.output}
@@ -266,7 +266,7 @@ which is a bit misleading:
 the command doesn't change the directory,
 it changes the shell's idea of what directory we are in.
 
-~~~ {.input}
+~~~ {.bash}
 $ cd data
 ~~~
 
@@ -276,13 +276,13 @@ If we run `ls` without arguments now,
 it lists the contents of `/Users/nelle/data`,
 because that's where we now are:
 
-~~~ {.input}
+~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
 /Users/nelle/data
 ~~~
-~~~ {.input}
+~~~ {.bash}
 $ ls -F
 ~~~
 ~~~ {.output}
@@ -294,19 +294,19 @@ We now know how to go down the directory tree:
 how do we go up?
 We could use an absolute path:
 
-~~~ {.input}
+~~~ {.bash}
 $ cd /Users/nelle
 ~~~
 
 but it's almost always simpler to use `cd ..` to go up one level:
 
-~~~ {.input}
+~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
 /Users/nelle/data
 ~~~
-~~~ {.input}
+~~~ {.bash}
 $ cd ..
 ~~~
 
@@ -317,7 +317,7 @@ the **parent** of the current directory.
 Sure enough,
 if we run `pwd` after running `cd ..`, we're back in `/Users/nelle`:
 
-~~~ {.input}
+~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
@@ -327,7 +327,7 @@ $ pwd
 The special directory `..` doesn't usually show up when we run `ls`.
 If we want to display it, we can give `ls` the `-a` flag:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls -F -a
 ~~~
 ~~~ {.output}
@@ -398,7 +398,7 @@ All 1520 files will go into the same directory.
 If she is in her home directory,
 Nelle can see what files she has using the command:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls north-pacific-gyre/2012-07-03/
 ~~~
 
@@ -406,14 +406,14 @@ This is a lot to type,
 but she can let the shell do most of the work.
 If she types:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls nor
 ~~~
 
 and then presses tab,
 the shell automatically completes the directory name for her:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls north-pacific-gyre/
 ~~~
 
