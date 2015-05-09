@@ -20,7 +20,7 @@ that contains six files describing some simple organic molecules.
 The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
 
-~~~ {.input}
+~~~ {.bash}
 $ ls molecules
 ~~~
 ~~~ {.output}
@@ -34,7 +34,7 @@ it counts the number of lines, words, and characters in files.
 The `*` in `*.pdb` matches zero or more characters,
 so the shell turns `*.pdb` into a complete list of `.pdb` files:
 
-~~~ {.input}
+~~~ {.bash}
 $ cd molecules
 $ wc *.pdb
 ~~~
@@ -81,7 +81,7 @@ $ wc *.pdb
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
 
-~~~ {.input}
+~~~ {.bash}
 $ wc -l *.pdb
 ~~~
 ~~~ {.output}
@@ -102,7 +102,7 @@ It's an easy question to answer when there are only six files,
 but what if there were 6000?
 Our first step toward a solution is to run the command:
 
-~~~ {.input}
+~~~ {.bash}
 $ wc -l *.pdb > lengths.txt
 ~~~
 
@@ -114,7 +114,7 @@ or overwrite the contents of that file if it does.
 everything that `wc` would have printed has gone into the file `lengths.txt` instead.)
 `ls lengths.txt` confirms that the file exists:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls lengths.txt
 ~~~
 ~~~ {.output}
@@ -127,7 +127,7 @@ it prints the contents of files one after another.
 There's only one file in this case,
 so `cat` just shows us what it contains:
 
-~~~ {.input}
+~~~ {.bash}
 $ cat lengths.txt
 ~~~
 ~~~ {.output}
@@ -146,7 +146,7 @@ numerical instead of alphabetical.
 This does *not* change the file;
 instead, it sends the sorted result to the screen:
 
-~~~ {.input}
+~~~ {.bash}
 $ sort -n lengths.txt
 ~~~
 ~~~ {.output}
@@ -165,7 +165,7 @@ just as we used `> lengths.txt` to put the output of `wc` into `lengths.txt`.
 Once we've done that,
 we can run another command called `head` to get the first few lines in `sorted-lengths.txt`:
 
-~~~ {.input}
+~~~ {.bash}
 $ sort -n lengths.txt > sorted-lengths.txt
 $ head -1 sorted-lengths.txt
 ~~~
@@ -186,7 +186,7 @@ even once you understand what `wc`, `sort`, and `head` do,
 all those intermediate files make it hard to follow what's going on.
 We can make it easier to understand by running `sort` and `head` together:
 
-~~~ {.input}
+~~~ {.bash}
 $ sort -n lengths.txt | head -1
 ~~~
 ~~~ {.output}
@@ -205,7 +205,7 @@ we don't have to know or care.
 We can use another pipe to send the output of `wc` directly to `sort`,
 which then sends its output to `head`:
 
-~~~ {.input}
+~~~ {.bash}
 $ wc -l *.pdb | sort -n | head -1
 ~~~
 ~~~ {.output}
@@ -293,7 +293,7 @@ Nelle has run her samples through the assay machines
 and created 1520 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
 As a quick sanity check, starting from her home directory, Nelle types:
 
-~~~ {.input}
+~~~ {.bash}
 $ cd north-pacific-gyre/2012-07-03
 $ wc -l *.txt
 ~~~
@@ -312,7 +312,7 @@ The output is 1520 lines that look like this:
 
 Now she types this:
 
-~~~ {.input}
+~~~ {.bash}
 $ wc -l *.txt | sort -n | head -5
 ~~~
 ~~~ {.output}
@@ -331,7 +331,7 @@ and she forgot to reset it.
 Before re-running that sample,
 she checks to see if any files have too much data:
 
-~~~ {.input}
+~~~ {.bash}
 $ wc -l *.txt | sort -n | tail -5
 ~~~
 ~~~ {.output}
@@ -348,7 +348,7 @@ by convention,
 her lab uses 'Z' to indicate samples with missing information.
 To find others like it, she does this:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls *Z.txt
 ~~~
 ~~~ {.output}

@@ -21,7 +21,7 @@ these are actually small programs.
 
 Let's start by going back to `molecules/` and putting the following line in the file `middle.sh`:
 
-~~~ {.input}
+~~~ {.bash}
 $ cd molecules
 $ cat middle.sh
 ~~~
@@ -38,7 +38,7 @@ Once we have saved the file,
 we can ask the shell to execute the commands it contains.
 Our shell is called `bash`, so we run the following command:
 
-~~~ {.input}
+~~~ {.bash}
 $ bash middle.sh
 ~~~
 ~~~ {.output}
@@ -70,7 +70,7 @@ but that would probably take longer than just retyping the command.
 Instead,
 let's edit `middle.sh` and replace `octane.pdb` with a special variable called `$1`:
 
-~~~ {.input}
+~~~ {.bash}
 $ cat middle.sh
 ~~~
 ~~~ {.output}
@@ -81,7 +81,7 @@ Inside a shell script,
 `$1` means "the first filename (or other parameter) on the command line".
 We can now run our script like this:
 
-~~~ {.input}
+~~~ {.bash}
 $ bash middle.sh octane.pdb
 ~~~
 ~~~ {.output}
@@ -94,7 +94,7 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 
 or on a different file like this:
 
-~~~ {.input}
+~~~ {.bash}
 $ bash middle.sh pentane.pdb
 ~~~
 ~~~ {.output}
@@ -125,13 +125,13 @@ We still need to edit `middle.sh` each time we want to adjust the range of lines
 though.
 Let's fix that by using the special variables `$2` and `$3`:
 
-~~~ {.input}
+~~~ {.bash}
 $ cat middle.sh
 ~~~
 ~~~ {.output}
 head "$2" "$1" | tail "$3"
 ~~~
-~~~ {.input}
+~~~ {.bash}
 $ bash middle.sh pentane.pdb -20 -5
 ~~~
 ~~~ {.output}
@@ -146,7 +146,7 @@ This works,
 but it may take the next person who reads `middle.sh` a moment to figure out what it does.
 We can improve our script by adding some **comments** at the top:
 
-~~~ {.input}
+~~~ {.bash}
 $ cat middle.sh
 ~~~
 ~~~ {.output}
@@ -162,7 +162,7 @@ but they're invaluable for helping people understand and use scripts.
 What if we want to process many files in a single pipeline?
 For example, if we want to sort our `.pdb` files by length, we would type:
 
-~~~ {.input}
+~~~ {.bash}
 $ wc -l *.pdb | sort -n
 ~~~
 
@@ -183,13 +183,13 @@ to handle the case of parameters containing spaces
 (`"$@"` is equivalent to `"$1"` `"$2"` ...)
 Here's an example:
 
-~~~ {.input}
+~~~ {.bash}
 $ cat sorted.sh
 ~~~
 ~~~ {.output}
 wc -l "$@" | sort -n
 ~~~
-~~~ {.input}
+~~~ {.bash}
 $ bash sorted.sh *.pdb ../creatures/*.dat
 ~~~
 ~~~ {.output}
@@ -253,7 +253,7 @@ Instead of typing them in again
 (and potentially getting them wrong)
 we can do this:
 
-~~~ {.input}
+~~~ {.bash}
 $ history | tail -4 > redo-figure-3.sh
 ~~~
 
@@ -324,13 +324,13 @@ done
 She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
 
-~~~ {.input}
+~~~ {.bash}
 $ bash do-stats.sh *[AB].txt
 ~~~
 
 She can also do this:
 
-~~~ {.input}
+~~~ {.bash}
 $ bash do-stats.sh *[AB].txt | wc -l
 ~~~
 
