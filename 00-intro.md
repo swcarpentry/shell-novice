@@ -99,7 +99,7 @@ She has 300 samples in all, and now needs to:
     so that her paper can appear in an upcoming special issue of *Aquatic Goo Letters*.
 
 It takes about half an hour for the assay machine to process each sample.
-The good news is:
+The good news is that
 it only takes two minutes to set each one up.
 Since her lab has eight assay machines that she can use in parallel,
 this step will "only" take about two weeks.
