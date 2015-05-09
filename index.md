@@ -15,7 +15,7 @@ These lessons will start you on a path towards using these resources effectively
 
 > ## Prerequisites {.prereq}
 >
-> This lesson guides you through the basics of filesystems and the
+> This lesson guides you through the basics of file systems and the
 > shell.  If you have stored files on a computer at all and recognize
 > the word “file” and either “directory” or “folder” (two common words
 > for the same thing), you're ready for this lesson.
