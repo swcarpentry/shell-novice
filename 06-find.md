@@ -342,46 +342,55 @@ We've seen how to do that with pipes;
 let's look at another technique.
 As we just saw,
 `find . -name '*.txt'` gives us a list of all text files in or below the current directory.
-How can we combine that with `wc -l` to count the lines in all those files?
+How can we execute other commands on all those files?
 
-The simplest way is to put the `find` command inside `$()`:
+The simplest way is to use a `for` loop in conjuction with the command substitution notation `$()`. For example:
 
 ~~~ {.input}
-$ wc -l $(find . -name '*.txt')
+$ for filename in $(find . -name '*.txt')
+> do
+>  head -1 $filename
+>  tail -1 $filename
+>  echo "---------------------------"
+> done
 ~~~
 ~~~ {.output}
-11 ./haiku.txt
-300 ./data/two.txt
-70 ./data/one.txt
-381 total
+$ It is a truth universally acknowledged, that a single man in possession
+$ "It will be no use to us, if twenty such should come, since you will not
+$ ---------------------------
+$ accomplished girl in the neighbourhood; and Catherine and Lydia had been
+$ accomplished girl in the neighbourhood; and Catherine and Lydia had been
+$ ---------------------------
+$ The Tao that is seen
+$ Software is like that.
+$ ---------------------------
 ~~~
 
-When the shell executes this command,
-the first thing it does is run whatever is inside the `$()`.
-It then replaces the `$()` expression with that command's output.
-Since the output of `find` is the three filenames `./data/one.txt`, `./data/two.txt`, and `./haiku.txt`,
-the shell constructs the command:
+When the shell executes this command, the first thing it does is run
+whatever is inside the `$()`.  It then replaces the `$()` expression
+with that command's output.  Since the output of `find` is the three
+filenames `./data/one.txt`, `./data/two.txt`, and `./haiku.txt`, the
+shell iterates through each file, and constructs the following
+commands:
 
-~~~ {.input}
-$ wc -l ./data/one.txt ./data/two.txt ./haiku.txt
+
+~~~ {.input} 
+$ head -1 ./data/one.txt
+$ tail -1 ./data/one.txt
+$  echo "---------------------------"
+$ head -1 ./data/two.txt
+$ tail -1 ./data/two.txt
+$  echo "---------------------------"
+$ head -1 ./haiku.txt
+$ tail -1 ./haiku.txt
+$  echo "---------------------------"
 ~~~
 
-which is what we wanted.
-This expansion is exactly what the shell does when it expands wildcards like `*` and `?`,
-but lets us use any command we want as our own "wildcard".
+which is what we wanted. 
+This expansion is exactly what the shell
+does when it expands wildcards like `*` and `?`, but lets us use any
+command we want as our own "wildcard".
 
-It's very common to use `find` and `grep` together.
-The first finds files that match a pattern;
-the second looks for lines inside those files that match another pattern.
-Here, for example, we can find PDB files that contain iron atoms
-by looking for the string "FE" in all the `.pdb` files above the current directory:
-
-~~~ {.input}
-$ grep FE $(find .. -name '*.pdb')
-~~~
-~~~ {.output}
-../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518
-~~~
 
 > ## Binary Files {.callout}
 >
