@@ -166,7 +166,7 @@ as long as learners using Windows do not run into roadblocks such as:
 
 *   On Windows, it appears that:
 
-    ~~~ {.input}
+    ~~~ {.bash}
     $ cd
     $ cd Desktop
     ~~~
