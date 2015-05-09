@@ -58,7 +58,6 @@ subtitle: Reference
 
 ## [Loops](04-loop.html)
 
-*   `history` displays recent commands, and `!number` to repeat a command by number.
 *   A `for` loop repeats commands once for every thing in a list.
 *   Every `for` loop needs a variable to refer to the current "thing".
 *   Use `$name` to expand a variable (i.e., get its value).
