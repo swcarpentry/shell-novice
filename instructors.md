@@ -75,6 +75,8 @@ as long as learners using Windows do not run into roadblocks such as:
 *   Time estimates:
     *   @gvwilson: 3 hours
 
+*   Super cool online resource!  http://explainshell.com/ will dissect any shell command you type in and display help text for each piece.  
+
 *	How to use the materials in the shell-novice repository (or, lesson planning)
 	* For a great general list of tips, see [this swcarpentry blog post](http://software-carpentry.org/blog/2015/03/teaching-tips.html)
 	* Use the `filesystem` directory for in-workshop exercises and live coding examples.
