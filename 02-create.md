@@ -17,13 +17,13 @@ Let's go back to Nelle's home directory,
 `/Users/nelle`,
 and use `ls -F` to see what it contains:
 
-~~~ {.input}
+~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
 /Users/nelle
 ~~~
-~~~ {.input}
+~~~ {.bash}
 $ ls -F
 ~~~
 ~~~ {.output}
@@ -35,7 +35,7 @@ Desktop/    notes.txt            writing/
 Let's create a new directory called `thesis` using the command `mkdir thesis`
 (which has no output):
 
-~~~ {.input}
+~~~ {.bash}
 $ mkdir thesis
 ~~~
 
@@ -45,7 +45,7 @@ Since `thesis` is a relative path
 (i.e., doesn't have a leading slash),
 the new directory is created in the current working directory:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls -F
 ~~~
 ~~~ {.output}
@@ -57,14 +57,14 @@ molecules/  solar.pdf
 
 However, there's nothing in it yet:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls -F thesis
 ~~~
 
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
 
-~~~ {.input}
+~~~ {.bash}
 $ cd thesis
 $ nano draft.txt
 ~~~
@@ -100,7 +100,7 @@ we can use Control-X to quit the editor and return to the shell.
 `nano` doesn't leave any output on the screen after it exits,
 but `ls` now shows that we have created a file called `draft.txt`:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls
 ~~~
 ~~~ {.output}
@@ -109,7 +109,7 @@ draft.txt
 
 Let's tidy up by running `rm draft.txt`:
 
-~~~ {.input}
+~~~ {.bash}
 $ rm draft.txt
 ~~~
 
@@ -118,7 +118,7 @@ If we run `ls` again,
 its output is empty once more,
 which tells us that our file is gone:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls
 ~~~
 
@@ -135,27 +135,27 @@ $ ls
 Let's re-create that file
 and then move up one directory to `/Users/nelle` using `cd ..`:
 
-~~~ {.input}
+~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
 /Users/nelle/thesis
 ~~~
-~~~ {.input}
+~~~ {.bash}
 $ nano draft.txt
 $ ls
 ~~~
 ~~~ {.output}
 draft.txt
 ~~~
-~~~ {.input}
+~~~ {.bash}
 $ cd ..
 ~~~
 
 If we try to remove the entire `thesis` directory using `rm thesis`,
 we get an error message:
 
-~~~ {.input}
+~~~ {.bash}
 $ rm thesis
 ~~~
 ~~~ {.error}
@@ -168,7 +168,7 @@ which is short for "remove directory".
 It doesn't work yet either, though,
 because the directory we're trying to remove isn't empty:
 
-~~~ {.input}
+~~~ {.bash}
 $ rmdir thesis
 ~~~
 ~~~ {.error}
@@ -179,13 +179,13 @@ This little safety feature can save you a lot of grief,
 particularly if you are a bad typist.
 To really get rid of `thesis` we must first delete the file `draft.txt`:
 
-~~~ {.input}
+~~~ {.bash}
 $ rm thesis/draft.txt
 ~~~
 
 The directory is now empty, so `rmdir` can delete it:
 
-~~~ {.input}
+~~~ {.bash}
 $ rmdir thesis
 ~~~
 
@@ -208,16 +208,16 @@ Let's create that directory and file one more time.
 (Note that this time we're running `nano` with the path `thesis/draft.txt`,
 rather than going into the `thesis` directory and running `nano` on `draft.txt` there.)
 
-~~~ {.input}
+~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
 /Users/nelle
 ~~~
-~~~ {.input}
+~~~ {.bash}
 $ mkdir thesis
 ~~~
-~~~ {.input}
+~~~ {.bash}
 $ nano thesis/draft.txt
 $ ls thesis
 ~~~
@@ -229,7 +229,7 @@ draft.txt
 so let's change the file's name using `mv`,
 which is short for "move":
 
-~~~ {.input}
+~~~ {.bash}
 $ mv thesis/draft.txt thesis/quotes.txt
 ~~~
 
@@ -241,7 +241,7 @@ which has the same effect as renaming the file.
 Sure enough,
 `ls` shows us that `thesis` now contains one file called `quotes.txt`:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls thesis
 ~~~
 ~~~ {.output}
@@ -260,14 +260,14 @@ but put the file somewhere new.
 In this case,
 the directory name we use is the special directory name `.` that we mentioned earlier.
 
-~~~ {.input}
+~~~ {.bash}
 $ mv thesis/quotes.txt .
 ~~~
 
 The effect is to move the file from the directory it was in to the current working directory.
 `ls` now shows us that `thesis` is empty:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls thesis
 ~~~
 
@@ -275,7 +275,7 @@ Further,
 `ls` with a filename or directory name as a parameter only lists that file or directory.
 We can use this to see that `quotes.txt` is still in our current directory:
 
-~~~ {.input}
+~~~ {.bash}
 $ ls quotes.txt
 ~~~
 ~~~ {.output}
@@ -288,7 +288,7 @@ We can check that it did the right thing using `ls`
 with two paths as parameters --- like most Unix commands,
 `ls` can be given thousands of paths at once:
 
-~~~ {.input}
+~~~ {.bash}
 $ cp quotes.txt thesis/quotations.txt
 $ ls quotes.txt thesis/quotations.txt
 ~~~
@@ -300,7 +300,7 @@ To prove that we made a copy,
 let's delete the `quotes.txt` file in the current directory
 and then run that same `ls` again.
 
-~~~ {.input}
+~~~ {.bash}
 $ rm quotes.txt
 $ ls quotes.txt thesis/quotations.txt
 ~~~
