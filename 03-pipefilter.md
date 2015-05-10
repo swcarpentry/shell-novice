@@ -112,6 +112,8 @@ The shell will create the file if it doesn't exist,
 or overwrite the contents of that file if it does.
 (This is why there is no screen output:
 everything that `wc` would have printed has gone into the file `lengths.txt` instead.)
+One should be careful when using `>` as it will silently overwrite an
+existing file with the same name as the specified target.
 `ls lengths.txt` confirms that the file exists:
 
 ~~~ {.bash}
