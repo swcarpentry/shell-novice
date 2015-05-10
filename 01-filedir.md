@@ -107,7 +107,7 @@ Inside that directory are several other directories:
 `tmp` (for temporary files that don't need to be stored long-term),
 and so on:
 
-![The Filesystem](fig/filesystem.svg)
+![The File System](fig/filesystem.svg)
 
 We know that our current working directory `/Users/nelle` is stored inside `/Users`
 because `/Users` is the first part of its name.
@@ -236,7 +236,7 @@ access.log    backup/    hardware.cfg
 network.cfg
 ~~~
 
-The leading `/` tells the computer to follow the path from the root of the filesystem,
+The leading `/` tells the computer to follow the path from the root of the file system,
 so it always refers to exactly one directory,
 no matter where we are when we run the command.
 
@@ -427,7 +427,7 @@ and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
-![Filesystem for Challange Questions](fig/filesystem-challenge.svg)
+![File System for Challange Questions](fig/filesystem-challenge.svg)
 
 > ## Relative path resolution {.challenge}
 >
