@@ -22,9 +22,9 @@ subtitle: Reference
     `ls` on its own lists the current working directory.
 *   `pwd` prints the user's current working directory.
 *   `whoami` shows the user's current identity.
-*   `/` on its own is the root directory of the whole filesystem.
+*   `/` on its own is the root directory of the whole file system.
 *   A relative path specifies a location starting from the current location.
-*   An absolute path specifies a location from the root of the filesystem.
+*   An absolute path specifies a location from the root of the file system.
 *   Directory names in a path are separated with '/' on Unix, but '\\' on Windows.
 *   '..' means "the directory above the current one";
     '.' on its own means "the current directory".
@@ -123,8 +123,8 @@ current working directory
 
 file system
 :   A set of files, directories, and I/O devices (such as keyboards and screens).
-    A filesystem may be spread across many physical devices,
-    or many filesystems may be stored on a single physical device;
+    A file system may be spread across many physical devices,
+    or many file systems may be stored on a single physical device;
     the [operating system](#operating-system) manages access.
 
 filename extension
