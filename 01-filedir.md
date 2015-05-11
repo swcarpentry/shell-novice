@@ -348,8 +348,6 @@ but we'll see some uses for it soon.
 Finally, we also see a file called `.bash_profile`. This file usually contains settings to customize the shell (terminal). For this lesson material it does not contain any settings. There may also be similar files called `.bashrc` or `.bash_login`. The `.` prefix is used to prevent these configuration files from cluttering the terminal when a standard `ls` command is used.
 
 
-
-
 > ## Orthogonality {.callout}
 >
 > The special names `.` and `..` don't belong to `ls`;
@@ -361,6 +359,18 @@ Finally, we also see a file called `.bash_profile`. This file usually contains s
 > programmers say they are **orthogonal**:
 > Orthogonal systems tend to be easier for people to learn
 > because there are fewer special cases and exceptions to keep track of.
+
+
+> ## Another Useful Abbreviation {.callout}
+>
+> The shell interprets the character `~` (tilde) at the start of a path to
+> mean "the current user's home directory". For example, if Nelle's home
+> directory is `/Users/nelle`, then `~/data` is equivalent to
+> `/Users/nelle/data`. This only works if it is the first character in the
+> path: `here/there/~/elsewhere` is *not* `/Users/nelle/elsewhere`. Thus
+> `cd ~` can be used to change to the home directory. An even shorter 
+> way to return to user's home directory is `cd` (without arguments).
+
 
 ### Nelle's Pipeline: Organizing Files
 

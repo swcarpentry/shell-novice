@@ -311,14 +311,6 @@ thesis/quotations.txt
 This time it tells us that it can't find `quotes.txt` in the current directory,
 but it does find the copy in `thesis` that we didn't delete.
 
-> ## Another Useful Abbreviation {.callout}
->
-> The shell interprets the character `~` (tilde) at the start of a path to
-> mean "the current user's home directory". For example, if Nelle's home
-> directory is `/Users/nelle`, then `~/data` is equivalent to
-> `/Users/nelle/data`. This only works if it is the first character in the
-> path: `here/there/~/elsewhere` is *not* `/Users/nelle/elsewhere`.
-
 > ## Renaming files {.challenge}
 >
 > Suppose that you created a `.txt` file in your current directory to contain a list of the
