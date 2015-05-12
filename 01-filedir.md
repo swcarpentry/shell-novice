@@ -403,14 +403,14 @@ $ ls north-pacific-gyre/2012-07-03/
 ~~~
 
 This is a lot to type,
-but she can let the shell do most of the work.
+but she can let the shell do most of the work through what is called **tab completion**.
 If she types:
 
 ~~~ {.bash}
 $ ls nor
 ~~~
 
-and then presses tab,
+and then presses tab (the tab key on her keyboard),
 the shell automatically completes the directory name for her:
 
 ~~~ {.bash}
