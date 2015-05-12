@@ -79,8 +79,12 @@ as long as learners using Windows do not run into roadblocks such as:
 
 *	How to use the materials in the shell-novice repository (or, lesson planning)
 	* For a great general list of tips, see [this swcarpentry blog post](http://software-carpentry.org/blog/2015/03/teaching-tips.html)
-	* Use the `filesystem` directory for in-workshop exercises and live coding examples.
-	The easiest way to get can get these files is by cloning the entire shell-novice directory OR clicking the "Download Zip" button on the repository's main page.  If you want learners to just have the `filesystem` directory (without other material), you'll have to do the separating out on your own.
+	* Use the `data` directory for in-workshop exercises and live coding examples.
+	You can clone the shell-novice directory or use the `Download ZIP` 
+	button on the right to get the entire repository; we also now provide 
+	a zip file of the `data` directory that can be downloaded on its own 
+	from the repository by right-click + save.  See the "Get Ready" box 
+	on the front page of the website for more details.  
 	* Website: various practices have been used.
 		* Option 1: Can give links to learners before the lesson so they can follow along, catch up, and see exercises (particularly if you're following the lesson content without many changes).
 		* Option 2: Don't show the website to the learners during the lesson, as it can be distracting - students may read instead of listen, and having another window open is an additional cognitive load.
