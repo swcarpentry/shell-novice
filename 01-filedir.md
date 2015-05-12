@@ -62,14 +62,14 @@ i.e.,
 the directory that the computer assumes we want to run commands in
 unless we explicitly specify something else.
 Here,
-the computer's response is `/Users/nelle`,
+the computer's response is `/users/nelle`,
 which is Nelle's **home directory**:
 
 ~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
-/Users/nelle
+/users/nelle
 ~~~
 
 > ## Home directory {.callout}
@@ -98,7 +98,7 @@ let's have a look at how the file system as a whole is organized.
 At the top is the **root directory**
 that holds everything else.
 We refer to it using a slash character `/` on its own;
-this is the leading slash in `/Users/nelle`.
+this is the leading slash in `/users/nelle`.
 
 Inside that directory are several other directories:
 `bin` (which is where some built-in programs are stored),
@@ -109,17 +109,17 @@ and so on:
 
 ![The File System](fig/filesystem.svg)
 
-We know that our current working directory `/Users/nelle` is stored inside `/Users`
-because `/Users` is the first part of its name.
+We know that our current working directory `/users/nelle` is stored inside `/users`
+because `/users` is the first part of its name.
 Similarly,
-we know that `/Users` is stored inside the root directory `/`
+we know that `/users` is stored inside the root directory `/`
 because its name begins with `/`.
 
-Underneath `/Users`,
+Underneath `/users`,
 we find one directory for each user with an account on this machine.
-The Mummy's files are stored in `/Users/imhotep`,
-Wolfman's in `/Users/larry`,
-and ours in `/Users/nelle`,
+The Mummy's files are stored in `/users/imhotep`,
+Wolfman's in `/users/larry`,
+and ours in `/users/nelle`,
 which is why `nelle` is the last part of the directory's name.
 
 ![Home Directories](fig/home-directories.svg)
@@ -158,7 +158,7 @@ Desktop/    notes.txt            writing/
 ~~~
 
 Here,
-we can see that `/Users/nelle` contains six **sub-directories**.
+we can see that `/users/nelle` contains six **sub-directories**.
 The names that don't have trailing slashes,
 like `notes.txt`, `pizza.cfg`, and `solar.pdf`,
 are plain old files.
@@ -242,14 +242,14 @@ no matter where we are when we run the command.
 
 What if we want to change our current working directory?
 Before we do this,
-`pwd` shows us that we're in `/Users/nelle`,
+`pwd` shows us that we're in `/users/nelle`,
 and `ls` without any arguments shows us that directory's contents:
 
 ~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
-/Users/nelle
+/users/nelle
 ~~~
 ~~~ {.bash}
 $ ls
@@ -271,16 +271,16 @@ $ cd data
 ~~~
 
 `cd` doesn't print anything,
-but if we run `pwd` after it, we can see that we are now in `/Users/nelle/data`.
+but if we run `pwd` after it, we can see that we are now in `/users/nelle/data`.
 If we run `ls` without arguments now,
-it lists the contents of `/Users/nelle/data`,
+it lists the contents of `/users/nelle/data`,
 because that's where we now are:
 
 ~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
-/Users/nelle/data
+/users/nelle/data
 ~~~
 ~~~ {.bash}
 $ ls -F
@@ -295,7 +295,7 @@ how do we go up?
 We could use an absolute path:
 
 ~~~ {.bash}
-$ cd /Users/nelle
+$ cd /users/nelle
 ~~~
 
 but it's almost always simpler to use `cd ..` to go up one level:
@@ -304,7 +304,7 @@ but it's almost always simpler to use `cd ..` to go up one level:
 $ pwd
 ~~~
 ~~~ {.output}
-/Users/nelle/data
+/users/nelle/data
 ~~~
 ~~~ {.bash}
 $ cd ..
@@ -315,13 +315,13 @@ $ cd ..
 or more succinctly,
 the **parent** of the current directory.
 Sure enough,
-if we run `pwd` after running `cd ..`, we're back in `/Users/nelle`:
+if we run `pwd` after running `cd ..`, we're back in `/users/nelle`:
 
 ~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
-/Users/nelle
+/users/nelle
 ~~~
 
 The special directory `..` doesn't usually show up when we run `ls`.
@@ -339,7 +339,7 @@ Desktop/            north-pacific-gyre/ writing/
 
 `-a` stands for "show all";
 it forces `ls` to show us file and directory names that begin with `.`,
-such as `..` (which, if we're in `/Users/nelle`, refers to the `/Users` directory).
+such as `..` (which, if we're in `/users/nelle`, refers to the `/users` directory).
 As you can see,
 it also displays another special directory that's just called `.`,
 which means "the current working directory".
@@ -355,8 +355,8 @@ Finally, we also see a file called `.bash_profile`. This file usually contains s
 > The special names `.` and `..` don't belong to `ls`;
 > they are interpreted the same way by every program.
 > For example,
-> if we are in `/Users/nelle/data`,
-> the command `ls ..` will give us a listing of `/Users/nelle`.
+> if we are in `/users/nelle/data`,
+> the command `ls ..` will give us a listing of `/users/nelle`.
 > When the meanings of the parts are the same no matter how they're combined,
 > programmers say they are **orthogonal**:
 > Orthogonal systems tend to be easier for people to learn
@@ -431,7 +431,7 @@ and we will see it in many other tools as we go on.
 
 > ## Relative path resolution {.challenge}
 >
-> If `pwd` displays `/Users/thing`, what will `ls ../backup` display?
+> If `pwd` displays `/users/thing`, what will `ls ../backup` display?
 >
 > 1.  `../backup: No such file or directory`
 > 2.  `2012-12-01 2013-01-08 2013-01-27`
@@ -440,7 +440,7 @@ and we will see it in many other tools as we go on.
 
 > ## `ls` reading comprehension {.challenge}
 >
-> If `pwd` displays `/Users/backup`,
+> If `pwd` displays `/users/backup`,
 > and `-r` tells `ls` to display things in reverse order,
 > what command will display:
 >
@@ -450,7 +450,7 @@ and we will see it in many other tools as we go on.
 >
 > 1.  `ls pwd`
 > 2.  `ls -r -F`
-> 3.  `ls -r -F /Users/backup`
+> 3.  `ls -r -F /users/backup`
 > 4.  Either \#2 or \#3 above, but not \#1.
 
 > ## Default `cd` action {.challenge}
