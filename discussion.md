@@ -3,7 +3,7 @@ layout: page
 title: The Unix Shell
 subtitle: Discussion
 ---
-### Other Shells
+## Other Shells
 
 Before Bash became popular in the end of nineties,
 scientists widely used (and some still use) another shell, C-shell, or Csh.
