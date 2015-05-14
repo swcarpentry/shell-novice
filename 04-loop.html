@@ -30,7 +30,7 @@
           <h2 class="subtitle">Loops</h2>
 <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -66,7 +66,7 @@ UPDATED: 1738-11-24</code></pre>
 <p>Finally, the command that’s actually being run is our old friend <code>head</code>, so this loop prints out the first three lines of each data file in turn.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Follow the Prompt</h2>
+<h2 id="follow-the-prompt"><span class="glyphicon glyphicon-pushpin"></span>Follow the Prompt</h2>
 </div>
 <div class="panel-body">
 <p>The shell prompt changes from <code>$</code> to <code>&gt;</code> and back again as we were typing in our loop. The second prompt, <code>&gt;</code>, is different to remind us that we haven’t finished typing a complete command yet.</p>
@@ -102,7 +102,7 @@ UPDATED: 1738-11-24</code></pre>
 <p>because then the first time through the loop, when <code>$filename</code> expanded to <code>basilisk.dat</code>, the shell would try to run <code>basilisk.dat</code> as a program. Finally, the <code>head</code> and <code>tail</code> combination selects lines 81-100 from whatever file is being processed.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Spaces in Names</h2>
+<h2 id="spaces-in-names"><span class="glyphicon glyphicon-pushpin"></span>Spaces in Names</h2>
 </div>
 <div class="panel-body">
 <p>Filename expansion in loops is another reason you should not use spaces in filenames. Suppose our data files are named:</p>
@@ -141,7 +141,7 @@ done</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mv</span> unicorn.dat original-unicorn.dat</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Measure Twice, Run Once</h2>
+<h2 id="measure-twice-run-once"><span class="glyphicon glyphicon-pushpin"></span>Measure Twice, Run Once</h2>
 </div>
 <div class="panel-body">
 <p>A loop is a way to do many things at once — or to make many mistakes at once if it does the wrong thing. One way to check what a loop <em>would</em> do is to echo the commands it would run instead of actually running them. For example, we could write our file renaming loop like this:</p>
@@ -188,7 +188,7 @@ NENE02043B.txt stats-NENE02043B.txt</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">echo</span> <span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">bash</span> goostats <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Beginning and End</h2>
+<h2 id="beginning-and-end"><span class="glyphicon glyphicon-pushpin"></span>Beginning and End</h2>
 </div>
 <div class="panel-body">
 <p>We can move to the beginning of a line in the shell by typing <code>^A</code> (which means Control-A) and to the end using <code>^E</code>.</p>
@@ -202,7 +202,7 @@ NENE01736A.txt
 <p>1518 times 5 seconds, divided by 60, tells her that her script will take about two hours to run. As a final check, she opens another terminal window, goes into <code>north-pacific-gyre/2012-07-03</code>, and uses <code>cat stats-NENE01729B.txt</code> to examine one of the output files. It looks good, so she decides to get some coffee and catch up on her reading.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Those Who Know History Can Choose to Repeat It</h2>
+<h2 id="those-who-know-history-can-choose-to-repeat-it"><span class="glyphicon glyphicon-pushpin"></span>Those Who Know History Can Choose to Repeat It</h2>
 </div>
 <div class="panel-body">
 <p>Another way to repeat previous work is to use the <code>history</code> command to get a list of the last few hundred commands that have been executed, and then to use <code>!123</code> (where “123” is replaced by the command number) to repeat one of those commands. For example, if Nelle types this:</p>
@@ -217,7 +217,7 @@ NENE01736A.txt
 </aside>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Variables in Loops</h2>
+<h2 id="variables-in-loops"><span class="glyphicon glyphicon-pencil"></span>Variables in Loops</h2>
 </div>
 <div class="panel-body">
 <p>Suppose that <code>ls</code> initially displays:</p>
@@ -237,7 +237,7 @@ done</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Saving to a File in a Loop - Part One</h2>
+<h2 id="saving-to-a-file-in-a-loop---part-one"><span class="glyphicon glyphicon-pencil"></span>Saving to a File in a Loop - Part One</h2>
 </div>
 <div class="panel-body">
 <p>In the same directory, what is the effect of this loop?</p>
@@ -256,7 +256,7 @@ done</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Saving to a File in a Loop - Part Two</h2>
+<h2 id="saving-to-a-file-in-a-loop---part-two"><span class="glyphicon glyphicon-pencil"></span>Saving to a File in a Loop - Part Two</h2>
 </div>
 <div class="panel-body">
 <p>In another directory, where <code>ls</code> returns:</p>
@@ -276,7 +276,7 @@ done</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Doing a Dry Run</h2>
+<h2 id="doing-a-dry-run"><span class="glyphicon glyphicon-pencil"></span>Doing a Dry Run</h2>
 </div>
 <div class="panel-body">
 <p>Suppose we want to preview the commands the following loop will execute without actually running those commands:</p>
@@ -299,7 +299,7 @@ done</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Nested Loops and Command-Line Expressions</h2>
+<h2 id="nested-loops-and-command-line-expressions"><span class="glyphicon glyphicon-pencil"></span>Nested Loops and Command-Line Expressions</h2>
 </div>
 <div class="panel-body">
 <p>The <code>expr</code> does simple arithmetic using command-line parameters:</p>

@@ -30,7 +30,7 @@
           <h2 class="subtitle">Creating Things</h2>
 <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -63,7 +63,7 @@ molecules/  solar.pdf</code></pre>
 $ <span class="kw">nano</span> draft.txt</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Which Editor?</h2>
+<h2 id="which-editor"><span class="glyphicon glyphicon-pushpin"></span>Which Editor?</h2>
 </div>
 <div class="panel-body">
 <p>When we say, “<code>nano</code> is a text editor,” we really do mean “text”: it can only work with plain character data, not tables, images, or any other human-friendly media. We use it in examples because almost anyone can drive it anywhere without training, but please use something more powerful for real work. On Unix systems (such as Linux and Mac OS X), many programmers use <a href="http://www.gnu.org/software/emacs/">Emacs</a> or <a href="http://www.vim.org/">Vim</a> (both of which are completely unintuitive, even by Unix standards), or a graphical editor such as <a href="http://projects.gnome.org/gedit/">Gedit</a>. On Windows, you may wish to use <a href="http://notepad-plus-plus.org/">Notepad++</a>.</p>
@@ -72,7 +72,8 @@ $ <span class="kw">nano</span> draft.txt</code></pre>
 </aside>
 <p>Let’s type in a few lines of text, then use Control-O to write our data to disk:</p>
 <div class="figure">
-<img src="fig/nano-screenshot.png" alt="Nano in action" /><p class="caption">Nano in action</p>
+<img src="fig/nano-screenshot.png" alt="Nano in action" />
+<p class="caption">Nano in action</p>
 </div>
 <p>Once our file is saved, we can use Control-X to quit the editor and return to the shell. (Unix documentation often uses the shorthand <code>^A</code> to mean “control-A”.) <code>nano</code> doesn’t leave any output on the screen after it exits, but <code>ls</code> now shows that we have created a file called <code>draft.txt</code>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span></code></pre>
@@ -83,7 +84,7 @@ $ <span class="kw">nano</span> draft.txt</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span></code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Deleting Is Forever</h2>
+<h2 id="deleting-is-forever"><span class="glyphicon glyphicon-pushpin"></span>Deleting Is Forever</h2>
 </div>
 <div class="panel-body">
 <p>The Unix shell doesn’t have a trash bin that we can recover deleted files from (though most graphical interfaces to Unix do). Instead, when we delete files, they are unhooked from the file system so that their storage space on disk can be recycled. Tools for finding and recovering deleted files do exist, but there’s no guarantee they’ll work in any particular situation, since the computer may recycle the file’s disk space right away.</p>
@@ -108,7 +109,7 @@ $ <span class="kw">ls</span></code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">rmdir</span> thesis</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>With Great Power Comes Great Responsibility</h2>
+<h2 id="with-great-power-comes-great-responsibility"><span class="glyphicon glyphicon-pushpin"></span>With Great Power Comes Great Responsibility</h2>
 </div>
 <div class="panel-body">
 <p>Removing the files in a directory just so that we can remove the directory quickly becomes tedious. Instead, we can use <code>rm</code> with the <code>-r</code> flag (which stands for “recursive”):</p>
@@ -148,7 +149,7 @@ thesis/quotations.txt</code></pre>
 <p>This time it tells us that it can’t find <code>quotes.txt</code> in the current directory, but it does find the copy in <code>thesis</code> that we didn’t delete.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Another Useful Abbreviation</h2>
+<h2 id="another-useful-abbreviation"><span class="glyphicon glyphicon-pushpin"></span>Another Useful Abbreviation</h2>
 </div>
 <div class="panel-body">
 <p>The shell interprets the character <code>~</code> (tilde) at the start of a path to mean “the current user’s home directory”. For example, if Nelle’s home directory is <code>/Users/nelle</code>, then <code>~/data</code> is equivalent to <code>/Users/nelle/data</code>. This only works if it is the first character in the path: <code>here/there/~/elsewhere</code> is <em>not</em> <code>/Users/nelle/elsewhere</code>.</p>
@@ -156,7 +157,7 @@ thesis/quotations.txt</code></pre>
 </aside>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Renaming files</h2>
+<h2 id="renaming-files"><span class="glyphicon glyphicon-pencil"></span>Renaming files</h2>
 </div>
 <div class="panel-body">
 <p>Suppose that you created a <code>.txt</code> file in your current directory to contain a list of the statistical tests you will need to do to analyze your data, and named it: <code>statstics.txt</code></p>
@@ -171,7 +172,7 @@ thesis/quotations.txt</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Moving and Copying</h2>
+<h2 id="moving-and-copying"><span class="glyphicon glyphicon-pencil"></span>Moving and Copying</h2>
 </div>
 <div class="panel-body">
 <p>What is the output of the closing <code>ls</code> command in the sequence shown below?</p>
@@ -193,7 +194,7 @@ $ ls</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Listing Directories and Files</h2>
+<h2 id="listing-directories-and-files"><span class="glyphicon glyphicon-pencil"></span>Listing Directories and Files</h2>
 </div>
 <div class="panel-body">
 <p>Suppose that:</p>
@@ -208,7 +209,7 @@ fructose.dat    sucrose.dat</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Copy with Multiple Filenames</h2>
+<h2 id="copy-with-multiple-filenames"><span class="glyphicon glyphicon-pencil"></span>Copy with Multiple Filenames</h2>
 </div>
 <div class="panel-body">
 <p>What does <code>cp</code> do when given several filenames and a directory name, as in:</p>
@@ -222,7 +223,7 @@ $ cp intro.txt methods.txt survey.txt</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Listing Recursively and By Time</h2>
+<h2 id="listing-recursively-and-by-time"><span class="glyphicon glyphicon-pencil"></span>Listing Recursively and By Time</h2>
 </div>
 <div class="panel-body">
 <p>The command <code>ls -R</code> lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on in alphabetical order at each level. The command <code>ls -t</code> lists things by time of last change, with most recently changed files or directories first. In what order does <code>ls -R -t</code> display things?</p>
