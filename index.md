@@ -24,7 +24,7 @@ These lessons will start you on a path towards using these resources effectively
 > searching for files with `grep` and `find`, and writing simple loops
 > and scripts, you probably won't learn much from this lesson.
 
-> ## Getting ready {.prereq}
+> ## Getting ready {.getready}
 >
 > You need to download some files to follow this lesson:
 > 

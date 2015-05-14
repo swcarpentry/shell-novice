@@ -99,7 +99,7 @@ argument
     The term is often used interchangeably (and inconsistently) with [parameter](#parameter).
 
 command shell
-:   FIXME
+:   See [shell](#shell)
 
 command-line interface
 :   An interface based on typing commands,
