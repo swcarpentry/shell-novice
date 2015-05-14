@@ -30,7 +30,7 @@
           <h2 class="subtitle">Shell Scripts</h2>
 <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -43,12 +43,12 @@
 </section>
 <p>We are finally ready to see what makes the shell such a powerful programming environment. We are going to take the commands we repeat frequently and save them in files so that we can re-run all those operations again later by typing a single command. For historical reasons, a bunch of commands saved in a file is usually called a <strong>shell script</strong>, but make no mistake: these are actually small programs.</p>
 <p>Let’s start by going back to <code>molecules/</code> and putting the following line in the file <code>middle.sh</code>:</p>
-<pre class="input"><code>$ cd molecules
-$ cat middle.sh</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> molecules
+$ <span class="kw">cat</span> middle.sh</code></pre>
 <pre><code>head -15 octane.pdb | tail -5</code></pre>
 <p>This is a variation on the pipe we constructed earlier: it selects lines 11-15 of the file <code>octane.pdb</code>. Remember, we are <em>not</em> running it as a command just yet: we are putting the commands in a file.</p>
 <p>Once we have saved the file, we can ask the shell to execute the commands it contains. Our shell is called <code>bash</code>, so we run the following command:</p>
-<pre class="input"><code>$ bash middle.sh</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">bash</span> middle.sh</code></pre>
 <pre class="output"><code>ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
 ATOM     10  H           1      -5.254  -0.243  -0.537  1.00  0.00
 ATOM     11  H           1      -4.357   1.252  -0.895  1.00  0.00
@@ -57,24 +57,24 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00</code></pre>
 <p>Sure enough, our script’s output is exactly what we would get if we ran that pipeline directly.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="text-vs.whatever"><span class="glyphicon glyphicon-pushpin"></span>Text vs. Whatever</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Text vs. Whatever</h2>
 </div>
 <div class="panel-body">
 <p>We usually call programs like Microsoft Word or LibreOffice Writer “text editors”, but we need to be a bit more careful when it comes to programming. By default, Microsoft Word uses <code>.docx</code> files to store not only text, but also formatting information about fonts, headings, and so on. This extra information isn’t stored as characters, and doesn’t mean anything to tools like <code>head</code>: they expect input files to contain nothing but the letters, digits, and punctuation on a standard computer keyboard. When editing programs, therefore, you must either use a plain text editor, or be careful to save files as plain text.</p>
 </div>
 </aside>
 <p>What if we want to select lines from an arbitrary file? We could edit <code>middle.sh</code> each time to change the filename, but that would probably take longer than just retyping the command. Instead, let’s edit <code>middle.sh</code> and replace <code>octane.pdb</code> with a special variable called <code>$1</code>:</p>
-<pre class="input"><code>$ cat middle.sh</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> middle.sh</code></pre>
 <pre class="output"><code>head -20 &quot;$1&quot; | tail -5</code></pre>
 <p>Inside a shell script, <code>$1</code> means “the first filename (or other parameter) on the command line”. We can now run our script like this:</p>
-<pre class="input"><code>$ bash middle.sh octane.pdb</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">bash</span> middle.sh octane.pdb</code></pre>
 <pre class="output"><code>ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
 ATOM     10  H           1      -5.254  -0.243  -0.537  1.00  0.00
 ATOM     11  H           1      -4.357   1.252  -0.895  1.00  0.00
 ATOM     12  H           1      -3.009  -0.741  -1.467  1.00  0.00
 ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00</code></pre>
 <p>or on a different file like this:</p>
-<pre class="input"><code>$ bash middle.sh pentane.pdb</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">bash</span> middle.sh pentane.pdb</code></pre>
 <pre class="output"><code>ATOM      9  H           1       1.324   0.350  -1.332  1.00  0.00
 ATOM     10  H           1       1.271   1.378   0.122  1.00  0.00
 ATOM     11  H           1      -0.074  -0.384   1.288  1.00  0.00
@@ -82,7 +82,7 @@ ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
 ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="double-quotes-around-arguments"><span class="glyphicon glyphicon-pushpin"></span>Double-Quotes Around Arguments</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Double-Quotes Around Arguments</h2>
 </div>
 <div class="panel-body">
 <p>We put the <code>$1</code> inside of double-quotes in case the filename happens to contain any spaces. The shell uses whitespace to separate arguments, so we have to be careful when using arguments that might have whitespace in them. If we left out these quotes, and <code>$1</code> expanded to a filename like <code>methyl butane.pdb</code>, the command in the script would effectively be:</p>
@@ -91,26 +91,26 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00</code></pre>
 </div>
 </aside>
 <p>We still need to edit <code>middle.sh</code> each time we want to adjust the range of lines, though. Let’s fix that by using the special variables <code>$2</code> and <code>$3</code>:</p>
-<pre class="input"><code>$ cat middle.sh</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> middle.sh</code></pre>
 <pre class="output"><code>head &quot;$2&quot; &quot;$1&quot; | tail &quot;$3&quot;</code></pre>
-<pre class="input"><code>$ bash middle.sh pentane.pdb -20 -5</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">bash</span> middle.sh pentane.pdb -20 -5</code></pre>
 <pre class="output"><code>ATOM     14  H           1      -1.259   1.420   0.112  1.00  0.00
 ATOM     15  H           1      -2.608  -0.407   1.130  1.00  0.00
 ATOM     16  H           1      -2.540  -1.303  -0.404  1.00  0.00
 ATOM     17  H           1      -3.393   0.254  -0.321  1.00  0.00
 TER      18              1</code></pre>
 <p>This works, but it may take the next person who reads <code>middle.sh</code> a moment to figure out what it does. We can improve our script by adding some <strong>comments</strong> at the top:</p>
-<pre class="input"><code>$ cat middle.sh</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> middle.sh</code></pre>
 <pre class="output"><code># Select lines from the middle of a file.
 # Usage: middle.sh filename -end_line -num_lines
 head &quot;$2&quot; &quot;$1&quot; | tail &quot;$3&quot;</code></pre>
 <p>A comment starts with a <code>#</code> character and runs to the end of the line. The computer ignores comments, but they’re invaluable for helping people understand and use scripts.</p>
 <p>What if we want to process many files in a single pipeline? For example, if we want to sort our <code>.pdb</code> files by length, we would type:</p>
-<pre class="input"><code>$ wc -l *.pdb | sort -n</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">wc</span> -l *.pdb <span class="kw">|</span> <span class="kw">sort</span> -n</code></pre>
 <p>because <code>wc -l</code> lists the number of lines in the files (recall that wc stands for ‘word count’, adding the -l flag means ‘count lines’ instead) and <code>sort -n</code> sorts things numerically. We could put this in a file, but then it would only ever sort a list of <code>.pdb</code> files in the current directory. If we want to be able to get a sorted list of other kinds of files, we need a way to get all those names into the script. We can’t use <code>$1</code>, <code>$2</code>, and so on because we don’t know how many files there are. Instead, we use the special variable <code>$@</code>, which means, “All of the command-line parameters to the shell script.” We also should put <code>$@</code> inside double-quotes to handle the case of parameters containing spaces (<code>&quot;$@&quot;</code> is equivalent to <code>&quot;$1&quot;</code> <code>&quot;$2&quot;</code> …) Here’s an example:</p>
-<pre class="input"><code>$ cat sorted.sh</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> sorted.sh</code></pre>
 <pre class="output"><code>wc -l &quot;$@&quot; | sort -n</code></pre>
-<pre class="input"><code>$ bash sorted.sh *.pdb ../creatures/*.dat</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">bash</span> sorted.sh *.pdb ../creatures/*.dat</code></pre>
 <pre class="output"><code>9 methane.pdb
 12 ethane.pdb
 15 propane.pdb
@@ -121,7 +121,7 @@ head &quot;$2&quot; &quot;$1&quot; | tail &quot;$3&quot;</code></pre>
 163 ../creatures/unicorn.dat</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="why-isnt-it-doing-anything"><span class="glyphicon glyphicon-pushpin"></span>Why Isn’t It Doing Anything?</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Why Isn’t It Doing Anything?</h2>
 </div>
 <div class="panel-body">
 <p>What happens if a script is supposed to process a bunch of files, but we don’t give it any filenames? For example, what if we type:</p>
@@ -138,7 +138,7 @@ head &quot;$2&quot; &quot;$1&quot; | tail &quot;$3&quot;</code></pre>
 wc -l &quot;$@&quot; | sort -n</code></pre>
 <p>you don’t have to puzzle it out — the comment at the top tells you what it does. A line or two of documentation like this make it much easier for other people (including your future self) to re-use your work. The only caveat is that each time you modify the script, you should check that the comment is still accurate: an explanation that sends the reader in the wrong direction is worse than none at all.</p>
 <p>Second, suppose we have just run a series of commands that did something useful — for example, that created a graph we’d like to use in a paper. We’d like to be able to re-create the graph later if we need to, so we want to save the commands in a file. Instead of typing them in again (and potentially getting them wrong) we can do this:</p>
-<pre class="input"><code>$ history | tail -4 &gt; redo-figure-3.sh</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">history</span> <span class="kw">|</span> <span class="kw">tail</span> -4 <span class="kw">&gt;</span> redo-figure-3.sh</code></pre>
 <p>The file <code>redo-figure-3.sh</code> now contains:</p>
 <pre><code>297 bash goostats -r NENE01729B.txt stats-NENE01729B.txt
 298 bash goodiff stats-NENE01729B.txt /data/validated/01729.txt &gt; 01729-differences.txt
@@ -147,7 +147,7 @@ wc -l &quot;$@&quot; | sort -n</code></pre>
 <p>After a moment’s work in an editor to remove the serial numbers on the commands, we have a completely accurate record of how we created that figure.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="unnumbering"><span class="glyphicon glyphicon-pushpin"></span>Unnumbering</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Unnumbering</h2>
 </div>
 <div class="panel-body">
 <p>Nelle could also use <code>colrm</code> (short for “column removal”) to remove the serial numbers on her previous commands. Its parameters are the range of characters to strip from its input:</p>
@@ -177,9 +177,9 @@ do
     bash goostats -J 100 -r $datafile stats-$datafile
 done</code></pre>
 <p>(The parameters <code>-J 100</code> and <code>-r</code> are the ones her supervisor said she should have used.) She saves this in a file called <code>do-stats.sh</code> so that she can now re-do the first stage of her analysis by typing:</p>
-<pre class="input"><code>$ bash do-stats.sh *[AB].txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">bash</span> do-stats.sh *[AB].txt</code></pre>
 <p>She can also do this:</p>
-<pre class="input"><code>$ bash do-stats.sh *[AB].txt | wc -l</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">bash</span> do-stats.sh *[AB].txt <span class="kw">|</span> <span class="kw">wc</span> -l</code></pre>
 <p>so that the output is just the number of files processed rather than the names of the files that were processed.</p>
 <p>One thing to note about Nelle’s script is that it lets the person running it decide what files to process. She could have written it as:</p>
 <pre><code># Calculate reduced stats for  A and Site B data files at J = 100 c/bp.
@@ -191,7 +191,7 @@ done</code></pre>
 <p>The advantage is that this always selects the right files: she doesn’t have to remember to exclude the ‘Z’ files. The disadvantage is that it <em>always</em> selects just those files — she can’t run it on all files (including the ‘Z’ files), or on the ‘G’ or ‘H’ files her colleagues in Antarctica are producing, without editing the script. If she wanted to be more adventurous, she could modify her script to check for command-line parameters, and use <code>*[AB].txt</code> if none were provided. Of course, this introduces another tradeoff between flexibility and complexity.</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="variables-in-shell-scripts"><span class="glyphicon glyphicon-pencil"></span>Variables in shell scripts</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Variables in shell scripts</h2>
 </div>
 <div class="panel-body">
 <p>In the molecules directory, you have a shell script called <code>script.sh</code> containing the following commands:</p>
@@ -210,7 +210,7 @@ tail $3 $1</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="list-unique-species"><span class="glyphicon glyphicon-pencil"></span>List unique species</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>List unique species</h2>
 </div>
 <div class="panel-body">
 <p>Leah has several hundred data files, each of which is formatted like this:</p>
@@ -227,7 +227,7 @@ tail $3 $1</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="find-the-longest-file-with-a-given-extension"><span class="glyphicon glyphicon-pencil"></span>Find the longest file with a given extension</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Find the longest file with a given extension</h2>
 </div>
 <div class="panel-body">
 <p>Write a shell script called <code>longest.sh</code> that takes the name of a directory and a filename extension as its parameters, and prints out the name of the file with the most lines in that directory with that extension. For example:</p>
@@ -237,7 +237,7 @@ tail $3 $1</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="why-record-commands-in-the-history-before-running-them"><span class="glyphicon glyphicon-pencil"></span>Why record commands in the history before running them?</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Why record commands in the history before running them?</h2>
 </div>
 <div class="panel-body">
 <p>If you run the command:</p>
@@ -247,7 +247,7 @@ tail $3 $1</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="script-reading-comprehension"><span class="glyphicon glyphicon-pencil"></span>Script reading comprehension</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Script reading comprehension</h2>
 </div>
 <div class="panel-body">
 <p>Joel’s <code>data</code> directory contains three files: <code>fructose.dat</code>, <code>glucose.dat</code>, and <code>sucrose.dat</code>. Explain what a script called <code>example.sh</code> would do when run as <code>bash example.sh *.dat</code> if it contained the following lines:</p>
