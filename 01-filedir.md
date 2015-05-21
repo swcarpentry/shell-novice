@@ -103,7 +103,7 @@ this is the leading slash in `/Users/nelle`.
 Inside that directory are several other directories:
 `bin` (which is where some built-in programs are stored),
 `data` (for miscellaneous data files),
-`users` (where users' personal directories are located),
+`Users` (where users' personal directories are located),
 `tmp` (for temporary files that don't need to be stored long-term),
 and so on:
 
