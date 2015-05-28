@@ -124,6 +124,8 @@ which is why `nelle` is the last part of the directory's name.
 
 ![Home Directories](fig/home-directories.svg)
 
+> ## Path {.callout}
+>
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
 > it refers to the root directory. When it appears *inside* a name,
@@ -347,9 +349,6 @@ It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
 Finally, we also see a file called `.bash_profile`. This file usually contains settings to customize the shell (terminal). For this lesson material it does not contain any settings. There may also be similar files called `.bashrc` or `.bash_login`. The `.` prefix is used to prevent these configuration files from cluttering the terminal when a standard `ls` command is used.
 
-
-
-
 > ## Orthogonality {.callout}
 >
 > The special names `.` and `..` don't belong to `ls`;
@@ -377,6 +376,8 @@ but she found them hard to understand after a couple of years.
 (The final straw was when she found herself creating
 a directory called `revised-revised-results-3`.)
 
+> Output sorting {.callout}
+>
 > Nelle names her directories "year-month-day",
 > with leading zeroes for months and days,
 > because the shell displays file and directory names in alphabetical order.
