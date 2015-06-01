@@ -11,8 +11,12 @@
       $banner$
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
+          $if(subtitle)$
+          <a href="index.html"><h1 class="title">$title$</h1></a>
+          <h2 class="subtitle">$subtitle$</h2>
+          $else$
           <h1 class="title">$title$</h1>
-          $if(subtitle)$<h2 class="subtitle">$subtitle$</h2>$endif$
+          $endif$
 $body$
         </div>
       </div>
