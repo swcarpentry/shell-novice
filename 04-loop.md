@@ -435,11 +435,11 @@ so she decides to get some coffee and catch up on her reading.
 > ~~~
 > 
 > 1.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and
->     copies `sucrose.dat` to create `xylose.dat`.
+>     copies the text content of `sucrose.dat` in `xylose.dat`.
 > 2.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and
->     concatenates all three files to create `xylose.dat`.
+>     concatenates the text content of all three files in `xylose.dat`.
 > 3.  Prints `fructose.dat`, `glucose.dat`, `sucrose.dat`, and
->     `xylose.dat`, and copies `sucrose.dat` to create `xylose.dat`.
+>     `xylose.dat`, and copies the text content of `sucrose.dat` in `xylose.dat`.
 > 4.  None of the above.
 
 > ## Saving to a File in a Loop - Part Two {.challenge}
