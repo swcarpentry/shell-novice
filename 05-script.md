@@ -74,7 +74,7 @@ let's edit `middle.sh` and replace `octane.pdb` with a special variable called `
 $ cat middle.sh
 ~~~
 ~~~ {.output}
-head -20 "$1" | tail -5
+head -15 "$1" | tail -5
 ~~~
 
 Inside a shell script,
@@ -115,7 +115,7 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 > `methyl butane.pdb`,
 > the command in the script would effectively be:
 >
->     head -20 methyl butane.pdb | tail -5
+>     head -15 methyl butane.pdb | tail -5
 >
 > This would call `head` on two separate files, `methyl` and `butane.pdb`,
 > which is probably not what we intended.
