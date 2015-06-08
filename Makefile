@@ -62,7 +62,8 @@ motivation.html : motivation.md _layouts/slides.revealjs Makefile
 	    -o $@ $<
 
 # Pattern to convert R Markdown to Markdown.
-%.md: %.Rmd $(R_CHUNK_OPTS)
+%.md: %.Rmd $(R_CHUNK_OPTS) tools/check_knitr_version.R
+	Rscript -e "source('tools/check_knitr_version.R')"
 	Rscript -e "knitr::knit('$$(basename $<)', output = '$$(basename $@)')"
 
 ## commands : Display available commands.
