@@ -475,8 +475,18 @@ class IndexPageValidator(MarkdownValidator):
 
     def _partition_links(self):
         """Check the text of every link in index.md"""
-        check_text = self.ast.find_external_links()
-        return check_text, []
+        external_links = self.ast.find_external_links()
+
+        check_text = []
+        no_check_text = []
+
+        for link in external_links:
+            if '#' in link.destination:
+                no_check_text.append(link)
+            else:
+                check_text.append(link)
+
+        return check_text, no_check_text
 
     def _validate_intro_section(self):
         """Validate the intro section
