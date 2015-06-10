@@ -3,8 +3,22 @@ layout: page
 title: The Unix Shell
 subtitle: Instructor's Guide
 ---
+*   Why do we learn to use the shell?
+    *   Allows users to automate repetitive tasks
+    *   And capture small data manipulation steps that are normally not recorded
+        to make research reproducible 
+*   The Problem
+    *   Running the same workflow on several samples can be unnecessarily labour intensive
+    *   Manual manipulation of data files:
+        *   is often not captured in documentation
+        *   is hard to reproduce
+        *   is hard to troubleshoot, review, or improve
+*   The Shell 
+    *   Workflows can be automated through the use of shell scripts
+    *   Built-in commands allow for easy data manipulation (e.g. sort, grep, etc.)
+    *   Every step can be captured in the shell script and allow reproducibility and easy troubleshooting
 
-## Legend
+## Overall
 
 Many people have questioned whether we should still teach the shell.
 After all,
@@ -60,15 +74,6 @@ as long as learners using Windows do not run into roadblocks such as:
 *   not being able to run a plain text editor;
     and
 *   the shell refusing to run scripts that include DOS line endings.
-
-## Overall
-
-*   introduce learners how to interact with the shell, and with related
-    ideas like standard input and output.
-*   focus on the idea that they should get the computer to repeat things
-    rather than doing the job themselves.
-*   teach learners to think about programming in terms of function
-    composition.
 
 ## Teaching Notes
 
