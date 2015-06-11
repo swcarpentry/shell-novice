@@ -626,7 +626,7 @@ class ReferencePageValidator(MarkdownValidator):
 
 class InstructorPageValidator(MarkdownValidator):
     """Simple validator for Instructor's Guide- instructors.md"""
-    HEADINGS = ["Legend", "Overall"]
+    HEADINGS = ["Overall"]
     WARN_ON_EXTRA_HEADINGS = False
 
     DOC_HEADERS = {"layout": vh.is_str,
