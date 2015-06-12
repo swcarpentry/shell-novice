@@ -438,7 +438,7 @@ about them."
 > following output:
 >
 > ~~~
-> and the presence of absence
+> and the presence of absence:
 > ~~~
 >
 > 1. `grep of haiku.txt`
