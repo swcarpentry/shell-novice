@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-'''Create YAML catalog of CSS styles using in a set of HTML documents.
+'''Create YAML catalog of CSS styles used in a set of HTML documents.
 
 Usage: catalog.py file [file...]
 '''
