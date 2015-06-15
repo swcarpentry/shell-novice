@@ -44,13 +44,6 @@ clean :
 ## preview  : Build website locally for checking.
 preview : $(DST_ALL)
 
-# Pattern for slides (different parameters and template).
-motivation.html : motivation.md _layouts/slides.revealjs Makefile
-	${PANDOC} -s -t revealjs --slide-level 2 \
-	    ${PANDOC_FLAGS} \
-	    --template=_layouts/slides \
-	    -o $@ $<
-
 # Pattern to build a generic page.
 %.html : %.md _layouts/page.html $(FILTERS)
 	${PANDOC} -s -t html \
