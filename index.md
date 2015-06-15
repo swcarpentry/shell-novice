@@ -49,7 +49,6 @@ These lessons will start you on a path towards using these resources effectively
 
 ## Other Resources
 
-*   [Motivation](motivation.html)
 *   [Reference](reference.html)
 *   [Discussion](discussion.html)
 *   [Instructor's Guide](instructors.html)

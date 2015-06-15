@@ -26,11 +26,11 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">The Unix Shell</h1>
+                    <a href="index.html"><h1 class="title">The Unix Shell</h1></a>
           <h2 class="subtitle">Finding Things</h2>
-<section class="objectives panel panel-warning">
+          <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -59,7 +59,7 @@ Today it is not working
 Software is like that.</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="forever-or-five-years"><span class="glyphicon glyphicon-pushpin"></span>Forever, or Five Years</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Forever, or Five Years</h2>
 </div>
 <div class="panel-body">
 <p>We haven’t linked to the original haikus because they don’t appear to be on <em>Salon</em>’s site any longer. As <a href="http://www.clir.org/pubs/archives/ensuring.pdf">Jeff Rothenberg said</a>, “Digital information lasts forever — or five years, whichever comes first.”</p>
@@ -142,7 +142,7 @@ matched.  (-F is specified by POSIX.)
 ...        ...        ...</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="wildcards"><span class="glyphicon glyphicon-pushpin"></span>Wildcards</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Wildcards</h2>
 </div>
 <div class="panel-body">
 <p><code>grep</code>‘s real power doesn’t come from its options, though; it comes from the fact that patterns can include wildcards. (The technical name for these is <strong>regular expressions</strong>, which is what the “re” in “grep” stands for.) Regular expressions are both complex and powerful; if you want to do complex searches, please look at the lesson on <a href="http://software-carpentry.org/v4/regexp/index.html">our website</a>. As a taster, we can find lines that have an ’o’ in the second position like this:</p>
@@ -155,8 +155,7 @@ Software is like that.</code></pre>
 </aside>
 <p>While <code>grep</code> finds lines in files, the <code>find</code> command finds files themselves. Again, it has a lot of options; to show how the simplest ones work, we’ll use the directory tree shown below.</p>
 <div class="figure">
-<img src="fig/find-file-tree.svg" alt="File Tree for Find Example" />
-<p class="caption">File Tree for Find Example</p>
+<img src="fig/find-file-tree.svg" alt="File Tree for Find Example" /><p class="caption">File Tree for Find Example</p>
 </div>
 <p>Nelle’s <code>writing</code> directory contains one file called <code>haiku.txt</code> and four subdirectories: <code>thesis</code> (which is sadly empty), <code>data</code> (which contains two files <code>one.txt</code> and <code>two.txt</code>), a <code>tools</code> directory that contains the programs <code>format</code> and <code>stats</code>, and an empty subdirectory called <code>old</code>.</p>
 <p>For our first command, let’s run <code>find . -type d</code>. As always, the <code>.</code> on its own means the current working directory, which is where we want our search to start; <code>-type d</code> means “things that are directories”. Sure enough, <code>find</code>’s output is the names of the five directories in our little tree (including <code>.</code>):</p>
@@ -197,7 +196,7 @@ Software is like that.</code></pre>
 ./haiku.txt</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="listing-vs.finding"><span class="glyphicon glyphicon-pushpin"></span>Listing vs. Finding</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Listing vs. Finding</h2>
 </div>
 <div class="panel-body">
 <p><code>ls</code> and <code>find</code> can be made to do similar things given the right options, but under normal circumstances, <code>ls</code> lists everything it can, while <code>find</code> searches for things with certain properties and shows them.</p>
@@ -218,7 +217,7 @@ Software is like that.</code></pre>
 <pre class="output"><code>../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="binary-files"><span class="glyphicon glyphicon-pushpin"></span>Binary Files</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Binary Files</h2>
 </div>
 <div class="panel-body">
 <p>We have focused exclusively on finding things in text files. What if your data is stored as images, in databases, or in some other format? One option would be to extend tools like <code>grep</code> to handle those formats. This hasn’t happened, and probably won’t, because there are too many formats to support.</p>
@@ -229,7 +228,7 @@ Software is like that.</code></pre>
 <p>The Unix shell is older than most of the people who use it. It has survived so long because it is one of the most productive programming environments ever created — maybe even <em>the</em> most productive. Its syntax may be cryptic, but people who have mastered it can experiment with different commands interactively, then use what they have learned to automate their work. Graphical user interfaces may be better at the first, but the shell is still unbeaten at the second. And as Alfred North Whitehead wrote in 1911, “Civilization advances by extending the number of important operations which we can perform without thinking about them.”</p>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="using-grep"><span class="glyphicon glyphicon-pencil"></span>Using grep</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Using grep</h2>
 </div>
 <div class="panel-body">
 <pre><code>The Tao that is seen
@@ -244,7 +243,7 @@ Yesterday it worked
 Today it is not working
 Software is like that.</code></pre>
 <p>From the above text, contained in the file <code>haiku.txt</code>, which command would result in the following output:</p>
-<pre><code>and the presence of absence</code></pre>
+<pre><code>and the presence of absence:</code></pre>
 <ol style="list-style-type: decimal">
 <li><code>grep of haiku.txt</code></li>
 <li><code>grep -E of haiku.txt</code></li>
@@ -255,7 +254,7 @@ Software is like that.</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="find-pipeline-reading-comprehension"><span class="glyphicon glyphicon-pencil"></span><code>find</code> pipeline reading comprehension</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span><code>find</code> pipeline reading comprehension</h2>
 </div>
 <div class="panel-body">
 <p>Write a short explanatory comment for the following shell script:</p>
@@ -264,7 +263,7 @@ Software is like that.</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="matching-ose.dat-but-not-temp"><span class="glyphicon glyphicon-pencil"></span>Matching <code>ose.dat</code> but not <code>temp</code></h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Matching <code>ose.dat</code> but not <code>temp</code></h2>
 </div>
 <div class="panel-body">
 <p>The <code>-v</code> flag to <code>grep</code> inverts pattern matching, so that only lines which do <em>not</em> match the pattern are printed. Given that, which of the following commands will find all files in <code>/data</code> whose names end in <code>ose.dat</code> (e.g., <code>sucrose.dat</code> or <code>maltose.dat</code>), but do <em>not</em> contain the word <code>temp</code>?</p>
@@ -278,7 +277,7 @@ Software is like that.</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="little-women"><span class="glyphicon glyphicon-pencil"></span>Little Women</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Little Women</h2>
 </div>
 <div class="panel-body">
 <p>You and your friend, having just finished reading <em>Little Women</em> by Louisa May Alcott, are in an argument. Of the four sisters in the book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the most mentioned. You, however, are certain it was Amy. Luckily, you have a file <code>LittleWomen.txt</code> containing the full text of the novel. Using a<code>for</code> loop, how would you tabulate the number of times each of the four sisters is mentioned? Hint: one solution might employ the commands <code>grep</code> and <code>wc</code> and a <code>|</code>, while another might utilize <code>grep</code> options.</p>

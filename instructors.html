@@ -26,25 +26,42 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">The Unix Shell</h1>
+                    <a href="index.html"><h1 class="title">The Unix Shell</h1></a>
           <h2 class="subtitle">Instructor’s Guide</h2>
-<h2 id="legend">Legend</h2>
+          <ul>
+<li>Why do we learn to use the shell?
+<ul>
+<li>Allows users to automate repetitive tasks</li>
+<li>And capture small data manipulation steps that are normally not recorded to make research reproducible</li>
+</ul></li>
+<li>The Problem
+<ul>
+<li>Running the same workflow on several samples can be unnecessarily labour intensive</li>
+<li>Manual manipulation of data files:
+<ul>
+<li>is often not captured in documentation</li>
+<li>is hard to reproduce</li>
+<li>is hard to troubleshoot, review, or improve</li>
+</ul></li>
+</ul></li>
+<li>The Shell
+<ul>
+<li>Workflows can be automated through the use of shell scripts</li>
+<li>Built-in commands allow for easy data manipulation (e.g. sort, grep, etc.)</li>
+<li>Every step can be captured in the shell script and allow reproducibility and easy troubleshooting</li>
+</ul></li>
+</ul>
+<h2 id="overall">Overall</h2>
 <p>Many people have questioned whether we should still teach the shell. After all, anyone who wants to rename several thousand data files can easily do so interactively in the Python interpreter, and anyone who’s doing serious data analysis is probably going to do most of their work inside the IPython Notebook or R Studio. So why teach the shell?</p>
 <p>The first answer is, “Because so much else depends on it.” Installing software, configuring your default editor, and controlling remote machines frequently assume a basic familiarity with the shell, and with related ideas like standard input and output. Many tools also use its terminology (for example, the <code>%ls</code> and <code>%cd</code> magic commands in IPython).</p>
 <p>The second answer is, “Because it’s an easy way to introduce some fundamental ideas about how to use computers.” As we teach people how to use the Unix shell, we teach them that they should get the computer to repeat things (via tab completion, <code>!</code> followed by a command number, and <code>for</code> loops) rather than repeating things themselves. We also teach them to take things they’ve discovered they do frequently and save them for later re-use (via shell scripts), to give things sensible names, and to write a little bit of documentation (like comment at the top of shell scripts) to make their future selves’ lives better.</p>
-<p>The third answer is, “Because it enables use of many domain-specific tools and compute resources researchers cannot access otherwise.” Familiarity with the shell is very useful for remote accessing machines, using high-performance computing infrastructure, and running new specialist tools in many disciplines. We do not teach HPC or domain-specific skills here but lay the groundwork for further development of these skills. In particular, understand syntax of commands, flags, and help systems is useful for domain specific tools and understanding the file system (and how to navigate it) is useful for remote access.</p>
+<p>The third answer is, “Because it enables use of many domain-specific tools and compute resources researchers cannot access otherwise.” Familiarity with the shell is very useful for remote accessing machines, using high-performance computing infrastructure, and running new specialist tools in many disciplines. We do not teach HPC or domain-specific skills here but lay the groundwork for further development of these skills. In particular, understanding the syntax of commands, flags, and help systems is useful for domain specific tools and understanding the file system (and how to navigate it) is useful for remote access.</p>
 <p>Finally, and perhaps most importantly, teaching people the shell lets us teach them to think about programming in terms of function composition. In the case of the shell, this takes the form of pipelines rather than nested function calls, but the core idea of “small pieces, loosely joined” is the same.</p>
 <p>All of this material can be covered in three hours as long as learners using Windows do not run into roadblocks such as:</p>
 <ul>
 <li>not being able to figure out where their home directory is (particularly if they’re using Cygwin);</li>
 <li>not being able to run a plain text editor; and</li>
 <li>the shell refusing to run scripts that include DOS line endings.</li>
-</ul>
-<h2 id="overall">Overall</h2>
-<ul>
-<li>introduce learners how to interact with the shell, and with related ideas like standard input and output.</li>
-<li>focus on the idea that they should get the computer to repeat things rather than doing the job themselves.</li>
-<li>teach learners to think about programming in terms of function composition.</li>
 </ul>
 <h2 id="teaching-notes">Teaching Notes</h2>
 <ul>
