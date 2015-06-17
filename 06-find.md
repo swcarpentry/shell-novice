@@ -21,7 +21,7 @@ It is also the name of a very useful command-line program.
 `grep` finds and prints lines in files that match a pattern.
 For our examples,
 we will use a file that contains three haikus taken from a
-1998 competition in *Salon* magazine. For this set of examples 
+1998 competition in *Salon* magazine. For this set of examples
 we're going to be working in the writing subdirectory:
 
 ~~~ {.bash}
@@ -87,7 +87,16 @@ This will limit matches to word boundaries.
 $ grep -w day haiku.txt
 ~~~
 
-In this case, there aren't any, so `grep`'s output is empty.
+In this case, there aren't any, so `grep`'s output is empty. Sometimes we don't
+want to search for a single word, but a phrase. This is also easy to do with
+`grep` by putting the phrase in quotes.
+
+~~~ {.bash}
+$ grep -w "is not" haiku.txt
+~~~
+~~~ {.output}
+Today it is not working
+~~~
 
 Another useful option is `-n`, which numbers the lines that match:
 
@@ -129,7 +138,7 @@ Now, we want to use the option `-v` to invert our search, i.e., we want to outpu
 the lines that do not contain the word "the".
 
 ~~~ {.bash}
-$ grep -n -w -v the haiku.txt 
+$ grep -n -w -v the haiku.txt
 ~~~
 ~~~ {.output}
 1:The Tao that is seen
@@ -434,7 +443,7 @@ about them."
 > Software is like that.
 > ~~~
 >
-> From the above text, contained in the file `haiku.txt`, which command would result in the 
+> From the above text, contained in the file `haiku.txt`, which command would result in the
 > following output:
 >
 > ~~~
@@ -449,7 +458,7 @@ about them."
 > ## `find` pipeline reading comprehension {.challenge}
 >
 > Write a short explanatory comment for the following shell script:
-> 
+>
 > ~~~ {.bash}
 > find . -name '*.dat' | wc -l | sort -n
 > ~~~
@@ -461,13 +470,13 @@ about them."
 > the following commands will find all files in `/data` whose names
 > end in `ose.dat` (e.g., `sucrose.dat` or `maltose.dat`), but do
 > *not* contain the word `temp`?
-> 
+>
 > 1. `find /data -name '*.dat' | grep ose | grep -v temp`
-> 
+>
 > 2. `find /data -name ose.dat | grep -v temp`
-> 
+>
 > 3. `grep -v temp $(find /data -name '*ose.dat')`
-> 
+>
 > 4. None of the above.
 
 > ## Little Women {.challenge}
