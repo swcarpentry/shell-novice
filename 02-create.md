@@ -363,7 +363,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~
 >
 > The `fructose.dat` and `sucrose.dat` files contain output from her data
-> analysis. What command(s) covered in this lesson, does she need to run so that the commands below will
+> analysis. What command(s) covered in this lesson does she need to run so that the commands below will
 > produce the output shown?
 >
 > ~~~
