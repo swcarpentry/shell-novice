@@ -77,24 +77,27 @@ Today it is not working</code></pre>
 Today it is not working</code></pre>
 <p>This time, two lines that include the letters “day” are outputted. However, these letters are contained within larger words. To restrict matches to lines containing the word “day” on its own, we can give <code>grep</code> with the <code>-w</code> flag. This will limit matches to word boundaries.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> -w day haiku.txt</code></pre>
-<p>In this case, there aren’t any, so <code>grep</code>’s output is empty.</p>
+<p>In this case, there aren’t any, so <code>grep</code>’s output is empty. Sometimes we don’t want to search for a single word, but a phrase. This is also easy to do with <code>grep</code> by putting the phrase in quotes.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> -w <span class="st">&quot;is not&quot;</span> haiku.txt</code></pre>
+<pre class="output"><code>Today it is not working</code></pre>
+<p>We’ve now seen that you don’t have to have quotes around single words, but it is useful to use quotes when searching for multiple words. It also helps to make it easier to distinguish between the search term or phrase and the file being searched. We will use quotes in the remaining examples.</p>
 <p>Another useful option is <code>-n</code>, which numbers the lines that match:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> -n it haiku.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> -n <span class="st">&quot;it&quot;</span> haiku.txt</code></pre>
 <pre class="output"><code>5:With searching comes loss
 9:Yesterday it worked
 10:Today it is not working</code></pre>
 <p>Here, we can see that lines 5, 9, and 10 contain the letters “it”.</p>
 <p>We can combine options (i.e. flags) as we do with other Unix commands. For example, let’s find the lines that contain the word “the”. We can combine the option <code>-w</code> to find the lines that contain the word “the” and <code>-n</code> to number the lines that match:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> -n -w the haiku.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> -n -w <span class="st">&quot;the&quot;</span> haiku.txt</code></pre>
 <pre class="output"><code>2:Is not the true Tao, until
 6:and the presence of absence:</code></pre>
 <p>Now we want to use the option <code>-i</code> to make our search case-insensitive:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> -n -w -i the haiku.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> -n -w -i <span class="st">&quot;the&quot;</span> haiku.txt</code></pre>
 <pre class="output"><code>1:The Tao that is seen
 2:Is not the true Tao, until
 6:and the presence of absence:</code></pre>
 <p>Now, we want to use the option <code>-v</code> to invert our search, i.e., we want to output the lines that do not contain the word “the”.</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> -n -w -v the haiku.txt </code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> -n -w -v <span class="st">&quot;the&quot;</span> haiku.txt</code></pre>
 <pre class="output"><code>1:The Tao that is seen
 3:You bring fresh toner.
 4:
@@ -213,7 +216,7 @@ Software is like that.</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">wc</span> -l ./data/one.txt ./data/two.txt ./haiku.txt</code></pre>
 <p>which is what we wanted. This expansion is exactly what the shell does when it expands wildcards like <code>*</code> and <code>?</code>, but lets us use any command we want as our own “wildcard”.</p>
 <p>It’s very common to use <code>find</code> and <code>grep</code> together. The first finds files that match a pattern; the second looks for lines inside those files that match another pattern. Here, for example, we can find PDB files that contain iron atoms by looking for the string “FE” in all the <code>.pdb</code> files above the current directory:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> FE <span class="ot">$(</span><span class="kw">find</span> .. -name <span class="st">&#39;*.pdb&#39;</span><span class="ot">)</span></code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> <span class="st">&quot;FE&quot;</span> <span class="ot">$(</span><span class="kw">find</span> .. -name <span class="st">&#39;*.pdb&#39;</span><span class="ot">)</span></code></pre>
 <pre class="output"><code>../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
@@ -245,10 +248,10 @@ Software is like that.</code></pre>
 <p>From the above text, contained in the file <code>haiku.txt</code>, which command would result in the following output:</p>
 <pre><code>and the presence of absence:</code></pre>
 <ol style="list-style-type: decimal">
-<li><code>grep of haiku.txt</code></li>
-<li><code>grep -E of haiku.txt</code></li>
-<li><code>grep -w of haiku.txt</code></li>
-<li><code>grep -i of haiku.txt</code></li>
+<li><code>grep &quot;of&quot; haiku.txt</code></li>
+<li><code>grep -E &quot;of&quot; haiku.txt</code></li>
+<li><code>grep -w &quot;of&quot; haiku.txt</code></li>
+<li><code>grep -i &quot;of&quot; haiku.txt</code></li>
 </ol>
 </div>
 </section>
@@ -270,7 +273,7 @@ Software is like that.</code></pre>
 <ol style="list-style-type: decimal">
 <li><p><code>find /data -name '*.dat' | grep ose | grep -v temp</code></p></li>
 <li><p><code>find /data -name ose.dat | grep -v temp</code></p></li>
-<li><p><code>grep -v temp $(find /data -name '*ose.dat')</code></p></li>
+<li><p><code>grep -v &quot;temp&quot; $(find /data -name '*ose.dat')</code></p></li>
 <li><p>None of the above.</p></li>
 </ol>
 </div>
