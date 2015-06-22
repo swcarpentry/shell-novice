@@ -21,7 +21,7 @@ It is also the name of a very useful command-line program.
 `grep` finds and prints lines in files that match a pattern.
 For our examples,
 we will use a file that contains three haikus taken from a
-1998 competition in *Salon* magazine. For this set of examples 
+1998 competition in *Salon* magazine. For this set of examples
 we're going to be working in the writing subdirectory:
 
 ~~~ {.bash}
@@ -87,12 +87,23 @@ This will limit matches to word boundaries.
 $ grep -w day haiku.txt
 ~~~
 
-In this case, there aren't any, so `grep`'s output is empty.
+In this case, there aren't any, so `grep`'s output is empty. Sometimes we don't
+want to search for a single word, but a phrase. This is also easy to do with
+`grep` by putting the phrase in quotes.
+
+~~~ {.bash}
+$ grep -w "is not" haiku.txt
+~~~
+~~~ {.output}
+Today it is not working
+~~~
+
+We've now seen that you don't have to have quotes around single words, but it is useful to use quotes when searching for multiple words. It also helps to make it easier to distinguish between the search term or phrase and the file being searched. We will use quotes in the remaining examples.
 
 Another useful option is `-n`, which numbers the lines that match:
 
 ~~~ {.bash}
-$ grep -n it haiku.txt
+$ grep -n "it" haiku.txt
 ~~~
 ~~~ {.output}
 5:With searching comes loss
@@ -107,7 +118,7 @@ For example, let's find the lines that contain the word "the". We can combine
 the option `-w` to find the lines that contain the word "the" and `-n` to number the lines that match:
 
 ~~~ {.bash}
-$ grep -n -w the haiku.txt
+$ grep -n -w "the" haiku.txt
 ~~~
 ~~~ {.output}
 2:Is not the true Tao, until
@@ -117,7 +128,7 @@ $ grep -n -w the haiku.txt
 Now we want to use the option `-i` to make our search case-insensitive:
 
 ~~~ {.bash}
-$ grep -n -w -i the haiku.txt
+$ grep -n -w -i "the" haiku.txt
 ~~~
 ~~~ {.output}
 1:The Tao that is seen
@@ -129,7 +140,7 @@ Now, we want to use the option `-v` to invert our search, i.e., we want to outpu
 the lines that do not contain the word "the".
 
 ~~~ {.bash}
-$ grep -n -w -v the haiku.txt 
+$ grep -n -w -v "the" haiku.txt
 ~~~
 ~~~ {.output}
 1:The Tao that is seen
@@ -377,7 +388,7 @@ Here, for example, we can find PDB files that contain iron atoms
 by looking for the string "FE" in all the `.pdb` files above the current directory:
 
 ~~~ {.bash}
-$ grep FE $(find .. -name '*.pdb')
+$ grep "FE" $(find .. -name '*.pdb')
 ~~~
 ~~~ {.output}
 ../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518
@@ -434,22 +445,22 @@ about them."
 > Software is like that.
 > ~~~
 >
-> From the above text, contained in the file `haiku.txt`, which command would result in the 
+> From the above text, contained in the file `haiku.txt`, which command would result in the
 > following output:
 >
 > ~~~
 > and the presence of absence:
 > ~~~
 >
-> 1. `grep of haiku.txt`
-> 2. `grep -E of haiku.txt`
-> 3. `grep -w of haiku.txt`
-> 4. `grep -i of haiku.txt`
+> 1. `grep "of" haiku.txt`
+> 2. `grep -E "of" haiku.txt`
+> 3. `grep -w "of" haiku.txt`
+> 4. `grep -i "of" haiku.txt`
 
 > ## `find` pipeline reading comprehension {.challenge}
 >
 > Write a short explanatory comment for the following shell script:
-> 
+>
 > ~~~ {.bash}
 > find . -name '*.dat' | wc -l | sort -n
 > ~~~
@@ -461,13 +472,13 @@ about them."
 > the following commands will find all files in `/data` whose names
 > end in `ose.dat` (e.g., `sucrose.dat` or `maltose.dat`), but do
 > *not* contain the word `temp`?
-> 
+>
 > 1. `find /data -name '*.dat' | grep ose | grep -v temp`
-> 
+>
 > 2. `find /data -name ose.dat | grep -v temp`
-> 
-> 3. `grep -v temp $(find /data -name '*ose.dat')`
-> 
+>
+> 3. `grep -v "temp" $(find /data -name '*ose.dat')`
+>
 > 4. None of the above.
 
 > ## Little Women {.challenge}
