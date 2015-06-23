@@ -384,7 +384,8 @@ a directory called `revised-revised-results-3`.)
 > If she used month names,
 > December would come before July;
 > if she didn't use leading zeroes,
-> November ('11') would come before July ('7').
+> November ('11') would come before July ('7'). Similarly, putting the year first 
+> means that June 2012 will come before June 2013.
 
 Each of her physical samples is labelled according to her lab's convention
 with a unique ten-character ID,
