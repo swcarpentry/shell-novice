@@ -241,11 +241,38 @@ a `tools` directory that contains the programs `format` and `stats`,
 and an empty subdirectory called `old`.
 
 For our first command,
-let's run `find . -type d`.
+let's run `find .`.
+
+~~~ {.bash}
+$ find . -type d
+~~~
+~~~ {.output}
+.
+./old
+./old/.gitkeep
+./data
+./data/one.txt
+./data/two.txt
+./tools
+./tools/format
+./tools/old
+./tools/old/oldtool
+./tools/stats
+./haiku.txt
+./thesis
+./thesis/empty-draft.md
+~~~
+
 As always,
 the `.` on its own means the current working directory,
-which is where we want our search to start;
-`-type d` means "things that are directories".
+which is where we want our search to start.
+`find`'s output is the names of every file **and** directory
+under the current working directory.
+This can seen useless at first but `find` has many options
+to filter the output and in this lesson we will discovery some.
+
+The first option in our list is
+`-type d` that means "things that are directories".
 Sure enough,
 `find`'s output is the names of the five directories in our little tree
 (including `.`):
