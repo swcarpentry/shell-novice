@@ -376,7 +376,7 @@ but she found them hard to understand after a couple of years.
 (The final straw was when she found herself creating
 a directory called `revised-revised-results-3`.)
 
-> Output sorting {.callout}
+> ## Output sorting {.callout}
 >
 > Nelle names her directories "year-month-day",
 > with leading zeroes for months and days,
