@@ -51,9 +51,10 @@ $ wc *.pdb
 > ## Wildcards {.callout}
 > 
 > `*` is a **wildcard**. It matches zero or more
-> characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and so on.
-> On the other hand, `p*.pdb` only matches `pentane.pdb` and
-> `propane.pdb`, because the 'p' at the front only matches itself.
+> characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
+> file that ends with '.pdb'. On the other hand, `p*.pdb` only matches 
+> `pentane.pdb` and `propane.pdb`, because the 'p' at the front only 
+> matches filenames that begin with the letter 'p'.
 > 
 > `?` is also a wildcard, but it only matches a single character. This
 > means that `p?.pdb` matches `pi.pdb` or `p5.pdb`, but not `propane.pdb`.
