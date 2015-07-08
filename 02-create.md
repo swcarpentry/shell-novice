@@ -71,7 +71,7 @@ $ nano draft.txt
 
 > ## Which Editor? {.callout}
 >
-> When we say, "`nano` is a text editor," we really do mean "text": it can
+> When we say, "`nano` is a text editor," we really do mean by "text": it can
 > only work with plain character data, not tables, images, or any other
 > human-friendly media. We use it in examples because almost anyone can
 > drive it anywhere without training, but please use something more
