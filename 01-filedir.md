@@ -361,7 +361,7 @@ Finally, we also see a file called `.bash_profile`. This file usually contains s
 > Orthogonal systems tend to be easier for people to learn
 > because there are fewer special cases and exceptions to keep track of.
 
-### Nelle's Pipeline: Organizing Files
+## Nelle's Pipeline: Organizing Files
 
 Knowing just this much about files and directories,
 Nelle is ready to organize the files that the protein assay machine will create.
