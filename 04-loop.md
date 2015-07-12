@@ -19,8 +19,8 @@ Suppose we have several hundred genome data files named `basilisk.dat`, `unicorn
 In this example,
 we'll use the `creatures` directory which only has two example files,
 but the principles can be applied to many many more files at once.
-We would like to modify these files, but also save a version of the original files and rename them 
-as `original-basilisk.dat` and `original-unicorn.dat`.
+We would like to modify these files, but also save a version of the original files, naming the copies
+`original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
 ~~~ {.bash}
@@ -40,7 +40,7 @@ cp: target `original-*.dat' is not a directory
 ~~~
 
 This a problem arises when `cp` receives more than two inputs. When this happens, it
-expects the last input to be a directory where it can move all the files it was passed.
+expects the last input to be a directory where it can copy all the files it was passed.
 Since there is no directory named `original-*.dat` in the `creatures` directory we get an
 error.
 
@@ -246,7 +246,7 @@ cp unicorn.dat original-unicorn.dat
 > A loop is a way to do many things at once --- or to make many mistakes at
 > once if it does the wrong thing. One way to check what a loop *would* do
 > is to echo the commands it would run instead of actually running them.
-> For example, we could write our file renaming loop like this:
+> For example, we could write our file copying loop like this:
 > 
 > ~~~
 > for filename in *.dat
