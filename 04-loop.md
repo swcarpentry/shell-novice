@@ -33,7 +33,7 @@ because that would expand to:
 $ mv basilisk.dat unicorn.dat original-*.dat
 ~~~
 
-This wouldn't back up our files, instead we get an error
+This wouldn't back up our files, instead we get an error:
 
 ~~~ {.error}
 mv: target `original-*.dat' is not a directory
