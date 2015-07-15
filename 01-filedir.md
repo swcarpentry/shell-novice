@@ -28,9 +28,10 @@ let's open a shell window:
 $
 ~~~
 
-The dollar sign is a **prompt**,
-which shows us that the shell is waiting for input;
-your shell may show something more elaborate.
+The dollar sign is a **prompt**, which shows us that the shell is waiting for input;
+your shell may use a different character as a prompt and may add information before 
+the prompt. When typing commands, either from these lessons or from other sources, 
+do not type the prompt, only the commands that follow it.
 
 Type the command `whoami`,
 then press the Enter key (sometimes marked Return) to send the command to the shell.
