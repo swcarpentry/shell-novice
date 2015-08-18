@@ -5,21 +5,13 @@ subtitle: Files and Directories
 minutes: 15
 ---
 > ## Learning Objectives {.objectives}
-> 
+>
 > *   Explain the similarities and differences between a file and a directory.
 > *   Translate an absolute path into a relative path and vice versa.
 > *   Construct absolute and relative paths that identify specific files and directories.
 > *   Explain the steps in the shell's read-run-print cycle.
 > *   Identify the actual command, flags, and filenames in a command-line call.
 > *   Demonstrate the use of tab completion, and explain its advantages.
-
-> ## Shell Commands We'll Use In This Tutorial {.objectives}
-> 
-> * `whoami` - display the effective user id
-> * `pwd` - return the working directory name
-> * `ls` - list directory contents
-> * `cd` - change the current directory
-
 
 The part of the operating system responsible for managing files and directories
 is called the **file system**.
