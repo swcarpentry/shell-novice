@@ -478,7 +478,7 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 >
-> What is the difference between the the two loops below, and which one would we
+> What is the difference between the two loops below, and which one would we
 > want to run?
 >
 > ~~~ {.bash}
