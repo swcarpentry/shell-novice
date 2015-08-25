@@ -23,7 +23,7 @@ Let's start by going back to `molecules/` and putting the following line in the 
 
 ~~~ {.bash}
 $ cd molecules
-$ cat middle.sh
+$ nano middle.sh
 ~~~
 ~~~
 head -15 octane.pdb | tail -5
