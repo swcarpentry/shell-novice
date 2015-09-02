@@ -44,7 +44,7 @@
 <p>We are finally ready to see what makes the shell such a powerful programming environment. We are going to take the commands we repeat frequently and save them in files so that we can re-run all those operations again later by typing a single command. For historical reasons, a bunch of commands saved in a file is usually called a <strong>shell script</strong>, but make no mistake: these are actually small programs.</p>
 <p>Let’s start by going back to <code>molecules/</code> and putting the following line in the file <code>middle.sh</code>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> molecules
-$ <span class="kw">cat</span> middle.sh</code></pre>
+$ <span class="kw">nano</span> middle.sh</code></pre>
 <pre><code>head -15 octane.pdb | tail -5</code></pre>
 <p>This is a variation on the pipe we constructed earlier: it selects lines 11-15 of the file <code>octane.pdb</code>. Remember, we are <em>not</em> running it as a command just yet: we are putting the commands in a file.</p>
 <p>Once we have saved the file, we can ask the shell to execute the commands it contains. Our shell is called <code>bash</code>, so we run the following command:</p>
