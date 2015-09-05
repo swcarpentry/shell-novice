@@ -37,7 +37,7 @@
 <li>Write a loop that applies one or more commands separately to each file in a set of files.</li>
 <li>Trace the values taken on by a loop variable during execution of the loop.</li>
 <li>Explain the difference between a variable’s name and its value.</li>
-<li>Explain why spaces and some punctuation characters shouldn’t be used in files’ names.</li>
+<li>Explain why spaces and some punctuation characters shouldn’t be used in file names.</li>
 <li>Demonstrate how to see what commands have recently been executed.</li>
 <li>Re-run recently executed commands without retyping them.</li>
 </ul>
@@ -47,7 +47,7 @@
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mv</span> *.dat original-*.dat</code></pre>
 <p>because that would expand to:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mv</span> basilisk.dat unicorn.dat original-*.dat</code></pre>
-<p>This wouldn’t back up our files, instead we get an error</p>
+<p>This wouldn’t back up our files, instead we get an error:</p>
 <pre class="error"><code>mv: target `original-*.dat&#39; is not a directory</code></pre>
 <p>This a problem arises when <code>mv</code> receives more than two inputs. When this happens, it expects the last input to be a directory where it can move all the files it was passed. Since there is no directory named <code>original-*.dat</code> in the <code>creatures</code> directory we get an error.</p>
 <p>Instead, we can use a <strong>loop</strong> to do some operation once for each thing in a list. Here’s a simple example that displays the first three lines of each file in turn:</p>
@@ -284,7 +284,7 @@ done</code></pre>
 <span class="kw">do</span>
   <span class="kw">analyze</span> <span class="ot">$file</span> <span class="kw">&gt;</span> analyzed-<span class="ot">$file</span>
 <span class="kw">done</span></code></pre>
-<p>What is the difference between the the two loops below, and which one would we want to run?</p>
+<p>What is the difference between the two loops below, and which one would we want to run?</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Version 1</span>
 <span class="kw">for</span> <span class="kw">file</span> in *.dat
 <span class="kw">do</span>
