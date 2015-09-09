@@ -22,7 +22,7 @@ so lets go into that directory and take a look at that directory:
 $ cd molecules
 ~~~
 ~~~ {.bash}
-$ ls
+$ ls *.pdb
 ~~~
 ~~~ {.output}
 aldrin.pdb
@@ -89,7 +89,7 @@ We are very luck and we can do (1) and (2) with the shell.
 For (1) we will use
 
 ~~~ {.bash}
-$ ls > content-of-molecules
+$ ls *.pdb > content-of-molecules
 ~~~
 
 The greater than symbol, `>`, tells the shell to **redirect** the command's output
@@ -136,7 +136,7 @@ $ wc -l content-of-molecules
 Writing something like
 
 ~~~ {.bash}
-$ ls > content-of-molecules
+$ ls *.pdb > content-of-molecules
 ~~~
 ~~~ {.bash}
 $ wc -l content-of-molecules
@@ -155,7 +155,7 @@ using what is know as pipe, `|`.
 We can reword, now using pipe, the previous action as
 
 ~~~ {.bash}
-$ ls | wc -l
+$ ls *.pdb | wc -l
 ~~~
 ~~~ {.output}
 48
@@ -181,13 +181,13 @@ $ ls | wc -l
 > and temporarily sends whatever we type on our keyboard to that process's standard input,
 > and whatever the process sends to standard output to the screen.
 >
-> Here's what happens when we run `ls > content-of-molecules`.
+> Here's what happens when we run `ls *.pdb > content-of-molecules`.
 > The shell starts by telling the computer to create a new process to run the `ls` program.
 > `ls` reads from standard input, there is nothing to read.
 > And since we've used `>` to redirect output to a file,
 > the shell connects the process's standard output to that file.
 >
-> If we run `ls | wc -l` instead,
+> If we run `ls *.pdb | wc -l` instead,
 > the shell creates two processes
 > (one for each process in the pipe)
 > so that `ls` and `wc` run simultaneously.
