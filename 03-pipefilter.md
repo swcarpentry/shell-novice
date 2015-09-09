@@ -89,22 +89,16 @@ We are very luck and we can do (1) and (2) with the shell.
 For (1) we will use
 
 ~~~ {.bash}
-$ ls > /tmp/content-of-molecules
+$ ls > content-of-molecules
 ~~~
 
 The greater than symbol, `>`, tells the shell to **redirect** the command's output
-to a file, in this case `/tmp/content-of-molecules` instead of printing it to the screen.
+to a file, in this case `content-of-molecules` instead of printing it to the screen.
 The shell will create the file if it doesn't exist,
 or overwrite the contents of that file if it does.
 (This is why there is no screen output:
 everything that `ls` would have printed has gone into the file
-`/tmp/content-of-molecules` instead.)
-
-> ## `/tmp` Directory {.callout}
->
-> The `/tmp` or temporary directory is a common place to store files that we are
-> only to use once or as intermediate step of a complex process.
-> Using it will avoid garbage between your important files.
+`content-of-molecules` instead.)
 
 > ## Redirecting Input {.callout}
 >
@@ -123,7 +117,7 @@ it counts the number of lines, words, and characters in files.
 So,
 
 ~~~ {.bash}
-$ wc /tmp/content-of-molecules
+$ wc content-of-molecules
 ~~~
 ~~~ {.output}
      48      48     645
@@ -133,7 +127,7 @@ And to get only the number of files inside `molecules`
 we can run
 
 ~~~ {.bash}
-$ wc -l /tmp/content-of-molecules
+$ wc -l content-of-molecules
 ~~~
 ~~~ {.output}
 48
@@ -142,10 +136,10 @@ $ wc -l /tmp/content-of-molecules
 Writing something like
 
 ~~~ {.bash}
-$ ls > /tmp/content-of-molecules
+$ ls > content-of-molecules
 ~~~
 ~~~ {.bash}
-$ wc -l /tmp/content-of-molecules
+$ wc -l content-of-molecules
 ~~~
 ~~~ {.output}
 48
@@ -187,7 +181,7 @@ $ ls | wc -l
 > and temporarily sends whatever we type on our keyboard to that process's standard input,
 > and whatever the process sends to standard output to the screen.
 >
-> Here's what happens when we run `ls > /tmp/content-of-molecules`.
+> Here's what happens when we run `ls > content-of-molecules`.
 > The shell starts by telling the computer to create a new process to run the `ls` program.
 > `ls` reads from standard input, there is nothing to read.
 > And since we've used `>` to redirect output to a file,
