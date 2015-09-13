@@ -170,6 +170,12 @@ on the front page of the website for more details.
     Please see the latest set of installation guidelines for advice,
     and try it out yourself *before* teaching a class.
 
+*   On Windows machines
+	if `nano` hasn't been properly installed with the SWC installer, it 
+    is possible to use `notepad` as an alternative.  There will be a GUI 
+    interface and line endings are treated differently, but otherwise, for 
+    the purposes of this lesson, `notepad` and `nano` can be used almost interchangeably.  
+
 *   On Windows, it appears that:
 
     ~~~ {.bash}
