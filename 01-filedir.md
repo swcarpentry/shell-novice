@@ -441,6 +441,22 @@ and we will see it in many other tools as we go on.
 > 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
 > 4.  `original pnas_final pnas_sub`
 
+> ## Many ways to do the same thing - absolute vs relative paths {.challenge}
+>
+> For a hypothetical filesystem location of /home/amanda/data/, 
+> select each of the below commands that Amanda could use to navigate to her home directory, 
+> which is /home/amanda 
+
+>1.  `cd .`
+>2.  `cd /`
+>3.  `cd /home/amanda`
+>4.  `cd ../..`
+>5.  `cd ~`
+>6.  `cd home`
+>7.  `cd ~/data/..`
+>8.  `cd`
+>9.  `cd ..`
+
 > ## `ls` reading comprehension {.challenge}
 >
 > If `pwd` displays `/Users/backup`,
