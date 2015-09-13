@@ -80,7 +80,9 @@ $ nano draft.txt
 > [Vim](http://www.vim.org/) (both of which are completely unintuitive,
 > even by Unix standards), or a graphical editor such as
 > [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
-> use [Notepad++](http://notepad-plus-plus.org/).
+> use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in 
+> editor called `notepad` that can be run from the command line in the same 
+> way as `nano` for the purposes of this lesson.  
 >
 > No matter what editor you use, you will need to know where it searches
 > for and saves files. If you start it from the shell, it will (probably)
