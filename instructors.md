@@ -83,7 +83,7 @@ as long as learners using Windows do not run into roadblocks such as:
 *   Super cool online resource!  http://explainshell.com/ will dissect any shell command you type in and display help text for each piece.  
 
 *   Resources for "splitting" your shell so that recent commands 
-    remain in view: http://blog.rgaiacs.com/2015/06/18/swc_shell.html
+    remain in view: https://github.com/rgaiacs/swc-shell-split-window
 
 *	How to use the materials in the shell-novice repository (or, lesson planning)
 	* For a great general list of tips, see [this swcarpentry blog post](http://software-carpentry.org/blog/2015/03/teaching-tips.html)
