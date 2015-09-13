@@ -19,28 +19,28 @@ Suppose we have several hundred genome data files named `basilisk.dat`, `unicorn
 In this example,
 we'll use the `creatures` directory which only has two example files,
 but the principles can be applied to many many more files at once.
-We would like to modify these files, but also save a version of the original files and rename them 
-as `original-basilisk.dat` and `original-unicorn.dat`.
+We would like to modify these files, but also save a version of the original files, naming the copies
+`original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
 ~~~ {.bash}
-$ mv *.dat original-*.dat
+$ cp *.dat original-*.dat
 ~~~
 
 because that would expand to:
 
 ~~~ {.bash}
-$ mv basilisk.dat unicorn.dat original-*.dat
+$ cp basilisk.dat unicorn.dat original-*.dat
 ~~~
 
 This wouldn't back up our files, instead we get an error:
 
 ~~~ {.error}
-mv: target `original-*.dat' is not a directory
+cp: target `original-*.dat' is not a directory
 ~~~
 
-This a problem arises when `mv` receives more than two inputs. When this happens, it
-expects the last input to be a directory where it can move all the files it was passed.
+This a problem arises when `cp` receives more than two inputs. When this happens, it
+expects the last input to be a directory where it can copy all the files it was passed.
 Since there is no directory named `original-*.dat` in the `creatures` directory we get an
 error.
 
@@ -216,29 +216,29 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 >
 > but it's simpler just to avoid using spaces (or other special characters) in filenames.
 
-Going back to our original file renaming problem,
+Going back to our original file copying problem,
 we can solve it using this loop:
 
 ~~~ {.bash}
 for filename in *.dat
 do
-    mv $filename original-$filename
+    cp $filename original-$filename
 done
 ~~~
 
-This loop runs the `mv` command once for each filename.
+This loop runs the `cp` command once for each filename.
 The first time,
 when `$filename` expands to `basilisk.dat`,
 the shell executes:
 
 ~~~ {.bash}
-mv basilisk.dat original-basilisk.dat
+cp basilisk.dat original-basilisk.dat
 ~~~
 
 The second time, the command is:
 
 ~~~ {.bash}
-mv unicorn.dat original-unicorn.dat
+cp unicorn.dat original-unicorn.dat
 ~~~
 
 > ## Measure Twice, Run Once {.callout}
@@ -246,25 +246,25 @@ mv unicorn.dat original-unicorn.dat
 > A loop is a way to do many things at once --- or to make many mistakes at
 > once if it does the wrong thing. One way to check what a loop *would* do
 > is to echo the commands it would run instead of actually running them.
-> For example, we could write our file renaming loop like this:
+> For example, we could write our file copying loop like this:
 > 
 > ~~~
 > for filename in *.dat
 > do
->     echo mv $filename original-$filename
+>     echo cp $filename original-$filename
 > done
 > ~~~
 > 
-> Instead of running `mv`, this loop runs `echo`, which prints out:
+> Instead of running `cp`, this loop runs `echo`, which prints out:
 > 
 > ~~~
-> mv basilisk.dat original-basilisk.dat
-> mv unicorn.dat original-unicorn.dat
+> cp basilisk.dat original-basilisk.dat
+> cp unicorn.dat original-unicorn.dat
 > ~~~
 > 
 > *without* actually running those commands. We can then use up-arrow to
 > redisplay the loop, back-arrow to get to the word `echo`, delete it, and
-> then press "enter" to run the loop with the actual `mv` commands. This
+> then press "enter" to run the loop with the actual `cp` commands. This
 > isn't foolproof, but it's a handy way to see what's going to happen when
 > you're still learning how loops work.
 
