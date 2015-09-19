@@ -22,83 +22,89 @@ so lets go into that directory and take a look at that directory:
 $ cd molecules
 ~~~
 ~~~ {.bash}
+$ ls
+~~~
+~~~ {.output}
+aldrin.pdb
+ammonia.pdb
+ascorbic-acid.pdb
+...
+vanillin.pdb
+vinyl-chloride.pdb
+vitamin-a.pdb
+~~~
+
+The `.pdb` extension indicates that these files are in Protein Data Bank format,
+a simple text format that specifies **at each line** the type and position of **one** atom in the molecule.
+We can get only the files with the `.pdb` extension.
+
+~~~ {.bash}
 $ ls *.pdb
 ~~~
 ~~~ {.output}
 aldrin.pdb
 ammonia.pdb
 ascorbic-acid.pdb
-benzaldehyde.pdb
-camphene.pdb
-cholesterol.pdb
-cinnamaldehyde.pdb
-citronellal.pdb
-codeine.pdb
-cubane.pdb
-cyclobutane.pdb
-cyclohexanol.pdb
-cyclopropane.pdb
-ethane.pdb
-ethanol.pdb
-ethylcyclohexane.pdb
-glycol.pdb
-heme.pdb
-lactic-acid.pdb
-lactose.pdb
-lanoxin.pdb
-lsd.pdb
-maltose.pdb
-menthol.pdb
-methane.pdb
-methanol.pdb
-mint.pdb
-morphine.pdb
-mustard.pdb
-nerol.pdb
-norethindrone.pdb
-octane.pdb
-pentane.pdb
-piperine.pdb
-propane.pdb
-pyridoxal.pdb
-quinine.pdb
-strychnine.pdb
-styrene.pdb
-sucrose.pdb
-testosterone.pdb
-thiamine.pdb
-tnt.pdb
-tuberin.pdb
-tyrian-purple.pdb
+...
 vanillin.pdb
 vinyl-chloride.pdb
 vitamin-a.pdb
 ~~~
 
-> ## `.pdb` Extension {.callout}
+The `*` in `*n.pdb` matches zero or more characters,
+so the shell turns `*nol.pdb` into a complete list
+of files that end with `.pdb`.
+
+> ## Wildcards {.callout}
 >
-> The `.pdb` extension indicates that these files are in Protein Data Bank format,
-> a simple text format that specifies **at each line** the type and position of **one** atom in the molecule.
+> `*` is a **wildcard**. It matches zero or more
+> characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
+> file that ends with '.pdb'. On the other hand, `p*.pdb` only matches 
+> `pentane.pdb` and `propane.pdb`, because the 'p' at the front only 
+> matches filenames that begin with the letter 'p'.
+>
+> `?` is also a wildcard, but it only matches a single character. This
+> means that `p?.pdb` matches `pi.pdb` or `p5.pdb`, but not `propane.pdb`.
+> We can use any number of wildcards at a time: for example, `p*.p?*`
+> matches anything that starts with a 'p' and ends with '.', 'p', and at
+> least one more character (since the '?' has to match one character, and
+> the final '\*' can match any number of characters). Thus, `p*.p?*` would
+> match `preferred.practice`, and even `p.pi` (since the first '\*' can
+> match no characters at all), but not `quality.practice` (doesn't start
+> with 'p') or `preferred.p` (there isn't at least one character after the
+> '.p').
+>
+> When the shell sees a wildcard, it expands the wildcard to create a
+> list of matching filenames *before* running the command that was
+> asked for. As an exception, if a wildcard expression does not match
+> any file, Bash will pass the expression as a parameter to the command
+> as it is. For example typing `ls *.pdf` in the molecules directory
+> (which contains only files with names ending with `.pdb`) results in
+> an error message that there is no file called `*.pdf`.
+> However, generally commands like `wc` and `ls` see the lists of
+> file names matching these expressions, but not the wildcards
+> themselves. It is the shell, not the other programs, that deals with
+> expanding wildcards, and this is another example of orthogonal design.
 
 The first question that we can ask is
 "how many files are inside the `molecules` directory?".
-If we could (1) write the output of `ls` into a file
+If we could (1) write the output of `ls *.pdb` into a file
 and (2) count the number of lines of that file
 we will have our answer.
 We are very luck and we can do (1) and (2) with the shell.
 For (1) we will use
 
 ~~~ {.bash}
-$ ls *.pdb > content-of-molecules
+$ ls *.pdb > molecule-list
 ~~~
 
 The greater than symbol, `>`, tells the shell to **redirect** the command's output
-to a file, in this case `content-of-molecules` instead of printing it to the screen.
+to a file, in this case `molecule-list` instead of printing it to the screen.
 The shell will create the file if it doesn't exist,
 or overwrite the contents of that file if it does.
 (This is why there is no screen output:
 everything that `ls` would have printed has gone into the file
-`content-of-molecules` instead.)
+`molecule-list` instead.)
 
 > ## Redirecting Input {.callout}
 >
@@ -111,13 +117,15 @@ everything that `ls` would have printed has gone into the file
 > have told the shell to send the contents of `ammonia.pdb` to `wc`'s
 > standard input.
 
-For (2) we will use `wc`
+Now we want to be able to count the lines of `molecule-list`,
+as they will tell us how many files were in the directory.
+For that we will use `wc`
 that is the "word count" command:
 it counts the number of lines, words, and characters in files.
 So,
 
 ~~~ {.bash}
-$ wc content-of-molecules
+$ wc molecule-list
 ~~~
 ~~~ {.output}
      48      48     645
@@ -127,19 +135,21 @@ And to get only the number of files inside `molecules`
 we can run
 
 ~~~ {.bash}
-$ wc -l content-of-molecules
+$ wc -l molecule-list
 ~~~
 ~~~ {.output}
 48
 ~~~
 
+We've answered our question! There are 48 pdb files.
+
 Writing something like
 
 ~~~ {.bash}
-$ ls *.pdb > content-of-molecules
+$ ls *.pdb > molecule-list
 ~~~
 ~~~ {.bash}
-$ wc -l content-of-molecules
+$ wc -l molecule-list
 ~~~
 ~~~ {.output}
 48
@@ -171,7 +181,7 @@ $ ls *.pdb | wc -l
 > most Unix programmers call it "stdin".
 > Every process also has a default output channel called **standard output**
 > (or "stdout").
-> 
+>
 > The shell is actually just another program.
 > Under normal circumstances,
 > whatever we type on the keyboard is sent to the shell on its standard input,
@@ -181,7 +191,7 @@ $ ls *.pdb | wc -l
 > and temporarily sends whatever we type on our keyboard to that process's standard input,
 > and whatever the process sends to standard output to the screen.
 >
-> Here's what happens when we run `ls *.pdb > content-of-molecules`.
+> Here's what happens when we run `ls *.pdb > molecule-list`.
 > The shell starts by telling the computer to create a new process to run the `ls` program.
 > `ls` reads from standard input, there is nothing to read.
 > And since we've used `>` to redirect output to a file,
@@ -224,52 +234,15 @@ the name of alcohols ended with "nol".
 Let's run the command `ls *nol.pdb`:
 
 ~~~ {.bash}
-$ ls *nol.pdb
+$ ls *nol.pdb | wc -l
 ~~~
 ~~~ {.output}
-cyclohexanol.pdb
-ethanol.pdb
-methanol.pdb
+3
 ~~~
-
-The `*` in `*nol.pdb` matches zero or more characters,
-so the shell turns `*nol.pdb` into a complete list
-of files that end with `nol.pdf`
-
-> ## Wildcards {.callout}
-> 
-> `*` is a **wildcard**. It matches zero or more
-> characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
-> file that ends with '.pdb'. On the other hand, `p*.pdb` only matches 
-> `pentane.pdb` and `propane.pdb`, because the 'p' at the front only 
-> matches filenames that begin with the letter 'p'.
-> 
-> `?` is also a wildcard, but it only matches a single character. This
-> means that `p?.pdb` matches `pi.pdb` or `p5.pdb`, but not `propane.pdb`.
-> We can use any number of wildcards at a time: for example, `p*.p?*`
-> matches anything that starts with a 'p' and ends with '.', 'p', and at
-> least one more character (since the '?' has to match one character, and
-> the final '\*' can match any number of characters). Thus, `p*.p?*` would
-> match `preferred.practice`, and even `p.pi` (since the first '\*' can
-> match no characters at all), but not `quality.practice` (doesn't start
-> with 'p') or `preferred.p` (there isn't at least one character after the
-> '.p').
-> 
-> When the shell sees a wildcard, it expands the wildcard to create a
-> list of matching filenames *before* running the command that was
-> asked for. As an exception, if a wildcard expression does not match
-> any file, Bash will pass the expression as a parameter to the command
-> as it is. For example typing `ls *.pdf` in the molecules directory
-> (which contains only files with names ending with `.pdb`) results in
-> an error message that there is no file called `*.pdf`.
-> However, generally commands like `wc` and `ls` see the lists of
-> file names matching these expressions, but not the wildcards
-> themselves. It is the shell, not the other programs, that deals with
-> expanding wildcards, and this is another example of orthogonal design.
 
 Another question that we can ask is
 "What is the smalest molecule inside `molecules`?".
-Since at `.pdf` files we have one line for each atom
+Since at `.pdb` files we have one line for each atom
 we can answer the question by
 (1) getting the number of lines of each file and
 (2) sorting the result.
@@ -399,7 +372,7 @@ We can request that `sort` interpret `1` as the first number,
 by using the `-n` flag.
 
 ~~~ {.bash}
-$ wc -l *.pdb | sort
+$ wc -l *.pdb | sort -n
 ~~~
 ~~~ {.output}
     7 ammonia.pdb
@@ -462,7 +435,7 @@ And the answer for our last question is amonia.
 > To get only the first line you must use `head -1`.
 >
 > ~~~ {.bash}
-> $ wc -l *.pdb | sort | head -1
+> $ wc -l *.pdb | sort -n | head -1
 > ~~~
 > ~~~ {.output}
 >     7 ammonia.pdb
