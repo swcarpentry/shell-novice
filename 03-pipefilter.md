@@ -159,10 +159,7 @@ each time that you want to know the number of files inside a directory
 will be tedious.
 If we could drop the file our life will be more easy.
 Again,
-we are luck and the shell allow us to pass the output of one command
-directly as the input of another command
-using what is know as pipe, `|`.
-We can reword, now using pipe, the previous action as
+we are luck and we can acomplish it with
 
 ~~~ {.bash}
 $ ls *.pdb | wc -l
@@ -170,6 +167,20 @@ $ ls *.pdb | wc -l
 ~~~ {.output}
 48
 ~~~
+
+The vertical bar between the two commands is called a **pipe**.
+It tells the shell that we want to use
+the output of the command on the left
+as the input to the command on the right.
+The computer might create a temporary file if it needs to,
+or copy data from one program to the other in memory,
+or something else entirely;
+we don't have to know or care.
+
+This is exactly like a mathematician nesting functions like *log(3x)*
+and saying "the log of three times *x*".
+In our case,
+the calculation is "line count of `*.pdb`".
 
 > ## Process {.callout}
 >
