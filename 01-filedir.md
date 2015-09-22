@@ -13,6 +13,13 @@ minutes: 15
 > *   Identify the actual command, flags, and filenames in a command-line call.
 > *   Demonstrate the use of tab completion, and explain its advantages.
 
+
+> ## Terminal-ogy {.callout}
+> This lesson is about the **Unix Shell**. You may hear people say the terms 'terminal,'
+> 'bash,' 'console,' 'CLI,' or sometimes 'prompt.'
+> Often, "shell" is what is meant by those terms, even in the context of this lesson, and
+> even though the terms may also refer to things other than the shell.
+
 The part of the operating system responsible for managing files and directories
 is called the **file system**.
 It organizes our data into files,
@@ -348,7 +355,7 @@ it also displays another special directory that's just called `.`,
 which means "the current working directory".
 It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
-Finally, we also see a file called `.bash_profile`. This file usually contains settings to customize the shell (terminal). For this lesson material it does not contain any settings. There may also be similar files called `.bashrc` or `.bash_login`. The `.` prefix is used to prevent these configuration files from cluttering the terminal when a standard `ls` command is used.
+Finally, we also see a file called `.bash_profile`. This file usually contains settings to customize the shell. For this lesson material it does not contain any settings. There may also be similar files called `.bashrc` or `.bash_login`. The `.` prefix is used to prevent these configuration files from cluttering the terminal when a standard `ls` command is used.
 
 > ## Orthogonality {.callout}
 >
