@@ -430,7 +430,7 @@ and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
-![File System for Challange Questions](fig/filesystem-challenge.svg)
+![File System for Challenge Questions](fig/filesystem-challenge.svg)
 
 > ## Relative path resolution {.challenge}
 >
