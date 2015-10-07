@@ -201,8 +201,8 @@ we want a listing of something other than our current working directory:
 $ ls -F data
 ~~~
 ~~~ {.output}
-amino-acids.txt   elements/     morse.txt
-pdb/              planets.txt   sunspot.txt
+amino-acids.txt   elements/     pdb/	        salmon.txt
+animals.txt       morse.txt     planets.txt     sunspot.txt
 ~~~
 
 The output shows us that there are four text files and two sub-sub-directories.
@@ -289,8 +289,8 @@ $ pwd
 $ ls -F
 ~~~
 ~~~ {.output}
-amino-acids.txt   elements/     morse.txt
-pdb/              planets.txt   sunspot.txt
+amino-acids.txt   elements/     pdb/	        salmon.txt
+animals.txt       morse.txt     planets.txt     sunspot.txt
 ~~~
 
 We now know how to go down the directory tree:
