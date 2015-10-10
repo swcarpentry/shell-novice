@@ -348,6 +348,45 @@ it also displays another special directory that's just called `.`,
 which means "the current working directory".
 It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
+
+`cd` also allows you switch back and forth between places in a rapid way,
+using `cd -`.
+Much like `..`, `-` is a special instruction that `cd` translates to
+*the previous directory I was in*.
+For example, if we are currently in Nelle's `data` directory,
+
+~~~ {.bash}
+$ pwd
+~~~
+~~~ {.output}
+/Users/nelle/data
+~~~
+
+we can move to Nell's Desktop with
+
+~~~ {.bash}
+$ cd /Users/nelle/Desktop
+$ pwd
+~~~
+~~~ {.output}
+/Users/nelle/Desktop
+~~~
+
+If we want to go back to the `data` directory,
+we just need to type `cd -`:
+
+~~~ {.bash}
+$ cd -
+$ pwd
+~~~
+~~~ {.output}
+/Users/nelle/data
+~~~
+
+This is a *very* efficient way of moving back and forth between directories. 
+The difference between `cd ..` and `cd -` is that the former brings you *up*,
+while the later brings you *back*.
+
 Finally, we also see a file called `.bash_profile`. This file usually contains settings to customize the shell (terminal). For this lesson material it does not contain any settings. There may also be similar files called `.bashrc` or `.bash_login`. The `.` prefix is used to prevent these configuration files from cluttering the terminal when a standard `ls` command is used.
 
 > ## Orthogonality {.callout}
@@ -440,6 +479,21 @@ and we will see it in many other tools as we go on.
 > 2.  `2012-12-01 2013-01-08 2013-01-27`
 > 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
 > 4.  `original pnas_final pnas_sub`
+
+> ## Moving back and forth {.challenge}
+>
+> For a hypothetical filesystem location of /home/amanda/data/,
+> if `ls -F` displays `experiment_1/ experiment_2/ experiment_3/`,
+> and Amanda types in `cd experiment_1`,
+> select each of the below commands that Amanda could use to navigate to her home directory, 
+> which is /home/amanda 
+
+>1.  `cd -; cd ..`
+>2.  `cd /`
+>3.  `cd /home/amanda`
+>4.  `cd ../..`
+>5.  `cd ~`
+>6.  `cd ..; cd -`
 
 > ## Many ways to do the same thing - absolute vs relative paths {.challenge}
 >
