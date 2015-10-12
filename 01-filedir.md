@@ -350,9 +350,10 @@ It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
 
 `cd` also allows you switch back and forth between places in a rapid way,
-using `cd -`.
-Much like `..`, `-` is a special instruction that `cd` translates to
-*the previous directory I was in*.
+using `cd -`. `cd` will translate `-` into
+*the previous directory I was in*,
+which is faster than having to remmber, then type,
+the full path.
 For example, if we are currently in Nelle's `data` directory,
 
 ~~~ {.bash}
@@ -482,28 +483,28 @@ and we will see it in many other tools as we go on.
 
 > ## Moving back and forth {.challenge}
 >
-> For a hypothetical filesystem location of /home/amanda/data/,
+> For a hypothetical filesystem location of `/Users/amanda/data/`,
 > if `ls -F` displays `experiment_1/ experiment_2/ experiment_3/`,
 > and Amanda types in `cd experiment_1`,
 > select each of the below commands that Amanda could use to navigate to her home directory, 
-> which is /home/amanda 
+> which is `/Users/amanda` 
 
 >1.  `cd -; cd ..`
 >2.  `cd /`
->3.  `cd /home/amanda`
+>3.  `cd /Users/amanda`
 >4.  `cd ../..`
 >5.  `cd ~`
 >6.  `cd ..; cd -`
 
 > ## Many ways to do the same thing - absolute vs relative paths {.challenge}
 >
-> For a hypothetical filesystem location of /home/amanda/data/, 
+> For a hypothetical filesystem location of `/Users/amanda/data/`, 
 > select each of the below commands that Amanda could use to navigate to her home directory, 
-> which is /home/amanda 
+> which is `/Users/amanda `
 
 >1.  `cd .`
 >2.  `cd /`
->3.  `cd /home/amanda`
+>3.  `cd /Users/amanda`
 >4.  `cd ../..`
 >5.  `cd ~`
 >6.  `cd home`
