@@ -29,7 +29,7 @@
                     <a href="index.html"><h1 class="title">The Unix Shell</h1></a>
           <h2 class="subtitle">Discussion</h2>
           <h2 id="job-control-codes">Job Control Codes</h2>
-<p>The shell accepts a few special commands that allow users to interact with running processes or programs. You can enter each of these “control codes” by holding down the <kbd>CTRL</kbd> key and then pressing one of the control characters. In other tutorials, you may see the <code>^</code> character used to represent the <kbd>CTRL</kbd> key (e.g. <code>^c</code> = <kbd>CTRL</kbd>+<kbd>c</kbd>).</p>
+<p>The shell accepts a few special commands that allow users to interact with running processes or programs. You can enter each of these “control codes” by holding down the <code>CTRL</code> key and then pressing one of the control characters. In other tutorials, you may see the <code>^</code> character used to represent the <code>CTRL</code> key (e.g. <code>^c</code> = <code>CTRL+c</code>).</p>
 <table>
 <thead>
 <tr class="header">
@@ -39,20 +39,20 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><kbd>CTRL</kbd>+<kbd>c</kbd></td>
+<td align="left"><code>CTRL+c</code></td>
 <td align="left">Interrupts and cancels a running program. This is useful if you want to cancel a command that is taking too long to execute.</td>
 </tr>
 <tr class="even">
-<td align="left"><kbd>CTRL</kbd>+<kbd>d</kbd></td>
-<td align="left">Indicates the end of a file or stream of characters that you are entering on the command line. For example, we saw earlier that the <code>wc</code> command counts lines, words, and characters in a file. If we just type <code>wc</code> and hit <kbd>Enter</kbd> without providing a file name, then <code>wc</code> will assume we want it to analyze all the stuff we type next. After typing our magnum opus directly into the shell prompt, we can then type <kbd>CTRL</kbd>+<kbd>d</kbd> to tell <code>wc</code> that we’re done and we’d like to see the results of the word count.</td>
+<td align="left"><code>CTRL+d</code></td>
+<td align="left">Indicates the end of a file or stream of characters that you are entering on the command line. For example, we saw earlier that the <code>wc</code> command counts lines, words, and characters in a file. If we just type <code>wc</code> and hit <code>Enter</code> without providing a file name, then <code>wc</code> will assume we want it to analyze all the stuff we type next. After typing our magnum opus directly into the shell prompt, we can then type <code>CTRL+d</code> to tell <code>wc</code> that we’re done and we’d like to see the results of the word count.</td>
 </tr>
 <tr class="odd">
-<td align="left"><kbd>CTRL</kbd>+<kbd>z</kbd></td>
+<td align="left"><code>CTRL+z</code></td>
 <td align="left">Suspends a process but does not terminate it. You can then use the command <code>fg</code> to restart the job in the foreground.</td>
 </tr>
 </tbody>
 </table>
-<p>For new shell users, these control codes can all appear to have the same effect: they make things “go away.” But it is helpful to understand the differences. In general, if something went wrong and you just want to get your shell prompt back, it is better to use <kbd>CTRL</kbd>+<kbd>c</kbd>.</p>
+<p>For new shell users, these control codes can all appear to have the same effect: they make things “go away.” But it is helpful to understand the differences. In general, if something went wrong and you just want to get your shell prompt back, it is better to use <code>CTRL+c</code>.</p>
 <h2 id="other-shells">Other Shells</h2>
 <p>Before Bash became popular in the end of nineties, scientists widely used (and some still use) another shell, C-shell, or Csh. Bash and Csh have similar feature sets, but their syntax rules are different and this makes them incompatible with each other. A few other shells have appeared since, including ksh, zsh, and a number of others; they are mostly compatible with Bash, and Bash is the default shell on most modern implementations of Unix (including most packages that provide Unix-like tools for Windows) but if you get strange errors in shell scripts written by colleagues, check to see which shell they were written for.</p>
         </div>

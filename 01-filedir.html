@@ -120,8 +120,8 @@ Desktop/    notes.txt            writing/</code></pre>
 </aside>
 <p>Now let’s take a look at what’s in Nelle’s <code>data</code> directory by running <code>ls -F data</code>, i.e., the command <code>ls</code> with the <strong>arguments</strong> <code>-F</code> and <code>data</code>. The second argument — the one <em>without</em> a leading dash — tells <code>ls</code> that we want a listing of something other than our current working directory:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> -F data</code></pre>
-<pre class="output"><code>amino-acids.txt   elements/     morse.txt
-pdb/              planets.txt   sunspot.txt</code></pre>
+<pre class="output"><code>amino-acids.txt   elements/     pdb/            salmon.txt
+animals.txt       morse.txt     planets.txt     sunspot.txt</code></pre>
 <p>The output shows us that there are four text files and two sub-sub-directories. Organizing things hierarchically in this way helps us keep track of our work: it’s possible to put hundreds of files in our home directory, just as it’s possible to pile hundreds of printed papers on our desk, but it’s a self-defeating strategy.</p>
 <p>Notice, by the way that we spelled the directory name <code>data</code>. It doesn’t have a trailing slash: that’s added to directory names by <code>ls</code> when we use the <code>-F</code> flag to help us tell things apart. And it doesn’t begin with a slash because it’s a <strong>relative path</strong>, i.e., it tells <code>ls</code> how to find something from where we are, rather than from the root of the file system.</p>
 <aside class="callout panel panel-info">
@@ -150,8 +150,8 @@ Desktop    notes.txt           writing</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
 <pre class="output"><code>/Users/nelle/data</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> -F</code></pre>
-<pre class="output"><code>amino-acids.txt   elements/     morse.txt
-pdb/              planets.txt   sunspot.txt</code></pre>
+<pre class="output"><code>amino-acids.txt   elements/     pdb/            salmon.txt
+animals.txt       morse.txt     planets.txt     sunspot.txt</code></pre>
 <p>We now know how to go down the directory tree: how do we go up? We could use an absolute path:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /Users/nelle</code></pre>
 <p>but it’s almost always simpler to use <code>cd ..</code> to go up one level:</p>
@@ -195,7 +195,7 @@ Desktop/            north-pacific-gyre/ writing/</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> north-pacific-gyre/</code></pre>
 <p>If she presses tab again, Bash will add <code>2012-07-03/</code> to the command, since it’s the only possible completion. Pressing tab again does nothing, since there are 1520 possibilities; pressing tab twice brings up a list of all the files, and so on. This is called <strong>tab completion</strong>, and we will see it in many other tools as we go on.</p>
 <div class="figure">
-<img src="fig/filesystem-challenge.svg" alt="File System for Challange Questions" /><p class="caption">File System for Challange Questions</p>
+<img src="fig/filesystem-challenge.svg" alt="File System for Challenge Questions" /><p class="caption">File System for Challenge Questions</p>
 </div>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
@@ -211,6 +211,27 @@ Desktop/            north-pacific-gyre/ writing/</code></pre>
 </ol>
 </div>
 </section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Many ways to do the same thing - absolute vs relative paths</h2>
+</div>
+<div class="panel-body">
+<p>For a hypothetical filesystem location of /home/amanda/data/, select each of the below commands that Amanda could use to navigate to her home directory, which is /home/amanda</p>
+</div>
+</section>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li><code>cd .</code></li>
+<li><code>cd /</code></li>
+<li><code>cd /home/amanda</code></li>
+<li><code>cd ../..</code></li>
+<li><code>cd ~</code></li>
+<li><code>cd home</code></li>
+<li><code>cd ~/data/..</code></li>
+<li><code>cd</code></li>
+<li><code>cd ..</code></li>
+</ol>
+</blockquote>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span><code>ls</code> reading comprehension</h2>

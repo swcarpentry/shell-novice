@@ -43,13 +43,13 @@
 </ul>
 </div>
 </section>
-<p>Wildcards and tab completion are two ways to reduce typing (and typing mistakes). Another is to tell the shell to do something over and over again. Suppose we have several hundred genome data files named <code>basilisk.dat</code>, <code>unicorn.dat</code>, and so on. In this example, we’ll use the <code>creatures</code> directory which only has two example files, but the principles can be applied to many many more files at once. We would like to modify these files, but also save a version of the original files and rename them as <code>original-basilisk.dat</code> and <code>original-unicorn.dat</code>. We can’t use:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mv</span> *.dat original-*.dat</code></pre>
+<p>Wildcards and tab completion are two ways to reduce typing (and typing mistakes). Another is to tell the shell to do something over and over again. Suppose we have several hundred genome data files named <code>basilisk.dat</code>, <code>unicorn.dat</code>, and so on. In this example, we’ll use the <code>creatures</code> directory which only has two example files, but the principles can be applied to many many more files at once. We would like to modify these files, but also save a version of the original files, naming the copies <code>original-basilisk.dat</code> and <code>original-unicorn.dat</code>. We can’t use:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> *.dat original-*.dat</code></pre>
 <p>because that would expand to:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mv</span> basilisk.dat unicorn.dat original-*.dat</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> basilisk.dat unicorn.dat original-*.dat</code></pre>
 <p>This wouldn’t back up our files, instead we get an error:</p>
-<pre class="error"><code>mv: target `original-*.dat&#39; is not a directory</code></pre>
-<p>This a problem arises when <code>mv</code> receives more than two inputs. When this happens, it expects the last input to be a directory where it can move all the files it was passed. Since there is no directory named <code>original-*.dat</code> in the <code>creatures</code> directory we get an error.</p>
+<pre class="error"><code>cp: target `original-*.dat&#39; is not a directory</code></pre>
+<p>This a problem arises when <code>cp</code> receives more than two inputs. When this happens, it expects the last input to be a directory where it can copy all the files it was passed. Since there is no directory named <code>original-*.dat</code> in the <code>creatures</code> directory we get an error.</p>
 <p>Instead, we can use a <strong>loop</strong> to do some operation once for each thing in a list. Here’s a simple example that displays the first three lines of each file in turn:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">filename</span> in basilisk.dat unicorn.dat
 <span class="kw">&gt;</span> <span class="kw">do</span>
@@ -130,29 +130,29 @@ done</code></pre>
 <p>but it’s simpler just to avoid using spaces (or other special characters) in filenames.</p>
 </div>
 </aside>
-<p>Going back to our original file renaming problem, we can solve it using this loop:</p>
+<p>Going back to our original file copying problem, we can solve it using this loop:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">filename</span> in *.dat
 <span class="kw">do</span>
-    <span class="kw">mv</span> <span class="ot">$filename</span> original-<span class="ot">$filename</span>
+    <span class="kw">cp</span> <span class="ot">$filename</span> original-<span class="ot">$filename</span>
 <span class="kw">done</span></code></pre>
-<p>This loop runs the <code>mv</code> command once for each filename. The first time, when <code>$filename</code> expands to <code>basilisk.dat</code>, the shell executes:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mv</span> basilisk.dat original-basilisk.dat</code></pre>
+<p>This loop runs the <code>cp</code> command once for each filename. The first time, when <code>$filename</code> expands to <code>basilisk.dat</code>, the shell executes:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> basilisk.dat original-basilisk.dat</code></pre>
 <p>The second time, the command is:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mv</span> unicorn.dat original-unicorn.dat</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> unicorn.dat original-unicorn.dat</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pushpin"></span>Measure Twice, Run Once</h2>
 </div>
 <div class="panel-body">
-<p>A loop is a way to do many things at once — or to make many mistakes at once if it does the wrong thing. One way to check what a loop <em>would</em> do is to echo the commands it would run instead of actually running them. For example, we could write our file renaming loop like this:</p>
+<p>A loop is a way to do many things at once — or to make many mistakes at once if it does the wrong thing. One way to check what a loop <em>would</em> do is to echo the commands it would run instead of actually running them. For example, we could write our file copying loop like this:</p>
 <pre><code>for filename in *.dat
 do
-    echo mv $filename original-$filename
+    echo cp $filename original-$filename
 done</code></pre>
-<p>Instead of running <code>mv</code>, this loop runs <code>echo</code>, which prints out:</p>
-<pre><code>mv basilisk.dat original-basilisk.dat
-mv unicorn.dat original-unicorn.dat</code></pre>
-<p><em>without</em> actually running those commands. We can then use up-arrow to redisplay the loop, back-arrow to get to the word <code>echo</code>, delete it, and then press “enter” to run the loop with the actual <code>mv</code> commands. This isn’t foolproof, but it’s a handy way to see what’s going to happen when you’re still learning how loops work.</p>
+<p>Instead of running <code>cp</code>, this loop runs <code>echo</code>, which prints out:</p>
+<pre><code>cp basilisk.dat original-basilisk.dat
+cp unicorn.dat original-unicorn.dat</code></pre>
+<p><em>without</em> actually running those commands. We can then use up-arrow to redisplay the loop, back-arrow to get to the word <code>echo</code>, delete it, and then press “enter” to run the loop with the actual <code>cp</code> commands. This isn’t foolproof, but it’s a handy way to see what’s going to happen when you’re still learning how loops work.</p>
 </div>
 </aside>
 <h2 id="nelles-pipeline-processing-files">Nelle’s Pipeline: Processing Files</h2>
