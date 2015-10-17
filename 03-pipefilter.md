@@ -16,46 +16,53 @@ Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
 We'll start with a directory called `molecules`
-that contains six files describing some simple organic molecules.
-The `.pdb` extension indicates that these files are in Protein Data Bank format,
-a simple text format that specifies the type and position of each atom in the molecule.
-
-~~~ {.bash}
-$ ls molecules
-~~~
-~~~ {.output}
-cubane.pdb    ethane.pdb    methane.pdb
-octane.pdb    pentane.pdb   propane.pdb
-~~~
-
-Let's go into that directory with `cd` and run the command `wc *.pdb`.
-`wc` is the "word count" command:
-it counts the number of lines, words, and characters in files.
-The `*` in `*.pdb` matches zero or more characters,
-so the shell turns `*.pdb` into a complete list of `.pdb` files:
+so lets go into that directory and take a look at that directory:
 
 ~~~ {.bash}
 $ cd molecules
-$ wc *.pdb
+~~~
+~~~ {.bash}
+$ ls
 ~~~
 ~~~ {.output}
-  20  156 1158 cubane.pdb
-  12   84  622 ethane.pdb
-   9   57  422 methane.pdb
-  30  246 1828 octane.pdb
-  21  165 1226 pentane.pdb
-  15  111  825 propane.pdb
- 107  819 6081 total
+aldrin.pdb
+ammonia.pdb
+ascorbic-acid.pdb
+...
+vanillin.pdb
+vinyl-chloride.pdb
+vitamin-a.pdb
 ~~~
 
+The `.pdb` extension indicates that these files are in Protein Data Bank format,
+a simple text format that specifies **at each line** the type and position of **one** atom in the molecule.
+We can get only the files with the `.pdb` extension.
+
+~~~ {.bash}
+$ ls *.pdb
+~~~
+~~~ {.output}
+aldrin.pdb
+ammonia.pdb
+ascorbic-acid.pdb
+...
+vanillin.pdb
+vinyl-chloride.pdb
+vitamin-a.pdb
+~~~
+
+The `*` in `*n.pdb` matches zero or more characters,
+so the shell turns `*nol.pdb` into a complete list
+of files that end with `.pdb`.
+
 > ## Wildcards {.callout}
-> 
+>
 > `*` is a **wildcard**. It matches zero or more
 > characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
 > file that ends with '.pdb'. On the other hand, `p*.pdb` only matches 
 > `pentane.pdb` and `propane.pdb`, because the 'p' at the front only 
 > matches filenames that begin with the letter 'p'.
-> 
+>
 > `?` is also a wildcard, but it only matches a single character. This
 > means that `p?.pdb` matches `pi.pdb` or `p5.pdb`, but not `propane.pdb`.
 > We can use any number of wildcards at a time: for example, `p*.p?*`
@@ -66,7 +73,7 @@ $ wc *.pdb
 > match no characters at all), but not `quality.practice` (doesn't start
 > with 'p') or `preferred.p` (there isn't at least one character after the
 > '.p').
-> 
+>
 > When the shell sees a wildcard, it expands the wildcard to create a
 > list of matching filenames *before* running the command that was
 > asked for. As an exception, if a wildcard expression does not match
@@ -79,119 +86,86 @@ $ wc *.pdb
 > themselves. It is the shell, not the other programs, that deals with
 > expanding wildcards, and this is another example of orthogonal design.
 
-If we run `wc -l` instead of just `wc`,
-the output shows only the number of lines per file:
+The first question that we can ask is
+"how many files are inside the `molecules` directory?".
+If we could (1) write the output of `ls *.pdb` into a file
+and (2) count the number of lines of that file
+we will have our answer.
+We are very luck and we can do (1) and (2) with the shell.
+For (1) we will use
 
 ~~~ {.bash}
-$ wc -l *.pdb
-~~~
-~~~ {.output}
-  20  cubane.pdb
-  12  ethane.pdb
-   9  methane.pdb
-  30  octane.pdb
-  21  pentane.pdb
-  15  propane.pdb
- 107  total
-~~~
-
-We can also use `-w` to get only the number of words,
-or `-c` to get only the number of characters.
-
-Which of these files is shortest?
-It's an easy question to answer when there are only six files,
-but what if there were 6000?
-Our first step toward a solution is to run the command:
-
-~~~ {.bash}
-$ wc -l *.pdb > lengths.txt
+$ ls *.pdb > molecule-list
 ~~~
 
 The greater than symbol, `>`, tells the shell to **redirect** the command's output
-to a file instead of printing it to the screen.
+to a file, in this case `molecule-list` instead of printing it to the screen.
 The shell will create the file if it doesn't exist,
 or overwrite the contents of that file if it does.
 (This is why there is no screen output:
-everything that `wc` would have printed has gone into the file `lengths.txt` instead.)
-`ls lengths.txt` confirms that the file exists:
+everything that `ls` would have printed has gone into the file
+`molecule-list` instead.)
+
+> ## Redirecting Input {.callout}
+>
+> As well as using `>` to redirect a program's output, we can use `<` to
+> redirect its input, i.e., to read from a file instead of from standard
+> input. For example, instead of writing `wc ammonia.pdb`, we could write
+> `wc < ammonia.pdb`. In the first case, `wc` gets a command line
+> parameter telling it what file to open. In the second, `wc` doesn't have
+> any command line parameters, so it reads from standard input, but we
+> have told the shell to send the contents of `ammonia.pdb` to `wc`'s
+> standard input.
+
+Now we want to be able to count the lines of `molecule-list`,
+as they will tell us how many files were in the directory.
+For that we will use `wc`
+that is the "word count" command:
+it counts the number of lines, words, and characters in files.
+So,
 
 ~~~ {.bash}
-$ ls lengths.txt
+$ wc molecule-list
 ~~~
 ~~~ {.output}
-lengths.txt
+     48      48     645
 ~~~
 
-We can now send the content of `lengths.txt` to the screen using `cat lengths.txt`.
-`cat` stands for "concatenate":
-it prints the contents of files one after another.
-There's only one file in this case,
-so `cat` just shows us what it contains:
+And to get only the number of files inside `molecules`
+we can run
 
 ~~~ {.bash}
-$ cat lengths.txt
+$ wc -l molecule-list
 ~~~
 ~~~ {.output}
-  20  cubane.pdb
-  12  ethane.pdb
-   9  methane.pdb
-  30  octane.pdb
-  21  pentane.pdb
-  15  propane.pdb
- 107  total
+48
 ~~~
 
-Now let's use the `sort` command to sort its contents.
-We will also use the -n flag to specify that the sort is 
-numerical instead of alphabetical.
-This does *not* change the file;
-instead, it sends the sorted result to the screen:
+We've answered our question! There are 48 pdb files.
+
+Writing something like
 
 ~~~ {.bash}
-$ sort -n lengths.txt
+$ ls *.pdb > molecule-list
+~~~
+~~~ {.bash}
+$ wc -l molecule-list
 ~~~
 ~~~ {.output}
-  9  methane.pdb
- 12  ethane.pdb
- 15  propane.pdb
- 20  cubane.pdb
- 21  pentane.pdb
- 30  octane.pdb
-107  total
+48
 ~~~
 
-We can put the sorted list of lines in another temporary file called `sorted-lengths.txt`
-by putting `> sorted-lengths.txt` after the command,
-just as we used `> lengths.txt` to put the output of `wc` into `lengths.txt`.
-Once we've done that,
-we can run another command called `head` to get the first few lines in `sorted-lengths.txt`:
+each time that you want to know the number of files inside a directory
+will be tedious.
+If we could drop the file our life will be more easy.
+Again,
+we are luck and we can acomplish it with
 
 ~~~ {.bash}
-$ sort -n lengths.txt > sorted-lengths.txt
-$ head -1 sorted-lengths.txt
+$ ls *.pdb | wc -l
 ~~~
 ~~~ {.output}
-  9  methane.pdb
-~~~
-
-Using the parameter `-1` with `head` tells it that
-we only want the first line of the file;
-`-20` would get the first 20,
-and so on.
-Since `sorted-lengths.txt` contains the lengths of our files ordered from least to greatest,
-the output of `head` must be the file with the fewest lines.
-
-If you think this is confusing,
-you're in good company:
-even once you understand what `wc`, `sort`, and `head` do,
-all those intermediate files make it hard to follow what's going on.
-We can make it easier to understand by running `sort` and `head` together:
-
-~~~ {.bash}
-$ sort -n lengths.txt | head -1
-~~~
-~~~ {.output}
-  9  methane.pdb
+48
 ~~~
 
 The vertical bar between the two commands is called a **pipe**.
@@ -203,90 +177,285 @@ or copy data from one program to the other in memory,
 or something else entirely;
 we don't have to know or care.
 
-We can use another pipe to send the output of `wc` directly to `sort`,
-which then sends its output to `head`:
-
-~~~ {.bash}
-$ wc -l *.pdb | sort -n | head -1
-~~~
-~~~ {.output}
-  9  methane.pdb
-~~~
-
 This is exactly like a mathematician nesting functions like *log(3x)*
 and saying "the log of three times *x*".
 In our case,
-the calculation is "head of sort of line count of `*.pdb`".
+the calculation is "line count of `*.pdb`".
 
-Here's what actually happens behind the scenes when we create a pipe.
-When a computer runs a program --- any program --- it creates a **process**
-in memory to hold the program's software and its current state.
-Every process has an input channel called **standard input**.
-(By this point, you may be surprised that the name is so memorable, but don't worry:
-most Unix programmers call it "stdin".
-Every process also has a default output channel called **standard output**
-(or "stdout").
+> ## Process {.callout}
+>
+> Here's what actually happens behind the scenes when we create a pipe.
+> When a computer runs a program --- any program --- it creates a **process**
+> in memory to hold the program's software and its current state.
+> Every process has an input channel called **standard input**.
+> (By this point, you may be surprised that the name is so memorable, but don't worry:
+> most Unix programmers call it "stdin".
+> Every process also has a default output channel called **standard output**
+> (or "stdout").
+>
+> The shell is actually just another program.
+> Under normal circumstances,
+> whatever we type on the keyboard is sent to the shell on its standard input,
+> and whatever it produces on standard output is displayed on our screen.
+> When we tell the shell to run a program,
+> it creates a new process
+> and temporarily sends whatever we type on our keyboard to that process's standard input,
+> and whatever the process sends to standard output to the screen.
+>
+> Here's what happens when we run `ls *.pdb > molecule-list`.
+> The shell starts by telling the computer to create a new process to run the `ls` program.
+> `ls` reads from standard input, there is nothing to read.
+> And since we've used `>` to redirect output to a file,
+> the shell connects the process's standard output to that file.
+>
+> If we run `ls *.pdb | wc -l` instead,
+> the shell creates two processes
+> (one for each process in the pipe)
+> so that `ls` and `wc` run simultaneously.
+> The standard output of `ls` is fed directly to the standard input of `wc`;
+> since there's no redirection with `>`,
+> `wc`'s output goes to the screen.
+>
+> ![Redirects and Pipes](fig/redirects-and-pipes.png)
+>
+> This simple idea is why Unix has been so successful.
+> Instead of creating enormous programs that try to do many different things,
+> Unix programmers focus on creating lots of simple tools that each do one job well,
+> and that work well with each other.
+> This programming model is called "pipes and filters".
+> We've already seen pipes;
+> a **filter** is a program like `wc`
+> that transforms a stream of input into a stream of output.
+> Almost all of the standard Unix tools can work this way:
+> unless told to do otherwise,
+> they read from standard input,
+> do something with what they've read,
+> and write to standard output.
+>
+> The key is that any program that reads lines of text from standard input
+> and writes lines of text to standard output
+> can be combined with every other program that behaves this way as well.
+> You can *and should* write your programs this way
+> so that you and other people can put those programs into pipes to multiply their power.
 
-The shell is actually just another program.
-Under normal circumstances,
-whatever we type on the keyboard is sent to the shell on its standard input,
-and whatever it produces on standard output is displayed on our screen.
-When we tell the shell to run a program,
-it creates a new process
-and temporarily sends whatever we type on our keyboard to that process's standard input,
-and whatever the process sends to standard output to the screen.
+A second question that we can ask is
+"how many files inside the `molecules` directory are alcohols?".
+If you remember a little of chemistry,
+the name of alcohols ended with "nol".
+Let's run the command `ls *nol.pdb`:
 
-Here's what happens when we run `wc -l *.pdb > lengths.txt`.
-The shell starts by telling the computer to create a new process to run the `wc` program.
-Since we've provided some filenames as parameters,
-`wc` reads from them instead of from standard input.
-And since we've used `>` to redirect output to a file,
-the shell connects the process's standard output to that file.
+~~~ {.bash}
+$ ls *nol.pdb | wc -l
+~~~
+~~~ {.output}
+3
+~~~
 
-If we run `wc -l *.pdb | sort -n` instead,
-the shell creates two processes
-(one for each process in the pipe)
-so that `wc` and `sort` run simultaneously.
-The standard output of `wc` is fed directly to the standard input of `sort`;
-since there's no redirection with `>`,
-`sort`'s output goes to the screen.
-And if we run `wc -l *.pdb | sort -n | head -1`,
-we get three processes with data flowing from the files,
-through `wc` to `sort`,
-and from `sort` through `head` to the screen.
+Another question that we can ask is
+"What is the smalest molecule inside `molecules`?".
+Since at `.pdb` files we have one line for each atom
+we can answer the question by
+(1) getting the number of lines of each file and
+(2) sorting the result.
+We already learned how to archive (1),
+we can use `wc -l *.pdb`.
 
-![Redirects and Pipes](fig/redirects-and-pipes.png)
+~~~ {.bash}
+$ wc -l *.pdb
+~~~
+~~~ {.output}
+   30 aldrin.pdb
+    7 ammonia.pdb
+   24 ascorbic-acid.pdb
+   18 benzaldehyde.pdb
+   30 camphene.pdb
+   78 cholesterol.pdb
+   22 cinnamaldehyde.pdb
+   33 citronellal.pdb
+   47 codeine.pdb
+   20 cubane.pdb
+   16 cyclobutane.pdb
+   23 cyclohexanol.pdb
+   13 cyclopropane.pdb
+   12 ethane.pdb
+   13 ethanol.pdb
+   54 ethylcyclohexane.pdb
+   14 glycol.pdb
+   79 heme.pdb
+   15 lactic-acid.pdb
+   49 lactose.pdb
+  248 lanoxin.pdb
+   53 lsd.pdb
+   49 maltose.pdb
+   35 menthol.pdb
+    9 methane.pdb
+   10 methanol.pdb
+   36 mint.pdb
+   44 morphine.pdb
+   41 mustard.pdb
+   33 nerol.pdb
+   51 norethindrone.pdb
+   30 octane.pdb
+   21 pentane.pdb
+   43 piperine.pdb
+   15 propane.pdb
+   25 pyridoxal.pdb
+   52 quinine.pdb
+   51 strychnine.pdb
+   20 styrene.pdb
+   49 sucrose.pdb
+   53 testosterone.pdb
+   42 thiamine.pdb
+   25 tnt.pdb
+   54 tuberin.pdb
+   34 tyrian-purple.pdb
+   23 vanillin.pdb
+   10 vinyl-chloride.pdb
+   55 vitamin-a.pdb
+ 1808 total
+~~~
 
-This simple idea is why Unix has been so successful.
-Instead of creating enormous programs that try to do many different things,
-Unix programmers focus on creating lots of simple tools that each do one job well,
-and that work well with each other.
-This programming model is called "pipes and filters".
-We've already seen pipes;
-a **filter** is a program like `wc` or `sort`
-that transforms a stream of input into a stream of output.
-Almost all of the standard Unix tools can work this way:
-unless told to do otherwise,
-they read from standard input,
-do something with what they've read,
-and write to standard output.
+Today is our luck day
+and the shell has a command called `sort` that sort the lines of one file.
+Using the pipe we have
 
-The key is that any program that reads lines of text from standard input
-and writes lines of text to standard output
-can be combined with every other program that behaves this way as well.
-You can *and should* write your programs this way
-so that you and other people can put those programs into pipes to multiply their power.
+~~~ {.bash}
+$ wc -l *.pdb | sort
+~~~
+~~~ {.output}
+   10 methanol.pdb
+   10 vinyl-chloride.pdb
+   12 ethane.pdb
+   13 cyclopropane.pdb
+   13 ethanol.pdb
+   14 glycol.pdb
+   15 lactic-acid.pdb
+   15 propane.pdb
+   16 cyclobutane.pdb
+ 1808 total
+   18 benzaldehyde.pdb
+   20 cubane.pdb
+   20 styrene.pdb
+   21 pentane.pdb
+   22 cinnamaldehyde.pdb
+   23 cyclohexanol.pdb
+   23 vanillin.pdb
+  248 lanoxin.pdb
+   24 ascorbic-acid.pdb
+   25 pyridoxal.pdb
+   25 tnt.pdb
+   30 aldrin.pdb
+   30 camphene.pdb
+   30 octane.pdb
+   33 citronellal.pdb
+   33 nerol.pdb
+   34 tyrian-purple.pdb
+   35 menthol.pdb
+   36 mint.pdb
+   41 mustard.pdb
+   42 thiamine.pdb
+   43 piperine.pdb
+   44 morphine.pdb
+   47 codeine.pdb
+   49 lactose.pdb
+   49 maltose.pdb
+   49 sucrose.pdb
+   51 norethindrone.pdb
+   51 strychnine.pdb
+   52 quinine.pdb
+   53 lsd.pdb
+   53 testosterone.pdb
+   54 ethylcyclohexane.pdb
+   54 tuberin.pdb
+   55 vitamin-a.pdb
+   78 cholesterol.pdb
+   79 heme.pdb
+    7 ammonia.pdb
+    9 methane.pdb
+~~~
 
-> ## Redirecting Input {.callout}
-> 
-> As well as using `>` to redirect a program's output, we can use `<` to
-> redirect its input, i.e., to read from a file instead of from standard
-> input. For example, instead of writing `wc ammonia.pdb`, we could write
-> `wc < ammonia.pdb`. In the first case, `wc` gets a command line
-> parameter telling it what file to open. In the second, `wc` doesn't have
-> any command line parameters, so it reads from standard input, but we
-> have told the shell to send the contents of `ammonia.pdb` to `wc`'s
-> standard input.
+Ops. Something went catastrophic wrong.
+By default, `sort` doesn't now that `1` is the first number,
+`2` is number after `1`, ..., `10` is the number after `9`
+and so on.
+We can request that `sort` interpret `1` as the first number,
+`2` as the number after `1`, ...
+by using the `-n` flag.
+
+~~~ {.bash}
+$ wc -l *.pdb | sort -n
+~~~
+~~~ {.output}
+    7 ammonia.pdb
+    9 methane.pdb
+   10 methanol.pdb
+   10 vinyl-chloride.pdb
+   12 ethane.pdb
+   13 cyclopropane.pdb
+   13 ethanol.pdb
+   14 glycol.pdb
+   15 lactic-acid.pdb
+   15 propane.pdb
+   16 cyclobutane.pdb
+   18 benzaldehyde.pdb
+   20 cubane.pdb
+   20 styrene.pdb
+   21 pentane.pdb
+   22 cinnamaldehyde.pdb
+   23 cyclohexanol.pdb
+   23 vanillin.pdb
+   24 ascorbic-acid.pdb
+   25 pyridoxal.pdb
+   25 tnt.pdb
+   30 aldrin.pdb
+   30 camphene.pdb
+   30 octane.pdb
+   33 citronellal.pdb
+   33 nerol.pdb
+   34 tyrian-purple.pdb
+   35 menthol.pdb
+   36 mint.pdb
+   41 mustard.pdb
+   42 thiamine.pdb
+   43 piperine.pdb
+   44 morphine.pdb
+   47 codeine.pdb
+   49 lactose.pdb
+   49 maltose.pdb
+   49 sucrose.pdb
+   51 norethindrone.pdb
+   51 strychnine.pdb
+   52 quinine.pdb
+   53 lsd.pdb
+   53 testosterone.pdb
+   54 ethylcyclohexane.pdb
+   54 tuberin.pdb
+   55 vitamin-a.pdb
+   78 cholesterol.pdb
+   79 heme.pdb
+  248 lanoxin.pdb
+ 1808 total
+~~~
+
+And the answer for our last question is amonia.
+
+> ## Only the First Line {.callout}
+>
+> If you only want the begin of one file
+> you can use the command `head`.
+> To get only the first line you must use `head -1`.
+>
+> ~~~ {.bash}
+> $ wc -l *.pdb | sort -n | head -1
+> ~~~
+> ~~~ {.output}
+>     7 ammonia.pdb
+> ~~~
+>
+> There is a command called `tail`
+> if you want the last lines.
+
+
 
 ## Nelle's Pipeline: Checking Files
 
