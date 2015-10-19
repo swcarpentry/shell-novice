@@ -3,8 +3,22 @@ layout: page
 title: The Unix Shell
 subtitle: Instructor's Guide
 ---
+*   Why do we learn to use the shell?
+    *   Allows users to automate repetitive tasks
+    *   And capture small data manipulation steps that are normally not recorded
+        to make research reproducible 
+*   The Problem
+    *   Running the same workflow on several samples can be unnecessarily labour intensive
+    *   Manual manipulation of data files:
+        *   is often not captured in documentation
+        *   is hard to reproduce
+        *   is hard to troubleshoot, review, or improve
+*   The Shell 
+    *   Workflows can be automated through the use of shell scripts
+    *   Built-in commands allow for easy data manipulation (e.g. sort, grep, etc.)
+    *   Every step can be captured in the shell script and allow reproducibility and easy troubleshooting
 
-## Legend
+## Overall
 
 Many people have questioned whether we should still teach the shell.
 After all,
@@ -42,7 +56,7 @@ to make their future selves' lives better.
 The third answer is,
 "Because it enables use of many domain-specific tools and compute resources researchers cannot access otherwise."
 Familiarity with the shell is very useful for remote accessing machines, using high-performance computing infrastructure, and running new specialist tools in many disciplines. We do not teach HPC or domain-specific skills
-here but lay the groundwork for further development of these skills. In particular, understand syntax of commands,  flags, and help systems is useful for domain specific tools and understanding the file system (and how to navigate it) is useful for remote access.
+here but lay the groundwork for further development of these skills. In particular, understanding the syntax of commands,  flags, and help systems is useful for domain specific tools and understanding the file system (and how to navigate it) is useful for remote access.
 
 Finally,
 and perhaps most importantly,
@@ -61,24 +75,21 @@ as long as learners using Windows do not run into roadblocks such as:
     and
 *   the shell refusing to run scripts that include DOS line endings.
 
-## Overall
-
-*   introduce learners how to interact with the shell, and with related
-    ideas like standard input and output.
-*   focus on the idea that they should get the computer to repeat things
-    rather than doing the job themselves.
-*   teach learners to think about programming in terms of function
-    composition.
-
 ## Teaching Notes
 
 *   Time estimates:
     *   @gvwilson: 3 hours
 
+*   Super cool online resource!  http://explainshell.com/ will dissect any shell command you type in and display help text for each piece.  
+
 *	How to use the materials in the shell-novice repository (or, lesson planning)
 	* For a great general list of tips, see [this swcarpentry blog post](http://software-carpentry.org/blog/2015/03/teaching-tips.html)
-	* Use the `filesystem` directory for in-workshop exercises and live coding examples.
-	The easiest way to get can get these files is by cloning the entire shell-novice directory OR clicking the "Download Zip" button on the repository's main page.  If you want learners to just have the `filesystem` directory (without other material), you'll have to do the separating out on your own.
+	* Use the `data` directory for in-workshop exercises and live coding examples.
+	You can clone the shell-novice directory or use the `Download ZIP` 
+	button on the right to get the entire repository; we also now provide 
+	a zip file of the `data` directory that can be downloaded on its own 
+	from the repository by right-click + save.  See the "Get Ready" box 
+	on the front page of the website for more details.  
 	* Website: various practices have been used.
 		* Option 1: Can give links to learners before the lesson so they can follow along, catch up, and see exercises (particularly if you're following the lesson content without many changes).
 		* Option 2: Don't show the website to the learners during the lesson, as it can be distracting - students may read instead of listen, and having another window open is an additional cognitive load.
