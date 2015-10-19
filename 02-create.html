@@ -128,6 +128,7 @@ $ <span class="kw">ls</span> thesis</code></pre>
 <p>The first parameter tells <code>mv</code> what we’re “moving”, while the second is where it’s to go. In this case, we’re moving <code>thesis/draft.txt</code> to <code>thesis/quotes.txt</code>, which has the same effect as renaming the file. Sure enough, <code>ls</code> shows us that <code>thesis</code> now contains one file called <code>quotes.txt</code>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> thesis</code></pre>
 <pre class="output"><code>quotes.txt</code></pre>
+<p>One has to be careful when specifying the target file name, since <code>mv</code> will silently overwrite any existing file with the same name, which could lead to data loss. An additional flag, <code>mv -i</code> (or <code>mv --interactive</code>), can be used to make <code>mv</code> ask the user for confirmation before overwriting.</p>
 <p>Just for the sake of inconsistency, <code>mv</code> also works on directories — there is no separate <code>mvdir</code> command.</p>
 <p>Let’s move <code>quotes.txt</code> into the current working directory. We use <code>mv</code> once again, but this time we’ll just use the name of a directory as the second parameter to tell <code>mv</code> that we want to keep the filename, but put the file somewhere new. (This is why the command is called “move”.) In this case, the directory name we use is the special directory name <code>.</code> that we mentioned earlier.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mv</span> thesis/quotes.txt .</code></pre>
@@ -146,14 +147,6 @@ $ <span class="kw">ls</span> quotes.txt thesis/quotations.txt</code></pre>
 <pre class="error"><code>ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt</code></pre>
 <p>This time it tells us that it can’t find <code>quotes.txt</code> in the current directory, but it does find the copy in <code>thesis</code> that we didn’t delete.</p>
-<aside class="callout panel panel-info">
-<div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Another Useful Abbreviation</h2>
-</div>
-<div class="panel-body">
-<p>The shell interprets the character <code>~</code> (tilde) at the start of a path to mean “the current user’s home directory”. For example, if Nelle’s home directory is <code>/Users/nelle</code>, then <code>~/data</code> is equivalent to <code>/Users/nelle/data</code>. This only works if it is the first character in the path: <code>here/there/~/elsewhere</code> is <em>not</em> <code>/Users/nelle/elsewhere</code>.</p>
-</div>
-</aside>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span>Renaming files</h2>
