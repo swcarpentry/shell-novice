@@ -1,0 +1,9 @@
+<element name="Silicon"/>
+  <symbol>Si</symbol>
+  <atomic-number>14</atomic-number>
+  <atomic-weight>28.0855</atomic-weight>
+  <oxidation-states>+2,+4,-4</oxidation-states>
+  <state-at-room-temp>solid, metalloid</state-at-room-temp>
+  <melting-point>1683</melting-point>
+  <boiling-point>2628</boiling-point>
+</element>
