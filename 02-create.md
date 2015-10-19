@@ -349,16 +349,19 @@ but it does find the copy in `thesis` that we didn't delete.
 > 3.   `proteins.dat recombine`
 > 4.   `proteins-saved.dat`
 
-> ## Listing Directories and Files {.challenge}
+> ## Organizing Directories and Files {.challenge}
 >
-> Suppose that:
+> Jamie is working on a project and she sees that her files aren't very well
+> organized:
 >
 > ~~~
 > $ ls -F
 > analyzed/  fructose.dat    raw/   sucrose.dat
 > ~~~
 >
-> What command(s) could you run so that the commands below will produce the output shown?
+> The `fructose.dat` and `sucrose.dat` files contain output from her data
+> analysis. What command(s) covered in this lesson does she need to run so that the commands below will
+> produce the output shown?
 >
 > ~~~
 > $ ls -F

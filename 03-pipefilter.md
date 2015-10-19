@@ -51,9 +51,10 @@ $ wc *.pdb
 > ## Wildcards {.callout}
 > 
 > `*` is a **wildcard**. It matches zero or more
-> characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and so on.
-> On the other hand, `p*.pdb` only matches `pentane.pdb` and
-> `propane.pdb`, because the 'p' at the front only matches itself.
+> characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
+> file that ends with '.pdb'. On the other hand, `p*.pdb` only matches 
+> `pentane.pdb` and `propane.pdb`, because the 'p' at the front only 
+> matches filenames that begin with the letter 'p'.
 > 
 > `?` is also a wildcard, but it only matches a single character. This
 > means that `p?.pdb` matches `pi.pdb` or `p5.pdb`, but not `propane.pdb`.
@@ -76,7 +77,7 @@ $ wc *.pdb
 > However, generally commands like `wc` and `ls` see the lists of
 > file names matching these expressions, but not the wildcards
 > themselves. It is the shell, not the other programs, that deals with
-> expanding wildcards, and this another example of orthogonal design.
+> expanding wildcards, and this is another example of orthogonal design.
 
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
@@ -288,7 +289,7 @@ so that you and other people can put those programs into pipes to multiply their
 > have told the shell to send the contents of `ammonia.pdb` to `wc`'s
 > standard input.
 
-### Nelle's Pipeline: Checking Files
+## Nelle's Pipeline: Checking Files
 
 Nelle has run her samples through the assay machines
 and created 1520 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
