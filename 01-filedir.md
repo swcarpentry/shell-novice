@@ -27,7 +27,7 @@ let's open a shell window:
 > ## Preparation Magic {.callout}
 >
 > If you type the command:
-> `PS1='$ '1'`
+> `PS1='$ '`
 > into your shell, your window should look like our example in this lesson.  
 
 ~~~ {.bash}
