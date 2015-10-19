@@ -1,0 +1,10 @@
+COMPND      CHLOROETHENE
+AUTHOR      JENNI WOODCOCK  97 07 31
+ATOM      1  C           1      -0.958  -0.216   0.345
+ATOM      2  C           1       0.268   0.216  -0.173
+ATOM      3 Cl           1       1.570  -0.940  -0.434
+ATOM      4  H           1      -1.106  -1.259   0.585
+ATOM      5  H           1      -1.757   0.493   0.505
+ATOM      6  H           1       0.416   1.259  -0.413
+TER       7              1
+END
