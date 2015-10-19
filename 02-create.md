@@ -248,7 +248,7 @@ $ ls thesis
 quotes.txt
 ~~~
 
-One has to be careful when specifying target file name, since `mv` will 
+One has to be careful when specifying the target file name, since `mv` will 
 silently overwrite any existing file with the same name, which could 
 lead to data loss. An additional flag, `mv -i` (or `mv --interactive`),
 can be used to make `mv` ask the user for confirmation before overwriting. 

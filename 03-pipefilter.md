@@ -107,12 +107,12 @@ $ wc -l *.pdb > lengths.txt
 ~~~
 
 The greater than symbol, `>`, tells the shell to **redirect** the command's output
-to a file instead of printing it to the screen. The shell will create 
-the file if it doesn't exist. In case the file exists, it will be 
-silently overwritten, which may lead to data loss and thus requires
-some caution. (This is why there is no screen output:
+to a file instead of printing it to the screen. (This is why there is no screen output:
 everything that `wc` would have printed has gone into the 
-file `lengths.txt` instead.)
+file `lengths.txt` instead.)  The shell will create 
+the file if it doesn't exist. If the file exists, it will be 
+silently overwritten, which may lead to data loss and thus requires
+some caution. 
 `ls lengths.txt` confirms that the file exists:
 
 ~~~ {.bash}
