@@ -475,8 +475,18 @@ class IndexPageValidator(MarkdownValidator):
 
     def _partition_links(self):
         """Check the text of every link in index.md"""
-        check_text = self.ast.find_external_links()
-        return check_text, []
+        external_links = self.ast.find_external_links()
+
+        check_text = []
+        no_check_text = []
+
+        for link in external_links:
+            if '#' in link.destination:
+                no_check_text.append(link)
+            else:
+                check_text.append(link)
+
+        return check_text, no_check_text
 
     def _validate_intro_section(self):
         """Validate the intro section
@@ -530,16 +540,6 @@ class TopicPageValidator(MarkdownValidator):
         parent_tests = super(TopicPageValidator, self)._run_tests()
         tests = [self._validate_has_no_headings()]
         return all(tests) and parent_tests
-
-
-class MotivationPageValidator(MarkdownValidator):
-    """Validate motivation.md"""
-    WARN_ON_EXTRA_HEADINGS = False
-
-    DOC_HEADERS = {"layout": vh.is_str,
-                   "title": vh.is_str,
-                   "subtitle": vh.is_str}
-    # TODO: How to validate? May be a mix of reveal.js (HTML) + markdown.
 
 
 class ReferencePageValidator(MarkdownValidator):
@@ -616,7 +616,7 @@ class ReferencePageValidator(MarkdownValidator):
 
 class InstructorPageValidator(MarkdownValidator):
     """Simple validator for Instructor's Guide- instructors.md"""
-    HEADINGS = ["Legend", "Overall"]
+    HEADINGS = ["Overall"]
     WARN_ON_EXTRA_HEADINGS = False
 
     DOC_HEADERS = {"layout": vh.is_str,
@@ -668,7 +668,6 @@ class DiscussionPageValidator(MarkdownValidator):
 #   Dict of {name: (Validator, filename_pattern)}
 LESSON_TEMPLATES = {"index": (IndexPageValidator, "^index"),
                     "topic": (TopicPageValidator, "^[0-9]{2}-.*"),
-                    "motivation": (MotivationPageValidator, "^motivation"),
                     "reference": (ReferencePageValidator, "^reference"),
                     "instructor": (InstructorPageValidator, "^instructors"),
                     "license": (LicensePageValidator, "^LICENSE"),
@@ -776,7 +775,6 @@ def check_required_files(dir_to_validate):
                       "index.md",
                       "instructors.md",
                       "LICENSE.md",
-                      "motivation.md",
                       "README.md",
                       "reference.md"]
     valid = True

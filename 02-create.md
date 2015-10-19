@@ -361,7 +361,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > What command(s) could you run so that the commands below will produce the output shown?
 >
 > ~~~
-> $ ls
+> $ ls -F
 > analyzed/   raw/
 > $ ls analyzed
 > fructose.dat    sucrose.dat

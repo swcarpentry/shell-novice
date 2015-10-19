@@ -26,11 +26,11 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">The Unix Shell</h1>
+                    <a href="index.html"><h1 class="title">The Unix Shell</h1></a>
           <h2 class="subtitle">Creating Things</h2>
-<section class="objectives panel panel-warning">
+          <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -42,28 +42,28 @@
 </div>
 </section>
 <p>We now know how to explore files and directories, but how do we create them in the first place? Let’s go back to Nelle’s home directory, <code>/Users/nelle</code>, and use <code>ls -F</code> to see what it contains:</p>
-<pre class="input"><code>$ pwd</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
 <pre class="output"><code>/Users/nelle</code></pre>
-<pre class="input"><code>$ ls -F</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> -F</code></pre>
 <pre class="output"><code>creatures/  molecules/           pizza.cfg
 data/       north-pacific-gyre/  solar.pdf
 Desktop/    notes.txt            writing/</code></pre>
 <p>Let’s create a new directory called <code>thesis</code> using the command <code>mkdir thesis</code> (which has no output):</p>
-<pre class="input"><code>$ mkdir thesis</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkdir</span> thesis</code></pre>
 <p>As you might (or might not) guess from its name, <code>mkdir</code> means “make directory”. Since <code>thesis</code> is a relative path (i.e., doesn’t have a leading slash), the new directory is created in the current working directory:</p>
-<pre class="input"><code>$ ls -F</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> -F</code></pre>
 <pre class="output"><code>creatures/  north-pacific-gyre/  thesis/
 data/       notes.txt            writing/
 Desktop/    pizza.cfg
 molecules/  solar.pdf</code></pre>
 <p>However, there’s nothing in it yet:</p>
-<pre class="input"><code>$ ls -F thesis</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> -F thesis</code></pre>
 <p>Let’s change our working directory to <code>thesis</code> using <code>cd</code>, then run a text editor called Nano to create a file called <code>draft.txt</code>:</p>
-<pre class="input"><code>$ cd thesis
-$ nano draft.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> thesis
+$ <span class="kw">nano</span> draft.txt</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="which-editor"><span class="glyphicon glyphicon-pushpin"></span>Which Editor?</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Which Editor?</h2>
 </div>
 <div class="panel-body">
 <p>When we say, “<code>nano</code> is a text editor,” we really do mean “text”: it can only work with plain character data, not tables, images, or any other human-friendly media. We use it in examples because almost anyone can drive it anywhere without training, but please use something more powerful for real work. On Unix systems (such as Linux and Mac OS X), many programmers use <a href="http://www.gnu.org/software/emacs/">Emacs</a> or <a href="http://www.vim.org/">Vim</a> (both of which are completely unintuitive, even by Unix standards), or a graphical editor such as <a href="http://projects.gnome.org/gedit/">Gedit</a>. On Windows, you may wish to use <a href="http://notepad-plus-plus.org/">Notepad++</a>.</p>
@@ -72,44 +72,43 @@ $ nano draft.txt</code></pre>
 </aside>
 <p>Let’s type in a few lines of text, then use Control-O to write our data to disk:</p>
 <div class="figure">
-<img src="fig/nano-screenshot.png" alt="Nano in action" />
-<p class="caption">Nano in action</p>
+<img src="fig/nano-screenshot.png" alt="Nano in action" /><p class="caption">Nano in action</p>
 </div>
 <p>Once our file is saved, we can use Control-X to quit the editor and return to the shell. (Unix documentation often uses the shorthand <code>^A</code> to mean “control-A”.) <code>nano</code> doesn’t leave any output on the screen after it exits, but <code>ls</code> now shows that we have created a file called <code>draft.txt</code>:</p>
-<pre class="input"><code>$ ls</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code>draft.txt</code></pre>
 <p>Let’s tidy up by running <code>rm draft.txt</code>:</p>
-<pre class="input"><code>$ rm draft.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">rm</span> draft.txt</code></pre>
 <p>This command removes files (“rm” is short for “remove”). If we run <code>ls</code> again, its output is empty once more, which tells us that our file is gone:</p>
-<pre class="input"><code>$ ls</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span></code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="deleting-is-forever"><span class="glyphicon glyphicon-pushpin"></span>Deleting Is Forever</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Deleting Is Forever</h2>
 </div>
 <div class="panel-body">
 <p>The Unix shell doesn’t have a trash bin that we can recover deleted files from (though most graphical interfaces to Unix do). Instead, when we delete files, they are unhooked from the file system so that their storage space on disk can be recycled. Tools for finding and recovering deleted files do exist, but there’s no guarantee they’ll work in any particular situation, since the computer may recycle the file’s disk space right away.</p>
 </div>
 </aside>
 <p>Let’s re-create that file and then move up one directory to <code>/Users/nelle</code> using <code>cd ..</code>:</p>
-<pre class="input"><code>$ pwd</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
 <pre class="output"><code>/Users/nelle/thesis</code></pre>
-<pre class="input"><code>$ nano draft.txt
-$ ls</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> draft.txt
+$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code>draft.txt</code></pre>
-<pre class="input"><code>$ cd ..</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> ..</code></pre>
 <p>If we try to remove the entire <code>thesis</code> directory using <code>rm thesis</code>, we get an error message:</p>
-<pre class="input"><code>$ rm thesis</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">rm</span> thesis</code></pre>
 <pre class="error"><code>rm: cannot remove `thesis&#39;: Is a directory</code></pre>
 <p>This happens because <code>rm</code> only works on files, not directories. The right command is <code>rmdir</code>, which is short for “remove directory”. It doesn’t work yet either, though, because the directory we’re trying to remove isn’t empty:</p>
-<pre class="input"><code>$ rmdir thesis</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">rmdir</span> thesis</code></pre>
 <pre class="error"><code>rmdir: failed to remove `thesis&#39;: Directory not empty</code></pre>
 <p>This little safety feature can save you a lot of grief, particularly if you are a bad typist. To really get rid of <code>thesis</code> we must first delete the file <code>draft.txt</code>:</p>
-<pre class="input"><code>$ rm thesis/draft.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">rm</span> thesis/draft.txt</code></pre>
 <p>The directory is now empty, so <code>rmdir</code> can delete it:</p>
-<pre class="input"><code>$ rmdir thesis</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">rmdir</span> thesis</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="with-great-power-comes-great-responsibility"><span class="glyphicon glyphicon-pushpin"></span>With Great Power Comes Great Responsibility</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>With Great Power Comes Great Responsibility</h2>
 </div>
 <div class="panel-body">
 <p>Removing the files in a directory just so that we can remove the directory quickly becomes tedious. Instead, we can use <code>rm</code> with the <code>-r</code> flag (which stands for “recursive”):</p>
@@ -118,38 +117,38 @@ $ ls</code></pre>
 </div>
 </aside>
 <p>Let’s create that directory and file one more time. (Note that this time we’re running <code>nano</code> with the path <code>thesis/draft.txt</code>, rather than going into the <code>thesis</code> directory and running <code>nano</code> on <code>draft.txt</code> there.)</p>
-<pre class="input"><code>$ pwd</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
 <pre class="output"><code>/Users/nelle</code></pre>
-<pre class="input"><code>$ mkdir thesis</code></pre>
-<pre class="input"><code>$ nano thesis/draft.txt
-$ ls thesis</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkdir</span> thesis</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> thesis/draft.txt
+$ <span class="kw">ls</span> thesis</code></pre>
 <pre class="output"><code>draft.txt</code></pre>
 <p><code>draft.txt</code> isn’t a particularly informative name, so let’s change the file’s name using <code>mv</code>, which is short for “move”:</p>
-<pre class="input"><code>$ mv thesis/draft.txt thesis/quotes.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mv</span> thesis/draft.txt thesis/quotes.txt</code></pre>
 <p>The first parameter tells <code>mv</code> what we’re “moving”, while the second is where it’s to go. In this case, we’re moving <code>thesis/draft.txt</code> to <code>thesis/quotes.txt</code>, which has the same effect as renaming the file. Sure enough, <code>ls</code> shows us that <code>thesis</code> now contains one file called <code>quotes.txt</code>:</p>
-<pre class="input"><code>$ ls thesis</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> thesis</code></pre>
 <pre class="output"><code>quotes.txt</code></pre>
 <p>Just for the sake of inconsistency, <code>mv</code> also works on directories — there is no separate <code>mvdir</code> command.</p>
 <p>Let’s move <code>quotes.txt</code> into the current working directory. We use <code>mv</code> once again, but this time we’ll just use the name of a directory as the second parameter to tell <code>mv</code> that we want to keep the filename, but put the file somewhere new. (This is why the command is called “move”.) In this case, the directory name we use is the special directory name <code>.</code> that we mentioned earlier.</p>
-<pre class="input"><code>$ mv thesis/quotes.txt .</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mv</span> thesis/quotes.txt .</code></pre>
 <p>The effect is to move the file from the directory it was in to the current working directory. <code>ls</code> now shows us that <code>thesis</code> is empty:</p>
-<pre class="input"><code>$ ls thesis</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> thesis</code></pre>
 <p>Further, <code>ls</code> with a filename or directory name as a parameter only lists that file or directory. We can use this to see that <code>quotes.txt</code> is still in our current directory:</p>
-<pre class="input"><code>$ ls quotes.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> quotes.txt</code></pre>
 <pre class="output"><code>quotes.txt</code></pre>
 <p>The <code>cp</code> command works very much like <code>mv</code>, except it copies a file instead of moving it. We can check that it did the right thing using <code>ls</code> with two paths as parameters — like most Unix commands, <code>ls</code> can be given thousands of paths at once:</p>
-<pre class="input"><code>$ cp quotes.txt thesis/quotations.txt
-$ ls quotes.txt thesis/quotations.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> quotes.txt thesis/quotations.txt
+$ <span class="kw">ls</span> quotes.txt thesis/quotations.txt</code></pre>
 <pre class="output"><code>quotes.txt   thesis/quotations.txt</code></pre>
 <p>To prove that we made a copy, let’s delete the <code>quotes.txt</code> file in the current directory and then run that same <code>ls</code> again.</p>
-<pre class="input"><code>$ rm quotes.txt
-$ ls quotes.txt thesis/quotations.txt</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">rm</span> quotes.txt
+$ <span class="kw">ls</span> quotes.txt thesis/quotations.txt</code></pre>
 <pre class="error"><code>ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt</code></pre>
 <p>This time it tells us that it can’t find <code>quotes.txt</code> in the current directory, but it does find the copy in <code>thesis</code> that we didn’t delete.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="another-useful-abbreviation"><span class="glyphicon glyphicon-pushpin"></span>Another Useful Abbreviation</h2>
+<h2><span class="glyphicon glyphicon-pushpin"></span>Another Useful Abbreviation</h2>
 </div>
 <div class="panel-body">
 <p>The shell interprets the character <code>~</code> (tilde) at the start of a path to mean “the current user’s home directory”. For example, if Nelle’s home directory is <code>/Users/nelle</code>, then <code>~/data</code> is equivalent to <code>/Users/nelle/data</code>. This only works if it is the first character in the path: <code>here/there/~/elsewhere</code> is <em>not</em> <code>/Users/nelle/elsewhere</code>.</p>
@@ -157,7 +156,7 @@ thesis/quotations.txt</code></pre>
 </aside>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="renaming-files"><span class="glyphicon glyphicon-pencil"></span>Renaming files</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Renaming files</h2>
 </div>
 <div class="panel-body">
 <p>Suppose that you created a <code>.txt</code> file in your current directory to contain a list of the statistical tests you will need to do to analyze your data, and named it: <code>statstics.txt</code></p>
@@ -172,7 +171,7 @@ thesis/quotations.txt</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="moving-and-copying"><span class="glyphicon glyphicon-pencil"></span>Moving and Copying</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Moving and Copying</h2>
 </div>
 <div class="panel-body">
 <p>What is the output of the closing <code>ls</code> command in the sequence shown below?</p>
@@ -194,14 +193,14 @@ $ ls</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="listing-directories-and-files"><span class="glyphicon glyphicon-pencil"></span>Listing Directories and Files</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Listing Directories and Files</h2>
 </div>
 <div class="panel-body">
 <p>Suppose that:</p>
 <pre><code>$ ls -F
 analyzed/  fructose.dat    raw/   sucrose.dat</code></pre>
 <p>What command(s) could you run so that the commands below will produce the output shown?</p>
-<pre><code>$ ls
+<pre><code>$ ls -F
 analyzed/   raw/
 $ ls analyzed
 fructose.dat    sucrose.dat</code></pre>
@@ -209,7 +208,7 @@ fructose.dat    sucrose.dat</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="copy-with-multiple-filenames"><span class="glyphicon glyphicon-pencil"></span>Copy with Multiple Filenames</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Copy with Multiple Filenames</h2>
 </div>
 <div class="panel-body">
 <p>What does <code>cp</code> do when given several filenames and a directory name, as in:</p>
@@ -223,7 +222,7 @@ $ cp intro.txt methods.txt survey.txt</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="listing-recursively-and-by-time"><span class="glyphicon glyphicon-pencil"></span>Listing Recursively and By Time</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Listing Recursively and By Time</h2>
 </div>
 <div class="panel-body">
 <p>The command <code>ls -R</code> lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on in alphabetical order at each level. The command <code>ls -t</code> lists things by time of last change, with most recently changed files or directories first. In what order does <code>ls -R -t</code> display things?</p>

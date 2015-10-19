@@ -64,6 +64,7 @@ subtitle: Reference
 *   Do not use spaces, quotes, or wildcard characters such as '*' or '?' in filenames, as it complicates variable expansion.
 *   Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping.
 *   Use the up-arrow key to scroll up through previous commands to edit and repeat them.
+*   Use "control-r" to search through the previously entered commands.
 *   Use `history` to display recent commands, and `!number` to repeat a command by number.
 
 ## [Shell Scripts](05-script.html)
@@ -99,7 +100,7 @@ argument
     The term is often used interchangeably (and inconsistently) with [parameter](#parameter).
 
 command shell
-:   FIXME
+:   See [shell](#shell)
 
 command-line interface
 :   An interface based on typing commands,

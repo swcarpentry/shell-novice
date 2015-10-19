@@ -26,9 +26,9 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">The Unix Shell</h1>
+                    <a href="index.html"><h1 class="title">The Unix Shell</h1></a>
           <h2 class="subtitle">Reference</h2>
-<h2 id="introducing-the-shell"><a href="00-intro.html">Introducing the Shell</a></h2>
+          <h2 id="introducing-the-shell"><a href="00-intro.html">Introducing the Shell</a></h2>
 <ul>
 <li>A shell is a program whose primary purpose is to read commands and run other programs.</li>
 <li>The shell’s main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and that it can be used to access networked machines.</li>
@@ -43,9 +43,9 @@
 <li><code>ls path</code> prints a listing of a specific file or directory; <code>ls</code> on its own lists the current working directory.</li>
 <li><code>pwd</code> prints the user’s current working directory.</li>
 <li><code>whoami</code> shows the user’s current identity.</li>
-<li><code>/</code> on its own is the root directory of the whole filesystem.</li>
+<li><code>/</code> on its own is the root directory of the whole file system.</li>
 <li>A relative path specifies a location starting from the current location.</li>
-<li>An absolute path specifies a location from the root of the filesystem.</li>
+<li>An absolute path specifies a location from the root of the file system.</li>
 <li>Directory names in a path are separated with ‘/’ on Unix, but ‘\’ on Windows.</li>
 <li>‘..’ means “the directory above the current one”; ‘.’ on its own means “the current directory”.</li>
 <li>Most files’ names are <code>something.extension</code>. The extension isn’t required, and doesn’t guarantee anything, but is normally used to indicate the type of data in the file.</li>
@@ -75,13 +75,13 @@
 </ul>
 <h2 id="loops"><a href="04-loop.html">Loops</a></h2>
 <ul>
-<li><code>history</code> displays recent commands, and <code>!number</code> to repeat a command by number.</li>
 <li>A <code>for</code> loop repeats commands once for every thing in a list.</li>
 <li>Every <code>for</code> loop needs a variable to refer to the current “thing”.</li>
 <li>Use <code>$name</code> to expand a variable (i.e., get its value).</li>
 <li>Do not use spaces, quotes, or wildcard characters such as ’*‘or’?’ in filenames, as it complicates variable expansion.</li>
 <li>Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping.</li>
 <li>Use the up-arrow key to scroll up through previous commands to edit and repeat them.</li>
+<li>Use “control-r” to search through the previously entered commands.</li>
 <li>Use <code>history</code> to display recent commands, and <code>!number</code> to repeat a command by number.</li>
 </ul>
 <h2 id="shell-scripts"><a href="05-script.html">Shell Scripts</a></h2>
@@ -112,7 +112,7 @@
 <dd>A value given to a function or program when it runs. The term is often used interchangeably (and inconsistently) with <a href="#parameter">parameter</a>.
 </dd>
 <dt><span id="command-shell">command shell</span></dt>
-<dd>FIXME
+<dd>See <a href="#shell">shell</a>
 </dd>
 <dt><span id="command-line-interface">command-line interface</span></dt>
 <dd>An interface based on typing commands, usually at a <a href="#read-evaluate-print-loop">REPL</a>. See also: <a href="#graphical-user-interface">graphical user interface</a>.
@@ -124,7 +124,7 @@
 <dd>The directory that <a href="#relative-path">relative paths</a> are calculated from; equivalently, the place where files referenced by name only are searched for. Every <a href="#process">process</a> has a current working directory. The current working directory is usually referred to using the shorthand notation <code>.</code> (pronounced “dot”).
 </dd>
 <dt><span id="file-system">file system</span></dt>
-<dd>A set of files, directories, and I/O devices (such as keyboards and screens). A filesystem may be spread across many physical devices, or many filesystems may be stored on a single physical device; the <a href="#operating-system">operating system</a> manages access.
+<dd>A set of files, directories, and I/O devices (such as keyboards and screens). A file system may be spread across many physical devices, or many file systems may be stored on a single physical device; the <a href="#operating-system">operating system</a> manages access.
 </dd>
 <dt><span id="filename-extension">filename extension</span></dt>
 <dd>The portion of a file’s name that comes after the final “.” character. By convention this identifies the file’s type: <code>.txt</code> means “text file”, <code>.png</code> means “Portable Network Graphics file”, and so on. These conventions are not enforced by most operating systems: it is perfectly possible to name an MP3 sound file <code>homepage.html</code>. Since many applications use filename extensions to identify the <a href="#mime-type">MIME type</a> of the file, misnaming files may cause those applications to fail.

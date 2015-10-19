@@ -26,13 +26,36 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h1 class="title">The Unix Shell</h1>
+                    <a href="index.html"><h1 class="title">The Unix Shell</h1></a>
           <h2 class="subtitle">Instructor’s Guide</h2>
-<h2 id="legend">Legend</h2>
+          <ul>
+<li>Why do we learn to use the shell?
+<ul>
+<li>Allows users to automate repetitive tasks</li>
+<li>And capture small data manipulation steps that are normally not recorded to make research reproducible</li>
+</ul></li>
+<li>The Problem
+<ul>
+<li>Running the same workflow on several samples can be unnecessarily labour intensive</li>
+<li>Manual manipulation of data files:
+<ul>
+<li>is often not captured in documentation</li>
+<li>is hard to reproduce</li>
+<li>is hard to troubleshoot, review, or improve</li>
+</ul></li>
+</ul></li>
+<li>The Shell
+<ul>
+<li>Workflows can be automated through the use of shell scripts</li>
+<li>Built-in commands allow for easy data manipulation (e.g. sort, grep, etc.)</li>
+<li>Every step can be captured in the shell script and allow reproducibility and easy troubleshooting</li>
+</ul></li>
+</ul>
+<h2 id="overall">Overall</h2>
 <p>Many people have questioned whether we should still teach the shell. After all, anyone who wants to rename several thousand data files can easily do so interactively in the Python interpreter, and anyone who’s doing serious data analysis is probably going to do most of their work inside the IPython Notebook or R Studio. So why teach the shell?</p>
 <p>The first answer is, “Because so much else depends on it.” Installing software, configuring your default editor, and controlling remote machines frequently assume a basic familiarity with the shell, and with related ideas like standard input and output. Many tools also use its terminology (for example, the <code>%ls</code> and <code>%cd</code> magic commands in IPython).</p>
 <p>The second answer is, “Because it’s an easy way to introduce some fundamental ideas about how to use computers.” As we teach people how to use the Unix shell, we teach them that they should get the computer to repeat things (via tab completion, <code>!</code> followed by a command number, and <code>for</code> loops) rather than repeating things themselves. We also teach them to take things they’ve discovered they do frequently and save them for later re-use (via shell scripts), to give things sensible names, and to write a little bit of documentation (like comment at the top of shell scripts) to make their future selves’ lives better.</p>
-<p>The third answer is, “Because it enables use of many domain-specific tools and compute resources researchers cannot access otherwise.” Familiarity with the shell is very useful for remote accessing machines, using high-performance computing infrastructure, and running new specialist tools in many disciplines. We do not teach HPC or domain-specific skills here but lay the groundwork for further development of these skills. In particular, understand syntax of commands, flags, and help systems is useful for domain specific tools and understanding the file system (and how to navigate it) is useful for remote access.</p>
+<p>The third answer is, “Because it enables use of many domain-specific tools and compute resources researchers cannot access otherwise.” Familiarity with the shell is very useful for remote accessing machines, using high-performance computing infrastructure, and running new specialist tools in many disciplines. We do not teach HPC or domain-specific skills here but lay the groundwork for further development of these skills. In particular, understanding the syntax of commands, flags, and help systems is useful for domain specific tools and understanding the file system (and how to navigate it) is useful for remote access.</p>
 <p>Finally, and perhaps most importantly, teaching people the shell lets us teach them to think about programming in terms of function composition. In the case of the shell, this takes the form of pipelines rather than nested function calls, but the core idea of “small pieces, loosely joined” is the same.</p>
 <p>All of this material can be covered in three hours as long as learners using Windows do not run into roadblocks such as:</p>
 <ul>
@@ -40,22 +63,17 @@
 <li>not being able to run a plain text editor; and</li>
 <li>the shell refusing to run scripts that include DOS line endings.</li>
 </ul>
-<h2 id="overall">Overall</h2>
-<ul>
-<li>introduce learners how to interact with the shell, and with related ideas like standard input and output.</li>
-<li>focus on the idea that they should get the computer to repeat things rather than doing the job themselves.</li>
-<li>teach learners to think about programming in terms of function composition.</li>
-</ul>
 <h2 id="teaching-notes">Teaching Notes</h2>
 <ul>
 <li>Time estimates:
 <ul>
 <li><span class="citation">@gvwilson</span>: 3 hours</li>
 </ul></li>
+<li><p>Super cool online resource! http://explainshell.com/ will dissect any shell command you type in and display help text for each piece.</p></li>
 <li>How to use the materials in the shell-novice repository (or, lesson planning)
 <ul>
 <li>For a great general list of tips, see <a href="http://software-carpentry.org/blog/2015/03/teaching-tips.html">this swcarpentry blog post</a></li>
-<li>Use the <code>filesystem</code> directory for in-workshop exercises and live coding examples. The easiest way to get can get these files is by cloning the entire shell-novice directory OR clicking the “Download Zip” button on the repository’s main page. If you want learners to just have the <code>filesystem</code> directory (without other material), you’ll have to do the separating out on your own.</li>
+<li>Use the <code>data</code> directory for in-workshop exercises and live coding examples. You can clone the shell-novice directory or use the <code>Download ZIP</code> button on the right to get the entire repository; we also now provide a zip file of the <code>data</code> directory that can be downloaded on its own from the repository by right-click + save. See the “Get Ready” box on the front page of the website for more details.<br /></li>
 <li>Website: various practices have been used.
 <ul>
 <li>Option 1: Can give links to learners before the lesson so they can follow along, catch up, and see exercises (particularly if you’re following the lesson content without many changes).</li>
@@ -81,8 +99,8 @@
 <li><p>It’s hard to discuss <code>#!</code> (shebang) without first discussing permissions, which we don’t do.</p></li>
 <li><p>Installing Bash and a reasonable set of Unix commands on Windows always involves some fiddling and frustration. Please see the latest set of installation guidelines for advice, and try it out yourself <em>before</em> teaching a class.</p></li>
 <li><p>On Windows, it appears that:</p>
-<pre class="input"><code>$ cd
-$ cd Desktop</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span>
+$ <span class="kw">cd</span> Desktop</code></pre>
 <p>will always put someone on their desktop. Have them create the example directory for the shell exercises there so that they can find it easily and watch it evolve.</p></li>
 <li><p>Stay within POSIX-compliant commands, as all the teaching materials do. Your particular shell may have extensions beyond POSIX that are not available on other machines, especially the default OSX bash and Windows bash emulators. For example, POSIX <code>ls</code> does not have an <code>--ignore=</code> or <code>-I</code> option, and POSIX <code>head</code> takes <code>-n 10</code> or <code>-10</code>, but not the long form of <code>--lines=10</code>.</p></li>
 </ul>
