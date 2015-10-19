@@ -24,6 +24,12 @@ Several commands are frequently used to create, inspect, rename, and delete file
 To start exploring them,
 let's open a shell window:
 
+> ## Preparation Magic {.callout}
+>
+> If you type the command:
+> `PS1='$ '1'`
+> into your shell, your window should look like our example in this lesson.  
+
 ~~~ {.bash}
 $
 ~~~
@@ -53,16 +59,17 @@ More specifically, when we type `whoami` the shell:
 3.  displays that program's output, then
 4.  displays a new prompt to tell us that it's ready for more commands.
 
-> ## Username variation {.callout}
+
+> ## Username Variation {.callout}
 >
 > In this lesson, we have used the username `nelle` (associated 
-> with our hypothetical scientist) in example input and output throughout.  
+> with our hypothetical scientist Nelle) in example input and output throughout.  
 > However, when 
 > you type this lesson's commands on your computer,
-> you should see something different, 
-> namely, the username associated with the user account on your computer.  In 
-> what follows, you should always see your own username as output wherever 
-> we have used `nelle`.  
+> you should see and use something different, 
+> namely, the username associated with the user account on your computer.  This 
+> username will be the output from `whoami`.  In 
+> what follows, `nelle` should always be replaced by that username.  
 
 Next,
 let's find out where we are by running a command called `pwd`
@@ -84,7 +91,7 @@ $ pwd
 /Users/nelle
 ~~~
 
-> ## Home directory path variation {.callout}
+> ## Home Directory Variation {.callout}
 >
 > The home directory path will look different on different operating systems.
 > On Linux it will look like `/home/nelle`,
@@ -122,7 +129,7 @@ Similarly,
 we know that `/Users` is stored inside the root directory `/`
 because its name begins with `/`.
 
-> ## Path {.callout}
+> ## Slashes {.callout}
 >
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
@@ -172,11 +179,21 @@ Desktop/      Downloads/    Movies/       Pictures/
 Here,
 we can see that our home directory contains mostly **sub-directories**.
 Any names in your output that don't have trailing slashes,
-are plain old files.
+are plain old **files**.
 And note that there is a space between `ls` and `-F`:
 without it,
 the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
+
+> ## Parameters vs. Arguments {.callout}
+>
+> According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
+> the terms argument and **parameter**
+> mean slightly different things.
+> In practice,
+> however,
+> most people use them interchangeably or inconsistently,
+> so we will too.
 
 We can also use `ls` to see the contents of a different directory.  Let's take a 
 look at our `Desktop` directory by running `ls -F Desktop`,
@@ -194,8 +211,8 @@ shell-novice/
 
 Your output should be a list of all the files and sub-directories on your 
 Desktop, including the `shell-novice` directory you downloaded at 
-the start of the lesson.  Minimize your prompt to see if your results 
-are accurate!  
+the start of the lesson.  Take a look at your Desktop to confirm that 
+your output is accurate.  
 
 As you may now see, using a bash shell is strongly dependent on the idea that 
 your files are organized in an hierarchical file system.  
@@ -204,20 +221,11 @@ it's possible to put hundreds of files in our home directory,
 just as it's possible to pile hundreds of printed papers on our desk,
 but it's a self-defeating strategy.
 
-> ## Parameters vs. Arguments {.callout}
->
-> According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
-> the terms argument and **parameter**
-> mean slightly different things.
-> In practice,
-> however,
-> most people use them interchangeably or inconsistently,
-> so we will too.
-
 Now that we know the `shell-novice` directory is located on our Desktop, we 
 can do two things.  
 
-First, we can look at its contents, using the same strategy as before: 
+First, we can look at its contents, using the same strategy as before, passing 
+a directory name to `ls`: 
 
 ~~~ {.bash}
 $ ls -F Desktop/shell-novice
@@ -227,7 +235,8 @@ creatures/          molecules/          notes.txt           solar.pdf
 data/               north-pacific-gyre/ pizza.cfg           writing/
 ~~~
 
-Second, we can actually change our location, so we are no longer located in
+Second, we can actually change our location to a different directory, so 
+we are no longer located in
 our home directory.  
 
 The command to change locations is `cd` followed by a 
@@ -238,7 +247,7 @@ the command doesn't change the directory,
 it changes the shell's idea of what directory we are in.
 
 Let's say we want to move to the `data` directory we saw above.  We can 
-follow the following series of commands to get there: 
+use the following series of commands to get there: 
 
 ~~~ {.bash}
 $ cd Desktop
@@ -248,7 +257,8 @@ $ cd data
 
 These commands will move us from our home directory onto our Desktop, then into 
 the `shell-novice` directory, then into the `data` directory.  `cd` doesn't print anything,
-but if we run `pwd` after it, we can see that we are now in `/Users/nelle/Desktop/shell-novice/data`.
+but if we run `pwd` after it, we can see that we are now 
+in `/Users/nelle/Desktop/shell-novice/data`.
 If we run `ls` without arguments now,
 it lists the contents of `/Users/nelle/Desktop/shell-novice/data`,
 because that's where we now are:
@@ -277,7 +287,9 @@ cd shell-novice
 -bash: cd: shell-novice: No such file or directory
 ~~~
 
-But we get an error!  Why is this?  With our methods so far, 
+But we get an error!  Why is this?  
+
+With our methods so far, 
 `cd` can only see sub-directories inside your current directory.  There are 
 different ways to see directories above your current location; we'll start 
 with the simplest.  
@@ -303,8 +315,8 @@ $ pwd
 /Users/nelle/Desktop/shell-novice
 ~~~
 
-The special directory `..` doesn't usually show up when we run `ls`.
-If we want to display it, we can give `ls` the `-a` flag:
+The special directory `..` doesn't usually show up when we run `ls`.  If we want 
+to display it, we can give `ls` the `-a` flag:
 
 ~~~ {.bash}
 $ ls -F -a
@@ -325,7 +337,7 @@ which means "the current working directory".
 It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
 
-> ## Other hidden files {.callout}
+> ## Other Hidden Files {.callout}
 > 
 > In addition to the hidden directories `..` and `.`, you'll also see a file 
 > called `.bash_profile`. This file usually 
@@ -378,8 +390,8 @@ $ cd Desktop/shell-novice/data
 
 Check that we've moved to the right place by running `pwd` and `ls -F`.  
 
-If we want to move up one level from the shell directory, we could use `cd ..`.  
-But there is another way to move to any directory, regardless of your 
+If we want to move up one level from the shell directory, we could use `cd ..`.  But 
+there is another way to move to any directory, regardless of your 
 current location.  
 
 So far, when specifying directory names, or even a directory path (as above), 
@@ -405,31 +417,10 @@ $ pwd
 /Users/nelle/Desktop/shell-novice/data
 ~~~
 ~~~ {.bash}
-cd /Users/nelle/Desktop/shell-novice
+$ cd /Users/nelle/Desktop/shell-novice
 ~~~
 
 Run `pwd` and `ls -F` to ensure that we're in the directory we expect.  
-
-> ## What's In A Name? {.callout}
->
-> You may have noticed that all of Nelle's files' names are "something dot
-> something". This is just a convention: we can call a file `mythesis` or
-> almost anything else we want. However, most people use two-part names
-> most of the time to help them (and their programs) tell different kinds
-> of files apart. The second part of such a name is called the
-> **filename extension**, and indicates
-> what type of data the file holds: `.txt` signals a plain text file, `.pdf`
-> indicates a PDF document, `.cfg` is a configuration file full of parameters
-> for some program or other, and so on.
->
-> This is just a convention, albeit an important one. Files contain
-> bytes: it's up to us and our programs to interpret those bytes
-> according to the rules for PDF documents, images, and so on.
->
-> Naming a PNG image of a whale as `whale.mp3` doesn't somehow
-> magically turn it into a recording of whalesong, though it *might*
-> cause the operating system to try to open it with a music player
-> when someone double-clicks it.
 
 > ## Two More Shortcuts {.callout}
 >
@@ -439,11 +430,11 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > `/Users/nelle/data`. This only works if it is the first character in the
 > path: `here/there/~/elsewhere` is *not* `/Users/nelle/elsewhere`. 
 > 
-> Another shortcut is the `-` (dash) character.  Running `cd -` will move 
-> the user to their previous working directory.  
-
-
-
+> Another shortcut is the `-` (dash) character.  `cd` will translate `-` into
+> *the previous directory I was in*, which is faster than having to remember, 
+> then type, the full path.  This is a *very* efficient way of moving back 
+> and forth between directories. The difference between `cd ..` and `cd -` is 
+> that the former brings you *up*, while the later brings you *back*. 
 
 ### Nelle's Pipeline: Organizing Files
 
@@ -513,23 +504,12 @@ and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
-![File System for Challenge Questions](fig/filesystem-challenge.svg)
-
-> ## Relative path resolution {.challenge}
->
-> If `pwd` displays `/Users/thing`, what will `ls ../backup` display?
->
-> 1.  `../backup: No such file or directory`
-> 2.  `2012-12-01 2013-01-08 2013-01-27`
-> 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
-> 4.  `original pnas_final pnas_sub`
-
 > ## Many ways to do the same thing - absolute vs relative paths {.challenge}
 >
-> For a hypothetical filesystem location of /home/amanda/data/, 
+> For a hypothetical filesystem location of `/Users/amanda/data/`, 
 > select each of the below commands that Amanda could use to navigate to her home directory, 
-> which is /home/amanda 
-
+> which is `Users/amanda`.  
+> 
 >1.  `cd .`
 >2.  `cd /`
 >3.  `cd /home/amanda`
@@ -540,9 +520,23 @@ and we will see it in many other tools as we go on.
 >8.  `cd`
 >9.  `cd ..`
 
+> ## Relative path resolution {.challenge}
+>
+> Using the filesystem diagram below, if `pwd` displays `/Users/thing`, 
+what will `ls ../backup` display?
+>
+> 1.  `../backup: No such file or directory`
+> 2.  `2012-12-01 2013-01-08 2013-01-27`
+> 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
+> 4.  `original pnas_final pnas_sub`
+> 
+> ![File System for Challenge Questions](fig/filesystem-challenge.svg)
+
+
 > ## `ls` reading comprehension {.challenge}
 >
-> If `pwd` displays `/Users/backup`,
+> Using the filesystem diagram from the previous question, if `pwd` 
+> displays `/Users/backup`,
 > and `-r` tells `ls` to display things in reverse order,
 > what command will display:
 >
@@ -555,14 +549,6 @@ and we will see it in many other tools as we go on.
 > 3.  `ls -r -F /Users/backup`
 > 4.  Either \#2 or \#3 above, but not \#1.
 
-> ## Default `cd` action {.challenge}
->
-> What does the command `cd` without a directory name do?
->
-> 1.  It has no effect.
-> 2.  It changes the working directory to `/`.
-> 3.  It changes the working directory to the user's home directory.
-> 4.  It produces an error message.
 
 > ## Exploring more `ls` arguments {.challenge}
 >
