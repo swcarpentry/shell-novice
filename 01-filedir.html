@@ -46,7 +46,7 @@
 <p>The part of the operating system responsible for managing files and directories is called the <strong>file system</strong>. It organizes our data into files, which hold information, and directories (also called “folders”), which hold files or other directories.</p>
 <p>Several commands are frequently used to create, inspect, rename, and delete files and directories. To start exploring them, let’s open a shell window:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$</code></pre>
-<p>The dollar sign is a <strong>prompt</strong>, which shows us that the shell is waiting for input; your shell may show something more elaborate.</p>
+<p>The dollar sign is a <strong>prompt</strong>, which shows us that the shell is waiting for input; your shell may use a different character as a prompt and may add information before the prompt. When typing commands, either from these lessons or from other sources, do not type the prompt, only the commands that follow it.</p>
 <p>Type the command <code>whoami</code>, then press the Enter key (sometimes marked Return) to send the command to the shell. The command’s output is the ID of the current user, i.e., it shows us who the shell thinks we are:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">whoami</span></code></pre>
 <pre class="output"><code>nelle</code></pre>
@@ -120,8 +120,8 @@ Desktop/    notes.txt            writing/</code></pre>
 </aside>
 <p>Now let’s take a look at what’s in Nelle’s <code>data</code> directory by running <code>ls -F data</code>, i.e., the command <code>ls</code> with the <strong>arguments</strong> <code>-F</code> and <code>data</code>. The second argument — the one <em>without</em> a leading dash — tells <code>ls</code> that we want a listing of something other than our current working directory:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> -F data</code></pre>
-<pre class="output"><code>amino-acids.txt   elements/     morse.txt
-pdb/              planets.txt   sunspot.txt</code></pre>
+<pre class="output"><code>amino-acids.txt   elements/     pdb/            salmon.txt
+animals.txt       morse.txt     planets.txt     sunspot.txt</code></pre>
 <p>The output shows us that there are four text files and two sub-sub-directories. Organizing things hierarchically in this way helps us keep track of our work: it’s possible to put hundreds of files in our home directory, just as it’s possible to pile hundreds of printed papers on our desk, but it’s a self-defeating strategy.</p>
 <p>Notice, by the way that we spelled the directory name <code>data</code>. It doesn’t have a trailing slash: that’s added to directory names by <code>ls</code> when we use the <code>-F</code> flag to help us tell things apart. And it doesn’t begin with a slash because it’s a <strong>relative path</strong>, i.e., it tells <code>ls</code> how to find something from where we are, rather than from the root of the file system.</p>
 <aside class="callout panel panel-info">
@@ -150,8 +150,8 @@ Desktop    notes.txt           writing</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
 <pre class="output"><code>/Users/nelle/data</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> -F</code></pre>
-<pre class="output"><code>amino-acids.txt   elements/     morse.txt
-pdb/              planets.txt   sunspot.txt</code></pre>
+<pre class="output"><code>amino-acids.txt   elements/     pdb/            salmon.txt
+animals.txt       morse.txt     planets.txt     sunspot.txt</code></pre>
 <p>We now know how to go down the directory tree: how do we go up? We could use an absolute path:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /Users/nelle</code></pre>
 <p>but it’s almost always simpler to use <code>cd ..</code> to go up one level:</p>
@@ -176,12 +176,16 @@ Desktop/            north-pacific-gyre/ writing/</code></pre>
 <p>The special names <code>.</code> and <code>..</code> don’t belong to <code>ls</code>; they are interpreted the same way by every program. For example, if we are in <code>/Users/nelle/data</code>, the command <code>ls ..</code> will give us a listing of <code>/Users/nelle</code>. When the meanings of the parts are the same no matter how they’re combined, programmers say they are <strong>orthogonal</strong>: Orthogonal systems tend to be easier for people to learn because there are fewer special cases and exceptions to keep track of.</p>
 </div>
 </aside>
-<h3 id="nelles-pipeline-organizing-files">Nelle’s Pipeline: Organizing Files</h3>
+<h2 id="nelles-pipeline-organizing-files">Nelle’s Pipeline: Organizing Files</h2>
 <p>Knowing just this much about files and directories, Nelle is ready to organize the files that the protein assay machine will create. First, she creates a directory called <code>north-pacific-gyre</code> (to remind herself where the data came from). Inside that, she creates a directory called <code>2012-07-03</code>, which is the date she started processing the samples. She used to use names like <code>conference-paper</code> and <code>revised-results</code>, but she found them hard to understand after a couple of years. (The final straw was when she found herself creating a directory called <code>revised-revised-results-3</code>.)</p>
-<blockquote>
-<p>Output sorting {.callout}</p>
-<p>Nelle names her directories “year-month-day”, with leading zeroes for months and days, because the shell displays file and directory names in alphabetical order. If she used month names, December would come before July; if she didn’t use leading zeroes, November (‘11’) would come before July (‘7’).</p>
-</blockquote>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Output sorting</h2>
+</div>
+<div class="panel-body">
+<p>Nelle names her directories “year-month-day”, with leading zeroes for months and days, because the shell displays file and directory names in alphabetical order. If she used month names, December would come before July; if she didn’t use leading zeroes, November (‘11’) would come before July (‘7’). Similarly, putting the year first means that June 2012 will come before June 2013.</p>
+</div>
+</aside>
 <p>Each of her physical samples is labelled according to her lab’s convention with a unique ten-character ID, such as “NENE01729A”. This is what she used in her collection log to record the location, time, depth, and other characteristics of the sample, so she decides to use it as part of each data file’s name. Since the assay machine’s output is plain text, she will call her files <code>NENE01729A.txt</code>, <code>NENE01812A.txt</code>, and so on. All 1520 files will go into the same directory.</p>
 <p>If she is in her home directory, Nelle can see what files she has using the command:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> north-pacific-gyre/2012-07-03/</code></pre>
@@ -191,7 +195,7 @@ Desktop/            north-pacific-gyre/ writing/</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> north-pacific-gyre/</code></pre>
 <p>If she presses tab again, Bash will add <code>2012-07-03/</code> to the command, since it’s the only possible completion. Pressing tab again does nothing, since there are 1520 possibilities; pressing tab twice brings up a list of all the files, and so on. This is called <strong>tab completion</strong>, and we will see it in many other tools as we go on.</p>
 <div class="figure">
-<img src="fig/filesystem-challenge.svg" alt="File System for Challange Questions" /><p class="caption">File System for Challange Questions</p>
+<img src="fig/filesystem-challenge.svg" alt="File System for Challenge Questions" /><p class="caption">File System for Challenge Questions</p>
 </div>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
@@ -207,6 +211,27 @@ Desktop/            north-pacific-gyre/ writing/</code></pre>
 </ol>
 </div>
 </section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pencil"></span>Many ways to do the same thing - absolute vs relative paths</h2>
+</div>
+<div class="panel-body">
+<p>For a hypothetical filesystem location of /home/amanda/data/, select each of the below commands that Amanda could use to navigate to her home directory, which is /home/amanda</p>
+</div>
+</section>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li><code>cd .</code></li>
+<li><code>cd /</code></li>
+<li><code>cd /home/amanda</code></li>
+<li><code>cd ../..</code></li>
+<li><code>cd ~</code></li>
+<li><code>cd home</code></li>
+<li><code>cd ~/data/..</code></li>
+<li><code>cd</code></li>
+<li><code>cd ..</code></li>
+</ol>
+</blockquote>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pencil"></span><code>ls</code> reading comprehension</h2>

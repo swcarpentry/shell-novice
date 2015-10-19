@@ -28,9 +28,10 @@ let's open a shell window:
 $
 ~~~
 
-The dollar sign is a **prompt**,
-which shows us that the shell is waiting for input;
-your shell may show something more elaborate.
+The dollar sign is a **prompt**, which shows us that the shell is waiting for input;
+your shell may use a different character as a prompt and may add information before 
+the prompt. When typing commands, either from these lessons or from other sources, 
+do not type the prompt, only the commands that follow it.
 
 Type the command `whoami`,
 then press the Enter key (sometimes marked Return) to send the command to the shell.
@@ -200,8 +201,8 @@ we want a listing of something other than our current working directory:
 $ ls -F data
 ~~~
 ~~~ {.output}
-amino-acids.txt   elements/     morse.txt
-pdb/              planets.txt   sunspot.txt
+amino-acids.txt   elements/     pdb/	        salmon.txt
+animals.txt       morse.txt     planets.txt     sunspot.txt
 ~~~
 
 The output shows us that there are four text files and two sub-sub-directories.
@@ -288,8 +289,8 @@ $ pwd
 $ ls -F
 ~~~
 ~~~ {.output}
-amino-acids.txt   elements/     morse.txt
-pdb/              planets.txt   sunspot.txt
+amino-acids.txt   elements/     pdb/	        salmon.txt
+animals.txt       morse.txt     planets.txt     sunspot.txt
 ~~~
 
 We now know how to go down the directory tree:
@@ -361,7 +362,6 @@ Finally, we also see a file called `.bash_profile`. This file usually contains s
 > Orthogonal systems tend to be easier for people to learn
 > because there are fewer special cases and exceptions to keep track of.
 
-
 > ## Another Useful Abbreviation {.callout}
 >
 > The shell interprets the character `~` (tilde) at the start of a path to
@@ -388,7 +388,7 @@ but she found them hard to understand after a couple of years.
 (The final straw was when she found herself creating
 a directory called `revised-revised-results-3`.)
 
-> Output sorting {.callout}
+> ## Output sorting {.callout}
 >
 > Nelle names her directories "year-month-day",
 > with leading zeroes for months and days,
@@ -396,7 +396,8 @@ a directory called `revised-revised-results-3`.)
 > If she used month names,
 > December would come before July;
 > if she didn't use leading zeroes,
-> November ('11') would come before July ('7').
+> November ('11') would come before July ('7'). Similarly, putting the year first 
+> means that June 2012 will come before June 2013.
 
 Each of her physical samples is labelled according to her lab's convention
 with a unique ten-character ID,
@@ -440,7 +441,7 @@ and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
-![File System for Challange Questions](fig/filesystem-challenge.svg)
+![File System for Challenge Questions](fig/filesystem-challenge.svg)
 
 > ## Relative path resolution {.challenge}
 >
@@ -450,6 +451,22 @@ and we will see it in many other tools as we go on.
 > 2.  `2012-12-01 2013-01-08 2013-01-27`
 > 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
 > 4.  `original pnas_final pnas_sub`
+
+> ## Many ways to do the same thing - absolute vs relative paths {.challenge}
+>
+> For a hypothetical filesystem location of /home/amanda/data/, 
+> select each of the below commands that Amanda could use to navigate to her home directory, 
+> which is /home/amanda 
+
+>1.  `cd .`
+>2.  `cd /`
+>3.  `cd /home/amanda`
+>4.  `cd ../..`
+>5.  `cd ~`
+>6.  `cd home`
+>7.  `cd ~/data/..`
+>8.  `cd`
+>9.  `cd ..`
 
 > ## `ls` reading comprehension {.challenge}
 >
