@@ -13,8 +13,9 @@ minutes: 15
 > *   Demonstrate how to see what commands have recently been executed.
 > *   Re-run recently executed commands without retyping them.
 
-Wildcards and tab completion are two ways to reduce typing (and typing mistakes).
-Another is to tell the shell to do something over and over again.
+**Loops** are key to productivity improvements through automation as they allow us to execute 
+commands repetitively. Similar to wildcards and tab completion, using loops also reduces the 
+amount of typing (and typing mistakes).
 Suppose we have several hundred genome data files named `basilisk.dat`, `unicorn.dat`, and so on.
 In this example,
 we'll use the `creatures` directory which only has two example files,
@@ -90,7 +91,8 @@ so this loop prints out the first three lines of each data file in turn.
 >
 > The shell prompt changes from `$` to `>` and back again as we were
 > typing in our loop. The second prompt, `>`, is different to remind
-> us that we haven't finished typing a complete command yet.
+> us that we haven't finished typing a complete command yet. A semicolon, `;`, 
+> can be used to separate two commands written on a single line.
 
 We have called the variable in this loop `filename`
 in order to make its purpose clearer to human readers.
