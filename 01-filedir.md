@@ -475,7 +475,7 @@ and we will see it in many other tools as we go on.
 > what command will display:
 >
 > ~~~
-> pnas-sub/ pnas-final/ original/
+> pnas_sub/ pnas_final/ original/
 > ~~~
 >
 > 1.  `ls pwd`
