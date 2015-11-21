@@ -470,7 +470,8 @@ and we will see it in many other tools as we go on.
 
 > ## `ls` reading comprehension {.challenge}
 >
-> If `pwd` displays `/Users/backup`,
+> Assuming a directory structure as in the above Figure 
+> (File System for Challenge Questions), if `pwd` displays `/Users/backup`,
 > and `-r` tells `ls` to display things in reverse order,
 > what command will display:
 >
