@@ -537,13 +537,13 @@ what will `ls ../backup` display?
 
 > ## `ls` reading comprehension {.challenge}
 >
-> Using the filesystem diagram from the previous question, if `pwd` 
-> displays `/Users/backup`,
+> Assuming a directory structure as in the above Figure 
+> (File System for Challenge Questions), if `pwd` displays `/Users/backup`,
 > and `-r` tells `ls` to display things in reverse order,
 > what command will display:
 >
 > ~~~
-> pnas-sub/ pnas-final/ original/
+> pnas_sub/ pnas_final/ original/
 > ~~~
 >
 > 1.  `ls pwd`
