@@ -94,8 +94,9 @@ $ pwd
 > ## Home Directory Variation {.callout}
 >
 > The home directory path will look different on different operating systems.
-> On Linux it will look like `/home/nelle`,
-> and on Windows it will be similar to `C:\Documents and Settings\nelle`.
+> On Linux it may look like `/home/nelle`,
+> and on Windows it will be similar to `C:\Documents and Settings\nelle` or 
+> `C:\Users\nelle`.  
 > (Note that it may look slightly different for different versions of Windows.)
 > In future examples, we've used Mac output as the default - Linux and Windows 
 > output may differ slightly, but should be generally similar.  
@@ -104,7 +105,7 @@ To understand what a "home directory" is,
 let's have a look at how the file system as a whole is organized.  For the 
 sake of example, we'll be 
 illustrating the filesystem on our scientist Nelle's computer.  After this
-illustration, you'll be learning a command to explore your own filesystem, 
+illustration, you'll be learning commands to explore your own filesystem, 
 which will be constructed in a similar way, but not be exactly identical.  
 
 On Nelle's computer, the filesystem looks like this: 
@@ -121,7 +122,7 @@ Inside that directory are several other directories:
 `data` (for miscellaneous data files),
 `Users` (where users' personal directories are located),
 `tmp` (for temporary files that don't need to be stored long-term),
-and so on:
+and so on.  
 
 We know that our current working directory `/Users/nelle` is stored inside `/Users`
 because `/Users` is the first part of its name.
@@ -146,6 +147,8 @@ The Mummy's files are stored in `/Users/imhotep`,
 Wolfman's in `/Users/larry`,
 and Nelle's in `/Users/nelle`.  Because Nelle is the user in our 
 examples here, this is why we get `/Users/nelle` as our home directory.  
+Typically, when you open a new command prompt you will be in 
+your home directory to start.  
 
 Now let's learn the command that will let us see the contents of our 
 own filesystem.  We can see what's in our home directory by running `ls`,
@@ -198,7 +201,7 @@ which doesn't exist.
 We can also use `ls` to see the contents of a different directory.  Let's take a 
 look at our `Desktop` directory by running `ls -F Desktop`,
 i.e.,
-the command `ls` with the **arguments** `-F` and `data`.
+the command `ls` with the **arguments** `-F` and `Desktop`.
 The second argument --- the one *without* a leading dash --- tells `ls` that
 we want a listing of something other than our current working directory:
 
@@ -341,8 +344,7 @@ but we'll see some uses for it soon.
 > 
 > In addition to the hidden directories `..` and `.`, you'll also see a file 
 > called `.bash_profile`. This file usually 
-> contains settings to customize the shell. For this lesson material 
-> it does not contain any settings. There may also be similar files called 
+> contains settings to customize the shell.  There may also be similar files called 
 > `.bashrc` or `.bash_login` in your own home directory. The `.` prefix is 
 > used to prevent these 
 > configuration files from cluttering the terminal when a standard `ls` command is used.
@@ -498,7 +500,7 @@ If she presses tab again,
 Bash will add `2012-07-03/` to the command,
 since it's the only possible completion.
 Pressing tab again does nothing,
-since there are 1520 possibilities;
+since there are 19 possibilities;
 pressing tab twice brings up a list of all the files,
 and so on.
 This is called **tab completion**,
