@@ -48,6 +48,7 @@ preview : $(DST_ALL)
 %.html : %.md _layouts/page.html $(FILTERS)
 	${PANDOC} -s -t html \
 	    ${PANDOC_FLAGS} \
+	    --mathjax \
 	    --template=_layouts/page \
 	    --filter=tools/filters/blockquote2div.py \
 	    --filter=tools/filters/id4glossary.py \
