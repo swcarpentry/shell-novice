@@ -541,4 +541,4 @@ so this matches all the valid data files she has.
 > $ cat roster.txt | tail -n +2 | cut -d, -f2 | shuf -n 1
 > ~~~
 >
-> Explain how this pipe works.
+> Explain how this pipeline works.
