@@ -34,7 +34,7 @@ These lessons will start you on a path towards using these resources effectively
 > 4. You can access this folder from the Unix shell with:
 >
 > ~~~ {.input}
-> $ cd && cd Desktop/shell-novice/data
+> $ cd ; cd Desktop/shell-novice/data
 > ~~~
 
 ## Topics
