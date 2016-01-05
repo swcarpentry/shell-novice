@@ -492,3 +492,43 @@ about them."
 > of the four sisters is mentioned?  Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+
+> ## Loops and grep {.challenge}
+>
+> Assume that you're in Nelle's `data/pdb` directory, which
+> contains Protein Data Bank files. (As examples, look at `aldrin.pdb` and
+> `lanoxin.pdb`.) Write a `for` loop which uses `echo` and `grep` to print on
+> each line the filename followed by the number of atoms in the compound.
+>
+> Here's the beginning and end of the output:
+>
+> ~~~
+> aldrin.pdb 26
+> ammonia.pdb 4
+> ascorbic-acid.pdb 20
+> ...
+> vanillin.pdb 19
+> vinyl-chloride.pdb 6
+> vitamin-a.pdb 51
+> ~~~
+>
+> Hint: Read `man echo` for an option to suppress newlines
+> and `man grep` for an option to produce counts only.
+
+> ## More loops and grep {.challenge}
+>
+> Build on the previous solution by sorting the output by the number of atoms.
+>
+> Here's the beginning and end of the output:
+>
+> ~~~
+> ammonia.pdb 4
+> methane.pdb 5
+> methanol.pdb 6
+> ...
+> cholesterol.pdb 74
+> heme.pdb 75
+> lanoxin.pdb 121
+> ~~~
+>
+> Hint: Read `man sort` and look at the `-k` option to sort by a field.
