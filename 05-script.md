@@ -482,12 +482,10 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > done
 > ~~~
 
-> Q1. How will you run this script if you are in `Scripts` folder?
-
+> Q1. How will you run this script if you are in `Scripts` folder?  
 > A1. bash WhereDoMyMoneyGo.sh ../BankStatements ../Results
 >
-> Q2. What comment will you add to this script to make it easier to run?
-
+> Q2. What comment will you add to this script to make it easier to run?  
 > A2. #Usage: script.sh $pathToInputFilesFolder $pathToResultsFolder
 >
 > Q3. How would you change this script to find out how much you spend in user-defined location?
