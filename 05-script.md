@@ -492,14 +492,14 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > A2. #Usage: script.sh $pathToInputFilesFolder $pathToResultsFolder
 >
 > Q3. How would you change this script to find out how much you spend in user-defined location/store?  
-> A3. Add `$SearchStore` as a third argument at the command line and assign it to `SearchStore` within the script.  
+> A3. Add `$SearchStore` as a third argument at the command line and assign  ($3) to `SearchStore` within the script.  
 > For example, to record spendings at Half Price Books:  
 > `bash WhereDoMyMoneyGo.sh ../BankStatements ../Results "Half Price Books" `  
 > And make this change within the script: `SearchStore="Starbucks"` to `SearchStore=$3`
 >
 > Q4. How would you modify the script above to combine your monthly spending at Starbucks in a single file (Starbucks_Spending.txt)?  
 > A4. Change ` grep "$SearchStore" $file> $outFolder/"$SearchStore"_$baseFile ` to:  
-> ` grep "$SearchStore" $file>> $outFolder/Starbucks_Spending.txt `
+> ` grep "$SearchStore" $file >> $outFolder/Starbucks_Spending.txt `
 >
 > Q5. Compare your overall spendings at Starbucks with your donations to your favorite charity.
 > Do you think you personally could make the world a better place?  
