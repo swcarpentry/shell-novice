@@ -477,7 +477,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >
 > for file in $inFolder/*.txt
 > do
->   #string manipulation that removes leading forward slashes - only file name remains
+>   #string manipulation that removes leading forward slashes - only base filename remains
 > 	baseFile=${file##*[/]}
 >
 >   #grep is a command that selects lines that contain word $SearchStore from a given file $file
@@ -493,7 +493,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >
 > Q3. How would you change this script to find out how much you spend in user-defined location/store?  
 > A3. Add `$SearchStore` as a third argument at the command line and assign  ($3) to `SearchStore` within the script.  
-> For example, to record spendings at Half Price Books:  
+> For example, to record spending at Half Price Books:  
 > `bash WhereDoMyMoneyGo.sh ../BankStatements ../Results "Half Price Books" `  
 > And make this change within the script: `SearchStore="Starbucks"` to `SearchStore=$3`
 >
@@ -501,6 +501,6 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > A4. Change ` grep "$SearchStore" $file> $outFolder/"$SearchStore"_$baseFile ` to:  
 > ` grep "$SearchStore" $file >> $outFolder/Starbucks_Spending.txt `
 >
-> Q5. Compare your overall spendings at Starbucks with your donations to your favorite charity.
+> Q5. Compare your overall spending at Starbucks with your donations to your favorite charity.
 > Do you think you personally could make the world a better place?  
 >(About 20,000 people die every day from hunger and $1/day can prevent a person from dying of hunger)
