@@ -459,8 +459,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Script comprehension (submitted by Anna Williford)
 > 
-> To keep files organized, shell scripts, input and output files
-> are often kept in separate folders.
+> To keep files organized, we often keep shell scripts, input and output files in separate folders.
 > Suppose your `BankData` directory contains `BankStatements`,
 > `Scripts` and `Results` folders. Your monthly bank statements are
 > stored in `BankStatements` directory as text files (.txt).
@@ -475,14 +474,16 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > inFolder=$1
 > outFolder=$2
 > SearchStore="Starbucks"
+>
 > for file in $inFolder/*.txt
 > do
 > 	baseFile=${file##*[/]}
 > 	grep "$SearchStore" $file> $outFolder/"$SearchStore"_$baseFile
 > done
 > ~~~
->
+
 > Q1. How will you run this script if you are in `Scripts` folder?
+>
 > A1. bash WhereDoMyMoneyGo.sh ../BankStatements ../Results
 >
 > Q2. What comment will you add to this script to make it easier to run?
