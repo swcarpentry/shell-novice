@@ -477,24 +477,27 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >
 > for file in $inFolder/*.txt
 > do
-> 	baseFile=${file##*[/]}   #string manipulation that removes leading forward slashes - only file name remains
+>   #string manipulation that removes leading forward slashes - only file name remains
+> 	baseFile=${file##*[/]}
+>
+>   #grep is a command that selects lines that contain word $SearchStore from a given file $file
 > 	grep "$SearchStore" $file> $outFolder/"$SearchStore"_$baseFile
 > done
 > ~~~
 
-> Q1. How will you run this script if you are in `Scripts` folder?  
+> Q1. How would you run this script from the `Scripts` folder?  
 > A1. bash WhereDoMyMoneyGo.sh ../BankStatements ../Results
 >
-> Q2. What comment will you add to this script to make it easier to run?  
+> Q2. What comment would you add to this script to make it easier to run?  
 > A2. #Usage: script.sh $pathToInputFilesFolder $pathToResultsFolder
 >
-> Q3. How would you change this script to find out how much you spend in user-defined location?  
+> Q3. How would you change this script to find out how much you spend in user-defined location/store?  
 > A3. Add `$SearchStore` as a third argument at the command line and assign it to `SearchStore` within the script.  
-> For example, to find out spendings at Half Price Books: `bash WhereDoMyMoneyGo.sh ../BankStatements ../Results "Half Price Books" ` 
+> For example, to record spendings at Half Price Books: `bash WhereDoMyMoneyGo.sh ../BankStatements ../Results "Half Price Books" ` 
 > And make this change within the script: `SearchStore="Starbucks"` to `SearchStore=$3`
 >
 > Q4. How would you modify the script above to combine your monthly spending at Starbucks in a single file (Starbucks_Spending.txt)?  
-> A4. Change ` grep "$SearchStore" $file> $outFolder/"$SearchStore"_$baseFile ` to ` grep "$SearchStore" $file> $outFolder/Starbucks_Spending.txt `
+> A4. Change ` grep "$SearchStore" $file> $outFolder/"$SearchStore"_$baseFile ` to ` grep "$SearchStore" $file>> $outFolder/Starbucks_Spending.txt `
 >
 > Q5. Compare your overall spendings at Starbucks with your donations to your favorite charity.
 > Do you think you personally could make the world a better place?  
