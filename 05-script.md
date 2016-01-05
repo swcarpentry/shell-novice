@@ -456,3 +456,28 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > # Script 3
 > echo $@.dat
 > ~~~
+
+> ## Script comprehension (submitted by Anna Williford)
+> 
+> To keep files organized, shell scripts, input and output files
+> are often kept in separate folders.
+> Suppose your `BankData` directory contains `BankStatements`,
+> `Scripts` and 'Results' folders. Your monthly bank statements are
+> stored in `BankStatements` directory as text files (.txt).
+> To understand how you spend your money every month, you write 
+> `WhereDoMyMoneyGo.sh` that looks through every bank statement in
+> `BankStatements` folder, extracts lines with a given store name
+> in it and stores results in `Results` folder. Your script is in
+> `Scripts` folder and contains the following lines: 
+>
+> ~~~
+> # WhereDoMyMoneyGo.sh
+> inFolder=$1
+> outFolder=$2
+> SearchWord="Starbucks"
+> for file in $inFolder/*.txt
+> do
+> 	baseFile=${file##*[/]}
+> 	grep $SearchWord $file> $outFolder/$SearchWord_$baseFile
+> done
+> ~~~	
