@@ -483,7 +483,6 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ~~~
 
 > Q1. How will you run this script if you are in `Scripts` folder?
->
 > A1. bash WhereDoMyMoneyGo.sh ../BankStatements ../Results
 >
 > Q2. What comment will you add to this script to make it easier to run?
