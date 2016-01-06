@@ -277,33 +277,6 @@ $ find . -type f
 ./data/two.txt
 ~~~
 
-`find` automatically goes into subdirectories,
-their subdirectories,
-and so on to find everything that matches the pattern we've given it.
-If we don't want it to,
-we can use `-maxdepth` to restrict the depth of search:
-
-~~~ {.bash}
-$ find . -maxdepth 1 -type f
-~~~
-~~~ {.output}
-./haiku.txt
-~~~
-
-The opposite of `-maxdepth` is `-mindepth`,
-which tells `find` to only report things that are at or below a certain depth.
-`-mindepth 2` therefore finds all the files that are two or more levels below us:
-
-~~~ {.bash}
-$ find . -mindepth 2 -type f
-~~~
-~~~ {.output}
-./data/one.txt
-./data/two.txt
-./tools/format
-./tools/stats
-~~~
-
 Now let's try matching by name:
 
 ~~~ {.bash}
