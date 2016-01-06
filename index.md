@@ -35,7 +35,7 @@ These lessons will start you on a path towards using these resources effectively
 >
 > ~~~ {.input}
 > $ cd 
->  $ cd Desktop/shell-novice/data
+> $ cd Desktop/shell-novice/data
 > ~~~
 
 ## Topics
