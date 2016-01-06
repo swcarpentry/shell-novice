@@ -512,7 +512,7 @@ so she decides to get some coffee and catch up on her reading.
 > What is the difference? Why?
 > ~~~
 > Now, run this following for loop. It outputs a "cleaned" dataset that only prints the positions of carbon atoms in these molecules into a simple CSV(comma separated values) table. awk is a command that treats text somewhat like a spreadsheet. Since the positions of each atom in a PDB file is kept in the 5th, 6th, and 7th columns, awk can automate that. It is an extremely robust tool, and a programming language in it's own right! But, don't worry about that now, just know that awk is a very useful filter for clipping columns out of tabular data!
->
+> ~~~ {.bash}
 > for molecule in *.pdb
 > do
 >    echo $molecule  
@@ -521,14 +521,15 @@ so she decides to get some coffee and catch up on her reading.
 >
 > ~~~
 > Finally, what would we need to change if, instead we needed a count of the hydrogen atoms in each compound? You don't need to use awk. This example only needs the filters that we used in the previous section.
->
+> ~~~ {.bash}
 > for [______] in *.pdb
 > do
 >  [_________] $each
 >       grep [______] | [_______]
 > done
->
->
+> ~~~
+
+
 > ## Nested Loops and Command-Line Expressions {.challenge}
 >
 > The `expr` does simple arithmetic using command-line parameters:
