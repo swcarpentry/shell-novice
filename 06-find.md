@@ -492,3 +492,24 @@ about them."
 > of the four sisters is mentioned?  Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+
+> ## Planet names {.challenge}
+>
+> The file `planets.txt` inside the folder `nelle/data` contains a list
+> of planets and astronomical information about them. Each line is
+> a different planet, and the first is the header.
+> Find the command to count the number of planets that match a given
+> word. For instance, there are 21 planets matching "CoRoT", and there
+> are 38 planets matching "HAT".
+> 
+> Now, write a script `count.sh` that receives a list of words.
+> For each word, print the word and number of matches for that word.
+> For instance, the command
+> ~~~ {.bash}
+> $ bash count.sh CoRoT HAT
+> ~~~
+> should return the output
+> ~~~ {.output}
+> CoRoT: 21
+> HAT: 38
+> ~~~
