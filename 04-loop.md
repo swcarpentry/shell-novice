@@ -520,7 +520,7 @@ so she decides to get some coffee and catch up on her reading.
 > done
 >
 > ~~~
-> Finally, what would we need to change if, instead we needed a count of the hydrogen atoms in each compound?
+> What would we need to change if, instead we needed a count of the hydrogen atoms in each compound?
 > ~~~ {.bash}
 > for [______] in *.pdb
 > do
@@ -528,7 +528,14 @@ so she decides to get some coffee and catch up on her reading.
 >       grep [______] | [_______]
 > done
 > ~~~
-
+> Finally, write a loop like the above examples that will output the total number of atoms in each molecule in the same format as the above examples.
+> ~~~ {.bash}
+> for [_____________]
+> do
+>   [__________]
+>   [___________]
+> done
+> ~~~
 
 > ## Nested Loops and Command-Line Expressions {.challenge}
 >
