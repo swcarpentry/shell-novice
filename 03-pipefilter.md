@@ -516,3 +516,19 @@ so this matches all the valid data files she has.
 > What other command(s) could be added to this in a pipeline to find
 > out what animals the file contains (without any duplicates in their
 > names)?
+
+> ## Understanding the commands `head`, `tail` and `>>` {.challenge}
+>
+> Consider the file `animals.txt`, used in previous exercise. 
+> After these following commands, select the alternative that 
+> corresponds the file `animalsUpd.txt`:
+>
+> ~~~ {.bash}
+> $ head -3 animals.txt > animalsUpd.txt
+> $ tail -2 animals.txt >> animalsUpd.txt
+> ~~~
+> 
+> 1. The first three lines of `animals.txt`
+> 2. The last two lines of `animals.txt`
+> 3. The first three lines and the last two lines of `animals.txt`
+> 4. The second and third lines of `animals.txt`
