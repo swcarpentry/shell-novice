@@ -520,7 +520,7 @@ so this matches all the valid data files she has.
 > ## Understanding the commands `head`, `tail` and `>>` {.challenge}
 >
 > Consider the file `animals.txt`, used in previous exercise. 
-> After these following commands, select the alternative that 
+> After these commands, select the alternative that 
 > corresponds the file `animalsUpd.txt`:
 >
 > ~~~ {.bash}
