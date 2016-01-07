@@ -498,8 +498,10 @@ about them."
 > The file `planets.txt` inside the folder `nelle/data` contains a list
 > of planets and astronomical information about them. Each line is
 > a different planet, and the first is the header.
-> Find the command to count the number of planets that match a given
-> word. For instance, there are 21 planets matching "CoRoT", and there
+> 
+> Find the command that receives a word as input and prints on the screen
+> the number of planets in `planets.txt` with that word as part of the name,
+> For instance, there are 21 planets matching "CoRoT", and there
 > are 38 planets matching "HAT".
 > 
 > Now, write a script `count.sh` that receives a list of words.
