@@ -3,6 +3,20 @@ layout: page
 title: The Unix Shell
 subtitle: Discussion
 ---
+
+## Alphabet Soup {.callout}
+
+If the command to find out who we are is `whoami`, the command to find
+out where we are ought to be called `whereami`, so why is it `pwd`
+instead? The usual answer is that in the early 1970s, when Unix was
+first being developed, every keystroke counted: the devices of the day
+were slow, and backspacing on a teletype was so painful that cutting the
+number of keystrokes in order to cut the number of typing mistakes was
+actually a win for usability. The reality is that commands were added to
+Unix one by one, without any master plan, by people who were immersed in
+its jargon. The result is as inconsistent as the roolz uv Inglish
+speling, but we're stuck with it now.
+
 ## Job Control Codes
 
 The shell accepts a few special commands that allow users to interact
