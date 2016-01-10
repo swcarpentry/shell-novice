@@ -552,3 +552,26 @@ so this matches all the valid data files she has.
 > What other command(s) could be added to this in a pipeline to find
 > out what animals the file contains (without any duplicates in their
 > names)?
+
+> ## Wildcard expressions {.challenge}
+>
+> Wildcard expressions can be very complex and this lesson has only scratched
+> the surface of what they allow you to do. However, the syntax details of the
+> more advanced features can be difficult to remember, especially if you use
+> them rarely. Luckily, you can sometimes get away with a different formulation
+> that only uses simple syntax, at the expense of being a bit more verbose.
+>
+> Remember from the end of the lesson that the wildcard expression `*[AB].txt`
+> matches all files ending in `A.txt` or `B.txt`. Now imagine you forgot about
+> this possibility – can you express the same with basic wildcard expressions
+> that do not make use of the `[...]` syntax? *Hint*: You may need more than one
+> expression.
+>
+> The expression that you found and the expression from the lesson match the
+> same set of files in this example. What is the small difference between the
+> outputs if you use them with the `wc` command?
+>
+> However, even disregarding this difference, the two expressions are not
+> exactly equivalent. Can you imagine a situation where using the new expression
+> will give you an error message while the original one would not?
+
