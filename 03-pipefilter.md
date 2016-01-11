@@ -434,6 +434,38 @@ so this matches all the valid data files she has.
 >
 > Hint: Try executing each command twice in a row and then examining the output files.
 
+> ## More on bash wildcards {.challenge}
+> Sam has a directory containing calibration data, datasets, and descriptions of
+> the datasets:
+>
+> ~~~ {.bash}
+> 2015-10-23-calibration.txt
+> 2015-10-23-dataset1.txt
+> 2015-10-23-dataset2.txt
+> 2015-10-23-dataset_overview.txt
+> 2015-10-26-calibration.txt
+> 2015-10-26-dataset1.txt
+> 2015-10-26-dataset2.txt
+> 2015-10-26-dataset_overview.txt
+> 2015-11-23-calibration.txt
+> 2015-11-23-dataset1.txt
+> 2015-11-23-dataset2.txt
+> 2015-11-23-dataset_overview.txt
+> ~~~
+>
+> Before heading off to another field trip, she wants to back up her data and
+> send some datasets to her colleague Bob. Sam uses the following commands
+> to get the job done:
+>
+> ```
+> cp *dataset* /backup/datasets
+> cp ____calibration____ /backup/calibration
+> cp 2015-____-____ ~/send_to_bob/all_november_files/
+> cp ____ ~/send_to_bob/all_datasets_created_on_a_23rd/
+> ```
+>
+> Help Sam by filling in the blanks.
+
 > ## Piping commands together {.challenge}
 >
 > In our current directory, we want to find the 3 files which have the least number of 
