@@ -32,7 +32,7 @@ These lessons will start you on a path towards using these resources effectively
 > 2. Double-click on the zip file to unzip it. You should end up with a new folder called `shell-novice`.
 > 3. Open a terminal and type:
 > ```
-> $ cd
+> $ cd && cd Desktop/data-shell
 > ```
 > In the lesson, you will find out how to access the data in this folder.  
 
