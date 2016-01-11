@@ -31,9 +31,9 @@ These lessons will start you on a path towards using these resources effectively
 > 1. Download [shell-novice-data.zip](./shell-novice-data.zip) and move the file to your Desktop.
 > 2. Double-click on the zip file to unzip it. You should end up with a new folder called `shell-novice`.
 > 3. Open a terminal and type:
-> ~~~
+> ```
 > $ cd
-> ~~~
+> ```
 > In the lesson, you will find out how to access the data in this folder.  
 
 
