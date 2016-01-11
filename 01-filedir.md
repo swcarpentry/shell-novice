@@ -211,11 +211,11 @@ we want a listing of something other than our current working directory:
 $ ls -F Desktop
 ~~~
 ~~~ {.output}
-shell-novice/
+data-shell/
 ~~~
 
 Your output should be a list of all the files and sub-directories on your 
-Desktop, including the `shell-novice` directory you downloaded at 
+Desktop, including the `data-shell` directory you downloaded at
 the start of the lesson.  Take a look at your Desktop to confirm that 
 your output is accurate.  
 
@@ -226,14 +226,14 @@ it's possible to put hundreds of files in our home directory,
 just as it's possible to pile hundreds of printed papers on our desk,
 but it's a self-defeating strategy.
 
-Now that we know the `shell-novice` directory is located on our Desktop, we 
+Now that we know the `data-shell` directory is located on our Desktop, we
 can do two things.  
 
 First, we can look at its contents, using the same strategy as before, passing 
 a directory name to `ls`: 
 
 ~~~ {.bash}
-$ ls -F Desktop/shell-novice
+$ ls -F Desktop/data-shell
 ~~~
 ~~~ {.output}
 creatures/          molecules/          notes.txt           solar.pdf
@@ -256,23 +256,23 @@ use the following series of commands to get there:
 
 ~~~ {.bash}
 $ cd Desktop
-$ cd shell-novice
+$ cd data-shell
 $ cd data
 ~~~
 
 These commands will move us from our home directory onto our Desktop, then into 
-the `shell-novice` directory, then into the `data` directory.  `cd` doesn't print anything,
+the `data-shell` directory, then into the `data` directory.  `cd` doesn't print anything,
 but if we run `pwd` after it, we can see that we are now 
-in `/Users/nelle/Desktop/shell-novice/data`.
+in `/Users/nelle/Desktop/data-shell/data`.
 If we run `ls` without arguments now,
-it lists the contents of `/Users/nelle/Desktop/shell-novice/data`,
+it lists the contents of `/Users/nelle/Desktop/data-shell/data`,
 because that's where we now are:
 
 ~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
-/Users/nelle/Desktop/shell-novice/data
+/Users/nelle/Desktop/data-shell/data
 ~~~
 ~~~ {.bash}
 $ ls -F
@@ -286,10 +286,10 @@ We now know how to go down the directory tree:
 how do we go up?  We might try the following: 
 
 ~~~{.bash}
-cd shell-novice
+cd data-shell
 ~~~
 ~~~{.error}
--bash: cd: shell-novice: No such file or directory
+-bash: cd: data-shell: No such file or directory
 ~~~
 
 But we get an error!  Why is this?  
@@ -311,13 +311,13 @@ $ cd ..
 or more succinctly,
 the **parent** of the current directory.
 Sure enough,
-if we run `pwd` after running `cd ..`, we're back in `/Users/nelle/Desktop/shell-novice`:
+if we run `pwd` after running `cd ..`, we're back in `/Users/nelle/Desktop/data-shell`:
 
 ~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
-/Users/nelle/Desktop/shell-novice
+/Users/nelle/Desktop/data-shell
 ~~~
 
 The special directory `..` doesn't usually show up when we run `ls`.  If we want 
@@ -389,7 +389,7 @@ three commands, but we can actually string together the list of directories
 to move to `data` in one step: 
 
 ~~~ {.bash}
-$ cd Desktop/shell-novice/data
+$ cd Desktop/data-shell/data
 ~~~
 
 Check that we've moved to the right place by running `pwd` and `ls -F`.  
@@ -409,19 +409,19 @@ leading slash.  The leading `/` tells the computer to follow the path from
 the root of the file system, so it always refers to exactly one directory,
 no matter where we are when we run the command.
 
-This allows us to move to our shell-novice directory from anywhere on 
+This allows us to move to our data-shell directory from anywhere on
 the filesystem (including from inside `data`).  To find the absolute path 
 we're looking for, we can use `pwd` and then extract the piece we need 
-to move to `shell-novice`.  
+to move to `data-shell`.
 
 ~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
-/Users/nelle/Desktop/shell-novice/data
+/Users/nelle/Desktop/data-shell/data
 ~~~
 ~~~ {.bash}
-$ cd /Users/nelle/Desktop/shell-novice
+$ cd /Users/nelle/Desktop/data-shell
 ~~~
 
 Run `pwd` and `ls -F` to ensure that we're in the directory we expect.  
