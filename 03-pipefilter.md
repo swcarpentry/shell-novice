@@ -516,3 +516,27 @@ so this matches all the valid data files she has.
 > What other command(s) could be added to this in a pipeline to find
 > out what animals the file contains (without any duplicates in their
 > names)?
+
+> ## Looking for repeated entries in a Fasta file {.challenge}
+>
+> A colleague just gave you a bunch of fasta file with the predicted coding sequences for a new microbial species.
+> You are very excited to work on this, but first you need to check that the information is ok before doing any work on it.
+> A protein fasta file has the following format:
+>
+> ~~~
+> >UniqueID
+> AMINO ACID SEQUENCE
+> ~~~
+>
+> The first thing we can do is look at the number of entries in the file, by using the grep command and matching the > character:
+>
+> ~~~
+> grep -c ">" FASTA_FILE
+> ~~~
+> In this case, using the -c option will show us the number of > that are present in the file
+>
+> Our colleague gave us 10 files to work with, all with the extension `FAA`. 
+> How would you get the total number of entries for all the files combined?
+> Another important step is to check for the presence of duplicate entries (repeated UniqueID), which could generate problems in further
+> analysis steps. 
+> How would you check for duplicates IDs in all the files?
