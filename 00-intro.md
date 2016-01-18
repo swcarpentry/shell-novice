@@ -71,7 +71,7 @@ their names are frequently cryptic,
 and their output is lines of text rather than something visual like a graph.
 On the other hand,
 the shell allows us to combine existing tools in powerful ways with only a few keystrokes
-and to set up pipelines to handle large volumes of data automatically.
+and to set up pipelines to handle large volumes of data automatically thus improving productivity and reproducibility.
 In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
 Familiarity with the shell is near essential to run a variety of specialised tools and resources including high-performance computing systems. As clusters and cloud computing systems become more popular for scientific data crunching,
 being able to interact with them is becoming a necessary skill. We can build on the command-line skills covered here to tackle a wide range of scientific questions and computational challenges.
