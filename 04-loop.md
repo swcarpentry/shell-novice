@@ -522,3 +522,24 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
+> ## Using Loops to Deal with Array of Numbers {.challenge}
+>
+> Curly brackets for number increments: {start..end..step}
+>
+> Given this, what is the output of:
+>
+> ~~~
+> for i in {1..100}
+> do
+>     echo "welcome $i times"
+> done
+> ~~~
+>
+> And what is the output of:
+>
+> ~~~
+> for i in {1..100..2}
+> do
+>     echo "welcome $i times"
+> done
+> ~~~
