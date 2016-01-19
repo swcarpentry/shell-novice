@@ -418,3 +418,14 @@ but it does find the copy in `thesis` that we didn't delete.
 > The command `ls -t` lists things by time of last change,
 > with most recently changed files or directories first.
 > In what order does `ls -R -t` display things?
+
+> ## Creating Files in a Different Way {.challenge}
+> 
+> In this lesson, you learned how to create a text file using the nano command. Now, in the Unix (i.e. Mac OS/Linux) terminal, try the following command in your directory:
+> 
+> $ touch my_file.txt
+> What did the touch command do?
+> 
+> Use ls -l to inspect the file sizes. What is the size of my_file.txt?
+> 
+> Create 3 more empty text files, named my_file2.txt, my_file3.txt, and my_script.sh.
