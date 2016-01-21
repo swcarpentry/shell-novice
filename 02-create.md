@@ -421,10 +421,12 @@ but it does find the copy in `thesis` that we didn't delete.
 
 > ## Creating Files in a Different Way {.challenge}
 > 
-> In this lesson, you learned how to create a text file using the nano command. Now, in the Unix (i.e. Mac OS/Linux) terminal, try the following command in your directory:
+> In this lesson, you learned how to create a text file using the `nano` text editor. Now, try the following command in your Desktop directory:
 > 
+> $ cd /path/to/Desktop  # change to your Desktop directory
 > $ touch my_file.txt
-> What did the touch command do?
+>
+> What did the touch command do? Do you see those files show up on the Desktop?
 > 
 > Use ls -l to inspect the file sizes. What is the size of my_file.txt?
 > 
