@@ -220,6 +220,22 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > it some data interactively. From the outside, though, all we see is it
 > sitting there: the script doesn't appear to do anything.
 
+> ## Checking for correct number of arguments {.challenge}
+>
+> Another special variable `$#` tells the number of arguments passed to the script.
+> The following statement checks if the number of arguments is greater than 0, 
+> otherwise it stops executing the script with an `exit` call:
+>
+> ~~~
+> [[ $# -gt 0 ]] || exit
+> ~~~
+> 
+> If `$#` is greater than 0, the `exit` statement is skipped and the script continues as usual.
+>
+> Rewrite the `sorted.sh` script from the previous exercise so that when no 
+> arguments are specified, it quits instead of executing any potentially harmful
+> statements further down the script.
+
 We have two more things to do before we're finished with our simple shell scripts.
 If you look at a script like:
 
