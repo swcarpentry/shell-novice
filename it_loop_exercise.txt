@@ -1,0 +1,8 @@
+#SoftwareCarpentry_InstructorTraining_NatashaPavlovikj
+#04-loop_bash_exercise
+#for every line in unicorn.dat that contains a nucleotide sequence, print the line content and its length
+for line in `grep -v -e "COMMON" -e "UPDATE" -e "CLASSIFICATION" data-shell/creatures/unicorn.dat | cat`
+do
+echo -n "$line:"
+echo -n $line | wc -m
+done
