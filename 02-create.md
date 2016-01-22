@@ -418,3 +418,21 @@ but it does find the copy in `thesis` that we didn't delete.
 > The command `ls -t` lists things by time of last change,
 > with most recently changed files or directories first.
 > In what order does `ls -R -t` display things?
+
+> ## Moving to the Current Folder {.challenge}
+>
+> After running the following commands, Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder.
+> 
+> ~~~
+> $ ls -F
+> raw/ analyzed/
+> $ ls -F analyzed
+> fructose.dat glucose.dat maltose.dat sucrose.dat 
+> $ cd raw/
+> ~~~
+>
+> To move the files into the current folder, fill in the blanks in the following command:
+>
+> ~~~
+> $ mv ___/sucrose.dat  ___/maltose.dat ___
+> ~~~
