@@ -579,7 +579,7 @@ so this matches all the valid data files she has.
 > 
 > ### Answers:
 > 
-> b. Partial
+> B. Partial
 > 
 > cat animals.txt | \
 > cut -d "," -f 2 | \
@@ -587,7 +587,7 @@ so this matches all the valid data files she has.
 > uniq \
 > > final.txt
 > 
-> c. Full
+> C. Full
 > 
 > cat animals.txt | \
 > cut -d "," -f 2 | \
