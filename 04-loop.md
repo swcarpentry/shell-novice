@@ -334,7 +334,7 @@ Using the left arrow key,
 Nelle backs up and changes the command `echo` to `goostats`:
 
 ~~~ {.bash}
-$ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
+$ for datafile in N*[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
 
 When she presses enter,
