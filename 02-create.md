@@ -418,3 +418,8 @@ but it does find the copy in `thesis` that we didn't delete.
 > The command `ls -t` lists things by time of last change,
 > with most recently changed files or directories first.
 > In what order does `ls -R -t` display things?
+
+> ## Using `rm` Safely {.challenge}
+>
+>What happens when we type `rm -i thesis/quotations.txt`?
+>Why would we want this protection when using `rm`?
