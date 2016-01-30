@@ -498,6 +498,17 @@ so she decides to get some coffee and catch up on her reading.
 >   echo "analyze $file > analyzed-$file"
 > done
 > ~~~
+> ## Resizing images {.challenge}
+>
+> Many journals have specific rules concerning resolution and size of images
+> submitted with an article. Write a loop that resizes all image files with 
+> the `.png` extension in current directory to be 600 pixels wide.
+> Use program called `convert` with `-geometry` switch. The resulting image files
+> should have the same name as the original, but with `_resized` appended, keeping
+> the same extension, e.g. `image.png` should be resized and saved to 
+> `image_resized.png`. In the `for filename in *.png` loop remove the `png` extension
+> from `$filename` using '${filename%%.png}'.
+
 
 > ## Nested Loops and Command-Line Expressions {.challenge}
 >
