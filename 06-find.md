@@ -244,7 +244,7 @@ For our first command,
 let's run `find .`.
 
 ~~~ {.bash}
-$ find . -type d
+$ find .
 ~~~
 ~~~ {.output}
 .
