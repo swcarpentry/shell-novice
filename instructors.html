@@ -74,7 +74,8 @@
 <li>How to use the materials in the shell-novice repository (or, lesson planning)
 <ul>
 <li>For a great general list of tips, see <a href="http://software-carpentry.org/blog/2015/03/teaching-tips.html">this swcarpentry blog post</a></li>
-<li>Use the <code>data</code> directory for in-workshop exercises and live coding examples. You can clone the shell-novice directory or use the <code>Download ZIP</code> button on the right to get the entire repository; we also now provide a zip file of the <code>data</code> directory that can be downloaded on its own from the repository by right-click + save. See the “Get Ready” box on the front page of the website for more details.<br /></li>
+<li>Use the <code>data</code> directory for in-workshop exercises and live coding examples. You can clone the shell-novice directory or use the <code>Download ZIP</code> button on the right to get the entire repository; we also now provide a zip file of the <code>data</code> directory that can be downloaded on its own from the repository by right-click + save. See the “Get Ready” box on the front page of the website for more details.<br />
+</li>
 <li>Website: various practices have been used.
 <ul>
 <li>Option 1: Can give links to learners before the lesson so they can follow along, catch up, and see exercises (particularly if you’re following the lesson content without many changes).</li>
@@ -100,8 +101,8 @@
 <li><p>It’s hard to discuss <code>#!</code> (shebang) without first discussing permissions, which we don’t do.</p></li>
 <li><p>Installing Bash and a reasonable set of Unix commands on Windows always involves some fiddling and frustration. Please see the latest set of installation guidelines for advice, and try it out yourself <em>before</em> teaching a class.</p></li>
 <li><p>On Windows, it appears that:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span>
-$ <span class="kw">cd</span> Desktop</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span>
+$ <span class="kw">cd</span> Desktop</code></pre></div>
 <p>will always put someone on their desktop. Have them create the example directory for the shell exercises there so that they can find it easily and watch it evolve.</p></li>
 <li><p>Stay within POSIX-compliant commands, as all the teaching materials do. Your particular shell may have extensions beyond POSIX that are not available on other machines, especially the default OSX bash and Windows bash emulators. For example, POSIX <code>ls</code> does not have an <code>--ignore=</code> or <code>-I</code> option, and POSIX <code>head</code> takes <code>-n 10</code> or <code>-10</code>, but not the long form of <code>--lines=10</code>.</p></li>
 </ul>
