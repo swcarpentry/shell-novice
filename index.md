@@ -39,6 +39,17 @@ These lessons will start you on a path towards using these resources effectively
 > In the lesson, you will find out how to access the data in this folder.  
 
 
+> ## Navigating this lesson {.getready}
+>
+> This lesson is organized as a series of topics listed below. To return back to this home page, 
+> click "The Unix Shell" link at the top of each topic page. 
+> 
+> On each topic page, there are several different type of boxes that complement the lesson:
+> 
+> 1. Learning objectives for the topic are displayed at top of each page in a Yellow box.
+> 2. Notes and clarifications are interspersed throughout the page in Blue boxes.
+> 3. Challenge questions that extend the material presented in the topic can be found at the bottom of the page in Green boxes.
+
 ## Topics
 
 1.  [Introducing the Shell](00-intro.html)
