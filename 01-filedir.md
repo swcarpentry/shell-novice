@@ -27,7 +27,7 @@ let's open a shell window:
 > ## Preparation Magic {.callout}
 >
 > If you type the command:
-> `PS1='$ '`
+> `export PS1='$ '`
 > into your shell, your window should look like our example in this lesson.  
 > This isn't necessary to follow along (in fact, your prompt may have 
 > other helpful information you want to know about).  This is up to you!  
