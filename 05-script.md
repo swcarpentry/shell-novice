@@ -78,6 +78,7 @@ let's edit `middle.sh` and replace `octane.pdb` with a special variable called `
 $ nano middle.sh
 ~~~
 Now, within "nano", replace the text `octane.pdb` with the special variable called `$1`:
+
 ~~~ {.output}
 head -15 "$1" | tail -5
 ~~~
