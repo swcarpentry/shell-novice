@@ -460,3 +460,27 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > # Script 3
 > echo $@.dat
 > ~~~
+
+
+> ## Making your script executable {.challenge}
+> 
+>  In this lesson, we launch our scripts by typing `bash` followed by the script name, as in:
+>
+> ~~~{.bash}
+> $ bash do-stats.sh
+> ~~~
+>  
+> In many online tutorials on bash scripting, the first line of scripts is `#!/bin/bash` and these scripts are instead launched with a preceding `./` (dot-slash) like this:
+>
+> ~~~{.bash}
+> $ ./do-stat.sh
+> ~~~
+>  Put `#!/bin/bash` at the top of your `do-stats.sh` file and save it.   What happens if you try to launch it with the "dot-slash" method?  
+>
+> If you got an error mentioning permissions, it means we need to tell the shell that this is an executable script with the `chmod` command.  The following command makes the file `do-stats.sh` executable.   
+>
+> ~~~{.bash}
+> $ chmod +x do-stats.sh
+> ~~~ 
+>  Now you should be able to launch your script by typing `./do-stats.sh`?   BONUS question:  Explain that the `./` means.
+
