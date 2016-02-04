@@ -204,14 +204,28 @@ or copy data from one program to the other in memory,
 or something else entirely;
 we don't have to know or care.
 
-We can use another pipe to send the output of `wc` directly to `sort`,
-which then sends its output to `head`:
+Nothing prevents us from chaining pipes consecutiveley. That is, we can for example send the output of `wc` directly to `sort`, and then the resulting output to `head`. Thus we first use a pipe to send the output of `wc` to `sort`:
+
+~~~ {.bash}
+$ wc -l *.pdb | sort -n
+~~~
+~~~ {.output}
+   9 methane.pdb
+  12 ethane.pdb
+  15 propane.pdb
+  20 cubane.pdb
+  21 pentane.pdb
+  30 octane.pdb
+ 107 total
+~~~
+
+And now we send the output ot this pipe, through another pipe, to `head`, so that the full pipeline becomes:
 
 ~~~ {.bash}
 $ wc -l *.pdb | sort -n | head -1
 ~~~
 ~~~ {.output}
-  9  methane.pdb
+   9  methane.pdb
 ~~~
 
 This is exactly like a mathematician nesting functions like *log(3x)*
