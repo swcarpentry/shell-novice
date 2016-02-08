@@ -273,28 +273,6 @@ The file `redo-figure-3.sh` now contains:
 After a moment's work in an editor to remove the serial numbers on the commands,
 we have a completely accurate record of how we created that figure.
 
-> ## Unnumbering {.callout}
->
-> Nelle could also use `colrm` (short for "column removal") to remove the
-> serial numbers on her previous commands.
-> Its parameters are the range of characters to strip from its input:
->
-> ~~~
-> $ history | tail -5
->   173  cd /tmp
->   174  ls
->   175  mkdir bakup
->   176  mv bakup backup
->   177  history | tail -5
-> $ history | tail -5 | colrm 1 7
-> cd /tmp
-> ls
-> mkdir bakup
-> mv bakup backup
-> history | tail -5
-> history | tail -5 | colrm 1 7
-> ~~~
-
 In practice, most people develop shell scripts by running commands at the shell prompt a few times
 to make sure they're doing the right thing,
 then saving them in a file for re-use.
