@@ -145,27 +145,6 @@ wc -l &quot;$@&quot; | sort -n</code></pre>
 299 cut -d &#39;,&#39; -f 2-3 01729-differences.txt &gt; 01729-time-series.txt
 300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png</code></pre>
 <p>After a moment’s work in an editor to remove the serial numbers on the commands, we have a completely accurate record of how we created that figure.</p>
-<aside class="callout panel panel-info">
-<div class="panel-heading">
-<h2 id="unnumbering"><span class="glyphicon glyphicon-pushpin"></span>Unnumbering</h2>
-</div>
-<div class="panel-body">
-<p>Nelle could also use <code>colrm</code> (short for “column removal”) to remove the serial numbers on her previous commands. Its parameters are the range of characters to strip from its input:</p>
-<pre><code>$ history | tail -5
-  173  cd /tmp
-  174  ls
-  175  mkdir bakup
-  176  mv bakup backup
-  177  history | tail -5
-$ history | tail -5 | colrm 1 7
-cd /tmp
-ls
-mkdir bakup
-mv bakup backup
-history | tail -5
-history | tail -5 | colrm 1 7</code></pre>
-</div>
-</aside>
 <p>In practice, most people develop shell scripts by running commands at the shell prompt a few times to make sure they’re doing the right thing, then saving them in a file for re-use. This style of work allows people to recycle what they discover about their data and their workflow with one call to <code>history</code> and a bit of editing to clean up the output and save it as a shell script.</p>
 <h2 id="nelles-pipeline-creating-a-script">Nelle’s Pipeline: Creating a Script</h2>
 <p>An off-hand comment from her supervisor has made Nelle realize that she should have provided a couple of extra parameters to <code>goostats</code> when she processed her files. This might have been a disaster if she had done all the analysis by hand, but thanks to for loops, it will only take a couple of hours to re-do.</p>

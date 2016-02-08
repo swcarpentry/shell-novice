@@ -108,9 +108,18 @@ $ <span class="kw">head</span> -1 sorted-lengths.txt</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">sort</span> -n lengths.txt <span class="kw">|</span> <span class="kw">head</span> -1</code></pre></div>
 <pre class="output"><code>  9  methane.pdb</code></pre>
 <p>The vertical bar between the two commands is called a <strong>pipe</strong>. It tells the shell that we want to use the output of the command on the left as the input to the command on the right. The computer might create a temporary file if it needs to, or copy data from one program to the other in memory, or something else entirely; we don’t have to know or care.</p>
-<p>We can use another pipe to send the output of <code>wc</code> directly to <code>sort</code>, which then sends its output to <code>head</code>:</p>
+<p>Nothing prevents us from chaining pipes consecutiveley. That is, we can for example send the output of <code>wc</code> directly to <code>sort</code>, and then the resulting output to <code>head</code>. Thus we first use a pipe to send the output of <code>wc</code> to <code>sort</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">wc</span> -l *.pdb <span class="kw">|</span> <span class="kw">sort</span> -n</code></pre></div>
+<pre class="output"><code>   9 methane.pdb
+  12 ethane.pdb
+  15 propane.pdb
+  20 cubane.pdb
+  21 pentane.pdb
+  30 octane.pdb
+ 107 total</code></pre>
+<p>And now we send the output ot this pipe, through another pipe, to <code>head</code>, so that the full pipeline becomes:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">wc</span> -l *.pdb <span class="kw">|</span> <span class="kw">sort</span> -n <span class="kw">|</span> <span class="kw">head</span> -1</code></pre></div>
-<pre class="output"><code>  9  methane.pdb</code></pre>
+<pre class="output"><code>   9  methane.pdb</code></pre>
 <p>This is exactly like a mathematician nesting functions like <em>log(3x)</em> and saying “the log of three times <em>x</em>”. In our case, the calculation is “head of sort of line count of <code>*.pdb</code>”.</p>
 <p>Here’s what actually happens behind the scenes when we create a pipe. When a computer runs a program — any program — it creates a <strong>process</strong> in memory to hold the program’s software and its current state. Every process has an input channel called <strong>standard input</strong>. (By this point, you may be surprised that the name is so memorable, but don’t worry: most Unix programmers call it “stdin”. Every process also has a default output channel called <strong>standard output</strong> (or “stdout”).</p>
 <p>The shell is actually just another program. Under normal circumstances, whatever we type on the keyboard is sent to the shell on its standard input, and whatever it produces on standard output is displayed on our screen. When we tell the shell to run a program, it creates a new process and temporarily sends whatever we type on our keyboard to that process’s standard input, and whatever the process sends to standard output to the screen.</p>

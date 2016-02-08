@@ -49,7 +49,7 @@
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> basilisk.dat unicorn.dat original-*.dat</code></pre></div>
 <p>This wouldn’t back up our files, instead we get an error:</p>
 <pre class="error"><code>cp: target `original-*.dat&#39; is not a directory</code></pre>
-<p>This a problem arises when <code>cp</code> receives more than two inputs. When this happens, it expects the last input to be a directory where it can copy all the files it was passed. Since there is no directory named <code>original-*.dat</code> in the <code>creatures</code> directory we get an error.</p>
+<p>This problem arises when <code>cp</code> receives more than two inputs. When this happens, it expects the last input to be a directory where it can copy all the files it was passed. Since there is no directory named <code>original-*.dat</code> in the <code>creatures</code> directory we get an error.</p>
 <p>Instead, we can use a <strong>loop</strong> to do some operation once for each thing in a list. Here’s a simple example that displays the first three lines of each file in turn:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">filename</span> in basilisk.dat unicorn.dat
 <span class="kw">&gt;</span> <span class="kw">do</span>
