@@ -162,8 +162,10 @@ on the front page of the website for more details.
     this can be covered instead using the online lessons as guidelines.
     These limitations also have follow-on consequences:
 
-*   It's hard to discuss `#!` (shebang) without first discussing permissions,
-    which we don't do.
+*   It's hard to discuss `#!` (shebang) without first discussing
+    permissions, which we don't do.  `#!` is also [pretty
+    complicated][shebang], so even if we did discuss permissions, we
+    probably still wouldn't want to discuss `#!`.
 
 *   Installing Bash and a reasonable set of Unix commands on Windows
     always involves some fiddling and frustration.
@@ -223,3 +225,5 @@ Whatever you use,
 please *test it yourself* on a Windows machine *before* your workshop:
 things may always have changed behind your back since your last workshop.
 And please also make use of our Windows setup helper.
+
+[shebang]: http://www.in-ulm.de/~mascheck/various/shebang/
