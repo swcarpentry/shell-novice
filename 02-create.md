@@ -420,3 +420,33 @@ but it does find the copy in `thesis` that we didn't delete.
 > The command `ls -t` lists things by time of last change,
 > with most recently changed files or directories first.
 > In what order does `ls -R -t` display things?
+
+
+> ## Package and compress your files {.challenge}
+> 
+> A very useful tool that allows you to easely package and compress 
+> your files is `tar`. This is useful for instance for 
+> backups of your old files and folders and saving space in your computer. An example of usage is:
+> ~~~
+> $ mkdir backup_old
+> $ cp thesis/citations.txt thesis/quotations.txt backup_old
+> $ tar cvzf my_first.tar.gz backup_old
+> ~~~
+> In the example `tar cvzf` create a compressed file `my_first.tar.gz` 
+> from the folder `backup_old`. Now you can safely remove the folder `backup_old` and save space
+> ~~~
+> $ rm -r backup_old
+> ~~~
+> You can recovery the folder `backup_old` and all its contents by untaring and 
+> uncompressing with `tar xvzf` (note the `x` in the options) the file `my_first.tar.gz`:
+> ~~~
+> $ tar xvzf my_first.tar.gz
+> backup_old/
+> backup_old/citations.txt
+> backup_old/quotations.txt
+> $ ls backup_old/
+> citations.txt quotations.txt
+> ~~~
+
+
+
