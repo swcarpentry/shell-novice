@@ -64,6 +64,13 @@ is what passes for wit among programmers).
 Bash is the default shell on most modern implementations of Unix
 and in most packages that provide Unix-like tools for Windows.
 
+> ## Bash Configurations {.callout}
+>
+> Curious about how to configure your bash?  
+> Learn tips, tricks, and how to avoid dangers with this excellent blog on 
+> [Bash Configurations Demystified](http://dghubble.com/blog/posts/.bashprofile-.profile-and-.bashrc-conventions/) 
+> from Dalton Hubble.  
+
 Using Bash or any other shell
 sometimes feels more like programming than like using a mouse.
 Commands are terse (often only a couple of characters long),
