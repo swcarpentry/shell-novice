@@ -434,6 +434,14 @@ so this matches all the valid data files she has.
 >
 > Hint: Try executing each command twice in a row and then examining the output files.
 
+> ## What would cat `>` newfilename.txt do? {.challenge}
+>
+> 1. Show the contents of the file `newfilename.txt`
+> 2. Direct the output of stdin to the file `newfilename.txt`
+> 3. Produce an error?
+> (Hint: If you try it, make sure to experiment on a non-existent file!
+> You can return to the prompt with Ctrl-D)
+
 > ## Piping commands together {.challenge}
 >
 > In our current directory, we want to find the 3 files which have the least number of 
