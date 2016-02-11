@@ -439,6 +439,7 @@ so this matches all the valid data files she has.
 > 1. Show the contents of the file `newfilename.txt`
 > 2. Direct the output of stdin to the file `newfilename.txt`
 > 3. Produce an error?
+>
 > (Hint: If you try it, make sure to experiment on a non-existent file!
 > You can return to the prompt with Ctrl-D)
 
