@@ -106,7 +106,7 @@ this step will "only" take about two weeks.
 
 The bad news is that if she has to run `goostat` and `goodiff` by hand,
 she'll have to enter filenames and click "OK" 45,150 times
-(300 runs of `goostat`, plus 300x299/2 runs of `goodiff`).
+(300 runs of `goostat`, plus half 300 times 299 runs of `goodiff`).
 At 30 seconds each,
 that will take more than two weeks.
 Not only would she miss her paper deadline,
