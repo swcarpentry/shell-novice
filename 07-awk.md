@@ -2,7 +2,7 @@
 layout: page
 title: AWK
 subtitle: Manipulating and filtering complex data
-minutes: 180
+minutes: 120
 ---
 > ## Learning Objectives {.objectives}
 >
@@ -24,7 +24,7 @@ showed command for word counting wc
 $ wc -l example.txt
 ~~~
 
-Remember, -l is an option that asks for the number of lines only.
+As you probably remember, -l is an option that asks for the number of lines only.
 
 However, wc counts the number of newlines in the file, if the last line does
 not contain a carriage return (i.e. there is no emptyline at the end of the file),
@@ -46,9 +46,9 @@ This command has the same output of "cat": it prints each line from the example.
 file.
 
 The structure of the instruction is the following:
-- curly braces surround the set of instructions.
-- print is a printing directive, it sends its arguments to the terminal.
-- $0 is a variable, it means "the content of the current line".
+- curly braces surround the set of instructions
+- print is the instruction that sends its arguments to the terminal
+- $0 is a variable, it means "the content of the current line"
 
 As you can see, the file contains a table.
 
@@ -74,7 +74,7 @@ The comma puts a space between the printed values. Strings of text should be enc
 double quotes. In this case we are printing the text "chr", the second and the fourth column
 for each row in the table.
 
-So, $0 is the whole line, $1 the first field, $2 the second and so on. But what if we want
+So, $0 is the whole line, $1 the first field, $2 the second and so on. What if we want
 to print the last column, but we don't know its number? Maybe it is a huge table, or maybe
 different lines have a different number of columns.
 
@@ -131,5 +131,5 @@ text "ATOM". As you remember, ^ means "at the beginning of the line".
 We can specify more that one pattern:
 
 ~~~ {.bash}
-awk '/^ATOM/ {print $7,$8,$9} //' example.pdb
+awk '/^ATOM/ {print $7,$8,$9} /^HEADER/ {print $NF}' example.pdb
 ~~~
