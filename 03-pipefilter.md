@@ -508,7 +508,7 @@ so this matches all the valid data files she has.
 
 > ## Pipe construction {.challenge}
 >
-> The command:
+> If the file called `animals.txt` contains the data described in the previous exercise, the command:
 > 
 > ~~~
 > $ cut -d , -f 2 animals.txt
