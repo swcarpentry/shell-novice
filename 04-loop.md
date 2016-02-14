@@ -40,7 +40,7 @@ This wouldn't back up our files, instead we get an error:
 cp: target `original-*.dat' is not a directory
 ~~~
 
-This a problem arises when `cp` receives more than two inputs. When this happens, it
+This problem arises when `cp` receives more than two inputs. When this happens, it
 expects the last input to be a directory where it can copy all the files it was passed.
 Since there is no directory named `original-*.dat` in the `creatures` directory we get an
 error.

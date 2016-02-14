@@ -1,0 +1,9 @@
+<element name="Iron"/>
+  <symbol>Fe</symbol>
+  <atomic-number>26</atomic-number>
+  <atomic-weight>55.847</atomic-weight>
+  <oxidation-states>+2,+3</oxidation-states>
+  <state-at-room-temp>solid, metal</state-at-room-temp>
+  <melting-point>1808</melting-point>
+  <boiling-point>3023</boiling-point>
+</element>

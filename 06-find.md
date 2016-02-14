@@ -462,7 +462,7 @@ about them."
 > Write a short explanatory comment for the following shell script:
 >
 > ~~~ {.bash}
-> find . -name '*.dat' | wc -l | sort -n
+> wc -l $(find . -name '*.dat') | sort -n
 > ~~~
 
 > ## Matching `ose.dat` but not `temp` {}{.challenge}

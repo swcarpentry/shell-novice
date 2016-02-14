@@ -25,14 +25,17 @@ Let's start by going back to `molecules/` and putting the following line in the 
 $ cd molecules
 $ nano middle.sh
 ~~~
+The command <code>nano middle.sh</code> opens the file `middle.sh` within the text editor "nano" (which runs within the shell). If the file does not exist, it will be created. We can use the text editor to directly edit the file. We'll simply insert the following line:
 ~~~
 head -15 octane.pdb | tail -5
 ~~~
-
 This is a variation on the pipe we constructed earlier:
 it selects lines 11-15 of the file `octane.pdb`.
 Remember, we are *not* running it as a command just yet:
 we are putting the commands in a file.
+
+Then we save the file (using CTRL-O), and exit the text editor (using CTRL-X).
+Check that the directory `molecules` now contains a file called `middle.sh`.
 
 Once we have saved the file,
 we can ask the shell to execute the commands it contains.
@@ -71,8 +74,9 @@ Instead,
 let's edit `middle.sh` and replace `octane.pdb` with a special variable called `$1`:
 
 ~~~ {.bash}
-$ cat middle.sh
+$ nano middle.sh
 ~~~
+Now, within "nano", replace the text `octane.pdb` with the special variable called `$1`:
 ~~~ {.output}
 head -15 "$1" | tail -5
 ~~~
@@ -126,7 +130,7 @@ though.
 Let's fix that by using the special variables `$2` and `$3`:
 
 ~~~ {.bash}
-$ cat middle.sh
+$ nano middle.sh
 ~~~
 ~~~ {.output}
 head "$2" "$1" | tail "$3"
@@ -147,7 +151,7 @@ but it may take the next person who reads `middle.sh` a moment to figure out wha
 We can improve our script by adding some **comments** at the top:
 
 ~~~ {.bash}
-$ cat middle.sh
+$ nano middle.sh
 ~~~
 ~~~ {.output}
 # Select lines from the middle of a file.
@@ -268,28 +272,6 @@ The file `redo-figure-3.sh` now contains:
 
 After a moment's work in an editor to remove the serial numbers on the commands,
 we have a completely accurate record of how we created that figure.
-
-> ## Unnumbering {.callout}
->
-> Nelle could also use `colrm` (short for "column removal") to remove the
-> serial numbers on her previous commands.
-> Its parameters are the range of characters to strip from its input:
->
-> ~~~
-> $ history | tail -5
->   173  cd /tmp
->   174  ls
->   175  mkdir bakup
->   176  mv bakup backup
->   177  history | tail -5
-> $ history | tail -5 | colrm 1 7
-> cd /tmp
-> ls
-> mkdir bakup
-> mv bakup backup
-> history | tail -5
-> history | tail -5 | colrm 1 7
-> ~~~
 
 In practice, most people develop shell scripts by running commands at the shell prompt a few times
 to make sure they're doing the right thing,

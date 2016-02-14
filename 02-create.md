@@ -80,7 +80,9 @@ $ nano draft.txt
 > [Vim](http://www.vim.org/) (both of which are completely unintuitive,
 > even by Unix standards), or a graphical editor such as
 > [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
-> use [Notepad++](http://notepad-plus-plus.org/).
+> use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in 
+> editor called `notepad` that can be run from the command line in the same 
+> way as `nano` for the purposes of this lesson.  
 >
 > No matter what editor you use, you will need to know where it searches
 > for and saves files. If you start it from the shell, it will (probably)
@@ -88,6 +90,7 @@ $ nano draft.txt
 > your computer's start menu, it may want to save files in your desktop or
 > documents directory instead. You can change this by navigating to
 > another directory the first time you "Save As..."
+
 
 Let's type in a few lines of text,
 then use Control-O to write our data to disk:
@@ -315,6 +318,28 @@ thesis/quotations.txt
 ~~~
 This time it tells us that it can't find `quotes.txt` in the current directory,
 but it does find the copy in `thesis` that we didn't delete.
+
+> ## What's In A Name? {.callout}
+>
+> You may have noticed that all of Nelle's files' names are "something dot
+> something", and in this part of the lesson, we always used the extension 
+> `.txt`.  This is just a convention: we can call a file `mythesis` or
+> almost anything else we want. However, most people use two-part names
+> most of the time to help them (and their programs) tell different kinds
+> of files apart. The second part of such a name is called the
+> **filename extension**, and indicates
+> what type of data the file holds: `.txt` signals a plain text file, `.pdf`
+> indicates a PDF document, `.cfg` is a configuration file full of parameters
+> for some program or other, and so on.
+>
+> This is just a convention, albeit an important one. Files contain
+> bytes: it's up to us and our programs to interpret those bytes
+> according to the rules for PDF documents, images, and so on.
+>
+> Naming a PNG image of a whale as `whale.mp3` doesn't somehow
+> magically turn it into a recording of whalesong, though it *might*
+> cause the operating system to try to open it with a music player
+> when someone double-clicks it.
 
 > ## Renaming files {.challenge}
 >

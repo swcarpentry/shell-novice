@@ -1,0 +1,11 @@
+while getopts J:r: option
+do
+    case "$option" in
+    J) Jarg="$OPTARG"
+       shift $((OPTIND));;
+    r) shift $((OPTIND-1));;
+    esac
+done
+
+sleep 2
+head -3 $1 | cut -d , -f 1 | sort | uniq > $2
