@@ -524,9 +524,9 @@ about them."
 > A fellow wet-lab scientist has been able to run the tool, but unfortunately doesn't have the necessary UNIX skills to filter out the interesting lines from the BLAST output. The goal is to retrieve only the matches (i.e. the lines) that have 100 percent identity (i.e. value in column 3 is equal to 100.00), and then show only the query and target identifiers (i.e. columns one and two respectively).
 > From previous lessons you are aware that you will probably need to use the following commands, but in the correct order and joined through pipes.
 >
-> `cut -f 1,2`
-> `grep "100.00"`
-> `BLAST.sample.output`
+> `cut -f 1,2`  
+> `grep "100.00"`  
+> `BLAST.sample.output`  
 >
 > Hint: you can check `man cut` on how to select multiple columns/fields in a file.
 
