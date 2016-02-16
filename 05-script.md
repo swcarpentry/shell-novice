@@ -26,6 +26,7 @@ $ cd molecules
 $ nano middle.sh
 ~~~
 The command <code>nano middle.sh</code> opens the file `middle.sh` within the text editor "nano" (which runs within the shell). If the file does not exist, it will be created. We can use the text editor to directly edit the file. We'll simply insert the following line:
+
 ~~~
 head -15 octane.pdb | tail -5
 ~~~
@@ -77,6 +78,7 @@ let's edit `middle.sh` and replace `octane.pdb` with a special variable called `
 $ nano middle.sh
 ~~~
 Now, within "nano", replace the text `octane.pdb` with the special variable called `$1`:
+
 ~~~ {.output}
 head -15 "$1" | tail -5
 ~~~
