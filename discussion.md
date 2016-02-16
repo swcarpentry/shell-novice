@@ -51,3 +51,11 @@ modern implementations of Unix (including most packages that provide
 Unix-like tools for Windows) but if you get strange errors in shell
 scripts written by colleagues, check to see which shell they were
 written for.
+
+> ## Bash Configurations {.callout}
+>
+> Curious about how to configure your bash?  
+> Learn tips, tricks, and how to avoid dangers with this excellent blog on 
+> [Bash Configurations Demystified](http://dghubble.com/blog/posts/.bashprofile-.profile-and-.bashrc-conventions/) 
+> from Dalton Hubble.  
+
