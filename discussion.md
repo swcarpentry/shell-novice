@@ -54,7 +54,8 @@ written for.
 
 ## Bash Configurations
 
-Want to customize paths, environment variables, aliases, and other behavior of your bash? Learn tips, tricks, and how to avoid dangers with this excellent blog on 
-[Bash Configurations Demystified](http://dghubble.com/blog/posts/.bashprofile-.profile-and-.bashrc-conventions/) 
+Want to customize paths, environment variables, aliases, and other 
+behaviors of your bash? Learn tips, tricks, and how to avoid dangers 
+with this excellent blog on [Bash Configurations Demystified](http://dghubble.com/blog/posts/.bashprofile-.profile-and-.bashrc-conventions/) 
 from Dalton Hubble.  
 
