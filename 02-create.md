@@ -13,15 +13,14 @@ minutes: 15
 
 We now know how to explore files and directories,
 but how do we create them in the first place?
-Let's go back to Nelle's home directory,
-`/Users/nelle`,
+Let's go back to our `data-shell` directory on the Desktop
 and use `ls -F` to see what it contains:
 
 ~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
-/Users/nelle
+/Users/nelle/Desktop/data-shell
 ~~~
 ~~~ {.bash}
 $ ls -F
