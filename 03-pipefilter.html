@@ -196,6 +196,26 @@ $ <span class="kw">wc</span> -l *.txt</code></pre></div>
 </div>
 </section>
 <section class="challenge panel panel-success">
+	<div class="panel-heading">
+		<h2 id="pipe-construction"><span class="glyphicon glyphicon-pencil"></span>Other Sorting Flags</h2>
+	</div>
+	<div class="panel-body">
+		<p>A file called <code>addresses.csv</code> contains the following data:</p>
+		<pre><code>Daniels,Arthur,73 Sherman St,Lady Lake,FL,32159
+Holland,Tara,933 Country Club Rd,Worcester,MA,01604
+Norman,Melinda,537 Morris St,Worcester,MA,01604
+Walters,Celia,242 Center St,Pomona,CA,91768</code></pre>
+		<p>We can sort the file by the zip code contained in the sixth column using the following command:</p>
+		<pre><code>sort -t , -k 6,6n test.csv</code></pre>
+		<p>Where <code>-t</code> sets the delimiter and <code>-k</code> sets the field to be sorted by.</p>
+		<p>Which of the following would sort the same file by the street field if colons (:) were used instead of commas (,)?
+		<p>1. <code>sort -t : -k 3,3n test.csv</code></p>
+		<p>2. <code>sort -t , -k 3,3 test.csv</code></p>
+		<p>3. <code>sort -t : -k 1,3 test.csv</code></p>
+		<p>4. <code>sort -t : -k 3,1n test.csv</code></p>
+	</div>
+</section>
+<section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2 id="what-does-mean"><span class="glyphicon glyphicon-pencil"></span>What does <code>&lt;</code> mean?</h2>
 </div>
