@@ -29,7 +29,7 @@ These lessons will start you on a path towards using these resources effectively
 > You need to download some files to follow this lesson:
 > 
 > 1. Download [shell-novice-data.zip](./shell-novice-data.zip) and move the file to your Desktop.
-> 2. Double-click on the zip file to unzip it. You should end up with a new folder called `data-shell`.
+> 2. Unzip/extract the file (ask your instructor if you need help with this step). You should end up with a new folder called data-shell on your Desktop.
 > 3. Open a terminal and type:
 >
 > ~~~ {.input}
