@@ -28,7 +28,7 @@ $ nano middle.sh
 The command <code>nano middle.sh</code> opens the file `middle.sh` within the text editor "nano" (which runs within the shell). If the file does not exist, it will be created. We can use the text editor to directly edit the file. We'll simply insert the following line:
 
 ~~~
-head -15 octane.pdb | tail -5
+head -n 15 octane.pdb | tail -n 5
 ~~~
 This is a variation on the pipe we constructed earlier:
 it selects lines 11-15 of the file `octane.pdb`.
@@ -80,7 +80,7 @@ $ nano middle.sh
 Now, within "nano", replace the text `octane.pdb` with the special variable called `$1`:
 
 ~~~ {.output}
-head -15 "$1" | tail -5
+head -n 15 "$1" | tail -n 5
 ~~~
 
 Inside a shell script,
@@ -121,7 +121,7 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 > `methyl butane.pdb`,
 > the command in the script would effectively be:
 >
->     head -15 methyl butane.pdb | tail -5
+>     head -n 15 methyl butane.pdb | tail -n 5
 >
 > This would call `head` on two separate files, `methyl` and `butane.pdb`,
 > which is probably not what we intended.
@@ -135,7 +135,7 @@ Let's fix that by using the special variables `$2` and `$3`:
 $ nano middle.sh
 ~~~
 ~~~ {.output}
-head "$2" "$1" | tail "$3"
+head -n "$2" "$1" | tail -n "$3"
 ~~~
 ~~~ {.bash}
 $ bash middle.sh pentane.pdb -20 -5
@@ -158,7 +158,7 @@ $ nano middle.sh
 ~~~ {.output}
 # Select lines from the middle of a file.
 # Usage: middle.sh filename -end_line -num_lines
-head "$2" "$1" | tail "$3"
+head -n "$2" "$1" | tail -n "$3"
 ~~~
 
 A comment starts with a `#` character and runs to the end of the line.
@@ -260,7 +260,7 @@ Instead of typing them in again
 we can do this:
 
 ~~~ {.bash}
-$ history | tail -4 > redo-figure-3.sh
+$ history | tail -n 4 > redo-figure-3.sh
 ~~~
 
 The file `redo-figure-3.sh` now contains:
@@ -351,8 +351,8 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > following commands:
 >
 > ~~~
-> head $2 $1
-> tail $3 $1
+> head -n $2 $1
+> tail -n $3 $1
 > ~~~
 > 
 > While you are in the molecules directory, you type the following command:
@@ -408,7 +408,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > If you run the command:
 > 
 > ~~~
-> history | tail -5 > recent.sh
+> history | tail -n 5 > recent.sh
 > ~~~
 > 
 > the last command in the file is the `history` command itself, i.e.,

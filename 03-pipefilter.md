@@ -169,15 +169,15 @@ we can run another command called `head` to get the first few lines in `sorted-l
 
 ~~~ {.bash}
 $ sort -n lengths.txt > sorted-lengths.txt
-$ head -1 sorted-lengths.txt
+$ head -n 1 sorted-lengths.txt
 ~~~
 ~~~ {.output}
   9  methane.pdb
 ~~~
 
-Using the parameter `-1` with `head` tells it that
+Using the parameter `-n 1` with `head` tells it that
 we only want the first line of the file;
-`-20` would get the first 20,
+`-n 20` would get the first 20,
 and so on.
 Since `sorted-lengths.txt` contains the lengths of our files ordered from least to greatest,
 the output of `head` must be the file with the fewest lines.
@@ -189,7 +189,7 @@ all those intermediate files make it hard to follow what's going on.
 We can make it easier to understand by running `sort` and `head` together:
 
 ~~~ {.bash}
-$ sort -n lengths.txt | head -1
+$ sort -n lengths.txt | head -n 1
 ~~~
 ~~~ {.output}
   9  methane.pdb
@@ -222,7 +222,7 @@ $ wc -l *.pdb | sort -n
 And now we send the output ot this pipe, through another pipe, to `head`, so that the full pipeline becomes:
 
 ~~~ {.bash}
-$ wc -l *.pdb | sort -n | head -1
+$ wc -l *.pdb | sort -n | head -n 1
 ~~~
 ~~~ {.output}
    9  methane.pdb
@@ -265,7 +265,7 @@ so that `wc` and `sort` run simultaneously.
 The standard output of `wc` is fed directly to the standard input of `sort`;
 since there's no redirection with `>`,
 `sort`'s output goes to the screen.
-And if we run `wc -l *.pdb | sort -n | head -1`,
+And if we run `wc -l *.pdb | sort -n | head -n 1`,
 we get three processes with data flowing from the files,
 through `wc` to `sort`,
 and from `sort` through `head` to the screen.
@@ -329,7 +329,7 @@ The output is 1520 lines that look like this:
 Now she types this:
 
 ~~~ {.bash}
-$ wc -l *.txt | sort -n | head -5
+$ wc -l *.txt | sort -n | head -n 5
 ~~~
 ~~~ {.output}
  240 NENE02018B.txt
@@ -348,7 +348,7 @@ Before re-running that sample,
 she checks to see if any files have too much data:
 
 ~~~ {.bash}
-$ wc -l *.txt | sort -n | tail -5
+$ wc -l *.txt | sort -n | tail -n 5
 ~~~
 ~~~ {.output}
  300 NENE02040A.txt
@@ -453,10 +453,10 @@ so this matches all the valid data files she has.
 > In our current directory, we want to find the 3 files which have the least number of 
 > lines. Which command listed below would work?
 >
-> 1. `wc -l * > sort -n > head -3`
-> 2. `wc -l * | sort -n | head 1-3`
+> 1. `wc -l * > sort -n > head -n 3`
+> 2. `wc -l * | sort -n | head -n 1-3`
 > 3. `wc -l * | head -3 | sort -n`
-> 4. `wc -l * | sort -n | head -3`
+> 4. `wc -l * | sort -n | head -n 3`
 
 > ## Why does `uniq` only remove adjacent duplicates? {.challenge}
 >
@@ -503,7 +503,7 @@ so this matches all the valid data files she has.
 > What text passes through each of the pipes and the final redirect in the pipeline below?
 > 
 > ~~~
-> cat animals.txt | head -5 | tail -3 | sort -r > final.txt
+> cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt
 > ~~~
 
 > ## Pipe construction {.challenge}
