@@ -107,10 +107,9 @@ Please notice that the character space is now part of the field value, since it 
 longer the separator.
 
 > ## Matching lines {.callout}
-> 
+> Maybe we would like to perform different instruction on different lines.
 
-Maybe we would like to perform different instruction on different lines. Awk allows to
-specify a matching pattern, like the command grep does.
+Awk allows you to specify a matching pattern, like the command grep does.
 
 Let's look at the file content
 
