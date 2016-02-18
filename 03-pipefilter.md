@@ -455,7 +455,7 @@ so this matches all the valid data files she has.
 >
 > 1. `wc -l * > sort -n > head -n 3`
 > 2. `wc -l * | sort -n | head -n 1-3`
-> 3. `wc -l * | head -3 | sort -n`
+> 3. `wc -l * | head -n 3 | sort -n`
 > 4. `wc -l * | sort -n | head -n 3`
 
 > ## Why does `uniq` only remove adjacent duplicates? {.challenge}
