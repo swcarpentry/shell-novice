@@ -52,7 +52,7 @@ Here's a simple example that displays the first three lines of each file in turn
 ~~~ {.bash}
 $ for filename in basilisk.dat unicorn.dat
 > do
->    head -3 $filename
+>    head -n 3 $filename
 > done
 ~~~
 ~~~ {.output}
@@ -102,7 +102,7 @@ if we wrote this loop as:
 ~~~ {.bash}
 for x in basilisk.dat unicorn.dat
 do
-    head -3 $x
+    head -n 3 $x
 done
 ~~~
 
@@ -111,7 +111,7 @@ or:
 ~~~ {.bash}
 for temperature in basilisk.dat unicorn.dat
 do
-    head -3 $temperature
+    head -n 3 $temperature
 done
 ~~~
 
@@ -127,7 +127,7 @@ Here's a slightly more complicated loop:
 for filename in *.dat
 do
     echo $filename
-    head -100 $filename | tail -20
+    head -n 100 $filename | tail -n 20
 done
 ~~~
 
@@ -156,7 +156,7 @@ Note that we can't write this as:
 for filename in *.dat
 do
     $filename
-    head -100 $filename | tail -20
+    head -n 100 $filename | tail -n 20
 done
 ~~~
 
@@ -181,7 +181,7 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 > ~~~
 > for filename in *.dat
 > do
->     head -100 $filename | tail -20
+>     head -n 100 $filename | tail -n 20
 > done
 > ~~~
 > 
@@ -212,7 +212,7 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 > ~~~
 > for filename in *.dat
 > do
->     head -100 "$filename" | tail -20
+>     head -n 100 "$filename" | tail -n 20
 > done
 > ~~~
 >
@@ -385,7 +385,7 @@ so she decides to get some coffee and catch up on her reading.
 > repeat one of those commands. For example, if Nelle types this:
 > 
 > ~~~
-> $ history | tail -5
+> $ history | tail -n 5
 >   456  ls -l NENE0*.txt
 >   457  rm stats-NENE01729B.txt.txt
 >   458  bash goostats NENE01729B.txt stats-NENE01729B.txt
