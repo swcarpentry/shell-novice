@@ -492,3 +492,59 @@ about them."
 > of the four sisters is mentioned?  Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+
+> ## Counting sequences in a genome {.challenge}
+>
+> You just finished sequencing a microbial genome, and you wish to count the number of protein coding sequences. Using the file `genome.fa` included with this lesson, the following command previews the contents of the file:
+> 
+> ~~~
+> $ less genome.fa 
+> ~~~
+> 
+> You will notice that each sequence is defined by a header line beginning with `>`. Type `q` to exit `less`. Which command(s) will report the number of sequences in `genome.fa`?
+> 
+> 1. `grep > genome.fa`
+>
+> 2. `grep -c '>' genome.fa`
+>
+> 3. `grep > genome.fa | wc -l
+>
+> 4. `grep '>' genome.fa | wc -l
+> 
+> Based on your knowledge of shell output redirection operators, why must the caret symbol (`>`) be surrounded by quotes in this example?
+>
+> ## Using `grep` to count hypothetical proteins in a genome {.challenge}
+>
+> You just finished sequencing a microbial genome, and you wish to count the number of sequences annotated as hypothetical proteins. Using the file `genome.fa` included with this lesson, the following command previews the contents of the file:
+> 
+> ~~~
+> $ less genome.fa 
+> ~~~
+> 
+> You will notice that each sequence is defined by a header line beginning with `>`. Type `q` to exit `less`. The following command will report the total number of sequences in `genome.fa`:
+>
+> ~~~
+> $ grep -c '>' genome.fa
+> ~~~
+> 
+> The following command will print a list of hypothetical proteins:
+>
+> ~~~
+> $ grep hypothetical genome.fa
+> ~~~
+>
+> Now, write a single `grep` command that reports a count of the hypothetical proteins in `genome.fa`.
+>
+> Answer:
+>
+> ~~~
+> $ grep -c hypothetical genome.fa
+> ~~~
+> 
+> Write two possible commands that will count all hypothetical proteins even if some are annotated as *"Hypothetical protein"* (note capitalization of the first letter).
+>
+> Answer 1: `grep -i -c hypothetical genome.fa`
+>
+> Answer 2: `grep -c ".ypothetical" genome.fa`
+>
+>
