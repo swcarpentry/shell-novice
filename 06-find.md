@@ -497,9 +497,11 @@ about them."
 >
 >Starting from the `writing` subdirectory, write a for loop that loops over
 >all directories beginning with *t*, `cd` into the directory, run the
->command`pwd` to prove you were there and then `cd` out.
+>command`pwd` to prove you were there, and then `cd` out of the directory
+>into the parent directory. (Hint this can be done using `grep` or `find`
+>or both.)
 >
->Your output should look like the following:
+>Your output should look similiar to the following:
 >```
 >/Users/nelle/data-shell/writing/thesis
 >/Ushers/nelle/data-shell/writing/tools
