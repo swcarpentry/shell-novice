@@ -496,5 +496,5 @@ about them."
 > ## Cleaning up {.challenge}
 >
 > During the course of this lesson you created a number of files.
-> Delete all of them (but not the original files) using the 'find' 
-> options '-mmin' and '-delete'.
+> Delete all of them (but not the original files) using the `find` 
+> options `-mmin` and `-delete`.
