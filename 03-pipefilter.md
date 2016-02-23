@@ -49,13 +49,13 @@ $ wc *.pdb
 ~~~
 
 > ## Wildcards {.callout}
-> 
+>
 > `*` is a **wildcard**. It matches zero or more
 > characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
-> file that ends with '.pdb'. On the other hand, `p*.pdb` only matches 
-> `pentane.pdb` and `propane.pdb`, because the 'p' at the front only 
+> file that ends with '.pdb'. On the other hand, `p*.pdb` only matches
+> `pentane.pdb` and `propane.pdb`, because the 'p' at the front only
 > matches filenames that begin with the letter 'p'.
-> 
+>
 > `?` is also a wildcard, but it only matches a single character. This
 > means that `p?.pdb` matches `pi.pdb` or `p5.pdb`, but not `propane.pdb`.
 > We can use any number of wildcards at a time: for example, `p*.p?*`
@@ -66,7 +66,7 @@ $ wc *.pdb
 > match no characters at all), but not `quality.practice` (doesn't start
 > with 'p') or `preferred.p` (there isn't at least one character after the
 > '.p').
-> 
+>
 > When the shell sees a wildcard, it expands the wildcard to create a
 > list of matching filenames *before* running the command that was
 > asked for. As an exception, if a wildcard expression does not match
@@ -109,11 +109,11 @@ $ wc -l *.pdb > lengths.txt
 
 The greater than symbol, `>`, tells the shell to **redirect** the command's output
 to a file instead of printing it to the screen. (This is why there is no screen output:
-everything that `wc` would have printed has gone into the 
-file `lengths.txt` instead.)  The shell will create 
-the file if it doesn't exist. If the file exists, it will be 
+everything that `wc` would have printed has gone into the
+file `lengths.txt` instead.)  The shell will create
+the file if it doesn't exist. If the file exists, it will be
 silently overwritten, which may lead to data loss and thus requires
-some caution. 
+some caution.
 `ls lengths.txt` confirms that the file exists:
 
 ~~~ {.bash}
@@ -143,7 +143,7 @@ $ cat lengths.txt
 ~~~
 
 Now let's use the `sort` command to sort its contents.
-We will also use the -n flag to specify that the sort is 
+We will also use the -n flag to specify that the sort is
 numerical instead of alphabetical.
 This does *not* change the file;
 instead, it sends the sorted result to the screen:
@@ -293,7 +293,7 @@ You can *and should* write your programs this way
 so that you and other people can put those programs into pipes to multiply their power.
 
 > ## Redirecting Input {.callout}
-> 
+>
 > As well as using `>` to redirect a program's output, we can use `<` to
 > redirect its input, i.e., to read from a file instead of from standard
 > input. For example, instead of writing `wc ammonia.pdb`, we could write
@@ -351,11 +351,11 @@ she checks to see if any files have too much data:
 $ wc -l *.txt | sort -n | tail -n 5
 ~~~
 ~~~ {.output}
- 300 NENE02040A.txt
  300 NENE02040B.txt
  300 NENE02040Z.txt
  300 NENE02043A.txt
  300 NENE02043B.txt
+5082 total
 ~~~
 
 Those numbers look good --- but what's that 'Z' doing there in the third-to-last line?
@@ -387,7 +387,7 @@ so this matches all the valid data files she has.
 > ## What does `sort -n` do? {.challenge}
 >
 > If we run `sort` on this file:
-> 
+>
 > ~~~
 > 10
 > 2
@@ -395,9 +395,9 @@ so this matches all the valid data files she has.
 > 22
 > 6
 > ~~~
-> 
+>
 > the output is:
-> 
+>
 > ~~~
 > 10
 > 19
@@ -405,9 +405,9 @@ so this matches all the valid data files she has.
 > 22
 > 6
 > ~~~
-> 
+>
 > If we run `sort -n` on the same input, we get this instead:
-> 
+>
 > ~~~
 > 2
 > 6
@@ -415,19 +415,19 @@ so this matches all the valid data files she has.
 > 19
 > 22
 > ~~~
-> 
+>
 > Explain why `-n` has this effect.
 
 > ## What does `<` mean? {.challenge}
 >
 > What is the difference between:
-> 
+>
 > ~~~
 > wc -l < mydata.dat
 > ~~~
-> 
+>
 > and:
-> 
+>
 > ~~~
 > wc -l mydata.dat
 > ~~~
@@ -450,7 +450,7 @@ so this matches all the valid data files she has.
 
 > ## Piping commands together {.challenge}
 >
-> In our current directory, we want to find the 3 files which have the least number of 
+> In our current directory, we want to find the 3 files which have the least number of
 > lines. Which command listed below would work?
 >
 > 1. `wc -l * > sort -n > head -n 3`
@@ -462,7 +462,7 @@ so this matches all the valid data files she has.
 >
 > The command `uniq` removes adjacent duplicated lines from its input.
 > For example, if a file `salmon.txt` contains:
-> 
+>
 > ~~~
 > coho
 > coho
@@ -471,16 +471,16 @@ so this matches all the valid data files she has.
 > steelhead
 > steelhead
 > ~~~
-> 
+>
 > then `uniq salmon.txt` produces:
-> 
+>
 > ~~~
 > coho
 > steelhead
 > coho
 > steelhead
 > ~~~
-> 
+>
 > Why do you think `uniq` only removes *adjacent* duplicated lines?
 > (Hint: think about very large data sets.) What other command could
 > you combine with it in a pipe to remove all duplicated lines?
@@ -488,7 +488,7 @@ so this matches all the valid data files she has.
 > ## Pipe reading comprehension {.challenge}
 >
 > A file called `animals.txt` contains the following data:
-> 
+>
 > ~~~
 > 2012-11-05,deer
 > 2012-11-05,rabbit
@@ -499,9 +499,9 @@ so this matches all the valid data files she has.
 > 2012-11-07,rabbit
 > 2012-11-07,bear
 > ~~~
-> 
+>
 > What text passes through each of the pipes and the final redirect in the pipeline below?
-> 
+>
 > ~~~
 > cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt
 > ~~~
@@ -509,13 +509,13 @@ so this matches all the valid data files she has.
 > ## Pipe construction {.challenge}
 >
 > For the file `animals.txt` from the previous exercise, the command:
-> 
+>
 > ~~~
 > $ cut -d , -f 2 animals.txt
 > ~~~
-> 
+>
 > produces the following output:
-> 
+>
 > ~~~
 > deer
 > rabbit
@@ -526,7 +526,7 @@ so this matches all the valid data files she has.
 > rabbit
 > bear
 > ~~~
-> 
+>
 > What other command(s) could be added to this in a pipeline to find
 > out what animals the file contains (without any duplicates in their
 > names)?
