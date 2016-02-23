@@ -432,7 +432,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > mean "the current user's home directory". For example, if Nelle's home
 > directory is `/Users/nelle`, then `~/data` is equivalent to
 > `/Users/nelle/data`. This only works if it is the first character in the
-> path: `here/there/~/elsewhere` is *not* `/Users/nelle/elsewhere`. 
+> path: `here/there/~/elsewhere` is *not* `here/there/Users/nelle/elsewhere`. 
 > 
 > Another shortcut is the `-` (dash) character.  `cd` will translate `-` into
 > *the previous directory I was in*, which is faster than having to remember, 
