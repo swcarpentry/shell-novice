@@ -138,7 +138,7 @@ $ nano middle.sh
 head -n "$2" "$1" | tail -n "$3"
 ~~~
 ~~~ {.bash}
-$ bash middle.sh pentane.pdb -20 -5
+$ bash middle.sh pentane.pdb 20 5
 ~~~
 ~~~ {.output}
 ATOM     14  H           1      -1.259   1.420   0.112  1.00  0.00
@@ -157,7 +157,7 @@ $ nano middle.sh
 ~~~
 ~~~ {.output}
 # Select lines from the middle of a file.
-# Usage: middle.sh filename -end_line -num_lines
+# Usage: middle.sh filename end_line num_lines
 head -n "$2" "$1" | tail -n "$3"
 ~~~
 
@@ -347,32 +347,32 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Variables in shell scripts {.challenge}
 >
-> In the molecules directory, you have a shell script called `script.sh` containing the 
+> In the molecules directory, you have a shell script called `script.sh` containing the
 > following commands:
 >
 > ~~~
 > head -n $2 $1
 > tail -n $3 $1
 > ~~~
-> 
+>
 > While you are in the molecules directory, you type the following command:
 >
 > ~~~
-> bash script.sh '*.pdb' -1 -1
+> bash script.sh '*.pdb' 1 1
 > ~~~
-> 
+>
 > Which of the following outputs would you expect to see?
 >
 > 1. All of the lines between the first and the last lines of each file ending in `*.pdb`
->    in the molecules directory 
+>    in the molecules directory
 > 2. The first and the last line of each file ending in `*.pdb` in the molecules directory
 > 3. The first and the last line of each file in the molecules directory
 > 4. An error because of the quotes around `*.pdb`
 
 > ## List unique species {.challenge}
-> 
+>
 > Leah has several hundred data files, each of which is formatted like this:
-> 
+>
 > ~~~
 > 2013-11-05,deer,5
 > 2013-11-05,rabbit,22
@@ -383,51 +383,51 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > 2013-11-07,rabbit,18
 > 2013-11-07,bear,1
 > ~~~
-> 
+>
 > Write a shell script called `species.sh` that takes any number of
 > filenames as command-line parameters, and uses `cut`, `sort`, and
 > `uniq` to print a list of the unique species appearing in each of
 > those files separately.
 
 > ## Find the longest file with a given extension {.challenge}
-> 
+>
 > Write a shell script called `longest.sh` that takes the name of a
 > directory and a filename extension as its parameters, and prints
 > out the name of the file with the most lines in that directory
 > with that extension. For example:
-> 
+>
 > ~~~
 > $ bash longest.sh /tmp/data pdb
 > ~~~
-> 
+>
 > would print the name of the `.pdb` file in `/tmp/data` that has
 > the most lines.
 
 > ## Why record commands in the history before running them? {.challenge}
-> 
+>
 > If you run the command:
-> 
+>
 > ~~~
 > history | tail -n 5 > recent.sh
 > ~~~
-> 
+>
 > the last command in the file is the `history` command itself, i.e.,
 > the shell has added `history` to the command log before actually
 > running it. In fact, the shell *always* adds commands to the log
 > before running them. Why do you think it does this?
 
 > ## Script reading comprehension {.challenge}
-> 
+>
 > Joel's `data` directory contains three files: `fructose.dat`,
 > `glucose.dat`, and `sucrose.dat`. Explain what a script called
 > `example.sh` would do when run as `bash example.sh *.dat` if it
 > contained the following lines:
-> 
+>
 > ~~~
 > # Script 1
 > echo *.*
 > ~~~
-> 
+>
 > ~~~
 > # Script 2
 > for filename in $1 $2 $3
@@ -435,7 +435,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >     cat $filename
 > done
 > ~~~
-> 
+>
 > ~~~
 > # Script 3
 > echo $@.dat
