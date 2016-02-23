@@ -132,3 +132,5 @@ We can specify more that one pattern:
 ~~~ {.bash}
 awk '/^ATOM/ {print $7,$8,$9} /^HEADER/ {print $NF}' example.pdb
 ~~~
+
+In this case, we are printing the spatial coordinates of each atom.
