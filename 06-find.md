@@ -505,7 +505,7 @@ about them."
 > 2013-11-07,18
 > ~~~
 >
-> Help her by putting in the right reorder the following commands and pipes :  
+> Help her by putting in the right order the following commands and pipes :  
 > 
 > `cut -d : -f 2`  
 > `>`  
