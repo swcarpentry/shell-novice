@@ -204,7 +204,7 @@ or copy data from one program to the other in memory,
 or something else entirely;
 we don't have to know or care.
 
-Nothing prevents us from chaining pipes consecutiveley. That is, we can for example send the output of `wc` directly to `sort`, and then the resulting output to `head`. Thus we first use a pipe to send the output of `wc` to `sort`:
+Nothing prevents us from chaining pipes consecutively. That is, we can for example send the output of `wc` directly to `sort`, and then the resulting output to `head`. Thus we first use a pipe to send the output of `wc` to `sort`:
 
 ~~~ {.bash}
 $ wc -l *.pdb | sort -n
