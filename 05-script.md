@@ -358,7 +358,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > While you are in the molecules directory, you type the following command:
 >
 > ~~~
-> bash script.sh '*.pdb' -1 -1
+> bash script.sh '*.pdb' 1 1
 > ~~~
 > 
 > Which of the following outputs would you expect to see?
