@@ -440,3 +440,34 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > # Script 3
 > echo $@.dat
 > ~~~
+
+> ## Ooops my large script has a bug. How can I easily find the problem? {.challenge}
+>
+> You have written a large script with many lines, and it's not working properly.
+> How can I easily identify the problem ?
+>
+> ~~~
+> # Script containing error
+> # Calculate reduced stats for data files at J = 100 c/bp.
+> for datafile in "$@"
+> do
+>     echo $datfile
+>     bash goostats -J 100 -r $datafile stats-$datafile
+> done
+> ~~~
+>
+> cd nelle/north-pacific-gyre/2012-07-03
+> Using nano, save the above script in do-stats-Error.sh
+> Run the script
+~~~ {.bash}
+$ bash do-stats-Error.sh *[AB].txt
+~~~
+> Your output is blank, why ?
+> Re run the script using this option -x.
+> ~~~ {.bash}
+> bash -x do-stats-Error.sh *[AB].txt
+> ~~~
+>
+> Now you can see how the script is running.
+> Which line is causing the error ?
+>
