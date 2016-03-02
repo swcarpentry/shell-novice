@@ -79,6 +79,18 @@ $ wc *.pdb
 > themselves. It is the shell, not the other programs, that deals with
 > expanding wildcards, and this is another example of orthogonal design.
 
+> ## Using wildcards {.challenge}
+>
+> Which `ls` command will produce the output, when run in the
+> `molecules` directory?
+>
+> `ethane.pdb   methane.pdb`
+>
+> 1. `ls *t*ane.pdb`
+> 2. `ls *t?ne.*`
+> 3. `ls *t??ne.pdb`
+> 4. `ls ethane.*`
+
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
 
