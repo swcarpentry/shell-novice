@@ -81,8 +81,8 @@ $ wc *.pdb
 
 > ## Using wildcards {.challenge}
 >
-> Which `ls` command will produce the output, when run in the
-> `molecules` directory?
+> When run in the `molecules` directory, which `ls` command will
+> produce this output?
 >
 > `ethane.pdb   methane.pdb`
 >
