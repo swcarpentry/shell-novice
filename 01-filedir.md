@@ -438,7 +438,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > *the previous directory I was in*, which is faster than having to remember, 
 > then type, the full path.  This is a *very* efficient way of moving back 
 > and forth between directories. The difference between `cd ..` and `cd -` is 
-> that the former brings you *up*, while the later brings you *back*. 
+> that the former brings you *up*, while the latter brings you *back*. 
 
 ### Nelle's Pipeline: Organizing Files
 
