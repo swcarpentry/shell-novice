@@ -38,7 +38,7 @@ Let's create a new directory called `thesis` using the command `mkdir thesis`
 $ mkdir thesis
 ~~~
 
-`mkdir` command means "make directory", so its easier to remember!.
+`mkdir` command means "make directory", so it is easy to remember!.
 Since `thesis` is a relative path
 (i.e., doesn't have a leading slash),
 the new directory is created in the current working directory:
