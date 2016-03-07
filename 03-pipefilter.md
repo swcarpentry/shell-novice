@@ -60,9 +60,9 @@ $ wc *.pdb
 > means that `p?.pdb` matches `pi.pdb` or `p5.pdb`, but not `propane.pdb`.
 > We can use any number of wildcards at a time: for example, `p*.p?*`
 > matches anything that starts with a 'p' and ends with '.', 'p', and at
-> least one more character (since the '?' has to match one character, and
-> the final '\*' can match any number of characters). Thus, `p*.p?*` would
-> match `preferred.practice`, and even `p.pi` (since the first '\*' can
+> least one more character (since the `?` has to match one character, and
+> the final `*` can match any number of characters). Thus, `p*.p?*` would
+> match `preferred.practice`, and even `p.pi` (since the first `*` can
 > match no characters at all), but not `quality.practice` (doesn't start
 > with 'p') or `preferred.p` (there isn't at least one character after the
 > '.p').
@@ -143,7 +143,7 @@ $ cat lengths.txt
 ~~~
 
 Now let's use the `sort` command to sort its contents.
-We will also use the -n flag to specify that the sort is
+We will also use the `-n` flag to specify that the sort is
 numerical instead of alphabetical.
 This does *not* change the file;
 instead, it sends the sorted result to the screen:
@@ -380,7 +380,7 @@ She could just delete them using `rm`,
 but there are actually some analyses she might do later where depth doesn't matter,
 so instead, she'll just be careful later on to select files using the wildcard expression `*[AB].txt`.
 As always,
-the '\*' matches any number of characters;
+the `*` matches any number of characters;
 the expression `[AB]` matches either an 'A' or a 'B',
 so this matches all the valid data files she has.
 
