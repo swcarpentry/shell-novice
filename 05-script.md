@@ -288,7 +288,7 @@ and save it as a shell script.
 An off-hand comment from her supervisor has made Nelle realize that
 she should have provided a couple of extra parameters to `goostats` when she processed her files.
 This might have been a disaster if she had done all the analysis by hand,
-but thanks to for loops,
+but thanks to `for` loops,
 it will only take a couple of hours to re-do.
 
 But experience has taught her that if something needs to be done twice,
@@ -363,9 +363,9 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >
 > Which of the following outputs would you expect to see?
 >
-> 1. All of the lines between the first and the last lines of each file ending in `*.pdb`
+> 1. All of the lines between the first and the last lines of each file ending in `.pdb`
 >    in the molecules directory
-> 2. The first and the last line of each file ending in `*.pdb` in the molecules directory
+> 2. The first and the last line of each file ending in `.pdb` in the molecules directory
 > 3. The first and the last line of each file in the molecules directory
 > 4. An error because of the quotes around `*.pdb`
 
