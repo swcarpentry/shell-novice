@@ -220,10 +220,10 @@ matched.  (-F is specified by POSIX.)
 >     Software is like that.
 >
 > We use the `-E` flag and put the pattern in quotes to prevent the shell
-> from trying to interpret it. (If the pattern contained a '\*', for
+> from trying to interpret it. (If the pattern contained a `*`, for
 > example, the shell would try to expand it before running `grep`.) The
-> '\^' in the pattern anchors the match to the start of the line. The '.'
-> matches a single character (just like '?' in the shell), while the 'o'
+> `^` in the pattern anchors the match to the start of the line. The `.`
+> matches a single character (just like `?` in the shell), while the `o`
 > matches an actual 'o'.
 
 While `grep` finds lines in files,
