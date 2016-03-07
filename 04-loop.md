@@ -499,6 +499,44 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
+> ## Putting it together: Using filters within loops to output data
+>
+> ~~~
+> First, inspect the output for:
+> grep C *
+>
+> then, inspect the output for:
+> grep " C " *
+> 
+> What is the difference? Why?
+> ~~~
+> 
+> Now, we're going to run this loop to count the number of carbon atoms in each molecule. 
+> ~~~ {.bash}
+> for molecule in *.pdb
+> do
+>    echo $molecule  
+>    grep " C " $molecule | wc -l
+> done
+>
+> ~~~
+> What would we need to change if, instead we needed a count of the hydrogen atoms in each compound?
+> ~~~ {.bash}
+> for [______] in *.pdb
+> do
+>  [_________] $each
+>       grep [______] | [_______]
+> done
+> ~~~
+> Finally, write a loop like the above examples that will output the total number of atoms in each molecule in the same format as the above examples.
+> ~~~ {.bash}
+> for [_____________]
+> do
+>   [__________]
+>   [___________]
+> done
+> ~~~
+
 > ## Nested Loops and Command-Line Expressions {.challenge}
 >
 > The `expr` does simple arithmetic using command-line parameters:
