@@ -363,9 +363,9 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >
 > Which of the following outputs would you expect to see?
 >
-> 1. All of the lines between the first and the last lines of each file ending in `*.pdb`
+> 1. All of the lines between the first and the last lines of each file matching `*.pdb`
 >    in the molecules directory
-> 2. The first and the last line of each file ending in `*.pdb` in the molecules directory
+> 2. The first and the last line of each file matching `*.pdb` in the molecules directory
 > 3. The first and the last line of each file in the molecules directory
 > 4. An error because of the quotes around `*.pdb`
 
