@@ -153,7 +153,7 @@ matched.  (-F is specified by POSIX.)
 You bring fresh toner.
 Today it is not working
 Software is like that.</code></pre>
-<p>We use the <code>-E</code> flag and put the pattern in quotes to prevent the shell from trying to interpret it. (If the pattern contained a ‘*’, for example, the shell would try to expand it before running <code>grep</code>.) The ‘^’ in the pattern anchors the match to the start of the line. The ‘.’ matches a single character (just like ‘?’ in the shell), while the ‘o’ matches an actual ‘o’.</p>
+<p>We use the <code>-E</code> flag and put the pattern in quotes to prevent the shell from trying to interpret it. (If the pattern contained a <code>*</code>, for example, the shell would try to expand it before running <code>grep</code>.) The <code>^</code> in the pattern anchors the match to the start of the line. The <code>.</code> matches a single character (just like <code>?</code> in the shell), while the <code>o</code> matches an actual ‘o’.</p>
 </div>
 </aside>
 <p>While <code>grep</code> finds lines in files, the <code>find</code> command finds files themselves. Again, it has a lot of options; to show how the simplest ones work, we’ll use the directory tree shown below.</p>

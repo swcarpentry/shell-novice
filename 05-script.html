@@ -96,7 +96,7 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00</code></pre>
 <p>We still need to edit <code>middle.sh</code> each time we want to adjust the range of lines, though. Let’s fix that by using the special variables <code>$2</code> and <code>$3</code>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> middle.sh</code></pre>
 <pre class="output"><code>head -n &quot;$2&quot; &quot;$1&quot; | tail -n &quot;$3&quot;</code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">bash</span> middle.sh pentane.pdb -20 -5</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">bash</span> middle.sh pentane.pdb 20 5</code></pre>
 <pre class="output"><code>ATOM     14  H           1      -1.259   1.420   0.112  1.00  0.00
 ATOM     15  H           1      -2.608  -0.407   1.130  1.00  0.00
 ATOM     16  H           1      -2.540  -1.303  -0.404  1.00  0.00
@@ -105,12 +105,12 @@ TER      18              1</code></pre>
 <p>This works, but it may take the next person who reads <code>middle.sh</code> a moment to figure out what it does. We can improve our script by adding some <strong>comments</strong> at the top:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> middle.sh</code></pre>
 <pre class="output"><code># Select lines from the middle of a file.
-# Usage: middle.sh filename -end_line -num_lines
+# Usage: middle.sh filename end_line num_lines
 head -n &quot;$2&quot; &quot;$1&quot; | tail -n &quot;$3&quot;</code></pre>
 <p>A comment starts with a <code>#</code> character and runs to the end of the line. The computer ignores comments, but they’re invaluable for helping people understand and use scripts.</p>
 <p>What if we want to process many files in a single pipeline? For example, if we want to sort our <code>.pdb</code> files by length, we would type:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">wc</span> -l *.pdb <span class="kw">|</span> <span class="kw">sort</span> -n</code></pre>
-<p>because <code>wc -l</code> lists the number of lines in the files (recall that wc stands for ‘word count’, adding the -l flag means ‘count lines’ instead) and <code>sort -n</code> sorts things numerically. We could put this in a file, but then it would only ever sort a list of <code>.pdb</code> files in the current directory. If we want to be able to get a sorted list of other kinds of files, we need a way to get all those names into the script. We can’t use <code>$1</code>, <code>$2</code>, and so on because we don’t know how many files there are. Instead, we use the special variable <code>$@</code>, which means, “All of the command-line parameters to the shell script.” We also should put <code>$@</code> inside double-quotes to handle the case of parameters containing spaces (<code>&quot;$@&quot;</code> is equivalent to <code>&quot;$1&quot;</code> <code>&quot;$2&quot;</code> …) Here’s an example:</p>
+<p>because <code>wc -l</code> lists the number of lines in the files (recall that <code>wc</code> stands for ‘word count’, adding the <code>-l</code> flag means ‘count lines’ instead) and <code>sort -n</code> sorts things numerically. We could put this in a file, but then it would only ever sort a list of <code>.pdb</code> files in the current directory. If we want to be able to get a sorted list of other kinds of files, we need a way to get all those names into the script. We can’t use <code>$1</code>, <code>$2</code>, and so on because we don’t know how many files there are. Instead, we use the special variable <code>$@</code>, which means, “All of the command-line parameters to the shell script.” We also should put <code>$@</code> inside double-quotes to handle the case of parameters containing spaces (<code>&quot;$@&quot;</code> is equivalent to <code>&quot;$1&quot;</code> <code>&quot;$2&quot;</code> …) Here’s an example:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> sorted.sh</code></pre>
 <pre class="output"><code>wc -l &quot;$@&quot; | sort -n</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">bash</span> sorted.sh *.pdb ../creatures/*.dat</code></pre>
@@ -150,7 +150,7 @@ wc -l &quot;$@&quot; | sort -n</code></pre>
 <p>After a moment’s work in an editor to remove the serial numbers on the commands, we have a completely accurate record of how we created that figure.</p>
 <p>In practice, most people develop shell scripts by running commands at the shell prompt a few times to make sure they’re doing the right thing, then saving them in a file for re-use. This style of work allows people to recycle what they discover about their data and their workflow with one call to <code>history</code> and a bit of editing to clean up the output and save it as a shell script.</p>
 <h2 id="nelles-pipeline-creating-a-script">Nelle’s Pipeline: Creating a Script</h2>
-<p>An off-hand comment from her supervisor has made Nelle realize that she should have provided a couple of extra parameters to <code>goostats</code> when she processed her files. This might have been a disaster if she had done all the analysis by hand, but thanks to for loops, it will only take a couple of hours to re-do.</p>
+<p>An off-hand comment from her supervisor has made Nelle realize that she should have provided a couple of extra parameters to <code>goostats</code> when she processed her files. This might have been a disaster if she had done all the analysis by hand, but thanks to <code>for</code> loops, it will only take a couple of hours to re-do.</p>
 <p>But experience has taught her that if something needs to be done twice, it will probably need to be done a third or fourth time as well. She runs the editor and writes the following:</p>
 <pre><code># Calculate reduced stats for data files at J = 100 c/bp.
 for datafile in &quot;$@&quot;
@@ -180,11 +180,11 @@ done</code></pre>
 <pre><code>head -n $2 $1
 tail -n $3 $1</code></pre>
 <p>While you are in the molecules directory, you type the following command:</p>
-<pre><code>bash script.sh &#39;*.pdb&#39; -1 -1</code></pre>
+<pre><code>bash script.sh &#39;*.pdb&#39; 1 1</code></pre>
 <p>Which of the following outputs would you expect to see?</p>
 <ol style="list-style-type: decimal">
-<li>All of the lines between the first and the last lines of each file ending in <code>*.pdb</code> in the molecules directory</li>
-<li>The first and the last line of each file ending in <code>*.pdb</code> in the molecules directory</li>
+<li>All of the lines between the first and the last lines of each file ending in <code>.pdb</code> in the molecules directory</li>
+<li>The first and the last line of each file ending in <code>.pdb</code> in the molecules directory</li>
 <li>The first and the last line of each file in the molecules directory</li>
 <li>An error because of the quotes around <code>*.pdb</code></li>
 </ol>

@@ -182,7 +182,7 @@ NENE02043B.txt stats-NENE02043B.txt</code></pre>
 <p>She hasn’t actually run <code>goostats</code> yet, but now she’s sure she can select the right files and generate the right output filenames.</p>
 <p>Typing in commands over and over again is becoming tedious, though, and Nelle is worried about making mistakes, so instead of re-entering her loop, she presses the up arrow. In response, the shell redisplays the whole loop on one line (using semi-colons to separate the pieces):</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">echo</span> <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre>
-<p>Using the left arrow key, Nelle backs up and changes the command <code>echo</code> to <code>goostats</code>:</p>
+<p>Using the left arrow key, Nelle backs up and changes the command <code>echo</code> to <code>bash goostats</code>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">bash</span> goostats <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre>
 <p>When she presses enter, the shell runs the modified command. However, nothing appears to happen — there is no output. After a moment, Nelle realizes that since her script doesn’t print anything to the screen any longer, she has no idea whether it is running, much less how quickly. She kills the job by typing Control-C, uses up-arrow to repeat the command, and edits it to read:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">echo</span> <span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">bash</span> goostats <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre>
@@ -299,20 +299,15 @@ done</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Nested Loops and Command-Line Expressions</h2>
+<h2><span class="glyphicon glyphicon-pencil"></span>Nested Loops</h2>
 </div>
 <div class="panel-body">
-<p>The <code>expr</code> does simple arithmetic using command-line parameters:</p>
-<pre><code>$ expr 3 + 5
-8
-$ expr 30 / 5 - 2
-4</code></pre>
-<p>Given this, what is the output of:</p>
-<pre><code>for left in 2 3
+<p>Suppose we want to set up up a directory structure to organize some experiments measuring the growth rate under different sugar types <em>and</em> different temperatures. What would be the result of the following code:</p>
+<pre><code>for sugar in fructose glucose sucrose
 do
-    for right in $left
+    for temperature in 25 30 37 40
     do
-        expr $left + $right
+        mkdir $sugar-$temperature
     done
 done</code></pre>
 </div>
