@@ -42,7 +42,7 @@ In the second example, the things to loop over: `"0.001 0.01 0.05"` are spelled 
 > in a separate string:
 > ~~~
 > $ cutoffs="0.001 0.01 0.05"
-> $ for cutoff in $cuttoffs; do
+> $ for cutoff in $cutoffs; do
 >   run_prediction.sh --input ALL-data.txt --pvalue $cutoff --output results-cutoff=$cutoff.txt
 > done
 > ~~~
