@@ -511,7 +511,7 @@ so she decides to get some coffee and catch up on her reading.
 > do
 >     for temperature in 25 30 37 40
 >     do
->         mkdir $sugar$temperature
+>         mkdir $sugar-$temperature
 >     done
 > done
 > ~~~
