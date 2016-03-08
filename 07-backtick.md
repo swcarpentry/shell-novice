@@ -82,7 +82,7 @@ $ for file in `cat cohort2010.txt`
 ~~~
 
 It works simply as follows: everything between the backticks (`` ` ``, not
-to confused with `'` nor `"`!) is executed as a Unix command, and the
+to be confused with `'` !) is executed as a Unix command, and the
 command's standard output replaces the backticks, and everything between
 it, before the loop starts (for convenience, newlines are also replaced
 with simple spaces).  Recall from @@03 that `cat` prints the contents of
@@ -152,7 +152,7 @@ also the `-n 2` argument to the `head` command works as expected.
 However, it is *essential* that the command (or pipeline) inside the
 backticks produces *clean* output: single word output works best within
 single commands, whitespace- or newline-separated words works best for
-lists of which to iterate in loops. @@@see note on not using filenames
+lists over which to iterate in loops. @@@see note on not using filenames
 containing whitespace.
 
 Exercise
@@ -184,7 +184,7 @@ few times, waiting a few seconds between invocations (use the arrow
 keys! @@@)
 
 ## Command subsitution {.callout}
-## Most users know (and love!) the backtick operator in the form shown
-## here, but recommended practice is to preferably use the newer, more
-## general `$(command)` form, rather than the older `` `command` ``
-## syntax.  The advantage of the former is it can be nested.
+> Most users know (and love!) the backtick operator in the form shown
+> here, but recommended practice is to preferably use the newer, more
+> general `$(command)` form, rather than the older `` `command` ``
+> syntax.  The advantage of the former is that it can be nested.
