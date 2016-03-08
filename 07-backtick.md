@@ -187,4 +187,4 @@ keys! @@@)
 > Most users know (and love!) the backtick operator in the form shown
 > here, but recommended practice is to preferably use the newer, more
 > general `$(command)` form, rather than the older `` `command` ``
-> The advantage of new syntax is that it can be nested.
+> The advantage of the new syntax is that it can be nested.
