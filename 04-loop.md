@@ -499,26 +499,19 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
-> ## Nested Loops and Command-Line Expressions {.challenge}
+> ## Nested Loops {.challenge}
 >
-> The `expr` does simple arithmetic using command-line parameters:
-> 
+> Suppose we want to set up up a directory structure to organize
+> some experiments measuring the growth rate under different sugar
+> types *and* different temperatures.  What would be the
+> result of the following code:
+>
 > ~~~
-> $ expr 3 + 5
-> 8
-> $ expr 30 / 5 - 2
-> 4
-> ~~~
-> 
-> Given this, what is the output of:
-> 
-> ~~~
-> for left in 2 3
+> for sugar in fructose glucose sucrose
 > do
->     for right in $left
+>     for temperature in 25 30 37 40
 >     do
->         expr $left + $right
+>         mkdir $sugar$temperature
 >     done
 > done
 > ~~~
-
