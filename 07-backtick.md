@@ -70,7 +70,7 @@ This would be more general, more flexible and more tractable than
 relying on the wildcard mechanism. What we need, therefore, is a
 mechanism that actually replaces everytying beween `[` and `]` with the
 desired names of input files, just before the loop starts.  This
-mechanism is called the **backtick operator**, and it looks like pretty
+mechanism is called the **backtick operator** (also: command substitution), and it looks like pretty
 much like the above:
 
 ~~~ {.bash}
@@ -81,7 +81,7 @@ $ for file in `cat cohort2010.txt`
 > done
 ~~~
 
-It works simply as follows: everything between the backticks (`\``, not
+It works simply as follows: everything between the backticks (`` ` ``, not
 to confused with `'` nor `"`!) is executed as a Unix command, and the
 command's standard output replaces the backticks, and everything between
 it, before the loop starts (for convenience, newlines are also replaced
@@ -117,7 +117,7 @@ $ for file in patient1033130.txt patient1048338.txt patient7448262.txt ... patie
 > done
 ~~~
 
-This example uses `\`cat somefilename\`` to supply arguments to the `for
+This example uses `` `cat somefilename` `` to supply arguments to the `for
 variable in ... do ... done`-construct, but any output from any command,
 or even pipeline, can be used instead. For example, if `cohort2010` contains a few hundred
 patients, but you just want to try the first two for a test run, you can use the `head` command
@@ -186,5 +186,5 @@ keys! @@@)
 ## Command subsitution {.callout}
 ## Most users know (and love!) the backtick operator in the form shown
 ## here, but recommended practice is to preferably use the newer, more
-## general `$(command)` form, rather than the older `\`command\``
+## general `$(command)` form, rather than the older `` `command` ``
 ## syntax.  The advantage of the former is it can be nested.
