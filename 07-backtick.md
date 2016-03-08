@@ -25,7 +25,7 @@ with different arguments. Here is a fictitional example:
 
 ~~~{.bash}
 $ for cutoff in 0.001 0.01 0.05; do
->   run_prediction.sh --input ALL-data.txt --pvalue=$cutoff --output results-cutoff=$cutoff.txt
+>   run_prediction.sh --input ALL-data.txt --pvalue $cutoff --output results-$cutoff.txt
 > done
 ~~~
 
@@ -66,7 +66,7 @@ fly'. For instance, if some program called `qualitycontrol` is run periodically
 an argument to keep the output files apart, along the following lines:
 
 ~~~
-qualitycontrol --input /data/dailysamples  --output qcresults-THE_RIGHT_TIMESTAMP_HERE.txt
+qualitycontrol --inputdir /data/incoming/  --output qcresults-THE_RIGHT_TIMESTAMP_HERE.txt
 ~~~
 
 In the above example, the value indicated with
