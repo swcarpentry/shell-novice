@@ -206,7 +206,7 @@ loops.
 
 ## Juggling filename extensions {.challenge}
 
-> When doing running an analysis program with a certain input file, it
+> When running an analysis program with a certain input file, it
 > is often required that the output has the same name as the input, but with
 > a different filename extension, e.g.
 >
