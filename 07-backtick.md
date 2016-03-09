@@ -10,6 +10,8 @@ minutes: 15
 > * Generate the values of the arguments on the fly using command substitution
 > * Understand the difference between pipes/redirection, and the backtick operator
 
+## Introduction
+
 In Loops topic we saw how to improve productivity by letting the computer do the repetitive work.
 Often, this involves doing the same thing to a whole set of files, e.g.:
 
@@ -31,7 +33,7 @@ with different arguments. Here is a fictitional example:
 
 ~~~{.bash}
 $ for cutoff in 0.001 0.01 0.05; do
->   run_prediction.sh --input ALL-data.txt --pvalue $cutoff --output results-$cutoff.txt
+>   run_classifier.sh --input ALL-data.txt --pvalue $cutoff --output results-$cutoff.txt
 > done
 ~~~
 
@@ -44,7 +46,7 @@ In the second example, the things to loop over: `"0.001 0.01 0.05"` are spelled 
 > ~~~
 > $ cutoffs="0.001 0.01 0.05"
 > $ for cutoff in $cutoffs; do
->   run_prediction.sh --input ALL-data.txt --pvalue $cutoff --output results-cutoff=$cutoff.txt
+>   run_classifier.sh --input ALL-data.txt --pvalue $cutoff --output results-$cutoff.txt
 > done
 > ~~~
 > This works because, just as with the filename wildcards, `$cutoffs` is replaced with `0.001 0.01 0.05` 
@@ -63,22 +65,24 @@ would be nice to able to say something like:
 # (imaginary syntax)
 $ for file in [INSERT THE CONTENTS OF cohort2010.txt HERE]
 > do
->    run_prediction.sh --input $file --pvalue -0.05 --output $file.results
+>    run_classifier.sh --input $file --pvalue -0.05 --output $file.results
 > done
 ~~~
+
+## Command substitution
 
 This would be more general, more flexible and more tractable than
 relying on the wildcard mechanism. What we need, therefore, is a
 mechanism that actually replaces everytying beween `[` and `]` with the
 desired names of input files, just before the loop starts.  Thankfully,
-this mechanism exists, and it is called the **backtick operator** (also:
-command substitution). It looks much like the previous snippet:
+this mechanism exists, and it is called the **backtick operator**, also
+known as **command substitution**. It looks much like the previous snippet:
 
 ~~~ {.bash}
 # (actual syntax)
 $ for file in `cat cohort2010.txt`
 > do
->    run_prediction.sh --input $file --pvalue -0.05 --output $file.results
+>    run_classifier.sh --input $file --pvalue -0.05 --output $file.results
 > done
 ~~~
 
@@ -151,7 +155,7 @@ simply because `cat cohort2010.txt | head -n 2` produces
 Everything between the backticks is executed verbatim by the shell, so
 also the `-n 2` argument to the `head` command works as expected.
 
-## **Important**
+### **Important**
 Recall from the *Loops* and the *Shell Scripts* topics that Unix
 uses whitespace to separate command, options and arguments.
 For the same reason it is essential that the command (or pipeline)
@@ -159,36 +163,38 @@ inside the backticks produces *clean* output: single word output works
 best within single commands and whitespace- or newline-separated words
 works best for lists over which to iterate in loops.
 
-Exercise
+> ## Generating filenames based on a timestamp {.challenge}
+> 
+> It can be useful to create the filename 'on the fly'. For instance, if
+> some program called `qualitycontrol` is run periodically (or
+> unpredictably) it may be necessary to supply the time stamp as an
+> argument to keep all the output files apart, along the following lines:
+> 
+> ~~~
+> qualitycontrol --inputdir /data/incoming/  --output qcresults-[INSERT TIMESTAMP HERE].txt
+> ~~~
+> 
+> Getting `[INSERT TIMESTAMP HERE]` to work is a job for the backtick
+> operator. The Unix command you need here is the `date` command, which provides you
+> with the current date and time; try it. 
+> 
+> In the current form, its output is less useful for generating filenames
+> because it contains whitespace (which, as we know from now, should
+> preferably be avoided in filenames).  You can tweak `date`'s format in
+> great detail, for instance to get rid of whitespace:
+> 
+> ~~~
+> $ date +"%Y-%m-%d_%T"
+> ~~~
+> 
+> (Try it!).
+> 
+> Write the command that will copy a file of your choice to a new file
+> whose name contains the time stamp. Test it by executing the command a
+> few times, waiting a few seconds between invocations (use the arrow-up
+> key to avoid having to retype the command)
+<!-- solution: cp file file.`date +"%Y-%m-%d_%T"` -->
 
-It can be useful to create the filename 'on the fly'. For instance, if
-some program called `qualitycontrol` is run periodically (or
-unpredictably) it may be necessary to supply the time stamp as an
-argument to keep all the output files apart, along the following lines:
-
-~~~
-qualitycontrol --inputdir /data/incoming/  --output qcresults-[INSERT TIMESTAMP HERE].txt
-~~~
-
-Getting `[INSERT TIMESTAMP HERE]` to work is a job for the backtick
-operator. The Unix command you need here is the `date` command, which provides you
-with the current date and time; try it. 
-
-In the current form, its output is less useful for generating filenames
-because it contains whitespace (which, as we know from now, should
-preferably be avoided in filenames).  You can tweak `date`'s format in
-great detail, for instance to get rid of whitespace:
-
-~~~
-$ date +"%Y-%m-%d_%T"
-~~~
-
-(Try it!).
-
-Write the command that will copy a file of your choice to a new file
-whose name contains the time stamp. Test it by executing the command a
-few times, waiting a few seconds between invocations (use the arrow-up
-key to avoid having to retype the command)
 
 ## Command subsitution {.callout}
 > Most users know and love the backtick operator in the form shown
@@ -196,3 +202,30 @@ key to avoid having to retype the command)
 > general `$(command)` form, rather than the older `` `command` ``
 > The advantage of the new syntax is that it can be nested.
 
+## Juggling filename extensions {.challenge}
+
+> When doing running an analysis program with a certain input file, it
+> is often required that the output has the same name as the input, but with
+> a different filename extension, e.g.
+>
+> ~~~
+> $ run_classifier.sh --input patient1048338.txt --pvalue -0.05 --output patient1048338.results
+> ~~~
+>
+> A good trick here is to use the Unix `basename` command. It takes a string (typically a filename),
+> and strips off the given extension (if it is part of the input string). Example:
+> ~~~ {.bash}
+> $ basename patient1048338.txt    .txt
+> ~~~
+> gives
+> ~~~ {.output}
+> patient1048338
+> ~~~
+>
+> Write a loop that uses the backtick operator and the `basename` command to sort each of the `*.pdb` files
+> into a corresponding `*.sortedpdb` file. That is, make the loop do the following:
+> ~~~
+> $ sort ammonia.pdb > ammonia.sorted
+> ~~~
+> but for *each* of the `.pdb`-files.
+<!-- solution: for file in *.pdb; do sort $file > `basename $file .pdb`.sorted; done -->
