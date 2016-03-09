@@ -156,12 +156,14 @@ Everything between the backticks is executed verbatim by the shell, so
 also the `-n 2` argument to the `head` command works as expected.
 
 ### **Important**
-Recall from the *Loops* and the *Shell Scripts* topics that Unix
-uses whitespace to separate command, options and arguments.
-For the same reason it is essential that the command (or pipeline)
-inside the backticks produces *clean* output: single word output works
-best within single commands and whitespace- or newline-separated words
-works best for lists over which to iterate in loops.
+
+Recall from the *Loops* and the *Shell Scripts* topics that Unix uses
+whitespace to separate command, options (flags) and parameters /
+arguments.  For the same reason it is essential that the command (or
+pipeline) inside the backticks produces *clean* output: single word
+output works best within single commands and whitespace- or
+newline-separated words works best for lists over which to iterate in
+loops.
 
 > ## Generating filenames based on a timestamp {.challenge}
 > 
@@ -229,3 +231,14 @@ works best for lists over which to iterate in loops.
 > ~~~
 > but for *each* of the `.pdb`-files.
 <!-- solution: for file in *.pdb; do sort $file > `basename $file .pdb`.sorted; done -->
+
+## Closing remarks
+
+The backtick (or command subsitution) operator provides us with a
+powerful new piece of 'plumbing' that allows us to connect "small
+pieces, loosely together" to keep with the Unix philosophy.  It is a
+little bit similar to the `|` operator in the sense that it connects two
+programs. But there is also a clear difference: `|` connects the
+standard output of one command to the standard input of another command,
+where as `` `command` `` is substituted 'in-place' into the the shell
+script, and always provides parameters, options, arguments to other commands.
