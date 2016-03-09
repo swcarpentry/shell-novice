@@ -69,9 +69,9 @@ $ for file in [INSERT THE CONTENTS OF cohort2010.txt HERE]
 This would be more general, more flexible and more tractable than
 relying on the wildcard mechanism. What we need, therefore, is a
 mechanism that actually replaces everytying beween `[` and `]` with the
-desired names of input files, just before the loop starts.  This
-mechanism is called the **backtick operator** (also: command substitution), and it looks like pretty
-much like the above:
+desired names of input files, just before the loop starts.  Thankfully,
+this mechanism exists, and it is called the **backtick operator** (also:
+command substitution). It looks like pretty much like the previous snippet:
 
 ~~~ {.bash}
 # (actual syntax)
@@ -81,13 +81,15 @@ $ for file in `cat cohort2010.txt`
 > done
 ~~~
 
-It works simply as follows: everything between the backticks (`` ` ``, not
-to be confused with `'` !) is executed as a Unix command, and the
-command's standard output replaces the backticks, and everything between
-it, before the loop starts (for convenience, newlines are also replaced
-with simple spaces).  Recall from @@03 that `cat` prints the contents of
-its argument (a filename) to standard output. So, if the contents of
-file `cohort2010.txt`  look like 
+It works simply as follows: everything between the backticks is executed
+as a Unix command, and the command's standard output replaces the
+backticks, and everything between it, before the loop starts (for
+convenience, newlines are also replaced with simple spaces).  Note: do
+not confuse the backtick, `` ` ``, with the single quote `'` !.
+
+Recall from @@03 that `cat` prints the contents of its argument (a
+filename) to standard output. So, if the contents of file
+`cohort2010.txt` look like
 
 ~~~
 patient1033130.txt 
@@ -117,11 +119,14 @@ $ for file in patient1033130.txt patient1048338.txt patient7448262.txt ... patie
 > done
 ~~~
 
-This example uses `` `cat somefilename` `` to supply arguments to the `for
-variable in ... do ... done`-construct, but any output from any command,
-or even pipeline, can be used instead. For example, if `cohort2010` contains a few hundred
-patients, but you just want to try the first two for a test run, you can use the `head` command
-to just get the first few lines of its argument, like so:
+(notice the convenience of newlines being replaced with simple spaces here).
+
+This example uses `` `cat somefilename` `` to supply arguments to the
+`for variable in ... do ... done`-construct, but any output from any
+command, or even pipeline, can also be used. For example, if
+`cohort2010.txt` contains a few thousand patients but you just want to
+try the first two for a test run, you can use the `head` command to just
+get the first few lines of its argument, like so:
 
 ~~~ {.bash}
 $ for file in `cat cohort2010.txt | head -n 2 `
@@ -130,7 +135,7 @@ $ for file in `cat cohort2010.txt | head -n 2 `
 > done
 ~~~
 
-which will be expanded to
+which will expand to
 
 ~~~ {.bash}
 $ for file in patient1033130.txt patient1048338.txt
@@ -139,17 +144,13 @@ $ for file in patient1033130.txt patient1048338.txt
 > done
 ~~~
 
-simply because `cat cohort2010.txt | head -n 2 ` produces
-
-~~~ {.output}
-patient1033130.txt 
-patient1048338.txt
-~~~
+simply because `cat cohort2010.txt | head -n 2` produces
+`patient1033130.txt patient1048338.txt` after the command substitution.
 
 Everything between the backticks is executed verbatim by the shell, so
 also the `-n 2` argument to the `head` command works as expected.
 
-However, it is *essential* that the command (or pipeline) inside the
+Note, however, that it is *essential* that the command (or pipeline) inside the
 backticks produces *clean* output: single word output works best within
 single commands, whitespace- or newline-separated words works best for
 lists over which to iterate in loops. @@@see note on not using filenames
@@ -171,8 +172,9 @@ operator. The Unix command you need here is the `date` command, which provides y
 with the current date and time; try it. 
 
 In the current form, its output is less useful for generating filenames
-because it contains whitespace.  You can tweak `date`'s format in great
-detail, for instance to get rid of whitespace:
+because it contains whitespace (which, as we know from @@@, should be
+avoided in filenames).  You can tweak `date`'s format in great detail,
+for instance to get rid of whitespace:
 
 ~~~
 $ date +"%Y-%m-%d_%T"
