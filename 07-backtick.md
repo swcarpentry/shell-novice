@@ -12,7 +12,7 @@ minutes: 15
 
 ## Introduction
 
-In Loops topic we saw how to improve productivity by letting the computer do the repetitive work.
+In the *Loops* topic we saw how to improve productivity by letting the computer do the repetitive work.
 Often, this involves doing the same thing to a whole set of files, e.g.:
 
 ~~~{.bash}
