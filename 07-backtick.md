@@ -6,8 +6,9 @@ minutes: 15
 ---
 > ## Learning Objectives {.objectives}
 >
-> * 
-
+> * Understand the need for flexibility regarding arguments
+> * Generate the values of the arguments on the fly using command substitution
+> * Understand the difference between pipes/redirection, and the backtick operator
 
 In the @@loops exercise, we saw how to improve productivity by letting the computer do the repetitive work.
 Often, this involves doing the same thing to a whole set of files, e.g.:
@@ -71,7 +72,7 @@ relying on the wildcard mechanism. What we need, therefore, is a
 mechanism that actually replaces everytying beween `[` and `]` with the
 desired names of input files, just before the loop starts.  Thankfully,
 this mechanism exists, and it is called the **backtick operator** (also:
-command substitution). It looks like pretty much like the previous snippet:
+command substitution). It looks much like the previous snippet:
 
 ~~~ {.bash}
 # (actual syntax)
@@ -84,8 +85,8 @@ $ for file in `cat cohort2010.txt`
 It works simply as follows: everything between the backticks is executed
 as a Unix command, and the command's standard output replaces the
 backticks, and everything between it, before the loop starts (for
-convenience, newlines are also replaced with simple spaces).  Note: do
-not confuse the backtick, `` ` ``, with the single quote `'` !.
+convenience, newlines are also replaced with simple spaces).  *Note*: do
+not confuse the backtick, `` ` ``, with the single quote `'`.
 
 Recall from @@03 that `cat` prints the contents of its argument (a
 filename) to standard output. So, if the contents of file
@@ -180,13 +181,16 @@ for instance to get rid of whitespace:
 $ date +"%Y-%m-%d_%T"
 ~~~
 
+(Try it!).
+
 Write the command that will copy a file of your choice to a new file
 whose name contains the time stamp. Test it by executing the command a
 few times, waiting a few seconds between invocations (use the arrow
 keys! @@@)
 
 ## Command subsitution {.callout}
-> Most users know (and love!) the backtick operator in the form shown
+> Most users know and love the backtick operator in the form shown
 > here, but recommended practice is to preferably use the newer, more
 > general `$(command)` form, rather than the older `` `command` ``
 > The advantage of the new syntax is that it can be nested.
+
