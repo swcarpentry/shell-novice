@@ -492,3 +492,19 @@ about them."
 > of the four sisters is mentioned?  Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+
+> ## Finding files with different tests {.challenge}
+> 
+> We have already learned how to find files having certain name (or its part) 
+> and how to distinguish between files and directories. The `find` command can 
+> be supplied with several other searching criteria known as 'tests' to locate 
+> files with specific attributes: E.g. creation time, size, permissions, or 
+> ownership.
+> Our challenge is to recursively find all regular files in Nelle’s home directory 
+> modified by user larry during last 24 hours.
+> Hint 1: We should use three test: -type, -mtime and -user.
+> Hint 2: The value for -mtime needs to be negative. Do you know why?
+> Final hint: Assuming that Nelle’s home is our working directory we type: 
+> ~~~ {.bash}
+> $ find ./ -type f -mtime -1 -user larry
+> ~~~
