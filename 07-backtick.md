@@ -10,7 +10,7 @@ minutes: 15
 > * Generate the values of the arguments on the fly using command substitution
 > * Understand the difference between pipes/redirection, and the backtick operator
 
-In the @@loops exercise, we saw how to improve productivity by letting the computer do the repetitive work.
+In Loops topic we saw how to improve productivity by letting the computer do the repetitive work.
 Often, this involves doing the same thing to a whole set of files, e.g.:
 
 ~~~{.bash}
@@ -22,7 +22,7 @@ $ for file in cyclo*.pdb; do
 ~~~
 
 In this example, the shell generates for us the list of things to loop
-over, using the wildcard mechanism we saw in @@@WHERE. This results in the
+over, using the wildcard mechanism we saw in the *Pipes and Filters* topic. This results in the
 `cyclo*.pdf` being replaced with `cyclobutane.pdb cyclohexanol.pdb
 cyclopropane.pdb ethylcyclohexane.pdb` before the loop starts.
 
@@ -88,9 +88,9 @@ backticks, and everything between it, before the loop starts (for
 convenience, newlines are also replaced with simple spaces).  *Note*: do
 not confuse the backtick, `` ` ``, with the single quote `'`.
 
-Recall from @@03 that `cat` prints the contents of its argument (a
-filename) to standard output. So, if the contents of file
-`cohort2010.txt` look like
+Recall from the *Pipes and Filters* topic that `cat` prints the contents
+of its argument (a filename) to standard output. So, if the contents of
+file `cohort2010.txt` look like
 
 ~~~
 patient1033130.txt 
@@ -151,11 +151,13 @@ simply because `cat cohort2010.txt | head -n 2` produces
 Everything between the backticks is executed verbatim by the shell, so
 also the `-n 2` argument to the `head` command works as expected.
 
-Note, however, that it is *essential* that the command (or pipeline) inside the
-backticks produces *clean* output: single word output works best within
-single commands, whitespace- or newline-separated words works best for
-lists over which to iterate in loops. @@@see note on not using filenames
-containing whitespace.
+## **Important**
+Recall from the *Loops* and the *Shell Scripts* topics that Unix
+uses whitespace to separate command, options and arguments.
+For the same reason it is essential that the command (or pipeline)
+inside the backticks produces *clean* output: single word output works
+best within single commands and whitespace- or newline-separated words
+works best for lists over which to iterate in loops.
 
 Exercise
 
@@ -173,9 +175,9 @@ operator. The Unix command you need here is the `date` command, which provides y
 with the current date and time; try it. 
 
 In the current form, its output is less useful for generating filenames
-because it contains whitespace (which, as we know from @@@, should be
-avoided in filenames).  You can tweak `date`'s format in great detail,
-for instance to get rid of whitespace:
+because it contains whitespace (which, as we know from now, should
+preferably be avoided in filenames).  You can tweak `date`'s format in
+great detail, for instance to get rid of whitespace:
 
 ~~~
 $ date +"%Y-%m-%d_%T"
@@ -185,8 +187,8 @@ $ date +"%Y-%m-%d_%T"
 
 Write the command that will copy a file of your choice to a new file
 whose name contains the time stamp. Test it by executing the command a
-few times, waiting a few seconds between invocations (use the arrow
-keys! @@@)
+few times, waiting a few seconds between invocations (use the arrow-up
+key to avoid having to retype the command)
 
 ## Command subsitution {.callout}
 > Most users know and love the backtick operator in the form shown
