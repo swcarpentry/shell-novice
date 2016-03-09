@@ -223,7 +223,7 @@ works best for lists over which to iterate in loops.
 > ~~~
 >
 > Write a loop that uses the backtick operator and the `basename` command to sort each of the `*.pdb` files
-> into a corresponding `*.sortedpdb` file. That is, make the loop do the following:
+> into a corresponding `*.sorted` file. That is, make the loop do the following:
 > ~~~
 > $ sort ammonia.pdb > ammonia.sorted
 > ~~~
