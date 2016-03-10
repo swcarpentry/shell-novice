@@ -1,0 +1,18 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=2gb
+#SBATCH --time=00:05:00
+#SBATCH --job-name=blast_aa
+#SBATCH --error=blast.aa.%J.err
+#SBATCH --output=blast.aa.%J.out
+#SBATCH --reservation=springuno
+
+module load blast/2.2.29
+module load biodata/1.0
+
+cp $BLAST/nr.00.* /tmp
+cp yeast.aa.fasta /tmp
+
+blastp -db /tmp/nr.00 -query /tmp/yeast.aa.fasta -out /tmp/blast_aa.alignments
+cp /tmp/blast_aa.alignments .

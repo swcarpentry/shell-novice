@@ -1,0 +1,18 @@
+#!/bin/sh
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=2
+#SBATCH --mem=2gb
+#SBATCH --time=00:05:00
+#SBATCH --job-name=blast_nt
+#SBATCH --error=blast.nt.%J.err
+#SBATCH --output=blast.nt.%J.out
+#SBATCH --reservation=springuno
+
+module load blast/2.2.29
+module load biodata/1.0
+
+cp $BLAST/yeast.nt.* /tmp
+cp yeast.nt.fasta /tmp
+
+blastn -db /tmp/yeast.nt -query /tmp/yeast.nt.fasta -out /tmp/blast_nt.alignments -num_threads $SLURM_NTASKS_PER_NODE
+cp /tmp/blast_nt.alignments .
