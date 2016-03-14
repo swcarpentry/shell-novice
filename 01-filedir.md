@@ -480,7 +480,7 @@ If she is in her home directory,
 Nelle can see what files she has using the command:
 
 ~~~ {.bash}
-$ ls north-pacific-gyre/2012-07-03/
+$ ls Desktop/data-shell/north-pacific-gyre/2012-07-03/
 ~~~
 
 This is a lot to type,
