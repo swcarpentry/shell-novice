@@ -342,7 +342,7 @@ the shell runs the modified command.
 However, nothing appears to happen --- there is no output.
 After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
 she has no idea whether it is running, much less how quickly.
-She kills the job by typing Control-C,
+She kills the job by pressing ^C (^ means Control),
 uses up-arrow to repeat the command,
 and edits it to read:
 
