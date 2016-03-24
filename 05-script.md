@@ -347,7 +347,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Variables in shell scripts {.challenge}
 >
-> In the molecules directory, you have a shell script called `script.sh` containing the
+> In the `molecules` directory, you have a shell script called `script.sh` containing the
 > following commands:
 >
 > ~~~
@@ -355,7 +355,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > tail -n $3 $1
 > ~~~
 >
-> While you are in the molecules directory, you type the following command:
+> While you are in the `molecules` directory, you type the following command:
 >
 > ~~~
 > bash script.sh '*.pdb' 1 1
@@ -364,9 +364,9 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > Which of the following outputs would you expect to see?
 >
 > 1. All of the lines between the first and the last lines of each file ending in `.pdb`
->    in the molecules directory
-> 2. The first and the last line of each file ending in `.pdb` in the molecules directory
-> 3. The first and the last line of each file in the molecules directory
+>    in the `molecules` directory
+> 2. The first and the last line of each file ending in `.pdb` in the `molecules` directory
+> 3. The first and the last line of each file in the `molecules` directory
 > 4. An error because of the quotes around `*.pdb`
 
 > ## List unique species {.challenge}
