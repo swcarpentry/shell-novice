@@ -347,7 +347,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Variables in shell scripts {.challenge}
 >
-> In the `molecules` directory, you have a shell script called `script.sh` containing the
+> In the `molecules` directory, imagine you have a shell script called `script.sh` containing the
 > following commands:
 >
 > ~~~
