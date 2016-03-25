@@ -115,7 +115,7 @@ Let's tidy up by running `rm draft.txt`:
 $ rm draft.txt
 ~~~
 
-This command removes files ("rm" is short for "remove").
+This command removes files (`rm` is short for "remove").
 If we run `ls` again,
 its output is empty once more,
 which tells us that our file is gone:

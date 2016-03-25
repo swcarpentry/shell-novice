@@ -410,7 +410,7 @@ leading slash.  The leading `/` tells the computer to follow the path from
 the root of the file system, so it always refers to exactly one directory,
 no matter where we are when we run the command.
 
-This allows us to move to our data-shell directory from anywhere on 
+This allows us to move to our `data-shell` directory from anywhere on
 the filesystem (including from inside `data`).  To find the absolute path 
 we're looking for, we can use `pwd` and then extract the piece we need 
 to move to `data-shell`.  
