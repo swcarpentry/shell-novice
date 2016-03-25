@@ -9,7 +9,7 @@ minutes: 15
 > *   Write a shell script that runs a command or series of commands for a fixed set of files.
 > *   Run a shell script from the command line.
 > *   Write a shell script that operates on a set of files defined by the user on the command line.
-> *   Create pipelines that include user-written shell scripts.
+> *   Create pipelines that include shell scripts you, and others, have written.
 
 We are finally ready to see what makes the shell such a powerful programming environment.
 We are going to take the commands we repeat frequently and save them in files
