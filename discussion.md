@@ -29,7 +29,7 @@ character used to represent the `CTRL` key (e.g. `^c` =
 | Control Code                 | Description |
 |----------------------------- | ------------|
 | `CTRL+c` | Interrupts and cancels a running program. This is useful if you want to cancel a command that is taking too long to execute. |
-| `CTRL+d` | Indicates the end of a file or stream of characters that you are entering on the command line. For example, we saw earlier that the `wc` command counts lines, words, and characters in a file. If we just type `wc` and hit `Enter` without providing a file name, then `wc` will assume we want it to analyze all the stuff we type next. After typing our magnum opus directly into the shell prompt, we can then type `CTRL+d` to tell `wc` that we're done and we'd like to see the results of the word count. |
+| `CTRL+d` | Indicates the end of a file or stream of characters that you are entering on the command line. For example, we saw earlier that the `wc` command counts lines, words, and characters in a file. If we just type `wc` and hit the Enter key without providing a file name, then `wc` will assume we want it to analyze all the stuff we type next. After typing our magnum opus directly into the shell prompt, we can then type `CTRL+d` to tell `wc` that we're done and we'd like to see the results of the word count. |
 | `CTRL+z` | Suspends a process but does not terminate it. You can then use the command `fg` to restart the job in the foreground. |
 
 For new shell users, these control codes can all appear to have
