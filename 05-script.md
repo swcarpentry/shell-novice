@@ -137,6 +137,22 @@ $ nano middle.sh
 ~~~ {.output}
 head -n "$2" "$1" | tail -n "$3"
 ~~~
+
+We can now run:
+
+~~~ {.bash}
+$ bash middle.sh pentane.pdb 15 5
+~~~
+~~~ {.output}
+ATOM      9  H           1       1.324   0.350  -1.332  1.00  0.00
+ATOM     10  H           1       1.271   1.378   0.122  1.00  0.00
+ATOM     11  H           1      -0.074  -0.384   1.288  1.00  0.00
+ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
+ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
+~~~
+
+And:
+
 ~~~ {.bash}
 $ bash middle.sh pentane.pdb 20 5
 ~~~
