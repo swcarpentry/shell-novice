@@ -160,6 +160,14 @@ To find out what they are, we can type `man grep`.
 it prints a description of a command and its options,
 and (if you're lucky) provides a few examples of how to use it.
 
+> ## `man` and Git for Windows {.callout}
+>
+> The bash shell provided by Git for Windows does not
+> support the `man` command. Googling for
+> `unix man page COMMAND` (e.g. `unix man page grep`)
+> provides links to numerous copies of the Unix manual
+> pages online.
+
 To navigate through the `man` pages,
 you may use the up and down arrow keys to move line-by-line,
 or try the "b" and spacebar keys to skip up and down by full page.
