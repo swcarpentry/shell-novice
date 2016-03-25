@@ -19,7 +19,7 @@ a bunch of commands saved in a file is usually called a **shell script**,
 but make no mistake:
 these are actually small programs.
 
-Let's start by going back to `molecules/` and putting the following line in the file `middle.sh`:
+Let's start by going back to `molecules/` and putting the following line into a new file, `middle.sh`:
 
 ~~~ {.bash}
 $ cd molecules
