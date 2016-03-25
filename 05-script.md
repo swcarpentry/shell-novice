@@ -151,7 +151,8 @@ ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
 ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 ~~~
 
-And:
+By changing the arguments to our command we can change our script's
+behaviour:
 
 ~~~ {.bash}
 $ bash middle.sh pentane.pdb 20 5
