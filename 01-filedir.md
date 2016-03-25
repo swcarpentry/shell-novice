@@ -344,13 +344,13 @@ but we'll see some uses for it soon.
 
 > ## Other Hidden Files {.callout}
 > 
-> In addition to the hidden directories `..` and `.`, you may also see a file 
-> called `.bash_profile`. This file usually 
-> contains settings to customize the shell.  There may also be similar files called 
-> `.bashrc` or `.bash_login` in your own home directory. 
-> You may also see other files prefixed with `.` e.g. `.git` or `.ssh`.
-> The `.` prefix is used to prevent these 
-> configuration files from cluttering the terminal when a standard `ls` command is used.
+> In addition to the hidden directories `..` and `.`, you may also see a file
+> called `.bash_profile`. This file usually contains shell configuration
+> settings. You may also see other files and directories beginning
+> with `.`. These are usually files and directories that are used to configure
+> different programs on your computer. The prefix `.` is used to prevent these
+> configuration files from cluttering the terminal when a standard `ls` command
+> is used.
 
 > ## Orthogonality {.callout}
 >
