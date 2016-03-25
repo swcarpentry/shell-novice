@@ -261,7 +261,7 @@ Instead of typing them in again
 we can do this:
 
 ~~~ {.bash}
-$ history | tail -n 4 > redo-figure-3.sh
+$ history | tail -n 5 > redo-figure-3.sh
 ~~~
 
 The file `redo-figure-3.sh` now contains:
@@ -271,9 +271,11 @@ The file `redo-figure-3.sh` now contains:
 298 bash goodiff stats-NENE01729B.txt /data/validated/01729.txt > 01729-differences.txt
 299 cut -d ',' -f 2-3 01729-differences.txt > 01729-time-series.txt
 300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png
+301 history | tail -n 5 > redo-figure-3.sh
 ~~~
 
 After a moment's work in an editor to remove the serial numbers on the commands,
+and to remove the final line where we called the `history` command,
 we have a completely accurate record of how we created that figure.
 
 In practice, most people develop shell scripts by running commands at the shell prompt a few times
