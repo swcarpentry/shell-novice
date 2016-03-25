@@ -329,11 +329,12 @@ but it does find the copy in `thesis` that we didn't delete.
 > **filename extension**, and indicates
 > what type of data the file holds: `.txt` signals a plain text file, `.pdf`
 > indicates a PDF document, `.cfg` is a configuration file full of parameters
-> for some program or other, and so on.
+> for some program or other, `.png` is a PNG image, and so on.
 >
 > This is just a convention, albeit an important one. Files contain
 > bytes: it's up to us and our programs to interpret those bytes
-> according to the rules for PDF documents, images, and so on.
+> according to the rules for plain text files, PDF documents, configuration
+> files, images, and so on.
 >
 > Naming a PNG image of a whale as `whale.mp3` doesn't somehow
 > magically turn it into a recording of whalesong, though it *might*
