@@ -129,7 +129,8 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 
 We still need to edit `middle.sh` each time we want to adjust the range of lines,
 though.
-Let's fix that by using the special variables `$2` and `$3`:
+Let's fix that by using the special variables `$2` and `$3` for the
+number of lines to be passed to `head` and `tail` respectively:
 
 ~~~ {.bash}
 $ nano middle.sh
