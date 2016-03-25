@@ -207,7 +207,7 @@ $ sort -n lengths.txt | head -n 1
   9  methane.pdb
 ~~~
 
-The vertical bar between the two commands is called a **pipe**.
+The vertical bar, `|`, between the two commands is called a **pipe**.
 It tells the shell that we want to use
 the output of the command on the left
 as the input to the command on the right.
