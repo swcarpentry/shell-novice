@@ -52,6 +52,8 @@ subtitle: Reference
 *   `tail` displays the last few lines of its input.
 *   `sort` sorts its inputs.
 *   `wc` counts lines, words, and characters in its inputs.
+*   `*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`.
+*   `?` matches any single character in a filename, so `?.txt` matches `a.txt` but not `any.txt`.
 *   `command > file` redirects a command's output to a file.
 *   `first | second` is a pipeline: the output of the first command is used as the input to the second.
 *   The best way to use the shell is to use pipes to combine simple single-purpose programs (filters).
@@ -81,8 +83,6 @@ subtitle: Reference
 *   `find` finds files with specific properties that match patterns.
 *   `grep` selects lines in files that match patterns.
 *   `man command` displays the manual page for a given command.
-*   `*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`.
-*   `?` matches any single character in a filename, so `?.txt` matches `a.txt` but not `any.txt`.
 *   `$(command)` inserts a command's output in place.
 
 ## Glossary
