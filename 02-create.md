@@ -90,15 +90,28 @@ $ nano draft.txt
 > documents directory instead. You can change this by navigating to
 > another directory the first time you "Save As..."
 
-
-Let's type in a few lines of text,
-then use Control-O to write our data to disk:
+Let's type in a few lines of text.
+Once we're happy with out text, we can press Ctrl-O (press the Ctrl key and, while
+holding it down, press the O key) to write our data to disk.
 
 ![Nano in action](fig/nano-screenshot.png)
 
-Once our file is saved,
-we can use Control-X to quit the editor and return to the shell.
-(Unix documentation often uses the shorthand `^A` to mean "control-A".)
+Once our file is saved, we can use Ctrl-X to quit the editor and 
+return to the shell.
+
+> ## Ctrl, "Control", key {.callout}
+>
+> The Ctrl key is called the "Control" key. There are various ways
+> in which using the Ctrl key may be described. For example, you may
+> see an instruction to press the Ctrl key and, while holding it down, 
+> press the X key, described as any of:
+>
+> * Ctrl-X
+> * Ctrl+X
+> * Control-X
+> * Control+X
+> * `^X`
+
 `nano` doesn't leave any output on the screen after it exits,
 but `ls` now shows that we have created a file called `draft.txt`:
 

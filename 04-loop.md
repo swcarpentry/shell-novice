@@ -342,7 +342,7 @@ the shell runs the modified command.
 However, nothing appears to happen --- there is no output.
 After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
 she has no idea whether it is running, much less how quickly.
-She kills the job by typing Control-C,
+She kills the job by typing Ctrl-C,
 uses up-arrow to repeat the command,
 and edits it to read:
 
@@ -352,9 +352,8 @@ $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$d
 
 > ## Beginning and End {.callout}
 >
-> We can move to the beginning of a line in the shell by typing `^A`
-> (which means Control-A)
-> and to the end using `^E`.
+> We can move to the beginning of a line in the shell by typing Ctrl-A
+> and to the end using Ctrl-E.
 
 When she runs her program now,
 it produces one line of output every five seconds or so:
