@@ -173,10 +173,11 @@ on the front page of the website for more details.
     and try it out yourself *before* teaching a class.
 
 *   On Windows machines
-	if `nano` hasn't been properly installed with the SWC installer, it 
-    is possible to use `notepad` as an alternative.  There will be a GUI 
-    interface and line endings are treated differently, but otherwise, for 
-    the purposes of this lesson, `notepad` and `nano` can be used almost interchangeably.  
+    if `nano` hasn't been properly installed with the
+    [Software Carpentry Windows Installer](http://github.com/swcarpentry/windows-installer)
+    it is possible to use `notepad` as an alternative.  There will be a GUI
+    interface and line endings are treated differently, but otherwise, for
+    the purposes of this lesson, `notepad` and `nano` can be used almost interchangeably.
 
 *   On Windows, it appears that:
 
@@ -224,6 +225,7 @@ but:
 Whatever you use,
 please *test it yourself* on a Windows machine *before* your workshop:
 things may always have changed behind your back since your last workshop.
-And please also make use of our Windows setup helper.
+And please also make use of our
+[Software Carpentry Windows Installer](http://github.com/swcarpentry/windows-installer).
 
 [shebang]: http://www.in-ulm.de/~mascheck/various/shebang/

@@ -94,6 +94,19 @@ so this loop prints out the first three lines of each data file in turn.
 > us that we haven't finished typing a complete command yet. A semicolon, `;`, 
 > can be used to separate two commands written on a single line.
 
+> ## Same symbols, different meanings {.callout}
+>
+> Here we see `>` being used a shell prompt, whereas `>` is also
+> used to redirect output.
+> Similarly, `$` is used as a shell prompt, but, as we saw earler,
+> it is also used to ask the shell to get the value of a variable.
+>
+> If the *shell* prints `>` or `$` then it expects you to type something,
+> and the symbol is a prompt.
+>
+> If *you* type `>` or `$` yourself, it is an instruction from you that
+> the shell to redirect output or get the value of a variable.
+
 We have called the variable in this loop `filename`
 in order to make its purpose clearer to human readers.
 The shell itself doesn't care what the variable is called;
@@ -342,7 +355,7 @@ the shell runs the modified command.
 However, nothing appears to happen --- there is no output.
 After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
 she has no idea whether it is running, much less how quickly.
-She kills the running command by typing Control-C,
+She kills the running command by typing Ctrl-C,
 uses up-arrow to repeat the command,
 and edits it to read:
 
@@ -352,9 +365,8 @@ $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$d
 
 > ## Beginning and End {.callout}
 >
-> We can move to the beginning of a line in the shell by typing `^A`
-> (which means Control-A)
-> and to the end using `^E`.
+> We can move to the beginning of a line in the shell by typing Ctrl-A
+> and to the end using Ctrl-E.
 
 When she runs her program now,
 it produces one line of output every five seconds or so:
