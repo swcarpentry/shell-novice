@@ -94,6 +94,19 @@ so this loop prints out the first three lines of each data file in turn.
 > us that we haven't finished typing a complete command yet. A semicolon, `;`, 
 > can be used to separate two commands written on a single line.
 
+> ## Same symbols, different meanings {.callout}
+>
+> Here we see `>` being used a shell prompt, whereas `>` is also
+> used to redirect output.
+> Similarly, `$` is used as a shell prompt, but, as we saw earler,
+> it is also used to ask the shell to get the value of a variable.
+>
+> If the *shell* prints `>` or `$` then it expects you to type something,
+> and the symbol is a prompt.
+>
+> If *you* type `>` or `$` yourself, it is an instruction from you that
+> the shell to redirect output or get the value of a variable.
+
 We have called the variable in this loop `filename`
 in order to make its purpose clearer to human readers.
 The shell itself doesn't care what the variable is called;
