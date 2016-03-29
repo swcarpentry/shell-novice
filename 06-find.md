@@ -154,8 +154,37 @@ $ grep -n -w -v "the" haiku.txt
 11:Software is like that.
 ~~~
 
-`grep` has lots of other options.
-To find out what they are, we can type `man grep`.
+`grep` has lots of other options. To find out what they are, we can type:
+
+~~~{.bash}
+$ grep --help
+~~~
+
+~~~{.output}
+Usage: grep [OPTION]... PATTERN [FILE]...
+Search for PATTERN in each FILE or standard input.
+PATTERN is, by default, a basic regular expression (BRE).
+Example: grep -i 'hello world' menu.h main.c
+
+Regexp selection and interpretation:
+  -E, --extended-regexp     PATTERN is an extended regular expression (ERE)
+  -F, --fixed-strings       PATTERN is a set of newline-separated fixed strings
+  -G, --basic-regexp        PATTERN is a basic regular expression (BRE)
+  -P, --perl-regexp         PATTERN is a Perl regular expression
+  -e, --regexp=PATTERN      use PATTERN for matching
+  -f, --file=FILE           obtain PATTERN from FILE
+  -i, --ignore-case         ignore case distinctions
+  -w, --word-regexp         force PATTERN to match only whole words
+  -x, --line-regexp         force PATTERN to match only whole lines
+  -z, --null-data           a data line ends in 0 byte, not newline
+
+Miscellaneous:
+...        ...        ...
+~~~
+
+Many bash commands, and programs that people have written that can be run from within bash, support a `--help` flag to display more information on how to use the commands or programs.
+
+For more information on how to use `grep` we can type `man grep`.
 `man` is the Unix "manual" command:
 it prints a description of a command and its options,
 and (if you're lucky) provides a few examples of how to use it.
