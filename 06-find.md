@@ -180,6 +180,8 @@ Regexp selection and interpretation:
 
 Miscellaneous:
 ...        ...        ...
+
+
 ~~~
 
 Many bash commands, and programs that people have written that can be run from within bash, support a `--help` flag to display more information on how to use the commands or programs.
@@ -192,10 +194,16 @@ and (if you're lucky) provides a few examples of how to use it.
 > ## `man` and Git for Windows {.callout}
 >
 > The bash shell provided by Git for Windows does not
-> support the `man` command. Googling for
+> support the `man` command. Doing a web search for
 > `unix man page COMMAND` (e.g. `unix man page grep`)
 > provides links to numerous copies of the Unix manual
-> pages online.
+> pages online. 
+> For example, GNU provides links to its
+> [manuals](http://www.gnu.org/manual/manual.html):
+> these include [grep](http://www.gnu.org/software/grep/manual/),
+> and the 
+> [core GNU utilities](http://www.gnu.org/software/coreutils/manual/coreutils.html),
+> which covers many commands introduced within this lesson.
 
 To navigate through the `man` pages,
 you may use the up and down arrow keys to move line-by-line,
