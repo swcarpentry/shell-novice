@@ -30,7 +30,7 @@
           <h2 class="subtitle">Loops</h2>
           <section class="objectives panel panel-warning">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
 </div>
 <div class="panel-body">
 <ul>
@@ -44,17 +44,17 @@
 </div>
 </section>
 <p><strong>Loops</strong> are key to productivity improvements through automation as they allow us to execute commands repetitively. Similar to wildcards and tab completion, using loops also reduces the amount of typing (and typing mistakes). Suppose we have several hundred genome data files named <code>basilisk.dat</code>, <code>unicorn.dat</code>, and so on. In this example, we’ll use the <code>creatures</code> directory which only has two example files, but the principles can be applied to many many more files at once. We would like to modify these files, but also save a version of the original files, naming the copies <code>original-basilisk.dat</code> and <code>original-unicorn.dat</code>. We can’t use:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> *.dat original-*.dat</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> *.dat original-*.dat</code></pre></div>
 <p>because that would expand to:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> basilisk.dat unicorn.dat original-*.dat</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> basilisk.dat unicorn.dat original-*.dat</code></pre></div>
 <p>This wouldn’t back up our files, instead we get an error:</p>
 <pre class="error"><code>cp: target `original-*.dat&#39; is not a directory</code></pre>
 <p>This problem arises when <code>cp</code> receives more than two inputs. When this happens, it expects the last input to be a directory where it can copy all the files it was passed. Since there is no directory named <code>original-*.dat</code> in the <code>creatures</code> directory we get an error.</p>
 <p>Instead, we can use a <strong>loop</strong> to do some operation once for each thing in a list. Here’s a simple example that displays the first three lines of each file in turn:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">filename</span> in basilisk.dat unicorn.dat
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">filename</span> in basilisk.dat unicorn.dat
 <span class="kw">&gt;</span> <span class="kw">do</span>
 <span class="kw">&gt;</span>    <span class="kw">head</span> -n 3 <span class="ot">$filename</span>
-<span class="kw">&gt;</span> <span class="kw">done</span></code></pre>
+<span class="kw">&gt;</span> <span class="kw">done</span></code></pre></div>
 <pre class="output"><code>COMMON NAME: basilisk
 CLASSIFICATION: basiliscus vulgaris
 UPDATED: 1745-05-02
@@ -66,43 +66,53 @@ UPDATED: 1738-11-24</code></pre>
 <p>Finally, the command that’s actually being run is our old friend <code>head</code>, so this loop prints out the first three lines of each data file in turn.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Follow the Prompt</h2>
+<h2 id="follow-the-prompt"><span class="glyphicon glyphicon-pushpin"></span>Follow the Prompt</h2>
 </div>
 <div class="panel-body">
 <p>The shell prompt changes from <code>$</code> to <code>&gt;</code> and back again as we were typing in our loop. The second prompt, <code>&gt;</code>, is different to remind us that we haven’t finished typing a complete command yet. A semicolon, <code>;</code>, can be used to separate two commands written on a single line.</p>
 </div>
 </aside>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="same-symbols-different-meanings"><span class="glyphicon glyphicon-pushpin"></span>Same symbols, different meanings</h2>
+</div>
+<div class="panel-body">
+<p>Here we see <code>&gt;</code> being used a shell prompt, whereas <code>&gt;</code> is also used to redirect output. Similarly, <code>$</code> is used as a shell prompt, but, as we saw earler, it is also used to ask the shell to get the value of a variable.</p>
+<p>If the <em>shell</em> prints <code>&gt;</code> or <code>$</code> then it expects you to type something, and the symbol is a prompt.</p>
+<p>If <em>you</em> type <code>&gt;</code> or <code>$</code> yourself, it is an instruction from you that the shell to redirect output or get the value of a variable.</p>
+</div>
+</aside>
 <p>We have called the variable in this loop <code>filename</code> in order to make its purpose clearer to human readers. The shell itself doesn’t care what the variable is called; if we wrote this loop as:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">x</span> in basilisk.dat unicorn.dat
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">x</span> in basilisk.dat unicorn.dat
 <span class="kw">do</span>
     <span class="kw">head</span> -n 3 <span class="ot">$x</span>
-<span class="kw">done</span></code></pre>
+<span class="kw">done</span></code></pre></div>
 <p>or:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">temperature</span> in basilisk.dat unicorn.dat
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">temperature</span> in basilisk.dat unicorn.dat
 <span class="kw">do</span>
     <span class="kw">head</span> -n 3 <span class="ot">$temperature</span>
-<span class="kw">done</span></code></pre>
+<span class="kw">done</span></code></pre></div>
 <p>it would work exactly the same way. <em>Don’t do this.</em> Programs are only useful if people can understand them, so meaningless names (like <code>x</code>) or misleading names (like <code>temperature</code>) increase the odds that the program won’t do what its readers think it does.</p>
 <p>Here’s a slightly more complicated loop:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">filename</span> in *.dat
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">filename</span> in *.dat
 <span class="kw">do</span>
     <span class="kw">echo</span> <span class="ot">$filename</span>
     <span class="kw">head</span> -n 100 <span class="ot">$filename</span> <span class="kw">|</span> <span class="kw">tail</span> -n 20
-<span class="kw">done</span></code></pre>
+<span class="kw">done</span></code></pre></div>
 <p>The shell starts by expanding <code>*.dat</code> to create the list of files it will process. The <strong>loop body</strong> then executes two commands for each of those files. The first, <code>echo</code>, just prints its command-line parameters to standard output. For example:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">echo</span> hello there</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">echo</span> hello there</code></pre></div>
 <p>prints:</p>
 <pre class="output"><code>hello there</code></pre>
 <p>In this case, since the shell expands <code>$filename</code> to be the name of a file, <code>echo $filename</code> just prints the name of the file. Note that we can’t write this as:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">filename</span> in *.dat
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">filename</span> in *.dat
 <span class="kw">do</span>
     <span class="ot">$filename</span>
     <span class="kw">head</span> -n 100 <span class="ot">$filename</span> <span class="kw">|</span> <span class="kw">tail</span> -n 20
-<span class="kw">done</span></code></pre>
+<span class="kw">done</span></code></pre></div>
 <p>because then the first time through the loop, when <code>$filename</code> expanded to <code>basilisk.dat</code>, the shell would try to run <code>basilisk.dat</code> as a program. Finally, the <code>head</code> and <code>tail</code> combination selects lines 81-100 from whatever file is being processed.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Spaces in Names</h2>
+<h2 id="spaces-in-names"><span class="glyphicon glyphicon-pushpin"></span>Spaces in Names</h2>
 </div>
 <div class="panel-body">
 <p>Filename expansion in loops is another reason you should not use spaces in filenames. Suppose our data files are named:</p>
@@ -131,17 +141,17 @@ done</code></pre>
 </div>
 </aside>
 <p>Going back to our original file copying problem, we can solve it using this loop:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">filename</span> in *.dat
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">filename</span> in *.dat
 <span class="kw">do</span>
     <span class="kw">cp</span> <span class="ot">$filename</span> original-<span class="ot">$filename</span>
-<span class="kw">done</span></code></pre>
+<span class="kw">done</span></code></pre></div>
 <p>This loop runs the <code>cp</code> command once for each filename. The first time, when <code>$filename</code> expands to <code>basilisk.dat</code>, the shell executes:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> basilisk.dat original-basilisk.dat</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> basilisk.dat original-basilisk.dat</code></pre></div>
 <p>The second time, the command is:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> unicorn.dat original-unicorn.dat</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> unicorn.dat original-unicorn.dat</code></pre></div>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Measure Twice, Run Once</h2>
+<h2 id="measure-twice-run-once"><span class="glyphicon glyphicon-pushpin"></span>Measure Twice, Run Once</h2>
 </div>
 <div class="panel-body">
 <p>A loop is a way to do many things at once — or to make many mistakes at once if it does the wrong thing. One way to check what a loop <em>would</em> do is to echo the commands it would run instead of actually running them. For example, we could write our file copying loop like this:</p>
@@ -157,11 +167,11 @@ cp unicorn.dat original-unicorn.dat</code></pre>
 </aside>
 <h2 id="nelles-pipeline-processing-files">Nelle’s Pipeline: Processing Files</h2>
 <p>Nelle is now ready to process her data files. Since she’s still learning how to use the shell, she decides to build up the required commands in stages. Her first step is to make sure that she can select the right files — remember, these are ones whose names end in ‘A’ or ‘B’, rather than ‘Z’. Starting from her home directory, Nelle types:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> north-pacific-gyre/2012-07-03
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> north-pacific-gyre/2012-07-03
 $ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt
 <span class="kw">&gt;</span> <span class="kw">do</span>
 <span class="kw">&gt;</span>     <span class="kw">echo</span> <span class="ot">$datafile</span>
-<span class="kw">&gt;</span> <span class="kw">done</span></code></pre>
+<span class="kw">&gt;</span> <span class="kw">done</span></code></pre></div>
 <pre class="output"><code>NENE01729A.txt
 NENE01729B.txt
 NENE01736A.txt
@@ -169,10 +179,10 @@ NENE01736A.txt
 NENE02043A.txt
 NENE02043B.txt</code></pre>
 <p>Her next step is to decide what to call the files that the <code>goostats</code> analysis program will create. Prefixing each input file’s name with “stats” seems simple, so she modifies her loop to do that:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt
 <span class="kw">&gt;</span> <span class="kw">do</span>
 <span class="kw">&gt;</span>     <span class="kw">echo</span> <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span>
-<span class="kw">&gt;</span> <span class="kw">done</span></code></pre>
+<span class="kw">&gt;</span> <span class="kw">done</span></code></pre></div>
 <pre class="output"><code>NENE01729A.txt stats-NENE01729A.txt
 NENE01729B.txt stats-NENE01729B.txt
 NENE01736A.txt stats-NENE01736A.txt
@@ -181,17 +191,17 @@ NENE02043A.txt stats-NENE02043A.txt
 NENE02043B.txt stats-NENE02043B.txt</code></pre>
 <p>She hasn’t actually run <code>goostats</code> yet, but now she’s sure she can select the right files and generate the right output filenames.</p>
 <p>Typing in commands over and over again is becoming tedious, though, and Nelle is worried about making mistakes, so instead of re-entering her loop, she presses the up arrow. In response, the shell redisplays the whole loop on one line (using semi-colons to separate the pieces):</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">echo</span> <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">echo</span> <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre></div>
 <p>Using the left arrow key, Nelle backs up and changes the command <code>echo</code> to <code>bash goostats</code>:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">bash</span> goostats <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre>
-<p>When she presses enter, the shell runs the modified command. However, nothing appears to happen — there is no output. After a moment, Nelle realizes that since her script doesn’t print anything to the screen any longer, she has no idea whether it is running, much less how quickly. She kills the job by typing Control-C, uses up-arrow to repeat the command, and edits it to read:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">echo</span> <span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">bash</span> goostats <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">bash</span> goostats <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre></div>
+<p>When she presses enter, the shell runs the modified command. However, nothing appears to happen — there is no output. After a moment, Nelle realizes that since her script doesn’t print anything to the screen any longer, she has no idea whether it is running, much less how quickly. She kills the job by typing Ctrl-C, uses up-arrow to repeat the command, and edits it to read:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">echo</span> <span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">bash</span> goostats <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre></div>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Beginning and End</h2>
+<h2 id="beginning-and-end"><span class="glyphicon glyphicon-pushpin"></span>Beginning and End</h2>
 </div>
 <div class="panel-body">
-<p>We can move to the beginning of a line in the shell by typing <code>^A</code> (which means Control-A) and to the end using <code>^E</code>.</p>
+<p>We can move to the beginning of a line in the shell by typing Ctrl-A and to the end using Ctrl-E.</p>
 </div>
 </aside>
 <p>When she runs her program now, it produces one line of output every five seconds or so:</p>
@@ -202,7 +212,7 @@ NENE01736A.txt
 <p>1518 times 5 seconds, divided by 60, tells her that her script will take about two hours to run. As a final check, she opens another terminal window, goes into <code>north-pacific-gyre/2012-07-03</code>, and uses <code>cat stats-NENE01729B.txt</code> to examine one of the output files. It looks good, so she decides to get some coffee and catch up on her reading.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pushpin"></span>Those Who Know History Can Choose to Repeat It</h2>
+<h2 id="those-who-know-history-can-choose-to-repeat-it"><span class="glyphicon glyphicon-pushpin"></span>Those Who Know History Can Choose to Repeat It</h2>
 </div>
 <div class="panel-body">
 <p>Another way to repeat previous work is to use the <code>history</code> command to get a list of the last few hundred commands that have been executed, and then to use <code>!123</code> (where “123” is replaced by the command number) to repeat one of those commands. For example, if Nelle types this:</p>
@@ -215,9 +225,17 @@ NENE01736A.txt
 <p>then she can re-run <code>goostats</code> on <code>NENE01729B.txt</code> simply by typing <code>!458</code>.</p>
 </div>
 </aside>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="other-history-commands"><span class="glyphicon glyphicon-pushpin"></span>Other history commands</h2>
+</div>
+<div class="panel-body">
+<p>There are a number of other shortcut commands for getting at the history. Two of the more useful are <code>!!</code>, which retrieves the immediately preceding command (you may or may not find this more convenient than plain up-arrow), and <code>!$</code>, which retrieves the last word of the last command. That’s useful more often than you might expect: after <code>bash goostats NENE01729B.txt stats-NENE01729B.txt</code>, you can type <code>less !$</code> to look at the file <code>stats-NENE01729B.txt</code>, which is quicker than doing up-arrow and editing the command-line.</p>
+</div>
+</aside>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Variables in Loops</h2>
+<h2 id="variables-in-loops"><span class="glyphicon glyphicon-pencil"></span>Variables in Loops</h2>
 </div>
 <div class="panel-body">
 <p>Suppose that <code>ls</code> initially displays:</p>
@@ -237,7 +255,7 @@ done</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Saving to a File in a Loop - Part One</h2>
+<h2 id="saving-to-a-file-in-a-loop---part-one"><span class="glyphicon glyphicon-pencil"></span>Saving to a File in a Loop - Part One</h2>
 </div>
 <div class="panel-body">
 <p>In the same directory, what is the effect of this loop?</p>
@@ -256,7 +274,7 @@ done</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Saving to a File in a Loop - Part Two</h2>
+<h2 id="saving-to-a-file-in-a-loop---part-two"><span class="glyphicon glyphicon-pencil"></span>Saving to a File in a Loop - Part Two</h2>
 </div>
 <div class="panel-body">
 <p>In another directory, where <code>ls</code> returns:</p>
@@ -276,30 +294,30 @@ done</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Doing a Dry Run</h2>
+<h2 id="doing-a-dry-run"><span class="glyphicon glyphicon-pencil"></span>Doing a Dry Run</h2>
 </div>
 <div class="panel-body">
 <p>Suppose we want to preview the commands the following loop will execute without actually running those commands:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">file</span> in *.dat
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">file</span> in *.dat
 <span class="kw">do</span>
   <span class="kw">analyze</span> <span class="ot">$file</span> <span class="kw">&gt;</span> analyzed-<span class="ot">$file</span>
-<span class="kw">done</span></code></pre>
+<span class="kw">done</span></code></pre></div>
 <p>What is the difference between the two loops below, and which one would we want to run?</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Version 1</span>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Version 1</span>
 <span class="kw">for</span> <span class="kw">file</span> in *.dat
 <span class="kw">do</span>
   <span class="kw">echo</span> analyze <span class="ot">$file</span> <span class="kw">&gt;</span> analyzed-<span class="ot">$file</span>
-<span class="kw">done</span></code></pre>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Version 2</span>
+<span class="kw">done</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Version 2</span>
 <span class="kw">for</span> <span class="kw">file</span> in *.dat
 <span class="kw">do</span>
   <span class="kw">echo</span> <span class="st">&quot;analyze </span><span class="ot">$file</span><span class="st"> &gt; analyzed-</span><span class="ot">$file</span><span class="st">&quot;</span>
-<span class="kw">done</span></code></pre>
+<span class="kw">done</span></code></pre></div>
 </div>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2><span class="glyphicon glyphicon-pencil"></span>Nested Loops</h2>
+<h2 id="nested-loops"><span class="glyphicon glyphicon-pencil"></span>Nested Loops</h2>
 </div>
 <div class="panel-body">
 <p>Suppose we want to set up up a directory structure to organize some experiments measuring the growth rate under different sugar types <em>and</em> different temperatures. What would be the result of the following code:</p>

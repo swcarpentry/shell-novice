@@ -105,6 +105,14 @@ $ <span class="kw">wc</span> *.pdb</code></pre></div>
   21  pentane.pdb
   15  propane.pdb
  107  total</code></pre>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="output-page-by-page"><span class="glyphicon glyphicon-pushpin"></span>Output page by page</h2>
+</div>
+<div class="panel-body">
+<p>We’ll continue to use <code>cat</code> in this lesson, but it has the disadvantage that, if a file is long, you get <em>all</em> of it on your screen. Probably more useful in practice is the command <code>less</code>, as in <code>$ less lengths.txt</code>, which displays a screenful of the file, and then stops. You can go forward one screenful by pressing the spacebar, or back one by pressing <code>b</code>. Press <code>q</code> to quit.</p>
+</div>
+</aside>
 <p>Now let’s use the <code>sort</code> command to sort its contents. We will also use the <code>-n</code> flag to specify that the sort is numerical instead of alphabetical. This does <em>not</em> change the file; instead, it sends the sorted result to the screen:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">sort</span> -n lengths.txt</code></pre></div>
 <pre class="output"><code>  9  methane.pdb
