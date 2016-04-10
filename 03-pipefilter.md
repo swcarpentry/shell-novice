@@ -154,6 +154,17 @@ $ cat lengths.txt
  107  total
 ~~~
 
+> ## Output page by page {.callout}
+>
+> We'll continue to use `cat` in this lesson, for convenience and consistency,
+> but it has the disadvantage that,
+> if a file is long, you get *all* of it dumped onto your screen.
+> Probably more useful in practice is the command `less`,
+> as in `$ less lengths.txt`,
+> which displays a screenful of the file, and then stops.
+> You can go forward one screenful by pressing the spacebar,
+> or back one by pressing `b`.  Press `q` to quit.
+
 Now let's use the `sort` command to sort its contents.
 We will also use the `-n` flag to specify that the sort is
 numerical instead of alphabetical.
