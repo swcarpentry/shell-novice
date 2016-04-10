@@ -92,7 +92,9 @@ $ nano draft.txt
 
 Let's type in a few lines of text.
 Once we're happy with out text, we can press Ctrl-O (press the Ctrl key and, while
-holding it down, press the O key) to write our data to disk.
+holding it down, press the O key) to write our data to disk
+(we'll be asked what file we want to save this to:
+press Return to accept the suggested default of `draft.txt`).
 
 ![Nano in action](fig/nano-screenshot.png)
 
