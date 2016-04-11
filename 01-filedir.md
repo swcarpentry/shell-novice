@@ -511,9 +511,9 @@ and we will see it in many other tools as we go on.
 
 > ## Many ways to do the same thing - absolute vs relative paths {.challenge}
 >
-> For a hypothetical filesystem location of `/Users/amanda/data/`, 
-> select each of the below commands that Amanda could use to navigate to her home directory, 
-> which is `Users/amanda`.  
+> Starting from a filesystem location of `/Users/amanda/data/`, 
+> which of the following commands could Amanda use to navigate to her home directory, 
+> which is `/Users/amanda`?
 > 
 >1.  `cd .`
 >2.  `cd /`
