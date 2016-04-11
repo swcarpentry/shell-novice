@@ -53,6 +53,8 @@ subtitle: Reference
 *   `tail` displays the last few lines of its input.
 *   `sort` sorts its inputs.
 *   `wc` counts lines, words, and characters in its inputs.
+*   `*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`.
+*   `?` matches any single character in a filename, so `?.txt` matches `a.txt` but not `any.txt`.
 *   `command > file` redirects a command's output to a file.
 *   `first | second` is a pipeline: the output of the first command is used as the input to the second.
 *   The best way to use the shell is to use pipes to combine simple single-purpose programs (filters).
@@ -61,7 +63,7 @@ subtitle: Reference
 
 *   A `for` loop repeats commands once for every thing in a list.
 *   Every `for` loop needs a variable to refer to the current "thing".
-*   Use `$name` to expand a variable (i.e., get its value).
+*   Use `$name` to expand a variable (i.e., get its value). `${name}` can also be used.
 *   Do not use spaces, quotes, or wildcard characters such as '*' or '?' in filenames, as it complicates variable expansion.
 *   Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping.
 *   Use the up-arrow key to scroll up through previous commands to edit and repeat them.
@@ -72,8 +74,8 @@ subtitle: Reference
 
 *   Save commands in files (usually called shell scripts) for re-use.
 *   `bash filename` runs the commands saved in a file.
-*   `$*` refers to all of a shell script's command-line parameters.
-*   `$1`, `$2`, etc., refer to specified command-line parameters.
+*   `$@` refers to all of a shell script's command-line parameters.
+*   `$1`, `$2`, etc., refer to the first command-line parameter, the second command-line parameter, etc.
 *   Place variables in quotes if the values might have spaces in them.
 *   Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.
 
@@ -82,8 +84,6 @@ subtitle: Reference
 *   `find` finds files with specific properties that match patterns.
 *   `grep` selects lines in files that match patterns.
 *   `man command` displays the manual page for a given command.
-*   `*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`.
-*   `?` matches any single character in a filename, so `?.txt` matches `a.txt` but not `any.txt`.
 *   `$(command)` inserts a command's output in place.
 
 ## Glossary
