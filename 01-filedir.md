@@ -513,7 +513,7 @@ and we will see it in many other tools as we go on.
 >
 > For a hypothetical filesystem location of `/Users/amanda/data/`, 
 > select each of the below commands that Amanda could use to navigate to her home directory, 
-> which is `Users/amanda`.  
+> which is `/Users/amanda`.
 > 
 >1.  `cd .`
 >2.  `cd /`
