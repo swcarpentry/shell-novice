@@ -279,7 +279,7 @@ cp unicorn.dat original-unicorn.dat
 > 
 > *without* actually running those commands. We can then use up-arrow to
 > redisplay the loop, back-arrow to get to the word `echo`, delete it, and
-> then press "enter" to run the loop with the actual `cp` commands. This
+> then press Enter to run the loop with the actual `cp` commands. This
 > isn't foolproof, but it's a handy way to see what's going to happen when
 > you're still learning how loops work.
 
@@ -350,12 +350,12 @@ Nelle backs up and changes the command `echo` to `bash goostats`:
 $ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
 
-When she presses enter,
+When she presses Enter,
 the shell runs the modified command.
 However, nothing appears to happen --- there is no output.
 After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
 she has no idea whether it is running, much less how quickly.
-She kills the job by typing Ctrl-C,
+She kills the running command by typing Ctrl-C,
 uses up-arrow to repeat the command,
 and edits it to read:
 

@@ -9,7 +9,7 @@ minutes: 15
 > *   Write a shell script that runs a command or series of commands for a fixed set of files.
 > *   Run a shell script from the command line.
 > *   Write a shell script that operates on a set of files defined by the user on the command line.
-> *   Create pipelines that include user-written shell scripts.
+> *   Create pipelines that include shell scripts you, and others, have written.
 
 We are finally ready to see what makes the shell such a powerful programming environment.
 We are going to take the commands we repeat frequently and save them in files
@@ -19,7 +19,7 @@ a bunch of commands saved in a file is usually called a **shell script**,
 but make no mistake:
 these are actually small programs.
 
-Let's start by going back to `molecules/` and putting the following line in the file `middle.sh`:
+Let's start by going back to `molecules/` and putting the following line into a new file, `middle.sh`:
 
 ~~~ {.bash}
 $ cd molecules
@@ -129,7 +129,8 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 
 We still need to edit `middle.sh` each time we want to adjust the range of lines,
 though.
-Let's fix that by using the special variables `$2` and `$3`:
+Let's fix that by using the special variables `$2` and `$3` for the
+number of lines to be passed to `head` and `tail` respectively:
 
 ~~~ {.bash}
 $ nano middle.sh
@@ -277,7 +278,7 @@ Instead of typing them in again
 we can do this:
 
 ~~~ {.bash}
-$ history | tail -n 4 > redo-figure-3.sh
+$ history | tail -n 5 > redo-figure-3.sh
 ~~~
 
 The file `redo-figure-3.sh` now contains:
@@ -287,9 +288,11 @@ The file `redo-figure-3.sh` now contains:
 298 bash goodiff stats-NENE01729B.txt /data/validated/01729.txt > 01729-differences.txt
 299 cut -d ',' -f 2-3 01729-differences.txt > 01729-time-series.txt
 300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png
+301 history | tail -n 5 > redo-figure-3.sh
 ~~~
 
 After a moment's work in an editor to remove the serial numbers on the commands,
+and to remove the final line where we called the `history` command,
 we have a completely accurate record of how we created that figure.
 
 In practice, most people develop shell scripts by running commands at the shell prompt a few times
@@ -364,7 +367,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Variables in shell scripts {.challenge}
 >
-> In the `molecules` directory, you have a shell script called `script.sh` containing the
+> In the `molecules` directory, imagine you have a shell script called `script.sh` containing the
 > following commands:
 >
 > ~~~
