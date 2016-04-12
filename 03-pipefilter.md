@@ -32,7 +32,7 @@ Let's go into that directory with `cd` and run the command `wc *.pdb`.
 `wc` is the "word count" command:
 it counts the number of lines, words, and characters in files.
 The `*` in `*.pdb` matches zero or more characters,
-so the shell turns `*.pdb` into a complete list of `.pdb` files:
+so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
 
 ~~~ {.bash}
 $ cd molecules
@@ -218,7 +218,7 @@ $ sort -n lengths.txt | head -n 1
   9  methane.pdb
 ~~~
 
-The vertical bar between the two commands is called a **pipe**.
+The vertical bar, `|`, between the two commands is called a **pipe**.
 It tells the shell that we want to use
 the output of the command on the left
 as the input to the command on the right.
