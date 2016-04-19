@@ -157,11 +157,10 @@ $ cat lengths.txt
 > ## Output page by page {.callout}
 >
 > We'll continue to use `cat` in this lesson, for convenience and consistency,
-> but it has the disadvantage that,
-> if a file is long, you get *all* of it dumped onto your screen.
-> Probably more useful in practice is the command `less`,
-> as in `$ less lengths.txt`,
-> which displays a screenful of the file, and then stops.
+> but it has the disadvantage that it always dumps the whole file onto your screen.
+> More useful in practice is the command `less`,
+> which you use with `$ less lengths.txt`.
+> This displays a screenful of the file, and then stops.
 > You can go forward one screenful by pressing the spacebar,
 > or back one by pressing `b`.  Press `q` to quit.
 
