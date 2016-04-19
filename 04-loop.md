@@ -408,6 +408,17 @@ so she decides to get some coffee and catch up on her reading.
 > then she can re-run `goostats` on `NENE01729B.txt` simply by typing
 > `!458`.
 
+> ## Other history commands {.callout}
+>
+> There are a number of other shortcut commands for getting at the history.
+> Two of the more useful are `!!`, which retrieves the immediately
+> preceding command (you may or may not find this more convenient than
+> plain up-arrow), and `!$`, which retrieves the last word of the last
+> command.  That's useful more often than you might expect: after
+> `bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
+> `less !$` to look at the file `stats-NENE01729B.txt`, which is
+> quicker than doing up-arrow and editing the command-line.
+
 > ## Variables in Loops {.challenge}
 > 
 > Suppose that `ls` initially displays:
