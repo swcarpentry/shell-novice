@@ -162,7 +162,7 @@ done</code></pre>
 <p>Instead of running <code>cp</code>, this loop runs <code>echo</code>, which prints out:</p>
 <pre><code>cp basilisk.dat original-basilisk.dat
 cp unicorn.dat original-unicorn.dat</code></pre>
-<p><em>without</em> actually running those commands. We can then use up-arrow to redisplay the loop, back-arrow to get to the word <code>echo</code>, delete it, and then press “enter” to run the loop with the actual <code>cp</code> commands. This isn’t foolproof, but it’s a handy way to see what’s going to happen when you’re still learning how loops work.</p>
+<p><em>without</em> actually running those commands. We can then use up-arrow to redisplay the loop, back-arrow to get to the word <code>echo</code>, delete it, and then press Enter to run the loop with the actual <code>cp</code> commands. This isn’t foolproof, but it’s a handy way to see what’s going to happen when you’re still learning how loops work.</p>
 </div>
 </aside>
 <h2 id="nelles-pipeline-processing-files">Nelle’s Pipeline: Processing Files</h2>
@@ -194,7 +194,7 @@ NENE02043B.txt stats-NENE02043B.txt</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">echo</span> <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre></div>
 <p>Using the left arrow key, Nelle backs up and changes the command <code>echo</code> to <code>bash goostats</code>:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">bash</span> goostats <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre></div>
-<p>When she presses enter, the shell runs the modified command. However, nothing appears to happen — there is no output. After a moment, Nelle realizes that since her script doesn’t print anything to the screen any longer, she has no idea whether it is running, much less how quickly. She kills the job by typing Ctrl-C, uses up-arrow to repeat the command, and edits it to read:</p>
+<p>When she presses Enter, the shell runs the modified command. However, nothing appears to happen — there is no output. After a moment, Nelle realizes that since her script doesn’t print anything to the screen any longer, she has no idea whether it is running, much less how quickly. She kills the running command by typing Ctrl-C, uses up-arrow to repeat the command, and edits it to read:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">for</span> <span class="kw">datafile</span> in *[AB].txt<span class="kw">;</span> <span class="kw">do</span> <span class="kw">echo</span> <span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">bash</span> goostats <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span><span class="kw">;</span> <span class="kw">done</span></code></pre></div>
 <aside class="callout panel panel-info">
 <div class="panel-heading">

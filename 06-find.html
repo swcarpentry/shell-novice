@@ -161,7 +161,7 @@ Software is like that.</code></pre>
 <img src="fig/find-file-tree.svg" alt="File Tree for Find Example" />
 <p class="caption">File Tree for Find Example</p>
 </div>
-<p>Nelle’s <code>writing</code> directory contains one file called <code>haiku.txt</code> and four subdirectories: <code>thesis</code> (which contains a sadly empty file), <code>data</code> (which contains two files <code>one.txt</code> and <code>two.txt</code>), a <code>tools</code> directory that contains the programs <code>format</code> and <code>stats</code>, and a subdirectory called <code>old</code>.</p>
+<p>Nelle’s <code>writing</code> directory contains one file called <code>haiku.txt</code> and four subdirectories: <code>thesis</code> (which contains a sadly empty file, <code>empty-draft.md</code>), <code>data</code> (which contains two files <code>one.txt</code> and <code>two.txt</code>), a <code>tools</code> directory that contains the programs <code>format</code> and <code>stats</code>, and a subdirectory called <code>old</code>, with a file <code>oldtool</code>.</p>
 <p>For our first command, let’s run <code>find . -type d</code>. As always, the <code>.</code> on its own means the current working directory, which is where we want our search to start; <code>-type d</code> means “things that are directories”. Sure enough, <code>find</code>’s output is the names of the five directories in our little tree (including <code>.</code>):</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">find</span> . -type d</code></pre></div>
 <pre class="output"><code>./
