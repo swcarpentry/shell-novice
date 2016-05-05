@@ -228,6 +228,8 @@ do
 done
 ~~~
 
+![For loop in action](fig/shell_script_for_loop_flow_chart.svg)
+
 This loop runs the `cp` command once for each filename.
 The first time,
 when `$filename` expands to `basilisk.dat`,
