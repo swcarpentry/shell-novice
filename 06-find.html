@@ -107,7 +107,39 @@ Today it is not working</code></pre>
 9:Yesterday it worked
 10:Today it is not working
 11:Software is like that.</code></pre>
-<p><code>grep</code> has lots of other options. To find out what they are, we can type <code>man grep</code>. <code>man</code> is the Unix “manual” command: it prints a description of a command and its options, and (if you’re lucky) provides a few examples of how to use it.</p>
+<p><code>grep</code> has lots of other options. To find out what they are, we can type:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> --help</code></pre></div>
+<pre class="output"><code>Usage: grep [OPTION]... PATTERN [FILE]...
+Search for PATTERN in each FILE or standard input.
+PATTERN is, by default, a basic regular expression (BRE).
+Example: grep -i &#39;hello world&#39; menu.h main.c
+
+Regexp selection and interpretation:
+  -E, --extended-regexp     PATTERN is an extended regular expression (ERE)
+  -F, --fixed-strings       PATTERN is a set of newline-separated fixed strings
+  -G, --basic-regexp        PATTERN is a basic regular expression (BRE)
+  -P, --perl-regexp         PATTERN is a Perl regular expression
+  -e, --regexp=PATTERN      use PATTERN for matching
+  -f, --file=FILE           obtain PATTERN from FILE
+  -i, --ignore-case         ignore case distinctions
+  -w, --word-regexp         force PATTERN to match only whole words
+  -x, --line-regexp         force PATTERN to match only whole lines
+  -z, --null-data           a data line ends in 0 byte, not newline
+
+Miscellaneous:
+...        ...        ...
+
+</code></pre>
+<p>Many bash commands, and programs that people have written that can be run from within bash, support a <code>--help</code> flag to display more information on how to use the commands or programs.</p>
+<p>For more information on how to use <code>grep</code> we can type <code>man grep</code>. <code>man</code> is the Unix “manual” command: it prints a description of a command and its options, and (if you’re lucky) provides a few examples of how to use it.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="man-and-git-for-windows"><span class="glyphicon glyphicon-pushpin"></span><code>man</code> and Git for Windows</h2>
+</div>
+<div class="panel-body">
+<p>The bash shell provided by Git for Windows does not support the <code>man</code> command. Doing a web search for <code>unix man page COMMAND</code> (e.g. <code>unix man page grep</code>) provides links to numerous copies of the Unix manual pages online. For example, GNU provides links to its <a href="http://www.gnu.org/manual/manual.html">manuals</a>: these include <a href="http://www.gnu.org/software/grep/manual/">grep</a>, and the <a href="http://www.gnu.org/software/coreutils/manual/coreutils.html">core GNU utilities</a>, which covers many commands introduced within this lesson.</p>
+</div>
+</aside>
 <p>To navigate through the <code>man</code> pages, you may use the up and down arrow keys to move line-by-line, or try the “b” and spacebar keys to skip up and down by full page. Quit the <code>man</code> pages by typing “q”.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">man</span> grep</code></pre></div>
 <pre class="output"><code>GREP(1)                                                                                              GREP(1)
