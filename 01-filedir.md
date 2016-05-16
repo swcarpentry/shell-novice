@@ -559,3 +559,9 @@ what will `ls ../backup` display?
 >
 > What does the command `ls` do when used with the `-s` and `-h`
 > arguments?
+
+> ## Man pages {.challenge}
+>
+> How to find software documentation on the screen? 
+> 
+> try `man ls` and read more about what `ls` is and it's options.
