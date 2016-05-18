@@ -538,3 +538,38 @@ so she decides to get some coffee and catch up on her reading.
 >     done
 > done
 > ~~~
+
+> ## Trailing initials in filenames {.challenge}
+>
+> In Nelle's lab there are several lab technicians who will be running the 
+> shell scripts for processing the data. Currently the generated files
+> take the form of:
+> 
+> ~~~
+> stats-<baseFileName>.txt
+> ~~~
+> 
+> It would be better if the generated files were named with the following form:
+>
+> ~~~
+> stats-<baseFileName>-<initialsOfLabTechnician>.txt
+> ~~~
+>
+> Given that:
+>
+> ~~~ {.bash}
+> set filename = "NENE01729A.txt"
+> echo ${filename%.*}
+> ~~~
+> ~~~ {.output}
+> NENE01729A
+> ~~~
+> ~~~ {.bash}
+> echo ${filename#*.}
+> ~~~
+> ~~~ {.output}
+> txt
+> ~~~
+>
+> Write a loop that produces the desired filename form.
+>
