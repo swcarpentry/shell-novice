@@ -552,22 +552,16 @@ so she decides to get some coffee and catch up on her reading.
 > It would be better if the generated files were named with the following form:
 >
 > ~~~
-> stats-<baseFileName>-<initialsOfLabTechnician>.txt
+> stats-<baseFileName>-<labTechnicianInitials>.txt
 > ~~~
 >
 > Given that:
 >
-> ~~~ {.bash}
-> set filename = "NENE01729A.txt"
-> echo ${filename%.*}
 > ~~~
-> ~~~ {.output}
+> $ set filename = "NENE01729A.txt"
+> $ echo ${filename%.*}
 > NENE01729A
-> ~~~
-> ~~~ {.bash}
-> echo ${filename#*.}
-> ~~~
-> ~~~ {.output}
+> $ echo ${filename#*.}
 > txt
 > ~~~
 >
