@@ -555,11 +555,11 @@ so she decides to get some coffee and catch up on her reading.
 > stats-<baseFileName>-<labTechnicianInitials>.txt
 > ~~~
 >
-> Given that by enclosing a variable name in curly brakcets {} we can then 
-> perform substitutions to modify the original variable name. For example:
+> We can enclose a variable name in curly brakcets {} to perform 
+> substitutions and thus modify the original variable name. For example:
 >
 > ~~~
-> $ set filename = "NENE01729A.txt"
+> $ filename="NENE01729A.txt"
 > $ # the next command returns the filename with everything including and to 
 > $ # the right of the pattern .* omitted
 > $ echo ${filename%.*}
@@ -573,5 +573,6 @@ so she decides to get some coffee and catch up on her reading.
 > Write a loop that produces filenames with the desired schema. 
 >
 > HINT 1: the initials of the lab technician will be 'hard coded' into the loop.
+> 
 > HINT 2: you will have to use both modifications from the example above
 >
