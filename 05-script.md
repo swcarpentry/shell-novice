@@ -485,7 +485,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > held in a $variable as follows: ${variable:startIndex:length}. For example:
 >
 > ~~~
-> labTech=${@:$#}       # the variable labTech now contains the last parameter
+> labTech=${@:$#}       # the variable $labTech now contains the last parameter
 > labTech=${@:$#:1}     # this is the same as above as there is only one list 
 >                       # member after index $#, the last parameter
 > ~~~
