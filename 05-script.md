@@ -465,27 +465,28 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >
 > As noted in the last challenge of the Loops lesson, Nelle's lab employs 
 > undergraduates to run the shell scripts once the data processing pipeline is 
-> in place. The final modification we need to make to Nelle's shell script is to 
+> in place. The final modification Nelle needs to make to her shell script is to 
 > allow the user to include their initials as the last parameter as follows:
 >
 > ~~~
-> $ bash do-stats.sh *[AB].txt tbn
+> $ bash do-stats.sh *[AB].txt tbn      # 'tbn' are the initials of the lab tech
 > ~~~
 >
 > so that the names of the generated files will take the form: 
 >
 > ~~~
 > stats-<baseFileName>-<labTechnicianInitials>.txt
+> # for example: stats-NENE01729A-tbn.txt
 > ~~~
 > 
 > We know that the special variable $@ holds a list of all of the parameters. There
 > is another special variable $# that holds the number of parameters in that list. 
 > By using curly brackets {} and numerical indices we can extract parts of the list
-> held in a $variable as follows ${variable:startIndex:length}. For example:
+> held in a $variable as follows: ${variable:startIndex:length}. For example:
 >
 > ~~~
 > labTech=${@:$#}       # the variable labTech now contains the last parameter
-> labTech=${@:$#,1}     # this is the same as above as there is only one list 
+> labTech=${@:$#:1}     # this is the same as above as there is only one list 
 >                       # member after index $#, the last parameter
 > ~~~
 >
@@ -494,3 +495,5 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > do-stats.sh. The generated files should have the initials of the lab 
 > technician as shown above.
 >
+> HINT: you will also have to use the curly brackets {} on the filenames as shown in
+> the last challenge from the loops lesson.
