@@ -556,7 +556,9 @@ so she decides to get some coffee and catch up on her reading.
 > ~~~
 >
 > We can enclose a variable name in curly brakcets {} to perform 
-> substitutions and thus modify the original variable name. For example:
+> substitutions and thus modify the original contents of the variable. 
+> In the following example the variable $filename holds the string 
+> "NENE01729A.txt" which we can modify with the curly brackets {}.
 >
 > ~~~
 > $ filename="NENE01729A.txt"
