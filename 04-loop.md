@@ -539,11 +539,11 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
-> ## Trailing initials in filenames {.challenge}
+> ## Initials in filenames {.challenge}
 >
-> In Nelle's lab there are several lab technicians who will be running the 
-> shell scripts for processing the data. Currently the generated files
-> take the form of:
+> In Nelle's lab there are several lab technicians (undergraduate peons) 
+> who will be running the shell scripts for processing the data. Currently 
+> the naming scheme for the analyzed files take the form of:
 > 
 > ~~~
 > stats-<baseFileName>.txt
@@ -555,15 +555,23 @@ so she decides to get some coffee and catch up on her reading.
 > stats-<baseFileName>-<labTechnicianInitials>.txt
 > ~~~
 >
-> Given that:
+> Given that by enclosing a variable name in curly brakcets {} we can then 
+> perform substitutions to modify the original variable name. For example:
 >
 > ~~~
 > $ set filename = "NENE01729A.txt"
+> $ # the next command returns the filename with everything including and to 
+> $ # the right of the pattern .* omitted
 > $ echo ${filename%.*}
 > NENE01729A
+> $ # the next command returns the filename with everything including and to 
+> $ # the left of the pattern *. omitted
 > $ echo ${filename#*.}
 > txt
 > ~~~
 >
-> Write a loop that produces the desired filename form.
+> Write a loop that produces filenames with the desired schema. 
+>
+> HINT 1: the initials of the lab technician will be 'hard coded' into the loop.
+> HINT 2: you will have to use both modifications from the example above
 >
