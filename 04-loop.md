@@ -6,12 +6,12 @@ minutes: 15
 ---
 > ## Learning Objectives {.objectives}
 >
-> *   Write a loop that applies one or more commands separately to each file in a set of files.
-> *   Trace the values taken on by a loop variable during execution of the loop.
-> *   Explain the difference between a variable's name and its value.
-> *   Explain why spaces and some punctuation characters shouldn't be used in file names.
-> *   Demonstrate how to see what commands have recently been executed.
-> *   Re-run recently executed commands without retyping them.
+> *   Write a loop that applies one or more commands separately to each file in a set of files. (Create)
+> *   Trace the values taken on by a loop variable during execution of the loop. (Analyze)
+> *   Explain the difference between a variable's name and its value. (Understand)
+> *   Explain why spaces and some punctuation characters shouldn't be used in file names. (Understand)
+> *   Demonstrate how to see what commands have recently been executed. (Apply)
+> *   Re-run recently executed commands without retyping them. (Apply)
 
 **Loops** are key to productivity improvements through automation as they allow us to execute 
 commands repetitively. Similar to wildcards and tab completion, using loops also reduces the 

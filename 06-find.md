@@ -6,10 +6,10 @@ minutes: 15
 ---
 > ## Learning Objectives {.objectives}
 >
-> *   Use `grep` to select lines from text files that match simple patterns.
-> *   Use `find` to find files whose names match simple patterns.
-> *   Use the output of one command as the command-line parameters to another command.
-> *   Explain what is meant by "text" and "binary" files, and why many common tools don't handle the latter well.
+> *   Use `grep` to select lines from text files that match simple patterns. (Apply)
+> *   Use `find` to find files whose names match simple patterns. (Apply)
+> *   Use the output of one command as the command-line parameters to another command. (Apply)
+> *   Explain what is meant by "text" and "binary" files, and why many common tools don't handle the latter well. (Understand)
 
 In the same way that many of us now use "Google" as a 
 verb meaning "to find", Unix programmers often use the 
