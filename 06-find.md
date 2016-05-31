@@ -537,3 +537,26 @@ about them."
 > of the four sisters is mentioned?  Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+
+> ## Poetic Summary {.challenge}
+>
+> You feel the urgency to save in another file just one of the three Haikus.
+> You feel, at the same time, to accept the challenge: let's do it using a bash script!
+>
+> 1. Enter ./writing;
+> 2. Create a script named `haiku.sh`;
+> 3. Complete the following code, replacing each `"_"` with one of the  `given words`:
+>    ~~~ {.bash}
+>    for line in "_" "_" "_"
+>    "_"
+>        "_" "_"line haiku.txt "_" haiku_software.txt
+>    "_"
+>    ~~~
+>     usable words and characters:
+>     ~~~ 
+>    Yesterday, Today, Software, do, done, $, >>, grep, is, it, >, while, exit, #
+>     ~~~
+>
+> 4. Run haiku.sh and show the content of haiku_sotware.txt;
+> 5. Which results would you expect if the line "Today is a beautiful day" appears somewhere in the file?
+> 6. If you didn't know the location of `haiku.txt`, how would you have used `find`?
