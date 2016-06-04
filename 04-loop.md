@@ -292,6 +292,7 @@ Since she's still learning how to use the shell,
 she decides to build up the required commands in stages.
 Her first step is to make sure that she can select the right files --- remember,
 these are ones whose names end in 'A' or 'B', rather than 'Z'. Starting from her home directory, Nelle types:
+
 ~~~ {.bash}
 $ cd north-pacific-gyre/2012-07-03
 $ for datafile in *[AB].txt
@@ -299,6 +300,7 @@ $ for datafile in *[AB].txt
 >     echo $datafile
 > done
 ~~~
+
 ~~~ {.output}
 NENE01729A.txt
 NENE01729B.txt
