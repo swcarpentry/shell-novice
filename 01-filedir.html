@@ -325,6 +325,7 @@ have a name for it, but we’ll see some uses for it soon.</p>
 Hidden Files</h2>
 </div>
 <div class="panel-body">
+<<<<<<< HEAD
 <p>In addition to the hidden directories <code>..</code>
 and <code>.</code>, you’ll also see a file called <code>.bash_profile</code>.
 This file usually contains settings to customize the shell. There may
@@ -332,6 +333,9 @@ also be similar files called <code>.bashrc</code> or <code>.bash_login</code>
 in your own home directory. The <code>.</code> prefix is
 used to prevent these configuration files from cluttering the terminal
 when a standard <code>ls</code> command is used. Most of time you don't need to change these files anyway.&nbsp;</p>
+=======
+<p>In addition to the hidden directories <code>..</code> and <code>.</code>, you may also see a file called <code>.bash_profile</code>. This file usually contains shell configuration settings. You may also see other files and directories beginning with <code>.</code>. These are usually files and directories that are used to configure different programs on your computer. The prefix <code>.</code> is used to prevent these configuration files from cluttering the terminal when a standard <code>ls</code> command is used.</p>
+>>>>>>> 4eaa71844279a1cf3e6184e9b99f19651b047279
 </div>
 <aside class="callout panel panel-info">
 </aside>
@@ -362,6 +366,7 @@ gives us the answer!</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
 </div>
 <pre class="output"><code>/Users/nelle</code></pre>
+<<<<<<< HEAD
 <p>It turns out that <code>cd</code> without an
 argument will <span style="font-weight: bold;">ALWAYS</span> return you to your home directory, which is great if
 you’ve gotten lost in your own filesystem.</p>
@@ -395,6 +400,17 @@ and then extract the piece we need to move to <code>data-shell</code>.</p>
 <div class="sourceCode">
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre>
 </div>
+=======
+<p>It turns out that <code>cd</code> without an argument will return you to your home directory, which is great if you’ve gotten lost in your own filesystem.</p>
+<p>Let’s try returning to the <code>data</code> directory from before. Last time, we used three commands, but we can actually string together the list of directories to move to <code>data</code> in one step:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> Desktop/data-shell/data</code></pre></div>
+<p>Check that we’ve moved to the right place by running <code>pwd</code> and <code>ls -F</code>.</p>
+<p>If we want to move up one level from the shell directory, we could use <code>cd ..</code>. But there is another way to move to any directory, regardless of your current location.</p>
+<p>So far, when specifying directory names, or even a directory path (as above), we have been using <strong>relative paths</strong>. When you use a relative path with a command like <code>ls</code> or <code>cd</code>, it tries to find that location from where we are, rather than from the root of the file system.</p>
+<p>However, it is possible to specify the <strong>absolute path</strong> to a directory by including its entire path from the root directory, which is indicated by a leading slash. The leading <code>/</code> tells the computer to follow the path from the root of the file system, so it always refers to exactly one directory, no matter where we are when we run the command.</p>
+<p>This allows us to move to our <code>data-shell</code> directory from anywhere on the filesystem (including from inside <code>data</code>). To find the absolute path we’re looking for, we can use <code>pwd</code> and then extract the piece we need to move to <code>data-shell</code>.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pwd</span></code></pre></div>
+>>>>>>> 4eaa71844279a1cf3e6184e9b99f19651b047279
 <pre class="output"><code>/Users/nelle/Desktop/data-shell/data</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /Users/nelle/Desktop/data-shell</code></pre>
@@ -408,6 +424,7 @@ to ensure that we’re in the directory we expect. <span style="font-weight: bol
 Shortcuts</h2>
 </div>
 <div class="panel-body">
+<<<<<<< HEAD
 <p>The shell interprets the character <code>~</code>
 (tilde) at the start of a path to mean “the current user’s home
 directory”. For example, if Nelle’s home directory is <code>/Users/nelle</code>,
@@ -422,6 +439,10 @@ efficient way of moving back and forth between directories. The
 difference between <code>cd ..</code> and <code>cd -</code>
 is that the former brings you <em>up</em>, while the later
 brings you <em>back</em>.</p>
+=======
+<p>The shell interprets the character <code>~</code> (tilde) at the start of a path to mean “the current user’s home directory”. For example, if Nelle’s home directory is <code>/Users/nelle</code>, then <code>~/data</code> is equivalent to <code>/Users/nelle/data</code>. This only works if it is the first character in the path: <code>here/there/~/elsewhere</code> is <em>not</em> <code>here/there/Users/nelle/elsewhere</code>.</p>
+<p>Another shortcut is the <code>-</code> (dash) character. <code>cd</code> will translate <code>-</code> into <em>the previous directory I was in</em>, which is faster than having to remember, then type, the full path. This is a <em>very</em> efficient way of moving back and forth between directories. The difference between <code>cd ..</code> and <code>cd -</code> is that the former brings you <em>up</em>, while the latter brings you <em>back</em>.</p>
+>>>>>>> 4eaa71844279a1cf3e6184e9b99f19651b047279
 </div>
 <h3 id="nelles-pipeline-organizing-files">Nelle’s
 Pipeline: Organizing Files</h3>
@@ -485,10 +506,15 @@ go on.</p>
 do the same thing - absolute vs relative paths</h2>
 </div>
 <div class="panel-body">
+<<<<<<< HEAD
 <p>For a hypothetical filesystem location of <code>/Users/amanda/data/</code>,
 select each of the below commands that Amanda could use to navigate to
 her home directory, which is <code>Users/amanda</code>.</p>
 <ol style="list-style-type: decimal;">
+=======
+<p>Starting from a filesystem location of <code>/Users/amanda/data/</code>, which of the following commands could Amanda use to navigate to her home directory, which is <code>/Users/amanda</code>?</p>
+<ol style="list-style-type: decimal">
+>>>>>>> 4eaa71844279a1cf3e6184e9b99f19651b047279
 <li><code>cd .</code></li>
 <li><code>cd /</code></li>
 <li><code>cd /home/amanda</code></li>
@@ -552,6 +578,7 @@ more <code>ls</code> arguments</h2>
 used with the <code>-s</code> and <code>-h</code>
 arguments?</p>
 </div>
+<<<<<<< HEAD
 </div>
 </div>
 <div class="footer"> <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
@@ -564,3 +591,36 @@ arguments?</p>
 <script src="01-filedir_files/jquery-1.htm"></script>
 <script src="01-filedir_files/bootstrap.js"></script>
 </body></html>
+=======
+</section>
+<blockquote>
+<h2 id="listing-recursively-and-by-time-.exercise">Listing Recursively and By Time {.exercise]</h2>
+<p>The command ls -R lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on in alphabetical order at each level. The command ls -t lists things by time of last change, with most recently changed files or directories first. In what order does ls -R -t display things? {Hint: ls -l use a long listing format to view timestamps}</p>
+</blockquote>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/shell-novice">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+  </body>
+</html>
+>>>>>>> 4eaa71844279a1cf3e6184e9b99f19651b047279

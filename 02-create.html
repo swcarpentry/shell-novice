@@ -70,16 +70,32 @@ $ <span class="kw">nano</span> draft.txt</code></pre>
 <p>No matter what editor you use, you will need to know where it searches for and saves files. If you start it from the shell, it will (probably) use your current working directory as its default location. If you use your computer’s start menu, it may want to save files in your desktop or documents directory instead. You can change this by navigating to another directory the first time you “Save As…”</p>
 </div>
 </aside>
-<p>Let’s type in a few lines of text, then use Control-O to write our data to disk:</p>
+<p>Let’s type in a few lines of text. Once we’re happy with out text, we can press Ctrl-O (press the Ctrl key and, while holding it down, press the O key) to write our data to disk (we’ll be asked what file we want to save this to: press Return to accept the suggested default of <code>draft.txt</code>).</p>
 <div class="figure">
 <img src="fig/nano-screenshot.png" alt="Nano in action" /><p class="caption">Nano in action</p>
 </div>
-<p>Once our file is saved, we can use Control-X to quit the editor and return to the shell. (Unix documentation often uses the shorthand <code>^A</code> to mean “control-A”.) <code>nano</code> doesn’t leave any output on the screen after it exits, but <code>ls</code> now shows that we have created a file called <code>draft.txt</code>:</p>
+<p>Once our file is saved, we can use Ctrl-X to quit the editor and return to the shell.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span>Ctrl, “Control”, key</h2>
+</div>
+<div class="panel-body">
+<p>The Ctrl key is called the “Control” key. There are various ways in which using the Ctrl key may be described. For example, you may see an instruction to press the Ctrl key and, while holding it down, press the X key, described as any of:</p>
+<ul>
+<li>Ctrl-X</li>
+<li>Ctrl+X</li>
+<li>Control-X</li>
+<li>Control+X</li>
+<li><code>^X</code></li>
+</ul>
+</div>
+</aside>
+<p><code>nano</code> doesn’t leave any output on the screen after it exits, but <code>ls</code> now shows that we have created a file called <code>draft.txt</code>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span></code></pre>
 <pre class="output"><code>draft.txt</code></pre>
 <p>Let’s tidy up by running <code>rm draft.txt</code>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">rm</span> draft.txt</code></pre>
-<p>This command removes files (“rm” is short for “remove”). If we run <code>ls</code> again, its output is empty once more, which tells us that our file is gone:</p>
+<p>This command removes files (<code>rm</code> is short for “remove”). If we run <code>ls</code> again, its output is empty once more, which tells us that our file is gone:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span></code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
@@ -128,7 +144,7 @@ $ <span class="kw">ls</span> thesis</code></pre>
 <p>The first parameter tells <code>mv</code> what we’re “moving”, while the second is where it’s to go. In this case, we’re moving <code>thesis/draft.txt</code> to <code>thesis/quotes.txt</code>, which has the same effect as renaming the file. Sure enough, <code>ls</code> shows us that <code>thesis</code> now contains one file called <code>quotes.txt</code>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> thesis</code></pre>
 <pre class="output"><code>quotes.txt</code></pre>
-<p>One has to be careful when specifying the target file name, since <code>mv</code> will silently overwrite any existing file with the same name, which could lead to data loss. An additional flag, <code>mv -i</code> (or <code>mv --interactive</code>), can be used to make <code>mv</code> ask the user for confirmation before overwriting.</p>
+<p>One has to be careful when specifying the target file name, since <code>mv</code> will silently overwrite any existing file with the same name, which could lead to data loss. An additional flag, <code>mv -i</code> (or <code>mv --interactive</code>), can be used to make <code>mv</code> ask you for confirmation before overwriting.</p>
 <p>Just for the sake of inconsistency, <code>mv</code> also works on directories — there is no separate <code>mvdir</code> command.</p>
 <p>Let’s move <code>quotes.txt</code> into the current working directory. We use <code>mv</code> once again, but this time we’ll just use the name of a directory as the second parameter to tell <code>mv</code> that we want to keep the filename, but put the file somewhere new. (This is why the command is called “move”.) In this case, the directory name we use is the special directory name <code>.</code> that we mentioned earlier.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mv</span> thesis/quotes.txt .</code></pre>
@@ -152,8 +168,8 @@ thesis/quotations.txt</code></pre>
 <h2><span class="glyphicon glyphicon-pushpin"></span>What’s In A Name?</h2>
 </div>
 <div class="panel-body">
-<p>You may have noticed that all of Nelle’s files’ names are “something dot something”, and in this part of the lesson, we always used the extension <code>.txt</code>. This is just a convention: we can call a file <code>mythesis</code> or almost anything else we want. However, most people use two-part names most of the time to help them (and their programs) tell different kinds of files apart. The second part of such a name is called the <strong>filename extension</strong>, and indicates what type of data the file holds: <code>.txt</code> signals a plain text file, <code>.pdf</code> indicates a PDF document, <code>.cfg</code> is a configuration file full of parameters for some program or other, and so on.</p>
-<p>This is just a convention, albeit an important one. Files contain bytes: it’s up to us and our programs to interpret those bytes according to the rules for PDF documents, images, and so on.</p>
+<p>You may have noticed that all of Nelle’s files’ names are “something dot something”, and in this part of the lesson, we always used the extension <code>.txt</code>. This is just a convention: we can call a file <code>mythesis</code> or almost anything else we want. However, most people use two-part names most of the time to help them (and their programs) tell different kinds of files apart. The second part of such a name is called the <strong>filename extension</strong>, and indicates what type of data the file holds: <code>.txt</code> signals a plain text file, <code>.pdf</code> indicates a PDF document, <code>.cfg</code> is a configuration file full of parameters for some program or other, <code>.png</code> is a PNG image, and so on.</p>
+<p>This is just a convention, albeit an important one. Files contain bytes: it’s up to us and our programs to interpret those bytes according to the rules for plain text files, PDF documents, configuration files, images, and so on.</p>
 <p>Naming a PNG image of a whale as <code>whale.mp3</code> doesn’t somehow magically turn it into a recording of whalesong, though it <em>might</em> cause the operating system to try to open it with a music player when someone double-clicks it.</p>
 </div>
 </aside>
@@ -244,5 +260,16 @@ $ cp intro.txt methods.txt survey.txt</code></pre>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
     <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
   </body>
 </html>

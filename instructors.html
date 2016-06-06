@@ -66,8 +66,7 @@
 <h2 id="preparing-to-teach">Preparing to Teach</h2>
 <ul>
 <li>For a great general list of tips, see <a href="http://software-carpentry.org/blog/2015/03/teaching-tips.html">this swcarpentry blog post</a></li>
-<li>Use the <code>data</code> directory for in-workshop exercises and live coding examples. You can clone the shell-novice directory or use the <code>Download ZIP</code> button on the right to get the entire repository; we also now provide a zip file of the <code>data</code> directory that can be downloaded on its own from the repository by right-click + save. See the “Get Ready” box on the front page of the website for more details.<br />
-</li>
+<li>Use the <code>data</code> directory for in-workshop exercises and live coding examples. You can clone the shell-novice directory or use the <code>Download ZIP</code> button on the right to get the entire repository; we also now provide a zip file of the <code>data</code> directory that can be downloaded on its own from the repository by right-click + save. See the “Get Ready” box on the front page of the website for more details.<br /></li>
 <li>Website: various practices have been used.
 <ul>
 <li>Option 1: Can give links to learners before the lesson so they can follow along, catch up, and see exercises (particularly if you’re following the lesson content without many changes).</li>
@@ -98,12 +97,12 @@
 <li><p>Building up a pipeline with four or five stages, then putting it in a shell script for re-use and calling that script inside a <code>for</code> loop, is a great opportunity to show how “seven plus or minus two” connects to programming. Once we have figured out how to do something moderately complicated, we make it re-usable and give it a name so that it only takes up one slot in working memory rather than several. It is also a good opportunity to talk about exploratory programming: rather than designing a program up front, we can do a few useful things and then retroactively decide which are worth encapsulating for future re-use.</p></li>
 <li><p>If everything is going well, you can drive home the point that file extensions are essentially there to help computers (and human readers) understand file content and are not a requirement of files (covered briefly in <a href="01-filedir.html">Files and Directories</a>). This can be done in the <a href="03-pipefilter.html">Pipes and Filters</a> section by showing that you can redirect standard output to a file without the .txt extension (e.g., lengths), and that the resulting file is still a perfectly usable text file. Make the point that if double-clicked in the GUI, the computer will probably ask you what you want to do.</p></li>
 <li><p>We have to leave out many important things because of time constraints, including file permissions, job control, and SSH. If learners already understand the basic material, this can be covered instead using the online lessons as guidelines. These limitations also have follow-on consequences:</p></li>
-<li><p>It’s hard to discuss <code>#!</code> (shebang) without first discussing permissions, which we don’t do.</p></li>
+<li><p>It’s hard to discuss <code>#!</code> (shebang) without first discussing permissions, which we don’t do. <code>#!</code> is also <a href="http://www.in-ulm.de/~mascheck/various/shebang/">pretty complicated</a>, so even if we did discuss permissions, we probably still wouldn’t want to discuss <code>#!</code>.</p></li>
 <li><p>Installing Bash and a reasonable set of Unix commands on Windows always involves some fiddling and frustration. Please see the latest set of installation guidelines for advice, and try it out yourself <em>before</em> teaching a class.</p></li>
-<li><p>On Windows machines if <code>nano</code> hasn’t been properly installed with the SWC installer, it is possible to use <code>notepad</code> as an alternative. There will be a GUI interface and line endings are treated differently, but otherwise, for the purposes of this lesson, <code>notepad</code> and <code>nano</code> can be used almost interchangeably.</p></li>
+<li><p>On Windows machines if <code>nano</code> hasn’t been properly installed with the <a href="http://github.com/swcarpentry/windows-installer">Software Carpentry Windows Installer</a> it is possible to use <code>notepad</code> as an alternative. There will be a GUI interface and line endings are treated differently, but otherwise, for the purposes of this lesson, <code>notepad</code> and <code>nano</code> can be used almost interchangeably.</p></li>
 <li><p>On Windows, it appears that:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span>
-$ <span class="kw">cd</span> Desktop</code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span>
+$ <span class="kw">cd</span> Desktop</code></pre>
 <p>will always put someone on their desktop. Have them create the example directory for the shell exercises there so that they can find it easily and watch it evolve.</p></li>
 <li><p>Stay within POSIX-compliant commands, as all the teaching materials do. Your particular shell may have extensions beyond POSIX that are not available on other machines, especially the default OSX bash and Windows bash emulators. For example, POSIX <code>ls</code> does not have an <code>--ignore=</code> or <code>-I</code> option, and POSIX <code>head</code> takes <code>-n 10</code> or <code>-10</code>, but not the long form of <code>--lines=10</code>.</p></li>
 </ul>
@@ -122,7 +121,7 @@ $ <span class="kw">cd</span> Desktop</code></pre></div>
 <li>learners leave the workshop without a working environment on their operating system of choice, and</li>
 <li>learners may show up without having downloaded the VM or the wireless will go down (or become congested) during the lesson.</li>
 </ol>
-<p>Whatever you use, please <em>test it yourself</em> on a Windows machine <em>before</em> your workshop: things may always have changed behind your back since your last workshop. And please also make use of our Windows setup helper.</p>
+<p>Whatever you use, please <em>test it yourself</em> on a Windows machine <em>before</em> your workshop: things may always have changed behind your back since your last workshop. And please also make use of our <a href="http://github.com/swcarpentry/windows-installer">Software Carpentry Windows Installer</a>.</p>
         </div>
       </div>
       </article>
@@ -136,5 +135,16 @@ $ <span class="kw">cd</span> Desktop</code></pre></div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
     <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
   </body>
 </html>

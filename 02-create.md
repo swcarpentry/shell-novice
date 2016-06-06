@@ -1,7 +1,7 @@
 ---
 layout: page
 title: The Unix Shell
-subtitle: Creating Things
+subtitle: Working With Files and Directories
 minutes: 15
 ---
 > ## Learning Objectives {.objectives}
@@ -90,15 +90,30 @@ $ nano draft.txt
 > documents directory instead. You can change this by navigating to
 > another directory the first time you "Save As..."
 
-
-Let's type in a few lines of text,
-then use Control-O to write our data to disk:
+Let's type in a few lines of text.
+Once we're happy with out text, we can press Ctrl-O (press the Ctrl key and, while
+holding it down, press the O key) to write our data to disk
+(we'll be asked what file we want to save this to:
+press Return to accept the suggested default of `draft.txt`).
 
 ![Nano in action](fig/nano-screenshot.png)
 
-Once our file is saved,
-we can use Control-X to quit the editor and return to the shell.
-(Unix documentation often uses the shorthand `^A` to mean "control-A".)
+Once our file is saved, we can use Ctrl-X to quit the editor and 
+return to the shell.
+
+> ## Ctrl, "Control", key {.callout}
+>
+> The Ctrl key is called the "Control" key. There are various ways
+> in which using the Ctrl key may be described. For example, you may
+> see an instruction to press the Ctrl key and, while holding it down, 
+> press the X key, described as any of:
+>
+> * Ctrl-X
+> * Ctrl+X
+> * Control-X
+> * Control+X
+> * `^X`
+
 `nano` doesn't leave any output on the screen after it exits,
 but `ls` now shows that we have created a file called `draft.txt`:
 
@@ -115,7 +130,7 @@ Let's tidy up by running `rm draft.txt`:
 $ rm draft.txt
 ~~~
 
-This command removes files ("rm" is short for "remove").
+This command removes files (`rm` is short for "remove").
 If we run `ls` again,
 its output is empty once more,
 which tells us that our file is gone:
@@ -253,7 +268,7 @@ quotes.txt
 One has to be careful when specifying the target file name, since `mv` will 
 silently overwrite any existing file with the same name, which could 
 lead to data loss. An additional flag, `mv -i` (or `mv --interactive`),
-can be used to make `mv` ask the user for confirmation before overwriting. 
+can be used to make `mv` ask you for confirmation before overwriting. 
 
 Just for the sake of inconsistency,
 `mv` also works on directories --- there is no separate `mvdir` command.
@@ -329,11 +344,12 @@ but it does find the copy in `thesis` that we didn't delete.
 > **filename extension**, and indicates
 > what type of data the file holds: `.txt` signals a plain text file, `.pdf`
 > indicates a PDF document, `.cfg` is a configuration file full of parameters
-> for some program or other, and so on.
+> for some program or other, `.png` is a PNG image, and so on.
 >
 > This is just a convention, albeit an important one. Files contain
 > bytes: it's up to us and our programs to interpret those bytes
-> according to the rules for PDF documents, images, and so on.
+> according to the rules for plain text files, PDF documents, configuration
+> files, images, and so on.
 >
 > Naming a PNG image of a whale as `whale.mp3` doesn't somehow
 > magically turn it into a recording of whalesong, though it *might*

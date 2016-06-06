@@ -39,7 +39,7 @@ to distinguish it from a
 **graphical user interface**, or GUI,
 which most people now use.
 The heart of a CLI is a **read-evaluate-print loop**, or REPL:
-when the user types a command and then presses the enter (or return) key,
+when the user types a command and then presses the Enter (or Return) key,
 the computer reads it,
 executes it,
 and prints its output.
@@ -59,8 +59,7 @@ What's special about it is that its job is to run other programs
 rather than to do calculations itself.
 The most popular Unix shell is Bash,
 the Bourne Again SHell
-(so-called because it's derived from a shell written by Stephen Bourne --- this
-is what passes for wit among programmers).
+(so-called because it's derived from a shell written by Stephen Bourne).
 Bash is the default shell on most modern implementations of Unix
 and in most packages that provide Unix-like tools for Windows.
 
@@ -73,7 +72,7 @@ On the other hand,
 the shell allows us to combine existing tools in powerful ways with only a few keystrokes
 and to set up pipelines to handle large volumes of data automatically thus improving productivity and reproducibility.
 In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
-Familiarity with the shell is near essential to run a variety of specialised tools and resources including high-performance computing systems. As clusters and cloud computing systems become more popular for scientific data crunching,
+Familiarity with the shell is near essential to run a variety of specialized tools and resources including high-performance computing systems. As clusters and cloud computing systems become more popular for scientific data crunching,
 being able to interact with them is becoming a necessary skill. We can build on the command-line skills covered here to tackle a wide range of scientific questions and computational challenges.
 
 ## Nelle's Pipeline: Starting Point

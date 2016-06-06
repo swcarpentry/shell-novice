@@ -94,6 +94,19 @@ so this loop prints out the first three lines of each data file in turn.
 > us that we haven't finished typing a complete command yet. A semicolon, `;`, 
 > can be used to separate two commands written on a single line.
 
+> ## Same symbols, different meanings {.callout}
+>
+> Here we see `>` being used a shell prompt, whereas `>` is also
+> used to redirect output.
+> Similarly, `$` is used as a shell prompt, but, as we saw earler,
+> it is also used to ask the shell to get the value of a variable.
+>
+> If the *shell* prints `>` or `$` then it expects you to type something,
+> and the symbol is a prompt.
+>
+> If *you* type `>` or `$` yourself, it is an instruction from you that
+> the shell to redirect output or get the value of a variable.
+
 We have called the variable in this loop `filename`
 in order to make its purpose clearer to human readers.
 The shell itself doesn't care what the variable is called;
@@ -228,6 +241,8 @@ do
 done
 ~~~
 
+![For loop in action](fig/shell_script_for_loop_flow_chart.svg)
+
 This loop runs the `cp` command once for each filename.
 The first time,
 when `$filename` expands to `basilisk.dat`,
@@ -266,7 +281,7 @@ cp unicorn.dat original-unicorn.dat
 > 
 > *without* actually running those commands. We can then use up-arrow to
 > redisplay the loop, back-arrow to get to the word `echo`, delete it, and
-> then press "enter" to run the loop with the actual `cp` commands. This
+> then press Enter to run the loop with the actual `cp` commands. This
 > isn't foolproof, but it's a handy way to see what's going to happen when
 > you're still learning how loops work.
 
@@ -285,6 +300,7 @@ $ for datafile in *[AB].txt
 >     echo $datafile
 > done
 ~~~
+
 ~~~ {.output}
 NENE01729A.txt
 NENE01729B.txt
@@ -331,18 +347,18 @@ $ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
 ~~~
 
 Using the left arrow key,
-Nelle backs up and changes the command `echo` to `goostats`:
+Nelle backs up and changes the command `echo` to `bash goostats`:
 
 ~~~ {.bash}
 $ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
 
-When she presses enter,
+When she presses Enter,
 the shell runs the modified command.
 However, nothing appears to happen --- there is no output.
 After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
 she has no idea whether it is running, much less how quickly.
-She kills the job by typing Control-C,
+She kills the running command by typing Ctrl-C,
 uses up-arrow to repeat the command,
 and edits it to read:
 
@@ -352,9 +368,8 @@ $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$d
 
 > ## Beginning and End {.callout}
 >
-> We can move to the beginning of a line in the shell by typing `^A`
-> (which means Control-A)
-> and to the end using `^E`.
+> We can move to the beginning of a line in the shell by typing Ctrl-A
+> and to the end using Ctrl-E.
 
 When she runs her program now,
 it produces one line of output every five seconds or so:
@@ -395,6 +410,17 @@ so she decides to get some coffee and catch up on her reading.
 > 
 > then she can re-run `goostats` on `NENE01729B.txt` simply by typing
 > `!458`.
+
+> ## Other history commands {.callout}
+>
+> There are a number of other shortcut commands for getting at the history.
+> Two of the more useful are `!!`, which retrieves the immediately
+> preceding command (you may or may not find this more convenient than
+> plain up-arrow), and `!$`, which retrieves the last word of the last
+> command.  That's useful more often than you might expect: after
+> `bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
+> `less !$` to look at the file `stats-NENE01729B.txt`, which is
+> quicker than doing up-arrow and editing the command-line.
 
 > ## Variables in Loops {.challenge}
 > 
@@ -499,26 +525,19 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 
-> ## Nested Loops and Command-Line Expressions {.challenge}
+> ## Nested Loops {.challenge}
 >
-> The `expr` does simple arithmetic using command-line parameters:
-> 
+> Suppose we want to set up up a directory structure to organize
+> some experiments measuring the growth rate under different sugar
+> types *and* different temperatures.  What would be the
+> result of the following code:
+>
 > ~~~
-> $ expr 3 + 5
-> 8
-> $ expr 30 / 5 - 2
-> 4
-> ~~~
-> 
-> Given this, what is the output of:
-> 
-> ~~~
-> for left in 2 3
+> for sugar in fructose glucose sucrose
 > do
->     for right in $left
+>     for temperature in 25 30 37 40
 >     do
->         expr $left + $right
+>         mkdir $sugar-$temperature
 >     done
 > done
 > ~~~
-

@@ -32,7 +32,7 @@ Let's go into that directory with `cd` and run the command `wc *.pdb`.
 `wc` is the "word count" command:
 it counts the number of lines, words, and characters in files.
 The `*` in `*.pdb` matches zero or more characters,
-so the shell turns `*.pdb` into a complete list of `.pdb` files:
+so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
 
 ~~~ {.bash}
 $ cd molecules
@@ -60,9 +60,9 @@ $ wc *.pdb
 > means that `p?.pdb` matches `pi.pdb` or `p5.pdb`, but not `propane.pdb`.
 > We can use any number of wildcards at a time: for example, `p*.p?*`
 > matches anything that starts with a 'p' and ends with '.', 'p', and at
-> least one more character (since the '?' has to match one character, and
-> the final '\*' can match any number of characters). Thus, `p*.p?*` would
-> match `preferred.practice`, and even `p.pi` (since the first '\*' can
+> least one more character (since the `?` has to match one character, and
+> the final `*` can match any number of characters). Thus, `p*.p?*` would
+> match `preferred.practice`, and even `p.pi` (since the first `*` can
 > match no characters at all), but not `quality.practice` (doesn't start
 > with 'p') or `preferred.p` (there isn't at least one character after the
 > '.p').
@@ -71,13 +71,25 @@ $ wc *.pdb
 > list of matching filenames *before* running the command that was
 > asked for. As an exception, if a wildcard expression does not match
 > any file, Bash will pass the expression as a parameter to the command
-> as it is. For example typing `ls *.pdf` in the molecules directory
+> as it is. For example typing `ls *.pdf` in the `molecules` directory
 > (which contains only files with names ending with `.pdb`) results in
 > an error message that there is no file called `*.pdf`.
 > However, generally commands like `wc` and `ls` see the lists of
 > file names matching these expressions, but not the wildcards
 > themselves. It is the shell, not the other programs, that deals with
 > expanding wildcards, and this is another example of orthogonal design.
+
+> ## Using wildcards {.challenge}
+>
+> When run in the `molecules` directory, which `ls` command will
+> produce this output?
+>
+> `ethane.pdb   methane.pdb`
+>
+> 1. `ls *t*ane.pdb`
+> 2. `ls *t?ne.*`
+> 3. `ls *t??ne.pdb`
+> 4. `ls ethane.*`
 
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
@@ -142,8 +154,18 @@ $ cat lengths.txt
  107  total
 ~~~
 
+> ## Output page by page {.callout}
+>
+> We'll continue to use `cat` in this lesson, for convenience and consistency,
+> but it has the disadvantage that it always dumps the whole file onto your screen.
+> More useful in practice is the command `less`,
+> which you use with `$ less lengths.txt`.
+> This displays a screenful of the file, and then stops.
+> You can go forward one screenful by pressing the spacebar,
+> or back one by pressing `b`.  Press `q` to quit.
+
 Now let's use the `sort` command to sort its contents.
-We will also use the -n flag to specify that the sort is
+We will also use the `-n` flag to specify that the sort is
 numerical instead of alphabetical.
 This does *not* change the file;
 instead, it sends the sorted result to the screen:
@@ -195,7 +217,7 @@ $ sort -n lengths.txt | head -n 1
   9  methane.pdb
 ~~~
 
-The vertical bar between the two commands is called a **pipe**.
+The vertical bar, `|`, between the two commands is called a **pipe**.
 It tells the shell that we want to use
 the output of the command on the left
 as the input to the command on the right.
@@ -204,7 +226,7 @@ or copy data from one program to the other in memory,
 or something else entirely;
 we don't have to know or care.
 
-Nothing prevents us from chaining pipes consecutiveley. That is, we can for example send the output of `wc` directly to `sort`, and then the resulting output to `head`. Thus we first use a pipe to send the output of `wc` to `sort`:
+Nothing prevents us from chaining pipes consecutively. That is, we can for example send the output of `wc` directly to `sort`, and then the resulting output to `head`. Thus we first use a pipe to send the output of `wc` to `sort`:
 
 ~~~ {.bash}
 $ wc -l *.pdb | sort -n
@@ -380,7 +402,7 @@ She could just delete them using `rm`,
 but there are actually some analyses she might do later where depth doesn't matter,
 so instead, she'll just be careful later on to select files using the wildcard expression `*[AB].txt`.
 As always,
-the '\*' matches any number of characters;
+the `*` matches any number of characters;
 the expression `[AB]` matches either an 'A' or a 'B',
 so this matches all the valid data files she has.
 

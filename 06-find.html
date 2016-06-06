@@ -41,7 +41,7 @@
 </ul>
 </div>
 </section>
-<p>You can guess someone’s age by how they talk about search: young people use “Google” as a verb, while crusty old Unix programmers use “grep”. The word is a contraction of “global/regular expression/print”, a common sequence of operations in early Unix text editors. It is also the name of a very useful command-line program.</p>
+<p>In the same way that many of us now use “Google” as a verb meaning “to find”, Unix programmers often use the word “grep”. “grep” is a contraction of “global/regular expression/print”, a common sequence of operations in early Unix text editors. It is also the name of a very useful command-line program.</p>
 <p><code>grep</code> finds and prints lines in files that match a pattern. For our examples, we will use a file that contains three haikus taken from a 1998 competition in <em>Salon</em> magazine. For this set of examples we’re going to be working in the writing subdirectory:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span>
 $ <span class="kw">cd</span> writing
@@ -107,7 +107,39 @@ Today it is not working</code></pre>
 9:Yesterday it worked
 10:Today it is not working
 11:Software is like that.</code></pre>
-<p><code>grep</code> has lots of other options. To find out what they are, we can type <code>man grep</code>. <code>man</code> is the Unix “manual” command: it prints a description of a command and its options, and (if you’re lucky) provides a few examples of how to use it.</p>
+<p><code>grep</code> has lots of other options. To find out what they are, we can type:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grep</span> --help</code></pre>
+<pre class="output"><code>Usage: grep [OPTION]... PATTERN [FILE]...
+Search for PATTERN in each FILE or standard input.
+PATTERN is, by default, a basic regular expression (BRE).
+Example: grep -i &#39;hello world&#39; menu.h main.c
+
+Regexp selection and interpretation:
+  -E, --extended-regexp     PATTERN is an extended regular expression (ERE)
+  -F, --fixed-strings       PATTERN is a set of newline-separated fixed strings
+  -G, --basic-regexp        PATTERN is a basic regular expression (BRE)
+  -P, --perl-regexp         PATTERN is a Perl regular expression
+  -e, --regexp=PATTERN      use PATTERN for matching
+  -f, --file=FILE           obtain PATTERN from FILE
+  -i, --ignore-case         ignore case distinctions
+  -w, --word-regexp         force PATTERN to match only whole words
+  -x, --line-regexp         force PATTERN to match only whole lines
+  -z, --null-data           a data line ends in 0 byte, not newline
+
+Miscellaneous:
+...        ...        ...
+
+</code></pre>
+<p>Many bash commands, and programs that people have written that can be run from within bash, support a <code>--help</code> flag to display more information on how to use the commands or programs.</p>
+<p>For more information on how to use <code>grep</code> we can type <code>man grep</code>. <code>man</code> is the Unix “manual” command: it prints a description of a command and its options, and (if you’re lucky) provides a few examples of how to use it.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2><span class="glyphicon glyphicon-pushpin"></span><code>man</code> and Git for Windows</h2>
+</div>
+<div class="panel-body">
+<p>The bash shell provided by Git for Windows does not support the <code>man</code> command. Doing a web search for <code>unix man page COMMAND</code> (e.g. <code>unix man page grep</code>) provides links to numerous copies of the Unix manual pages online. For example, GNU provides links to its <a href="http://www.gnu.org/manual/manual.html">manuals</a>: these include <a href="http://www.gnu.org/software/grep/manual/">grep</a>, and the <a href="http://www.gnu.org/software/coreutils/manual/coreutils.html">core GNU utilities</a>, which covers many commands introduced within this lesson.</p>
+</div>
+</aside>
 <p>To navigate through the <code>man</code> pages, you may use the up and down arrow keys to move line-by-line, or try the “b” and spacebar keys to skip up and down by full page. Quit the <code>man</code> pages by typing “q”.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">man</span> grep</code></pre>
 <pre class="output"><code>GREP(1)                                                                                              GREP(1)
@@ -153,14 +185,14 @@ matched.  (-F is specified by POSIX.)
 You bring fresh toner.
 Today it is not working
 Software is like that.</code></pre>
-<p>We use the <code>-E</code> flag and put the pattern in quotes to prevent the shell from trying to interpret it. (If the pattern contained a ‘*’, for example, the shell would try to expand it before running <code>grep</code>.) The ‘^’ in the pattern anchors the match to the start of the line. The ‘.’ matches a single character (just like ‘?’ in the shell), while the ‘o’ matches an actual ‘o’.</p>
+<p>We use the <code>-E</code> flag and put the pattern in quotes to prevent the shell from trying to interpret it. (If the pattern contained a <code>*</code>, for example, the shell would try to expand it before running <code>grep</code>.) The <code>^</code> in the pattern anchors the match to the start of the line. The <code>.</code> matches a single character (just like <code>?</code> in the shell), while the <code>o</code> matches an actual ‘o’.</p>
 </div>
 </aside>
 <p>While <code>grep</code> finds lines in files, the <code>find</code> command finds files themselves. Again, it has a lot of options; to show how the simplest ones work, we’ll use the directory tree shown below.</p>
 <div class="figure">
 <img src="fig/find-file-tree.svg" alt="File Tree for Find Example" /><p class="caption">File Tree for Find Example</p>
 </div>
-<p>Nelle’s <code>writing</code> directory contains one file called <code>haiku.txt</code> and four subdirectories: <code>thesis</code> (which is sadly empty), <code>data</code> (which contains two files <code>one.txt</code> and <code>two.txt</code>), a <code>tools</code> directory that contains the programs <code>format</code> and <code>stats</code>, and an empty subdirectory called <code>old</code>.</p>
+<p>Nelle’s <code>writing</code> directory contains one file called <code>haiku.txt</code> and four subdirectories: <code>thesis</code> (which contains a sadly empty file, <code>empty-draft.md</code>), <code>data</code> (which contains two files <code>one.txt</code> and <code>two.txt</code>), a <code>tools</code> directory that contains the programs <code>format</code> and <code>stats</code>, and a subdirectory called <code>old</code>, with a file <code>oldtool</code>.</p>
 <p>For our first command, let’s run <code>find . -type d</code>. As always, the <code>.</code> on its own means the current working directory, which is where we want our search to start; <code>-type d</code> means “things that are directories”. Sure enough, <code>find</code>’s output is the names of the five directories in our little tree (including <code>.</code>):</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">find</span> . -type d</code></pre>
 <pre class="output"><code>./
@@ -299,5 +331,16 @@ Software is like that.</code></pre>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
     <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
   </body>
 </html>
