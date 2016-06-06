@@ -1,7 +1,7 @@
 ---
 layout: page
 title: The Unix Shell
-subtitle: Creating Things
+subtitle: Working With Files and Directories
 minutes: 15
 ---
 > ## Learning Objectives {.objectives}
