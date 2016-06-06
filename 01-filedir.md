@@ -145,10 +145,17 @@ her colleagues the Mummy and Wolfman.
 
 ![Home Directories](fig/home-directories.svg)
 
+<<<<<<< HEAD
 The Mummy's files are stored in `/Users/imhotep`,
 Wolfman's in `/Users/larry`,
 and Nelle's in `/Users/nelle`.  Because Nelle is the user in our 
 examples here, this is why we get `/Users/nelle` as our home directory.  
+=======
+The Mummy likes to store his files in a directory called `/Users/imhotep`,
+while the Wolfman just calls his file directory `/Users/larry`,
+and Nelle's are in `/Users/nelle`.  Because Nelle is the user in our 
+examples here, this is why we get `/Users/nelle` as our home directory and this is where we will begin our adventure.  
+>>>>>>> 6dade6718836ab3b7540a0356c9e6ebc182538d6
 Typically, when you open a new command prompt you will be in 
 your home directory to start.  
 
