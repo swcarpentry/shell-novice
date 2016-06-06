@@ -1,7 +1,7 @@
 ---
 layout: page
 title: The Unix Shell
-subtitle: Files and Directories
+subtitle: Navigating Files and Directories
 minutes: 15
 ---
 > ## Learning Objectives {.objectives}
