@@ -149,7 +149,7 @@ on the front page of the website for more details.
 *   If everything is going well, you can drive home the point that file
     extensions are essentially there to help computers (and human
     readers) understand file content and are not a requirement of files
-    (covered briefly in [Files and Directories](01-filedir.html)).
+    (covered briefly in [Navigating Files and Directories](01-filedir.html)).
     This can be done in the [Pipes and Filters](03-pipefilter.html) section by showing that you
     can redirect standard output to a file without the .txt extension
     (e.g., lengths), and that the resulting file is still a perfectly usable text file.
