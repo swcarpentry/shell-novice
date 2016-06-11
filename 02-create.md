@@ -427,11 +427,3 @@ but it does find the copy in `thesis` that we didn't delete.
 > $ cp intro.txt methods.txt survey.txt
 > ~~~
 
-> ## Listing Recursively and By Time {.challenge}
->
-> The command `ls -R` lists the contents of directories recursively,
-> i.e., lists their sub-directories, sub-sub-directories, and so on
-> in alphabetical order at each level.
-> The command `ls -t` lists things by time of last change,
-> with most recently changed files or directories first.
-> In what order does `ls -R -t` display things?
