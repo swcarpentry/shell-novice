@@ -552,3 +552,81 @@ so this matches all the valid data files she has.
 > What other command(s) could be added to this in a pipeline to find
 > out what animals the file contains (without any duplicates in their
 > names)?
+
+> ## Pipe construction {.challenge}
+>
+> A file called animals.txt contains the following data:
+> 
+> 2012-11-05,deer
+> 2012-11-05,rabbit
+> 2012-11-05,raccoon
+> 2012-11-06,rabbit
+> 2012-11-06,deer
+> 2012-11-06,fox
+> 2012-11-07,rabbit
+> 2012-11-07,bear
+> 
+> Fill in the series of commands below that produce the following output. Note that the backslash ("\") simply allows one to split a command over multiple lines.
+> 
+> A. Example
+> 
+> bear
+> deer
+> deer
+> fox
+> rabbit
+> rabbit
+> rabbit
+> raccoon
+> 
+> cat animals.txt | \
+> cut -d "," -f 2 | \
+> sort > final.txt
+> 
+> B. Partial
+> 
+> bear
+> deer
+> fox
+> rabbit
+> raccoon
+> 
+> _____ animals.txt | \
+> cut -d "," -f 2 | \
+> _____ | \
+> uniq \
+> > final.txt
+> 
+> C. Full
+> 
+> raccoon
+> rabbit
+> fox
+> deer
+> bear
+> 
+> _____ _________ | \
+> _____ _____ _____ | \
+> _____ | \
+> _____ \
+> > __________
+> 
+> 
+> 
+> ### Answers:
+> 
+> B. Partial
+> 
+> cat animals.txt | \
+> cut -d "," -f 2 | \
+> sort | \
+> uniq \
+> > final.txt
+> 
+> C. Full
+> 
+> cat animals.txt | \
+> cut -d "," -f 2 | \
+> sort -r | \
+> uniq \
+> > final.txt
