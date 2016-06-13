@@ -60,6 +60,55 @@ However, there's nothing in it yet:
 $ ls -F thesis
 ~~~
 
+> ## Good names for files and directories {.callout}
+>
+> Normally, filenames are composed of "normal" characters including upper- and lower-case alphabetic characters,
+> the digits 0-9, and some of the special characters including `.`, `-`, and `_`.  Using any other characters for the
+> names of files and directories can make your life a living hell when working on the command line.  Here we provide
+> a few useful tips for the names of your files:
+>
+> 1. Don't use white space.
+>
+>    White space (space or tab characters) can make the name more meaningful,
+>    but since they are also used by the shell to break arguments on the command line,
+>    it is better to avoid them in the names of files and directories.  For example,
+>    if you want to create a directory named ``maize and blue`` (note the embedded spaces),
+>    the command
+>
+>    `$ mkdir maize and blue`
+>
+>    will **not** create a single directory named ``maize and blue``, but will instead
+>    create threee directories named ``maize``, ``and``, and ``blue``, respectively, which
+>    is not what you wanted.  In order not to confuse the shell, a standard idiom is to enclose
+>    such a filename with single or double quotes.  For example,
+>
+>    `$ mkdir "maize and blue"`
+>
+>    will create a single directory naned ``maize and blue``.
+>
+>    Resist the temptation to create such filenames.  You will be doing your future self and
+>    others who reuse your code a big favor.  Instead, you can use `-` or `_` instead of a space.
+>
+> 2. Don't begin the name with `-`.
+>
+>    This will make some commands think that your file is an option argument.  For example, the command
+>
+>    `$ mkdir -mydir-name`
+>
+>    will **not** create a file named "-mydir-name," it instead will try to pass the option named
+>    "-mydir-name" to the mkdir command, which will not succeed.  Again, you could avoid confusing
+>    the shell if you use the special option argument ``--`` that tells the shell not to interpret
+>    any argument that follows it as an option, even if if starts with a ``-``, thus
+>
+>    `$ mkdir -- -mydir-name`
+>
+>    will create a directory named ``-mydir-name``.  Resist this temptation as well.
+
+> 3. Stay with letters, digits, `.`, `-` and `_`.
+>
+>    Many of the other characters have a special meaning on the command line, some of which we'll encounter
+>    during this lesson. Some will make your command fail, as shown above; others can make you lose data.
+
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
 
