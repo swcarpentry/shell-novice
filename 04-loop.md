@@ -541,3 +541,43 @@ so she decides to get some coffee and catch up on her reading.
 >     done
 > done
 > ~~~
+
+> ## Initials in filenames {.challenge}
+>
+> In Nelle's lab there are several lab technicians (undergraduate peons) 
+> who will be running the shell scripts for processing the data. Currently 
+> the naming scheme for the analyzed files take the form of:
+> 
+> ~~~
+> stats-<baseFileName>.txt
+> ~~~
+> 
+> It would be better if the generated files were named with the following form:
+>
+> ~~~
+> stats-<baseFileName>-<labTechnicianInitials>.txt
+> ~~~
+>
+> We can enclose a variable name in curly brakcets {} to perform 
+> substitutions and thus modify the original contents of the variable. 
+> In the following example the variable $filename holds the string 
+> "NENE01729A.txt" which we can modify with the curly brackets {}.
+>
+> ~~~
+> $ filename="NENE01729A.txt"
+> $ # the next command returns the filename with everything including and to 
+> $ # the right of the pattern .* omitted
+> $ echo ${filename%.*}
+> NENE01729A
+> $ # the next command returns the filename with everything including and to 
+> $ # the left of the pattern *. omitted
+> $ echo ${filename#*.}
+> txt
+> ~~~
+>
+> Write a loop that produces filenames with the desired schema. 
+>
+> HINT 1: the initials of the lab technician will be 'hard coded' into the loop.
+> 
+> HINT 2: you will have to use both modifications from the example above
+>
