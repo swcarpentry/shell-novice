@@ -511,3 +511,13 @@ about them."
 > of the four sisters is mentioned?  Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+
+> ## List only directories {.challenge}
+>
+> Perhaps your directory has so many files you've lost track of the directories. Write a command that will only list directories.
+
+> Hint: In lesson two, we used a command that added a `/` to directories.
+
+~~~ {.bash}
+ls -F | grep "/"
+~~~
