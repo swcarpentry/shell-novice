@@ -558,12 +558,19 @@ what will `ls ../backup` display?
 
 > ## Exploring more `ls` arguments {.challenge}
 >
-> What does the command `ls` do when used with the `-s` and `-h`
-> arguments?
+> What does the command `ls` do when used with the `-l` and `-h` arguments?
+>
+> Some of its output is about properties that we do not cover in this lesson (such
+> as file permissions and ownership), but the rest should be useful
+> nevertheless.
 
 > ## Listing Recursively and By Time {.exercise]
 >
-> The command ls -R lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories,
-> and so on in alphabetical order at each level. The command ls -t lists things by time of last change,
-> with most recently changed files or directories first.
-> In what order does ls -R -t display things? {Hint: ls -l     use a long listing format to view timestamps}
+> The command ls -R lists the contents of directories recursively, i.e., lists
+> their sub-directories, sub-sub-directories, and so on in alphabetical order
+> at each level. The command ls -t lists things by time of last change, with
+> most recently changed files or directories first.
+> In what order does ls -R -t display things? Hint: ls -l uses a long listing
+> format to view timestamps.
+
+>>>>>>> upstream/gh-pages
