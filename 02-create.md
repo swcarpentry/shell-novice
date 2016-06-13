@@ -186,7 +186,7 @@ rm: cannot remove `thesis': Is a directory
 This happens because `rm` by default only works on files, not directories.
 
 To really get rid of `thesis` we must also delete the file `draft.txt`.
-We can do this with the "recursive" option for `rm`:
+We can do this with the [recursive](https://en.wikipedia.org/wiki/Recursion) option for `rm`:
 
 ~~~ {.bash}
 $ rm -r thesis
