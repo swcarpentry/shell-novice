@@ -667,7 +667,7 @@ and we will see it in many other tools as we go on.
 > 
 >1.  `cd .`
 >2.  `cd /`
->3.  `cd /home/amanda`
+>3.  `cd /Users/amanda`
 >4.  `cd ../..`
 >5.  `cd ~`
 >6.  `cd home`
