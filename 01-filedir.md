@@ -1,7 +1,7 @@
 ---
 layout: page
 title: The Unix Shell
-subtitle: Navigating Files and Directories
+subtitle: Files and Directories
 minutes: 15
 ---
 > ## Learning Objectives {.objectives}
@@ -28,17 +28,17 @@ let's open a shell window:
 >
 > If you type the command:
 > `PS1='$ '`
-> into your shell, your window should look like our example in this lesson.  
-> This isn't necessary to follow along (in fact, your prompt may have 
-> other helpful information you want to know about).  This is up to you!  
+> into your shell, your window should look like our example in this lesson.
+> This isn't necessary to follow along (in fact, your prompt may have
+> other helpful information you want to know about).  This is up to you!
 
 ~~~ {.bash}
 $
 ~~~
 
 The dollar sign is a **prompt**, which shows us that the shell is waiting for input;
-your shell may use a different character as a prompt and may add information before 
-the prompt. When typing commands, either from these lessons or from other sources, 
+your shell may use a different character as a prompt and may add information before
+the prompt. When typing commands, either from these lessons or from other sources,
 do not type the prompt, only the commands that follow it.
 
 Type the command `whoami`,
@@ -64,14 +64,14 @@ More specifically, when we type `whoami` the shell:
 
 > ## Username Variation {.callout}
 >
-> In this lesson, we have used the username `nelle` (associated 
-> with our hypothetical scientist Nelle) in example input and output throughout.  
-> However, when 
+> In this lesson, we have used the username `nelle` (associated
+> with our hypothetical scientist Nelle) in example input and output throughout.
+> However, when
 > you type this lesson's commands on your computer,
-> you should see and use something different, 
-> namely, the username associated with the user account on your computer.  This 
-> username will be the output from `whoami`.  In 
-> what follows, `nelle` should always be replaced by that username.  
+> you should see and use something different,
+> namely, the username associated with the user account on your computer.  This
+> username will be the output from `whoami`.  In
+> what follows, `nelle` should always be replaced by that username.
 
 Next,
 let's find out where we are by running a command called `pwd`
@@ -97,20 +97,20 @@ $ pwd
 >
 > The home directory path will look different on different operating systems.
 > On Linux it may look like `/home/nelle`,
-> and on Windows it will be similar to `C:\Documents and Settings\nelle` or 
-> `C:\Users\nelle`.  
+> and on Windows it will be similar to `C:\Documents and Settings\nelle` or
+> `C:\Users\nelle`.
 > (Note that it may look slightly different for different versions of Windows.)
-> In future examples, we've used Mac output as the default - Linux and Windows 
-> output may differ slightly, but should be generally similar.  
+> In future examples, we've used Mac output as the default - Linux and Windows
+> output may differ slightly, but should be generally similar.
 
 To understand what a "home directory" is,
-let's have a look at how the file system as a whole is organized.  For the 
-sake of example, we'll be 
+let's have a look at how the file system as a whole is organized.  For the
+sake of example, we'll be
 illustrating the filesystem on our scientist Nelle's computer.  After this
-illustration, you'll be learning commands to explore your own filesystem, 
-which will be constructed in a similar way, but not be exactly identical.  
+illustration, you'll be learning commands to explore your own filesystem,
+which will be constructed in a similar way, but not be exactly identical.
 
-On Nelle's computer, the filesystem looks like this: 
+On Nelle's computer, the filesystem looks like this:
 
 ![The File System](fig/filesystem.svg)
 
@@ -124,7 +124,7 @@ Inside that directory are several other directories:
 `data` (for miscellaneous data files),
 `Users` (where users' personal directories are located),
 `tmp` (for temporary files that don't need to be stored long-term),
-and so on.  
+and so on.
 
 We know that our current working directory `/Users/nelle` is stored inside `/Users`
 because `/Users` is the first part of its name.
@@ -140,19 +140,19 @@ because its name begins with `/`.
 > it's just a separator.
 
 Underneath `/Users`,
-we find one directory for each user with an account on Nelle's machine, 
-her colleagues the Mummy and Wolfman.  
+we find one directory for each user with an account on Nelle's machine,
+her colleagues the Mummy and Wolfman.
 
 ![Home Directories](fig/home-directories.svg)
 
 The Mummy's files are stored in `/Users/imhotep`,
 Wolfman's in `/Users/larry`,
-and Nelle's in `/Users/nelle`.  Because Nelle is the user in our 
-examples here, this is why we get `/Users/nelle` as our home directory.  
-Typically, when you open a new command prompt you will be in 
-your home directory to start.  
+and Nelle's in `/Users/nelle`.  Because Nelle is the user in our
+examples here, this is why we get `/Users/nelle` as our home directory.
+Typically, when you open a new command prompt you will be in
+your home directory to start.
 
-Now let's learn the command that will let us see the contents of our 
+Now let's learn the command that will let us see the contents of our
 own filesystem.  We can see what's in our home directory by running `ls`,
 which stands for "listing":
 
@@ -164,10 +164,10 @@ Applications Documents    Library      Music        Public
 Desktop      Downloads    Movies       Pictures
 ~~~
 
-(Again, your results may be slightly different depending on your operating 
+(Again, your results may be slightly different depending on your operating
 system and how you have customized your filesystem.)
 
-`ls` prints the names of the files and directories in the current directory in 
+`ls` prints the names of the files and directories in the current directory in
 alphabetical order,
 arranged neatly into columns.
 We can make its output more comprehensible by using the **flag** `-F`,
@@ -180,156 +180,6 @@ $ ls -F
 Applications/ Documents/    Library/      Music/        Public/
 Desktop/      Downloads/    Movies/       Pictures/
 ~~~
-
-`ls` has lots of other options. To find out what they are, we can type:
-
-~~~{.bash}
-$ ls --help
-~~~
-~~~{.output}
-Usage: ls [OPTION]... [FILE]...
-List information about the FILEs (the current directory by default).
-Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
-
-Mandatory arguments to long options are mandatory for short options too.
-  -a, --all                  do not ignore entries starting with .
-  -A, --almost-all           do not list implied . and ..
-      --author               with -l, print the author of each file
-  -b, --escape               print C-style escapes for nongraphic characters
-      --block-size=SIZE      scale sizes by SIZE before printing them; e.g.,
-                               '--block-size=M' prints sizes in units of
-                               1,048,576 bytes; see SIZE format below
-  -B, --ignore-backups       do not list implied entries ending with ~
-  -c                         with -lt: sort by, and show, ctime (time of last
-                               modification of file status information);
-                               with -l: show ctime and sort by name;
-                               otherwise: sort by ctime, newest first
-  -C                         list entries by columns
-      --color[=WHEN]         colorize the output; WHEN can be 'always' (default
-                               if omitted), 'auto', or 'never'; more info below
-  -d, --directory            list directories themselves, not their contents
-  -D, --dired                generate output designed for Emacs' dired mode
-  -f                         do not sort, enable -aU, disable -ls --color
-  -F, --classify             append indicator (one of */=>@|) to entries
-      --file-type            likewise, except do not append '*'
-      --format=WORD          across -x, commas -m, horizontal -x, long -l,
-                               single-column -1, verbose -l, vertical -C
-      --full-time            like -l --time-style=full-iso
-  -g                         like -l, but do not list owner
-      --group-directories-first
-                             group directories before files;
-                               can be augmented with a --sort option, but any
-                               use of --sort=none (-U) disables grouping
-  -G, --no-group             in a long listing, don't print group names
-  -h, --human-readable       with -l and/or -s, print human readable sizes
-                               (e.g., 1K 234M 2G)
-      --si                   likewise, but use powers of 1000 not 1024
-  -H, --dereference-command-line
-                             follow symbolic links listed on the command line
-      --dereference-command-line-symlink-to-dir
-                             follow each command line symbolic link
-                               that points to a directory
-      --hide=PATTERN         do not list implied entries matching shell PATTERN
-                               (overridden by -a or -A)
-      --indicator-style=WORD  append indicator with style WORD to entry names:
-                               none (default), slash (-p),
-                               file-type (--file-type), classify (-F)
-  -i, --inode                print the index number of each file
-  -I, --ignore=PATTERN       do not list implied entries matching shell PATTERN
-  -k, --kibibytes            default to 1024-byte blocks for disk usage
-  -l                         use a long listing format
-  -L, --dereference          when showing file information for a symbolic
-                               link, show information for the file the link
-                               references rather than for the link itself
-  -m                         fill width with a comma separated list of entries
-  -n, --numeric-uid-gid      like -l, but list numeric user and group IDs
-  -N, --literal              print raw entry names (don't treat e.g. control
-                               characters specially)
-  -o                         like -l, but do not list group information
-  -p, --indicator-style=slash
-                             append / indicator to directories
-  -q, --hide-control-chars   print ? instead of nongraphic characters
-      --show-control-chars   show nongraphic characters as-is (the default,
-                               unless program is 'ls' and output is a terminal)
-  -Q, --quote-name           enclose entry names in double quotes
-      --quoting-style=WORD   use quoting style WORD for entry names:
-                               literal, locale, shell, shell-always,
-                               shell-escape, shell-escape-always, c, escape
-  -r, --reverse              reverse order while sorting
-  -R, --recursive            list subdirectories recursively
-  -s, --size                 print the allocated size of each file, in blocks
-  -S                         sort by file size, largest first
-      --sort=WORD            sort by WORD instead of name: none (-U), size (-S),
-                               time (-t), version (-v), extension (-X)
-      --time=WORD            with -l, show time as WORD instead of default
-                               modification time: atime or access or use (-u);
-                               ctime or status (-c); also use specified time
-                               as sort key if --sort=time (newest first)
-      --time-style=STYLE     with -l, show times using style STYLE:
-                               full-iso, long-iso, iso, locale, or +FORMAT;
-                               FORMAT is interpreted like in 'date'; if FORMAT
-                               is FORMAT1<newline>FORMAT2, then FORMAT1 applies
-                               to non-recent files and FORMAT2 to recent files;
-                               if STYLE is prefixed with 'posix-', STYLE
-                               takes effect only outside the POSIX locale
-  -t                         sort by modification time, newest first
-  -T, --tabsize=COLS         assume tab stops at each COLS instead of 8
-  -u                         with -lt: sort by, and show, access time;
-                               with -l: show access time and sort by name;
-                               otherwise: sort by access time, newest first
-  -U                         do not sort; list entries in directory order
-  -v                         natural sort of (version) numbers within text
-  -w, --width=COLS           set output width to COLS.  0 means no limit
-  -x                         list entries by lines instead of by columns
-  -X                         sort alphabetically by entry extension
-  -Z, --context              print any security context of each file
-  -1                         list one file per line.  Avoid '\n' with -q or -b
-      --help     display this help and exit
-      --version  output version information and exit
-
-The SIZE argument is an integer and optional unit (example: 10K is 10*1024).
-Units are K,M,G,T,P,E,Z,Y (powers of 1024) or KB,MB,... (powers of 1000).
-
-Using color to distinguish file types is disabled both by default and
-with --color=never.  With --color=auto, ls emits color codes only when
-standard output is connected to a terminal.  The LS_COLORS environment
-variable can change the settings.  Use the dircolors command to set it.
-
-Exit status:
- 0  if OK,
- 1  if minor problems (e.g., cannot access subdirectory),
- 2  if serious trouble (e.g., cannot access command-line argument).
-
-GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
-Full documentation at: <http://www.gnu.org/software/coreutils/ls>
-or available locally via: info '(coreutils) ls invocation'
-~~~
-
-Many bash commands, and programs that people have written that can be run from within bash, support a `--help` flag to display more information on how to use the commands or programs.
-
-For more information on how to use `ls` we can type `man ls`.
-`man` is the Unix "manual" command:
-it prints a description of a command and its options,
-and (if you're lucky) provides a few examples of how to use it.
-
-> ## `man` and Git for Windows {.callout}
->
-> The bash shell provided by Git for Windows does not
-> support the `man` command. Doing a web search for
-> `unix man page COMMAND` (e.g. `unix man page grep`)
-> provides links to numerous copies of the Unix manual
-> pages online. 
-> For example, GNU provides links to its
-> [manuals](http://www.gnu.org/manual/manual.html):
-> these include [grep](http://www.gnu.org/software/grep/manual/),
-> and the 
-> [core GNU utilities](http://www.gnu.org/software/coreutils/manual/coreutils.html),
-> which covers many commands introduced within this lesson.
-
-To navigate through the `man` pages,
-you may use the up and down arrow keys to move line-by-line,
-or try the "b" and spacebar keys to skip up and down by full page.
-Quit the `man` pages by typing "q".
 
 Here,
 we can see that our home directory contains mostly **sub-directories**.
@@ -350,7 +200,7 @@ which doesn't exist.
 > most people use them interchangeably or inconsistently,
 > so we will too.
 
-We can also use `ls` to see the contents of a different directory.  Let's take a 
+We can also use `ls` to see the contents of a different directory.  Let's take a
 look at our `Desktop` directory by running `ls -F Desktop`,
 i.e.,
 the command `ls` with the **arguments** `-F` and `Desktop`.
@@ -364,23 +214,23 @@ $ ls -F Desktop
 data-shell/
 ~~~
 
-Your output should be a list of all the files and sub-directories on your 
-Desktop, including the `data-shell` directory you downloaded at 
-the start of the lesson.  Take a look at your Desktop to confirm that 
-your output is accurate.  
+Your output should be a list of all the files and sub-directories on your
+Desktop, including the `data-shell` directory you downloaded at
+the start of the lesson.  Take a look at your Desktop to confirm that
+your output is accurate.
 
-As you may now see, using a bash shell is strongly dependent on the idea that 
-your files are organized in an hierarchical file system.  
+As you may now see, using a bash shell is strongly dependent on the idea that
+your files are organized in an hierarchical file system.
 Organizing things hierarchically in this way helps us keep track of our work:
 it's possible to put hundreds of files in our home directory,
 just as it's possible to pile hundreds of printed papers on our desk,
 but it's a self-defeating strategy.
 
-Now that we know the `data-shell` directory is located on our Desktop, we 
-can do two things.  
+Now that we know the `data-shell` directory is located on our Desktop, we
+can do two things.
 
-First, we can look at its contents, using the same strategy as before, passing 
-a directory name to `ls`: 
+First, we can look at its contents, using the same strategy as before, passing
+a directory name to `ls`:
 
 ~~~ {.bash}
 $ ls -F Desktop/data-shell
@@ -390,19 +240,19 @@ creatures/          molecules/          notes.txt           solar.pdf
 data/               north-pacific-gyre/ pizza.cfg           writing/
 ~~~
 
-Second, we can actually change our location to a different directory, so 
+Second, we can actually change our location to a different directory, so
 we are no longer located in
-our home directory.  
+our home directory.
 
-The command to change locations is `cd` followed by a 
+The command to change locations is `cd` followed by a
 directory name to change our working directory.
 `cd` stands for "change directory",
 which is a bit misleading:
 the command doesn't change the directory,
 it changes the shell's idea of what directory we are in.
 
-Let's say we want to move to the `data` directory we saw above.  We can 
-use the following series of commands to get there: 
+Let's say we want to move to the `data` directory we saw above.  We can
+use the following series of commands to get there:
 
 ~~~ {.bash}
 $ cd Desktop
@@ -410,9 +260,9 @@ $ cd data-shell
 $ cd data
 ~~~
 
-These commands will move us from our home directory onto our Desktop, then into 
+These commands will move us from our home directory onto our Desktop, then into
 the `data-shell` directory, then into the `data` directory.  `cd` doesn't print anything,
-but if we run `pwd` after it, we can see that we are now 
+but if we run `pwd` after it, we can see that we are now
 in `/Users/nelle/Desktop/data-shell/data`.
 If we run `ls` without arguments now,
 it lists the contents of `/Users/nelle/Desktop/data-shell/data`,
@@ -433,7 +283,7 @@ animals.txt       morse.txt     planets.txt     sunspot.txt
 ~~~
 
 We now know how to go down the directory tree:
-how do we go up?  We might try the following: 
+how do we go up?  We might try the following:
 
 ~~~{.bash}
 cd data-shell
@@ -442,15 +292,15 @@ cd data-shell
 -bash: cd: data-shell: No such file or directory
 ~~~
 
-But we get an error!  Why is this?  
+But we get an error!  Why is this?
 
-With our methods so far, 
-`cd` can only see sub-directories inside your current directory.  There are 
-different ways to see directories above your current location; we'll start 
-with the simplest.  
+With our methods so far,
+`cd` can only see sub-directories inside your current directory.  There are
+different ways to see directories above your current location; we'll start
+with the simplest.
 
 There is a shortcut in the shell to move up one directory level
-that looks like this: 
+that looks like this:
 
 ~~~ {.bash}
 $ cd ..
@@ -470,7 +320,7 @@ $ pwd
 /Users/nelle/Desktop/data-shell
 ~~~
 
-The special directory `..` doesn't usually show up when we run `ls`.  If we want 
+The special directory `..` doesn't usually show up when we run `ls`.  If we want
 to display it, we can give `ls` the `-a` flag:
 
 ~~~ {.bash}
@@ -493,7 +343,7 @@ It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
 
 > ## Other Hidden Files {.callout}
-> 
+>
 > In addition to the hidden directories `..` and `.`, you may also see a file
 > called `.bash_profile`. This file usually contains shell configuration
 > settings. You may also see other files and directories beginning
@@ -514,16 +364,16 @@ but we'll see some uses for it soon.
 > Orthogonal systems tend to be easier for people to learn
 > because there are fewer special cases and exceptions to keep track of.
 
-These then, are the basic commands for navigating the filesystem on your computer: 
-`pwd`, `ls` and `cd`.  Let's explore some variations on those commands.  What happens 
-if you type `cd` on its own, without giving 
-a directory?  
+These then, are the basic commands for navigating the filesystem on your computer:
+`pwd`, `ls` and `cd`.  Let's explore some variations on those commands.  What happens
+if you type `cd` on its own, without giving
+a directory?
 
 ~~~ {.bash}
 $ cd
 ~~~
 
-How can you check what happened?  `pwd` gives us the answer!  
+How can you check what happened?  `pwd` gives us the answer!
 
 ~~~ {.bash}
 $ pwd
@@ -532,38 +382,38 @@ $ pwd
 /Users/nelle
 ~~~
 
-It turns out that `cd` without an argument will return you to your home directory, 
-which is great if you've gotten lost in your own filesystem.  
+It turns out that `cd` without an argument will return you to your home directory,
+which is great if you've gotten lost in your own filesystem.
 
-Let's try returning to the `data` directory from before.  Last time, we used 
-three commands, but we can actually string together the list of directories 
-to move to `data` in one step: 
+Let's try returning to the `data` directory from before.  Last time, we used
+three commands, but we can actually string together the list of directories
+to move to `data` in one step:
 
 ~~~ {.bash}
 $ cd Desktop/data-shell/data
 ~~~
 
-Check that we've moved to the right place by running `pwd` and `ls -F`.  
+Check that we've moved to the right place by running `pwd` and `ls -F`.
 
-If we want to move up one level from the shell directory, we could use `cd ..`.  But 
-there is another way to move to any directory, regardless of your 
-current location.  
+If we want to move up one level from the shell directory, we could use `cd ..`.  But
+there is another way to move to any directory, regardless of your
+current location.
 
-So far, when specifying directory names, or even a directory path (as above), 
-we have been using **relative paths**.  When you use a relative path with a command 
+So far, when specifying directory names, or even a directory path (as above),
+we have been using **relative paths**.  When you use a relative path with a command
 like `ls` or `cd`, it tries to find that location  from where we are,
-rather than from the root of the file system.  
+rather than from the root of the file system.
 
-However, it is possible to specify the **absolute path** to a directory by 
-including its entire path from the root directory, which is indicated by a 
-leading slash.  The leading `/` tells the computer to follow the path from 
+However, it is possible to specify the **absolute path** to a directory by
+including its entire path from the root directory, which is indicated by a
+leading slash.  The leading `/` tells the computer to follow the path from
 the root of the file system, so it always refers to exactly one directory,
 no matter where we are when we run the command.
 
 This allows us to move to our `data-shell` directory from anywhere on
-the filesystem (including from inside `data`).  To find the absolute path 
-we're looking for, we can use `pwd` and then extract the piece we need 
-to move to `data-shell`.  
+the filesystem (including from inside `data`).  To find the absolute path
+we're looking for, we can use `pwd` and then extract the piece we need
+to move to `data-shell`.
 
 ~~~ {.bash}
 $ pwd
@@ -575,7 +425,7 @@ $ pwd
 $ cd /Users/nelle/Desktop/data-shell
 ~~~
 
-Run `pwd` and `ls -F` to ensure that we're in the directory we expect.  
+Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 
 > ## Two More Shortcuts {.callout}
 >
@@ -583,13 +433,13 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > mean "the current user's home directory". For example, if Nelle's home
 > directory is `/Users/nelle`, then `~/data` is equivalent to
 > `/Users/nelle/data`. This only works if it is the first character in the
-> path: `here/there/~/elsewhere` is *not* `here/there/Users/nelle/elsewhere`. 
-> 
+> path: `here/there/~/elsewhere` is *not* `here/there/Users/nelle/elsewhere`.
+>
 > Another shortcut is the `-` (dash) character.  `cd` will translate `-` into
-> *the previous directory I was in*, which is faster than having to remember, 
-> then type, the full path.  This is a *very* efficient way of moving back 
-> and forth between directories. The difference between `cd ..` and `cd -` is 
-> that the former brings you *up*, while the latter brings you *back*. 
+> *the previous directory I was in*, which is faster than having to remember,
+> then type, the full path.  This is a *very* efficient way of moving back
+> and forth between directories. The difference between `cd ..` and `cd -` is
+> that the former brings you *up*, while the latter brings you *back*.
 
 ### Nelle's Pipeline: Organizing Files
 
@@ -614,7 +464,7 @@ a directory called `revised-revised-results-3`.)
 > If she used month names,
 > December would come before July;
 > if she didn't use leading zeroes,
-> November ('11') would come before July ('7'). Similarly, putting the year first 
+> November ('11') would come before July ('7'). Similarly, putting the year first
 > means that June 2012 will come before June 2013.
 
 Each of her physical samples is labelled according to her lab's convention
@@ -661,36 +511,37 @@ and we will see it in many other tools as we go on.
 
 > ## Many ways to do the same thing - absolute vs relative paths {.challenge}
 >
-> Starting from a filesystem location of `/Users/amanda/data/`, 
-> which of the following commands could Amanda use to navigate to her home directory, 
-> which is `/Users/amanda`?
-> 
+> Navigate to the workshop `data` directory with `cd
+>~/Desktop/data-shell/data`.
+> Which of the following commands could you use to navigate to the workshop's
+> home directory, which is `~/Desktop/data-shell`?
+>
 >1.  `cd .`
 >2.  `cd /`
->3.  `cd /home/amanda`
+>3.  `cd /home/workshop`
 >4.  `cd ../..`
 >5.  `cd ~`
->6.  `cd home`
->7.  `cd ~/data/..`
+>6.  `cd ~/Desktop/data-shell`
+>7.  `cd ~/Desktop/data-shell/data/..`
 >8.  `cd`
 >9.  `cd ..`
 
 > ## Relative path resolution {.challenge}
 >
-> Using the filesystem diagram below, if `pwd` displays `/Users/thing`, 
+> Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
 what will `ls ../backup` display?
 >
 > 1.  `../backup: No such file or directory`
 > 2.  `2012-12-01 2013-01-08 2013-01-27`
 > 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
 > 4.  `original pnas_final pnas_sub`
-> 
+>
 > ![File System for Challenge Questions](fig/filesystem-challenge.svg)
 
 
 > ## `ls` reading comprehension {.challenge}
 >
-> Assuming a directory structure as in the above Figure 
+> Assuming a directory structure as in the above Figure
 > (File System for Challenge Questions), if `pwd` displays `/Users/backup`,
 > and `-r` tells `ls` to display things in reverse order,
 > what command will display:
@@ -710,11 +561,9 @@ what will `ls ../backup` display?
 > What does the command `ls` do when used with the `-s` and `-h`
 > arguments?
 
-> ## Listing Recursively and By Time {.challenge}
+> ## Listing Recursively and By Time {.exercise]
 >
-> The command ls -R lists the contents of directories recursively, i.e., lists 
-> their sub-directories, sub-sub-directories, and so on in alphabetical order 
-> at each level. The command ls -t lists things by time of last change, with 
-> most recently changed files or directories first.
-> In what order does ls -R -t display things? Hint: ls -l uses a long listing 
-> format to view timestamps.
+> The command ls -R lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories,
+> and so on in alphabetical order at each level. The command ls -t lists things by time of last change,
+> with most recently changed files or directories first.
+> In what order does ls -R -t display things? {Hint: ls -l     use a long listing format to view timestamps}
