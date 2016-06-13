@@ -572,5 +572,3 @@ what will `ls ../backup` display?
 > most recently changed files or directories first.
 > In what order does ls -R -t display things? Hint: ls -l uses a long listing
 > format to view timestamps.
-
->>>>>>> upstream/gh-pages
