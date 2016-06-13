@@ -461,6 +461,43 @@ about them."
 >
 > 4. None of the above.
 
+> ## Track a species {.challenge}
+> 
+> Do you remember Leah from the previous lesson? She has several hundred 
+> data files saved in one directory, each of which is formatted like this:
+> 
+> ~~~
+> 2013-11-05,deer,5
+> 2013-11-05,rabbit,22
+> 2013-11-05,raccoon,7
+> 2013-11-06,rabbit,19
+> 2013-11-06,deer,2
+> ~~~
+>
+> She wants to write a shell script, which takes a directory and a species 
+> as command-line parameters, and return one file called `species.txt` 
+> containing a list of dates and associated number of this species, such as 
+> for rabbits:
+> 
+> ~~~
+> 2013-11-05,22
+> 2013-11-06,19
+> 2013-11-07,18
+> ~~~
+>
+> Help her by putting in the right order the following commands and pipes :  
+> 
+> `cut -d : -f 2`  
+> `>`  
+> `|`  
+> `grep -w $1 -r $2`  
+> `|`  
+> `$1.txt`  
+> `cut -d , -f 1,3`  
+>
+> Hint: use `man grep` to look for how to grep text recursively in a directory, 
+> and `man cut` to select more than one field in a line
+
 > ## Little Women {.challenge}
 >
 > You and your friend, having just finished reading *Little Women* by
