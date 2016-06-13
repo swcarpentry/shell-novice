@@ -149,7 +149,24 @@ Software is like that.</code></pre>
 <p class="caption">File Tree for Find Example</p>
 </div>
 <p>Nelle’s <code>writing</code> directory contains one file called <code>haiku.txt</code> and four subdirectories: <code>thesis</code> (which contains a sadly empty file, <code>empty-draft.md</code>), <code>data</code> (which contains two files <code>one.txt</code> and <code>two.txt</code>), a <code>tools</code> directory that contains the programs <code>format</code> and <code>stats</code>, and a subdirectory called <code>old</code>, with a file <code>oldtool</code>.</p>
-<p>For our first command, let’s run <code>find . -type d</code>. As always, the <code>.</code> on its own means the current working directory, which is where we want our search to start; <code>-type d</code> means “things that are directories”. Sure enough, <code>find</code>’s output is the names of the five directories in our little tree (including <code>.</code>):</p>
+<p>For our first command, let’s run <code>find .</code>.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">find</span> .</code></pre></div>
+<pre class="output"><code>.
+./old
+./old/.gitkeep
+./data
+./data/one.txt
+./data/two.txt
+./tools
+./tools/format
+./tools/old
+./tools/old/oldtool
+./tools/stats
+./haiku.txt
+./thesis
+./thesis/empty-draft.md</code></pre>
+<p>As always, the <code>.</code> on its own means the current working directory, which is where we want our search to start. <code>find</code>’s output is the names of every file <strong>and</strong> directory under the current working directory. This can seen useless at first but <code>find</code> has many options to filter the output and in this lesson we will discovery some.</p>
+<p>The first option in our list is <code>-type d</code> that means “things that are directories”. Sure enough, <code>find</code>’s output is the names of the five directories in our little tree (including <code>.</code>):</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">find</span> . -type d</code></pre></div>
 <pre class="output"><code>./
 ./data
@@ -165,15 +182,6 @@ Software is like that.</code></pre>
 ./thesis/empty-draft.md
 ./data/one.txt
 ./data/two.txt</code></pre>
-<p><code>find</code> automatically goes into subdirectories, their subdirectories, and so on to find everything that matches the pattern we’ve given it. If we don’t want it to, we can use <code>-maxdepth</code> to restrict the depth of search:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">find</span> . -maxdepth 1 -type f</code></pre></div>
-<pre class="output"><code>./haiku.txt</code></pre>
-<p>The opposite of <code>-maxdepth</code> is <code>-mindepth</code>, which tells <code>find</code> to only report things that are at or below a certain depth. <code>-mindepth 2</code> therefore finds all the files that are two or more levels below us:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">find</span> . -mindepth 2 -type f</code></pre></div>
-<pre class="output"><code>./data/one.txt
-./data/two.txt
-./tools/format
-./tools/stats</code></pre>
 <p>Now let’s try matching by name:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">find</span> . -name *.txt</code></pre></div>
 <pre class="output"><code>./haiku.txt</code></pre>
