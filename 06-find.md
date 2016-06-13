@@ -511,3 +511,46 @@ about them."
 > of the four sisters is mentioned?  Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+
+
+> ## Filtering BLAST output {.challenge}
+>
+> The BLAST tool (Basic Local Alignment Tool, blast.ncbi.nlm.nih.gov/Blast.cgi) is one of the most commonly used tools in Bioinformatics to identify sequence similarity. An average run of the tool can produce millions of lines as a tabular output (see the example below).
+> 
+> ~~~ {BLAST.sample.output}
+> AF178033	EMORG:AF178033	100.00	811     0       0       1       811     1       811     0.0     1566.6
+> AF178033	EMORG:AF031394	99.63	811     3       0       1       811     99      909     0.0     1542.8
+> AF178033	EMORG:AF031393	95.07	811     40      0       1       811     99      909     0.0     1249.4
+> AF178033	EMORG:AF353195	85.93	803     113     0       1       803     99      901     0.0     670.5
+> AF178033	EMORG:AF353192	85.86	806     114     0       1       806     99      904     0.0     670.5
+> AF178033	EMORG:AF353201	85.36	806     118     0       1       806     99      904     1e-179  636.8
+> AF178033	EMORG:AF353200	84.99	806     121     0       1       806     99      904     2e-172  613.0
+> AF178033	EMORG:AF031387	84.80	809     123     0       1       809     99      907     4e-170  605.1
+> AF178033	EMORG:AF353193	84.49	806     125     0       1       806     99      904     5e-163  581.3
+> AF178033	EMORG:AF080489	83.50	806     133     0       1       806     99      904     7e-144  517.9
+> AF192542	EMORG:AF178033	100.00	811     0       0       1       811     1       811     0.0     1566.6
+> AF192542	EMORG:AF178031	94.82	811     42      0       1       811     1       811     0.0     1233.5
+> AF192542	EMORG:AF178032	94.57	811     44      0       1       811     1       811     0.0     1217.7
+> AF192542	EMORG:AF353192	85.86	806     114     0       1       806     99      904     0.0     670.5
+> AF192542	EMORG:AF031391	85.48	806     117     0       1       806     99      904     0.0     644.8
+> AF192542	EMORG:AF353199	84.86	806     122     0       1       806     99      904     2e-171  609.1
+> AF192542	EMORG:AF353198	84.74	806     123     0       1       806     99      904     6e-169  601.1
+> AF192542	EMORG:AF031392	84.74	806     123     0       1       806     99      904     2e-168  599.2
+> AF192542	EMORG:AF080490	84.89	794     120     0       16      809     114     907     2e-165  589.3
+> AF192542	EMORG:AF031395	84.80	809     123     0       1       809     99      907     9e-165  587.3
+~~~
+>
+> A fellow wet-lab scientist has been able to run the tool, but unfortunately doesn't have the necessary UNIX skills to filter out the interesting lines from the BLAST output. The goal is to retrieve only the matches (i.e. the lines) that have 100 percent identity (i.e. value in column 3 is equal to 100.00), and then show only the query and target identifiers (i.e. columns one and two respectively).
+> From previous lessons you are aware that you will probably need to use the following commands, but in the correct order and joined through pipes.
+>
+> `cut -f 1,2`  
+> `grep "100.00"`  
+> `BLAST.sample.output`  
+>
+> Hint: you can check `man cut` on how to select multiple columns/fields in a file.
+
+
+
+
+
+
