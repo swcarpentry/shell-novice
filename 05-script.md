@@ -207,9 +207,11 @@ to handle the case of parameters containing spaces
 Here's an example:
 
 ~~~ {.bash}
-$ cat sorted.sh
+$ nano sorted.sh
 ~~~
 ~~~ {.output}
+# Sort filenames by their length.
+# Usage: sorted.sh one_or_more_filenames
 wc -l "$@" | sort -n
 ~~~
 ~~~ {.bash}
