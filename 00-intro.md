@@ -11,15 +11,15 @@ minutes: 5
 
 At a high level, computers do four things:
 
--   run programs
--   store data
--   communicate with each other
--   interact with us
+-   run programs,
+-   store data,
+-   communicate with each other,
+-   and interact with us.
 
 They can do the last of these in many different ways,
-including direct brain-computer links and speech interfaces.
-Since these are still in their infancy,
-most of us use windows, icons, mice, and pointers.
+including direct brain-computer and speech interfaces.
+Since these interfaces are still in their infancy,
+most of us use computer screens, mice, touchpads and keyboards.
 These technologies didn't become widespread until the 1980s,
 but their roots go back to Doug Engelbart's work in the 1960s,
 which you can see in what has been called
@@ -64,13 +64,13 @@ Bash is the default shell on most modern implementations of Unix
 and in most packages that provide Unix-like tools for Windows.
 
 Using Bash or any other shell
-sometimes feels more like programming than like using a mouse.
+is more like programming than like using a mouse.
 Commands are terse (often only a couple of characters long),
 their names are frequently cryptic,
 and their output is lines of text rather than something visual like a graph.
 On the other hand,
 the shell allows us to combine existing tools in powerful ways with only a few keystrokes
-and to set up pipelines to handle large volumes of data automatically thus improving productivity and reproducibility.
+and to set up workflows to handle large volumes of data automatically. This automation not only improves  productivity and also reproducibility as exactly the same workflow can be run multiple times.
 In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
 Familiarity with the shell is near essential to run a variety of specialized tools and resources including high-performance computing systems. As clusters and cloud computing systems become more popular for scientific data crunching,
 being able to interact with them is becoming a necessary skill. We can build on the command-line skills covered here to tackle a wide range of scientific questions and computational challenges.
