@@ -12,7 +12,7 @@ subtitle: Reference
 *   The shell's main disadvantages are its primarily textual nature
     and how cryptic its commands and operation can be.
 
-## [Files and Directories](01-filedir.html)
+## [Navigating Files and Directories](01-filedir.html)
 
 *   The file system is responsible for managing information on the disk.
 *   Information is stored in files, which are stored in directories (folders).
@@ -34,7 +34,7 @@ subtitle: Reference
     but is normally used to indicate the type of data in the file.
 *   Most commands take options (flags) which begin with a '-'.
 
-## [Creating Things](02-create.html)
+## [Working With Files and Directories](02-create.html)
 
 *   `cp old new` copies a file.
 *   `mkdir path` creates a new directory.
