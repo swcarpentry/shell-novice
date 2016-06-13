@@ -511,3 +511,27 @@ about them."
 > of the four sisters is mentioned?  Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+
+> ## Counting unmapped RNA-seq reads {.challenge}
+>
+> Many programs that map RNA-seq sequence reads to reference genomes 
+> use the [SAM format](https://samtools.github.io/hts-specs/SAMv1.pdf)
+> for their output files. SAM files are tab-delimited text files, with
+> each row representing a single sequence read and each field
+> containing a specific piece of information about that read. The
+> third column contains the name of the matching reference sequence,
+> typically a chromosome name. Reads that don't map to the reference
+> genome have a `*` in the third column of the SAM file.
+>
+> Put the following in the correct order and add pipes to create a
+> command that will return the number of reads in the file 
+> `alignment.sam` that are unmapped:
+>
+> * `alignment.sam`
+> * `wc -l`
+> * `cut -f 3`
+> * `grep "*"`
+>
+> Bonus: Can you get the same information using fewer commands> What
+> should you change if you want to count the number of lines
+> representing reads that are unmapped?
