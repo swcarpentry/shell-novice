@@ -183,47 +183,31 @@ $ rm thesis
 rm: cannot remove `thesis': Is a directory
 ~~~
 
-This happens because `rm` only works on files, not directories.
-The right command is `rmdir`,
-which is short for "remove directory".
-It doesn't work yet either, though,
-because the directory we're trying to remove isn't empty:
+This happens because `rm` by default only works on files, not directories.
+
+To really get rid of `thesis` we must also delete the file `draft.txt`.
+We can do this with the "recursive" option for `rm`:
 
 ~~~ {.bash}
-$ rmdir thesis
-~~~
-~~~ {.error}
-rmdir: failed to remove `thesis': Directory not empty
-~~~
-
-This little safety feature can save you a lot of grief,
-particularly if you are a bad typist.
-To really get rid of `thesis` we must first delete the file `draft.txt`:
-
-~~~ {.bash}
-$ rm thesis/draft.txt
-~~~
-
-The directory is now empty, so `rmdir` can delete it:
-
-~~~ {.bash}
-$ rmdir thesis
+$ rm -r thesis
 ~~~
 
 > ## With Great Power Comes Great Responsibility {.callout}
 >
-> Removing the files in a directory just so that we can remove the
-> directory quickly becomes tedious. Instead, we can use `rm` with the
-> `-r` flag (which stands for "recursive"):
+> Removing the files in a directory recursively can be very dangerous
+> operation. If we're concerned about what we might be deleting we can
+> add the "interactive" flag `-i` to `rm` which will ask us for confirmation
+> before each step
 >
-> ~~~
-> $ rm -r thesis
+> ~~~ {.bash}
+> $ rm -r -i thesis
+> rm: descend into directory ‘thesis’? y
+> rm: remove regular file ‘thesis/draft.txt’? y
+> rm: remove directory ‘thesis’? y
 > ~~~
 >
-> This removes everything in the directory, then the directory itself. If
-> the directory contains sub-directories, `rm -r` does the same thing to
-> them, and so on. It's very handy, but can do a lot of damage if used
-> without care.
+> This removes everything in the directory, then the directory itself, asking
+> at each step for you to confirm the deletion.
 
 Let's create that directory and file one more time.
 (Note that this time we're running `nano` with the path `thesis/draft.txt`,
@@ -430,4 +414,3 @@ but it does find the copy in `thesis` that we didn't delete.
 > intro.txt    methods.txt    survey.txt
 > $ cp intro.txt methods.txt survey.txt
 > ~~~
-
