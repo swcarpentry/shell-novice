@@ -85,6 +85,7 @@ head -n 15 "$1" | tail -n 5
 
 Inside a shell script,
 `$1` means "the first filename (or other parameter) on the command line".
+We put the `$1` inside of double-quotes in case the filename happens to contain any spaces.
 We can now run our script like this:
 
 ~~~ {.bash}
@@ -110,22 +111,6 @@ ATOM     11  H           1      -0.074  -0.384   1.288  1.00  0.00
 ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
 ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 ~~~
-
-
-> ## Double-Quotes Around Arguments {.callout}
->
-> We put the `$1` inside of double-quotes in case the filename happens to contain any spaces.
-> The shell uses whitespace to separate arguments,
-> so we have to be careful when using arguments that might have whitespace in them.
-> If we left out these quotes, and `$1` expanded to a filename like
-> `methyl butane.pdb`,
-> the command in the script would effectively be:
->
->     head -n 15 methyl butane.pdb | tail -n 5
->
-> This would call `head` on two separate files, `methyl` and `butane.pdb`,
-> which is probably not what we intended.
-
 
 We still need to edit `middle.sh` each time we want to adjust the range of lines,
 though.
