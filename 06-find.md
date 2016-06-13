@@ -511,3 +511,16 @@ about them."
 > of the four sisters is mentioned?  Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+
+> ## Generate thumbnails {.challenge}
+>
+> You want to generate thumbnails of all the photos on your hard drive. You found the following script (it uses `convert` command from the [ImageMagick](http://imagemagick.org) toolkit), but it converts files only in the current directory. Modify the script to create thumbnails recursively for all `.jpg` files in the current directory and its sub-directories:
+>
+> ~~~
+> for file in *.jpg
+> do
+>    convert $file -resize 100x100 $file.thumb
+> done
+> ~~~
+>
+> How would you change the script to take the path to your photo directory as a command-line argument?
