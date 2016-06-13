@@ -511,3 +511,9 @@ about them."
 > of the four sisters is mentioned?  Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+
+> ## Cleaning up {.challenge}
+>
+> During the course of this lesson you created a number of files.
+> Delete all of them (but not the original files) using the `find` 
+> options `-mmin` and `-delete`.
