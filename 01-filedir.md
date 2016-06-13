@@ -707,8 +707,11 @@ what will `ls ../backup` display?
 
 > ## Exploring more `ls` arguments {.challenge}
 >
-> What does the command `ls` do when used with the `-s` and `-h`
-> arguments?
+> What does the command `ls` do when used with the `-l` and `-h` arguments?
+>
+> Some of its output is about properties that we do not cover in this lesson (such
+> as file permissions and ownership), but the rest should be useful
+> nevertheless.
 
 > ## Listing Recursively and By Time {.challenge}
 >
@@ -718,3 +721,4 @@ what will `ls ../backup` display?
 > most recently changed files or directories first.
 > In what order does ls -R -t display things? Hint: ls -l uses a long listing 
 > format to view timestamps.
+
