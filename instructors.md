@@ -244,21 +244,25 @@ And please also make use of our
 >2.  `cd /` **no** (`/` stands for the root directory)
 >3.  `cd /home/amanda` **no** (Amanda's home directory is `/Users/amanda`)
 >4.  `cd ../..` **no** (this goes up two levels, i.e. ends in `/Users`)
->5.  `cd ~`  **yes** (`~` stands for the user's home directory)
->6.  `cd home` **no** (this would navigate into a directory `home` in the current directory)
->7.  `cd ~/data/..` **yes** (complicated, but correct)
+>5.  `cd ~`  **yes** (`~` stands for the user's home directory, in this case `/Users/amanda`)
+>6.  `cd home` **no** (this would navigate into a directory `home` in the current directory if it exists)
+>7.  `cd ~/data/..` **yes** (unnecessarily complicated, but correct)
 >8.  `cd`  **yes** (shortcut to go back to the user's home directory)
 >9.  `cd ..` **yes** (goes up one level)
 
 > ## Relative path resolution {.challenge}
 >
-> Using the filesystem diagram below, if `pwd` displays `/Users/thing`, 
-what will `ls ../backup` display?
+> Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
+> what will `ls ../backup` display?
 >
-> 1.  `../backup: No such file or directory`
-> 2.  `2012-12-01 2013-01-08 2013-01-27`
-> 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
-> 4.  `original pnas_final pnas_sub`  **<--** because `../backup` refers to `/Users/backup`
+> 1.  `../backup: No such file or directory` **no** (there *is* a directory
+      `backup` in `/Users`) 
+> 2.  `2012-12-01 2013-01-08 2013-01-27` **no** (this is the content of
+      `Users/thing/backup` but with `..` we asked for one level further up)
+> 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/` **no** (see previous explanation,
+      also we did not specify `-F` to display `/` at the end of the directory names)
+> 4.  `original pnas_final pnas_sub`  **yes** (`../backup` refers to
+      `/Users/backup`)
 
 > ## `ls` reading comprehension {.challenge}
 >
@@ -272,9 +276,11 @@ what will `ls ../backup` display?
 > ~~~
 >
 > 1.  `ls pwd`  **no** (`pwd` is not the name of a directory)
-> 2.  `ls -r -F` **yes** (`ls` without directory argument lists in the current directory)
+> 2.  `ls -r -F` **yes** (`ls` without directory argument lists files and
+      directories in the current directory)
 > 3.  `ls -r -F /Users/backup`  **yes** (uses the absolute path explicitly)
-> 4.  Either \#2 or \#3 above, but not \#1.  **correct answer** (see explanations above)
+> 4.  Either \#2 or \#3 above, but not \#1.  **correct answer** (see
+      explanations above)
 
 > ## Exploring more `ls` arguments {.challenge}
 > 
