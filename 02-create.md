@@ -56,16 +56,16 @@ molecules/  solar.pdf
 
 > ## Good names for files and directories {.callout}
 >
-> Names of files and directories can make your life an hell
+> Names of files and directories can make your life very painful
 > when working on the command line. Here we provide a few useful
 > tips for the names of your files from now on.
 >
-> 1. Don't use white spaces.
+> 1. Don't use whitespaces.
 >
->    White spaces can make the name more meaningful
->    but since it is used to break arguments on the command line
+>    White spaces can make a name more meaningful
+>    but since whitespace is used to break arguments on the command line
 >    is better to avoid them on name of files and directories.
->    You can use `-` or `_` instead of white space.
+>    You can use `-` or `_` instead of whitespace.
 >
 > 2. Don't begin the name with `-`.
 >
@@ -77,7 +77,7 @@ molecules/  solar.pdf
 >    that we will learn during this lesson. Some will only make your command not work at all
 >    but others can make you lose some data.
 >
-> If you need to deal with names of files or directories that have white space
+> If you need to deal with names of files or directories that have whitespace
 > or another non-alphanumeric character you should put quotes around the name.
 
 However, there's nothing in it yet:
