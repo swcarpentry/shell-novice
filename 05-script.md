@@ -71,8 +71,7 @@ our script's output is exactly what we would get if we ran that pipeline directl
 What if we want to select lines from an arbitrary file?
 We could edit `middle.sh` each time to change the filename,
 but that would probably take longer than just retyping the command.
-Instead,
-let's edit `middle.sh` and replace `octane.pdb` with a special variable called `$1`:
+Instead, let's edit `middle.sh` and make it more versatile:
 
 ~~~ {.bash}
 $ nano middle.sh
