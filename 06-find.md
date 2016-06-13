@@ -461,9 +461,9 @@ about them."
 >
 > 4. None of the above.
 
-> ## Track a species {.challenge}
+> ## Tracking a Species {.challenge}
 > 
-> Do you remember Leah from the previous lesson? She has several hundred 
+> Leah has several hundred 
 > data files saved in one directory, each of which is formatted like this:
 > 
 > ~~~
@@ -474,10 +474,10 @@ about them."
 > 2013-11-06,deer,2
 > ~~~
 >
-> She wants to write a shell script, which takes a directory and a species 
-> as command-line parameters, and return one file called `species.txt` 
-> containing a list of dates and associated number of this species, such as 
-> for rabbits:
+> She wants to write a shell script that takes a directory and a species 
+> as command-line parameters and return one file called `species.txt` 
+> containing a list of dates and the number of that species seen on that date,
+> such as this file for rabbits:
 > 
 > ~~~
 > 2013-11-05,22
@@ -485,18 +485,20 @@ about them."
 > 2013-11-07,18
 > ~~~
 >
-> Help her by putting in the right order the following commands and pipes :  
+> Put these commands and pipes in the right order to achieve this:
 > 
-> `cut -d : -f 2`  
-> `>`  
-> `|`  
-> `grep -w $1 -r $2`  
-> `|`  
-> `$1.txt`  
-> `cut -d , -f 1,3`  
+> ~~~ {.bash}
+> cut -d : -f 2  
+> >  
+> |  
+> grep -w $1 -r $2  
+> |  
+> $1.txt  
+> cut -d , -f 1,3  
+> ~~~
 >
-> Hint: use `man grep` to look for how to grep text recursively in a directory, 
-> and `man cut` to select more than one field in a line
+> Hint: use `man grep` to look for how to grep text recursively in a directory
+> and `man cut` to select more than one field in a line.
 
 > ## Little Women {.challenge}
 >
