@@ -75,6 +75,22 @@ In addition, the command line is often the easiest way to interact with remote m
 Familiarity with the shell is near essential to run a variety of specialized tools and resources including high-performance computing systems. As clusters and cloud computing systems become more popular for scientific data crunching,
 being able to interact with them is becoming a necessary skill. We can build on the command-line skills covered here to tackle a wide range of scientific questions and computational challenges.
 
+## A quick example to demonstrate automation with shell scripting.
+
+Shell scripting is a really powerful tool to automate tasks.  Imagine you had 100 000 microscopy slides that you needed to resize to put on the web. We could use Imagemagick, an image tool with a command line interface, to resize the images.
+
+~~~ {.bash}
+$ convert input.jpg -resize 800×600 output.jpg
+~~~
+
+The problem is that is only works on one image at a time.  However, with bash, we can easily use this tool on our large set of images
+
+~~~ {.bash}
+$ for file in *.jpg; do convert $file -resize 800×600 resized-$file; done
+~~~
+
+This might take a few minutes to run, but eventually we will have resized all 100 000 images.  This set of bash commands might not make much sense right now, but after following along the lesson, it will be much clearer!
+
 ## Nelle's Pipeline: Starting Point
 
 Nelle Nemo, a marine biologist,
@@ -119,4 +135,3 @@ so that her computer can work 24 hours a day while she writes her paper.
 As a bonus,
 once she has put a processing pipeline together,
 she will be able to use it again whenever she collects more data.
-
