@@ -552,3 +552,29 @@ so this matches all the valid data files she has.
 > What other command(s) could be added to this in a pipeline to find
 > out what animals the file contains (without any duplicates in their
 > names)?
+
+> ## Random Calling {.challenge}
+>
+> Suppose that you have the following file, `roster.txt`, of students taking your course.
+>
+> ~~~
+> Number,Name,Color
+> 1,Thomas,blue
+> 2,Edward,blue
+> 3,Henry,green
+> 4,Gordon,blue
+> 5,James,red
+> 6,Percy,green
+> 7,Toby,brown
+> 8,Duck,green
+> 9,Donald,black
+> 10,Douglas,black
+> ~~~
+>
+> The following command line will randomly choose one student from the roster.
+>
+> ~~~ {.bash}
+> $ cat roster.txt | tail -n +2 | cut -d, -f2 | shuf -n 1
+> ~~~
+>
+> Explain how this pipeline works.
