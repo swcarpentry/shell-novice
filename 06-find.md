@@ -256,7 +256,7 @@ matched.  (-F is specified by POSIX.)
 > these is **regular expressions**, which
 > is what the "re" in "grep" stands for.) Regular expressions are both complex
 > and powerful; if you want to do complex searches, please look at the lesson
-> on [our website](http://software-carpentry.org/v4/regexp/index.html). As a taster, we can
+> on [our website](http://v4.software-carpentry.org/regexp/index.html). As a taster, we can
 > find lines that have an 'o' in the second position like this:
 >
 >     $ grep -E '^.o' haiku.txt
