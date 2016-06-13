@@ -174,7 +174,7 @@ $ nano middle.sh
 ~~~
 ~~~ {.output}
 # Select lines from the middle of a file.
-# Usage: middle.sh filename end_line num_lines
+# Usage: bash middle.sh filename end_line num_lines
 head -n "$2" "$1" | tail -n "$3"
 ~~~
 
@@ -211,7 +211,7 @@ $ nano sorted.sh
 ~~~
 ~~~ {.output}
 # Sort filenames by their length.
-# Usage: sorted.sh one_or_more_filenames
+# Usage: bash sorted.sh one_or_more_filenames
 wc -l "$@" | sort -n
 ~~~
 ~~~ {.bash}
