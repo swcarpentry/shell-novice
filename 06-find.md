@@ -221,11 +221,38 @@ a `tools` directory that contains the programs `format` and `stats`,
 and a subdirectory called `old`, with a file `oldtool`.
 
 For our first command,
-let's run `find . -type d`.
+let's run `find .`.
+
+~~~ {.bash}
+$ find .
+~~~
+~~~ {.output}
+.
+./old
+./old/.gitkeep
+./data
+./data/one.txt
+./data/two.txt
+./tools
+./tools/format
+./tools/old
+./tools/old/oldtool
+./tools/stats
+./haiku.txt
+./thesis
+./thesis/empty-draft.md
+~~~
+
 As always,
 the `.` on its own means the current working directory,
-which is where we want our search to start;
-`-type d` means "things that are directories".
+which is where we want our search to start.
+`find`'s output is the names of every file **and** directory
+under the current working directory.
+This can seen useless at first but `find` has many options
+to filter the output and in this lesson we will discovery some.
+
+The first option in our list is
+`-type d` that means "things that are directories".
 Sure enough,
 `find`'s output is the names of the five directories in our little tree
 (including `.`):
@@ -255,33 +282,6 @@ $ find . -type f
 ./thesis/empty-draft.md
 ./data/one.txt
 ./data/two.txt
-~~~
-
-`find` automatically goes into subdirectories,
-their subdirectories,
-and so on to find everything that matches the pattern we've given it.
-If we don't want it to,
-we can use `-maxdepth` to restrict the depth of search:
-
-~~~ {.bash}
-$ find . -maxdepth 1 -type f
-~~~
-~~~ {.output}
-./haiku.txt
-~~~
-
-The opposite of `-maxdepth` is `-mindepth`,
-which tells `find` to only report things that are at or below a certain depth.
-`-mindepth 2` therefore finds all the files that are two or more levels below us:
-
-~~~ {.bash}
-$ find . -mindepth 2 -type f
-~~~
-~~~ {.output}
-./data/one.txt
-./data/two.txt
-./tools/format
-./tools/stats
 ~~~
 
 Now let's try matching by name:
