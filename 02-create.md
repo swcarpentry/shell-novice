@@ -414,3 +414,28 @@ but it does find the copy in `thesis` that we didn't delete.
 > intro.txt    methods.txt    survey.txt
 > $ cp intro.txt methods.txt survey.txt
 > ~~~
+
+> ## Listing Recursively and By Time {.challenge}
+>
+> The command `ls -R` lists the contents of directories recursively,
+> i.e., lists their sub-directories, sub-sub-directories, and so on
+> in alphabetical order at each level.
+> The command `ls -t` lists things by time of last change,
+> with most recently changed files or directories first.
+> In what order does `ls -R -t` display things?
+
+> ## Creating Files a Different Way {.challenge}
+> 
+> We have seen how to create text files using the `nano` editor.
+> Now, try the following command in your home directory:
+> 
+> $ cd                  # go to your home directory
+> $ touch my_file.txt
+>
+> 1.  What did the touch command do?
+>     When you look at your home directory using the GUI file explorer,
+>     does the file show up?
+> 
+> 2.  Use `ls -l` to inspect the file's.  How large is `my_file.txt`?
+>
+> 3.  When might you want to create a file this way?
