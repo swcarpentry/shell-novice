@@ -494,9 +494,9 @@ so she decides to get some coffee and catch up on her reading.
 > 4.  All of the text from `fructose.dat`, `glucose.dat` and `sucrose.dat` would be printed
 >     to the screen and saved to a file called `sugar.dat`
 
-> ## Limiting the files being listed {.challenge}
+> ## Limiting Sets of Files {.challenge}
 >
-> In the same directory, where `ls` returns (without the sugar.dat file):
+> In the same directory, where `ls` returns (without the `sugar.dat` file):
 >
 > ~~~
 > fructose.dat    glucose.dat   sucrose.dat   maltose.txt
@@ -513,10 +513,9 @@ so she decides to get some coffee and catch up on her reading.
 >
 > 1.  No files are listed.
 > 2.  All files are listed.
-> 3.  Only fructose.dat, glucose.dat and maltose.txt are listed.
-> 4.  Only sucrose.dat is listed.
-
-
+> 3.  Only `fructose.dat`, `glucose.dat` and `maltose.txt` are listed.
+> 4.  Only `sucrose.dat` is listed.
+>
 > How would the output differ from using this command instead?
 >
 > ~~~
@@ -529,7 +528,7 @@ so she decides to get some coffee and catch up on her reading.
 > 1.  The same files would be listed.
 > 2.  All the files are listed this time.
 > 3.  No files are listed this time.
-> 4.  The file sucrose.dat will be listed twice, with the other files listed once each.
+> 4.  The file `sucrose.dat` will be listed twice, with the other files listed once each.
 
 > ## Doing a Dry Run {.challenge}
 >
