@@ -441,7 +441,7 @@ about them."
 > 3. `grep -w "of" haiku.txt`
 > 4. `grep -i "of" haiku.txt`
 
-> ## `find` pipeline reading comprehension {.challenge}
+> ## `find` Pipeline Reading Comprehension {.challenge}
 >
 > Write a short explanatory comment for the following shell script:
 >
@@ -449,7 +449,7 @@ about them."
 > wc -l $(find . -name '*.dat') | sort -n
 > ~~~
 
-> ## Matching `ose.dat` but not `temp` {}{.challenge}
+> ## Matching and Subtracting {.challenge}
 >
 > The `-v` flag to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
@@ -457,13 +457,10 @@ about them."
 > end in `ose.dat` (e.g., `sucrose.dat` or `maltose.dat`), but do
 > *not* contain the word `temp`?
 >
-> 1. `find /data -name '*.dat' | grep ose | grep -v temp`
->
-> 2. `find /data -name ose.dat | grep -v temp`
->
-> 3. `grep -v "temp" $(find /data -name '*ose.dat')`
->
-> 4. None of the above.
+> 1.  `find /data -name '*.dat' | grep ose | grep -v temp`
+> 2.  `find /data -name ose.dat | grep -v temp`
+> 3.  `grep -v "temp" $(find /data -name '*ose.dat')`
+> 4.  None of the above.
 
 > ## Tracking a Species {.challenge}
 > 
@@ -512,6 +509,8 @@ about them."
 > most mentioned.  You, however, are certain it was Amy.  Luckily, you
 > have a file `LittleWomen.txt` containing the full text of the novel.
 > Using a`for` loop, how would you tabulate the number of times each
-> of the four sisters is mentioned?  Hint: one solution might employ
+> of the four sisters is mentioned?
+>
+> Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
