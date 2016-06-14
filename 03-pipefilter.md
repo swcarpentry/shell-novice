@@ -584,3 +584,16 @@ so this matches all the valid data files she has.
 > What other command(s) could be added to this in a pipeline to find
 > out what animals the file contains (without any duplicates in their
 > names)?
+>
+> ## Removing Unneeded Files {.challenge}
+>
+> Suppose you only want to keep your raw files and processing script 
+> to save storage. You want to delete your processed data files for archiving.
+> The raw files end in .dat and the processed files end in .txt. 
+> Which of the following would remove all processed data files?
+> Which of the following would remove all files and throw an error?
+>
+> 1. `rm ?.txt`
+> 2. `rm *.txt`
+> 3. `rmdir *.txt`
+> 4. `rm * .txt`
