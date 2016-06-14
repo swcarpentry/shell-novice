@@ -515,18 +515,20 @@ about them."
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
 
-> ## Finding files with different tests {.challenge}
+> ## Finding Files With Different Properties {.challenge}
 > 
-> We have already learned how to find files having certain name (or its part) 
-> and how to distinguish between files and directories. The `find` command can 
-> be supplied with several other searching criteria known as 'tests' to locate 
-> files with specific attributes: E.g. creation time, size, permissions, or 
-> ownership.
-> Our challenge is to recursively find all regular files in Nelle’s home directory 
-> modified by user larry during last 24 hours.
-> Hint 1: We should use three test: -type, -mtime and -user.
-> Hint 2: The value for -mtime needs to be negative. Do you know why?
-> Final hint: Assuming that Nelle’s home is our working directory we type: 
+> The `find` command can be given several other criteria known as "tests"
+> to locate files with specific attributes, such as creation time, size,
+> permissions, or ownership.  Use `man find` to explore these, and then
+> write a single command to find all files in or below the current directory
+> that were modified by the user `ahmed` in the last 24 hours.
+>
+> Hint 1: you will need to use three tests: `-type`, `-mtime`, and `-user`.
+>
+> Hint 2: The value for `-mtime` will need to be negative---why?
+>
+> Solution: Assuming that Nelle’s home is our working directory we type:
+>
 > ~~~ {.bash}
-> $ find ./ -type f -mtime -1 -user larry
+> $ find ./ -type f -mtime -1 -user ahmed
 > ~~~
