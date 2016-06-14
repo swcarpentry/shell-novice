@@ -6,11 +6,11 @@ minutes: 15
 ---
 > ## Learning Objectives {.objectives}
 >
-> *   Redirect a command's output to a file.
-> *   Process a file instead of keyboard input using redirection.
-> *   Construct command pipelines with two or more stages.
-> *   Explain what usually happens if a program or pipeline isn't given any input to process.
-> *   Explain Unix's "small pieces, loosely joined" philosophy.
+> *   Redirect a command's output to a file. (Apply)
+> *   Process a file instead of keyboard input using redirection. (Apply)
+> *   Construct command pipelines with two or more stages. (Create)
+> *   Explain what usually happens if a program or pipeline isn't given any input to process. (Understand)
+> *   Explain Unix's "small pieces, loosely joined" philosophy. (Understand)
 
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
