@@ -277,10 +277,10 @@ And please also make use of our
 >
 > 1.  `ls pwd`  **no** (`pwd` is not the name of a directory)
 > 2.  `ls -r -F` **yes** (`ls` without directory argument lists files and
-      directories in the current directory)
+>     directories in the current directory)
 > 3.  `ls -r -F /Users/backup`  **yes** (uses the absolute path explicitly)
 > 4.  Either \#2 or \#3 above, but not \#1.  **correct answer** (see
-      explanations above)
+>     explanations above)
 
 > ## Exploring more `ls` arguments {.challenge}
 > 
