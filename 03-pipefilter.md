@@ -616,3 +616,25 @@ so this matches all the valid data files she has.
 >
 > 3.  Under what circumstances would your new expression produce an error message
 >     where the original one would not?
+
+> ## Which Pipe? {.challenge}
+>
+> A file called animals.txt contains 586 lines of data formatted as follows:
+>
+> ~~~
+> 2012-11-05,deer
+> 2012-11-05,rabbit
+> 2012-11-05,raccoon
+> 2012-11-06,rabbit
+> ...
+> ~~~
+>
+> What command would you use to produce a table that shows
+> the total count of each type of animal in the file?
+>
+> 1.  `grep {deer, rabbit, raccoon, deer, fox, bear} animals.txt | wc -l`
+> 2.  `sort animals.txt | uniq -c`
+> 3.  `sort -t, -k2,2 animals.txt | uniq -c`
+> 4.  `cut -d, -f 2 animals.txt | uniq -c`
+> 5.  `cut -d, -f 2 animals.txt | sort | uniq -c`
+> 6.  `cut -d, -f 2 animals.txt | sort | uniq -c | wc -l`
