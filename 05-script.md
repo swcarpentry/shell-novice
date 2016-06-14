@@ -444,7 +444,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ## Ooops my large script has a bug. How can I easily find the problem? {.challenge}
 >
 > You have written a large script with many lines, and it's not working properly.
-> How can I easily identify the problem ?
+> How can you easily identify the problem ?
 >
 > ~~~
 > # Script containing error
