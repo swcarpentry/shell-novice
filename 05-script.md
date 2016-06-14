@@ -462,13 +462,12 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > echo $@.dat
 > ~~~
 
-> ## Ooops my large script has a bug. How can I easily find the problem? {.challenge}
+> ## Debugging Scripts {.challenge}
 >
-> You have written a large script with many lines, and it's not working properly.
-> How can you easily identify the problem ?
+> Suppose you have saved the following script in a file called `do-errors.sh`
+> in Nelle's `north-pacific-gyre/2012-07-03` directory:
 >
-> ~~~
-> # Script containing error
+> ~~~ {.bash}
 > # Calculate reduced stats for data files at J = 100 c/bp.
 > for datafile in "$@"
 > do
@@ -477,18 +476,18 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > done
 > ~~~
 >
-> cd nelle/north-pacific-gyre/2012-07-03
-> Using nano, save the above script in do-stats-Error.sh
-> Run the script
-~~~ {.bash}
-$ bash do-stats-Error.sh *[AB].txt
-~~~
-> Your output is blank, why ?
-> Re run the script using this option -x.
+> When you run it:
+>
 > ~~~ {.bash}
-> bash -x do-stats-Error.sh *[AB].txt
+> $ bash do-errors.sh *[AB].txt
 > ~~~
 >
-> Now you can see how the script is running.
-> Which line is causing the error ?
+> the output is blank.
+> To figure out why, re-run the script using the `-x` option:
 >
+> ~~~ {.bash}
+> bash -x do-errors.sh *[AB].txt
+> ~~~
+>
+> What is the output showing you?
+> Which line is responsible for the error?
