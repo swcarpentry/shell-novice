@@ -439,3 +439,23 @@ but it does find the copy in `thesis` that we didn't delete.
 > 2.  Use `ls -l` to inspect the file's.  How large is `my_file.txt`?
 >
 > 3.  When might you want to create a file this way?
+
+> ## Moving to the Current Folder {.challenge}
+>
+> After running the following commands,
+> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder:
+> 
+> ~~~ {.bash}
+> $ ls -F
+> raw/ analyzed/
+> $ ls -F analyzed
+> fructose.dat glucose.dat maltose.dat sucrose.dat 
+> $ cd raw/
+> ~~~
+>
+> Fill in the blanks to move these files to the current folder
+> (i.e., the one she is currently in):
+>
+> ~~~ {.bash}
+> $ mv ___/sucrose.dat  ___/maltose.dat ___
+> ~~~
