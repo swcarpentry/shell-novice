@@ -98,7 +98,11 @@ $ grep -w "is not" haiku.txt
 Today it is not working
 ~~~
 
-We've now seen that you don't have to have quotes around single words, but it is useful to use quotes when searching for multiple words. It also helps to make it easier to distinguish between the search term or phrase and the file being searched. We will use quotes in the remaining examples.
+We've now seen that you don't have to have quotes around single words,
+but it is useful to use quotes when searching for multiple words.
+It also helps to make it easier to distinguish between the search term or phrase
+and the file being searched.
+We will use quotes in the remaining examples.
 
 Another useful option is `-n`, which numbers the lines that match:
 
