@@ -597,3 +597,22 @@ so this matches all the valid data files she has.
 > 2. `rm *.txt`
 > 3. `rm * .txt`
 > 4. `rm *.*`
+
+> ## Wildcard Expressions {.challenge}
+>
+> Wildcard expressions can be very complex, but you can sometimes write
+> them in ways that only use simple syntax, at the expense of being a bit
+> more verbose.  For example, the wildcard expression `*[AB].txt`
+> matches all files ending in `A.txt` or `B.txt`. Imagine you forgot about
+> this.
+> 
+> 1.  Can you match the same set of files with basic wildcard expressions
+>     that do not use the `[]` syntax? *Hint*: You may need more than one
+>     expression.
+>
+> 2.  The expression that you found and the expression from the lesson match the
+>     same set of files in this example. What is the small difference between the
+>     outputs?
+>
+> 3.  Under what circumstances would your new expression produce an error message
+>     where the original one would not?
