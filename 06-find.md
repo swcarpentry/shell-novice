@@ -248,7 +248,7 @@ the `.` on its own means the current working directory,
 which is where we want our search to start.
 `find`'s output is the names of every file **and** directory
 under the current working directory.
-This can be seen useless at first but `find` has many options
+This can seem useless at first but `find` has many options
 to filter the output and in this lesson we will discover some 
 of them.
 
