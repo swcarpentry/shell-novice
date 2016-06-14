@@ -511,3 +511,23 @@ about them."
 > of the four sisters is mentioned?  Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+
+> ## Filtering Data {.challenge}
+> 
+> The file animals.txt contains the following data:
+>
+> ~~~
+> 2012-11-05,deer
+> 2012-11-05,rabbit
+> 2012-11-05,raccoon
+> 2012-11-06,rabbit
+> 2012-11-06,deer
+> 2012-11-06,fox
+> 2012-11-07,rabbit
+> 2012-11-07,bear
+> ~~~
+>
+> You have a script for analyzing this data, but it requires input data 
+> to be from all one type of animal.  Using grep inside a "for" loop, 
+> separate the data by animal and redirect the output into separate .txt
+> files.
