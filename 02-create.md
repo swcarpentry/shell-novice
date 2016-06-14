@@ -441,7 +441,7 @@ but it does find the copy in `thesis` that we didn't delete.
 >
 > Use the `file-structure` directory under `shell-data` as an example.
 > The goal is to copy the file structure of the `2016-5-18-data` folder
-> into a folder called `2016-5-18-data` and remove the data files from 
+> into a folder called `2016-5-20-data` and remove the data files from 
 > the first folder.
 > 
 > Navigate to the `file-structure` folder. Which of the following set of 
