@@ -178,7 +178,7 @@ when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilis
 Finally,
 the `head` and `tail` combination selects lines 81-100 from whatever file is being processed.
 
-> ## Spaces in Names {.callout}
+> ## Filename expansion and spaces {.callout}
 > 
 > Filename expansion in loops is another reason you should not use spaces in filenames.
 > Suppose our data files are named:

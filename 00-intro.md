@@ -29,9 +29,10 @@ Going back even further,
 the only way to interact with early computers was to rewire them.
 But in between,
 from the 1950s to the 1980s,
-most people used line printers.
-These devices only allowed input and output of the letters, numbers, and punctuation found on a standard keyboard,
-so programming languages and interfaces had to be designed around that constraint.
+most people used [teletypes](https://upload.wikimedia.org/wikipedia/commons/d/df/ASR-33_at_CHM.agr.jpg) or similar terminals.
+These devices only allowed input and output of the letters, numbers, and punctuation found on a standard typewriter keyboard,
+so programming languages and interfaces had to be designed around that constraint.  In addition, communications to these
+terminals was typically fairly slow (ten characters per second), so these interfaces were typically and necessarily fairly terse.
 
 This kind of interface is called a
 **command-line interface**, or CLI,
