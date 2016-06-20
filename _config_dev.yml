@@ -1,0 +1,14 @@
+#------------------------------------------------------------
+# This config-file is only needed for development. Instead of changing
+# the url everytime you work locally on the project, run a server with
+# both configuration files:
+#
+#    jekyll serve --config _config.yml,_config_dev.yml
+#------------------------------------------------------------
+
+# Is this production or development? (Overrides _config.yml.)
+is_production: false
+
+# Override root so that CSS and other resources will load locally.
+github:
+  url: http://0.0.0.0:4000
