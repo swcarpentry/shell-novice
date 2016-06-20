@@ -56,7 +56,7 @@ molecules/  solar.pdf
 
 > ## Good names for files and directories {.callout}
 >
-> Names of files and directories can make your life very painful
+> Complicated names of files and directories can make your life very painful
 > when working on the command line. Here we provide a few useful
 > tips for the names of your files from now on.
 >
