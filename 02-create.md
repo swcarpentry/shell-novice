@@ -69,15 +69,15 @@ molecules/  solar.pdf
 >
 > 2. Don't begin the name with `-`.
 >
->    This will make some commands think that your file is an argument.
+>    Commands treat names starting with `-` as options.
 >
 > 3. Stay with letters, numbers, `.`, `-` and `_`.
 >
 >    May of the others characters have an special meaning on the command line
 >    that we will learn during this lesson. Some will only make your command not work at all
->    but others can make you lose some data.
+>    but for some of them you can even lose some data.
 >
-> If you need to deal with names of files or directories that have whitespace
+> If you need to refer to names of files or directories that have whitespace
 > or another non-alphanumeric character you should put quotes around the name.
 
 However, there's nothing in it yet:
