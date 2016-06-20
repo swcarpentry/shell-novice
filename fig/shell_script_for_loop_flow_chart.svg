@@ -557,7 +557,7 @@
 			<text x="27.61" y="360.56" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Start</text>		</g>
 		<g id="shape19-77" v:mID="19" v:groupContext="shape" v:layerMember="0" transform="translate(50.3263,-144.84)">
 			<title>Decision</title>
-			<desc>$filename found?</desc>
+			<desc>Next $filename?</desc>
 			<v:custProps>
 				<v:cp v:nameU="Cost" v:lbl="Cost" v:prompt="" v:type="7" v:format="@" v:sortKey="" v:invis="false" v:ask="false"
 						v:langID="1033" v:cal="0"/>
