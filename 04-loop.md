@@ -179,57 +179,27 @@ Finally,
 the `head` and `tail` combination selects lines 81-100 from whatever file is being processed.
 
 > ## Spaces in Names {.callout}
->
-> Filename expansion in loops is another reason you should not use spaces in filenames.
+> Whitespace is used to separate the elements on the list
+> that we are going to loop over. If on the list we have elements
+> with whitespace we need to quote those elements
+> and our variable when using it.
 > Suppose our data files are named:
 >
 > ~~~
-> basilisk.dat
 > red dragon.dat
-> unicorn.dat
+> purple unicorn.dat
 > ~~~
->
-> If we try to process them using:
->
+> 
+> We need to use
+> 
 > ~~~
-> for filename in *.dat
-> do
->     head -n 100 $filename | tail -n 20
-> done
-> ~~~
->
-> then the shell will expand `*.dat` to create:
->
-> ~~~
-> basilisk.dat red dragon.dat unicorn.dat
-> ~~~
->
-> With older versions of Bash,
-> or most other shells,
-> `filename` will then be assigned the following values in turn:
->
-> ~~~
-> basilisk.dat
-> red
-> dragon.dat
-> unicorn.dat
-> ~~~
->
-> That's a problem: `head` can't read files called `red` and `dragon.dat`
-> because they don't exist,
-> and won't be asked to read the file `red dragon.dat`.
->
-> We can make our script a little bit more robust
-> by **quoting** our use of the variable:
->
-> ~~~
-> for filename in *.dat
+> for filename in "red dragon.dat" "purple unicorn.dat"
 > do
 >     head -n 100 "$filename" | tail -n 20
 > done
 > ~~~
 >
-> but it's simpler just to avoid using spaces (or other special characters) in filenames.
+> Is simpler just to avoid using whitespaces (or other special characters) in filenames.
 
 Going back to our original file copying problem,
 we can solve it using this loop:
