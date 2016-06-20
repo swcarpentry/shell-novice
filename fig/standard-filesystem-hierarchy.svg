@@ -25,14 +25,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="595.97248"
-     inkscape:cy="314.61399"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="571.38967"
+     inkscape:cy="273.97467"
      inkscape:document-units="px"
-     inkscape:current-layer="g7832"
+     inkscape:current-layer="g8302-0"
      showgrid="true"
-     inkscape:window-width="2560"
-     inkscape:window-height="1376"
+     inkscape:window-width="1600"
+     inkscape:window-height="836"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -54,7 +54,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -73,7 +73,7 @@
            height="40"
            x="20"
            y="82.362206" /></flowRegion><flowPara
-         id="flowPara4421"></flowPara></flowRoot>    <g
+         id="flowPara4421" /></flowRoot>    <g
        id="g8728">
       <g
          transform="translate(142.62245,0)"
@@ -430,7 +430,7 @@
           </g>
         </g>
         <g
-           transform="translate(-0.8071,1.7279409)"
+           transform="translate(-1.5213887,192.44223)"
            id="g8675">
           <g
              transform="translate(0,49.746187)"
@@ -444,13 +444,13 @@
                xml:space="preserve"
                style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;word-spacing:0px;fill:#003f4c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
                x="980.53522"
-               y="163.24471"
+               y="165.24471"
                id="text4423-3-2-3-2"
                sodipodi:linespacing="125%"><tspan
                  sodipodi:role="line"
                  id="tspan4425-1-7-6-5"
                  x="980.53522"
-                 y="163.24471">/home</tspan></text>
+                 y="165.24471">/proc</tspan></text>
             <text
                xml:space="preserve"
                style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#90b247;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -462,14 +462,14 @@
                  id="tspan4326-6-4-3-9"
                  x="979.97369"
                  y="164.15334" /><tspan
-                 sodipodi:role="line"
-                 x="979.97369"
-                 y="179.77834"
-                 id="tspan8182-8-0">&quot;user home</tspan><tspan
                  id="tspan8272-9"
                  sodipodi:role="line"
                  x="979.97369"
-                 y="195.40334">directories&quot;</tspan><tspan
+                 y="179.77834">&quot;process &amp; kernel</tspan><tspan
+                 sodipodi:role="line"
+                 x="979.97369"
+                 y="195.40334"
+                 id="tspan4466">information files&quot;</tspan><tspan
                  sodipodi:role="line"
                  x="979.97369"
                  y="211.02834"
@@ -477,7 +477,7 @@
           </g>
         </g>
         <g
-           transform="translate(-1.66496,2.2757179)"
+           transform="translate(-2.3792457,-54.867139)"
            id="g8686">
           <g
              id="g8400">
@@ -523,7 +523,7 @@
           </g>
         </g>
         <g
-           transform="translate(-2.2208,5.7206642)"
+           transform="translate(-2.9350857,-51.422193)"
            id="g8697">
           <path
              inkscape:connector-curvature="0"
@@ -1516,7 +1516,7 @@
              style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
         </g>
         <g
-           transform="translate(-2.72588,10.090598)"
+           transform="translate(-3.4401657,-47.052259)"
            id="g8708">
           <path
              inkscape:connector-curvature="0"
