@@ -16,11 +16,11 @@ commands :
 	@grep -h -E '^##' ${MAKEFILES} | sed -e 's/## //g'
 
 ## serve          : run a local server.
-serve :
+serve : lesson-rmd
 	${JEKYLL} serve --config _config.yml,_config_dev.yml
 
 ## site           : build files but do not run a server.
-site :
+site : lesson-rmd
 	${JEKYLL} build --config _config.yml,_config_dev.yml
 
 ## figures        : re-generate inclusion displaying all figures.
@@ -35,6 +35,8 @@ clean :
 	@find . -name .DS_Store -exec rm {} \;
 	@find . -name '*~' -exec rm {} \;
 	@find . -name '*.pyc' -exec rm {} \;
+	@rm -rf ${RMD_DST}
+	@rm -rf fig/swc-rmd-*
 
 ## ----------------------------------------
 ## Commands specific to workshop websites.
@@ -48,7 +50,11 @@ workshop-check :
 ## ----------------------------------------
 ## Commands specific to lesson websites.
 
-.PHONY : lesson-check lesson-files lesson-fixme lesson-single
+.PHONY : lesson-check lesson-rmd lesson-files lesson-fixme lesson-single
+
+# RMarkdown files
+RMD_SRC = $(wildcard _episodes_rmd/??-*.Rmd)
+RMD_DST = $(patsubst _episodes_rmd/%.Rmd,_episodes/%.md,$(RMD_SRC))
 
 # Lesson source files in the order they appear in the navigation menu.
 SRC_FILES = \
@@ -70,6 +76,10 @@ HTML_FILES = \
   $(patsubst _extras/%.md,${DST}/%/index.html,$(wildcard _extras/*.md)) \
   ${DST}/license/index.html
 
+## lesson-rmd:    : convert Rmarkdown files to markdown
+lesson-rmd: $(RMD_SRC)
+	@bin/knit_lessons.sh
+
 ## lesson-check   : validate lesson Markdown.
 lesson-check :
 	@bin/lesson_check.py -s . -p ${PARSER}
@@ -79,6 +89,7 @@ unittest :
 
 ## lesson-files   : show expected names of generated files for debugging.
 lesson-files :
+	@echo 'RMarkdown:' ${RMD_SRC}
 	@echo 'source:' ${SRC_FILES}
 	@echo 'generated:' ${HTML_FILES}
 
