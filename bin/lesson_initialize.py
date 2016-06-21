@@ -315,6 +315,10 @@ permalink: /guide/
 FIXME
 '''
 
+INCLUDES_ALL_FIGURES_HTML = '''\
+<!-- empty -->
+'''
+
 BOILERPLATE = (
     ('AUTHORS', ROOT_AUTHORS),
     ('CITATION', ROOT_CITATION),
@@ -327,7 +331,8 @@ BOILERPLATE = (
     ('_extras/about.md', EXTRAS_ABOUT_MD),
     ('_extras/discuss.md', EXTRAS_DISCUSS_MD),
     ('_extras/figures.md', EXTRAS_FIGURES_MD),
-    ('_extras/guide.md', EXTRAS_GUIDE_MD)
+    ('_extras/guide.md', EXTRAS_GUIDE_MD),
+    ('_includes/all_figures.html', INCLUDES_ALL_FIGURES_HTML)
 )
 
 
