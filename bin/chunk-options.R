@@ -21,18 +21,20 @@ opts_chunk$set(tidy = FALSE, results = "markup", comment = NA,
 # The hooks below add html tags to the code chunks and their output so that they
 # are properly formatted when the site is built.
 hook_in <- function(x, options) {
-  stringr::str_c("\n\n~~~{.r}\n",
+  stringr::str_c("\n\n~~~\n",
                  paste0(x, collapse="\n"),
-                 "\n~~~\n{: .source}\n\n")
+                 "\n~~~\n{: .r}\n\n")
 }
 
 hook_out <- function(x, options) {
+  x <- gsub("\n$", "", x)
   stringr::str_c("\n\n~~~\n",
                    paste0(x, collapse="\n"),
                  "\n~~~\n{: .output}\n\n")
 }
 
 hook_error <- function(x, options) {
+  x <- gsub("\n$", "", x)
   stringr::str_c("\n\n~~~\n",
                  paste0(x, collapse="\n"),
                  "\n~~~\n{: .error}\n\n")
