@@ -166,17 +166,22 @@ def check_fileset(source_dir, reporter, filenames_present):
         else:
             reporter.add(None, 'Episode {0} has badly-formatted filename', filename)
 
-    # Check episode filename numbering.
+    # Check for duplicate episode numbers.
     reporter.check(len(seen) == len(set(seen)),
                         None,
                         'Duplicate episode numbers {0} vs {1}',
                         sorted(seen), sorted(set(seen)))
+
+    # Check that numbers are consecutive.
     seen = [int(s) for s in seen]
     seen.sort()
-    reporter.check(all([i+1 == n for (i, n) in enumerate(seen)]),
-                        None,
-                        'Missing or non-consecutive episode numbers {0}',
-                        seen)
+    clean = True
+    for i in range(len(seen) - 1):
+        clean = clean and ((seen[i+1] - seen[i]) == 1)
+    reporter.check(clean,
+                   None,
+                   'Missing or non-consecutive episode numbers {0}',
+                   seen)
 
 
 def create_checker(args, filename, info):
