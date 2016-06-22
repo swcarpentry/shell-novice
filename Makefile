@@ -50,7 +50,7 @@ workshop-check :
 ## ----------------------------------------
 ## Commands specific to lesson websites.
 
-.PHONY : lesson-check lesson-rmd lesson-files lesson-fixme lesson-single
+.PHONY : lesson-check lesson-rmd lesson-files lesson-fixme
 
 # RMarkdown files
 RMD_SRC = $(wildcard _episodes_rmd/??-*.Rmd)
