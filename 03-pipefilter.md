@@ -377,7 +377,7 @@ $ wc -l *.txt | sort -n | tail -n 5
  300 NENE02040Z.txt
  300 NENE02043A.txt
  300 NENE02043B.txt
-5082 total
+5040 total
 ~~~
 
 Those numbers look good --- but what's that 'Z' doing there in the third-to-last line?
