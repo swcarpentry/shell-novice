@@ -67,14 +67,21 @@ KNOWN_CODEBLOCKS = {
     'sql'
 }
 
-# What fields are required in episode metadata?
-EPISODE_METADATA_FIELDS = {
+# What fields are required in teaching episode metadata?
+TEACHING_METADATA_FIELDS = {
     ('title', str),
     ('teaching', int),
     ('exercises', int),
     ('questions', list),
     ('objectives', list),
     ('keypoints', list)
+}
+
+# What fields are required in break episode metadata?
+BREAK_METADATA_FIELDS = {
+    ('layout', str),
+    ('title', str),
+    ('break', int)
 }
 
 # How long are lines allowed to be?
@@ -351,11 +358,27 @@ class CheckEpisode(CheckBase):
     def check_metadata(self):
         super(CheckEpisode, self).check_metadata()
         if self.metadata:
-            for (name, type_) in EPISODE_METADATA_FIELDS:
-                self.reporter.check(type(self.metadata.get(name, None)) == type_,
-                                    self.filename,
-                                    '"{0}" missing, empty, or has wrong type in metadata',
-                                    name)
+            if 'layout' in self.metadata:
+                if self.metadata['layout'] == 'break':
+                    self.check_metadata_fields(BREAK_METADATA_FIELDS)
+                else:
+                    self.reporter.add(self.filename,
+                                      'Unknown episode layout "{0}"',
+                                      self.metadata['layout'])
+            else:
+                self.check_metadata_fields(TEACHING_METADATA_FIELDS)
+
+
+    def check_metadata_fields(self, expected):
+        for (name, type_) in expected:
+            if name not in self.metadata:
+                self.reporter.add(self.filename,
+                                  'Missing metadata field {0}',
+                                  name)
+            elif type(self.metadata[name]) != type_:
+                self.reporter.add(self.filename,
+                                  '"{0}" has wrong type in metadata ({1} instead of {2})',
+                                  name, type(self.metadata[name]), type_)
 
 
 class CheckReference(CheckBase):
