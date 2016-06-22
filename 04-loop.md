@@ -238,6 +238,7 @@ for filename in *
 do 
 	mv "$filename" "${filename/ /_}"
 done
+~~~
 > this will scan all the files in the directory for white spaces and replace them with underscore.
 
 
