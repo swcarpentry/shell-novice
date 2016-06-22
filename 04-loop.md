@@ -70,6 +70,7 @@ In this case, the list is the two filenames.
 Each time through the loop,
 the name of the thing currently being operated on is assigned to
 the **variable** called `filename`.
+
 Inside the loop,
 we get the variable's value by putting `$` in front of it:
 `$filename` is `basilisk.dat` the first time through the loop,
@@ -230,6 +231,15 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 > ~~~
 >
 > but it's simpler just to avoid using spaces (or other special characters) in filenames.
+> 
+> (If you have a series of files with spaces, you can run a loop to rename files:
+~~~ {.bash}
+for filename in *
+do 
+	mv "$filename" "${filename/ /_}"
+done
+> this will scan all the files in the directory for white spaces and replace them with underscore.
+
 
 Going back to our original file copying problem,
 we can solve it using this loop:
