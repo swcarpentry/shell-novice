@@ -98,6 +98,10 @@ def parse_args():
     """Parse command-line arguments."""
 
     parser = OptionParser()
+    parser.add_option('-l', '--linelen',
+                      default=False,
+                      dest='line_len',
+                      help='Check line lengths')
     parser.add_option('-p', '--parser',
                       default=None,
                       dest='parser',
@@ -127,7 +131,9 @@ def check_config(args):
 
 
 def read_all_markdown(args, source_dir):
-    """Read source files, returning {path : {'metadta':yaml, 'text':text, 'doc':doc}}."""
+    """Read source files, returning
+    {path : {'metadata':yaml, 'metadata_len':N, 'text':text, 'lines':[(i, line, len)], 'doc':doc}}
+    """
 
     all_dirs = [os.path.join(source_dir, d) for d in SOURCE_DIRS]
     all_patterns = [os.path.join(d, '*.md') for d in all_dirs]
@@ -192,7 +198,7 @@ def require(condition, message):
 class CheckBase(object):
     """Base class for checking Markdown files."""
 
-    def __init__(self, args, filename, metadata, metadata_len, text, doc):
+    def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
         """Cache arguments for checking."""
 
         super(CheckBase, self).__init__()
@@ -202,6 +208,7 @@ class CheckBase(object):
         self.metadata = metadata
         self.metadata_len = metadata_len
         self.text = text
+        self.lines = lines
         self.doc = doc
 
         self.layout = None
@@ -230,15 +237,12 @@ class CheckBase(object):
     def check_text(self):
         """Check the raw text of the lesson body."""
 
-        offset = 0
-        if self.metadata_len is not None:
-            offset = self.metadata_len
-        lines = [(offset+i+1, l, len(l)) for (i, l) in enumerate(self.text.split('\n'))]
-        over = [i for (i, l, n) in lines if (n > MAX_LINE_LEN) and (not l.startswith('!'))]
-        self.reporter.check(not over,
-                            self.filename,
-                            'Line(s) are too long: {0}',
-                            ', '.join([str(i) for i in over]))
+        if self.args.line_len:
+            over = [i for (i, l, n) in self.lines if (n > MAX_LINE_LEN) and (not l.startswith('!'))]
+            self.reporter.check(not over,
+                                self.filename,
+                                'Line(s) are too long: {0}',
+                                ', '.join([str(i) for i in over]))
 
 
     def check_blockquote_classes(self):
@@ -315,8 +319,8 @@ class CheckBase(object):
 class CheckNonJekyll(CheckBase):
     """Check a file that isn't translated by Jekyll."""
 
-    def __init__(self, args, filename, metadata, metadata_len, text, doc):
-        super(CheckNonJekyll, self).__init__(args, filename, metadata, metadata_len, text, doc)
+    def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
+        super(CheckNonJekyll, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
 
 
     def check_metadata(self):
@@ -328,16 +332,16 @@ class CheckNonJekyll(CheckBase):
 class CheckIndex(CheckBase):
     """Check the main index page."""
 
-    def __init__(self, args, filename, metadata, metadata_len, text, doc):
-        super(CheckIndex, self).__init__(args, filename, metadata, metadata_len, text, doc)
+    def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
+        super(CheckIndex, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
         self.layout = 'lesson'
 
 
 class CheckEpisode(CheckBase):
     """Check an episode page."""
 
-    def __init__(self, args, filename, metadata, metadata_len, text, doc):
-        super(CheckEpisode, self).__init__(args, filename, metadata, metadata_len, text, doc)
+    def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
+        super(CheckEpisode, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
 
     def check_metadata(self):
         super(CheckEpisode, self).check_metadata()
@@ -352,16 +356,16 @@ class CheckEpisode(CheckBase):
 class CheckReference(CheckBase):
     """Check the reference page."""
 
-    def __init__(self, args, filename, metadata, metadata_len, text, doc):
-        super(CheckReference, self).__init__(args, filename, metadata, metadata_len, text, doc)
+    def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
+        super(CheckReference, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
         self.layout = 'reference'
 
 
 class CheckGeneric(CheckBase):
     """Check a generic page."""
 
-    def __init__(self, args, filename, metadata, metadata_len, text, doc):
-        super(CheckGeneric, self).__init__(args, filename, metadata, metadata_len, text, doc)
+    def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
+        super(CheckGeneric, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
         self.layout = 'page'
 
 

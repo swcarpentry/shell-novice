@@ -56,7 +56,10 @@ class Reporter(object):
 
 
 def read_markdown(parser, path):
-    """Get YAML and AST for Markdown file, returning {'metadata':yaml, 'text': text, 'doc':doc}."""
+    """
+    Get YAML and AST for Markdown file, returning
+    {'metadata':yaml, 'metadata_len':N, 'text':text, 'lines':[(i, line, len)], 'doc':doc}.
+    """
 
     # Split and extract YAML (if present).
     metadata = None
@@ -68,9 +71,14 @@ def read_markdown(parser, path):
         try:
             metadata = yaml.load(pieces[1])
         except yaml.YAMLError as e:
-            raise ValueError('Unable to parse YAML header in {0}:\n{1}'.format(path, e))
+            print('Unable to parse YAML header in {0}:\n{1}'.format(path, e))
+            sys.exit(1)
         metadata_len = pieces[1].count('\n')
         body = pieces[2]
+
+    # Split into lines.
+    offset = 0 if metadata_len is None else metadata_len
+    lines = [(offset+i+1, l, len(l)) for (i, l) in enumerate(body.split('\n'))]
 
     # Parse Markdown.
     cmd = 'ruby {0}'.format(parser)
@@ -82,5 +90,6 @@ def read_markdown(parser, path):
         'metadata': metadata,
         'metadata_len': metadata_len,
         'text': body,
+        'lines': lines,
         'doc': doc
     }
