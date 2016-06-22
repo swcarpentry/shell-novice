@@ -10,6 +10,6 @@ if (!require("stringr"))
 src_rmd <- list.files(pattern = "??-*.Rmd$", path = "_episodes_rmd", full.names = TRUE)
 dest_md <- file.path("_episodes", gsub("Rmd$", "md", basename(src_rmd)))
 
-for (i in seq_along(src_rmd)) {
-    knitr::knit(src_rmd[i], output = dest_md[i])
-}
+mapply(function(x, y) {
+        knitr::knit(x, output = y)
+    }, src_rmd, dest_md)
