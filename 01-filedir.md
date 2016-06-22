@@ -715,10 +715,10 @@ what will `ls ../backup` display?
 
 > ## Listing Recursively and By Time {.challenge}
 >
-> The command ls -R lists the contents of directories recursively, i.e., lists 
+> The command `ls -R` lists the contents of directories recursively, i.e., lists 
 > their sub-directories, sub-sub-directories, and so on in alphabetical order 
-> at each level. The command ls -t lists things by time of last change, with 
+> at each level. The command `ls -t` lists things by time of last change, with 
 > most recently changed files or directories first.
-> In what order does ls -R -t display things? Hint: ls -l uses a long listing 
+> In what order does `ls -R -t` display things? Hint: `ls -l` uses a long listing 
 > format to view timestamps.
 

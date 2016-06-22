@@ -21,7 +21,7 @@ It is also the name of a very useful command-line program.
 `grep` finds and prints lines in files that match a pattern.
 For our examples,
 we will use a file that contains three haikus taken from a
-1998 competition in *Salon* magazine. For this set of examples
+1998 competition in *Salon* magazine. For this set of examples,
 we're going to be working in the writing subdirectory:
 
 ~~~ {.bash}
@@ -252,8 +252,9 @@ the `.` on its own means the current working directory,
 which is where we want our search to start.
 `find`'s output is the names of every file **and** directory
 under the current working directory.
-This can seen useless at first but `find` has many options
-to filter the output and in this lesson we will discovery some.
+This can seem useless at first but `find` has many options
+to filter the output and in this lesson we will discover some 
+of them.
 
 The first option in our list is
 `-type d` that means "things that are directories".
@@ -413,7 +414,7 @@ North Whitehead wrote in 1911, "Civilization advances by extending the
 number of important operations which we can perform without thinking
 about them."
 
-> ## Using grep {.challenge}
+> ## Using `grep` {.challenge}
 >
 > ~~~
 > The Tao that is seen
