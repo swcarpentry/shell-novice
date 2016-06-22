@@ -232,7 +232,7 @@ the `head` and `tail` combination selects lines 81-100 from whatever file is bei
 >
 > but it's simpler just to avoid using spaces (or other special characters) in filenames.
 > 
-> (If you have a series of files with spaces, you can run a loop to rename files:
+> If you have a series of files with spaces, you can run a loop to rename files:
 ~~~ {.bash}
 for filename in *
 do 
