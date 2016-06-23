@@ -6,11 +6,11 @@ minutes: 15
 ---
 > ## Learning Objectives {.objectives}
 >
-> *   Redirect a command's output to a file.
-> *   Process a file instead of keyboard input using redirection.
-> *   Construct command pipelines with two or more stages.
-> *   Explain what usually happens if a program or pipeline isn't given any input to process.
-> *   Explain Unix's "small pieces, loosely joined" philosophy.
+> *   Redirect a command's output to a file. (Apply)
+> *   Process a file instead of keyboard input using redirection. (Apply)
+> *   Construct command pipelines with two or more stages. (Create)
+> *   Explain what usually happens if a program or pipeline isn't given any input to process. (Understand)
+> *   Explain Unix's "small pieces, loosely joined" philosophy. (Understand)
 
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
@@ -32,7 +32,7 @@ Let's go into that directory with `cd` and run the command `wc *.pdb`.
 `wc` is the "word count" command:
 it counts the number of lines, words, and characters in files.
 The `*` in `*.pdb` matches zero or more characters,
-so the shell turns `*.pdb` into a complete list of `.pdb` files:
+so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
 
 ~~~ {.bash}
 $ cd molecules
@@ -154,6 +154,16 @@ $ cat lengths.txt
  107  total
 ~~~
 
+> ## Output page by page {.callout}
+>
+> We'll continue to use `cat` in this lesson, for convenience and consistency,
+> but it has the disadvantage that it always dumps the whole file onto your screen.
+> More useful in practice is the command `less`,
+> which you use with `$ less lengths.txt`.
+> This displays a screenful of the file, and then stops.
+> You can go forward one screenful by pressing the spacebar,
+> or back one by pressing `b`.  Press `q` to quit.
+
 Now let's use the `sort` command to sort its contents.
 We will also use the `-n` flag to specify that the sort is
 numerical instead of alphabetical.
@@ -207,7 +217,7 @@ $ sort -n lengths.txt | head -n 1
   9  methane.pdb
 ~~~
 
-The vertical bar between the two commands is called a **pipe**.
+The vertical bar, `|`, between the two commands is called a **pipe**.
 It tells the shell that we want to use
 the output of the command on the left
 as the input to the command on the right.
@@ -367,7 +377,7 @@ $ wc -l *.txt | sort -n | tail -n 5
  300 NENE02040Z.txt
  300 NENE02043A.txt
  300 NENE02043B.txt
-5082 total
+5040 total
 ~~~
 
 Those numbers look good --- but what's that 'Z' doing there in the third-to-last line?
@@ -460,6 +470,38 @@ so this matches all the valid data files she has.
 >
 > Hint: Try executing each command twice in a row and then examining the output files.
 
+> ## More on bash wildcards {.challenge}
+> Sam has a directory containing calibration data, datasets, and descriptions of
+> the datasets:
+>
+> ~~~ {.bash}
+> 2015-10-23-calibration.txt
+> 2015-10-23-dataset1.txt
+> 2015-10-23-dataset2.txt
+> 2015-10-23-dataset_overview.txt
+> 2015-10-26-calibration.txt
+> 2015-10-26-dataset1.txt
+> 2015-10-26-dataset2.txt
+> 2015-10-26-dataset_overview.txt
+> 2015-11-23-calibration.txt
+> 2015-11-23-dataset1.txt
+> 2015-11-23-dataset2.txt
+> 2015-11-23-dataset_overview.txt
+> ~~~
+>
+> Before heading off to another field trip, she wants to back up her data and
+> send some datasets to her colleague Bob. Sam uses the following commands
+> to get the job done:
+>
+> ```
+> cp *dataset* /backup/datasets
+> cp ____calibration____ /backup/calibration
+> cp 2015-____-____ ~/send_to_bob/all_november_files/
+> cp ____ ~/send_to_bob/all_datasets_created_on_a_23rd/
+> ```
+>
+> Help Sam by filling in the blanks.
+
 > ## Piping commands together {.challenge}
 >
 > In our current directory, we want to find the 3 files which have the least number of
@@ -518,7 +560,7 @@ so this matches all the valid data files she has.
 > cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt
 > ~~~
 
-> ## Pipe construction {.challenge}
+> ## Pipe Construction {.challenge}
 >
 > For the file `animals.txt` from the previous exercise, the command:
 >
@@ -542,3 +584,57 @@ so this matches all the valid data files she has.
 > What other command(s) could be added to this in a pipeline to find
 > out what animals the file contains (without any duplicates in their
 > names)?
+
+> ## Removing Unneeded Files {.challenge}
+>
+> Suppose you want to delete your processed data files, and only keep
+> your raw files and processing script to save storage.
+> The raw files end in `.dat` and the processed files end in `.txt`.
+> Which of the following would remove all the processed data files,
+> and *only* the processed data files?
+>
+> 1. `rm ?.txt`
+> 2. `rm *.txt`
+> 3. `rm * .txt`
+> 4. `rm *.*`
+
+> ## Wildcard Expressions {.challenge}
+>
+> Wildcard expressions can be very complex, but you can sometimes write
+> them in ways that only use simple syntax, at the expense of being a bit
+> more verbose.  For example, the wildcard expression `*[AB].txt`
+> matches all files ending in `A.txt` or `B.txt`. Imagine you forgot about
+> this.
+> 
+> 1.  Can you match the same set of files with basic wildcard expressions
+>     that do not use the `[]` syntax? *Hint*: You may need more than one
+>     expression.
+>
+> 2.  The expression that you found and the expression from the lesson match the
+>     same set of files in this example. What is the small difference between the
+>     outputs?
+>
+> 3.  Under what circumstances would your new expression produce an error message
+>     where the original one would not?
+
+> ## Which Pipe? {.challenge}
+>
+> A file called animals.txt contains 586 lines of data formatted as follows:
+>
+> ~~~
+> 2012-11-05,deer
+> 2012-11-05,rabbit
+> 2012-11-05,raccoon
+> 2012-11-06,rabbit
+> ...
+> ~~~
+>
+> What command would you use to produce a table that shows
+> the total count of each type of animal in the file?
+>
+> 1.  `grep {deer, rabbit, raccoon, deer, fox, bear} animals.txt | wc -l`
+> 2.  `sort animals.txt | uniq -c`
+> 3.  `sort -t, -k2,2 animals.txt | uniq -c`
+> 4.  `cut -d, -f 2 animals.txt | uniq -c`
+> 5.  `cut -d, -f 2 animals.txt | sort | uniq -c`
+> 6.  `cut -d, -f 2 animals.txt | sort | uniq -c | wc -l`

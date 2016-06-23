@@ -6,15 +6,15 @@ minutes: 15
 ---
 > ## Learning Objectives {.objectives}
 >
-> *   Write a loop that applies one or more commands separately to each file in a set of files.
-> *   Trace the values taken on by a loop variable during execution of the loop.
-> *   Explain the difference between a variable's name and its value.
-> *   Explain why spaces and some punctuation characters shouldn't be used in file names.
-> *   Demonstrate how to see what commands have recently been executed.
-> *   Re-run recently executed commands without retyping them.
+> *   Write a loop that applies one or more commands separately to each file in a set of files. (Create)
+> *   Trace the values taken on by a loop variable during execution of the loop. (Analyze)
+> *   Explain the difference between a variable's name and its value. (Understand)
+> *   Explain why spaces and some punctuation characters shouldn't be used in file names. (Understand)
+> *   Demonstrate how to see what commands have recently been executed. (Apply)
+> *   Re-run recently executed commands without retyping them. (Apply)
 
-**Loops** are key to productivity improvements through automation as they allow us to execute 
-commands repetitively. Similar to wildcards and tab completion, using loops also reduces the 
+**Loops** are key to productivity improvements through automation as they allow us to execute
+commands repetitively. Similar to wildcards and tab completion, using loops also reduces the
 amount of typing (and typing mistakes).
 Suppose we have several hundred genome data files named `basilisk.dat`, `unicorn.dat`, and so on.
 In this example,
@@ -78,7 +78,7 @@ and so on.
 
 By using the dollar sign we are telling the shell interpreter to treat
 `filename` as a variable name and substitute its value on its place,
-but not as some text or external command. When using variables it is also 
+but not as some text or external command. When using variables it is also
 possible to put the names into curly braces to clearly delimit the variable
 name: `$filename` is equivalent to `${filename}`, but is different from
 `${file}name`. You may find this notation in other people's programs.
@@ -91,7 +91,7 @@ so this loop prints out the first three lines of each data file in turn.
 >
 > The shell prompt changes from `$` to `>` and back again as we were
 > typing in our loop. The second prompt, `>`, is different to remind
-> us that we haven't finished typing a complete command yet. A semicolon, `;`, 
+> us that we haven't finished typing a complete command yet. A semicolon, `;`,
 > can be used to separate two commands written on a single line.
 
 > ## Same symbols, different meanings {.callout}
@@ -179,57 +179,27 @@ Finally,
 the `head` and `tail` combination selects lines 81-100 from whatever file is being processed.
 
 > ## Spaces in Names {.callout}
-> 
-> Filename expansion in loops is another reason you should not use spaces in filenames.
+> Whitespace is used to separate the elements on the list
+> that we are going to loop over. If on the list we have elements
+> with whitespace we need to quote those elements
+> and our variable when using it.
 > Suppose our data files are named:
-> 
-> ~~~
-> basilisk.dat
-> red dragon.dat
-> unicorn.dat
-> ~~~
-> 
-> If we try to process them using:
-> 
-> ~~~
-> for filename in *.dat
-> do
->     head -n 100 $filename | tail -n 20
-> done
-> ~~~
-> 
-> then the shell will expand `*.dat` to create:
-> 
-> ~~~
-> basilisk.dat red dragon.dat unicorn.dat
-> ~~~
-> 
-> With older versions of Bash,
-> or most other shells,
-> `filename` will then be assigned the following values in turn:
-> 
-> ~~~
-> basilisk.dat
-> red
-> dragon.dat
-> unicorn.dat
-> ~~~
 >
-> That's a problem: `head` can't read files called `red` and `dragon.dat`
-> because they don't exist,
-> and won't be asked to read the file `red dragon.dat`.
+> ~~~
+> red dragon.dat
+> purple unicorn.dat
+> ~~~
 > 
-> We can make our script a little bit more robust
-> by **quoting** our use of the variable:
+> We need to use
 > 
 > ~~~
-> for filename in *.dat
+> for filename in "red dragon.dat" "purple unicorn.dat"
 > do
 >     head -n 100 "$filename" | tail -n 20
 > done
 > ~~~
 >
-> but it's simpler just to avoid using spaces (or other special characters) in filenames.
+> Is simpler just to avoid using whitespaces (or other special characters) in filenames.
 
 Going back to our original file copying problem,
 we can solve it using this loop:
@@ -240,6 +210,8 @@ do
     cp $filename original-$filename
 done
 ~~~
+
+![For loop in action](fig/shell_script_for_loop_flow_chart.svg)
 
 This loop runs the `cp` command once for each filename.
 The first time,
@@ -256,33 +228,6 @@ The second time, the command is:
 cp unicorn.dat original-unicorn.dat
 ~~~
 
-> ## Measure Twice, Run Once {.callout}
-> 
-> A loop is a way to do many things at once --- or to make many mistakes at
-> once if it does the wrong thing. One way to check what a loop *would* do
-> is to echo the commands it would run instead of actually running them.
-> For example, we could write our file copying loop like this:
-> 
-> ~~~
-> for filename in *.dat
-> do
->     echo cp $filename original-$filename
-> done
-> ~~~
-> 
-> Instead of running `cp`, this loop runs `echo`, which prints out:
-> 
-> ~~~
-> cp basilisk.dat original-basilisk.dat
-> cp unicorn.dat original-unicorn.dat
-> ~~~
-> 
-> *without* actually running those commands. We can then use up-arrow to
-> redisplay the loop, back-arrow to get to the word `echo`, delete it, and
-> then press "enter" to run the loop with the actual `cp` commands. This
-> isn't foolproof, but it's a handy way to see what's going to happen when
-> you're still learning how loops work.
-
 ## Nelle's Pipeline: Processing Files
 
 Nelle is now ready to process her data files.
@@ -298,6 +243,7 @@ $ for datafile in *[AB].txt
 >     echo $datafile
 > done
 ~~~
+
 ~~~ {.output}
 NENE01729A.txt
 NENE01729B.txt
@@ -350,12 +296,12 @@ Nelle backs up and changes the command `echo` to `bash goostats`:
 $ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
 
-When she presses enter,
+When she presses Enter,
 the shell runs the modified command.
 However, nothing appears to happen --- there is no output.
 After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
 she has no idea whether it is running, much less how quickly.
-She kills the job by typing Ctrl-C,
+She kills the running command by typing Ctrl-C,
 uses up-arrow to repeat the command,
 and edits it to read:
 
@@ -390,12 +336,12 @@ It looks good,
 so she decides to get some coffee and catch up on her reading.
 
 > ## Those Who Know History Can Choose to Repeat It {.callout}
-> 
+>
 > Another way to repeat previous work is to use the `history` command to
 > get a list of the last few hundred commands that have been executed, and
 > then to use `!123` (where "123" is replaced by the command number) to
 > repeat one of those commands. For example, if Nelle types this:
-> 
+>
 > ~~~
 > $ history | tail -n 5
 >   456  ls -l NENE0*.txt
@@ -404,20 +350,31 @@ so she decides to get some coffee and catch up on her reading.
 >   459  ls -l NENE0*.txt
 >   460  history
 > ~~~
-> 
+>
 > then she can re-run `goostats` on `NENE01729B.txt` simply by typing
 > `!458`.
 
+> ## Other history commands {.callout}
+>
+> There are a number of other shortcut commands for getting at the history.
+> Two of the more useful are `!!`, which retrieves the immediately
+> preceding command (you may or may not find this more convenient than
+> plain up-arrow), and `!$`, which retrieves the last word of the last
+> command.  That's useful more often than you might expect: after
+> `bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
+> `less !$` to look at the file `stats-NENE01729B.txt`, which is
+> quicker than doing up-arrow and editing the command-line.
+
 > ## Variables in Loops {.challenge}
-> 
+>
 > Suppose that `ls` initially displays:
-> 
+>
 > ~~~
 > fructose.dat    glucose.dat   sucrose.dat
 > ~~~
-> 
+>
 > What is the output of:
-> 
+>
 > ~~~
 > for datafile in *.dat
 > do
@@ -439,7 +396,7 @@ so she decides to get some coffee and catch up on her reading.
 > ## Saving to a File in a Loop - Part One {.challenge}
 >
 > In the same directory, what is the effect of this loop?
-> 
+>
 > ~~~
 > for sugar in *.dat
 > do
@@ -447,9 +404,9 @@ so she decides to get some coffee and catch up on her reading.
 >     cat $sugar > xylose.dat
 > done
 > ~~~
-> 
+>
 > 1.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and the text from `sucrose.dat` will be saved to a file called `xylose.dat`.
-> 2.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and the text from all three files would be 
+> 2.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and the text from all three files would be
 >     concatenated and saved to a file called `xylose.dat`.
 > 3.  Prints `fructose.dat`, `glucose.dat`, `sucrose.dat`, and
 >     `xylose.dat`, and the text from `sucrose.dat` will be saved to a file called `xylose.dat`.
@@ -462,7 +419,7 @@ so she decides to get some coffee and catch up on her reading.
 > ~~~
 > fructose.dat    glucose.dat   sucrose.dat   maltose.txt
 > ~~~
-> 
+>
 > What would be the output of the following loop?
 >
 > ~~~
@@ -472,7 +429,7 @@ so she decides to get some coffee and catch up on her reading.
 > done
 > ~~~
 >
-> 1.  All of the text from `fructose.dat`, `glucose.dat` and `sucrose.dat` would be 
+> 1.  All of the text from `fructose.dat`, `glucose.dat` and `sucrose.dat` would be
 >     concatenated and saved to a file called `sugar.dat`.
 > 2.  The text from `sucrose.dat` will be saved to a file called `sugar.dat`.
 > 3.  All of the text from `fructose.dat`, `glucose.dat`, `sucrose.dat` and `maltose.txt`
@@ -480,8 +437,48 @@ so she decides to get some coffee and catch up on her reading.
 > 4.  All of the text from `fructose.dat`, `glucose.dat` and `sucrose.dat` would be printed
 >     to the screen and saved to a file called `sugar.dat`
 
+> ## Limiting Sets of Files {.challenge}
+>
+> In the same directory, where `ls` returns (without the `sugar.dat` file):
+>
+> ~~~
+> fructose.dat    glucose.dat   sucrose.dat   maltose.txt
+> ~~~
+> 
+> What would be the output of the following loop?
+>
+> ~~~
+> for filename in s*
+> do
+>     ls $filename 
+> done
+> ~~~
+>
+> 1.  No files are listed.
+> 2.  All files are listed.
+> 3.  Only `fructose.dat`, `glucose.dat` and `maltose.txt` are listed.
+> 4.  Only `sucrose.dat` is listed.
+>
+> How would the output differ from using this command instead?
+>
+> ~~~
+> for filename in *s*
+> do
+>     ls $filename 
+> done
+> ~~~
+>
+> 1.  The same files would be listed.
+> 2.  All the files are listed this time.
+> 3.  No files are listed this time.
+> 4.  The file `sucrose.dat` will be listed twice, with the other files listed once each.
+
 > ## Doing a Dry Run {.challenge}
 >
+> A loop is a way to do many things at once --- or to make many mistakes at
+> once if it does the wrong thing. One way to check what a loop *would* do
+> is to echo the commands it would run instead of actually running them.
+> 
 > Suppose we want to preview the commands the following loop will execute
 > without actually running those commands:
 >

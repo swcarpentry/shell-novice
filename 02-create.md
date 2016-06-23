@@ -1,15 +1,15 @@
 ---
 layout: page
 title: The Unix Shell
-subtitle: Creating Things
+subtitle: Working With Files and Directories
 minutes: 15
 ---
 > ## Learning Objectives {.objectives}
 >
-> *   Create a directory hierarchy that matches a given diagram.
-> *   Create files in that hierarchy using an editor or by copying and renaming existing files.
-> *   Display the contents of a directory using the command line.
-> *   Delete specified files and/or directories.
+> *   Create a directory hierarchy that matches a given diagram. (Create)
+> *   Create files in that hierarchy using an editor or by copying and renaming existing files. (Create)
+> *   Display the contents of a directory using the command line. (Apply)
+> *   Delete specified files and/or directories. (Apply)
 
 We now know how to explore files and directories,
 but how do we create them in the first place?
@@ -38,7 +38,7 @@ Let's create a new directory called `thesis` using the command `mkdir thesis`
 $ mkdir thesis
 ~~~
 
-As you might (or might not) guess from its name,
+As you might guess from its name,
 `mkdir` means "make directory".
 Since `thesis` is a relative path
 (i.e., doesn't have a leading slash),
@@ -53,6 +53,32 @@ data/       notes.txt            writing/
 Desktop/    pizza.cfg
 molecules/  solar.pdf
 ~~~
+
+> ## Good names for files and directories {.callout}
+>
+> Complicated names of files and directories can make your life very painful
+> when working on the command line. Here we provide a few useful
+> tips for the names of your files from now on.
+>
+> 1. Don't use whitespaces.
+>
+>    White spaces can make a name more meaningful
+>    but since whitespace is used to break arguments on the command line
+>    is better to avoid them on name of files and directories.
+>    You can use `-` or `_` instead of whitespace.
+>
+> 2. Don't begin the name with `-`.
+>
+>    Commands treat names starting with `-` as options.
+>
+> 3. Stay with letters, numbers, `.`, `-` and `_`.
+>
+>    May of the others characters have an special meaning on the command line
+>    that we will learn during this lesson. Some will only make your command not work at all
+>    but for some of them you can even lose some data.
+>
+> If you need to refer to names of files or directories that have whitespace
+> or another non-alphanumeric character you should put quotes around the name.
 
 However, there's nothing in it yet:
 
@@ -91,26 +117,32 @@ $ nano draft.txt
 > another directory the first time you "Save As..."
 
 Let's type in a few lines of text.
-Once we're happy with out text, we can press Ctrl-O (press the Ctrl key and, while
-holding it down, press the O key) to write our data to disk.
+Once we're happy with our text, we can press `Ctrl-O` (press the Ctrl or Control key and, while
+holding it down, press the O key) to write our data to disk
+(we'll be asked what file we want to save this to:
+press Return to accept the suggested default of `draft.txt`).
 
 ![Nano in action](fig/nano-screenshot.png)
 
-Once our file is saved, we can use Ctrl-X to quit the editor and 
+Once our file is saved, we can use `Ctrl-X` to quit the editor and 
 return to the shell.
 
-> ## Ctrl, "Control", key {.callout}
+> ## Control, ctrl, or ^ key {.callout}
 >
-> The Ctrl key is called the "Control" key. There are various ways
-> in which using the Ctrl key may be described. For example, you may
-> see an instruction to press the Ctrl key and, while holding it down, 
+> The Control key is also called the "Ctrl" key. There are various ways
+> in which using the Control key may be described. For example, you may
+> see an instruction to press the Control key and, while holding it down, 
 > press the X key, described as any of:
 >
-> * Ctrl-X
-> * Ctrl+X
-> * Control-X
-> * Control+X
+> * `Control-X`
+> * `Control+X`
+> * `Ctrl-X`
+> * `Ctrl+X`
 > * `^X`
+>
+> In nano, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
+> This means that you can use `Control-G` to get help and `Control-O` to save your
+> file. 
 
 `nano` doesn't leave any output on the screen after it exits,
 but `ls` now shows that we have created a file called `draft.txt`:
@@ -177,47 +209,31 @@ $ rm thesis
 rm: cannot remove `thesis': Is a directory
 ~~~
 
-This happens because `rm` only works on files, not directories.
-The right command is `rmdir`,
-which is short for "remove directory".
-It doesn't work yet either, though,
-because the directory we're trying to remove isn't empty:
+This happens because `rm` by default only works on files, not directories.
+
+To really get rid of `thesis` we must also delete the file `draft.txt`.
+We can do this with the [recursive](https://en.wikipedia.org/wiki/Recursion) option for `rm`:
 
 ~~~ {.bash}
-$ rmdir thesis
-~~~
-~~~ {.error}
-rmdir: failed to remove `thesis': Directory not empty
-~~~
-
-This little safety feature can save you a lot of grief,
-particularly if you are a bad typist.
-To really get rid of `thesis` we must first delete the file `draft.txt`:
-
-~~~ {.bash}
-$ rm thesis/draft.txt
-~~~
-
-The directory is now empty, so `rmdir` can delete it:
-
-~~~ {.bash}
-$ rmdir thesis
+$ rm -r thesis
 ~~~
 
 > ## With Great Power Comes Great Responsibility {.callout}
 >
-> Removing the files in a directory just so that we can remove the
-> directory quickly becomes tedious. Instead, we can use `rm` with the
-> `-r` flag (which stands for "recursive"):
+> Removing the files in a directory recursively can be very dangerous
+> operation. If we're concerned about what we might be deleting we can
+> add the "interactive" flag `-i` to `rm` which will ask us for confirmation
+> before each step
 >
-> ~~~
-> $ rm -r thesis
+> ~~~ {.bash}
+> $ rm -r -i thesis
+> rm: descend into directory ‘thesis’? y
+> rm: remove regular file ‘thesis/draft.txt’? y
+> rm: remove directory ‘thesis’? y
 > ~~~
 >
-> This removes everything in the directory, then the directory itself. If
-> the directory contains sub-directories, `rm -r` does the same thing to
-> them, and so on. It's very handy, but can do a lot of damage if used
-> without care.
+> This removes everything in the directory, then the directory itself, asking
+> at each step for you to confirm the deletion.
 
 Let's create that directory and file one more time.
 (Note that this time we're running `nano` with the path `thesis/draft.txt`,
@@ -266,7 +282,7 @@ quotes.txt
 One has to be careful when specifying the target file name, since `mv` will 
 silently overwrite any existing file with the same name, which could 
 lead to data loss. An additional flag, `mv -i` (or `mv --interactive`),
-can be used to make `mv` ask the user for confirmation before overwriting. 
+can be used to make `mv` ask you for confirmation before overwriting. 
 
 Just for the sake of inconsistency,
 `mv` also works on directories --- there is no separate `mvdir` command.
@@ -342,11 +358,12 @@ but it does find the copy in `thesis` that we didn't delete.
 > **filename extension**, and indicates
 > what type of data the file holds: `.txt` signals a plain text file, `.pdf`
 > indicates a PDF document, `.cfg` is a configuration file full of parameters
-> for some program or other, and so on.
+> for some program or other, `.png` is a PNG image, and so on.
 >
 > This is just a convention, albeit an important one. Files contain
 > bytes: it's up to us and our programs to interpret those bytes
-> according to the rules for PDF documents, images, and so on.
+> according to the rules for plain text files, PDF documents, configuration
+> files, images, and so on.
 >
 > Naming a PNG image of a whale as `whale.mp3` doesn't somehow
 > magically turn it into a recording of whalesong, though it *might*
@@ -433,6 +450,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > with most recently changed files or directories first.
 > In what order does `ls -R -t` display things?
 
+<<<<<<< HEAD
 > ## Copy a folder structure sans files{.challenge}
 >
 > You're starting a new experiment, and would like to duplicate the file 
@@ -466,3 +484,40 @@ but it does find the copy in `thesis` that we didn't delete.
 > $ cp -r 2016-5-18-data/ 2016-6-7-data/
 > $ rm -r 2016-6-7-data/
 > ~~~
+=======
+> ## Creating Files a Different Way {.challenge}
+> 
+> We have seen how to create text files using the `nano` editor.
+> Now, try the following command in your home directory:
+> 
+> $ cd                  # go to your home directory
+> $ touch my_file.txt
+>
+> 1.  What did the touch command do?
+>     When you look at your home directory using the GUI file explorer,
+>     does the file show up?
+> 
+> 2.  Use `ls -l` to inspect the file's.  How large is `my_file.txt`?
+>
+> 3.  When might you want to create a file this way?
+
+> ## Moving to the Current Folder {.challenge}
+>
+> After running the following commands,
+> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder:
+> 
+> ~~~ {.bash}
+> $ ls -F
+> raw/ analyzed/
+> $ ls -F analyzed
+> fructose.dat glucose.dat maltose.dat sucrose.dat 
+> $ cd raw/
+> ~~~
+>
+> Fill in the blanks to move these files to the current folder
+> (i.e., the one she is currently in):
+>
+> ~~~ {.bash}
+> $ mv ___/sucrose.dat  ___/maltose.dat ___
+> ~~~
+>>>>>>> swcarpentry/gh-pages

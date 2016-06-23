@@ -6,8 +6,8 @@ minutes: 5
 ---
 > ## Learning Objectives {.objectives}
 >
-> *   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
-> *   Explain when and why command-line interfaces should be used instead of graphical interfaces.
+> *   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs. (Understand)
+> *   Explain when and why command-line interfaces should be used instead of graphical interfaces. (Understand)
 
 At a high level, computers do four things:
 
@@ -39,7 +39,7 @@ to distinguish it from a
 **graphical user interface**, or GUI,
 which most people now use.
 The heart of a CLI is a **read-evaluate-print loop**, or REPL:
-when the user types a command and then presses the enter (or return) key,
+when the user types a command and then presses the Enter (or Return) key,
 the computer reads it,
 executes it,
 and prints its output.

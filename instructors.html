@@ -96,11 +96,11 @@
 <li><p>Running a text editor from the command line can be the biggest stumbling block during the entire lesson: many will try to run the same editor as the instructor (which may leave them trapped in the awful nether hell that is Vim), or will not know how to navigate to the right directory to save their file, or will run a word processor rather than a plain text editor. The quickest way past these problems is to have more knowledgeable learners help those who need it.</p></li>
 <li><p>Tab completion sounds like a small thing: it isn’t. Re-running old commands using <code>!123</code> or <code>!wc</code> isn’t a small thing either, and neither are wildcard expansion and <code>for</code> loops. Each one is an opportunity to repeat one of the big ideas of Software Carpentry: if the computer <em>can</em> repeat it, some programmer somewhere will almost certainly have built some way for the computer <em>to</em> repeat it.</p></li>
 <li><p>Building up a pipeline with four or five stages, then putting it in a shell script for re-use and calling that script inside a <code>for</code> loop, is a great opportunity to show how “seven plus or minus two” connects to programming. Once we have figured out how to do something moderately complicated, we make it re-usable and give it a name so that it only takes up one slot in working memory rather than several. It is also a good opportunity to talk about exploratory programming: rather than designing a program up front, we can do a few useful things and then retroactively decide which are worth encapsulating for future re-use.</p></li>
-<li><p>If everything is going well, you can drive home the point that file extensions are essentially there to help computers (and human readers) understand file content and are not a requirement of files (covered briefly in <a href="01-filedir.html">Files and Directories</a>). This can be done in the <a href="03-pipefilter.html">Pipes and Filters</a> section by showing that you can redirect standard output to a file without the .txt extension (e.g., lengths), and that the resulting file is still a perfectly usable text file. Make the point that if double-clicked in the GUI, the computer will probably ask you what you want to do.</p></li>
+<li><p>If everything is going well, you can drive home the point that file extensions are essentially there to help computers (and human readers) understand file content and are not a requirement of files (covered briefly in <a href="01-filedir.html">Navigating Files and Directories</a>). This can be done in the <a href="03-pipefilter.html">Pipes and Filters</a> section by showing that you can redirect standard output to a file without the .txt extension (e.g., lengths), and that the resulting file is still a perfectly usable text file. Make the point that if double-clicked in the GUI, the computer will probably ask you what you want to do.</p></li>
 <li><p>We have to leave out many important things because of time constraints, including file permissions, job control, and SSH. If learners already understand the basic material, this can be covered instead using the online lessons as guidelines. These limitations also have follow-on consequences:</p></li>
-<li><p>It’s hard to discuss <code>#!</code> (shebang) without first discussing permissions, which we don’t do.</p></li>
+<li><p>It’s hard to discuss <code>#!</code> (shebang) without first discussing permissions, which we don’t do. <code>#!</code> is also <a href="http://www.in-ulm.de/~mascheck/various/shebang/">pretty complicated</a>, so even if we did discuss permissions, we probably still wouldn’t want to discuss <code>#!</code>.</p></li>
 <li><p>Installing Bash and a reasonable set of Unix commands on Windows always involves some fiddling and frustration. Please see the latest set of installation guidelines for advice, and try it out yourself <em>before</em> teaching a class.</p></li>
-<li><p>On Windows machines if <code>nano</code> hasn’t been properly installed with the SWC installer, it is possible to use <code>notepad</code> as an alternative. There will be a GUI interface and line endings are treated differently, but otherwise, for the purposes of this lesson, <code>notepad</code> and <code>nano</code> can be used almost interchangeably.</p></li>
+<li><p>On Windows machines if <code>nano</code> hasn’t been properly installed with the <a href="http://github.com/swcarpentry/windows-installer">Software Carpentry Windows Installer</a> it is possible to use <code>notepad</code> as an alternative. There will be a GUI interface and line endings are treated differently, but otherwise, for the purposes of this lesson, <code>notepad</code> and <code>nano</code> can be used almost interchangeably.</p></li>
 <li><p>On Windows, it appears that:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span>
 $ <span class="kw">cd</span> Desktop</code></pre></div>
@@ -122,7 +122,76 @@ $ <span class="kw">cd</span> Desktop</code></pre></div>
 <li>learners leave the workshop without a working environment on their operating system of choice, and</li>
 <li>learners may show up without having downloaded the VM or the wireless will go down (or become congested) during the lesson.</li>
 </ol>
-<p>Whatever you use, please <em>test it yourself</em> on a Windows machine <em>before</em> your workshop: things may always have changed behind your back since your last workshop. And please also make use of our Windows setup helper.</p>
+<p>Whatever you use, please <em>test it yourself</em> on a Windows machine <em>before</em> your workshop: things may always have changed behind your back since your last workshop. And please also make use of our <a href="http://github.com/swcarpentry/windows-installer">Software Carpentry Windows Installer</a>.</p>
+<h2 id="solutions-to-exercises">Solutions to exercises</h2>
+<h2 id="navigating-files-and-directories"><a href="01-filedir.html">Navigating Files and Directories</a></h2>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="many-ways-to-do-the-same-thing---absolute-vs-relative-paths"><span class="glyphicon glyphicon-pencil"></span>Many ways to do the same thing - absolute vs relative paths</h2>
+</div>
+<div class="panel-body">
+<p>Starting from a filesystem location of <code>/Users/amanda/data/</code>, which of the following commands could Amanda use to navigate to her home directory, which is <code>/Users/amanda</code>?</p>
+<ol style="list-style-type: decimal">
+<li><code>cd .</code> <strong>no</strong> (<code>.</code> stands for the current directory)</li>
+<li><code>cd /</code> <strong>no</strong> (<code>/</code> stands for the root directory)</li>
+<li><code>cd /home/amanda</code> <strong>no</strong> (Amanda’s home directory is <code>/Users/amanda</code>)</li>
+<li><code>cd ../..</code> <strong>no</strong> (this goes up two levels, i.e. ends in <code>/Users</code>)</li>
+<li><code>cd ~</code> <strong>yes</strong> (<code>~</code> stands for the user’s home directory, in this case <code>/Users/amanda</code>)</li>
+<li><code>cd home</code> <strong>no</strong> (this would navigate into a directory <code>home</code> in the current directory if it exists)</li>
+<li><code>cd ~/data/..</code> <strong>yes</strong> (unnecessarily complicated, but correct)</li>
+<li><code>cd</code> <strong>yes</strong> (shortcut to go back to the user’s home directory)</li>
+<li><code>cd ..</code> <strong>yes</strong> (goes up one level)</li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="relative-path-resolution"><span class="glyphicon glyphicon-pencil"></span>Relative path resolution</h2>
+</div>
+<div class="panel-body">
+<p>Using the filesystem diagram below, if <code>pwd</code> displays <code>/Users/thing</code>, what will <code>ls ../backup</code> display?</p>
+<ol style="list-style-type: decimal">
+<li><code>../backup: No such file or directory</code> <strong>no</strong> (there <em>is</em> a directory <code>backup</code> in <code>/Users</code>)</li>
+<li><code>2012-12-01 2013-01-08 2013-01-27</code> <strong>no</strong> (this is the content of <code>Users/thing/backup</code> but with <code>..</code> we asked for one level further up)</li>
+<li><code>2012-12-01/ 2013-01-08/ 2013-01-27/</code> <strong>no</strong> (see previous explanation, also we did not specify <code>-F</code> to display <code>/</code> at the end of the directory names)</li>
+<li><code>original pnas_final pnas_sub</code> <strong>yes</strong> (<code>../backup</code> refers to <code>/Users/backup</code>)</li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="ls-reading-comprehension"><span class="glyphicon glyphicon-pencil"></span><code>ls</code> reading comprehension</h2>
+</div>
+<div class="panel-body">
+<p>Assuming a directory structure as in the above Figure (File System for Challenge Questions), if <code>pwd</code> displays <code>/Users/backup</code>, and <code>-r</code> tells <code>ls</code> to display things in reverse order, what command will display:</p>
+<pre><code>pnas_sub/ pnas_final/ original/</code></pre>
+<ol style="list-style-type: decimal">
+<li><code>ls pwd</code> <strong>no</strong> (<code>pwd</code> is not the name of a directory)</li>
+<li><code>ls -r -F</code> <strong>yes</strong> (<code>ls</code> without directory argument lists files and directories in the current directory)</li>
+<li><code>ls -r -F /Users/backup</code> <strong>yes</strong> (uses the absolute path explicitly)</li>
+<li>Either #2 or #3 above, but not #1. <strong>correct answer</strong> (see explanations above)</li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="exploring-more-ls-arguments"><span class="glyphicon glyphicon-pencil"></span>Exploring more <code>ls</code> arguments</h2>
+</div>
+<div class="panel-body">
+<p>What does the command <code>ls</code> do when used with the <code>-l</code> and <code>-h</code> arguments?</p>
+<p>Some of its output is about properties that we do not cover in this lesson (such as file permissions and ownership), but the rest should be useful nevertheless.</p>
+<p><strong>Answer:</strong> The <code>-l</code> arguments makes <code>ls</code> use a <strong>l</strong>ong listing format, showing not only the file/directory names but also additional information such as the file size and the time of its last modification. The <code>-h</code> argument makes the file size “<strong>h</strong>uman readable”, i.e. display something like <code>5.3K</code> instead of <code>5369</code>.</p>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="listing-recursively-and-by-time"><span class="glyphicon glyphicon-pencil"></span>Listing Recursively and By Time</h2>
+</div>
+<div class="panel-body">
+<p>The command ls -R lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on in alphabetical order at each level. The command ls -t lists things by time of last change, with most recently changed files or directories first. In what order does ls -R -t display things? Hint: ls -l uses a long listing format to view timestamps.</p>
+<p><strong>Answer:</strong> The directories are listed alphabetical at each level, the files/directories in each directory are sorted by time of last change.</p>
+</div>
+</section>
         </div>
       </div>
       </article>
@@ -136,5 +205,16 @@ $ <span class="kw">cd</span> Desktop</code></pre></div>
     <!-- Javascript placed at the end of the document so the pages load faster -->
     <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
     <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
   </body>
 </html>

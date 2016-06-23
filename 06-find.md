@@ -6,10 +6,10 @@ minutes: 15
 ---
 > ## Learning Objectives {.objectives}
 >
-> *   Use `grep` to select lines from text files that match simple patterns.
-> *   Use `find` to find files whose names match simple patterns.
-> *   Use the output of one command as the command-line parameters to another command.
-> *   Explain what is meant by "text" and "binary" files, and why many common tools don't handle the latter well.
+> *   Use `grep` to select lines from text files that match simple patterns. (Apply)
+> *   Use `find` to find files whose names match simple patterns. (Apply)
+> *   Use the output of one command as the command-line parameters to another command. (Apply)
+> *   Explain what is meant by "text" and "binary" files, and why many common tools don't handle the latter well. (Understand)
 
 In the same way that many of us now use "Google" as a 
 verb meaning "to find", Unix programmers often use the 
@@ -21,7 +21,7 @@ It is also the name of a very useful command-line program.
 `grep` finds and prints lines in files that match a pattern.
 For our examples,
 we will use a file that contains three haikus taken from a
-1998 competition in *Salon* magazine. For this set of examples
+1998 competition in *Salon* magazine. For this set of examples,
 we're going to be working in the writing subdirectory:
 
 ~~~ {.bash}
@@ -98,7 +98,11 @@ $ grep -w "is not" haiku.txt
 Today it is not working
 ~~~
 
-We've now seen that you don't have to have quotes around single words, but it is useful to use quotes when searching for multiple words. It also helps to make it easier to distinguish between the search term or phrase and the file being searched. We will use quotes in the remaining examples.
+We've now seen that you don't have to have quotes around single words,
+but it is useful to use quotes when searching for multiple words.
+It also helps to make it easier to distinguish between the search term or phrase
+and the file being searched.
+We will use quotes in the remaining examples.
 
 Another useful option is `-n`, which numbers the lines that match:
 
@@ -154,54 +158,34 @@ $ grep -n -w -v "the" haiku.txt
 11:Software is like that.
 ~~~
 
-`grep` has lots of other options.
-To find out what they are, we can type `man grep`.
-`man` is the Unix "manual" command:
-it prints a description of a command and its options,
-and (if you're lucky) provides a few examples of how to use it.
+`grep` has lots of other options. To find out what they are, we can type:
 
-To navigate through the `man` pages,
-you may use the up and down arrow keys to move line-by-line,
-or try the "b" and spacebar keys to skip up and down by full page.
-Quit the `man` pages by typing "q".
-
-~~~ {.bash}
-$ man grep
+~~~{.bash}
+$ grep --help
 ~~~
-~~~ {.output}
-GREP(1)                                                                                              GREP(1)
 
-NAME
-grep, egrep, fgrep - print lines matching a pattern
+~~~{.output}
+Usage: grep [OPTION]... PATTERN [FILE]...
+Search for PATTERN in each FILE or standard input.
+PATTERN is, by default, a basic regular expression (BRE).
+Example: grep -i 'hello world' menu.h main.c
 
-SYNOPSIS
-grep [OPTIONS] PATTERN [FILE...]
-grep [OPTIONS] [-e PATTERN | -f FILE] [FILE...]
+Regexp selection and interpretation:
+  -E, --extended-regexp     PATTERN is an extended regular expression (ERE)
+  -F, --fixed-strings       PATTERN is a set of newline-separated fixed strings
+  -G, --basic-regexp        PATTERN is a basic regular expression (BRE)
+  -P, --perl-regexp         PATTERN is a Perl regular expression
+  -e, --regexp=PATTERN      use PATTERN for matching
+  -f, --file=FILE           obtain PATTERN from FILE
+  -i, --ignore-case         ignore case distinctions
+  -w, --word-regexp         force PATTERN to match only whole words
+  -x, --line-regexp         force PATTERN to match only whole lines
+  -z, --null-data           a data line ends in 0 byte, not newline
 
-DESCRIPTION
-grep  searches the named input FILEs (or standard input if no files are named, or if a single hyphen-
-minus (-) is given as file name) for lines containing a match to the given PATTERN.  By default, grep
-prints the matching lines.
+Miscellaneous:
 ...        ...        ...
 
-OPTIONS
-Generic Program Information
---help Print  a  usage  message  briefly summarizing these command-line options and the bug-reporting
-address, then exit.
 
--V, --version
-Print the version number of grep to the standard output stream.  This version number should be
-included in all bug reports (see below).
-
-Matcher Selection
--E, --extended-regexp
-Interpret  PATTERN  as  an  extended regular expression (ERE, see below).  (-E is specified by
-POSIX.)
-
--F, --fixed-strings
-Interpret PATTERN as a list of fixed strings, separated by newlines, any of  which  is  to  be
-matched.  (-F is specified by POSIX.)
-...        ...        ...
 ~~~
 
 > ## Wildcards {.callout}
@@ -211,7 +195,7 @@ matched.  (-F is specified by POSIX.)
 > these is **regular expressions**, which
 > is what the "re" in "grep" stands for.) Regular expressions are both complex
 > and powerful; if you want to do complex searches, please look at the lesson
-> on [our website](http://software-carpentry.org/v4/regexp/index.html). As a taster, we can
+> on [our website](http://v4.software-carpentry.org/regexp/index.html). As a taster, we can
 > find lines that have an 'o' in the second position like this:
 >
 >     $ grep -E '^.o' haiku.txt
@@ -235,17 +219,45 @@ to show how the simplest ones work, we'll use the directory tree shown below.
 ![File Tree for Find Example](fig/find-file-tree.svg)
 
 Nelle's `writing` directory contains one file called `haiku.txt` and four subdirectories:
-`thesis` (which contains a sadly empty file),
+`thesis` (which contains a sadly empty file, `empty-draft.md`),
 `data` (which contains two files `one.txt` and `two.txt`),
 a `tools` directory that contains the programs `format` and `stats`,
-and a subdirectory called `old`.
+and a subdirectory called `old`, with a file `oldtool`.
 
 For our first command,
-let's run `find . -type d`.
+let's run `find .`.
+
+~~~ {.bash}
+$ find .
+~~~
+~~~ {.output}
+.
+./old
+./old/.gitkeep
+./data
+./data/one.txt
+./data/two.txt
+./tools
+./tools/format
+./tools/old
+./tools/old/oldtool
+./tools/stats
+./haiku.txt
+./thesis
+./thesis/empty-draft.md
+~~~
+
 As always,
 the `.` on its own means the current working directory,
-which is where we want our search to start;
-`-type d` means "things that are directories".
+which is where we want our search to start.
+`find`'s output is the names of every file **and** directory
+under the current working directory.
+This can seem useless at first but `find` has many options
+to filter the output and in this lesson we will discover some 
+of them.
+
+The first option in our list is
+`-type d` that means "things that are directories".
 Sure enough,
 `find`'s output is the names of the five directories in our little tree
 (including `.`):
@@ -275,33 +287,6 @@ $ find . -type f
 ./thesis/empty-draft.md
 ./data/one.txt
 ./data/two.txt
-~~~
-
-`find` automatically goes into subdirectories,
-their subdirectories,
-and so on to find everything that matches the pattern we've given it.
-If we don't want it to,
-we can use `-maxdepth` to restrict the depth of search:
-
-~~~ {.bash}
-$ find . -maxdepth 1 -type f
-~~~
-~~~ {.output}
-./haiku.txt
-~~~
-
-The opposite of `-maxdepth` is `-mindepth`,
-which tells `find` to only report things that are at or below a certain depth.
-`-mindepth 2` therefore finds all the files that are two or more levels below us:
-
-~~~ {.bash}
-$ find . -mindepth 2 -type f
-~~~
-~~~ {.output}
-./data/one.txt
-./data/two.txt
-./tools/format
-./tools/stats
 ~~~
 
 Now let's try matching by name:
@@ -429,7 +414,7 @@ North Whitehead wrote in 1911, "Civilization advances by extending the
 number of important operations which we can perform without thinking
 about them."
 
-> ## Using grep {.challenge}
+> ## Using `grep` {.challenge}
 >
 > ~~~
 > The Tao that is seen
@@ -457,7 +442,7 @@ about them."
 > 3. `grep -w "of" haiku.txt`
 > 4. `grep -i "of" haiku.txt`
 
-> ## `find` pipeline reading comprehension {.challenge}
+> ## `find` Pipeline Reading Comprehension {.challenge}
 >
 > Write a short explanatory comment for the following shell script:
 >
@@ -465,7 +450,7 @@ about them."
 > wc -l $(find . -name '*.dat') | sort -n
 > ~~~
 
-> ## Matching `ose.dat` but not `temp` {}{.challenge}
+> ## Matching and Subtracting {.challenge}
 >
 > The `-v` flag to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
@@ -473,13 +458,49 @@ about them."
 > end in `ose.dat` (e.g., `sucrose.dat` or `maltose.dat`), but do
 > *not* contain the word `temp`?
 >
-> 1. `find /data -name '*.dat' | grep ose | grep -v temp`
+> 1.  `find /data -name '*.dat' | grep ose | grep -v temp`
+> 2.  `find /data -name ose.dat | grep -v temp`
+> 3.  `grep -v "temp" $(find /data -name '*ose.dat')`
+> 4.  None of the above.
+
+> ## Tracking a Species {.challenge}
+> 
+> Leah has several hundred 
+> data files saved in one directory, each of which is formatted like this:
+> 
+> ~~~
+> 2013-11-05,deer,5
+> 2013-11-05,rabbit,22
+> 2013-11-05,raccoon,7
+> 2013-11-06,rabbit,19
+> 2013-11-06,deer,2
+> ~~~
 >
-> 2. `find /data -name ose.dat | grep -v temp`
+> She wants to write a shell script that takes a directory and a species 
+> as command-line parameters and return one file called `species.txt` 
+> containing a list of dates and the number of that species seen on that date,
+> such as this file for rabbits:
+> 
+> ~~~
+> 2013-11-05,22
+> 2013-11-06,19
+> 2013-11-07,18
+> ~~~
 >
-> 3. `grep -v "temp" $(find /data -name '*ose.dat')`
+> Put these commands and pipes in the right order to achieve this:
+> 
+> ~~~ {.bash}
+> cut -d : -f 2  
+> >  
+> |  
+> grep -w $1 -r $2  
+> |  
+> $1.txt  
+> cut -d , -f 1,3  
+> ~~~
 >
-> 4. None of the above.
+> Hint: use `man grep` to look for how to grep text recursively in a directory
+> and `man cut` to select more than one field in a line.
 
 > ## Little Women {.challenge}
 >
@@ -489,6 +510,26 @@ about them."
 > most mentioned.  You, however, are certain it was Amy.  Luckily, you
 > have a file `LittleWomen.txt` containing the full text of the novel.
 > Using a`for` loop, how would you tabulate the number of times each
-> of the four sisters is mentioned?  Hint: one solution might employ
+> of the four sisters is mentioned?
+>
+> Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+
+> ## Finding Files With Different Properties {.challenge}
+> 
+> The `find` command can be given several other criteria known as "tests"
+> to locate files with specific attributes, such as creation time, size,
+> permissions, or ownership.  Use `man find` to explore these, and then
+> write a single command to find all files in or below the current directory
+> that were modified by the user `ahmed` in the last 24 hours.
+>
+> Hint 1: you will need to use three tests: `-type`, `-mtime`, and `-user`.
+>
+> Hint 2: The value for `-mtime` will need to be negative---why?
+>
+> Solution: Assuming that Nelle’s home is our working directory we type:
+>
+> ~~~ {.bash}
+> $ find ./ -type f -mtime -1 -user ahmed
+> ~~~

@@ -6,10 +6,10 @@ minutes: 15
 ---
 > ## Learning Objectives {.objectives}
 >
-> *   Write a shell script that runs a command or series of commands for a fixed set of files.
-> *   Run a shell script from the command line.
-> *   Write a shell script that operates on a set of files defined by the user on the command line.
-> *   Create pipelines that include user-written shell scripts.
+> *   Write a shell script that runs a command or series of commands for a fixed set of files. (Create)
+> *   Run a shell script from the command line. (Apply)
+> *   Write a shell script that operates on a set of files defined by the user on the command line. (Create)
+> *   Create pipelines that include shell scripts you, and others, have written. (Create)
 
 We are finally ready to see what makes the shell such a powerful programming environment.
 We are going to take the commands we repeat frequently and save them in files
@@ -19,7 +19,7 @@ a bunch of commands saved in a file is usually called a **shell script**,
 but make no mistake:
 these are actually small programs.
 
-Let's start by going back to `molecules/` and putting the following line in the file `middle.sh`:
+Let's start by going back to `molecules/` and putting the following line into a new file, `middle.sh`:
 
 ~~~ {.bash}
 $ cd molecules
@@ -71,8 +71,7 @@ our script's output is exactly what we would get if we ran that pipeline directl
 What if we want to select lines from an arbitrary file?
 We could edit `middle.sh` each time to change the filename,
 but that would probably take longer than just retyping the command.
-Instead,
-let's edit `middle.sh` and replace `octane.pdb` with a special variable called `$1`:
+Instead, let's edit `middle.sh` and make it more versatile:
 
 ~~~ {.bash}
 $ nano middle.sh
@@ -114,22 +113,14 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 
 > ## Double-Quotes Around Arguments {.callout}
 >
-> We put the `$1` inside of double-quotes in case the filename happens to contain any spaces.
-> The shell uses whitespace to separate arguments,
-> so we have to be careful when using arguments that might have whitespace in them.
-> If we left out these quotes, and `$1` expanded to a filename like
-> `methyl butane.pdb`,
-> the command in the script would effectively be:
->
->     head -n 15 methyl butane.pdb | tail -n 5
->
-> This would call `head` on two separate files, `methyl` and `butane.pdb`,
-> which is probably not what we intended.
-
+> For the same reason that we put the loop variable inside double-quotes,
+> in case the filename happens to contain any spaces,
+> we surround `$1` with double-quotes.
 
 We still need to edit `middle.sh` each time we want to adjust the range of lines,
 though.
-Let's fix that by using the special variables `$2` and `$3`:
+Let's fix that by using the special variables `$2` and `$3` for the
+number of lines to be passed to `head` and `tail` respectively:
 
 ~~~ {.bash}
 $ nano middle.sh
@@ -174,7 +165,7 @@ $ nano middle.sh
 ~~~
 ~~~ {.output}
 # Select lines from the middle of a file.
-# Usage: middle.sh filename end_line num_lines
+# Usage: bash middle.sh filename end_line num_lines
 head -n "$2" "$1" | tail -n "$3"
 ~~~
 
@@ -207,9 +198,11 @@ to handle the case of parameters containing spaces
 Here's an example:
 
 ~~~ {.bash}
-$ cat sorted.sh
+$ nano sorted.sh
 ~~~
 ~~~ {.output}
+# Sort filenames by their length.
+# Usage: bash sorted.sh one_or_more_filenames
 wc -l "$@" | sort -n
 ~~~
 ~~~ {.bash}
@@ -277,7 +270,7 @@ Instead of typing them in again
 we can do this:
 
 ~~~ {.bash}
-$ history | tail -n 4 > redo-figure-3.sh
+$ history | tail -n 5 > redo-figure-3.sh
 ~~~
 
 The file `redo-figure-3.sh` now contains:
@@ -287,9 +280,11 @@ The file `redo-figure-3.sh` now contains:
 298 bash goodiff stats-NENE01729B.txt /data/validated/01729.txt > 01729-differences.txt
 299 cut -d ',' -f 2-3 01729-differences.txt > 01729-time-series.txt
 300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png
+301 history | tail -n 5 > redo-figure-3.sh
 ~~~
 
 After a moment's work in an editor to remove the serial numbers on the commands,
+and to remove the final line where we called the `history` command,
 we have a completely accurate record of how we created that figure.
 
 In practice, most people develop shell scripts by running commands at the shell prompt a few times
@@ -364,7 +359,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Variables in shell scripts {.challenge}
 >
-> In the `molecules` directory, you have a shell script called `script.sh` containing the
+> In the `molecules` directory, imagine you have a shell script called `script.sh` containing the
 > following commands:
 >
 > ~~~
@@ -457,3 +452,33 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > # Script 3
 > echo $@.dat
 > ~~~
+
+> ## Debugging Scripts {.challenge}
+>
+> Suppose you have saved the following script in a file called `do-errors.sh`
+> in Nelle's `north-pacific-gyre/2012-07-03` directory:
+>
+> ~~~ {.bash}
+> # Calculate reduced stats for data files at J = 100 c/bp.
+> for datafile in "$@"
+> do
+>     echo $datfile
+>     bash goostats -J 100 -r $datafile stats-$datafile
+> done
+> ~~~
+>
+> When you run it:
+>
+> ~~~ {.bash}
+> $ bash do-errors.sh *[AB].txt
+> ~~~
+>
+> the output is blank.
+> To figure out why, re-run the script using the `-x` option:
+>
+> ~~~ {.bash}
+> bash -x do-errors.sh *[AB].txt
+> ~~~
+>
+> What is the output showing you?
+> Which line is responsible for the error?
