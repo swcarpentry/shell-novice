@@ -57,8 +57,8 @@ $ wc *.pdb
 > matches filenames that begin with the letter 'p'.
 >
 > `?` is also a wildcard, but it only matches a single character. This
-> means that `p?.pdb` would match `pi.pdb` or `p5.pdb` (if we had these two
-> files in the `molecules` directory, but not `propane.pdb`.
+> means that `p?.pdb` would match `pi.pdb` or `p5.pdb` (if we had these two files
+> in the `molecules` directory), but not `propane.pdb`.
 > We can use any number of wildcards at a time: for example, `p*.p?*`
 > matches anything that starts with a 'p' and ends with '.', 'p', and at
 > least one more character (since the `?` has to match one character, and
