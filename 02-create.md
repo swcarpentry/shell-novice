@@ -54,6 +54,32 @@ Desktop/    pizza.cfg
 molecules/  solar.pdf
 ~~~
 
+> ## Good names for files and directories {.callout}
+>
+> Complicated names of files and directories can make your life very painful
+> when working on the command line. Here we provide a few useful
+> tips for the names of your files from now on.
+>
+> 1. Don't use whitespaces.
+>
+>    White spaces can make a name more meaningful
+>    but since whitespace is used to break arguments on the command line
+>    is better to avoid them on name of files and directories.
+>    You can use `-` or `_` instead of whitespace.
+>
+> 2. Don't begin the name with `-`.
+>
+>    Commands treat names starting with `-` as options.
+>
+> 3. Stay with letters, numbers, `.`, `-` and `_`.
+>
+>    May of the others characters have an special meaning on the command line
+>    that we will learn during this lesson. Some will only make your command not work at all
+>    but for some of them you can even lose some data.
+>
+> If you need to refer to names of files or directories that have whitespace
+> or another non-alphanumeric character you should put quotes around the name.
+
 However, there's nothing in it yet:
 
 ~~~ {.bash}
