@@ -465,21 +465,21 @@ but it does find the copy in `thesis` that we didn't delete.
 > Navigate to the `file-structure` folder. Which of the following set of 
 > commands would achieve this objective? What would the other commands do?
 >
->#1
+>1.
 > ~~~
 > $ cp -r 2016-5-18-data/ 2016-6-7-data/
 > $ rm 2016-6-7-data/data/raw/*
 > $ rm 2016-6-7-data/data/processed/*
 > ~~~
 > 
->#2
+>2.
 > ~~~
 > $ rm 2016-6-7-data/data/raw/*
 > $ rm 2016-6-7-data/data/processed/*
 > $ cp -r 2016-5-18-data/ 2016-6-7-data/
 > ~~~
 > 
->#3
+>3.
 > ~~~
 > $ cp -r 2016-5-18-data/ 2016-6-7-data/
 > $ rm -r 2016-6-7-data/
