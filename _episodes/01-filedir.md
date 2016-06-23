@@ -1,17 +1,19 @@
 ---
-layout: page
-title: The Unix Shell
-subtitle: Navigating Files and Directories
-minutes: 15
+title: "Navigating Files and Directories"
+teaching: 15
+exercises: 0
+questions:
+- "FIXME"
+objectives:
+- "Explain the similarities and differences between a file and a directory."
+- "Translate an absolute path into a relative path and vice versa."
+- "Construct absolute and relative paths that identify specific files and directories."
+- "Explain the steps in the shell's read-run-print cycle."
+- "Identify the actual command, flags, and filenames in a command-line call."
+- "Demonstrate the use of tab completion, and explain its advantages."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Explain the similarities and differences between a file and a directory. (Understand)
-> *   Translate an absolute path into a relative path and vice versa. (Analyze)
-> *   Construct absolute and relative paths that identify specific files and directories. (Apply)
-> *   Explain the steps in the shell's read-run-print cycle. (Understand)
-> *   Identify the actual command, flags, and filenames in a command-line call. (Understand)
-> *   Demonstrate the use of tab completion, and explain its advantages. (Apply)
 
 The part of the operating system responsible for managing files and directories
 is called the **file system**.
@@ -24,17 +26,19 @@ Several commands are frequently used to create, inspect, rename, and delete file
 To start exploring them,
 let's open a shell window:
 
-> ## Preparation Magic {.callout}
+> ## Preparation Magic
 >
 > If you type the command:
 > `PS1='$ '`
 > into your shell, your window should look like our example in this lesson.  
 > This isn't necessary to follow along (in fact, your prompt may have 
 > other helpful information you want to know about).  This is up to you!  
+{: .callout}
 
-~~~ {.bash}
+~~~
 $
 ~~~
+{: .bash}
 
 The dollar sign is a **prompt**, which shows us that the shell is waiting for input;
 your shell may use a different character as a prompt and may add information before 
@@ -47,12 +51,15 @@ The command's output is the ID of the current user,
 i.e.,
 it shows us who the shell thinks we are:
 
-~~~ {.bash}
+~~~
 $ whoami
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 nelle
 ~~~
+{: .output}
 
 More specifically, when we type `whoami` the shell:
 
@@ -62,7 +69,7 @@ More specifically, when we type `whoami` the shell:
 4.  displays a new prompt to tell us that it's ready for more commands.
 
 
-> ## Username Variation {.callout}
+> ## Username Variation
 >
 > In this lesson, we have used the username `nelle` (associated 
 > with our hypothetical scientist Nelle) in example input and output throughout.  
@@ -72,6 +79,7 @@ More specifically, when we type `whoami` the shell:
 > namely, the username associated with the user account on your computer.  This 
 > username will be the output from `whoami`.  In 
 > what follows, `nelle` should always be replaced by that username.  
+{: .callout}
 
 Next,
 let's find out where we are by running a command called `pwd`
@@ -86,14 +94,17 @@ Here,
 the computer's response is `/Users/nelle`,
 which is Nelle's **home directory**:
 
-~~~ {.bash}
+~~~
 $ pwd
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 /Users/nelle
 ~~~
+{: .output}
 
-> ## Home Directory Variation {.callout}
+> ## Home Directory Variation
 >
 > The home directory path will look different on different operating systems.
 > On Linux it may look like `/home/nelle`,
@@ -102,6 +113,7 @@ $ pwd
 > (Note that it may look slightly different for different versions of Windows.)
 > In future examples, we've used Mac output as the default - Linux and Windows 
 > output may differ slightly, but should be generally similar.  
+{: .callout}
 
 To understand what a "home directory" is,
 let's have a look at how the file system as a whole is organized.  For the 
@@ -132,12 +144,13 @@ Similarly,
 we know that `/Users` is stored inside the root directory `/`
 because its name begins with `/`.
 
-> ## Slashes {.callout}
+> ## Slashes
 >
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
 > it refers to the root directory. When it appears *inside* a name,
 > it's just a separator.
+{: .callout}
 
 Underneath `/Users`,
 we find one directory for each user with an account on Nelle's machine, 
@@ -156,13 +169,16 @@ Now let's learn the command that will let us see the contents of our
 own filesystem.  We can see what's in our home directory by running `ls`,
 which stands for "listing":
 
-~~~ {.bash}
+~~~
 $ ls
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 Applications Documents    Library      Music        Public
 Desktop      Downloads    Movies       Pictures
 ~~~
+{: .output}
 
 (Again, your results may be slightly different depending on your operating 
 system and how you have customized your filesystem.)
@@ -173,20 +189,25 @@ arranged neatly into columns.
 We can make its output more comprehensible by using the **flag** `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
-~~~ {.bash}
+~~~
 $ ls -F
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 Applications/ Documents/    Library/      Music/        Public/
 Desktop/      Downloads/    Movies/       Pictures/
 ~~~
+{: .output}
 
 `ls` has lots of other options. To find out what they are, we can type:
 
-~~~{.bash}
+~~~
 $ ls --help
 ~~~
-~~~{.output}
+{: .bash}
+
+~~
 Usage: ls [OPTION]... [FILE]...
 List information about the FILEs (the current directory by default).
 Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
@@ -312,7 +333,7 @@ For more information on how to use `ls` we can type `man ls`.
 it prints a description of a command and its options,
 and (if you're lucky) provides a few examples of how to use it.
 
-> ## `man` and Git for Windows {.callout}
+> ## `man` and Git for Windows
 >
 > The bash shell provided by Git for Windows does not
 > support the `man` command. Doing a web search for
@@ -325,6 +346,7 @@ and (if you're lucky) provides a few examples of how to use it.
 > and the 
 > [core GNU utilities](http://www.gnu.org/software/coreutils/manual/coreutils.html),
 > which covers many commands introduced within this lesson.
+{: .callout}
 
 To navigate through the `man` pages,
 you may use the up and down arrow keys to move line-by-line,
@@ -340,7 +362,7 @@ without it,
 the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
 
-> ## Parameters vs. Arguments {.callout}
+> ## Parameters vs. Arguments
 >
 > According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
 > the terms argument and **parameter**
@@ -349,6 +371,7 @@ which doesn't exist.
 > however,
 > most people use them interchangeably or inconsistently,
 > so we will too.
+{: .callout}
 
 We can also use `ls` to see the contents of a different directory.  Let's take a 
 look at our `Desktop` directory by running `ls -F Desktop`,
@@ -357,12 +380,15 @@ the command `ls` with the **arguments** `-F` and `Desktop`.
 The second argument --- the one *without* a leading dash --- tells `ls` that
 we want a listing of something other than our current working directory:
 
-~~~ {.bash}
+~~~
 $ ls -F Desktop
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 data-shell/
 ~~~
+{: .output}
 
 Your output should be a list of all the files and sub-directories on your 
 Desktop, including the `data-shell` directory you downloaded at 
@@ -382,13 +408,16 @@ can do two things.
 First, we can look at its contents, using the same strategy as before, passing 
 a directory name to `ls`: 
 
-~~~ {.bash}
+~~~
 $ ls -F Desktop/data-shell
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 creatures/          molecules/          notes.txt           solar.pdf
 data/               north-pacific-gyre/ pizza.cfg           writing/
 ~~~
+{: .output}
 
 Second, we can actually change our location to a different directory, so 
 we are no longer located in
@@ -404,11 +433,12 @@ it changes the shell's idea of what directory we are in.
 Let's say we want to move to the `data` directory we saw above.  We can 
 use the following series of commands to get there: 
 
-~~~ {.bash}
+~~~
 $ cd Desktop
 $ cd data-shell
 $ cd data
 ~~~
+{: .bash}
 
 These commands will move us from our home directory onto our Desktop, then into 
 the `data-shell` directory, then into the `data` directory.  `cd` doesn't print anything,
@@ -418,29 +448,39 @@ If we run `ls` without arguments now,
 it lists the contents of `/Users/nelle/Desktop/data-shell/data`,
 because that's where we now are:
 
-~~~ {.bash}
+~~~
 $ pwd
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 /Users/nelle/Desktop/data-shell/data
 ~~~
-~~~ {.bash}
+{: .output}
+
+~~~
 $ ls -F
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 amino-acids.txt   elements/     pdb/	        salmon.txt
 animals.txt       morse.txt     planets.txt     sunspot.txt
 ~~~
+{: .output}
 
 We now know how to go down the directory tree:
 how do we go up?  We might try the following: 
 
-~~~{.bash}
+~~~
 cd data-shell
 ~~~
-~~~{.error}
+{: .bash}
+
+~~~
 -bash: cd: data-shell: No such file or directory
 ~~~
+{: .error}
 
 But we get an error!  Why is this?  
 
@@ -452,9 +492,10 @@ with the simplest.
 There is a shortcut in the shell to move up one directory level
 that looks like this: 
 
-~~~ {.bash}
+~~~
 $ cd ..
 ~~~
+{: .bash}
 
 `..` is a special directory name meaning
 "the directory containing this one",
@@ -463,25 +504,31 @@ the **parent** of the current directory.
 Sure enough,
 if we run `pwd` after running `cd ..`, we're back in `/Users/nelle/Desktop/data-shell`:
 
-~~~ {.bash}
+~~~
 $ pwd
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 /Users/nelle/Desktop/data-shell
 ~~~
+{: .output}
 
 The special directory `..` doesn't usually show up when we run `ls`.  If we want 
 to display it, we can give `ls` the `-a` flag:
 
-~~~ {.bash}
+~~~
 $ ls -F -a
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ./                  creatures/          notes.txt
 ../                 data/               pizza.cfg
 .bash_profile       molecules/          solar.pdf
 Desktop/            north-pacific-gyre/ writing/
 ~~~
+{: .output}
 
 `-a` stands for "show all";
 it forces `ls` to show us file and directory names that begin with `.`,
@@ -492,7 +539,7 @@ which means "the current working directory".
 It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
 
-> ## Other Hidden Files {.callout}
+> ## Other Hidden Files
 > 
 > In addition to the hidden directories `..` and `.`, you may also see a file
 > called `.bash_profile`. This file usually contains shell configuration
@@ -501,8 +548,9 @@ but we'll see some uses for it soon.
 > different programs on your computer. The prefix `.` is used to prevent these
 > configuration files from cluttering the terminal when a standard `ls` command
 > is used.
+{: .callout}
 
-> ## Orthogonality {.callout}
+> ## Orthogonality
 >
 > The special names `.` and `..` don't belong to `ls`;
 > they are interpreted the same way by every program.
@@ -513,24 +561,29 @@ but we'll see some uses for it soon.
 > programmers say they are **orthogonal**:
 > Orthogonal systems tend to be easier for people to learn
 > because there are fewer special cases and exceptions to keep track of.
+{: .callout}
 
 These then, are the basic commands for navigating the filesystem on your computer: 
 `pwd`, `ls` and `cd`.  Let's explore some variations on those commands.  What happens 
 if you type `cd` on its own, without giving 
 a directory?  
 
-~~~ {.bash}
+~~~
 $ cd
 ~~~
+{: .bash}
 
 How can you check what happened?  `pwd` gives us the answer!  
 
-~~~ {.bash}
+~~~
 $ pwd
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 /Users/nelle
 ~~~
+{: .output}
 
 It turns out that `cd` without an argument will return you to your home directory, 
 which is great if you've gotten lost in your own filesystem.  
@@ -539,9 +592,10 @@ Let's try returning to the `data` directory from before.  Last time, we used
 three commands, but we can actually string together the list of directories 
 to move to `data` in one step: 
 
-~~~ {.bash}
+~~~
 $ cd Desktop/data-shell/data
 ~~~
+{: .bash}
 
 Check that we've moved to the right place by running `pwd` and `ls -F`.  
 
@@ -565,19 +619,24 @@ the filesystem (including from inside `data`).  To find the absolute path
 we're looking for, we can use `pwd` and then extract the piece we need 
 to move to `data-shell`.  
 
-~~~ {.bash}
+~~~
 $ pwd
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 /Users/nelle/Desktop/data-shell/data
 ~~~
-~~~ {.bash}
+{: .output}
+
+~~~
 $ cd /Users/nelle/Desktop/data-shell
 ~~~
+{: .bash}
 
 Run `pwd` and `ls -F` to ensure that we're in the directory we expect.  
 
-> ## Two More Shortcuts {.callout}
+> ## Two More Shortcuts
 >
 > The shell interprets the character `~` (tilde) at the start of a path to
 > mean "the current user's home directory". For example, if Nelle's home
@@ -590,6 +649,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > then type, the full path.  This is a *very* efficient way of moving back 
 > and forth between directories. The difference between `cd ..` and `cd -` is 
 > that the former brings you *up*, while the latter brings you *back*. 
+{: .callout}
 
 ### Nelle's Pipeline: Organizing Files
 
@@ -606,7 +666,7 @@ but she found them hard to understand after a couple of years.
 (The final straw was when she found herself creating
 a directory called `revised-revised-results-3`.)
 
-> ## Output sorting {.callout}
+> ## Output sorting
 >
 > Nelle names her directories "year-month-day",
 > with leading zeroes for months and days,
@@ -616,6 +676,7 @@ a directory called `revised-revised-results-3`.)
 > if she didn't use leading zeroes,
 > November ('11') would come before July ('7'). Similarly, putting the year first 
 > means that June 2012 will come before June 2013.
+{: .callout}
 
 Each of her physical samples is labelled according to her lab's convention
 with a unique ten-character ID,
@@ -630,24 +691,27 @@ All 1520 files will go into the same directory.
 If she is in her home directory,
 Nelle can see what files she has using the command:
 
-~~~ {.bash}
+~~~
 $ ls north-pacific-gyre/2012-07-03/
 ~~~
+{: .bash}
 
 This is a lot to type,
 but she can let the shell do most of the work through what is called **tab completion**.
 If she types:
 
-~~~ {.bash}
+~~~
 $ ls nor
 ~~~
+{: .bash}
 
 and then presses tab (the tab key on her keyboard),
 the shell automatically completes the directory name for her:
 
-~~~ {.bash}
+~~~
 $ ls north-pacific-gyre/
 ~~~
+{: .bash}
 
 If she presses tab again,
 Bash will add `2012-07-03/` to the command,
@@ -659,7 +723,7 @@ and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
-> ## Many ways to do the same thing - absolute vs relative paths {.challenge}
+> ## Many ways to do the same thing - absolute vs relative paths
 >
 > Starting from a filesystem location of `/Users/amanda/data/`, 
 > which of the following commands could Amanda use to navigate to her home directory, 
@@ -674,8 +738,9 @@ and we will see it in many other tools as we go on.
 >7.  `cd ~/data/..`
 >8.  `cd`
 >9.  `cd ..`
+{: .challenge}
 
-> ## Relative path resolution {.challenge}
+> ## Relative path resolution
 >
 > Using the filesystem diagram below, if `pwd` displays `/Users/thing`, 
 what will `ls ../backup` display?
@@ -686,9 +751,10 @@ what will `ls ../backup` display?
 > 4.  `original pnas_final pnas_sub`
 > 
 > ![File System for Challenge Questions](fig/filesystem-challenge.svg)
+{: .challenge}
 
 
-> ## `ls` reading comprehension {.challenge}
+> ## `ls` reading comprehension
 >
 > Assuming a directory structure as in the above Figure 
 > (File System for Challenge Questions), if `pwd` displays `/Users/backup`,
@@ -698,22 +764,24 @@ what will `ls ../backup` display?
 > ~~~
 > pnas_sub/ pnas_final/ original/
 > ~~~
+> {: .output}
 >
 > 1.  `ls pwd`
 > 2.  `ls -r -F`
 > 3.  `ls -r -F /Users/backup`
 > 4.  Either \#2 or \#3 above, but not \#1.
+{: .challenge}
 
-
-> ## Exploring more `ls` arguments {.challenge}
+> ## Exploring more `ls` arguments
 >
 > What does the command `ls` do when used with the `-l` and `-h` arguments?
 >
 > Some of its output is about properties that we do not cover in this lesson (such
 > as file permissions and ownership), but the rest should be useful
 > nevertheless.
+{: .challenge}
 
-> ## Listing Recursively and By Time {.challenge}
+> ## Listing Recursively and By Time
 >
 > The command `ls -R` lists the contents of directories recursively, i.e., lists 
 > their sub-directories, sub-sub-directories, and so on in alphabetical order 
@@ -721,4 +789,5 @@ what will `ls ../backup` display?
 > most recently changed files or directories first.
 > In what order does `ls -R -t` display things? Hint: `ls -l` uses a long listing 
 > format to view timestamps.
+{: .challenge}
 

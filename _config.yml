@@ -1,0 +1,70 @@
+#------------------------------------------------------------
+# Values for this lesson.
+#------------------------------------------------------------
+
+# Which carpentry is this ("swc" or "dc")?
+carpentry: "swc"
+
+# What kind of thing is this ("workshop" or "lesson")?
+kind: "lesson"
+
+# Overall title for pages.
+title: "The Unix Shell"
+
+# Account (without slashes).
+account: "swcarpentry"
+
+# Root URL below account (without slashes).
+project: "shell-novice"
+
+# Contact email address.
+email: lessons@software-carpentry.org
+
+#------------------------------------------------------------
+# Generic settings (should not need to change).
+#------------------------------------------------------------
+
+# Is this production or development? (Overridden in _config_dev.yml.)
+is_production: true
+
+# Sites.
+amy_site: "https://amy.software-carpentry.org/workshops"
+dc_site: "https://datacarpentry.org"
+swc_github: "https://github.com/swcarpentry"
+swc_site: "https://software-carpentry.org"
+template_repo: "https://github.com/swcarpentry/styles"
+example_repo: "https://github.com/swcarpentry/lesson-example"
+example_site: "https://swcarpentry.github.com/lesson-example"
+workshop_repo: "https://github.com/swcarpentry/workshop-template"
+workshop_site: "https://swcarpentry.github.io/workshop-template"
+
+# Surveys.
+pre_survey: "https://www.surveymonkey.com/r/swc_pre_workshop_v1?workshop_id="
+post_survey: "https://www.surveymonkey.com/r/swc_post_workshop_v1?workshop_id="
+
+# Start time in minutes (540 is 09:00 am)
+start_time: 540
+
+# Specify that things in the episodes collection should be output.
+collections:
+  episodes:
+    output: true
+    permalink: /:path/
+  extras:
+    output: true
+
+# Set the default layout for things in the episodes collection.
+defaults:
+  - scope:
+      path: ""
+      type: episodes
+    values:
+      layout: episode
+
+# Files and directories that are not to be copied.
+exclude:
+  - Makefile
+  - bin
+
+# Turn off built-in syntax highlighting.
+highlighter: false

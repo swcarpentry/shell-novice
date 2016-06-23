@@ -1,7 +1,5 @@
 ---
-layout: page
-title: The Unix Shell
-subtitle: Reference
+layout: reference
 ---
 ## [Introducing the Shell](00-intro.html)
 
