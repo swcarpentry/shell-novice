@@ -124,7 +124,7 @@ which will be constructed in a similar way, but not be exactly identical.
 
 On Nelle's computer, the filesystem looks like this: 
 
-![The File System](fig/filesystem.svg)
+![The File System]({{ site.github.url }}/fig/filesystem.svg)
 
 At the top is the **root directory**
 that holds everything else.
@@ -156,7 +156,7 @@ Underneath `/Users`,
 we find one directory for each user with an account on Nelle's machine, 
 her colleagues the Mummy and Wolfman.  
 
-![Home Directories](fig/home-directories.svg)
+![Home Directories]({{ site.github.url }}/fig/home-directories.svg)
 
 The Mummy's files are stored in `/Users/imhotep`,
 Wolfman's in `/Users/larry`,
@@ -750,7 +750,7 @@ what will `ls ../backup` display?
 > 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
 > 4.  `original pnas_final pnas_sub`
 > 
-> ![File System for Challenge Questions](fig/filesystem-challenge.svg)
+> ![File System for Challenge Questions]({{ site.github.url }}/fig/filesystem-challenge.svg)
 {: .challenge}
 
 

@@ -139,7 +139,7 @@ holding it down, press the O key) to write our data to disk
 (we'll be asked what file we want to save this to:
 press Return to accept the suggested default of `draft.txt`).
 
-![Nano in action](fig/nano-screenshot.png)
+![Nano in action]({{ site.github.url }}/fig/nano-screenshot.png)
 
 Once our file is saved, we can use `Ctrl-X` to quit the editor and 
 return to the shell.
