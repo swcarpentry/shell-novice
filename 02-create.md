@@ -120,18 +120,20 @@ Let's type in a few lines of text.
 Once we're happy with our text, we can press `Ctrl-O` (press the Ctrl or Control key and, while
 holding it down, press the O key) to write our data to disk
 (we'll be asked what file we want to save this to:
-press Return to accept the suggested default of `draft.txt`).
+press Enter (Return) to accept the suggested default of `draft.txt`).
 
 ![Nano in action](fig/nano-screenshot.png)
 
 Once our file is saved, we can use `Ctrl-X` to quit the editor and 
 return to the shell.
 
-> ## Control, ctrl, or ^ key {.callout}
+> ## Control, Ctrl, or ^ key {.callout}
 >
-> The Control key is also called the "Ctrl" key. There are various ways
-> in which using the Control key may be described. For example, you may
-> see an instruction to press the Control key and, while holding it down, 
+> The Control key is also called the "Ctrl" key and the "^" character is a 
+> common Unix convention that represents this key. In our lessons however, we will
+> always refer to it as `Ctrl`. There are various ways
+> in which using the Ctrl key may be described. For example, you may
+> see an instruction to press the Ctrl key and, while holding it down, 
 > press the X key, described as any of:
 >
 > * `Control-X`
@@ -141,7 +143,7 @@ return to the shell.
 > * `^X`
 >
 > In nano, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
-> This means that you can use `Control-G` to get help and `Control-O` to save your
+> This means that you can use `Ctrl-G` to get help and `Ctrl-O` to save your
 > file. 
 
 `nano` doesn't leave any output on the screen after it exits,
