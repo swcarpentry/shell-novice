@@ -1,7 +1,7 @@
 ---
 layout: page
-title: The Unix Shell
-subtitle: Instructor's Guide
+title: "Instructor's Guide"
+permalink: /guide/
 ---
 *   Why do we learn to use the shell?
     *   Allows users to automate repetitive tasks

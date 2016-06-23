@@ -328,7 +328,7 @@ we get three processes with data flowing from the files,
 through `wc` to `sort`,
 and from `sort` through `head` to the screen.
 
-![Redirects and Pipes](fig/redirects-and-pipes.png)
+![Redirects and Pipes]({{ site.github.url }}/fig/redirects-and-pipes.png)
 
 This simple idea is why Unix has been so successful.
 Instead of creating enormous programs that try to do many different things,

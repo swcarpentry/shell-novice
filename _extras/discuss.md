@@ -1,7 +1,7 @@
 ---
 layout: page
-title: The Unix Shell
-subtitle: Discussion
+title: "Discussion"
+permalink: /discuss/
 ---
 
 ## Alphabet Soup
