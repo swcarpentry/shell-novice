@@ -175,11 +175,12 @@ kind: "lesson"
 # Overall title for pages.
 title: "Lesson Title"
 
-# Account (without slashes).
-account: "[[USER-NAME]]"
+# Repository URL (without trailing slash).
+repo: https://github.com/[USERNAME]/[LESSON-SLUG]
 
-# Root URL below account (without slashes).
-project: "[[REPO-NAME]]"
+# Root URL below username.github.io domain, with leading slash but no trailing slash.
+# For example, for 'https://swcarpentry.github.io/lesson-example', use '/lesson-example'.
+root: "/[LESSON-SLUG]"
 
 # Contact email address.
 email: "[[CONTACT-ADDRESS]]"
