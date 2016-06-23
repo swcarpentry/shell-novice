@@ -4,7 +4,7 @@ title: The Unix Shell
 subtitle: Discussion
 ---
 
-## Alphabet Soup {.callout}
+## Alphabet Soup
 
 If the command to find out who we are is `whoami`, the command to find
 out where we are ought to be called `whereami`, so why is it `pwd`

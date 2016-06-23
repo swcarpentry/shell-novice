@@ -181,10 +181,11 @@ on the front page of the website for more details.
 
 *   On Windows, it appears that:
 
-    ~~~ {.bash}
+    ~~~
     $ cd
     $ cd Desktop
     ~~~
+    {: .bash}
 
     will always put someone on their desktop.
     Have them create the example directory for the shell exercises there
@@ -230,11 +231,11 @@ And please also make use of our
 
 [shebang]: http://www.in-ulm.de/~mascheck/various/shebang/
 
-## Solutions to exercises
+## Solutions to Exercises
 
 ## [Navigating Files and Directories](01-filedir.html)
 
-> ## Many ways to do the same thing - absolute vs relative paths {.challenge}
+> ## Many ways to do the same thing - absolute vs relative paths
 >
 > Starting from a filesystem location of `/Users/amanda/data/`, 
 > which of the following commands could Amanda use to navigate to her home directory, 
@@ -249,8 +250,9 @@ And please also make use of our
 >7.  `cd ~/data/..` **yes** (unnecessarily complicated, but correct)
 >8.  `cd`  **yes** (shortcut to go back to the user's home directory)
 >9.  `cd ..` **yes** (goes up one level)
+{: .challenge}
 
-> ## Relative path resolution {.challenge}
+> ## Relative path resolution
 >
 > Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
 > what will `ls ../backup` display?
@@ -263,8 +265,9 @@ And please also make use of our
       also we did not specify `-F` to display `/` at the end of the directory names)
 > 4.  `original pnas_final pnas_sub`  **yes** (`../backup` refers to
       `/Users/backup`)
+{: .challenge}
 
-> ## `ls` reading comprehension {.challenge}
+> ## `ls` reading comprehension
 >
 > Assuming a directory structure as in the above Figure 
 > (File System for Challenge Questions), if `pwd` displays `/Users/backup`,
@@ -274,6 +277,7 @@ And please also make use of our
 > ~~~
 > pnas_sub/ pnas_final/ original/
 > ~~~
+> {: .output}
 >
 > 1.  `ls pwd`  **no** (`pwd` is not the name of a directory)
 > 2.  `ls -r -F` **yes** (`ls` without directory argument lists files and
@@ -281,8 +285,9 @@ And please also make use of our
 > 3.  `ls -r -F /Users/backup`  **yes** (uses the absolute path explicitly)
 > 4.  Either \#2 or \#3 above, but not \#1.  **correct answer** (see
 >     explanations above)
+{: .challenge}
 
-> ## Exploring more `ls` arguments {.challenge}
+> ## Exploring more `ls` arguments
 > 
 > What does the command `ls` do when used with the `-l` and `-h` arguments?
 > 
@@ -295,8 +300,9 @@ And please also make use of our
 > the file/directory names but also additional information such as the file size
 > and the time of its last modification. The `-h` argument makes the file size
 > "**h**uman readable", i.e. display something like `5.3K` instead of `5369`.
+{: .challenge}
 
-> ## Listing Recursively and By Time {.challenge}
+> ## Listing Recursively and By Time
 > 
 > The command ls -R lists the contents of directories recursively, i.e., lists 
 > their sub-directories, sub-sub-directories, and so on in alphabetical order 
@@ -308,4 +314,5 @@ And please also make use of our
 > **Answer:**
 > The directories are listed alphabetical at each level, the files/directories
 > in each directory are sorted by time of last change.
+{: .challenge}
 

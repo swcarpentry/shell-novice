@@ -1,15 +1,17 @@
 ---
-layout: page
-title: The Unix Shell
-subtitle: Shell Scripts
-minutes: 15
+title: "Shell Scripts"
+teaching: 15
+exercises: 0
+questions:
+- "FIXME"
+objectives:
+- "Write a shell script that runs a command or series of commands for a fixed set of files."
+- "Run a shell script from the command line."
+- "Write a shell script that operates on a set of files defined by the user on the command line."
+- "Create pipelines that include shell scripts you, and others, have written."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Write a shell script that runs a command or series of commands for a fixed set of files. (Create)
-> *   Run a shell script from the command line. (Apply)
-> *   Write a shell script that operates on a set of files defined by the user on the command line. (Create)
-> *   Create pipelines that include shell scripts you, and others, have written. (Create)
 
 We are finally ready to see what makes the shell such a powerful programming environment.
 We are going to take the commands we repeat frequently and save them in files
@@ -21,15 +23,22 @@ these are actually small programs.
 
 Let's start by going back to `molecules/` and putting the following line into a new file, `middle.sh`:
 
-~~~ {.bash}
+~~~
 $ cd molecules
 $ nano middle.sh
 ~~~
-The command <code>nano middle.sh</code> opens the file `middle.sh` within the text editor "nano" (which runs within the shell). If the file does not exist, it will be created. We can use the text editor to directly edit the file. We'll simply insert the following line:
+{: .bash}
+
+The command `nano middle.sh` opens the file `middle.sh` within the text editor "nano"
+(which runs within the shell).
+If the file does not exist, it will be created.
+We can use the text editor to directly edit the file---we'll simply insert the following line:
 
 ~~~
 head -n 15 octane.pdb | tail -n 5
 ~~~
+{: .source}
+
 This is a variation on the pipe we constructed earlier:
 it selects lines 11-15 of the file `octane.pdb`.
 Remember, we are *not* running it as a command just yet:
@@ -42,21 +51,24 @@ Once we have saved the file,
 we can ask the shell to execute the commands it contains.
 Our shell is called `bash`, so we run the following command:
 
-~~~ {.bash}
+~~~
 $ bash middle.sh
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
 ATOM     10  H           1      -5.254  -0.243  -0.537  1.00  0.00
 ATOM     11  H           1      -4.357   1.252  -0.895  1.00  0.00
 ATOM     12  H           1      -3.009  -0.741  -1.467  1.00  0.00
 ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 ~~~
+{: .output}
 
 Sure enough,
 our script's output is exactly what we would get if we ran that pipeline directly.
 
-> ## Text vs. Whatever {.callout}
+> ## Text vs. Whatever
 >
 > We usually call programs like Microsoft Word or LibreOffice Writer "text
 > editors", but we need to be a bit more careful when it comes to
@@ -67,107 +79,129 @@ our script's output is exactly what we would get if we ran that pipeline directl
 > nothing but the letters, digits, and punctuation on a standard computer
 > keyboard. When editing programs, therefore, you must either use a plain
 > text editor, or be careful to save files as plain text.
+{: .callout}
 
 What if we want to select lines from an arbitrary file?
 We could edit `middle.sh` each time to change the filename,
 but that would probably take longer than just retyping the command.
 Instead, let's edit `middle.sh` and make it more versatile:
 
-~~~ {.bash}
+~~~
 $ nano middle.sh
 ~~~
+{: .bash}
+
 Now, within "nano", replace the text `octane.pdb` with the special variable called `$1`:
 
-~~~ {.output}
+~~~
 head -n 15 "$1" | tail -n 5
 ~~~
+{: .output}
 
 Inside a shell script,
 `$1` means "the first filename (or other parameter) on the command line".
 We can now run our script like this:
 
-~~~ {.bash}
+~~~
 $ bash middle.sh octane.pdb
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
 ATOM     10  H           1      -5.254  -0.243  -0.537  1.00  0.00
 ATOM     11  H           1      -4.357   1.252  -0.895  1.00  0.00
 ATOM     12  H           1      -3.009  -0.741  -1.467  1.00  0.00
 ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
 ~~~
+{: .output}
 
 or on a different file like this:
 
-~~~ {.bash}
+~~~
 $ bash middle.sh pentane.pdb
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ATOM      9  H           1       1.324   0.350  -1.332  1.00  0.00
 ATOM     10  H           1       1.271   1.378   0.122  1.00  0.00
 ATOM     11  H           1      -0.074  -0.384   1.288  1.00  0.00
 ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
 ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 ~~~
+{: .output}
 
-
-> ## Double-Quotes Around Arguments {.callout}
+> ## Double-Quotes Around Arguments
 >
 > For the same reason that we put the loop variable inside double-quotes,
 > in case the filename happens to contain any spaces,
 > we surround `$1` with double-quotes.
+{: .callout}
 
 We still need to edit `middle.sh` each time we want to adjust the range of lines,
 though.
 Let's fix that by using the special variables `$2` and `$3` for the
 number of lines to be passed to `head` and `tail` respectively:
 
-~~~ {.bash}
+~~~
 $ nano middle.sh
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 head -n "$2" "$1" | tail -n "$3"
 ~~~
+{: .output}
 
 We can now run:
 
-~~~ {.bash}
+~~~
 $ bash middle.sh pentane.pdb 15 5
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ATOM      9  H           1       1.324   0.350  -1.332  1.00  0.00
 ATOM     10  H           1       1.271   1.378   0.122  1.00  0.00
 ATOM     11  H           1      -0.074  -0.384   1.288  1.00  0.00
 ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
 ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 ~~~
+{: .output}
 
 By changing the arguments to our command we can change our script's
 behaviour:
 
-~~~ {.bash}
+~~~
 $ bash middle.sh pentane.pdb 20 5
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ATOM     14  H           1      -1.259   1.420   0.112  1.00  0.00
 ATOM     15  H           1      -2.608  -0.407   1.130  1.00  0.00
 ATOM     16  H           1      -2.540  -1.303  -0.404  1.00  0.00
 ATOM     17  H           1      -3.393   0.254  -0.321  1.00  0.00
 TER      18              1
 ~~~
+{: .output}
 
 This works,
 but it may take the next person who reads `middle.sh` a moment to figure out what it does.
 We can improve our script by adding some **comments** at the top:
 
-~~~ {.bash}
+~~~
 $ nano middle.sh
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 # Select lines from the middle of a file.
 # Usage: bash middle.sh filename end_line num_lines
 head -n "$2" "$1" | tail -n "$3"
 ~~~
+{: .output}
 
 A comment starts with a `#` character and runs to the end of the line.
 The computer ignores comments,
@@ -176,9 +210,10 @@ but they're invaluable for helping people understand and use scripts.
 What if we want to process many files in a single pipeline?
 For example, if we want to sort our `.pdb` files by length, we would type:
 
-~~~ {.bash}
+~~~
 $ wc -l *.pdb | sort -n
 ~~~
+{: .bash}
 
 because `wc -l` lists the number of lines in the files
 (recall that `wc` stands for 'word count', adding the `-l` flag means 'count lines' instead)
@@ -197,18 +232,24 @@ to handle the case of parameters containing spaces
 (`"$@"` is equivalent to `"$1"` `"$2"` ...)
 Here's an example:
 
-~~~ {.bash}
+~~~
 $ nano sorted.sh
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 # Sort filenames by their length.
 # Usage: bash sorted.sh one_or_more_filenames
 wc -l "$@" | sort -n
 ~~~
-~~~ {.bash}
+{: .output}
+
+~~~
 $ bash sorted.sh *.pdb ../creatures/*.dat
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 9 methane.pdb
 12 ethane.pdb
 15 propane.pdb
@@ -218,30 +259,39 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 163 ../creatures/basilisk.dat
 163 ../creatures/unicorn.dat
 ~~~
+{: .output}
 
-> ## Why Isn't It Doing Anything? {.callout}
+> ## Why Isn't It Doing Anything?
 >
 > What happens if a script is supposed to process a bunch of files, but we
 > don't give it any filenames? For example, what if we type:
 >
->     $ bash sorted.sh
+> ~~~
+> $ bash sorted.sh
+> ~~~
+> {: .bash}
 >
 > but don't say `*.dat` (or anything else)? In this case, `$@` expands to
 > nothing at all, so the pipeline inside the script is effectively:
 >
->     wc -l | sort -n
+> ~~~
+> $ wc -l | sort -n
+> ~~~
+> {: .bash}
 >
 > Since it doesn't have any filenames, `wc` assumes it is supposed to
 > process standard input, so it just sits there and waits for us to give
 > it some data interactively. From the outside, though, all we see is it
 > sitting there: the script doesn't appear to do anything.
+{: .callout}
 
 We have two more things to do before we're finished with our simple shell scripts.
 If you look at a script like:
 
 ~~~
-wc -l "$@" | sort -n
+$ wc -l "$@" | sort -n
 ~~~
+{: .bash}
 
 you can probably puzzle out what it does.
 On the other hand,
@@ -249,8 +299,9 @@ if you look at this script:
 
 ~~~
 # List files sorted by number of lines.
-wc -l "$@" | sort -n
+$ wc -l "$@" | sort -n
 ~~~
+{: .bash}
 
 you don't have to puzzle it out --- the comment at the top tells you what it does.
 A line or two of documentation like this make it much easier for other people
@@ -269,9 +320,10 @@ Instead of typing them in again
 (and potentially getting them wrong)
 we can do this:
 
-~~~ {.bash}
+~~~
 $ history | tail -n 5 > redo-figure-3.sh
 ~~~
+{: .bash}
 
 The file `redo-figure-3.sh` now contains:
 
@@ -282,6 +334,7 @@ The file `redo-figure-3.sh` now contains:
 300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png
 301 history | tail -n 5 > redo-figure-3.sh
 ~~~
+{: .source}
 
 After a moment's work in an editor to remove the serial numbers on the commands,
 and to remove the final line where we called the `history` command,
@@ -315,20 +368,23 @@ do
     bash goostats -J 100 -r $datafile stats-$datafile
 done
 ~~~
+{: .bash}
 
 (The parameters `-J 100` and `-r` are the ones her supervisor said she should have used.)
 She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
 
-~~~ {.bash}
+~~~
 $ bash do-stats.sh *[AB].txt
 ~~~
+{: .bash}
 
 She can also do this:
 
-~~~ {.bash}
+~~~
 $ bash do-stats.sh *[AB].txt | wc -l
 ~~~
+{: .bash}
 
 so that the output is just the number of files processed
 rather than the names of the files that were processed.
@@ -345,6 +401,7 @@ do
     bash goostats -J 100 -r $datafile stats-$datafile
 done
 ~~~
+{: .bash}
 
 The advantage is that this always selects the right files:
 she doesn't have to remember to exclude the 'Z' files.
@@ -357,7 +414,7 @@ she could modify her script to check for command-line parameters,
 and use `*[AB].txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
-> ## Variables in shell scripts {.challenge}
+> ## Variables in shell scripts
 >
 > In the `molecules` directory, imagine you have a shell script called `script.sh` containing the
 > following commands:
@@ -366,12 +423,14 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > head -n $2 $1
 > tail -n $3 $1
 > ~~~
+> {: .bash}
 >
 > While you are in the `molecules` directory, you type the following command:
 >
 > ~~~
 > bash script.sh '*.pdb' 1 1
 > ~~~
+> {: .bash}
 >
 > Which of the following outputs would you expect to see?
 >
@@ -380,8 +439,9 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > 2. The first and the last line of each file ending in `.pdb` in the `molecules` directory
 > 3. The first and the last line of each file in the `molecules` directory
 > 4. An error because of the quotes around `*.pdb`
+{: .challenge}
 
-> ## List unique species {.challenge}
+> ## List unique species
 >
 > Leah has several hundred data files, each of which is formatted like this:
 >
@@ -395,13 +455,15 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > 2013-11-07,rabbit,18
 > 2013-11-07,bear,1
 > ~~~
+> {: .source}
 >
 > Write a shell script called `species.sh` that takes any number of
 > filenames as command-line parameters, and uses `cut`, `sort`, and
 > `uniq` to print a list of the unique species appearing in each of
 > those files separately.
+{: .challenge}
 
-> ## Find the longest file with a given extension {.challenge}
+> ## Find the longest file with a given extension
 >
 > Write a shell script called `longest.sh` that takes the name of a
 > directory and a filename extension as its parameters, and prints
@@ -411,24 +473,28 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ~~~
 > $ bash longest.sh /tmp/data pdb
 > ~~~
+> {: .bash}
 >
 > would print the name of the `.pdb` file in `/tmp/data` that has
 > the most lines.
+{: .challenge}
 
-> ## Why record commands in the history before running them? {.challenge}
+> ## Why record commands in the history before running them?
 >
 > If you run the command:
 >
 > ~~~
-> history | tail -n 5 > recent.sh
+> $ history | tail -n 5 > recent.sh
 > ~~~
+> {: .bash}
 >
 > the last command in the file is the `history` command itself, i.e.,
 > the shell has added `history` to the command log before actually
 > running it. In fact, the shell *always* adds commands to the log
 > before running them. Why do you think it does this?
+{: .challenge}
 
-> ## Script reading comprehension {.challenge}
+> ## Script reading comprehension
 >
 > Joel's `data` directory contains three files: `fructose.dat`,
 > `glucose.dat`, and `sucrose.dat`. Explain what a script called
@@ -439,6 +505,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > # Script 1
 > echo *.*
 > ~~~
+> {: .bash}
 >
 > ~~~
 > # Script 2
@@ -447,18 +514,21 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >     cat $filename
 > done
 > ~~~
+> {: .bash}
 >
 > ~~~
 > # Script 3
 > echo $@.dat
 > ~~~
+> {: .bash}
+{: .challenge}
 
-> ## Debugging Scripts {.challenge}
+> ## Debugging Scripts
 >
 > Suppose you have saved the following script in a file called `do-errors.sh`
 > in Nelle's `north-pacific-gyre/2012-07-03` directory:
 >
-> ~~~ {.bash}
+> ~~~
 > # Calculate reduced stats for data files at J = 100 c/bp.
 > for datafile in "$@"
 > do
@@ -466,19 +536,23 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >     bash goostats -J 100 -r $datafile stats-$datafile
 > done
 > ~~~
+> {: .bash}
 >
 > When you run it:
 >
-> ~~~ {.bash}
+> ~~~
 > $ bash do-errors.sh *[AB].txt
 > ~~~
+> {: .bash}
 >
 > the output is blank.
 > To figure out why, re-run the script using the `-x` option:
 >
-> ~~~ {.bash}
+> ~~~
 > bash -x do-errors.sh *[AB].txt
 > ~~~
+> {: .bash}
 >
 > What is the output showing you?
 > Which line is responsible for the error?
+{: .challenge}

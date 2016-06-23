@@ -1,13 +1,15 @@
 ---
-layout: page
-title: The Unix Shell
-subtitle: Introducing the Shell
-minutes: 5
+title: "Introducing the Shell"
+teaching: 5
+exercises: 0
+questions:
+- "FIXME"
+objectives:
+- "Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs."
+- "Explain when and why command-line interfaces should be used instead of graphical interfaces."
+keypoints:
+- "FIXME"
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs. (Understand)
-> *   Explain when and why command-line interfaces should be used instead of graphical interfaces. (Understand)
 
 At a high level, computers do four things:
 
