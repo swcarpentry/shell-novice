@@ -41,8 +41,8 @@ subtitle: Reference
 *   `mv old new` moves (renames) a file or directory.
 *   `rm path` removes (deletes) a file.
 *   `rmdir path` removes (deletes) an empty directory.
-*   Use of the Ctrl, or "Control" key may be described in many ways e.g.
-    Ctrl-X, Ctrl+X, Control-X, Control+X, `^X`.
+*   Use of the `Ctrl`, or "Control" key may be described in many ways e.g.
+*   `Ctrl-X`, `Ctrl+X`, `Control-X`, `Control+X`, `^X`.
 *   The shell does not have a trash bin: once something is deleted, it's really gone.
 *   Nano is a very simple text editor --- please use something else for real work.
 
@@ -67,7 +67,7 @@ subtitle: Reference
 *   Do not use spaces, quotes, or wildcard characters such as '*' or '?' in filenames, as it complicates variable expansion.
 *   Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping.
 *   Use the up-arrow key to scroll up through previous commands to edit and repeat them.
-*   Use Ctrl-R to search through the previously entered commands.
+*   Use `Ctrl-R` to search through the previously entered commands.
 *   Use `history` to display recent commands, and `!number` to repeat a command by number.
 
 ## [Shell Scripts](05-script.html)
