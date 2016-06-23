@@ -1,12 +1,3 @@
-{% comment %}
-  Generic footer.  Links to repository, not to generated website, so
-  we do a bit of a dance to get the right URL.
-{% endcomment %}
-{% if site.is_production %}
-  {% capture repo_url %}{{ site.github.repository_url }}{% endcapture %}
-{% else %}
-  {% capture repo_url %}https://github.com/{{ site.account }}/{{ site.project }}{% endcapture %}
-{% endif %}
 <hr/>
 <footer>
   <div class="row">
@@ -19,9 +10,9 @@
     </div>
     <div class="col-md-6" align="right">
       <h4>
-	<a href="{{ repo_url }}">Source</a>
+	<a href="{{ site.repo }}/">Source</a>
 	/
-	<a href="{{ repo_url }}/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	<a href="{{ site.repo }}/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
 	/
 	<a href="mailto:{{ site.email }}">Contact</a>
       </h4>
