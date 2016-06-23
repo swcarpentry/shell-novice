@@ -1,0 +1,25 @@
+{% include episode_find_prev_next.html %}
+<div class="row">
+  <div class="col-md-1">
+    <h3>
+      {% if prev_episode %}
+      <a href="{{ site.github.url }}{{ prev_episode.url }}"><span class="glyphicon glyphicon-menu-left"></span></a>
+      {% else %}
+      <a href="{{ site.github.url }}"><span class="glyphicon glyphicon-menu-up"></span></a>
+      {% endif %}
+    </h3>
+  </div>
+  <div class="col-md-10">
+    <h3 class="maintitle"><a href="{{ site.github.url }}/">{{ site.title }}</a></h3>
+    <h1 class="maintitle">{{ page.title }}</h1>
+  </div>
+  <div class="col-md-1">
+    <h3>
+      {% if next_episode %}
+      <a href="{{ site.github.url }}{{ next_episode.url }}"><span class="glyphicon glyphicon-menu-right"></span></a>
+      {% else %}
+      <a href="{{ site.github.url }}"><span class="glyphicon glyphicon-menu-up"></span></a>
+      {% endif %}
+    </h3>
+  </div>
+</div>
