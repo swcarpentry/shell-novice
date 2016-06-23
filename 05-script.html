@@ -34,10 +34,10 @@
 </div>
 <div class="panel-body">
 <ul>
-<li>Write a shell script that runs a command or series of commands for a fixed set of files.</li>
-<li>Run a shell script from the command line.</li>
-<li>Write a shell script that operates on a set of files defined by the user on the command line.</li>
-<li>Create pipelines that include shell scripts you, and others, have written.</li>
+<li>Write a shell script that runs a command or series of commands for a fixed set of files. (Create)</li>
+<li>Run a shell script from the command line. (Apply)</li>
+<li>Write a shell script that operates on a set of files defined by the user on the command line. (Create)</li>
+<li>Create pipelines that include shell scripts you, and others, have written. (Create)</li>
 </ul>
 </div>
 </section>
@@ -65,7 +65,7 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00</code></pre>
 <p>We usually call programs like Microsoft Word or LibreOffice Writer “text editors”, but we need to be a bit more careful when it comes to programming. By default, Microsoft Word uses <code>.docx</code> files to store not only text, but also formatting information about fonts, headings, and so on. This extra information isn’t stored as characters, and doesn’t mean anything to tools like <code>head</code>: they expect input files to contain nothing but the letters, digits, and punctuation on a standard computer keyboard. When editing programs, therefore, you must either use a plain text editor, or be careful to save files as plain text.</p>
 </div>
 </aside>
-<p>What if we want to select lines from an arbitrary file? We could edit <code>middle.sh</code> each time to change the filename, but that would probably take longer than just retyping the command. Instead, let’s edit <code>middle.sh</code> and replace <code>octane.pdb</code> with a special variable called <code>$1</code>:</p>
+<p>What if we want to select lines from an arbitrary file? We could edit <code>middle.sh</code> each time to change the filename, but that would probably take longer than just retyping the command. Instead, let’s edit <code>middle.sh</code> and make it more versatile:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> middle.sh</code></pre></div>
 <p>Now, within “nano”, replace the text <code>octane.pdb</code> with the special variable called <code>$1</code>:</p>
 <pre class="output"><code>head -n 15 &quot;$1&quot; | tail -n 5</code></pre>
@@ -88,9 +88,7 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00</code></pre>
 <h2 id="double-quotes-around-arguments"><span class="glyphicon glyphicon-pushpin"></span>Double-Quotes Around Arguments</h2>
 </div>
 <div class="panel-body">
-<p>We put the <code>$1</code> inside of double-quotes in case the filename happens to contain any spaces. The shell uses whitespace to separate arguments, so we have to be careful when using arguments that might have whitespace in them. If we left out these quotes, and <code>$1</code> expanded to a filename like <code>methyl butane.pdb</code>, the command in the script would effectively be:</p>
-<pre><code>head -n 15 methyl butane.pdb | tail -n 5</code></pre>
-<p>This would call <code>head</code> on two separate files, <code>methyl</code> and <code>butane.pdb</code>, which is probably not what we intended.</p>
+<p>For the same reason that we put the loop variable inside double-quotes, in case the filename happens to contain any spaces, we surround <code>$1</code> with double-quotes.</p>
 </div>
 </aside>
 <p>We still need to edit <code>middle.sh</code> each time we want to adjust the range of lines, though. Let’s fix that by using the special variables <code>$2</code> and <code>$3</code> for the number of lines to be passed to <code>head</code> and <code>tail</code> respectively:</p>
@@ -113,14 +111,16 @@ TER      18              1</code></pre>
 <p>This works, but it may take the next person who reads <code>middle.sh</code> a moment to figure out what it does. We can improve our script by adding some <strong>comments</strong> at the top:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> middle.sh</code></pre></div>
 <pre class="output"><code># Select lines from the middle of a file.
-# Usage: middle.sh filename end_line num_lines
+# Usage: bash middle.sh filename end_line num_lines
 head -n &quot;$2&quot; &quot;$1&quot; | tail -n &quot;$3&quot;</code></pre>
 <p>A comment starts with a <code>#</code> character and runs to the end of the line. The computer ignores comments, but they’re invaluable for helping people understand and use scripts.</p>
 <p>What if we want to process many files in a single pipeline? For example, if we want to sort our <code>.pdb</code> files by length, we would type:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">wc</span> -l *.pdb <span class="kw">|</span> <span class="kw">sort</span> -n</code></pre></div>
 <p>because <code>wc -l</code> lists the number of lines in the files (recall that <code>wc</code> stands for ‘word count’, adding the <code>-l</code> flag means ‘count lines’ instead) and <code>sort -n</code> sorts things numerically. We could put this in a file, but then it would only ever sort a list of <code>.pdb</code> files in the current directory. If we want to be able to get a sorted list of other kinds of files, we need a way to get all those names into the script. We can’t use <code>$1</code>, <code>$2</code>, and so on because we don’t know how many files there are. Instead, we use the special variable <code>$@</code>, which means, “All of the command-line parameters to the shell script.” We also should put <code>$@</code> inside double-quotes to handle the case of parameters containing spaces (<code>&quot;$@&quot;</code> is equivalent to <code>&quot;$1&quot;</code> <code>&quot;$2&quot;</code> …) Here’s an example:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> sorted.sh</code></pre></div>
-<pre class="output"><code>wc -l &quot;$@&quot; | sort -n</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> sorted.sh</code></pre></div>
+<pre class="output"><code># Sort filenames by their length.
+# Usage: bash sorted.sh one_or_more_filenames
+wc -l &quot;$@&quot; | sort -n</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">bash</span> sorted.sh *.pdb ../creatures/*.dat</code></pre></div>
 <pre class="output"><code>9 methane.pdb
 12 ethane.pdb
@@ -251,6 +251,25 @@ do
 done</code></pre>
 <pre><code># Script 3
 echo $@.dat</code></pre>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="debugging-scripts"><span class="glyphicon glyphicon-pencil"></span>Debugging Scripts</h2>
+</div>
+<div class="panel-body">
+<p>Suppose you have saved the following script in a file called <code>do-errors.sh</code> in Nelle’s <code>north-pacific-gyre/2012-07-03</code> directory:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Calculate reduced stats for data files at J = 100 c/bp.</span>
+<span class="kw">for</span> <span class="kw">datafile</span> in <span class="st">&quot;</span><span class="ot">$@</span><span class="st">&quot;</span>
+<span class="kw">do</span>
+    <span class="kw">echo</span> <span class="ot">$datfile</span>
+    <span class="kw">bash</span> goostats -J 100 -r <span class="ot">$datafile</span> stats-<span class="ot">$datafile</span>
+<span class="kw">done</span></code></pre></div>
+<p>When you run it:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">bash</span> do-errors.sh *[AB].txt</code></pre></div>
+<p>the output is blank. To figure out why, re-run the script using the <code>-x</code> option:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> -x do-errors.sh *[AB].txt</code></pre></div>
+<p>What is the output showing you? Which line is responsible for the error?</p>
 </div>
 </section>
         </div>

@@ -34,15 +34,15 @@
 </div>
 <div class="panel-body">
 <ul>
-<li>Use <code>grep</code> to select lines from text files that match simple patterns.</li>
-<li>Use <code>find</code> to find files whose names match simple patterns.</li>
-<li>Use the output of one command as the command-line parameters to another command.</li>
-<li>Explain what is meant by “text” and “binary” files, and why many common tools don’t handle the latter well.</li>
+<li>Use <code>grep</code> to select lines from text files that match simple patterns. (Apply)</li>
+<li>Use <code>find</code> to find files whose names match simple patterns. (Apply)</li>
+<li>Use the output of one command as the command-line parameters to another command. (Apply)</li>
+<li>Explain what is meant by “text” and “binary” files, and why many common tools don’t handle the latter well. (Understand)</li>
 </ul>
 </div>
 </section>
 <p>In the same way that many of us now use “Google” as a verb meaning “to find”, Unix programmers often use the word “grep”. “grep” is a contraction of “global/regular expression/print”, a common sequence of operations in early Unix text editors. It is also the name of a very useful command-line program.</p>
-<p><code>grep</code> finds and prints lines in files that match a pattern. For our examples, we will use a file that contains three haikus taken from a 1998 competition in <em>Salon</em> magazine. For this set of examples we’re going to be working in the writing subdirectory:</p>
+<p><code>grep</code> finds and prints lines in files that match a pattern. For our examples, we will use a file that contains three haikus taken from a 1998 competition in <em>Salon</em> magazine. For this set of examples, we’re going to be working in the writing subdirectory:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span>
 $ <span class="kw">cd</span> writing
 $ <span class="kw">cat</span> haiku.txt</code></pre></div>
@@ -165,7 +165,7 @@ Software is like that.</code></pre>
 ./haiku.txt
 ./thesis
 ./thesis/empty-draft.md</code></pre>
-<p>As always, the <code>.</code> on its own means the current working directory, which is where we want our search to start. <code>find</code>’s output is the names of every file <strong>and</strong> directory under the current working directory. This can seen useless at first but <code>find</code> has many options to filter the output and in this lesson we will discovery some.</p>
+<p>As always, the <code>.</code> on its own means the current working directory, which is where we want our search to start. <code>find</code>’s output is the names of every file <strong>and</strong> directory under the current working directory. This can seem useless at first but <code>find</code> has many options to filter the output and in this lesson we will discover some of them.</p>
 <p>The first option in our list is <code>-type d</code> that means “things that are directories”. Sure enough, <code>find</code>’s output is the names of the five directories in our little tree (including <code>.</code>):</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">find</span> . -type d</code></pre></div>
 <pre class="output"><code>./
@@ -225,11 +225,8 @@ Software is like that.</code></pre>
 </div>
 </aside>
 <p>The Unix shell is older than most of the people who use it. It has survived so long because it is one of the most productive programming environments ever created — maybe even <em>the</em> most productive. Its syntax may be cryptic, but people who have mastered it can experiment with different commands interactively, then use what they have learned to automate their work. Graphical user interfaces may be better at the first, but the shell is still unbeaten at the second. And as Alfred North Whitehead wrote in 1911, “Civilization advances by extending the number of important operations which we can perform without thinking about them.”</p>
-<section class="challenge panel panel-success">
-<div class="panel-heading">
-<h2 id="using-grep"><span class="glyphicon glyphicon-pencil"></span>Using grep</h2>
-</div>
-<div class="panel-body">
+<blockquote>
+<h2 id="using-grep">Using <code class="challenge">grep</code></h2>
 <pre><code>The Tao that is seen
 Is not the true Tao, until
 You bring fresh toner.
@@ -249,11 +246,10 @@ Software is like that.</code></pre>
 <li><code>grep -w &quot;of&quot; haiku.txt</code></li>
 <li><code>grep -i &quot;of&quot; haiku.txt</code></li>
 </ol>
-</div>
-</section>
+</blockquote>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="find-pipeline-reading-comprehension"><span class="glyphicon glyphicon-pencil"></span><code>find</code> pipeline reading comprehension</h2>
+<h2 id="find-pipeline-reading-comprehension"><span class="glyphicon glyphicon-pencil"></span><code>find</code> Pipeline Reading Comprehension</h2>
 </div>
 <div class="panel-body">
 <p>Write a short explanatory comment for the following shell script:</p>
@@ -262,16 +258,42 @@ Software is like that.</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="matching-ose.dat-but-not-temp"><span class="glyphicon glyphicon-pencil"></span>Matching <code>ose.dat</code> but not <code>temp</code></h2>
+<h2 id="matching-and-subtracting"><span class="glyphicon glyphicon-pencil"></span>Matching and Subtracting</h2>
 </div>
 <div class="panel-body">
 <p>The <code>-v</code> flag to <code>grep</code> inverts pattern matching, so that only lines which do <em>not</em> match the pattern are printed. Given that, which of the following commands will find all files in <code>/data</code> whose names end in <code>ose.dat</code> (e.g., <code>sucrose.dat</code> or <code>maltose.dat</code>), but do <em>not</em> contain the word <code>temp</code>?</p>
 <ol style="list-style-type: decimal">
-<li><p><code>find /data -name '*.dat' | grep ose | grep -v temp</code></p></li>
-<li><p><code>find /data -name ose.dat | grep -v temp</code></p></li>
-<li><p><code>grep -v &quot;temp&quot; $(find /data -name '*ose.dat')</code></p></li>
-<li><p>None of the above.</p></li>
+<li><code>find /data -name '*.dat' | grep ose | grep -v temp</code></li>
+<li><code>find /data -name ose.dat | grep -v temp</code></li>
+<li><code>grep -v &quot;temp&quot; $(find /data -name '*ose.dat')</code></li>
+<li>None of the above.</li>
 </ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="tracking-a-species"><span class="glyphicon glyphicon-pencil"></span>Tracking a Species</h2>
+</div>
+<div class="panel-body">
+<p>Leah has several hundred data files saved in one directory, each of which is formatted like this:</p>
+<pre><code>2013-11-05,deer,5
+2013-11-05,rabbit,22
+2013-11-05,raccoon,7
+2013-11-06,rabbit,19
+2013-11-06,deer,2</code></pre>
+<p>She wants to write a shell script that takes a directory and a species as command-line parameters and return one file called <code>species.txt</code> containing a list of dates and the number of that species seen on that date, such as this file for rabbits:</p>
+<pre><code>2013-11-05,22
+2013-11-06,19
+2013-11-07,18</code></pre>
+<p>Put these commands and pipes in the right order to achieve this:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cut</span> -d : -f 2  
+<span class="kw">&gt;</span>  
+<span class="kw">|</span>  
+<span class="kw">grep</span> -w <span class="ot">$1</span> -r <span class="ot">$2</span>  
+<span class="kw">|</span>  
+<span class="ot">$1</span><span class="kw">.txt</span>  
+<span class="kw">cut</span> -d , -f 1,3  </code></pre></div>
+<p>Hint: use <code>man grep</code> to look for how to grep text recursively in a directory and <code>man cut</code> to select more than one field in a line.</p>
 </div>
 </section>
 <section class="challenge panel panel-success">
@@ -279,7 +301,20 @@ Software is like that.</code></pre>
 <h2 id="little-women"><span class="glyphicon glyphicon-pencil"></span>Little Women</h2>
 </div>
 <div class="panel-body">
-<p>You and your friend, having just finished reading <em>Little Women</em> by Louisa May Alcott, are in an argument. Of the four sisters in the book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the most mentioned. You, however, are certain it was Amy. Luckily, you have a file <code>LittleWomen.txt</code> containing the full text of the novel. Using a<code>for</code> loop, how would you tabulate the number of times each of the four sisters is mentioned? Hint: one solution might employ the commands <code>grep</code> and <code>wc</code> and a <code>|</code>, while another might utilize <code>grep</code> options.</p>
+<p>You and your friend, having just finished reading <em>Little Women</em> by Louisa May Alcott, are in an argument. Of the four sisters in the book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the most mentioned. You, however, are certain it was Amy. Luckily, you have a file <code>LittleWomen.txt</code> containing the full text of the novel. Using a<code>for</code> loop, how would you tabulate the number of times each of the four sisters is mentioned?</p>
+<p>Hint: one solution might employ the commands <code>grep</code> and <code>wc</code> and a <code>|</code>, while another might utilize <code>grep</code> options.</p>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="finding-files-with-different-properties"><span class="glyphicon glyphicon-pencil"></span>Finding Files With Different Properties</h2>
+</div>
+<div class="panel-body">
+<p>The <code>find</code> command can be given several other criteria known as “tests” to locate files with specific attributes, such as creation time, size, permissions, or ownership. Use <code>man find</code> to explore these, and then write a single command to find all files in or below the current directory that were modified by the user <code>ahmed</code> in the last 24 hours.</p>
+<p>Hint 1: you will need to use three tests: <code>-type</code>, <code>-mtime</code>, and <code>-user</code>.</p>
+<p>Hint 2: The value for <code>-mtime</code> will need to be negative—why?</p>
+<p>Solution: Assuming that Nelle’s home is our working directory we type:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">find</span> ./ -type f -mtime -1 -user ahmed</code></pre></div>
 </div>
 </section>
         </div>

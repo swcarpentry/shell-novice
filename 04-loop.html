@@ -34,12 +34,12 @@
 </div>
 <div class="panel-body">
 <ul>
-<li>Write a loop that applies one or more commands separately to each file in a set of files.</li>
-<li>Trace the values taken on by a loop variable during execution of the loop.</li>
-<li>Explain the difference between a variable’s name and its value.</li>
-<li>Explain why spaces and some punctuation characters shouldn’t be used in file names.</li>
-<li>Demonstrate how to see what commands have recently been executed.</li>
-<li>Re-run recently executed commands without retyping them.</li>
+<li>Write a loop that applies one or more commands separately to each file in a set of files. (Create)</li>
+<li>Trace the values taken on by a loop variable during execution of the loop. (Analyze)</li>
+<li>Explain the difference between a variable’s name and its value. (Understand)</li>
+<li>Explain why spaces and some punctuation characters shouldn’t be used in file names. (Understand)</li>
+<li>Demonstrate how to see what commands have recently been executed. (Apply)</li>
+<li>Re-run recently executed commands without retyping them. (Apply)</li>
 </ul>
 </div>
 </section>
@@ -115,29 +115,15 @@ UPDATED: 1738-11-24</code></pre>
 <h2 id="spaces-in-names"><span class="glyphicon glyphicon-pushpin"></span>Spaces in Names</h2>
 </div>
 <div class="panel-body">
-<p>Filename expansion in loops is another reason you should not use spaces in filenames. Suppose our data files are named:</p>
-<pre><code>basilisk.dat
-red dragon.dat
-unicorn.dat</code></pre>
-<p>If we try to process them using:</p>
-<pre><code>for filename in *.dat
-do
-    head -n 100 $filename | tail -n 20
-done</code></pre>
-<p>then the shell will expand <code>*.dat</code> to create:</p>
-<pre><code>basilisk.dat red dragon.dat unicorn.dat</code></pre>
-<p>With older versions of Bash, or most other shells, <code>filename</code> will then be assigned the following values in turn:</p>
-<pre><code>basilisk.dat
-red
-dragon.dat
-unicorn.dat</code></pre>
-<p>That’s a problem: <code>head</code> can’t read files called <code>red</code> and <code>dragon.dat</code> because they don’t exist, and won’t be asked to read the file <code>red dragon.dat</code>.</p>
-<p>We can make our script a little bit more robust by <strong>quoting</strong> our use of the variable:</p>
-<pre><code>for filename in *.dat
+<p>Whitespace is used to separate the elements on the list that we are going to loop over. If on the list we have elements with whitespace we need to quote those elements and our variable when using it. Suppose our data files are named:</p>
+<pre><code>red dragon.dat
+purple unicorn.dat</code></pre>
+<p>We need to use</p>
+<pre><code>for filename in &quot;red dragon.dat&quot; &quot;purple unicorn.dat&quot;
 do
     head -n 100 &quot;$filename&quot; | tail -n 20
 done</code></pre>
-<p>but it’s simpler just to avoid using spaces (or other special characters) in filenames.</p>
+<p>Is simpler just to avoid using whitespaces (or other special characters) in filenames.</p>
 </div>
 </aside>
 <p>Going back to our original file copying problem, we can solve it using this loop:</p>
@@ -153,22 +139,6 @@ done</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> basilisk.dat original-basilisk.dat</code></pre></div>
 <p>The second time, the command is:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cp</span> unicorn.dat original-unicorn.dat</code></pre></div>
-<aside class="callout panel panel-info">
-<div class="panel-heading">
-<h2 id="measure-twice-run-once"><span class="glyphicon glyphicon-pushpin"></span>Measure Twice, Run Once</h2>
-</div>
-<div class="panel-body">
-<p>A loop is a way to do many things at once — or to make many mistakes at once if it does the wrong thing. One way to check what a loop <em>would</em> do is to echo the commands it would run instead of actually running them. For example, we could write our file copying loop like this:</p>
-<pre><code>for filename in *.dat
-do
-    echo cp $filename original-$filename
-done</code></pre>
-<p>Instead of running <code>cp</code>, this loop runs <code>echo</code>, which prints out:</p>
-<pre><code>cp basilisk.dat original-basilisk.dat
-cp unicorn.dat original-unicorn.dat</code></pre>
-<p><em>without</em> actually running those commands. We can then use up-arrow to redisplay the loop, back-arrow to get to the word <code>echo</code>, delete it, and then press Enter to run the loop with the actual <code>cp</code> commands. This isn’t foolproof, but it’s a handy way to see what’s going to happen when you’re still learning how loops work.</p>
-</div>
-</aside>
 <h2 id="nelles-pipeline-processing-files">Nelle’s Pipeline: Processing Files</h2>
 <p>Nelle is now ready to process her data files. Since she’s still learning how to use the shell, she decides to build up the required commands in stages. Her first step is to make sure that she can select the right files — remember, these are ones whose names end in ‘A’ or ‘B’, rather than ‘Z’. Starting from her home directory, Nelle types:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> north-pacific-gyre/2012-07-03
@@ -298,9 +268,41 @@ done</code></pre>
 </section>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
+<h2 id="limiting-sets-of-files"><span class="glyphicon glyphicon-pencil"></span>Limiting Sets of Files</h2>
+</div>
+<div class="panel-body">
+<p>In the same directory, where <code>ls</code> returns (without the <code>sugar.dat</code> file):</p>
+<pre><code>fructose.dat    glucose.dat   sucrose.dat   maltose.txt</code></pre>
+<p>What would be the output of the following loop?</p>
+<pre><code>for filename in s*
+do
+    ls $filename 
+done</code></pre>
+<ol style="list-style-type: decimal">
+<li>No files are listed.</li>
+<li>All files are listed.</li>
+<li>Only <code>fructose.dat</code>, <code>glucose.dat</code> and <code>maltose.txt</code> are listed.</li>
+<li>Only <code>sucrose.dat</code> is listed.</li>
+</ol>
+<p>How would the output differ from using this command instead?</p>
+<pre><code>for filename in *s*
+do
+    ls $filename 
+done</code></pre>
+<ol style="list-style-type: decimal">
+<li>The same files would be listed.</li>
+<li>All the files are listed this time.</li>
+<li>No files are listed this time.</li>
+<li>The file <code>sucrose.dat</code> will be listed twice, with the other files listed once each.</li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
 <h2 id="doing-a-dry-run"><span class="glyphicon glyphicon-pencil"></span>Doing a Dry Run</h2>
 </div>
 <div class="panel-body">
+<p>A loop is a way to do many things at once — or to make many mistakes at once if it does the wrong thing. One way to check what a loop <em>would</em> do is to echo the commands it would run instead of actually running them.</p>
 <p>Suppose we want to preview the commands the following loop will execute without actually running those commands:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">file</span> in *.dat
 <span class="kw">do</span>

@@ -34,10 +34,10 @@
 </div>
 <div class="panel-body">
 <ul>
-<li>Create a directory hierarchy that matches a given diagram.</li>
-<li>Create files in that hierarchy using an editor or by copying and renaming existing files.</li>
-<li>Display the contents of a directory using the command line.</li>
-<li>Delete specified files and/or directories.</li>
+<li>Create a directory hierarchy that matches a given diagram. (Create)</li>
+<li>Create files in that hierarchy using an editor or by copying and renaming existing files. (Create)</li>
+<li>Display the contents of a directory using the command line. (Apply)</li>
+<li>Delete specified files and/or directories. (Apply)</li>
 </ul>
 </div>
 </section>
@@ -50,12 +50,33 @@ data/       north-pacific-gyre/  solar.pdf
 Desktop/    notes.txt            writing/</code></pre>
 <p>Let’s create a new directory called <code>thesis</code> using the command <code>mkdir thesis</code> (which has no output):</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkdir</span> thesis</code></pre></div>
-<p>As you might (or might not) guess from its name, <code>mkdir</code> means “make directory”. Since <code>thesis</code> is a relative path (i.e., doesn’t have a leading slash), the new directory is created in the current working directory:</p>
+<p>As you might guess from its name, <code>mkdir</code> means “make directory”. Since <code>thesis</code> is a relative path (i.e., doesn’t have a leading slash), the new directory is created in the current working directory:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> -F</code></pre></div>
 <pre class="output"><code>creatures/  north-pacific-gyre/  thesis/
 data/       notes.txt            writing/
 Desktop/    pizza.cfg
 molecules/  solar.pdf</code></pre>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="good-names-for-files-and-directories"><span class="glyphicon glyphicon-pushpin"></span>Good names for files and directories</h2>
+</div>
+<div class="panel-body">
+<p>Complicated names of files and directories can make your life very painful when working on the command line. Here we provide a few useful tips for the names of your files from now on.</p>
+<ol style="list-style-type: decimal">
+<li>Don’t use whitespaces.</li>
+</ol>
+<p>White spaces can make a name more meaningful but since whitespace is used to break arguments on the command line is better to avoid them on name of files and directories. You can use <code>-</code> or <code>_</code> instead of whitespace.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Don’t begin the name with <code>-</code>.</li>
+</ol>
+<p>Commands treat names starting with <code>-</code> as options.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Stay with letters, numbers, <code>.</code>, <code>-</code> and <code>_</code>.</li>
+</ol>
+<p>May of the others characters have an special meaning on the command line that we will learn during this lesson. Some will only make your command not work at all but for some of them you can even lose some data.</p>
+<p>If you need to refer to names of files or directories that have whitespace or another non-alphanumeric character you should put quotes around the name.</p>
+</div>
+</aside>
 <p>However, there’s nothing in it yet:</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> -F thesis</code></pre></div>
 <p>Let’s change our working directory to <code>thesis</code> using <code>cd</code>, then run a text editor called Nano to create a file called <code>draft.txt</code>:</p>
@@ -238,6 +259,43 @@ $ cp thesis/citations.txt thesis/quotations.txt backup</code></pre>
 <pre><code>$ ls -F
 intro.txt    methods.txt    survey.txt
 $ cp intro.txt methods.txt survey.txt</code></pre>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="listing-recursively-and-by-time"><span class="glyphicon glyphicon-pencil"></span>Listing Recursively and By Time</h2>
+</div>
+<div class="panel-body">
+<p>The command <code>ls -R</code> lists the contents of directories recursively, i.e., lists their sub-directories, sub-sub-directories, and so on in alphabetical order at each level. The command <code>ls -t</code> lists things by time of last change, with most recently changed files or directories first. In what order does <code>ls -R -t</code> display things?</p>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="creating-files-a-different-way"><span class="glyphicon glyphicon-pencil"></span>Creating Files a Different Way</h2>
+</div>
+<div class="panel-body">
+<p>We have seen how to create text files using the <code>nano</code> editor. Now, try the following command in your home directory:</p>
+<p>$ cd # go to your home directory $ touch my_file.txt</p>
+<ol style="list-style-type: decimal">
+<li><p>What did the touch command do? When you look at your home directory using the GUI file explorer, does the file show up?</p></li>
+<li><p>Use <code>ls -l</code> to inspect the file’s. How large is <code>my_file.txt</code>?</p></li>
+<li><p>When might you want to create a file this way?</p></li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="moving-to-the-current-folder"><span class="glyphicon glyphicon-pencil"></span>Moving to the Current Folder</h2>
+</div>
+<div class="panel-body">
+<p>After running the following commands, Jamie realizes that she put the files <code>sucrose.dat</code> and <code>maltose.dat</code> into the wrong folder:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">ls</span> -F
+<span class="kw">raw/</span> analyzed/
+$ <span class="kw">ls</span> -F analyzed
+<span class="kw">fructose.dat</span> glucose.dat maltose.dat sucrose.dat 
+$ <span class="kw">cd</span> raw/</code></pre></div>
+<p>Fill in the blanks to move these files to the current folder (i.e., the one she is currently in):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mv</span> ___/sucrose.dat  ___/maltose.dat ___</code></pre></div>
 </div>
 </section>
         </div>
