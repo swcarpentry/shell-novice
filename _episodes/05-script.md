@@ -414,7 +414,7 @@ she could modify her script to check for command-line parameters,
 and use `*[AB].txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
-> ## Variables in shell scripts
+> ## Variables in Shell Scripts
 >
 > In the `molecules` directory, imagine you have a shell script called `script.sh` containing the
 > following commands:
@@ -441,7 +441,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > 4. An error because of the quotes around `*.pdb`
 {: .challenge}
 
-> ## List unique species
+> ## List Unique Species
 >
 > Leah has several hundred data files, each of which is formatted like this:
 >
@@ -463,7 +463,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > those files separately.
 {: .challenge}
 
-> ## Find the longest file with a given extension
+> ## Find the Longest File With a Given Extension
 >
 > Write a shell script called `longest.sh` that takes the name of a
 > directory and a filename extension as its parameters, and prints
@@ -479,7 +479,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > the most lines.
 {: .challenge}
 
-> ## Why record commands in the history before running them?
+> ## Why Record Commands in the History Before Running Them?
 >
 > If you run the command:
 >
@@ -494,7 +494,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > before running them. Why do you think it does this?
 {: .challenge}
 
-> ## Script reading comprehension
+> ## Script Reading Comprehension
 >
 > Joel's `data` directory contains three files: `fructose.dat`,
 > `glucose.dat`, and `sucrose.dat`. Explain what a script called

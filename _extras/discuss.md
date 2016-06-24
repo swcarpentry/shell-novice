@@ -3,7 +3,6 @@ layout: page
 title: "Discussion"
 permalink: /discuss/
 ---
-
 ## Alphabet Soup
 
 If the command to find out who we are is `whoami`, the command to find
@@ -26,18 +25,26 @@ of the control characters. In other tutorials, you may see the term
 "Control" or the `^` used to represent the Ctrl key (e.g. the
 following are all equivalent Ctrl-C, Ctrl+C, Control-C, Control+C, `^C`).
 
-| Control Code                 | Description |
-|----------------------------- | ------------|
-| Ctrl-C | Interrupts and cancels a running program. This is useful if you want to cancel a command that is taking too long to execute. |
-| Ctrl-D | Indicates the end of a file or stream of characters that you are entering on the command line. For example, we saw earlier that the `wc` command counts lines, words, and characters in a file. If we just type `wc` and hit the Enter key without providing a file name, then `wc` will assume we want it to analyze all the stuff we type next. After typing our magnum opus directly into the shell prompt, we can then type Ctrl-D to tell `wc` that we're done and we'd like to see the results of the word count. |
-| Ctrl-Z | Suspends a process but does not terminate it. You can then use the command `fg` to restart the job in the foreground. |
+*   Ctrl-C: interrupts and cancels a running program.
+    This is useful if you want to cancel a command that is taking too long to execute.
+
+*   Ctrl-D:
+    indicates the end of a file or stream of characters that you are entering on the command line.
+    For example, we saw earlier that the `wc` command counts lines, words, and characters in a file.
+    If we just type `wc` and hit the Enter key without providing a file name,
+    then `wc` will assume we want it to analyze all the stuff we type next.
+    After typing our magnum opus directly into the shell prompt,
+    we can then type Ctrl-D to tell `wc` that we're done and we'd like to see the results of the word count.
+
+*   Ctrl-Z:
+    Suspends a process but does not terminate it.
+    You can then use the command `fg` to restart the job in the foreground.
 
 For new shell users, these control codes can all appear to have
 the same effect: they make things "go away." But it is helpful to
 understand the differences. In general, if something went wrong and
 you just want to get your shell prompt back, it is better to use
 Ctrl-C.
-
 
 ## Other Shells
 

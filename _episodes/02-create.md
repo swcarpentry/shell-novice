@@ -67,7 +67,7 @@ molecules/  solar.pdf
 ~~~
 {: .output}
 
-> ## Good names for files and directories
+> ## Good Names for Files and Directories
 >
 > Complicated names of files and directories can make your life very painful
 > when working on the command line. Here we provide a few useful
@@ -144,7 +144,7 @@ press Return to accept the suggested default of `draft.txt`).
 Once our file is saved, we can use `Ctrl-X` to quit the editor and 
 return to the shell.
 
-> ## Control, ctrl, or ^ key
+> ## Control, Ctrl, or ^ Key
 >
 > The Control key is also called the "Ctrl" key. There are various ways
 > in which using the Control key may be described. For example, you may
@@ -431,7 +431,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > when someone double-clicks it.
 {: .callout}
 
-> ## Renaming files
+> ## Renaming Files
 >
 > Suppose that you created a `.txt` file in your current directory to contain a list of the
 > statistical tests you will need to do to analyze your data, and named it: `statstics.txt`

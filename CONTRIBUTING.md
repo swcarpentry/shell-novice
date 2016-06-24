@@ -1,3 +1,5 @@
+## Contributing
+
 Software Carpentry is an open source project,
 and we welcome contributions of all kinds:
 new lessons,

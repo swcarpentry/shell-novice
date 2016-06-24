@@ -88,7 +88,7 @@ $ wc *.pdb
 > expanding wildcards, and this is another example of orthogonal design.
 {: .callout}
 
-> ## Using wildcards
+> ## Using Wildcards
 >
 > When run in the `molecules` directory, which `ls` command will
 > produce this output?
@@ -174,7 +174,7 @@ $ cat lengths.txt
 ~~~
 {: .output}
 
-> ## Output page by page
+> ## Output Page by Page
 >
 > We'll continue to use `cat` in this lesson, for convenience and consistency,
 > but it has the disadvantage that it always dumps the whole file onto your screen.
@@ -454,7 +454,7 @@ the `*` matches any number of characters;
 the expression `[AB]` matches either an 'A' or a 'B',
 so this matches all the valid data files she has.
 
-> ## What does `sort -n` do?
+> ## What Does `sort -n` Do?
 >
 > If we run `sort` on this file:
 >
@@ -492,7 +492,7 @@ so this matches all the valid data files she has.
 > Explain why `-n` has this effect.
 {: .challenge}
 
-> ## What does `<` mean?
+> ## What Does `<` Mean?
 >
 > What is the difference between:
 >
@@ -509,7 +509,7 @@ so this matches all the valid data files she has.
 > {: .bash}
 {: .challenge}
 
-> ## What does `>>` mean?
+> ## What Does `>>` Mean?
 >
 > What is the difference between:
 >
@@ -528,7 +528,8 @@ so this matches all the valid data files she has.
 > Hint: Try executing each command twice in a row and then examining the output files.
 {: .challenge}
 
-> ## More on bash wildcards
+> ## More on Wildcards
+> 
 > Sam has a directory containing calibration data, datasets, and descriptions of
 > the datasets:
 >
@@ -563,7 +564,7 @@ so this matches all the valid data files she has.
 > Help Sam by filling in the blanks.
 {: .challenge}
 
-> ## Piping commands together
+> ## Piping Commands Together
 >
 > In our current directory, we want to find the 3 files which have the least number of
 > lines. Which command listed below would work?
@@ -574,7 +575,7 @@ so this matches all the valid data files she has.
 > 4. `wc -l * | sort -n | head -n 3`
 {: .challenge}
 
-> ## Why does `uniq` only remove adjacent duplicates?
+> ## Why Does `uniq` Only Remove Adjacent Duplicates?
 >
 > The command `uniq` removes adjacent duplicated lines from its input.
 > For example, if a file `salmon.txt` contains:
@@ -604,7 +605,7 @@ so this matches all the valid data files she has.
 > you combine with it in a pipe to remove all duplicated lines?
 {: .challenge}
 
-> ## Pipe reading comprehension
+> ## Pipe Reading Comprehension
 >
 > A file called `animals.txt` contains the following data:
 >
