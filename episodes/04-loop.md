@@ -103,7 +103,7 @@ so this loop prints out the first three lines of each data file in turn.
 > can be used to separate two commands written on a single line.
 {: .callout}
 
-> ## Same symbols, different meanings
+> ## Same Symbols, Different Meanings
 >
 > Here we see `>` being used a shell prompt, whereas `>` is also
 > used to redirect output.
@@ -392,7 +392,7 @@ so she decides to get some coffee and catch up on her reading.
 > `!458`.
 {: .callout}
 
-> ## Other history commands
+> ## Other History Commands
 >
 > There are a number of other shortcut commands for getting at the history.
 > Two of the more useful are `!!`, which retrieves the immediately

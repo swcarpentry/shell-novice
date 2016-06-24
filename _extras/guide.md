@@ -55,8 +55,14 @@ to make their future selves' lives better.
 
 The third answer is,
 "Because it enables use of many domain-specific tools and compute resources researchers cannot access otherwise."
-Familiarity with the shell is very useful for remote accessing machines, using high-performance computing infrastructure, and running new specialist tools in many disciplines. We do not teach HPC or domain-specific skills
-here but lay the groundwork for further development of these skills. In particular, understanding the syntax of commands,  flags, and help systems is useful for domain specific tools and understanding the file system (and how to navigate it) is useful for remote access.
+Familiarity with the shell is very useful for remote accessing machines,
+using high-performance computing infrastructure,
+and running new specialist tools in many disciplines.
+We do not teach HPC or domain-specific skills here
+but lay the groundwork for further development of these skills.
+In particular,
+understanding the syntax of commands, flags, and help systems is useful for domain specific tools
+and understanding the file system (and how to navigate it) is useful for remote access.
 
 Finally,
 and perhaps most importantly,
@@ -77,26 +83,48 @@ as long as learners using Windows do not run into roadblocks such as:
 
 ## Preparing to Teach
 
-* For a great general list of tips, see [this swcarpentry blog post](http://software-carpentry.org/blog/2015/03/teaching-tips.html)
-* Use the `data` directory for in-workshop exercises and live coding examples.
-You can clone the shell-novice directory or use the `Download ZIP` 
-button on the right to get the entire repository; we also now provide 
-a zip file of the `data` directory that can be downloaded on its own 
-from the repository by right-click + save.  See the "Get Ready" box 
-on the front page of the website for more details.  
-* Website: various practices have been used.
-	* Option 1: Can give links to learners before the lesson so they can follow along, catch up, and see exercises (particularly if you're following the lesson content without many changes).
-	* Option 2: Don't show the website to the learners during the lesson, as it can be distracting - students may read instead of listen, and having another window open is an additional cognitive load.
-	* In any case, make sure to point to website as a post-workshop reference.
-* Content: Unless you have a truly generous amount of time (4+ hours), it is likely that you will not cover ALL the material in this lesson in a single half-day session.  Plan ahead on what you might skip, what you really want to emphasize, etc.
-* Exercises: Think in advance about how you might want to handle exercises during the lesson.  How are you assigning them (website, slide, handout)?  Do you want everyone to try it and then you show the solution?  Have a learner show the solution?  Have groups each do a different exercise and present their solutions?
-* `reference.md` can be printed out and given to students as a reference, your choice.
-* Other preparation: Feel free to add your own examples or side comments, but know that it shouldn't be necessary - the topics and commands can be taught as given on the lesson pages!  If you think there is a place where the lesson is lacking, feel free to raise an [issue](https://github.com/swcarpentry/shell-novice/issues) or submit a [pull request](https://github.com/swcarpentry/shell-novice/pulls).
+*   For a great general list of tips, see [this swcarpentry blog post](http://software-carpentry.org/blog/2015/03/teaching-tips.html)
+
+*   Use the `data` directory for in-workshop exercises and live coding examples.
+    You can clone the shell-novice directory or use the `Download ZIP` 
+    button on the right to get the entire repository; we also now provide 
+    a zip file of the `data` directory that can be downloaded on its own 
+    from the repository by right-click + save.  See the "Get Ready" box 
+    on the front page of the website for more details.  
+
+*   Website: various practices have been used.
+    *   Option 1: Can give links to learners before the lesson so they can follow along,
+        catch up,
+	and see exercises (particularly if you're following the lesson content without many changes).
+    *   Option 2: Don't show the website to the learners during the lesson, as it can be distracting:
+        students may read instead of listen, and having another window open is an additional cognitive load.
+	*   In any case, make sure to point to website as a post-workshop reference.
+
+*   Content:
+    Unless you have a truly generous amount of time (4+ hours),
+    it is likely that you will not cover ALL the material in this lesson in a single half-day session.
+    Plan ahead on what you might skip, what you really want to emphasize, etc.
+
+*   Exercises:
+    Think in advance about how you might want to handle exercises during the lesson.
+    How are you assigning them (website, slide, handout)?
+    Do you want everyone to try it and then you show the solution?
+    Have a learner show the solution?
+    Have groups each do a different exercise and present their solutions?
+
+*   `reference.md` can be printed out and given to students as a reference, your choice.
+
+*   Other preparation:
+    Feel free to add your own examples or side comments,
+    but know that it shouldn't be necessary:
+    the topics and commands can be taught as given on the lesson pages.
+    If you think there is a place where the lesson is lacking,
+    feel free to raise an [issue]({{ site.repo }}/issues) or submit a [pull request]({{ site.repo }}/pulls).
+
 *   Optional setup:
     *   Run `tools/gen-nene.py` to regenerate random data files if needed
         (some are already in the `data` directory, so you don't have to do this).
     *   Similarly, run `tools/gen-sequence.py` to regenerate random sequence data if needed.
-
 
 ## Teaching Notes
 

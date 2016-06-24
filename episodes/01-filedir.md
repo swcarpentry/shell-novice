@@ -666,7 +666,7 @@ but she found them hard to understand after a couple of years.
 (The final straw was when she found herself creating
 a directory called `revised-revised-results-3`.)
 
-> ## Output sorting
+> ## Sorting Output
 >
 > Nelle names her directories "year-month-day",
 > with leading zeroes for months and days,
@@ -723,7 +723,7 @@ and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
-> ## Many ways to do the same thing - absolute vs relative paths
+> ## Absolute vs Relative Paths
 >
 > Starting from a filesystem location of `/Users/amanda/data/`, 
 > which of the following commands could Amanda use to navigate to her home directory, 
@@ -740,10 +740,10 @@ and we will see it in many other tools as we go on.
 >9.  `cd ..`
 {: .challenge}
 
-> ## Relative path resolution
+> ## Relative Path Resolution
 >
 > Using the filesystem diagram below, if `pwd` displays `/Users/thing`, 
-what will `ls ../backup` display?
+> what will `ls ../backup` display?
 >
 > 1.  `../backup: No such file or directory`
 > 2.  `2012-12-01 2013-01-08 2013-01-27`
@@ -754,7 +754,7 @@ what will `ls ../backup` display?
 {: .challenge}
 
 
-> ## `ls` reading comprehension
+> ## `ls` Reading Comprehension
 >
 > Assuming a directory structure as in the above Figure 
 > (File System for Challenge Questions), if `pwd` displays `/Users/backup`,
@@ -772,7 +772,7 @@ what will `ls ../backup` display?
 > 4.  Either \#2 or \#3 above, but not \#1.
 {: .challenge}
 
-> ## Exploring more `ls` arguments
+> ## Exploring More `ls` Arguments
 >
 > What does the command `ls` do when used with the `-l` and `-h` arguments?
 >
