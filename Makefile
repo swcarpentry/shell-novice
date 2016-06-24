@@ -78,7 +78,7 @@ HTML_DST = \
 
 ## lesson-rmd:    : convert Rmarkdown files to markdown
 lesson-rmd: $(RMD_SRC)
-	@bin/knit_lessons.sh
+	@bin/knit_lessons.sh $(RMD_SRC)
 
 ## lesson-check   : validate lesson Markdown.
 lesson-check :
