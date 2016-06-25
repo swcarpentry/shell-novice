@@ -12,7 +12,20 @@ objectives:
 - "Identify the actual command, flags, and filenames in a command-line call."
 - "Demonstrate the use of tab completion, and explain its advantages."
 keypoints:
-- "FIXME"
+- "The file system is responsible for managing information on the disk."
+- "Information is stored in files, which are stored in directories (folders)."
+- "Directories can also store other directories, which forms a directory tree."
+- "`cd path` changes the current working directory."
+- "`ls path` prints a listing of a specific file or directory; `ls` on its own lists the current working directory."
+- "`pwd` prints the user's current working directory."
+- "`whoami` shows the user's current identity."
+- "`/` on its own is the root directory of the whole file system."
+- "A relative path specifies a location starting from the current location."
+- "An absolute path specifies a location from the root of the file system."
+- "Directory names in a path are separated with '/' on Unix, but '\\' on Windows."
+- "'..' means 'the directory above the current one'; '.' on its own means 'the current directory'."
+- "Most files' names are `something.extension`. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file."
+- "Most commands take options (flags) which begin with a '-'."
 ---
 
 The part of the operating system responsible for managing files and directories
