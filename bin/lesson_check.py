@@ -38,6 +38,12 @@ REQUIRED_FILES = {
     '%/setup.md': True,
 }
 
+# Required non-Markdown files.
+NON_MARKDOWN_FILES = {
+    "AUTHORS",
+    "CITATION"
+}
+
 # Episode filename pattern.
 P_EPISODE_FILENAME = re.compile(r'/_episodes/(\d\d)-[-\w]+.md$')
 
@@ -93,6 +99,7 @@ def main():
     args = parse_args()
     args.reporter = Reporter(args)
     check_config(args)
+    check_non_markdown_files(args.source_dir, args.reporter)
     docs = read_all_markdown(args, args.source_dir)
     check_fileset(args.source_dir, args.reporter, docs.keys())
     for filename in docs.keys():
@@ -137,6 +144,16 @@ def check_config(args):
     args.reporter.check_field(config_file, 'configuration', config, 'kind', 'lesson')
 
 
+def check_non_markdown_files(source_dir, reporter):
+    """Check presence of non-Markdown files."""
+
+    for filename in NON_MARKDOWN_FILES:
+        path = os.path.join(source_dir, filename)
+        reporter.check(os.path.exists(path),
+                       filename,
+                       "File not found")
+
+
 def read_all_markdown(args, source_dir):
     """Read source files, returning
     {path : {'metadata':yaml, 'metadata_len':N, 'text':text, 'lines':[(i, line, len)], 'doc':doc}}
@@ -175,9 +192,9 @@ def check_fileset(source_dir, reporter, filenames_present):
 
     # Check for duplicate episode numbers.
     reporter.check(len(seen) == len(set(seen)),
-                        None,
-                        'Duplicate episode numbers {0} vs {1}',
-                        sorted(seen), sorted(set(seen)))
+                   None,
+                   'Duplicate episode numbers {0} vs {1}',
+                   sorted(seen), sorted(set(seen)))
 
     # Check that numbers are consecutive.
     seen = [int(s) for s in seen]
@@ -222,7 +239,6 @@ class CheckBase(object):
         self.text = text
         self.lines = lines
         self.doc = doc
-
         self.layout = None
 
 
@@ -354,6 +370,7 @@ class CheckEpisode(CheckBase):
 
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
         super(CheckEpisode, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
+
 
     def check_metadata(self):
         super(CheckEpisode, self).check_metadata()
