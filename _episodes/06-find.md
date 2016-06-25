@@ -10,7 +10,11 @@ objectives:
 - "Use the output of one command as the command-line parameters to another command."
 - "Explain what is meant by 'text' and 'binary' files, and why many common tools don't handle the latter well."
 keypoints:
-- "FIXME"
+- "`find` finds files with specific properties that match patterns."
+- "`grep` selects lines in files that match patterns."
+- "`--help` is a flag supported by many bash commands, and programs that can be run from within bash, to display more information on how to use these commands or programs."
+- "`man command` displays the manual page for a given command."
+- "`$(command)` inserts a command's output in place."
 ---
 
 In the same way that many of us now use "Google" as a 
