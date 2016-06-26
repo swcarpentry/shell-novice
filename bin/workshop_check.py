@@ -7,37 +7,22 @@ docstrings on the checking functions for a summary of the checks.
 import sys
 import os
 import re
-import logging
 import yaml
-from collections import Counter
-
-__version__ = '0.6'
-
-
-# basic logging configuration
-logger = logging.getLogger(__name__)
-verbosity = logging.INFO  # severity of at least INFO will emerge
-logger.setLevel(verbosity)
-
-# create console handler and set level to debug
-console_handler = logging.StreamHandler()
-console_handler.setLevel(verbosity)
-
-formatter = logging.Formatter('%(levelname)s: %(message)s')
-console_handler.setFormatter(formatter)
-logger.addHandler(console_handler)
+from datetime import date
+from util import Reporter, split_metadata
 
 
-# TODO: these regexp patterns need comments inside
+# Metadata field patterns.
 EMAIL_PATTERN = r'[^@]+@[^@]+\.[^@]+'
 HUMANTIME_PATTERN = r'((0?[1-9]|1[0-2]):[0-5]\d(am|pm)(-|to)(0?[1-9]|1[0-2]):[0-5]\d(am|pm))|((0?\d|1\d|2[0-3]):[0-5]\d(-|to)(0?\d|1\d|2[0-3]):[0-5]\d)'
 EVENTBRITE_PATTERN = r'\d{9,10}'
 URL_PATTERN = r'https?://.+'
 
+# Defaults.
 CARPENTRIES = ("dc", "swc")
 DEFAULT_CONTACT_EMAIL = 'admin@software-carpentry.org'
 
-USAGE = 'Usage: "check-workshop path/to/index.html"\n'
+USAGE = 'Usage: "check-workshop path/to/root/directory"'
 
 # Country and language codes.  Note that codes mean different things: 'ar'
 # is 'Arabic' as a language but 'Argentina' as a country.
@@ -86,18 +71,9 @@ ISO_LANGUAGE = [
 ]
 
 
-def add_error(msg, errors):
-    """Add error to the list of errors."""
-    errors.append(msg)
-
-
-def add_suberror(msg, errors):
-    """Add sub error, ie. error indented by 1 level ("\t"), to the list of errors."""
-    errors.append("\t{0}".format(msg))
-
-
 def look_for_fixme(func):
-    '''Decorator to fail test if text argument starts with "FIXME".'''
+    """Decorator to fail test if text argument starts with "FIXME"."""
+
     def inner(arg):
         if (arg is not None) and \
            isinstance(arg, str) and \
@@ -137,24 +113,26 @@ def check_language(language):
 
 @look_for_fixme
 def check_humandate(date):
-    '''"humandate" must be a human-readable date with a 3-letter month and
-    4-digit year.  Examples include "Feb 18-20, 2025" and "Feb 18 and
-    20, 2025".  It may be in languages other than English, but the
+    """
+    'humandate' must be a human-readable date with a 3-letter month
+    and 4-digit year.  Examples include 'Feb 18-20, 2025' and 'Feb 18
+    and 20, 2025'.  It may be in languages other than English, but the
     month name should be kept short to aid formatting of the main
-    Software Carpentry web site.'''
+    Software Carpentry web site.
+    """
 
-    if "," not in date:
+    if ',' not in date:
         return False
 
-    month_dates, year = date.split(",")
+    month_dates, year = date.split(',')
 
     # The first three characters of month_dates are not empty
     month = month_dates[:3]
-    if any(char == " " for char in month):
+    if any(char == ' ' for char in month):
         return False
 
     # But the fourth character is empty ("February" is illegal)
-    if month_dates[3] != " ":
+    if month_dates[3] != ' ':
         return False
 
     # year contains *only* numbers
@@ -168,65 +146,80 @@ def check_humandate(date):
 
 @look_for_fixme
 def check_humantime(time):
-    '''"humantime" is a human-readable start and end time for the workshop,
-    such as "09:00 - 16:00".'''
+    """
+    'humantime' is a human-readable start and end time for the
+    workshop, such as '09:00 - 16:00'.
+    """
 
-    return bool(re.match(HUMANTIME_PATTERN, time.replace(" ", "")))
+    return bool(re.match(HUMANTIME_PATTERN, time.replace(' ', '')))
 
 
 def check_date(this_date):
-    '''"startdate" and "enddate" are machine-readable start and end dates for
-    the workshop, and must be in YYYY-MM-DD format, e.g., "2015-07-01".'''
+    """
+    'startdate' and 'enddate' are machine-readable start and end dates
+    for the workshop, and must be in YYYY-MM-DD format, e.g.,
+    '2015-07-01'.
+    """
 
-    from datetime import date
-    # yaml automatically loads valid dates as datetime.date
+    # YAML automatically loads valid dates as datetime.date.
     return isinstance(this_date, date)
 
 
 @look_for_fixme
 def check_latitude_longitude(latlng):
-    '''"latlng" must be a valid latitude and longitude represented as two
-    floating-point numbers separated by a comma.'''
+    """
+    'latlng' must be a valid latitude and longitude represented as two
+    floating-point numbers separated by a comma.
+    """
 
     try:
         lat, lng = latlng.split(',')
         lat = float(lat)
         long = float(lng)
+        return (-90.0 <= lat <= 90.0) and (-180.0 <= long <= 180.0)
     except ValueError:
         return False
-    return (-90.0 <= lat <= 90.0) and (-180.0 <= long <= 180.0)
 
 
 def check_instructors(instructors):
-    '''"instructor" must be a non-empty comma-separated list of quoted names,
-    e.g. ['First name', 'Second name', ...'].  Do not use "TBD" or other
-    placeholders.'''
+    """
+    'instructor' must be a non-empty comma-separated list of quoted
+    names, e.g. ['First name', 'Second name', ...'].  Do not use 'TBD'
+    or other placeholders.
+    """
 
-    # yaml automatically loads list-like strings as lists
+    # YAML automatically loads list-like strings as lists.
     return isinstance(instructors, list) and len(instructors) > 0
 
 
 def check_helpers(helpers):
-    '''"helper" must be a comma-separated list of quoted names,
-    e.g. ['First name', 'Second name', ...'].  The list may be empty.  Do
-    not use "TBD" or other placeholders.'''
+    """
+    'helper' must be a comma-separated list of quoted names,
+    e.g. ['First name', 'Second name', ...'].  The list may be empty.
+    Do not use 'TBD' or other placeholders.
+    """
 
-    # yaml automatically loads list-like strings as lists
+    # YAML automatically loads list-like strings as lists.
     return isinstance(helpers, list) and len(helpers) >= 0
 
 
 @look_for_fixme
 def check_email(email):
-    '''"contact" must be a valid email address consisting of characters, a
-    @, and more characters.  It should not be the default contact
-    email address "admin@software-carpentry.org".'''
+    """
+    'contact' must be a valid email address consisting of characters,
+    an '@', and more characters.  It should not be the default contact
+    email address 'admin@software-carpentry.org'.
+    """
 
     return bool(re.match(EMAIL_PATTERN, email)) and \
            (email != DEFAULT_CONTACT_EMAIL)
 
 
 def check_eventbrite(eventbrite):
-    '''"eventbrite" (the Eventbrite registration key) must be 9 or more digits.'''
+    """
+    'eventbrite' (the Eventbrite registration key) must be 9 or more
+    digits.  It may appear as an integer or as a string.
+    """
 
     if isinstance(eventbrite, int):
         return True
@@ -236,15 +229,19 @@ def check_eventbrite(eventbrite):
 
 @look_for_fixme
 def check_etherpad(etherpad):
-    '''"etherpad" must be a valid URL.'''
+    """
+    'etherpad' must be a valid URL.
+    """
 
     return bool(re.match(URL_PATTERN, etherpad))
 
 
 @look_for_fixme
 def check_pass(value):
-    '''This test always passes (it is used for "checking" things like
-    addresses, for which no sensible validation is feasible).'''
+    """
+    This test always passes (it is used for 'checking' things like the
+    workshop address, for which no sensible validation is feasible).
+    """
 
     return True
 
@@ -265,38 +262,38 @@ HANDLERS = {
 
     'humandate':  (True, check_humandate,
                    'humandate invalid. Please use three-letter months like ' +
-                   '"Jan" and four-letter years like "2025".'),
+                   '"Jan" and four-letter years like "2025"'),
 
     'humantime':  (True, check_humantime,
                    'humantime doesn\'t include numbers'),
 
     'startdate':  (True, check_date,
                    'startdate invalid. Must be of format year-month-day, ' +
-                   'i.e., 2014-01-31.'),
+                   'i.e., 2014-01-31'),
 
     'enddate':    (False, check_date,
                    'enddate invalid. Must be of format year-month-day, i.e.,' +
-                   ' 2014-01-31.'),
+                   ' 2014-01-31'),
 
     'latlng':     (True, check_latitude_longitude,
                    'latlng invalid. Check that it is two floating point ' +
-                   'numbers, separated by a comma.'),
+                   'numbers, separated by a comma'),
 
     'instructor': (True, check_instructors,
                    'instructor list isn\'t a valid list of format ' +
-                   '["First instructor", "Second instructor",..].'),
+                   '["First instructor", "Second instructor",..]'),
 
     'helper':     (True, check_helpers,
                    'helper list isn\'t a valid list of format ' +
-                   '["First helper", "Second helper",..].'),
+                   '["First helper", "Second helper",..]'),
 
     'contact':    (True, check_email,
                    'contact email invalid or still set to ' +
                    '"{0}".'.format(DEFAULT_CONTACT_EMAIL)),
 
-    'eventbrite': (False, check_eventbrite, 'Eventbrite key appears invalid.'),
+    'eventbrite': (False, check_eventbrite, 'Eventbrite key appears invalid'),
 
-    'etherpad':   (False, check_etherpad, 'Etherpad URL appears invalid.'),
+    'etherpad':   (False, check_etherpad, 'Etherpad URL appears invalid'),
 
     'venue':      (False, check_pass, 'venue name not specified'),
 
@@ -310,102 +307,79 @@ REQUIRED = set([k for k in HANDLERS if HANDLERS[k][0]])
 OPTIONAL = set([k for k in HANDLERS if not HANDLERS[k][0]])
 
 
-def check_validity(data, function, errors, error_msg):
-    '''Wrapper-function around the various check-functions.'''
-    valid = function(data)
-    if not valid:
-        add_error(error_msg, errors)
-        add_suberror('Offending entry is: "{0}"'.format(data), errors)
-    return valid
+def check_blank_lines(reporter, raw):
+    """
+    Blank lines are not allowed in category headers.
+    """
+
+    lines = [(i, x) for (i, x) in enumerate(raw.strip().split('\n')) if not x.strip()]
+    reporter.check(not lines,
+                   None,
+                   'Blank line(s) in header: {0}',
+                   ', '.join(["{0}: {1}".format(i, x.rstrip()) for (i, x) in lines]))
 
 
-def check_blank_lines(raw_data, errors, error_msg):
-    '''Blank lines are not allowed in category headers.'''
-    lines = [x.strip() for x in raw_data.split('\n')]
-    if '' in lines:
-        add_error(error_msg, errors)
-        add_suberror('{0} blank lines found in header'.format(lines.count('')), errors)
-        return False
-    return True
+def check_categories(reporter, left, right, msg):
+    """
+    Report differences (if any) between two sets of categories.
+    """
+
+    diff = left - right
+    reporter.check(len(diff) == 0,
+                   None,
+                   '{0}: offending entries {1}',
+                   msg, sorted(list(diff)))
 
 
-def check_categories(left, right, errors, error_msg):
-    '''Report set difference of categories.'''
-    result = left - right
-    if result:
-        add_error(error_msg, errors)
-        add_suberror('Offending entries: {0}'.format(result), errors)
-        return False
-    return True
+def check_file(reporter, path, data):
+    """
+    Get header from file, call all other functions, and check file for
+    validity.
+    """
 
-
-def get_header(text):
-    '''Extract YAML header from raw data, returning (None, None) if no
-    valid header found and (raw, parsed) if header found.'''
-
-    # YAML header must be right at the start of the file.
-    if not text.startswith('---'):
-        return None, None
-
-    # YAML header must start and end with '---'
-    pieces = text.split('---')
-    if len(pieces) < 3:
-        return None, None
-
-    # Return raw text and YAML-ized form.
-    raw = pieces[1].strip()
-    return raw, yaml.load(raw)
-
-
-def check_file(filename, data, errors):
-    '''Get header from file, call all other functions and check file
-    for validity. Return list of errors (empty when no errors).'''
-
-    raw, header = get_header(data)
-    if header is None:
-        msg = ('Cannot find YAML header in given file "{0}".'.format(filename))
-        add_error(msg, errors)
-        return errors
+    # Get metadata as text and as YAML.
+    raw, header, body = split_metadata(path, data)
 
     # Do we have any blank lines in the header?
-    is_valid = check_blank_lines(raw, errors,
-                                 'There are blank lines in the header')
+    check_blank_lines(reporter, raw)
 
     # Look through all header entries.  If the category is in the input
     # file and is either required or we have actual data (as opposed to
     # a commented-out entry), we check it.  If it *isn't* in the header
     # but is required, report an error.
     for category in HANDLERS:
-        required, handler_function, error_message = HANDLERS[category]
+        required, handler, message = HANDLERS[category]
         if category in header:
             if required or header[category]:
-                is_valid &= check_validity(header[category],
-                                           handler_function, errors,
-                                           error_message)
+                reporter.check(handler(header[category]),
+                               None,
+                               '{0}\n    actual value "{1}"',
+                               message, header[category])
         elif required:
-            msg = 'index file is missing mandatory key "{0}"'.format(category)
-            add_error(msg, errors)
-            is_valid = False
+            reporter.add(None,
+                         'Missing mandatory key "{0}"',
+                         category)
 
     # Check whether we have missing or too many categories
     seen_categories = set(header.keys())
-
-    is_valid &= check_categories(REQUIRED, seen_categories, errors,
-                                 'There are missing categories')
-
-    is_valid &= check_categories(seen_categories, REQUIRED.union(OPTIONAL),
-                                 errors, 'There are superfluous categories')
+    check_categories(reporter, REQUIRED, seen_categories,
+                     'Missing categories')
+    check_categories(reporter, seen_categories, REQUIRED.union(OPTIONAL),
+                     'Superfluous categories')
 
 
-def check_config(filename, errors):
-    '''Check YAML configuration file.'''
+def check_config(reporter, filename):
+    """
+    Check YAML configuration file.
+    """
 
     with open(filename, 'r') as reader:
         config = yaml.load(reader)
 
-    if config['kind'] != 'workshop':
-        msg = 'Not configured as a workshop: found "{0}" instead'.format(config['kind'])
-        add_error(msg, errors)
+    reporter.check(config['kind'] == 'workshop',
+                   filename,
+                   'Not configured as a workshop: found "{0}" instead',
+                   config['kind'])
 
 
 def main():
@@ -418,21 +392,13 @@ def main():
     root_dir = sys.argv[1]
     index_file = os.path.join(root_dir, 'index.html')
     config_file = os.path.join(root_dir, '_config.yml')
-    logger.info('Testing "{0}" and "{1}"'.format(index_file, config_file))
 
-    errors = []
-    check_config(config_file, errors)
+    reporter = Reporter()
+    check_config(reporter, config_file)
     with open(index_file) as reader:
         data = reader.read()
-        check_file(index_file, data, errors)
-
-    if errors:
-        for m in errors:
-            logger.error(m)
-        sys.exit(1)
-    else:
-        logger.info('Everything seems to be in order')
-        sys.exit(0)
+        check_file(reporter, index_file, data)
+    reporter.report()
 
 
 if __name__ == '__main__':
