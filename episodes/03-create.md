@@ -17,7 +17,7 @@ keypoints:
 - "`rmdir path` removes (deletes) an empty directory."
 - "Use of the Control key may be described in many ways e.g. Ctrl-X, Ctrl+X, Control-X, Control+X, `^X`."
 - "The shell does not have a trash bin: once something is deleted, it's really gone."
-- "Nano is a very simple text editor --- please use something else for real work."
+- "Nano is a very simple text editor: please use something else for real work."
 ---
 
 We now know how to explore files and directories,
