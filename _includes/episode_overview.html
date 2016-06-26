@@ -14,7 +14,7 @@
       <strong>Questions</strong>
       <ul>
 	{% for question in page.questions %}
-	<li>{{ question }}</li>
+	<li>{{ question|markdownify }}</li>
 	{% endfor %}
       </ul>
     </div>
@@ -27,7 +27,7 @@
       <strong>Objectives</strong>
       <ul>
 	{% for objective in page.objectives %}
-	<li>{{ objective }}</li>
+	<li>{{ objective|markdownify }}</li>
 	{% endfor %}
       </ul>
     </div>
