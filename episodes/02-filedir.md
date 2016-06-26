@@ -220,7 +220,7 @@ $ ls --help
 ~~~
 {: .bash}
 
-~~
+~~~
 Usage: ls [OPTION]... [FILE]...
 List information about the FILEs (the current directory by default).
 Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.
@@ -338,8 +338,11 @@ GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
 Full documentation at: <http://www.gnu.org/software/coreutils/ls>
 or available locally via: info '(coreutils) ls invocation'
 ~~~
+{: .output}
 
-Many bash commands, and programs that people have written that can be run from within bash, support a `--help` flag to display more information on how to use the commands or programs.
+Many bash commands, and programs that people have written that can be
+run from within bash, support a `--help` flag to display more
+information on how to use the commands or programs.
 
 For more information on how to use `ls` we can type `man ls`.
 `man` is the Unix "manual" command:
