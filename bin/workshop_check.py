@@ -7,7 +7,6 @@ docstrings on the checking functions for a summary of the checks.
 import sys
 import os
 import re
-import yaml
 from datetime import date
 from util import Reporter, split_metadata
 
@@ -373,13 +372,19 @@ def check_config(reporter, filename):
     Check YAML configuration file.
     """
 
-    with open(filename, 'r') as reader:
-        config = yaml.load(reader)
+    config = load_yaml(filename)
 
-    reporter.check(config['kind'] == 'workshop',
+    kind = config.get('kind', None)
+    reporter.check(kind == 'workshop',
                    filename,
-                   'Not configured as a workshop: found "{0}" instead',
-                   config['kind'])
+                   'Missing or unknown kind of event: {0}',
+                   kind)
+
+    carpentry = config.get('carpentry', None)
+    reporter.check(carpentry in ('swc', 'dc'),
+                   filename,
+                   'Missing or unknown carpentry: {0}',
+                   carpentry)
 
 
 def main():

@@ -1,8 +1,12 @@
 import sys
 import json
-import yaml
 from subprocess import Popen, PIPE
 
+try:
+    import yaml
+except ImportError:
+    print('Unable to import YAML module: please install PyYAML', file=sys.stderr)
+    sys.exit(1)
 
 class Reporter(object):
     """Collect and report errors."""
@@ -106,3 +110,13 @@ def split_metadata(path, text):
             sys.exit(1)
 
     return metadata_raw, metadata_yaml, text
+
+
+def load_yaml(filename):
+    """
+    Wrapper around YAML loading so that 'import yaml' and error
+    handling is only needed in one place.
+    """
+
+    with open(filename, 'r') as reader:
+        return yaml.load(reader)

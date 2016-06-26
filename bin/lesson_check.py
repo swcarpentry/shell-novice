@@ -8,7 +8,6 @@ import sys
 import os
 import glob
 import json
-import yaml
 import re
 from optparse import OptionParser
 
@@ -131,8 +130,7 @@ def check_config(reporter, source_dir):
     """Check configuration file."""
 
     config_file = os.path.join(source_dir, '_config.yml')
-    with open(config_file, 'r') as reader:
-        config = yaml.load(reader)
+    config = load_yaml(config_file)
     reporter.check_field(config_file, 'configuration', config, 'kind', 'lesson')
 
 
