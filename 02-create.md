@@ -180,13 +180,13 @@ $ ls
 > file's disk space right away.
 
 Let's re-create that file
-and then move up one directory to `/Users/nelle` using `cd ..`:
+and then move up one directory to `/Users/nelle/Desktop/data-shell` using `cd ..`:
 
 ~~~ {.bash}
 $ pwd
 ~~~
 ~~~ {.output}
-/Users/nelle/thesis
+/Users/nelle/Desktop/data-shell/thesis
 ~~~
 ~~~ {.bash}
 $ nano draft.txt
@@ -243,7 +243,7 @@ rather than going into the `thesis` directory and running `nano` on `draft.txt` 
 $ pwd
 ~~~
 ~~~ {.output}
-/Users/nelle
+/Users/nelle/Desktop/data-shell
 ~~~
 ~~~ {.bash}
 $ mkdir thesis
