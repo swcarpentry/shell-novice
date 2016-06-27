@@ -8,7 +8,6 @@ import sys
 import os
 import glob
 import json
-import yaml
 import re
 from optparse import OptionParser
 
@@ -36,12 +35,6 @@ REQUIRED_FILES = {
     '%/index.md': True,
     '%/reference.md': True,
     '%/setup.md': True,
-}
-
-# Required non-Markdown files.
-NON_MARKDOWN_FILES = {
-    "AUTHORS",
-    "CITATION"
 }
 
 # Episode filename pattern.
@@ -97,10 +90,9 @@ def main():
     """Main driver."""
 
     args = parse_args()
-    args.reporter = Reporter(args)
-    check_config(args)
-    check_non_markdown_files(args.source_dir, args.reporter)
-    docs = read_all_markdown(args, args.source_dir)
+    args.reporter = Reporter()
+    check_config(args.reporter, args.source_dir)
+    docs = read_all_markdown(args.source_dir, args.parser)
     check_fileset(args.source_dir, args.reporter, docs.keys())
     for filename in docs.keys():
         checker = create_checker(args, filename, docs[filename])
@@ -134,27 +126,15 @@ def parse_args():
     return args
 
 
-def check_config(args):
+def check_config(reporter, source_dir):
     """Check configuration file."""
 
-    config_file = os.path.join(args.source_dir, '_config.yml')
-    with open(config_file, 'r') as reader:
-        config = yaml.load(reader)
-
-    args.reporter.check_field(config_file, 'configuration', config, 'kind', 'lesson')
+    config_file = os.path.join(source_dir, '_config.yml')
+    config = load_yaml(config_file)
+    reporter.check_field(config_file, 'configuration', config, 'kind', 'lesson')
 
 
-def check_non_markdown_files(source_dir, reporter):
-    """Check presence of non-Markdown files."""
-
-    for filename in NON_MARKDOWN_FILES:
-        path = os.path.join(source_dir, filename)
-        reporter.check(os.path.exists(path),
-                       filename,
-                       "File not found")
-
-
-def read_all_markdown(args, source_dir):
+def read_all_markdown(source_dir, parser):
     """Read source files, returning
     {path : {'metadata':yaml, 'metadata_len':N, 'text':text, 'lines':[(i, line, len)], 'doc':doc}}
     """
@@ -164,7 +144,7 @@ def read_all_markdown(args, source_dir):
     result = {}
     for pat in all_patterns:
         for filename in glob.glob(pat):
-            data = read_markdown(args.parser, filename)
+            data = read_markdown(parser, filename)
             if data:
                 result[filename] = data
     return result
@@ -192,9 +172,9 @@ def check_fileset(source_dir, reporter, filenames_present):
 
     # Check for duplicate episode numbers.
     reporter.check(len(seen) == len(set(seen)),
-                   None,
-                   'Duplicate episode numbers {0} vs {1}',
-                   sorted(seen), sorted(set(seen)))
+                        None,
+                        'Duplicate episode numbers {0} vs {1}',
+                        sorted(seen), sorted(set(seen)))
 
     # Check that numbers are consecutive.
     seen = [int(s) for s in seen]
@@ -239,6 +219,7 @@ class CheckBase(object):
         self.text = text
         self.lines = lines
         self.doc = doc
+
         self.layout = None
 
 
@@ -370,7 +351,6 @@ class CheckEpisode(CheckBase):
 
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
         super(CheckEpisode, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
-
 
     def check_metadata(self):
         super(CheckEpisode, self).check_metadata()
