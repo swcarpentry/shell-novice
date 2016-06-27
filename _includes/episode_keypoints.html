@@ -2,7 +2,7 @@
   <h2>Key Points</h2>
   <ul>
     {% for keypoint in page.keypoints %}
-    <li>{{ keypoint }}</li>
+    <li>{{ keypoint|markdownify }}</li>
     {% endfor %}
   </ul>
 </blockquote>
