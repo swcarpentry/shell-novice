@@ -485,3 +485,17 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~ {.bash}
 > $ mv ___/sucrose.dat  ___/maltose.dat ___
 > ~~~
+## Hiding a File {.challenge}
+> We have used `mv` to rename a file and `rm` to remove one, but what if you are unsure if the data in a file is useful? 
+> You could create a folder and place the file there for review later, but then that adds even more clutter to the directory! 
+> You could hide the file instead. Lets create an alternate data file for sucrose:
+> ~~~ {.bash}
+> $ touch alt_sucrose.dat
+> ~~~
+> Now lets hide our alternate .dat file:
+> ~~~ {.bash}
+> $ mv alt_sucrose.dat .alt_sucrose.dat
+> ~~~
+> Now that is complete, `ls` will no longer show the file `alt_sucrose.dat`.
+> What would `ls` flag would you use to see the file now that it is hidden?
+> 
