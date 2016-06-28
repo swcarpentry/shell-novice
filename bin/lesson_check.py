@@ -8,7 +8,6 @@ import sys
 import os
 import glob
 import json
-import yaml
 import re
 from optparse import OptionParser
 
@@ -91,9 +90,9 @@ def main():
     """Main driver."""
 
     args = parse_args()
-    args.reporter = Reporter(args)
-    check_config(args)
-    docs = read_all_markdown(args, args.source_dir)
+    args.reporter = Reporter()
+    check_config(args.reporter, args.source_dir)
+    docs = read_all_markdown(args.source_dir, args.parser)
     check_fileset(args.source_dir, args.reporter, docs.keys())
     for filename in docs.keys():
         checker = create_checker(args, filename, docs[filename])
@@ -127,17 +126,15 @@ def parse_args():
     return args
 
 
-def check_config(args):
+def check_config(reporter, source_dir):
     """Check configuration file."""
 
-    config_file = os.path.join(args.source_dir, '_config.yml')
-    with open(config_file, 'r') as reader:
-        config = yaml.load(reader)
-
-    args.reporter.check_field(config_file, 'configuration', config, 'kind', 'lesson')
+    config_file = os.path.join(source_dir, '_config.yml')
+    config = load_yaml(config_file)
+    reporter.check_field(config_file, 'configuration', config, 'kind', 'lesson')
 
 
-def read_all_markdown(args, source_dir):
+def read_all_markdown(source_dir, parser):
     """Read source files, returning
     {path : {'metadata':yaml, 'metadata_len':N, 'text':text, 'lines':[(i, line, len)], 'doc':doc}}
     """
@@ -147,7 +144,7 @@ def read_all_markdown(args, source_dir):
     result = {}
     for pat in all_patterns:
         for filename in glob.glob(pat):
-            data = read_markdown(args.parser, filename)
+            data = read_markdown(parser, filename)
             if data:
                 result[filename] = data
     return result

@@ -41,7 +41,12 @@
           Break
         {% else %}
           {% if episode.questions %}
-            {{ episode.questions | join: '<br/>' }}
+            {% for question in episode.questions %}
+              {{question|markdownify|strip_html}}
+              {% unless forloop.last %}
+              <br/>
+              {% endunless %}
+            {% endfor %}
           {% endif %}
         {% endif %}
       </td>

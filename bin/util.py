@@ -1,13 +1,17 @@
 import sys
 import json
-import yaml
 from subprocess import Popen, PIPE
 
+try:
+    import yaml
+except ImportError:
+    print('Unable to import YAML module: please install PyYAML', file=sys.stderr)
+    sys.exit(1)
 
 class Reporter(object):
     """Collect and report errors."""
 
-    def __init__(self, args):
+    def __init__(self):
         """Constructor."""
 
         super(Reporter, self).__init__()
@@ -62,23 +66,13 @@ def read_markdown(parser, path):
     """
 
     # Split and extract YAML (if present).
-    metadata = None
-    metadata_len = None
     with open(path, 'r') as reader:
         body = reader.read()
-    pieces = body.split('---', 2)
-    if len(pieces) == 3:
-        try:
-            metadata = yaml.load(pieces[1])
-        except yaml.YAMLError as e:
-            print('Unable to parse YAML header in {0}:\n{1}'.format(path, e))
-            sys.exit(1)
-        metadata_len = pieces[1].count('\n')
-        body = pieces[2]
+    metadata_raw, metadata_yaml, body = split_metadata(path, body)
 
     # Split into lines.
-    offset = 0 if metadata_len is None else metadata_len
-    lines = [(offset+i+1, l, len(l)) for (i, l) in enumerate(body.split('\n'))]
+    metadata_len = 0 if metadata_raw is None else metadata_raw.count('\n')
+    lines = [(metadata_len+i+1, line, len(line)) for (i, line) in enumerate(body.split('\n'))]
 
     # Parse Markdown.
     cmd = 'ruby {0}'.format(parser)
@@ -87,9 +81,42 @@ def read_markdown(parser, path):
     doc = json.loads(stdout_data)
 
     return {
-        'metadata': metadata,
+        'metadata': metadata_yaml,
         'metadata_len': metadata_len,
         'text': body,
         'lines': lines,
         'doc': doc
     }
+
+
+def split_metadata(path, text):
+    """
+    Get raw (text) metadata, metadata as YAML, and rest of body.
+    If no metadata, return (None, None, body).
+    """
+
+    metadata_raw = None
+    metadata_yaml = None
+    metadata_len = None
+
+    pieces = text.split('---', 2)
+    if len(pieces) == 3:
+        metadata_raw = pieces[1]
+        text = pieces[2]
+        try:
+            metadata_yaml = yaml.load(metadata_raw)
+        except yaml.YAMLError as e:
+            print('Unable to parse YAML header in {0}:\n{1}'.format(path, e), file=sys.stderr)
+            sys.exit(1)
+
+    return metadata_raw, metadata_yaml, text
+
+
+def load_yaml(filename):
+    """
+    Wrapper around YAML loading so that 'import yaml' and error
+    handling is only needed in one place.
+    """
+
+    with open(filename, 'r') as reader:
+        return yaml.load(reader)

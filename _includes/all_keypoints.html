@@ -11,9 +11,9 @@
       </td>
       <td class="col-md-9">
         <ul>
-  	{% for keypoint in episode.keypoints %}
-  	<li>{{ keypoint }}</li>
-  	{% endfor %}
+        {% for keypoint in episode.keypoints %}
+        <li>{{ keypoint|markdownify }}</li>
+        {% endfor %}
         </ul>
       </td>
     </tr>

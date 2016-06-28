@@ -35,8 +35,11 @@ clean :
 	@find . -name .DS_Store -exec rm {} \;
 	@find . -name '*~' -exec rm {} \;
 	@find . -name '*.pyc' -exec rm {} \;
+
+## clean-rmd      : clean intermediate R files (that need to be committed to the repo).
+clear-rmd :
 	@rm -rf ${RMD_DST}
-	@rm -rf fig/swc-rmd-*
+	@rm -rf fig/rmd-*
 
 ## ----------------------------------------
 ## Commands specific to workshop websites.
