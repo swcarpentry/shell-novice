@@ -11,7 +11,7 @@ import json
 import re
 from optparse import OptionParser
 
-from util import Reporter, read_markdown
+from util import Reporter, read_markdown, load_yaml
 
 __version__ = '0.2'
 
@@ -106,7 +106,7 @@ def parse_args():
     parser = OptionParser()
     parser.add_option('-l', '--linelen',
                       default=False,
-                      dest='line_len',
+                      dest='line_lengths',
                       help='Check line lengths')
     parser.add_option('-p', '--parser',
                       default=None,
@@ -116,6 +116,10 @@ def parse_args():
                       default=os.curdir,
                       dest='source_dir',
                       help='source directory')
+    parser.add_option('-w', '--whitespace',
+                      default=False,
+                      dest='trailing_whitespace',
+                      help='Check for trailing whitespace')
 
     args, extras = parser.parse_args()
     require(args.parser is not None,
@@ -227,7 +231,8 @@ class CheckBase(object):
         """Run tests on metadata."""
 
         self.check_metadata()
-        self.check_text()
+        self.check_line_lengths()
+        self.check_trailing_whitespace()
         self.check_blockquote_classes()
         self.check_codeblock_classes()
 
@@ -243,15 +248,26 @@ class CheckBase(object):
             self.reporter.check_field(self.filename, 'metadata', self.metadata, 'layout', self.layout)
 
 
-    def check_text(self):
+    def check_line_lengths(self):
         """Check the raw text of the lesson body."""
 
-        if self.args.line_len:
+        if self.args.line_lengths:
             over = [i for (i, l, n) in self.lines if (n > MAX_LINE_LEN) and (not l.startswith('!'))]
             self.reporter.check(not over,
                                 self.filename,
                                 'Line(s) are too long: {0}',
                                 ', '.join([str(i) for i in over]))
+
+
+    def check_trailing_whitespace(self):
+        """Check for whitespace at the ends of lines."""
+
+        if self.args.trailing_whitespace:
+            trailing = [i for (i, l, n) in self.lines if l.endswidth(' ')]
+            self.reporter.check(not trailing,
+                                self.filename,
+                                'Line(s) end with whitespace: {0}',
+                                ', '.join([str[i] for i in over]))
 
 
     def check_blockquote_classes(self):

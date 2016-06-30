@@ -114,9 +114,13 @@ def split_metadata(path, text):
 
 def load_yaml(filename):
     """
-    Wrapper around YAML loading so that 'import yaml' and error
-    handling is only needed in one place.
+    Wrapper around YAML loading so that 'import yaml' is only needed
+    in one file.
     """
 
-    with open(filename, 'r') as reader:
-        return yaml.load(reader)
+    try:
+        with open(filename, 'r') as reader:
+            return yaml.load(reader)
+    except (yaml.YAMLError, FileNotFoundError) as e:
+        print('Unable to load YAML file {0}:\n{1}'.format(filename, e), file=sys.stderr)
+        sys.exit(1)
