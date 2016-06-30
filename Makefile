@@ -11,23 +11,23 @@ DST=_site
 .PHONY : commands clean files
 all : commands
 
-## commands       : show all commands.
+## commands         : show all commands.
 commands :
 	@grep -h -E '^##' ${MAKEFILES} | sed -e 's/## //g'
 
-## serve          : run a local server.
+## serve            : run a local server.
 serve : lesson-rmd
 	${JEKYLL} serve --config _config.yml,_config_dev.yml
 
-## site           : build files but do not run a server.
+## site             : build files but do not run a server.
 site : lesson-rmd
 	${JEKYLL} build --config _config.yml,_config_dev.yml
 
-## figures        : re-generate inclusion displaying all figures.
+## figures          : re-generate inclusion displaying all figures.
 figures :
 	@bin/extract_figures.py -s _episodes -p ${PARSER} > _includes/all_figures.html
 
-## clean          : clean up junk files.
+## clean            : clean up junk files.
 clean :
 	@rm -rf ${DST}
 	@rm -rf .sass-cache
@@ -36,7 +36,7 @@ clean :
 	@find . -name '*~' -exec rm {} \;
 	@find . -name '*.pyc' -exec rm {} \;
 
-## clean-rmd      : clean intermediate R files (that need to be committed to the repo).
+## clean-rmd        : clean intermediate R files (that need to be committed to the repo).
 clear-rmd :
 	@rm -rf ${RMD_DST}
 	@rm -rf fig/rmd-*
@@ -46,7 +46,7 @@ clear-rmd :
 
 .PHONY : workshop-check
 
-## workshop-check : check workshop homepage.
+## workshop-check   : check workshop homepage.
 workshop-check :
 	@bin/workshop_check.py .
 
@@ -79,25 +79,30 @@ HTML_DST = \
   $(patsubst _extras/%.md,${DST}/%/index.html,$(wildcard _extras/*.md)) \
   ${DST}/license/index.html
 
-## lesson-rmd:    : convert Rmarkdown files to markdown
+## lesson-rmd       : convert Rmarkdown files to markdown
 lesson-rmd: $(RMD_SRC)
 	@bin/knit_lessons.sh $(RMD_SRC)
 
-## lesson-check   : validate lesson Markdown.
+## lesson-check     : validate lesson Markdown.
 lesson-check :
 	@bin/lesson_check.py -s . -p ${PARSER}
 
+## lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace.
+lesson-check-all :
+	@bin/lesson_check.py -s . -p ${PARSER} -l -w
+
+## unittest         : run unit tests on checking tools.
 unittest :
 	python bin/test_lesson_check.py
 
-## lesson-files   : show expected names of generated files for debugging.
+## lesson-files     : show expected names of generated files for debugging.
 lesson-files :
 	@echo 'RMD_SRC:' ${RMD_SRC}
 	@echo 'RMD_DST:' ${RMD_DST}
 	@echo 'MARKDOWN_SRC:' ${MARKDOWN_SRC}
 	@echo 'HTML_DST:' ${HTML_DST}
 
-## lesson-fixme   : show FIXME markers embedded in source files.
+## lesson-fixme     : show FIXME markers embedded in source files.
 lesson-fixme :
 	@fgrep -i -n FIXME ${MARKDOWN_SRC} || true
 
