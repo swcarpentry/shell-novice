@@ -18,7 +18,7 @@ keypoints:
 - "Do not use spaces, quotes, or wildcard characters such as '*' or '?' in filenames, as it complicates variable expansion."
 - "Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping."
 - "Use the up-arrow key to scroll up through previous commands to edit and repeat them."
-- "Use Ctrl-R to search through the previously entered commands."
+- "Use `Ctrl-R` to search through the previously entered commands."
 - "Use `history` to display recent commands, and `!number` to repeat a command by number."
 ---
 
@@ -338,7 +338,7 @@ the shell runs the modified command.
 However, nothing appears to happen --- there is no output.
 After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
 she has no idea whether it is running, much less how quickly.
-She kills the running command by typing Ctrl-C,
+She kills the running command by typing `Ctrl-C`,
 uses up-arrow to repeat the command,
 and edits it to read:
 
@@ -349,8 +349,8 @@ $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$d
 
 > ## Beginning and End
 >
-> We can move to the beginning of a line in the shell by typing Ctrl-A
-> and to the end using Ctrl-E.
+> We can move to the beginning of a line in the shell by typing `Ctrl-A`
+> and to the end using `Ctrl-E`.
 {: .callout}
 
 When she runs her program now,

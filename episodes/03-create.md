@@ -15,7 +15,7 @@ keypoints:
 - "`mv old new` moves (renames) a file or directory."
 - "`rm path` removes (deletes) a file."
 - "`rmdir path` removes (deletes) an empty directory."
-- "Use of the Control key may be described in many ways e.g. Ctrl-X, Ctrl+X, Control-X, Control+X, `^X`."
+- "Use of the Control key may be described in many ways, including `Ctrl-X`, `Control-X`, and `^X`."
 - "The shell does not have a trash bin: once something is deleted, it's really gone."
 - "Nano is a very simple text editor: please use something else for real work."
 ---
