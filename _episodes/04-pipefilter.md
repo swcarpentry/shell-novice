@@ -74,7 +74,8 @@ $ wc *.pdb
 > matches filenames that begin with the letter 'p'.
 >
 > `?` is also a wildcard, but it only matches a single character. This
-> means that `p?.pdb` matches `pi.pdb` or `p5.pdb`, but not `propane.pdb`.
+> means that `p?.pdb` would match `pi.pdb` or `p5.pdb` (if we had these two
+> files in the `molecules` directory), but not `propane.pdb`.
 > We can use any number of wildcards at a time: for example, `p*.p?*`
 > matches anything that starts with a 'p' and ends with '.', 'p', and at
 > least one more character (since the `?` has to match one character, and
@@ -265,7 +266,10 @@ or copy data from one program to the other in memory,
 or something else entirely;
 we don't have to know or care.
 
-Nothing prevents us from chaining pipes consecutively. That is, we can for example send the output of `wc` directly to `sort`, and then the resulting output to `head`. Thus we first use a pipe to send the output of `wc` to `sort`:
+Nothing prevents us from chaining pipes consecutively.
+That is, we can for example send the output of `wc` directly to `sort`,
+and then the resulting output to `head`.
+Thus we first use a pipe to send the output of `wc` to `sort`:
 
 ~~~
 $ wc -l *.pdb | sort -n
