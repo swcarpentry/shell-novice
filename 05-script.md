@@ -22,14 +22,17 @@ these are actually small programs.
 Let's start by going back to `molecules/` and putting the following line into a new file, `middle.sh`:
 
 ~~~ {.bash}
-$ cd molecules
-$ nano middle.sh
+cd molecules
+nano middle.sh
 ~~~
-The command <code>nano middle.sh</code> opens the file `middle.sh` within the text editor "nano" (which runs within the shell). If the file does not exist, it will be created. We can use the text editor to directly edit the file. We'll simply insert the following line:
+The command <code>nano middle.sh</code> opens the file `middle.sh` within the text editor "nano" (which runs within the shell). If the file does not exist, it will be created. We can use the text editor to directly edit the file. We'll simply insert the following lines:
 
 ~~~
+#! \bin\bash
+
 head -n 15 octane.pdb | tail -n 5
 ~~~
+
 This is a variation on the pipe we constructed earlier:
 it selects lines 11-15 of the file `octane.pdb`.
 Remember, we are *not* running it as a command just yet:
@@ -40,6 +43,7 @@ Check that the directory `molecules` now contains a file called `middle.sh`.
 
 Once we have saved the file,
 we can ask the shell to execute the commands it contains.
+It is good practice to include the `#! \bin\bash` "shebang" line at the top of a script, this specifies the absolute directory so that the command prompt (and other users) know your file is executable code and which program is meant to run it.
 Our shell is called `bash`, so we run the following command:
 
 ~~~ {.bash}
@@ -79,6 +83,8 @@ $ nano middle.sh
 Now, within "nano", replace the text `octane.pdb` with the special variable called `$1`:
 
 ~~~ {.output}
+#! \bin\bash
+
 head -n 15 "$1" | tail -n 5
 ~~~
 
@@ -126,6 +132,8 @@ number of lines to be passed to `head` and `tail` respectively:
 $ nano middle.sh
 ~~~
 ~~~ {.output}
+#! \bin\bash
+
 head -n "$2" "$1" | tail -n "$3"
 ~~~
 
@@ -180,7 +188,7 @@ For example, if we want to sort our `.pdb` files by length, we would type:
 $ wc -l *.pdb | sort -n
 ~~~
 
-because `wc -l` lists the number of lines in the files
+`wc -l` lists the number of lines in the files
 (recall that `wc` stands for 'word count', adding the `-l` flag means 'count lines' instead)
 and `sort -n` sorts things numerically.
 We could put this in a file,
