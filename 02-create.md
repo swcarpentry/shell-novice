@@ -117,14 +117,14 @@ $ nano draft.txt
 > another directory the first time you "Save As..."
 
 Let's type in a few lines of text.
-Once we're happy with our text, we can press `Ctrl-O` (press the Ctrl or Control key and, while
-holding it down, press the O key) to write our data to disk
+Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kdb>O</kbd> (press the <kbd>Ctrl</kbd> or Control key and, while
+holding it down, press the <kbd>O</kbd> key) to write our data to disk
 (we'll be asked what file we want to save this to:
 press Return to accept the suggested default of `draft.txt`).
 
 ![Nano in action](fig/nano-screenshot.png)
 
-Once our file is saved, we can use `Ctrl-X` to quit the editor and 
+Once our file is saved, we can use <kbd>Ctrl</kbd>+<kdb>X</kbd> to quit the editor and 
 return to the shell.
 
 > ## Control, ctrl, or ^ key {.callout}
@@ -132,12 +132,12 @@ return to the shell.
 > The Control key is also called the "Ctrl" key. There are various ways
 > in which using the Control key may be described. For example, you may
 > see an instruction to press the Control key and, while holding it down, 
-> press the X key, described as any of:
+> press the <kbd>X</kbd> key, described as any of:
 >
 > * `Control-X`
 > * `Control+X`
-> * `Ctrl-X`
-> * `Ctrl+X`
+> * <kbd>Ctrl</kbd>+<kdb>X</kbd>
+> * <kbd>Ctrl</kbd>+<kdb>X</kbd>
 > * `^X`
 >
 > In nano, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
