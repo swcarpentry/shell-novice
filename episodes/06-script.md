@@ -3,7 +3,7 @@ title: "Shell Scripts"
 teaching: 15
 exercises: 0
 questions:
-- "FIXME"
+- "How can I save and re-use commands?"
 objectives:
 - "Write a shell script that runs a command or series of commands for a fixed set of files."
 - "Run a shell script from the command line."

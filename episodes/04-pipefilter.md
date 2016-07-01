@@ -3,7 +3,7 @@ title: "Pipes and Filters"
 teaching: 15
 exercises: 0
 questions:
-- "FIXME"
+- "How can I combine existing commands to do new things?"
 objectives:
 - "Redirect a command's output to a file."
 - "Process a file instead of keyboard input using redirection."

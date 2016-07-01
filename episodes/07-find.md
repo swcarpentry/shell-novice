@@ -3,7 +3,8 @@ title: "Finding Things"
 teaching: 15
 exercises: 0
 questions:
-- "FIXME"
+- "How can I find files?"
+- "How can I find things in files?"
 objectives:
 - "Use `grep` to select lines from text files that match simple patterns."
 - "Use `find` to find files whose names match simple patterns."

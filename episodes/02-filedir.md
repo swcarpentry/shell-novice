@@ -3,7 +3,9 @@ title: "Navigating Files and Directories"
 teaching: 15
 exercises: 0
 questions:
-- "FIXME"
+- "How can I move around on my computer?"
+- "How can I see what files and directories I have?"
+- "How can I specify the location of a file or directory on my computer?"
 objectives:
 - "Explain the similarities and differences between a file and a directory."
 - "Translate an absolute path into a relative path and vice versa."
