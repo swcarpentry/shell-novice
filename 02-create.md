@@ -136,12 +136,14 @@ return to the shell.
 >
 > * `Control-X`
 > * `Control+X`
+> * `Ctrl+X`
+> * `Ctrl+X`
 > * <kbd>Ctrl</kbd>+<kdb>X</kbd>
 > * <kbd>Ctrl</kbd>+<kdb>X</kbd>
 > * `^X`
 >
 > In nano, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
-> This means that you can use `Control-G` to get help and `Control-O` to save your
+> This means that you can use <kbd>Ctrl</kbd>+<kdb>G</kbd> to get help and <kbd>Ctrl</kbd>+<kdb>O</kbd> to save your
 > file. 
 
 `nano` doesn't leave any output on the screen after it exits,
