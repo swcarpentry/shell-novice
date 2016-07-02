@@ -40,6 +40,12 @@ REQUIRED_FILES = {
 # Episode filename pattern.
 P_EPISODE_FILENAME = re.compile(r'/_episodes/(\d\d)-[-\w]+.md$')
 
+# Pattern to match lines ending with whitespace.
+P_TRAILING_WHITESPACE = re.compile(r'\s+$')
+
+# Pattern to match figure references in HTML.
+P_FIGURE_REFS = re.compile(r'<img[^>]+src="([^"]+)"[^>]*>')
+
 # What kinds of blockquotes are allowed?
 KNOWN_BLOCKQUOTES = {
     'callout',
@@ -97,6 +103,7 @@ def main():
     for filename in docs.keys():
         checker = create_checker(args, filename, docs[filename])
         checker.check()
+    check_figures(args.source_dir, args.reporter)
     args.reporter.report()
 
 
@@ -106,6 +113,7 @@ def parse_args():
     parser = OptionParser()
     parser.add_option('-l', '--linelen',
                       default=False,
+                      action="store_true",
                       dest='line_lengths',
                       help='Check line lengths')
     parser.add_option('-p', '--parser',
@@ -118,6 +126,7 @@ def parse_args():
                       help='source directory')
     parser.add_option('-w', '--whitespace',
                       default=False,
+                      action="store_true",
                       dest='trailing_whitespace',
                       help='Check for trailing whitespace')
 
@@ -192,6 +201,38 @@ def check_fileset(source_dir, reporter, filenames_present):
                    seen)
 
 
+def check_figures(source_dir, reporter):
+    """Check that all figures are present and referenced."""
+
+    # Get references.
+    try:
+        all_figures_html = os.path.join(source_dir, '_includes', 'all_figures.html')
+        with open(all_figures_html, 'r') as reader:
+            text = reader.read()
+        figures = P_FIGURE_REFS.findall(text)
+        referenced = [os.path.split(f)[1] for f in figures if '/fig/' in f]
+    except FileNotFoundError as e:
+        reporter.add(all_figures_html,
+                     'File not found')
+        return
+
+    # Get actual files.
+    fig_dir_path = os.path.join(source_dir, 'fig')
+    actual = [f for f in os.listdir(fig_dir_path) if not f.startswith('.')]
+
+    # Report differences.
+    unexpected = set(actual) - set(referenced)
+    reporter.check(not unexpected,
+                   None,
+                   'Unexpected image files: {0}',
+                   ', '.join(sorted(unexpected)))
+    missing = set(referenced) - set(actual)
+    reporter.check(not missing,
+                   None,
+                   'Missing image files: {0}',
+                   ', '.join(sorted(missing)))
+
+
 def create_checker(args, filename, info):
     """Create appropriate checker for file."""
 
@@ -263,11 +304,11 @@ class CheckBase(object):
         """Check for whitespace at the ends of lines."""
 
         if self.args.trailing_whitespace:
-            trailing = [i for (i, l, n) in self.lines if l.endswidth(' ')]
+            trailing = [i for (i, l, n) in self.lines if P_TRAILING_WHITESPACE.match(l)]
             self.reporter.check(not trailing,
                                 self.filename,
                                 'Line(s) end with whitespace: {0}',
-                                ', '.join([str[i] for i in over]))
+                                ', '.join([str(i) for i in trailing]))
 
 
     def check_blockquote_classes(self):
