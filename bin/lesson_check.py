@@ -11,7 +11,7 @@ import json
 import re
 from optparse import OptionParser
 
-from util import Reporter, read_markdown, load_yaml
+from util import Reporter, read_markdown, load_yaml, check_unwanted_files
 
 __version__ = '0.2'
 
@@ -100,6 +100,7 @@ def main():
     check_config(args.reporter, args.source_dir)
     docs = read_all_markdown(args.source_dir, args.parser)
     check_fileset(args.source_dir, args.reporter, docs.keys())
+    check_unwanted_files(args.source_dir, args.reporter)
     for filename in docs.keys():
         checker = create_checker(args, filename, docs[filename])
         checker.check()

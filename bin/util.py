@@ -1,12 +1,20 @@
 import sys
+import os
 import json
 from subprocess import Popen, PIPE
 
+# Import this way to produce a more useful error message.
 try:
     import yaml
 except ImportError:
     print('Unable to import YAML module: please install PyYAML', file=sys.stderr)
     sys.exit(1)
+
+
+UNWANTED_FILES = [
+    '.nojekyll'
+]
+
 
 class Reporter(object):
     """Collect and report errors."""
@@ -124,3 +132,15 @@ def load_yaml(filename):
     except (yaml.YAMLError, FileNotFoundError) as e:
         print('Unable to load YAML file {0}:\n{1}'.format(filename, e), file=sys.stderr)
         sys.exit(1)
+
+
+def check_unwanted_files(dir_path, reporter):
+    """
+    Check that unwanted files are not present.
+    """
+
+    for filename in UNWANTED_FILES:
+        path = os.path.join(dir_path, filename)
+        reporter.check(not os.path.exists(path),
+                       path,
+                       "Unwanted file found")
