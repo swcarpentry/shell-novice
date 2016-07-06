@@ -16,6 +16,8 @@ UNWANTED_FILES = [
 ]
 
 
+REPORTER_NOT_SET = []
+
 class Reporter(object):
     """Collect and report errors."""
 
@@ -26,11 +28,16 @@ class Reporter(object):
         self.messages = []
 
 
-    def check_field(self, filename, name, values, key, expected):
+    def check_field(self, filename, name, values, key, expected=REPORTER_NOT_SET):
         """Check that a dictionary has an expected value."""
 
         if key not in values:
             self.add(filename, '{0} does not contain {1}', name, key)
+        elif expected is REPORTER_NOT_SET:
+            pass
+        elif type(expected) in (tuple, set, list):
+            if values[key] not in expected:
+                self.add(filename, '{0} {1} value {2} is not in {3}', name, key, values[key], expected)
         elif values[key] != expected:
             self.add(filename, '{0} {1} is {2} not {3}', name, key, values[key], expected)
 
