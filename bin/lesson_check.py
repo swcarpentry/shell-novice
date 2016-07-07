@@ -11,7 +11,7 @@ import json
 import re
 from optparse import OptionParser
 
-from util import Reporter, read_markdown, load_yaml, check_unwanted_files, require
+from util import Reporter, read_markdown, load_yaml, check_unwanted_files, require, IMAGE_FILE_SUFFIX
 
 __version__ = '0.2'
 
@@ -227,9 +227,9 @@ def check_figures(source_dir, reporter):
                      'File not found')
         return
 
-    # Get actual files.
+    # Get actual image files (ignore non-image files).
     fig_dir_path = os.path.join(source_dir, 'fig')
-    actual = [f for f in os.listdir(fig_dir_path) if not f.startswith('.')]
+    actual = [f for f in os.listdir(fig_dir_path) if os.path.splitext(f)[1] in IMAGE_FILE_SUFFIX]
 
     # Report differences.
     unexpected = set(actual) - set(referenced)

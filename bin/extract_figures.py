@@ -5,16 +5,7 @@ import os
 import glob
 from optparse import OptionParser
 
-from util import Reporter, read_markdown
-
-
-# Things an image file's name can end with.
-PATH_SUFFICES = {
-    '.gif',
-    '.jpg',
-    '.png',
-    '.svg'
-}
+from util import Reporter, read_markdown, IMAGE_FILE_SUFFIX
 
 
 def main():
@@ -22,7 +13,7 @@ def main():
 
     args = parse_args()
     images = []
-    for filename in get_filenames(args.source_dir):
+    for filename in args.filenames:
         images += get_images(args.parser, filename)
     save(sys.stdout, images)
 
@@ -35,19 +26,14 @@ def parse_args():
                       default=None,
                       dest='parser',
                       help='path to Markdown parser')
-    parser.add_option('-s', '--source',
-                      default=None,
-                      dest='source_dir',
-                      help='source directory')
 
     args, extras = parser.parse_args()
     require(args.parser is not None,
             'Path to Markdown parser not provided')
-    require(args.source_dir is not None,
-            'Source directory not provided')
-    require(not extras,
-            'Unexpected trailing command-line arguments "{0}"'.format(extras))
+    require(extras,
+            'No filenames specified')
 
+    args.filenames = extras
     return args
 
 
@@ -70,20 +56,22 @@ def get_images(parser, filename):
 def find_image_nodes(doc, result):
     """Find all nested nodes representing images."""
 
-    if (doc["type"] == "img") or \
-       ((doc["type"] == "html_element") and (doc["value"] == "img")):
+    if (doc['type'] == 'img') or \
+       ((doc['type'] == 'html_element') and (doc['value'] == 'img')):
         result.append({'alt': doc['attr']['alt'], 'src': doc['attr']['src']})
     else:
-        for child in doc.get("children", []):
+        for child in doc.get('children', []):
             find_image_nodes(child, result)
 
 
 def find_image_links(doc, result):
     """Find all links to files in the 'fig' directory."""
 
-    if (doc['type'] == 'a') and ('attr' in doc) and ('href' in doc['attr']):
+    if ((doc['type'] == 'a') and ('attr' in doc) and ('href' in doc['attr'])) \
+       or \
+       ((doc['type'] == 'html_element') and (doc['value'] == 'a')):
         path = doc['attr']['href']
-        if os.path.splitext(path)[1].lower() in PATH_SUFFICES:
+        if os.path.splitext(path)[1].lower() in IMAGE_FILE_SUFFIX:
             result.append({'alt':'', 'src': doc['attr']['href']})
     else:
         for child in doc.get('children', []):

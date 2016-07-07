@@ -23,10 +23,6 @@ serve : lesson-rmd
 site : lesson-rmd
 	${JEKYLL} build --config _config.yml,_config_dev.yml
 
-## figures          : re-generate inclusion displaying all figures.
-figures :
-	@bin/extract_figures.py -s _episodes -p ${PARSER} > _includes/all_figures.html
-
 # repo-check        : check repository settings.
 repo-check :
 	@bin/repo_check.py -s .
@@ -95,6 +91,10 @@ lesson-check :
 ## lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace.
 lesson-check-all :
 	@bin/lesson_check.py -s . -p ${PARSER} -l -w
+
+## lesson-figures   : re-generate inclusion displaying all figures.
+lesson-figures :
+	@bin/extract_figures.py -p ${PARSER} ${MARKDOWN_SRC} > _includes/all_figures.html
 
 ## unittest         : run unit tests on checking tools.
 unittest :
