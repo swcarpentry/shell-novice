@@ -8,6 +8,15 @@ from optparse import OptionParser
 from util import Reporter, read_markdown
 
 
+# Things an image file's name can end with.
+PATH_SUFFICES = {
+    '.gif',
+    '.jpg',
+    '.png',
+    '.svg'
+}
+
+
 def main():
     """Main driver."""
 
@@ -54,6 +63,7 @@ def get_images(parser, filename):
     content = read_markdown(parser, filename)
     result = []
     find_image_nodes(content['doc'], result)
+    find_image_links(content['doc'], result)
     return result
 
 
@@ -66,6 +76,18 @@ def find_image_nodes(doc, result):
     else:
         for child in doc.get("children", []):
             find_image_nodes(child, result)
+
+
+def find_image_links(doc, result):
+    """Find all links to files in the 'fig' directory."""
+
+    if (doc['type'] == 'a') and ('attr' in doc) and ('href' in doc['attr']):
+        path = doc['attr']['href']
+        if os.path.splitext(path)[1].lower() in PATH_SUFFICES:
+            result.append({'alt':'', 'src': doc['attr']['href']})
+    else:
+        for child in doc.get('children', []):
+            find_image_links(child, result)
 
 
 def save(stream, images):
