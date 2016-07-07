@@ -151,3 +151,11 @@ def check_unwanted_files(dir_path, reporter):
         reporter.check(not os.path.exists(path),
                        path,
                        "Unwanted file found")
+
+
+def require(condition, message):
+    """Fail if condition not met."""
+
+    if not condition:
+        print(message, file=sys.stderr)
+        sys.exit(1)

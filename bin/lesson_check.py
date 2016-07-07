@@ -11,7 +11,7 @@ import json
 import re
 from optparse import OptionParser
 
-from util import Reporter, read_markdown, load_yaml, check_unwanted_files
+from util import Reporter, read_markdown, load_yaml, check_unwanted_files, require
 
 __version__ = '0.2'
 
@@ -250,14 +250,6 @@ def create_checker(args, filename, info):
     for (pat, cls) in CHECKERS:
         if pat.search(filename):
             return cls(args, filename, **info)
-
-
-def require(condition, message):
-    """Fail if condition not met."""
-
-    if not condition:
-        print(message, file=sys.stderr)
-        sys.exit(1)
 
 
 class CheckBase(object):
