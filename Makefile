@@ -27,6 +27,11 @@ site : lesson-rmd
 figures :
 	@bin/extract_figures.py -s _episodes -p ${PARSER} > _includes/all_figures.html
 
+# repo-check        : check repository settings.
+repo-check :
+	@bin/repo_check.py -s .
+
+
 ## clean            : clean up junk files.
 clean :
 	@rm -rf ${DST}
