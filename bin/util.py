@@ -11,11 +11,21 @@ except ImportError:
     sys.exit(1)
 
 
+# Things an image file's name can end with.
+IMAGE_FILE_SUFFIX = {
+    '.gif',
+    '.jpg',
+    '.png',
+    '.svg'
+}
+
+# Files that shouldn't be present.
 UNWANTED_FILES = [
     '.nojekyll'
 ]
 
-
+# Marker to show that an expected value hasn't been provided.
+# (Can't use 'None' because that might be a legitimate value.)
 REPORTER_NOT_SET = []
 
 class Reporter(object):
