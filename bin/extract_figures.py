@@ -69,7 +69,7 @@ def find_image_links(doc, result):
 
     if ((doc['type'] == 'a') and ('attr' in doc) and ('href' in doc['attr'])) \
        or \
-       ((doc['type'] == 'html_element') and (doc['value'] == 'a')):
+       ((doc['type'] == 'html_element') and (doc['value'] == 'a') and ('href' in doc['attr'])):
         path = doc['attr']['href']
         if os.path.splitext(path)[1].lower() in IMAGE_FILE_SUFFIX:
             result.append({'alt':'', 'src': doc['attr']['href']})
