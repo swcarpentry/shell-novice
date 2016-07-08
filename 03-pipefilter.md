@@ -82,7 +82,7 @@ $ wc *.pdb
 
 > ## Using wildcards {.challenge}
 >
-> When run in the `molecules` directory, which `ls` command will
+> When run in the `molecules` directory, which `ls` command(s) will
 > produce this output?
 >
 > `ethane.pdb   methane.pdb`
@@ -606,7 +606,7 @@ so this matches all the valid data files she has.
 > more verbose.  For example, the wildcard expression `*[AB].txt`
 > matches all files ending in `A.txt` or `B.txt`. Imagine you forgot about
 > this.
-> 
+>
 > 1.  Can you match the same set of files with basic wildcard expressions
 >     that do not use the `[]` syntax? *Hint*: You may need more than one
 >     expression.
