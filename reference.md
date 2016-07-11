@@ -46,6 +46,20 @@ subtitle: Reference
 *   The shell does not have a trash bin: once something is deleted, it's really gone.
 *   Nano is a very simple text editor --- please use something else for real work.
 
+###Summary table
+
+|Action      |Files|Folders     |
+|------------|-----|------------|
+|Inspect     |ls   |ls          |
+|View content|cat  |ls          |
+|Navigate to |   |cd          |
+|Move        |mv   |mv          |
+|Copy        |cp   |cp -r       |
+|Create      |nano |mkdir       |
+|Delete      |rm   |rmdir, rm- r|
+
+
+
 ## [Pipes and Filters](03-pipefilter.html)
 
 *   `cat` displays the contents of its inputs.
