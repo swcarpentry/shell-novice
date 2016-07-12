@@ -389,19 +389,19 @@ but it does find the copy in `thesis` that we didn't delete.
 >
 > ~~~
 > $ pwd
-> /Users/jamie/data
+> /Users/nelle/molecules
 > $ ls
-> proteins.dat
+> cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
 > $ mkdir recombine
-> $ mv proteins.dat recombine
-> $ cp recombine/proteins.dat ../proteins-saved.dat
+> $ mv cubane.pbd recombine
+> $ cp recombine/cubane.pbd ../cubane-saved.pbd
 > $ ls
 > ~~~
 >
-> 1.   `proteins-saved.dat recombine`
-> 2.   `recombine`
-> 3.   `proteins.dat recombine`
-> 4.   `proteins-saved.dat`
+> 1.   `cubane-saved.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb recombine`
+> 2.   `ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb recombine`
+> 3.   `cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb recombine`
+> 4.   `cubane-saved.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb`
 
 > ## Organizing Directories and Files {.challenge}
 >
