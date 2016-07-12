@@ -45,8 +45,7 @@ subtitle: Reference
 *   `Ctrl-X`, `Ctrl+X`, `Control-X`, `Control+X`, `^X`.
 *   The shell does not have a trash bin: once something is deleted, it's really gone.
 *   Nano is a very simple text editor --- please use something else for real work.
-
-###Summary table
+*   Here is a table summarizing some of the commands used in this and the previous section:
 
 |Action      |Files|Folders     |
 |------------|-----|------------|
