@@ -54,6 +54,12 @@ Desktop/    pizza.cfg
 molecules/  solar.pdf
 ~~~
 
+Using the shell to create a directory is no different than using a file explorer.
+If you open the current directory using your operating system's graphical file explorer,
+the `thesis` directory will appear there too.
+While they are two different ways of interacting with the files,
+the files and directories themselves are the same.
+
 > ## Good names for files and directories {.callout}
 >
 > Complicated names of files and directories can make your life very painful
