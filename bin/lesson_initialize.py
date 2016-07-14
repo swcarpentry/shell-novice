@@ -174,28 +174,22 @@ ROOT_CONFIG_YML = '''\
 # Which carpentry is this ("swc" or "dc")?
 carpentry: "swc"
 
-# What kind of thing is this ("workshop" or "lesson")?
-kind: "lesson"
-
 # Overall title for pages.
 title: "Lesson Title"
 
-# Repository URL (without trailing slash).
-repo: https://github.com/[USERNAME]/[LESSON-SLUG]
-
-# Root URL below username.github.io domain, with leading slash but no trailing slash.
-# For example, for 'https://swcarpentry.github.io/lesson-example', use '/lesson-example'.
-root: "/[LESSON-SLUG]"
-
 # Contact email address.
-email: "[[CONTACT-ADDRESS]]"
+email: lessons@software-carpentry.org
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
 #------------------------------------------------------------
 
-# Is this production or development? (Overridden in _config_dev.yml.)
-is_production: true
+# What kind of thing is this ("workshop" or "lesson")?
+kind: "lesson"
+
+# Magic to make URLs resolve both locally and on GitHub.
+# See https://help.github.com/articles/repository-metadata-on-github-pages/.
+repository: <USERNAME>/<PROJECT>
 
 # Sites.
 amy_site: "https://amy.software-carpentry.org/workshops"

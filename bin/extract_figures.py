@@ -58,7 +58,8 @@ def find_image_nodes(doc, result):
 
     if (doc['type'] == 'img') or \
        ((doc['type'] == 'html_element') and (doc['value'] == 'img')):
-        result.append({'alt': doc['attr']['alt'], 'src': doc['attr']['src']})
+        alt = doc['attr'].get('alt', '')
+        result.append({'alt': alt, 'src': doc['attr']['src']})
     else:
         for child in doc.get('children', []):
             find_image_nodes(child, result)

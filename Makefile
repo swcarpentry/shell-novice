@@ -17,16 +17,15 @@ commands :
 
 ## serve            : run a local server.
 serve : lesson-rmd
-	${JEKYLL} serve --config _config.yml,_config_dev.yml
+	${JEKYLL} serve
 
 ## site             : build files but do not run a server.
 site : lesson-rmd
-	${JEKYLL} build --config _config.yml,_config_dev.yml
+	${JEKYLL} build
 
 # repo-check        : check repository settings.
 repo-check :
 	@bin/repo_check.py -s .
-
 
 ## clean            : clean up junk files.
 clean :

@@ -1,9 +1,0 @@
-#------------------------------------------------------------
-# This config file is only needed for development. Instead of changing
-# the URL everytime you work locally on the project, run a server with
-# both configuration files:
-#
-#    jekyll serve --config _config.yml,_config_dev.yml
-#------------------------------------------------------------
-
-root: http://localhost:4000

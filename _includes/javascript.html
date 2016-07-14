@@ -1,12 +1,3 @@
-{% comment %}
-  If previewing locally, site.root is set in _config_dev.yml.
-  If site.root is not set, assume we're viewing on the web.
-{% endcomment %}
-{% if site.root %}
-  {% assign root = site.root %}
-{% else %}
-  {% assign root = site.github.url %}
-{% endif %}
-<script src="{{ root }}/assets/js/jquery.min.js"></script>
-<script src="{{ root }}/assets/js/bootstrap.min.js"></script>
-<script src="{{ root }}/assets/js/lesson.js"></script>
+<script src="{{ site.github.url }}/assets/js/jquery.min.js"></script>
+<script src="{{ site.github.url }}/assets/js/bootstrap.min.js"></script>
+<script src="{{ site.github.url }}/assets/js/lesson.js"></script>
