@@ -1,11 +1,30 @@
-{% include episode_find_prev_next.html %}
+{% comment %}
+  Find previous and next episodes (if any).
+{% endcomment %}
+{% for episode in site.episodes  %}
+  {% if episode.url == page.url %}
+    {% unless forloop.first %}
+      {% assign prev_episode = prev %}
+    {% endunless %}
+    {% unless forloop.last %}
+      {% assign next_episode = site.episodes[forloop.index] %}
+    {% endunless %}
+  {% endif %}
+  {% assign prev = episode %}
+{% endfor %}
+
+{% comment %}
+  Display title and prev/next links.
+{% endcomment %}
 <div class="row">
   <div class="col-md-1">
     <h3>
       {% if prev_episode %}
       <a href="{{ site.github.url }}{{ prev_episode.url }}"><span class="glyphicon glyphicon-menu-left"></span></a>
-      {% else %}
+      {% elsif site.github.url %}
       <a href="{{ site.github.url }}"><span class="glyphicon glyphicon-menu-up"></span></a>
+      {% else %}
+      <a href="/"><span class="glyphicon glyphicon-menu-up"></span></a>
       {% endif %}
     </h3>
   </div>
@@ -17,8 +36,10 @@
     <h3>
       {% if next_episode %}
       <a href="{{ site.github.url }}{{ next_episode.url }}"><span class="glyphicon glyphicon-menu-right"></span></a>
-      {% else %}
+      {% elsif site.github.url %}
       <a href="{{ site.github.url }}"><span class="glyphicon glyphicon-menu-up"></span></a>
+      {% else %}
+      <a href="/"><span class="glyphicon glyphicon-menu-up"></span></a>
       {% endif %}
     </h3>
   </div>
