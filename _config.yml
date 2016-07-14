@@ -5,18 +5,8 @@
 # Which carpentry is this ("swc" or "dc")?
 carpentry: "swc"
 
-# What kind of thing is this ("workshop" or "lesson")?
-kind: "lesson"
-
 # Overall title for pages.
 title: "The Unix Shell"
-
-# Repository URL (without trailing slash).
-repo: https://github.com/swcarpentry/shell-novice
-
-# Root URL below username.github.io domain, with leading slash but no trailing slash.
-# For example, for 'https://swcarpentry.github.io/lesson-example', use '/lesson-example'.
-root: "/shell-novice"
 
 # Contact email address.
 email: lessons@software-carpentry.org
@@ -25,8 +15,8 @@ email: lessons@software-carpentry.org
 # Generic settings (should not need to change).
 #------------------------------------------------------------
 
-# Is this production or development? (Overridden in _config_dev.yml.)
-is_production: true
+# What kind of thing is this ("workshop" or "lesson")?
+kind: "lesson"
 
 # Sites.
 amy_site: "https://amy.software-carpentry.org/workshops"
