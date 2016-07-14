@@ -150,13 +150,6 @@ def check_config(reporter, source_dir):
     reporter.check_field(config_file, 'configuration', config, 'carpentry', ('swc', 'dc'))
     reporter.check_field(config_file, 'configuration', config, 'title')
     reporter.check_field(config_file, 'configuration', config, 'email')
-    reporter.check_field(config_file, 'configuration', config, 'repo')
-    reporter.check_field(config_file, 'configuration', config, 'root')
-    if ('repo' in config) and ('root' in config):
-        reporter.check(config['repo'].endswith(config['root']),
-                       config_file,
-                       'Repository name "{0}" not consistent with root "{1}"',
-                       config['repo'], config['root'])
 
 
 def read_all_markdown(source_dir, parser):
