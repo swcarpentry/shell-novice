@@ -62,26 +62,39 @@ class Reporter(object):
     def add(self, location, fmt, *args):
         """Append error unilaterally."""
 
-        if isinstance(location, type(None)):
-            coords = ''
-        elif isinstance(location, str):
-            coords = '{0}: '.format(location)
-        elif isinstance(location, tuple):
-            filename, line_number = location
-            coords = '{0}:{1}: '.format(*location)
-        else:
-            assert False, 'Unknown location "{0}"/{1}'.format(location, type(location))
-
-        self.messages.append(coords + fmt.format(*args))
+        self.messages.append((location, fmt.format(*args)))
 
 
     def report(self, stream=sys.stdout):
-        """Report all messages."""
+        """Report all messages in order."""
 
         if not self.messages:
             return
-        for m in sorted(self.messages):
-            print(m, file=stream)
+
+        def pretty(item):
+            location, message = item
+            if isinstance(location, type(None)):
+                return message
+            elif isinstance(location, str):
+                return location + ': ' + message
+            elif isinstance(location, tuple):
+                return '{0}:{1}: '.format(*location) + message
+            else:
+                assert False, 'Unknown item "{0}"'.format(item)
+
+        def key(item):
+            location, message = item
+            if isinstance(location, type(None)):
+                return ('', -1, message)
+            elif isinstance(location, str):
+                return (location, -1, message)
+            elif isinstance(location, tuple):
+                return (location[0], location[1], message)
+            else:
+                assert False, 'Unknown item "{0}"'.format(item)
+
+        for m in sorted(self.messages, key=key):
+            print(pretty(m), file=stream)
 
 
 def read_markdown(parser, path):
