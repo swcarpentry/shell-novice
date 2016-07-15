@@ -6,6 +6,7 @@ Check repository settings.
 
 import sys
 import os
+from subprocess import Popen, PIPE
 import re
 from optparse import OptionParser
 
@@ -19,7 +20,13 @@ except ImportError:
     sys.exit(1)
 
 
-# Pattern to match repository URLs and extract username and project name.
+# Pattern to match Git command-line output for remotes => (user name, project name).
+P_GIT_REMOTE = re.compile(r'upstream\s+[^:]+:([^/]+)/([^.]+)\.git\s+\(fetch\)')
+
+# Repository URL format string.
+F_REPO_URL = 'https://github.com/{0}/{1}/'
+
+# Pattern to match repository URLs => (user name, project name)
 P_REPO_URL = re.compile(r'https?://github\.com/([^.]+)/([^/]+)/?')
 
 # API URL format string.
@@ -46,7 +53,7 @@ def main():
 
     args = parse_args()
     reporter = Reporter()
-    repo_url = get_repo_url(args.source_dir)
+    repo_url = get_repo_url(args.source_dir, args.repo_url)
     check_labels(reporter, repo_url)
     reporter.report()
 
@@ -57,6 +64,10 @@ def parse_args():
     """
 
     parser = OptionParser()
+    parser.add_option('-r', '--repo',
+                      default=None,
+                      dest='repo_url',
+                      help='repository URL')
     parser.add_option('-s', '--source',
                       default=os.curdir,
                       dest='source_dir',
@@ -69,18 +80,33 @@ def parse_args():
     return args
 
 
-def get_repo_url(source_dir):
+def get_repo_url(source_dir, repo_url):
     """
     Figure out which repository to query.
     """
 
-    config_file = os.path.join(source_dir, '_config.yml')
-    config = load_yaml(config_file)
-    if 'repo' not in config:
-        print('"repo" not found in {0}'.format(config_file), file=sys.stderr)
-        sys.exit(1)
+    # Explicitly specified.
+    if repo_url is not None:
+        return repo_url
 
-    return config['repo']
+    # Guess.
+    cmd = 'git remote -v'
+    p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, close_fds=True, universal_newlines=True)
+    stdout_data, stderr_data = p.communicate()
+    stdout_data = stdout_data.split('\n')
+    matches = [P_GIT_REMOTE.match(line) for line in stdout_data]
+    matches = [m for m in matches if m is not None]
+    require(len(matches) == 1,
+            'Unexpected output from git remote command: "{0}"'.format(matches))
+
+    username = matches[0].group(1)
+    require(username, 'empty username in git remote output {0}'.format(matches[0]))
+
+    project_name = matches[0].group(2)
+    require(username, 'empty project name in git remote output {0}'.format(matches[0]))
+
+    url = F_REPO_URL.format(username, project_name)
+    return url
 
 
 def check_labels(reporter, repo_url):
