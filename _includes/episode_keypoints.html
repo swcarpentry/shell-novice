@@ -1,0 +1,8 @@
+<blockquote class="keypoints">
+  <h2>Key Points</h2>
+  <ul>
+    {% for keypoint in page.keypoints %}
+    <li>{{ keypoint|markdownify }}</li>
+    {% endfor %}
+  </ul>
+</blockquote>

@@ -1,78 +1,117 @@
-PANDOC ?= pandoc
-PANDOC_FLAGS = --smart
+## ========================================
+## Commands for both workshop and lesson websites.
 
-# R Markdown files.
-SRC_RMD = $(wildcard ??-*.Rmd)
-DST_RMD = $(patsubst %.Rmd,%.md,$(SRC_RMD))
+# Settings
+MAKEFILES=Makefile $(wildcard *.mk)
+JEKYLL=jekyll
+PARSER=bin/markdown_ast.rb
+DST=_site
 
-# All Markdown files (hand-written and generated).
-ALL_MD = $(wildcard *.md) $(DST_RMD)
-EXCLUDE_MD = README.md LAYOUT.md FAQ.md DESIGN.md CONTRIBUTING.md CONDUCT.md
-SRC_MD = $(filter-out $(EXCLUDE_MD),$(ALL_MD))
-DST_HTML = $(patsubst %.md,%.html,$(SRC_MD))
-
-# All outputs.
-DST_ALL = $(DST_HTML)
-
-# Pandoc filters.
-FILTERS = $(wildcard tools/filters/*.py)
-
-# Inclusions.
-INCLUDES = \
-	-Vheader="$$(cat _includes/header.html)" \
-	-Vbanner="$$(cat _includes/banner.html)" \
-	-Vfooter="$$(cat _includes/footer.html)" \
-	-Vjavascript="$$(cat _includes/javascript.html)"
-
-# Chunk options for knitr (used in R conversion).
-R_CHUNK_OPTS = tools/chunk-options.R
-
-# Ensure that intermediate (generated) Markdown files from R are kept.
-.SECONDARY: $(DST_RMD)
-
-# Default action is to show what commands are available.
+# Controls
+.PHONY : commands clean files
 all : commands
 
-## check    : Validate all lesson content against the template.
-check: $(ALL_MD)
-	python tools/check.py .
+## commands         : show all commands.
+commands :
+	@grep -h -E '^##' ${MAKEFILES} | sed -e 's/## //g'
 
-## clean    : Clean up temporary and intermediate files.
+## serve            : run a local server.
+serve : lesson-rmd
+	${JEKYLL} serve
+
+## site             : build files but do not run a server.
+site : lesson-rmd
+	${JEKYLL} build
+
+# repo-check        : check repository settings.
+repo-check :
+	@bin/repo_check.py -s .
+
+## clean            : clean up junk files.
 clean :
-	@rm -rf $$(find . -name '*~' -print)
+	@rm -rf ${DST}
+	@rm -rf .sass-cache
+	@rm -rf bin/__pycache__
+	@find . -name .DS_Store -exec rm {} \;
+	@find . -name '*~' -exec rm {} \;
+	@find . -name '*.pyc' -exec rm {} \;
 
-## preview  : Build website locally for checking.
-preview : $(DST_ALL)
+## clean-rmd        : clean intermediate R files (that need to be committed to the repo).
+clear-rmd :
+	@rm -rf ${RMD_DST}
+	@rm -rf fig/rmd-*
 
-# Pattern to build a generic page.
-%.html : %.md _layouts/page.html $(FILTERS)
-	${PANDOC} -s -t html \
-	    ${PANDOC_FLAGS} \
-	    --mathjax \
-	    --template=_layouts/page \
-	    --filter=tools/filters/blockquote2div.py \
-	    --filter=tools/filters/id4glossary.py \
-	    $(INCLUDES) \
-	    -o $@ $<
+## ----------------------------------------
+## Commands specific to workshop websites.
 
-# Pattern to convert R Markdown to Markdown.
-%.md: %.Rmd $(R_CHUNK_OPTS) tools/check_knitr_version.R
-	Rscript -e "source('tools/check_knitr_version.R')"
-	Rscript -e "knitr::knit('$$(basename $<)', output = '$$(basename $@)')"
+.PHONY : workshop-check
 
-## commands : Display available commands.
-commands : Makefile
-	@sed -n 's/^##//p' $<
+## workshop-check   : check workshop homepage.
+workshop-check :
+	@bin/workshop_check.py .
 
-## settings : Show variables and settings.
-settings :
-	@echo 'PANDOC:' $(PANDOC)
-	@echo 'SRC_RMD:' $(SRC_RMD)
-	@echo 'DST_RMD:' $(DST_RMD)
-	@echo 'SRC_MD:' $(SRC_MD)
-	@echo 'DST_HTML:' $(DST_HTML)
+## ----------------------------------------
+## Commands specific to lesson websites.
 
-## unittest : Run internal tests to ensure the validator is working correctly (for Python 2 and 3).
-unittest: tools/check.py tools/validation_helpers.py tools/test_check.py
-	cd tools/ && python2 test_check.py
-	cd tools/ && python3 test_check.py
+.PHONY : lesson-check lesson-rmd lesson-files lesson-fixme
+
+# RMarkdown files
+RMD_SRC = $(wildcard _episodes_rmd/??-*.Rmd)
+RMD_DST = $(patsubst _episodes_rmd/%.Rmd,_episodes/%.md,$(RMD_SRC))
+
+# Lesson source files in the order they appear in the navigation menu.
+MARKDOWN_SRC = \
+  index.md \
+  CONDUCT.md \
+  setup.md \
+  $(wildcard _episodes/*.md) \
+  reference.md \
+  $(wildcard _extras/*.md) \
+  LICENSE.md
+
+# Generated lesson files in the order they appear in the navigation menu.
+HTML_DST = \
+  ${DST}/index.html \
+  ${DST}/conduct/index.html \
+  ${DST}/setup/index.html \
+  $(patsubst _episodes/%.md,${DST}/%/index.html,$(wildcard _episodes/*.md)) \
+  ${DST}/reference/index.html \
+  $(patsubst _extras/%.md,${DST}/%/index.html,$(wildcard _extras/*.md)) \
+  ${DST}/license/index.html
+
+## lesson-rmd       : convert Rmarkdown files to markdown
+lesson-rmd: $(RMD_SRC)
+	@bin/knit_lessons.sh $(RMD_SRC)
+
+## lesson-check     : validate lesson Markdown.
+lesson-check :
+	@bin/lesson_check.py -s . -p ${PARSER}
+
+## lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace.
+lesson-check-all :
+	@bin/lesson_check.py -s . -p ${PARSER} -l -w
+
+## lesson-figures   : re-generate inclusion displaying all figures.
+lesson-figures :
+	@bin/extract_figures.py -p ${PARSER} ${MARKDOWN_SRC} > _includes/all_figures.html
+
+## unittest         : run unit tests on checking tools.
+unittest :
+	python bin/test_lesson_check.py
+
+## lesson-files     : show expected names of generated files for debugging.
+lesson-files :
+	@echo 'RMD_SRC:' ${RMD_SRC}
+	@echo 'RMD_DST:' ${RMD_DST}
+	@echo 'MARKDOWN_SRC:' ${MARKDOWN_SRC}
+	@echo 'HTML_DST:' ${HTML_DST}
+
+## lesson-fixme     : show FIXME markers embedded in source files.
+lesson-fixme :
+	@fgrep -i -n FIXME ${MARKDOWN_SRC} || true
+
+#-------------------------------------------------------------------------------
+# Include extra commands if available.
+#-------------------------------------------------------------------------------
+
+-include commands.mk
