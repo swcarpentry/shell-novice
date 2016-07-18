@@ -1,13 +1,24 @@
 ---
-layout: page
-title: The Unix Shell
-subtitle: Introducing the Shell
-minutes: 5
+title: "Introducing the Shell"
+teaching: 5
+exercises: 0
+questions:
+- "What is a command shell and why would I use one?"
+objectives:
+- "Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs."
+- "Explain when and why command-line interfaces should be used instead of graphical interfaces."
+keypoints:
+- "Explain the similarities and differences between a file and a directory."
+- "Translate an absolute path into a relative path and vice versa."
+- "Construct absolute and relative paths that identify specific files and directories."
+- "Explain the steps in the shell's read-run-print cycle."
+- "Identify the actual command, flags, and filenames in a command-line call."
+- "Demonstrate the use of tab completion, and explain its advantages."
+keypoints:
+- "A shell is a program whose primary purpose is to read commands and run other programs."
+- "The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and that it can be used to access networked machines."
+- "The shell's main disadvantages are its primarily textual nature and how cryptic its commands and operation can be."
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs. (Understand)
-> *   Explain when and why command-line interfaces should be used instead of graphical interfaces. (Understand)
 
 At a high level, computers do four things:
 
@@ -53,7 +64,9 @@ In fact,
 there is usually a program in between called a
 **command shell**.
 What the user types goes into the shell,
-which then figures out what commands to run and orders the computer to execute them. Note, the shell is called *the shell* because it encloses the operating system in order to hide some of its complexity and make it simpler to interact with.
+which then figures out what commands to run and orders the computer to execute them.
+(Note that the shell is called "the shell" because it encloses the operating system
+in order to hide some of its complexity and make it simpler to interact with.)
 
 A shell is a program like any other.
 What's special about it is that its job is to run other programs
@@ -75,8 +88,12 @@ powerful pipelines and handle large volumes of data automatically. This automati
 not only makes us more productive, but also improves the reproducibility of our workflows by 
 allowing us to repeat them with few simple commands.
 In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
-Familiarity with the shell is near essential to run a variety of specialized tools and resources including high-performance computing systems. As clusters and cloud computing systems become more popular for scientific data crunching,
-being able to interact with them is becoming a necessary skill. We can build on the command-line skills covered here to tackle a wide range of scientific questions and computational challenges.
+Familiarity with the shell is near essential to run a variety of specialized tools and resources
+including high-performance computing systems.
+As clusters and cloud computing systems become more popular for scientific data crunching,
+being able to interact with them is becoming a necessary skill.
+We can build on the command-line skills covered here
+to tackle a wide range of scientific questions and computational challenges.
 
 ## Nelle's Pipeline: Starting Point
 

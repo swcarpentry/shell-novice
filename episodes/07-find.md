@@ -1,15 +1,22 @@
 ---
-layout: page
-title: The Unix Shell
-subtitle: Finding Things
-minutes: 15
+title: "Finding Things"
+teaching: 15
+exercises: 0
+questions:
+- "How can I find files?"
+- "How can I find things in files?"
+objectives:
+- "Use `grep` to select lines from text files that match simple patterns."
+- "Use `find` to find files whose names match simple patterns."
+- "Use the output of one command as the command-line parameters to another command."
+- "Explain what is meant by 'text' and 'binary' files, and why many common tools don't handle the latter well."
+keypoints:
+- "`find` finds files with specific properties that match patterns."
+- "`grep` selects lines in files that match patterns."
+- "`--help` is a flag supported by many bash commands, and programs that can be run from within Bash, to display more information on how to use these commands or programs."
+- "`man command` displays the manual page for a given command."
+- "`$(command)` inserts a command's output in place."
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Use `grep` to select lines from text files that match simple patterns. (Apply)
-> *   Use `find` to find files whose names match simple patterns. (Apply)
-> *   Use the output of one command as the command-line parameters to another command. (Apply)
-> *   Explain what is meant by "text" and "binary" files, and why many common tools don't handle the latter well. (Understand)
 
 In the same way that many of us now use "Google" as a 
 verb meaning "to find", Unix programmers often use the 
@@ -24,12 +31,14 @@ we will use a file that contains three haikus taken from a
 1998 competition in *Salon* magazine. For this set of examples,
 we're going to be working in the writing subdirectory:
 
-~~~ {.bash}
+~~~
 $ cd
 $ cd writing
 $ cat haiku.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 The Tao that is seen
 Is not the true Tao, until
 You bring fresh toner.
@@ -42,23 +51,28 @@ Yesterday it worked
 Today it is not working
 Software is like that.
 ~~~
+{: .output}
 
-> ## Forever, or Five Years {.callout}
+> ## Forever, or Five Years
 >
 > We haven't linked to the original haikus because they don't appear to be on *Salon*'s site any longer.
 > As [Jeff Rothenberg said](http://www.clir.org/pubs/archives/ensuring.pdf),
 > "Digital information lasts forever --- or five years, whichever comes first."
+{: .callout}
 
 Let's find lines that contain the word "not":
 
-~~~ {.bash}
+~~~
 $ grep not haiku.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 Is not the true Tao, until
 "My Thesis" not found
 Today it is not working
 ~~~
+{: .output}
 
 Here, `not` is the pattern we're searching for.
 It's pretty simple:
@@ -68,13 +82,16 @@ The output is the three lines in the file that contain the letters "not".
 
 Let's try a different pattern: "day".
 
-~~~ {.bash}
+~~~
 $ grep day haiku.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 Yesterday it worked
 Today it is not working
 ~~~
+{: .output}
 
 This time,
 two lines that include the letters "day" are outputted.
@@ -83,20 +100,24 @@ To restrict matches to lines containing the word "day" on its own,
 we can give `grep` with the `-w` flag.
 This will limit matches to word boundaries.
 
-~~~ {.bash}
+~~~
 $ grep -w day haiku.txt
 ~~~
+{: .bash}
 
 In this case, there aren't any, so `grep`'s output is empty. Sometimes we don't
 want to search for a single word, but a phrase. This is also easy to do with
 `grep` by putting the phrase in quotes.
 
-~~~ {.bash}
+~~~
 $ grep -w "is not" haiku.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 Today it is not working
 ~~~
+{: .output}
 
 We've now seen that you don't have to have quotes around single words,
 but it is useful to use quotes when searching for multiple words.
@@ -106,14 +127,17 @@ We will use quotes in the remaining examples.
 
 Another useful option is `-n`, which numbers the lines that match:
 
-~~~ {.bash}
+~~~
 $ grep -n "it" haiku.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 5:With searching comes loss
 9:Yesterday it worked
 10:Today it is not working
 ~~~
+{: .output}
 
 Here, we can see that lines 5, 9, and 10 contain the letters "it".
 
@@ -121,32 +145,40 @@ We can combine options (i.e. flags) as we do with other Unix commands.
 For example, let's find the lines that contain the word "the". We can combine
 the option `-w` to find the lines that contain the word "the" and `-n` to number the lines that match:
 
-~~~ {.bash}
+~~~
 $ grep -n -w "the" haiku.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 2:Is not the true Tao, until
 6:and the presence of absence:
 ~~~
+{: .output}
 
 Now we want to use the option `-i` to make our search case-insensitive:
 
-~~~ {.bash}
+~~~
 $ grep -n -w -i "the" haiku.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 1:The Tao that is seen
 2:Is not the true Tao, until
 6:and the presence of absence:
 ~~~
+{: .output}
 
 Now, we want to use the option `-v` to invert our search, i.e., we want to output
 the lines that do not contain the word "the".
 
-~~~ {.bash}
+~~~
 $ grep -n -w -v "the" haiku.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 1:The Tao that is seen
 3:You bring fresh toner.
 4:
@@ -157,14 +189,16 @@ $ grep -n -w -v "the" haiku.txt
 10:Today it is not working
 11:Software is like that.
 ~~~
+{: .output}
 
 `grep` has lots of other options. To find out what they are, we can type:
 
-~~~{.bash}
+~~~
 $ grep --help
 ~~~
+{: .bash}
 
-~~~{.output}
+~~
 Usage: grep [OPTION]... PATTERN [FILE]...
 Search for PATTERN in each FILE or standard input.
 PATTERN is, by default, a basic regular expression (BRE).
@@ -184,11 +218,10 @@ Regexp selection and interpretation:
 
 Miscellaneous:
 ...        ...        ...
-
-
 ~~~
+{: .output}
 
-> ## Wildcards {.callout}
+> ## Wildcards
 >
 > `grep`'s real power doesn't come from its options, though; it comes from
 > the fact that patterns can include wildcards. (The technical name for
@@ -198,10 +231,17 @@ Miscellaneous:
 > on [our website](http://v4.software-carpentry.org/regexp/index.html). As a taster, we can
 > find lines that have an 'o' in the second position like this:
 >
->     $ grep -E '^.o' haiku.txt
->     You bring fresh toner.
->     Today it is not working
->     Software is like that.
+> ~~~
+> $ grep -E '^.o' haiku.txt
+> ~~~
+> {: .bash}
+>
+> ~~~
+> You bring fresh toner.
+> Today it is not working
+> Software is like that.
+> ~~~
+> {: .output}
 >
 > We use the `-E` flag and put the pattern in quotes to prevent the shell
 > from trying to interpret it. (If the pattern contained a `*`, for
@@ -209,6 +249,7 @@ Miscellaneous:
 > `^` in the pattern anchors the match to the start of the line. The `.`
 > matches a single character (just like `?` in the shell), while the `o`
 > matches an actual 'o'.
+{: .callout}
 
 While `grep` finds lines in files,
 the `find` command finds files themselves.
@@ -216,7 +257,7 @@ Again,
 it has a lot of options;
 to show how the simplest ones work, we'll use the directory tree shown below.
 
-![File Tree for Find Example](fig/find-file-tree.svg)
+![File Tree for Find Example]({{ site.github.url }}/fig/find-file-tree.svg)
 
 Nelle's `writing` directory contains one file called `haiku.txt` and four subdirectories:
 `thesis` (which contains a sadly empty file, `empty-draft.md`),
@@ -227,10 +268,12 @@ and a subdirectory called `old`, with a file `oldtool`.
 For our first command,
 let's run `find .`.
 
-~~~ {.bash}
+~~~
 $ find .
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 .
 ./old
 ./old/.gitkeep
@@ -246,6 +289,7 @@ $ find .
 ./thesis
 ./thesis/empty-draft.md
 ~~~
+{: .output}
 
 As always,
 the `.` on its own means the current working directory,
@@ -262,24 +306,29 @@ Sure enough,
 `find`'s output is the names of the five directories in our little tree
 (including `.`):
 
-~~~ {.bash}
+~~~
 $ find . -type d
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ./
 ./data
 ./thesis
 ./tools
 ./tools/old
 ~~~
+{: .output}
 
 If we change `-type d` to `-type f`,
 we get a listing of all the files instead:
 
-~~~ {.bash}
+~~~
 $ find . -type f
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ./haiku.txt
 ./tools/stats
 ./tools/old/oldtool
@@ -288,15 +337,19 @@ $ find . -type f
 ./data/one.txt
 ./data/two.txt
 ~~~
+{: .output}
 
 Now let's try matching by name:
 
-~~~ {.bash}
+~~~
 $ find . -name *.txt
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ./haiku.txt
 ~~~
+{: .output}
 
 We expected it to find all the text files,
 but it only prints out `./haiku.txt`.
@@ -304,9 +357,10 @@ The problem is that the shell expands wildcard characters like `*` *before* comm
 Since `*.txt` in the current directory expands to `haiku.txt`,
 the command we actually ran was:
 
-~~~ {.bash}
+~~~
 $ find . -name haiku.txt
 ~~~
+{: .bash}
 
 `find` did what we asked; we just asked for the wrong thing.
 
@@ -316,21 +370,25 @@ put `*.txt` in single quotes to prevent the shell from expanding the `*` wildcar
 This way,
 `find` actually gets the pattern `*.txt`, not the expanded filename `haiku.txt`:
 
-~~~ {.bash}
+~~~
 $ find . -name '*.txt'
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ./data/one.txt
 ./data/two.txt
 ./haiku.txt
 ~~~
+{: .output}
 
-> ## Listing vs. Finding {.callout}
+> ## Listing vs. Finding
 >
 > `ls` and `find` can be made to do similar things given the right options,
 > but under normal circumstances,
 > `ls` lists everything it can,
 > while `find` searches for things with certain properties and shows them.
+{: .callout}
 
 As we said earlier,
 the command line's power lies in combining tools.
@@ -342,15 +400,18 @@ How can we combine that with `wc -l` to count the lines in all those files?
 
 The simplest way is to put the `find` command inside `$()`:
 
-~~~ {.bash}
+~~~
 $ wc -l $(find . -name '*.txt')
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 11 ./haiku.txt
 300 ./data/two.txt
 70 ./data/one.txt
 381 total
 ~~~
+{: .output}
 
 When the shell executes this command,
 the first thing it does is run whatever is inside the `$()`.
@@ -358,9 +419,10 @@ It then replaces the `$()` expression with that command's output.
 Since the output of `find` is the three filenames `./data/one.txt`, `./data/two.txt`, and `./haiku.txt`,
 the shell constructs the command:
 
-~~~ {.bash}
+~~~
 $ wc -l ./data/one.txt ./data/two.txt ./haiku.txt
 ~~~
+{: .bash}
 
 which is what we wanted.
 This expansion is exactly what the shell does when it expands wildcards like `*` and `?`,
@@ -372,14 +434,17 @@ the second looks for lines inside those files that match another pattern.
 Here, for example, we can find PDB files that contain iron atoms
 by looking for the string "FE" in all the `.pdb` files above the current directory:
 
-~~~ {.bash}
+~~~
 $ grep "FE" $(find .. -name '*.pdb')
 ~~~
-~~~ {.output}
+{: .bash}
+
+~~~
 ../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518
 ~~~
+{: .output}
 
-> ## Binary Files {.callout}
+> ## Binary Files
 >
 > We have focused exclusively on finding things in text files. What if
 > your data is stored as images, in databases, or in some other format?
@@ -402,6 +467,7 @@ $ grep "FE" $(find .. -name '*.pdb')
 > When the time comes to do this, don't be too hard on the shell: many
 > modern programming languages, Python included, have borrowed a lot of
 > ideas from it, and imitation is also the sincerest form of praise.
+{: .callout}
 
 The Unix shell is older than most of the people who use it. It has
 survived so long because it is one of the most productive programming
@@ -414,7 +480,7 @@ North Whitehead wrote in 1911, "Civilization advances by extending the
 number of important operations which we can perform without thinking
 about them."
 
-> ## Using `grep` {.challenge}
+> ## Using `grep`
 >
 > ~~~
 > The Tao that is seen
@@ -429,6 +495,7 @@ about them."
 > Today it is not working
 > Software is like that.
 > ~~~
+> {: .source}
 >
 > From the above text, contained in the file `haiku.txt`, which command would result in the
 > following output:
@@ -436,21 +503,25 @@ about them."
 > ~~~
 > and the presence of absence:
 > ~~~
+> {: .output}
 >
 > 1. `grep "of" haiku.txt`
 > 2. `grep -E "of" haiku.txt`
 > 3. `grep -w "of" haiku.txt`
 > 4. `grep -i "of" haiku.txt`
+{: .challenge}
 
-> ## `find` Pipeline Reading Comprehension {.challenge}
+> ## `find` Pipeline Reading Comprehension
 >
 > Write a short explanatory comment for the following shell script:
 >
-> ~~~ {.bash}
+> ~~~
 > wc -l $(find . -name '*.dat') | sort -n
 > ~~~
+> {: .bash}
+{: .challenge}
 
-> ## Matching and Subtracting {.challenge}
+> ## Matching and Subtracting
 >
 > The `-v` flag to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
@@ -462,8 +533,9 @@ about them."
 > 2.  `find /data -name ose.dat | grep -v temp`
 > 3.  `grep -v "temp" $(find /data -name '*ose.dat')`
 > 4.  None of the above.
+{: .challenge}
 
-> ## Tracking a Species {.challenge}
+> ## Tracking a Species
 > 
 > Leah has several hundred 
 > data files saved in one directory, each of which is formatted like this:
@@ -475,6 +547,7 @@ about them."
 > 2013-11-06,rabbit,19
 > 2013-11-06,deer,2
 > ~~~
+> {: .source}
 >
 > She wants to write a shell script that takes a directory and a species 
 > as command-line parameters and return one file called `species.txt` 
@@ -486,10 +559,11 @@ about them."
 > 2013-11-06,19
 > 2013-11-07,18
 > ~~~
+> {: .source}
 >
 > Put these commands and pipes in the right order to achieve this:
 > 
-> ~~~ {.bash}
+> ~~~
 > cut -d : -f 2  
 > >  
 > |  
@@ -498,11 +572,13 @@ about them."
 > $1.txt  
 > cut -d , -f 1,3  
 > ~~~
+> {: .bash}
 >
 > Hint: use `man grep` to look for how to grep text recursively in a directory
 > and `man cut` to select more than one field in a line.
+{: .challenge}
 
-> ## Little Women {.challenge}
+> ## Little Women
 >
 > You and your friend, having just finished reading *Little Women* by
 > Louisa May Alcott, are in an argument.  Of the four sisters in the
@@ -515,8 +591,9 @@ about them."
 > Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+{: .challenge}
 
-> ## Finding Files With Different Properties {.challenge}
+> ## Finding Files With Different Properties
 > 
 > The `find` command can be given several other criteria known as "tests"
 > to locate files with specific attributes, such as creation time, size,
@@ -530,6 +607,8 @@ about them."
 >
 > Solution: Assuming that Nelle’s home is our working directory we type:
 >
-> ~~~ {.bash}
+> ~~~
 > $ find ./ -type f -mtime -1 -user ahmed
 > ~~~
+> {: .bash}
+{: .challenge}

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: The Unix Shell
-subtitle: Instructor's Guide
+title: "Instructor's Guide"
+permalink: /guide/
 ---
 *   Why do we learn to use the shell?
     *   Allows users to automate repetitive tasks
@@ -55,8 +55,14 @@ to make their future selves' lives better.
 
 The third answer is,
 "Because it enables use of many domain-specific tools and compute resources researchers cannot access otherwise."
-Familiarity with the shell is very useful for remote accessing machines, using high-performance computing infrastructure, and running new specialist tools in many disciplines. We do not teach HPC or domain-specific skills
-here but lay the groundwork for further development of these skills. In particular, understanding the syntax of commands,  flags, and help systems is useful for domain specific tools and understanding the file system (and how to navigate it) is useful for remote access.
+Familiarity with the shell is very useful for remote accessing machines,
+using high-performance computing infrastructure,
+and running new specialist tools in many disciplines.
+We do not teach HPC or domain-specific skills here
+but lay the groundwork for further development of these skills.
+In particular,
+understanding the syntax of commands, flags, and help systems is useful for domain specific tools
+and understanding the file system (and how to navigate it) is useful for remote access.
 
 Finally,
 and perhaps most importantly,
@@ -77,26 +83,48 @@ as long as learners using Windows do not run into roadblocks such as:
 
 ## Preparing to Teach
 
-* For a great general list of tips, see [this swcarpentry blog post](http://software-carpentry.org/blog/2015/03/teaching-tips.html)
-* Use the `data` directory for in-workshop exercises and live coding examples.
-You can clone the shell-novice directory or use the `Download ZIP` 
-button on the right to get the entire repository; we also now provide 
-a zip file of the `data` directory that can be downloaded on its own 
-from the repository by right-click + save.  See the "Get Ready" box 
-on the front page of the website for more details.  
-* Website: various practices have been used.
-	* Option 1: Can give links to learners before the lesson so they can follow along, catch up, and see exercises (particularly if you're following the lesson content without many changes).
-	* Option 2: Don't show the website to the learners during the lesson, as it can be distracting - students may read instead of listen, and having another window open is an additional cognitive load.
-	* In any case, make sure to point to website as a post-workshop reference.
-* Content: Unless you have a truly generous amount of time (4+ hours), it is likely that you will not cover ALL the material in this lesson in a single half-day session.  Plan ahead on what you might skip, what you really want to emphasize, etc.
-* Exercises: Think in advance about how you might want to handle exercises during the lesson.  How are you assigning them (website, slide, handout)?  Do you want everyone to try it and then you show the solution?  Have a learner show the solution?  Have groups each do a different exercise and present their solutions?
-* `reference.md` can be printed out and given to students as a reference, your choice.
-* Other preparation: Feel free to add your own examples or side comments, but know that it shouldn't be necessary - the topics and commands can be taught as given on the lesson pages!  If you think there is a place where the lesson is lacking, feel free to raise an [issue](https://github.com/swcarpentry/shell-novice/issues) or submit a [pull request](https://github.com/swcarpentry/shell-novice/pulls).
+*   For a great general list of tips, see [this swcarpentry blog post](http://software-carpentry.org/blog/2015/03/teaching-tips.html)
+
+*   Use the `data` directory for in-workshop exercises and live coding examples.
+    You can clone the shell-novice directory or use the `Download ZIP` 
+    button on the right to get the entire repository; we also now provide 
+    a zip file of the `data` directory that can be downloaded on its own 
+    from the repository by right-click + save.  See the "Get Ready" box 
+    on the front page of the website for more details.  
+
+*   Website: various practices have been used.
+    *   Option 1: Can give links to learners before the lesson so they can follow along,
+        catch up,
+	and see exercises (particularly if you're following the lesson content without many changes).
+    *   Option 2: Don't show the website to the learners during the lesson, as it can be distracting:
+        students may read instead of listen, and having another window open is an additional cognitive load.
+	*   In any case, make sure to point to website as a post-workshop reference.
+
+*   Content:
+    Unless you have a truly generous amount of time (4+ hours),
+    it is likely that you will not cover ALL the material in this lesson in a single half-day session.
+    Plan ahead on what you might skip, what you really want to emphasize, etc.
+
+*   Exercises:
+    Think in advance about how you might want to handle exercises during the lesson.
+    How are you assigning them (website, slide, handout)?
+    Do you want everyone to try it and then you show the solution?
+    Have a learner show the solution?
+    Have groups each do a different exercise and present their solutions?
+
+*   `reference.md` can be printed out and given to students as a reference, your choice.
+
+*   Other preparation:
+    Feel free to add your own examples or side comments,
+    but know that it shouldn't be necessary:
+    the topics and commands can be taught as given on the lesson pages.
+    If you think there is a place where the lesson is lacking,
+    feel free to raise an [issue]({{ site.repo }}/issues) or submit a [pull request]({{ site.repo }}/pulls).
+
 *   Optional setup:
     *   Run `tools/gen-nene.py` to regenerate random data files if needed
         (some are already in the `data` directory, so you don't have to do this).
     *   Similarly, run `tools/gen-sequence.py` to regenerate random sequence data if needed.
-
 
 ## Teaching Notes
 
@@ -181,10 +209,11 @@ on the front page of the website for more details.
 
 *   On Windows, it appears that:
 
-    ~~~ {.bash}
+    ~~~
     $ cd
     $ cd Desktop
     ~~~
+    {: .bash}
 
     will always put someone on their desktop.
     Have them create the example directory for the shell exercises there
@@ -229,83 +258,3 @@ And please also make use of our
 [Software Carpentry Windows Installer](http://github.com/swcarpentry/windows-installer).
 
 [shebang]: http://www.in-ulm.de/~mascheck/various/shebang/
-
-## Solutions to exercises
-
-## [Navigating Files and Directories](01-filedir.html)
-
-> ## Many ways to do the same thing - absolute vs relative paths {.challenge}
->
-> Starting from a filesystem location of `/Users/amanda/data/`, 
-> which of the following commands could Amanda use to navigate to her home directory, 
-> which is `/Users/amanda`?
-> 
->1.  `cd .` **no** (`.` stands for the current directory)
->2.  `cd /` **no** (`/` stands for the root directory)
->3.  `cd /home/amanda` **no** (Amanda's home directory is `/Users/amanda`)
->4.  `cd ../..` **no** (this goes up two levels, i.e. ends in `/Users`)
->5.  `cd ~`  **yes** (`~` stands for the user's home directory, in this case `/Users/amanda`)
->6.  `cd home` **no** (this would navigate into a directory `home` in the current directory if it exists)
->7.  `cd ~/data/..` **yes** (unnecessarily complicated, but correct)
->8.  `cd`  **yes** (shortcut to go back to the user's home directory)
->9.  `cd ..` **yes** (goes up one level)
-
-> ## Relative path resolution {.challenge}
->
-> Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
-> what will `ls ../backup` display?
->
-> 1.  `../backup: No such file or directory` **no** (there *is* a directory
-      `backup` in `/Users`) 
-> 2.  `2012-12-01 2013-01-08 2013-01-27` **no** (this is the content of
-      `Users/thing/backup` but with `..` we asked for one level further up)
-> 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/` **no** (see previous explanation,
-      also we did not specify `-F` to display `/` at the end of the directory names)
-> 4.  `original pnas_final pnas_sub`  **yes** (`../backup` refers to
-      `/Users/backup`)
-
-> ## `ls` reading comprehension {.challenge}
->
-> Assuming a directory structure as in the above Figure 
-> (File System for Challenge Questions), if `pwd` displays `/Users/backup`,
-> and `-r` tells `ls` to display things in reverse order,
-> what command will display:
->
-> ~~~
-> pnas_sub/ pnas_final/ original/
-> ~~~
->
-> 1.  `ls pwd`  **no** (`pwd` is not the name of a directory)
-> 2.  `ls -r -F` **yes** (`ls` without directory argument lists files and
->     directories in the current directory)
-> 3.  `ls -r -F /Users/backup`  **yes** (uses the absolute path explicitly)
-> 4.  Either \#2 or \#3 above, but not \#1.  **correct answer** (see
->     explanations above)
-
-> ## Exploring more `ls` arguments {.challenge}
-> 
-> What does the command `ls` do when used with the `-l` and `-h` arguments?
-> 
-> Some of its output is about properties that we do not cover in this lesson (such
-> as file permissions and ownership), but the rest should be useful
-> nevertheless.
-> 
-> **Answer:**
-> The `-l` arguments makes `ls` use a **l**ong listing format, showing not only
-> the file/directory names but also additional information such as the file size
-> and the time of its last modification. The `-h` argument makes the file size
-> "**h**uman readable", i.e. display something like `5.3K` instead of `5369`.
-
-> ## Listing Recursively and By Time {.challenge}
-> 
-> The command ls -R lists the contents of directories recursively, i.e., lists 
-> their sub-directories, sub-sub-directories, and so on in alphabetical order 
-> at each level. The command ls -t lists things by time of last change, with 
-> most recently changed files or directories first.
-> In what order does ls -R -t display things? Hint: ls -l uses a long listing 
-> format to view timestamps.
-> 
-> **Answer:**
-> The directories are listed alphabetical at each level, the files/directories
-> in each directory are sorted by time of last change.
-
