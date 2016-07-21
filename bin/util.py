@@ -1,8 +1,8 @@
+from __future__ import print_function
 import sys
 import os
 import json
 from subprocess import Popen, PIPE
-from __future__ import print_function
 
 # Import this way to produce a more useful error message.
 try:
