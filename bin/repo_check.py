@@ -11,6 +11,7 @@ import re
 from optparse import OptionParser
 
 from util import Reporter, load_yaml, require
+from __future__ import print_function
 
 # Import this way to produce a more useful error message.
 try:
