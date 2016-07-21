@@ -6,7 +6,7 @@ import glob
 from optparse import OptionParser
 
 from util import Reporter, read_markdown, IMAGE_FILE_SUFFIX
-
+from __future__ import print_function
 
 def main():
     """Main driver."""
