@@ -5,7 +5,7 @@
 
 import sys
 import os
-
+from __future__ import print_function
 
 ROOT_AUTHORS = '''\
 FIXME: list authors' names and email addresses.
