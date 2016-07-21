@@ -239,7 +239,7 @@ done
 ~~~
 {: .bash}
 
-![For loop in action]({{ site.github.url }}/fig/shell_script_for_loop_flow_chart.svg)
+![For Loop in Action](../fig/shell_script_for_loop_flow_chart.svg)
 
 This loop runs the `cp` command once for each filename.
 The first time,
