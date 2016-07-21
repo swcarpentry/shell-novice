@@ -4,12 +4,12 @@
 docstrings on the checking functions for a summary of the checks.
 '''
 
+from __future__ import print_function
 import sys
 import os
 import re
 from datetime import date
 from util import Reporter, split_metadata, load_yaml, check_unwanted_files
-from __future__ import print_function
 
 # Metadata field patterns.
 EMAIL_PATTERN = r'[^@]+@[^@]+\.[^@]+'
