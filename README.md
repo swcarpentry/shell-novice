@@ -14,3 +14,4 @@ Maintainers:
 
 [devenyi_gabriel]: http://software-carpentry.org/team/#devenyi_gabriel
 [srinath_ashwin]: http://software-carpentry.org/team/#srinath_ashwin
+[lesson-example]: https://swcarpentry.github.io/lesson-example/
