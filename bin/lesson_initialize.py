@@ -63,18 +63,22 @@ and to meet some of our community members.
 
 ## Where to Contribute
 
-1.  If you wish to change this example lesson,
-    please work in <https://github.com/swcarpentry/lesson-example>.
-    This lesson documents the format of our lessons,
+1.  If you wish to change this lesson,
+    please work in <https://github.com/swcarpentry/FIXME>,
+    which can be viewed at <https://swcarpentry.github.io/FIXME>.
+
+2.  If you wish to change the example lesson,
+    please work in <https://github.com/swcarpentry/lesson-example>,
+    which documents the format of our lessons
     and can be viewed at <https://swcarpentry.github.io/lesson-example>.
 
-2.  If you wish to change the template used for workshop websites,
+3.  If you wish to change the template used for workshop websites,
     please work in <https://github.com/swcarpentry/workshop-template>.
     The home page of that repository explains how to set up workshop websites,
     while the extra pages in <https://swcarpentry.github.io/workshop-template>
     provide more background on our design choices.
 
-3.  If you wish to change CSS style files, tools,
+4.  If you wish to change CSS style files, tools,
     or HTML boilerplate for lessons or workshops stored in `_includes` or `_layouts`,
     please work in <https://github.com/swcarpentry/styles>.
 
@@ -159,8 +163,8 @@ You can also [reach us by email][contact].
 [github-flow]: https://guides.github.com/introduction/flow/
 [github-join]: https://github.com/join
 [how-contribute]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
-[issues]: https://github.com/swcarpentry/lesson-example/issues/
-[repo]: https://github.com/swcarpentry/lesson-example/
+[issues]: https://github.com/swcarpentry/FIXME/issues/
+[repo]: https://github.com/swcarpentry/FIXME/
 [swc-issues]: https://github.com/issues?q=user%3Aswcarpentry
 [swc-lessons]: http://software-carpentry.org/lessons/
 [swc-site]: http://software-carpentry.org/
