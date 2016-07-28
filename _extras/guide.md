@@ -119,7 +119,7 @@ as long as learners using Windows do not run into roadblocks such as:
     but know that it shouldn't be necessary:
     the topics and commands can be taught as given on the lesson pages.
     If you think there is a place where the lesson is lacking,
-    feel free to raise an [issue]({{ site.repo }}/issues) or submit a [pull request]({{ site.repo }}/pulls).
+    feel free to file an issue or submit a pull request.
 
 *   Optional setup:
     *   Run `tools/gen-nene.py` to regenerate random data files if needed
@@ -127,12 +127,6 @@ as long as learners using Windows do not run into roadblocks such as:
     *   Similarly, run `tools/gen-sequence.py` to regenerate random sequence data if needed.
 
 ## Teaching Notes
-
-*   Time estimates:
-    *   @gvwilson: 3 hours
-    * @christinalk: in a usual 3 hour session, I can usually cover all of 
-    files/dirs, creating things, pipes filters, and most (although not all) 
-    of the scripts/loops lesson.  I have never taught all 6 modules in 3 hours.  
 
 *   Super cool online resource!  http://explainshell.com/ will dissect any shell command you type in and display help text for each piece.  
 
