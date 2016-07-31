@@ -727,3 +727,21 @@ so this matches all the valid data files she has.
 > 5.  `cut -d, -f 2 animals.txt | sort | uniq -c`
 > 6.  `cut -d, -f 2 animals.txt | sort | uniq -c | wc -l`
 {: .challenge}
+
+> ## Appending Data
+>
+> Consider the file `animals.txt`, used in previous exercise. 
+> After these commands, select the alternative that 
+> corresponds the file `animalsUpd.txt`:
+>
+> ~~~
+> $ head -3 animals.txt > animalsUpd.txt
+> $ tail -2 animals.txt >> animalsUpd.txt
+> ~~~
+> {: .bash}
+> 
+> 1. The first three lines of `animals.txt`
+> 2. The last two lines of `animals.txt`
+> 3. The first three lines and the last two lines of `animals.txt`
+> 4. The second and third lines of `animals.txt`
+{: .challenge}
