@@ -505,6 +505,41 @@ so this matches all the valid data files she has.
 > Explain why `-n` has this effect.
 {: .challenge}
 
+> ## Sorting number in scientific notation
+>
+> If we run `sort -n` on this file:
+>
+> ~~~
+> 2
+> 1.1E-2
+> 1E3
+> 10
+> ~~~
+> {: .source}
+>
+> the output is wrong:
+>
+> ~~~
+> 1.1E-2
+> 1E3
+> 2
+> 10
+> ~~~
+> {: .output}
+>
+> If we run `sort -g` on the same input, we get the correct answer instead:
+>
+> ~~~
+> 1.1E-2
+> 2
+> 10
+> 1E3
+> ~~~
+> {: .output}
+>
+> Explain why `-g` has this effect.
+{: .challenge}
+
 > ## What Does `<` Mean?
 >
 > What is the difference between:
