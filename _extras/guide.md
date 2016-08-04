@@ -83,8 +83,6 @@ as long as learners using Windows do not run into roadblocks such as:
 
 ## Preparing to Teach
 
-*   For a great general list of tips, see [this swcarpentry blog post](http://software-carpentry.org/blog/2015/03/teaching-tips.html)
-
 *   Use the `data` directory for in-workshop exercises and live coding examples.
     You can clone the shell-novice directory or use the `Download ZIP` 
     button on the right to get the entire repository; we also now provide 
@@ -128,10 +126,12 @@ as long as learners using Windows do not run into roadblocks such as:
 
 ## Teaching Notes
 
-*   Super cool online resource!  http://explainshell.com/ will dissect any shell command you type in and display help text for each piece.  
+*   Super cool online resource!
+    <http://explainshell.com/> will dissect any shell command you type in
+    and display help text for each piece.  
 
 *   Resources for "splitting" your shell so that recent commands 
-    remain in view: https://github.com/rgaiacs/swc-shell-split-window
+    remain in view: <https://github.com/rgaiacs/swc-shell-split-window>.
 
 *   Running a text editor from the command line can be 
     the biggest stumbling block during the entire lesson:
@@ -171,8 +171,8 @@ as long as learners using Windows do not run into roadblocks such as:
 *   If everything is going well, you can drive home the point that file
     extensions are essentially there to help computers (and human
     readers) understand file content and are not a requirement of files
-    (covered briefly in [Navigating Files and Directories](01-filedir.html)).
-    This can be done in the [Pipes and Filters](03-pipefilter.html) section by showing that you
+    (covered briefly in [Navigating Files and Directories]({{ site.github.url }}/02-filedir/)).
+    This can be done in the [Pipes and Filters]({{ site.github.url }}/04-pipefilter/) section by showing that you
     can redirect standard output to a file without the .txt extension
     (e.g., lengths), and that the resulting file is still a perfectly usable text file.
     Make the point that if double-clicked in the GUI, the computer will
@@ -196,7 +196,7 @@ as long as learners using Windows do not run into roadblocks such as:
 
 *   On Windows machines
     if `nano` hasn't been properly installed with the
-    [Software Carpentry Windows Installer](http://github.com/swcarpentry/windows-installer)
+    [Software Carpentry Windows Installer][windows-installer]
     it is possible to use `notepad` as an alternative.  There will be a GUI
     interface and line endings are treated differently, but otherwise, for
     the purposes of this lesson, `notepad` and `nano` can be used almost interchangeably.
@@ -249,6 +249,7 @@ Whatever you use,
 please *test it yourself* on a Windows machine *before* your workshop:
 things may always have changed behind your back since your last workshop.
 And please also make use of our
-[Software Carpentry Windows Installer](http://github.com/swcarpentry/windows-installer).
+[Software Carpentry Windows Installer][windows-installer].
 
 [shebang]: http://www.in-ulm.de/~mascheck/various/shebang/
+[windows-installer]: ({{ site.swc_github }}/windows-installer)
