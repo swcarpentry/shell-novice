@@ -75,7 +75,15 @@ molecules/  solar.pdf
 ~~~
 {: .output}
 
-> ## Good Names for Files and Directories
+> ## Two ways of doing the same thing
+> Using the shell to create a directory is no different than using a file explorer.
+> If you open the current directory using your operating system's graphical file explorer,
+> the `thesis` directory will appear there too.
+> While they are two different ways of interacting with the files,
+> the files and directories themselves are the same.
+{: .callout}
+
+> ## Good names for files and directories
 >
 > Complicated names of files and directories can make your life very painful
 > when working on the command line. Here we provide a few useful
