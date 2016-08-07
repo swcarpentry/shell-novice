@@ -212,15 +212,14 @@ $ ls
 {: .callout}
 
 Let's re-create that file
-and then move up one directory to `/Users/nelle` using `cd ..`:
+and then move up one directory to `/Users/nelle/Desktop/data-shell` using `cd ..`:
 
 ~~~
 $ pwd
 ~~~
-{: .bash}
 
 ~~~
-/Users/nelle/thesis
+/Users/nelle/Desktop/data-shell/thesis
 ~~~
 {: .output}
 
@@ -292,7 +291,7 @@ $ pwd
 {: .bash}
 
 ~~~
-/Users/nelle
+/Users/nelle/Desktop/data-shell
 ~~~
 {: .output}
 
