@@ -24,7 +24,7 @@ keypoints:
 - "`/` on its own is the root directory of the whole file system."
 - "A relative path specifies a location starting from the current location."
 - "An absolute path specifies a location from the root of the file system."
-- "Directory names in a path are separated with '/' on Unix, but '\\' on Windows."
+- "Directory names in a path are separated with '/' on Unix, but '\\\\' on Windows."
 - "'..' means 'the directory above the current one'; '.' on its own means 'the current directory'."
 - "Most files' names are `something.extension`. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file."
 - "Most commands take options (flags) which begin with a '-'."
