@@ -383,7 +383,7 @@ which doesn't exist.
 > ## Parameters vs. Arguments
 >
 > According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
-> the terms argument and **parameter**
+> the terms **argument** and **parameter**
 > mean slightly different things.
 > In practice,
 > however,
