@@ -309,7 +309,7 @@ When a computer runs a program --- any program --- it creates a **process**
 in memory to hold the program's software and its current state.
 Every process has an input channel called **standard input**.
 (By this point, you may be surprised that the name is so memorable, but don't worry:
-most Unix programmers call it "stdin".
+most Unix programmers call it "stdin").
 Every process also has a default output channel called **standard output**
 (or "stdout").
 
