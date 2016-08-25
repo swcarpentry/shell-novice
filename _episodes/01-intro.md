@@ -102,7 +102,7 @@ has just returned from a six-month survey of the
 [North Pacific Gyre](http://en.wikipedia.org/wiki/North_Pacific_Gyre),
 where she has been sampling gelatinous marine life in the
 [Great Pacific Garbage Patch](http://en.wikipedia.org/wiki/Great_Pacific_Garbage_Patch).
-She has 300 samples in all, and now needs to:
+She has 1520 samples in all, and now needs to:
 
 1.  Run each sample through an assay machine
     that will measure the relative abundance of 300 different proteins.
@@ -124,8 +124,8 @@ Since her lab has eight assay machines that she can use in parallel,
 this step will "only" take about two weeks.
 
 The bad news is that if she has to run `goostat` and `goodiff` by hand,
-she'll have to enter filenames and click "OK" 45,150 times
-(300 runs of `goostat`, plus 300*299/2 (half of 300 times 299) runs of `goodiff`).
+she'll have to enter filenames and click "OK" 46,370 times
+(1520 runs of `goostat`, plus 300*299/2 (half of 300 times 299) runs of `goodiff`).
 At 30 seconds each,
 that will take more than two weeks.
 Not only would she miss her paper deadline,
