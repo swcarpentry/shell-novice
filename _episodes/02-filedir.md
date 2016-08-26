@@ -24,7 +24,7 @@ keypoints:
 - "`/` on its own is the root directory of the whole file system."
 - "A relative path specifies a location starting from the current location."
 - "An absolute path specifies a location from the root of the file system."
-- "Directory names in a path are separated with '/' on Unix, but '\\' on Windows."
+- "Directory names in a path are separated with '/' on Unix, but '\\\\' on Windows."
 - "'..' means 'the directory above the current one'; '.' on its own means 'the current directory'."
 - "Most files' names are `something.extension`. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file."
 - "Most commands take options (flags) which begin with a '-'."
@@ -45,7 +45,8 @@ let's open a shell window:
 >
 > If you type the command:
 > `PS1='$ '`
-> into your shell, your window should look like our example in this lesson.  
+> into your shell, followed by pressing the 'enter' key,
+> your window should look like our example in this lesson.  
 > This isn't necessary to follow along (in fact, your prompt may have 
 > other helpful information you want to know about).  This is up to you!  
 {: .callout}
@@ -383,7 +384,7 @@ which doesn't exist.
 > ## Parameters vs. Arguments
 >
 > According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
-> the terms argument and **parameter**
+> the terms **argument** and **parameter**
 > mean slightly different things.
 > In practice,
 > however,
@@ -706,7 +707,7 @@ Since the assay machine's output is plain text,
 she will call her files `NENE01729A.txt`, `NENE01812A.txt`, and so on.
 All 1520 files will go into the same directory.
 
-If she is in her home directory,
+Now in her current directory `data-shell`,
 Nelle can see what files she has using the command:
 
 ~~~

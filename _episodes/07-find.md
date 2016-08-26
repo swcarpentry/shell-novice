@@ -198,7 +198,7 @@ $ grep --help
 ~~~
 {: .bash}
 
-~~
+~~~
 Usage: grep [OPTION]... PATTERN [FILE]...
 Search for PATTERN in each FILE or standard input.
 PATTERN is, by default, a basic regular expression (BRE).
