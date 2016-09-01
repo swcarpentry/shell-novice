@@ -46,7 +46,8 @@ let's open a shell window:
 > If you type the command:
 > `PS1='$ '`
 > into your shell, followed by pressing the 'enter' key,
-> your window should look like our example in this lesson.  
+> your window should look like our example in this lesson. The single
+> quotes around the $ allows you to specify the space after the $ prompt.   
 > This isn't necessary to follow along (in fact, your prompt may have 
 > other helpful information you want to know about).  This is up to you!  
 {: .callout}
