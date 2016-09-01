@@ -446,7 +446,6 @@ but it does find the copy in `thesis` that we didn't delete.
 > when someone double-clicks it.
 {: .callout}
 
-{: .challenge}
 > ## Renaming Files
 >
 > Suppose that you created a `.txt` file in your current directory to contain a list of the
