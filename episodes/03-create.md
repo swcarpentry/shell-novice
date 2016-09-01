@@ -467,6 +467,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > > cannot be created.
 > > 4. No, the period(.) indicates where to copy the file, but does not provide a new file name; identical file names
 > > cannot be created.
+> {: .solution}
 
 {: .challenge}
 
