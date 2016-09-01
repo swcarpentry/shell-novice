@@ -446,6 +446,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > when someone double-clicks it.
 {: .callout}
 
+{: .challenge}
 > ## Renaming Files
 >
 > Suppose that you created a `.txt` file in your current directory to contain a list of the
@@ -468,7 +469,6 @@ but it does find the copy in `thesis` that we didn't delete.
 > > 4. No, the period(.) indicates where to copy the file, but does not provide a new file name; identical file names
 > > cannot be created.
 > {: .solution}
-
 {: .challenge}
 
 > ## Moving and Copying
