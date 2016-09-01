@@ -458,6 +458,16 @@ but it does find the copy in `thesis` that we didn't delete.
 > 2. `mv statstics.txt statistics.txt`
 > 3. `mv statstics.txt .`
 > 4. `cp statstics.txt .`
+
+> > ## Solution
+> > 1. No.  While this would create a file with the correct name, the incorrectly named file still exists in the directory 
+> > and would need to be deleted.
+> > 2. Yes, this would work to rename the file.
+> > 3. No, the period(.) indicates where to move the file, but does not provide a new file name; identical file names 
+> > cannot be created.
+> > 4. No, the period(.) indicates where to copy the file, but does not provide a new file name; identical file names
+> > cannot be created.
+
 {: .challenge}
 
 > ## Moving and Copying
