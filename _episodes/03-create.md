@@ -459,7 +459,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > 2. `mv statstics.txt statistics.txt`
 > 3. `mv statstics.txt .`
 > 4. `cp statstics.txt .`
-
+>
 > > ## Solution
 > > 1. No.  While this would create a file with the correct name, the incorrectly named file still exists in the directory 
 > > and would need to be deleted.
