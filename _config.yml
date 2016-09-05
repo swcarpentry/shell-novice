@@ -52,6 +52,8 @@ collections:
 
 # Set the default layout for things in the episodes collection.
 defaults:
+  - values:
+      root: ..
   - scope:
       path: ""
       type: episodes
