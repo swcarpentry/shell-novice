@@ -11,41 +11,41 @@
       {% comment %} Select what logo to display. {% endcomment %}
       {% if page.carpentry == "swc" %}
       <a href="{{ site.swc_site }}" class="pull-left">
-        <img class="navbar-logo" src="{{ site.github.url | replace_first: 'http:', 'https:' }}/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+        <img class="navbar-logo" src="{{ page.root }}/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
       </a>
       {% elsif page.carpentry == "dc" %}
       <a href="{{ site.dc_site }}" class="pull-left">
-        <img class="navbar-logo" src="{{ site.github.url | replace_first: 'http:', 'https:' }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" />
+        <img class="navbar-logo" src="{{ page.root }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" />
       </a>
       {% elsif site.carpentry == "swc" %}
       <a href="{{ site.swc_site }}" class="pull-left">
-        <img class="navbar-logo" src="{{ site.github.url | replace_first: 'http:', 'https:' }}/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
+        <img class="navbar-logo" src="{{ page.root }}/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
       </a>
       {% elsif site.carpentry == "dc" %}
       <a href="{{ site.dc_site }}" class="pull-left">
-        <img class="navbar-logo" src="{{ site.github.url | replace_first: 'http:', 'https:' }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" />
+        <img class="navbar-logo" src="{{ page.root }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" />
       </a>
       {% endif %}
 
       {% comment %} Always show link to home page. {% endcomment %}
-      <a class="navbar-brand" href="{{ site.github.url }}/">Home</a>
+      <a class="navbar-brand" href="{{ page.root }}/">Home</a>
 
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
 
 	{% comment %} Always show code of conduct. {% endcomment %}
-        <li><a href="{{ site.github.url }}/conduct/">Code of Conduct</a></li>
+        <li><a href="{{ page.root }}/conduct/">Code of Conduct</a></li>
 
 	{% comment %} Show setup instructions, reference guide, and lesson episodes for lessons. {% endcomment %}
         {% if site.kind == "lesson" %}
-        <li><a href="{{ site.github.url }}/setup/">Setup</a></li>
-        <li><a href="{{ site.github.url }}/reference/">Reference</a></li>
+        <li><a href="{{ page.root }}/setup/">Setup</a></li>
+        <li><a href="{{ page.root }}/reference/">Reference</a></li>
         <li class="dropdown">
-          <a href="{{ site.github.url }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
+          <a href="{{ page.root }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
           <ul class="dropdown-menu">
             {% for episode in site.episodes %}
-            <li><a href="{{ site.github.url }}{{ episode.url }}">{{ episode.title }}</a></li>
+            <li><a href="{{ page.root }}{{ episode.url }}">{{ episode.title }}</a></li>
             {% endfor %}
           </ul>
         </li>
@@ -54,17 +54,17 @@
 	{% comment %} Show extras for lessons or if this is the main workshop-template repo (where they contain documentation). {% endcomment %}
 	{% if site.kind == "lesson" or site.github.repository_name == "workshop-template" %}
         <li class="dropdown">
-          <a href="{{ site.github.url }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+          <a href="{{ page.root }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
           <ul class="dropdown-menu">
             {% for extra in site.extras %}
-            <li><a href="{{ site.github.url }}{{ extra.url }}">{{ extra.title }}</a></li>
+            <li><a href="{{ page.root }}{{ extra.url }}">{{ extra.title }}</a></li>
             {% endfor %}
           </ul>
         </li>
 	{% endif %}
 
 	{% comment %} Always show license. {% endcomment %}
-        <li><a href="{{ site.github.url }}/license/">License</a></li>
+        <li><a href="{{ page.root }}/license/">License</a></li>
       </ul>
       <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
         <div class="form-group">

@@ -225,6 +225,8 @@ collections:
 
 # Set the default layout for things in the episodes collection.
 defaults:
+  - values:
+      root: ..
   - scope:
       path: ""
       type: episodes
@@ -243,6 +245,7 @@ highlighter: false
 ROOT_INDEX_MD = '''\
 ---
 layout: lesson
+root: .
 ---
 FIXME: home page introduction
 
