@@ -171,8 +171,8 @@ as long as learners using Windows do not run into roadblocks such as:
 *   If everything is going well, you can drive home the point that file
     extensions are essentially there to help computers (and human
     readers) understand file content and are not a requirement of files
-    (covered briefly in [Navigating Files and Directories]({{ site.github.url }}/02-filedir/)).
-    This can be done in the [Pipes and Filters]({{ site.github.url }}/04-pipefilter/) section by showing that you
+    (covered briefly in [Navigating Files and Directories]({{ page.root }}/02-filedir/)).
+    This can be done in the [Pipes and Filters]({{ page.root }}/04-pipefilter/) section by showing that you
     can redirect standard output to a file without the .txt extension
     (e.g., lengths), and that the resulting file is still a perfectly usable text file.
     Make the point that if double-clicked in the GUI, the computer will
