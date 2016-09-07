@@ -319,7 +319,7 @@ permalink: /figures/
 EXTRAS_GUIDE_MD = '''\
 ---
 layout: page
-title: "Instructors' Guide"
+title: "Instructor Notes"
 permalink: /guide/
 ---
 FIXME
