@@ -1,13 +1,17 @@
 shell-novice
 ============
 
-First encounter with the Unix shell.  Lesson website is [here](http://swcarpentry.github.io/shell-novice/).
-
-Interested in contributing?  Please see our [Guidelines for Contributors](CONTRIBUTING.md).
-
-For tips on using these materials in a workshop, see our [Instructor's Guide](http://swcarpentry.github.io/shell-novice/instructors.html).  
+An introduction to the Unix shell for people who have never used the command line before.
+Please see <https://swcarpentry.github.io/shell-novice/> for a rendered version of this material,
+[the lesson template documentation][lesson-example]
+for instructions on formatting, building, and submitting material,
+or run `make` in this directory for a list of helpful commands.
 
 Maintainers:
 
-* [Gabriel Devenyi](http://software-carpentry.org/team/#devenyi_gabriel)
-* [Ashwin Srinath](http://software-carpentry.org/team/#srinath_ashwin)
+* [Gabriel Devenyi][devenyi_gabriel]
+* [Ashwin Srinath][srinath_ashwin]
+
+[devenyi_gabriel]: http://software-carpentry.org/team/#devenyi_gabriel
+[srinath_ashwin]: http://software-carpentry.org/team/#srinath_ashwin
+[lesson-example]: https://swcarpentry.github.io/lesson-example/

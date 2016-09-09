@@ -1,0 +1,65 @@
+{% comment %}
+  Display syllabus in tabular form.
+  Days are displayed if at least one episode has 'start = true'.
+{% endcomment %}
+<div class="syllabus">
+  <h2>Schedule</h2>
+
+  {% assign day = 0 %}
+  {% assign multiday = false %}
+  {% for episode in site.episodes %}
+    {% if episode.start %}{% assign multiday = true %}{% break %}{% endif %}
+  {% endfor %}
+  {% assign current = site.start_time %}
+
+  <table class="table table-striped">
+  {% for episode in site.episodes %}
+    {% if episode.start %} {% comment %} Starting a new day? {% endcomment %}
+      {% assign day = day | plus: 1 %}
+      {% if day > 1 %} {% comment %} If about to start day 2 or later, show finishing time for previous day {% endcomment %}
+        {% assign hours = current | divided_by: 60 %}
+        {% assign minutes = current | modulo: 60 %}
+        <tr>
+          {% if multiday %}<td></td>{% endif %}
+          <td class="col-md-1">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
+          <td class="col-md-3">Finish</td>
+          <td class="col-md-7"></td>
+        </tr>
+      {% endif %}
+      {% assign current = site.start_time %} {% comment %}Re-set start time of this episode to general daily start time {% endcomment %}
+    {% endif %}
+    {% assign hours = current | divided_by: 60 %}
+    {% assign minutes = current | modulo: 60 %}
+    <tr>
+      {% if multiday %}<td class="col-md-1">{% if episode.start %}Day {{ day }}{% endif %}</td>{% endif %}
+      <td class="col-md-1">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
+      <td class="col-md-3">
+        <a href="{{ site.github.url }}{{ episode.url }}">{{ episode.title }}</a>
+      </td>
+      <td class="col-md-7">
+        {% if episode.break %}
+          Break
+        {% else %}
+          {% if episode.questions %}
+            {% for question in episode.questions %}
+              {{question|markdownify|strip_html}}
+              {% unless forloop.last %}
+              <br/>
+              {% endunless %}
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+      </td>
+    </tr>
+    {% assign current = current | plus: episode.teaching | plus: episode.exercises | plus: episode.break %}
+  {% endfor %}
+  {% assign hours = current | divided_by: 60 %}
+  {% assign minutes = current | modulo: 60 %}
+  <tr>
+    {% if multiday %}<td></td>{% endif %}
+    <td class="col-md-1">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
+    <td class="col-md-3">Finish</td>
+    <td class="col-md-7"></td>
+  </tr>
+  </table>
+</div>
