@@ -568,7 +568,46 @@ but it does find the copy in `thesis` that we didn't delete.
 <<<<<<< d4b00b24e33feb675b6a49e978763361959ea3c9:_episodes/03-create.md
 {: .challenge}
 
+<<<<<<< HEAD:02-create.md
+<<<<<<< HEAD
+> ## Copy a folder structure sans files{.challenge}
+>
+> You're starting a new experiment, and would like to duplicate the file 
+> structure from your previous experiment without the data files so you can 
+> add new data. 
+>
+> Use the `file-structure` directory under `shell-data` as an example.
+> The goal is to copy the file structure of the `2016-5-18-data` folder
+> into a folder called `2016-5-20-data` and remove the data files from 
+> the first folder.
+> 
+> Navigate to the `file-structure` folder. Which of the following set of 
+> commands would achieve this objective? What would the other commands do?
+>
+>1.
+> ~~~
+> $ cp -r 2016-5-18-data/ 2016-6-7-data/
+> $ rm 2016-6-7-data/data/raw/*
+> $ rm 2016-6-7-data/data/processed/*
+> ~~~
+> 
+>2.
+> ~~~
+> $ rm 2016-6-7-data/data/raw/*
+> $ rm 2016-6-7-data/data/processed/*
+> $ cp -r 2016-5-18-data/ 2016-6-7-data/
+> ~~~
+> 
+>3.
+> ~~~
+> $ cp -r 2016-5-18-data/ 2016-6-7-data/
+> $ rm -r 2016-6-7-data/
+> ~~~
+=======
+> ## Creating Files a Different Way {.challenge}
+=======
 > ## Creating Files a Different Way
+>>>>>>> swcarpentry/gh-pages:_episodes/03-create.md
 > 
 > We have seen how to create text files using the `nano` editor.
 > Now, try the following command in your home directory:
@@ -605,6 +644,9 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~
 > $ mv ___/sucrose.dat  ___/maltose.dat ___
 > ~~~
+<<<<<<< HEAD:02-create.md
+>>>>>>> swcarpentry/gh-pages
+=======
 > {: .bash}
 {: .challenge}
 
@@ -619,3 +661,40 @@ but it does find the copy in `thesis` that we didn't delete.
 >What happens when we type `rm -i thesis/quotations.txt`?
 >Why would we want this protection when using `rm`?
 {: .challenge}
+>>>>>>> swcarpentry/gh-pages:_episodes/03-create.md
+
+<<<<<<< HEAD
+> ## Copy a folder structure sans files{.challenge}
+>
+> You're starting a new experiment, and would like to duplicate the file 
+> structure from your previous experiment without the data files so you can 
+> add new data. 
+>
+> Use the `file-structure` directory under `shell-data` as an example.
+> The goal is to copy the file structure of the `2016-5-18-data` folder
+> into a folder called `2016-5-20-data` and remove the data files from 
+> the first folder.
+> 
+> Navigate to the `file-structure` folder. Which of the following set of 
+> commands would achieve this objective? What would the other commands do?
+>
+>1.
+> ~~~
+> $ cp -r 2016-5-18-data/ 2016-6-7-data/
+> $ rm 2016-6-7-data/data/raw/*
+> $ rm 2016-6-7-data/data/processed/*
+> ~~~
+> 
+>2.
+> ~~~
+> $ rm 2016-6-7-data/data/raw/*
+> $ rm 2016-6-7-data/data/processed/*
+> $ cp -r 2016-5-18-data/ 2016-6-7-data/
+> ~~~
+> 
+>3.
+> ~~~
+> $ cp -r 2016-5-18-data/ 2016-6-7-data/
+> $ rm -r 2016-6-7-data/
+> ~~~
+=======
