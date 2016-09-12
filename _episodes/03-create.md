@@ -626,32 +626,30 @@ but it does find the copy in `thesis` that we didn't delete.
 > structure from your previous experiment without the data files so you can 
 > add new data. 
 >
-> Use the `north-pacific-gyre` directory under `data-shell` as an example.
-> The goal is to copy the file structure of the `2012-07-03` folder
-> into a folder called `2016-05-20` and remove the data files from 
-> the first folder.
+> Assume that the file structure is in a folder called '2016-05-18-data', 
+> which contains folders named 'raw' and 'processed' that contain data files.
+> The goal is to copy the file structure of the `2016-05-18-data` folder
+> into a folder called `2016-05-20-data` and remove the data files from 
+> the directory you just created.
 > 
-> Navigate to the `north-pacific-gyre` folder. Which of the following set of 
-> commands would achieve this objective? What would the other commands do?
+> Which of the following set of commands would achieve this objective? 
+> What would the other commands do?
 >
-> 1. 
 > ~~~
-> $ cp -r 2016-5-18-data/ 2016-6-7-data/ 
-> $ rm 2016-6-7-data/data/raw/* 
-> $rm 2016-6-7-data/data/processed/*
-> ~~~
-> {: .bash}
-> 2. 
-> ~~~
-> $ rm 2016-6-7-data/data/raw/*
+> $ cp -r 2016-05-18-data/ 2016-05-20-data/ 
+> $ rm 2016-05-20-data/data/raw/* 
 > $ rm 2016-6-7-data/data/processed/*
-> $ cp -r 2016-5-18-data/ 2016-6-7-data/
 > ~~~
 > {: .bash}
-> 3. 
 > ~~~
-> $ cp -r 2016-5-18-data/ 2016-6-7-data/
-> $ rm -r 2016-6-7-data/
+> $ rm 2016-05-20-data/data/raw/*
+> $ rm 2016-05-20-data/data/processed/*
+> $ cp -r 2016-05-18-data/ 2016-5-20-data/
+> ~~~
+> {: .bash}
+> ~~~
+> $ cp -r 2016-05-18-data/ 2016-6-7-data/
+> $ rm -r -i 2016-05-20-data/
 > ~~~
 > {: .bash}
 {: .challenge}
