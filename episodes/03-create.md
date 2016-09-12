@@ -620,7 +620,7 @@ but it does find the copy in `thesis` that we didn't delete.
 >Why would we want this protection when using `rm`?
 {: .challenge}
 
-> ## Copy a folder structure sans files{.challenge}
+> ## Copy a folder structure sans files
 >
 > You're starting a new experiment, and would like to duplicate the file 
 > structure from your previous experiment without the data files so you can 
@@ -644,3 +644,4 @@ but it does find the copy in `thesis` that we didn't delete.
 > 
 >3. $ cp -r 2016-5-18-data/ 2016-6-7-data/
 >   $ rm -r 2016-6-7-data/
+{.challenge}
