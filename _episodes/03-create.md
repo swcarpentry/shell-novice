@@ -644,4 +644,4 @@ but it does find the copy in `thesis` that we didn't delete.
 > 
 >3. $ cp -r 2016-5-18-data/ 2016-6-7-data/
 >   $ rm -r 2016-6-7-data/
-{.challenge}
+{:.challenge}
