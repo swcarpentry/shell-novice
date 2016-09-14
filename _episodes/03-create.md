@@ -619,3 +619,37 @@ but it does find the copy in `thesis` that we didn't delete.
 >What happens when we type `rm -i thesis/quotations.txt`?
 >Why would we want this protection when using `rm`?
 {: .challenge}
+
+> ## Copy a folder structure sans files
+>
+> You're starting a new experiment, and would like to duplicate the file 
+> structure from your previous experiment without the data files so you can 
+> add new data. 
+>
+> Assume that the file structure is in a folder called '2016-05-18-data', 
+> which contains folders named 'raw' and 'processed' that contain data files.
+> The goal is to copy the file structure of the `2016-05-18-data` folder
+> into a folder called `2016-05-20-data` and remove the data files from 
+> the directory you just created.
+> 
+> Which of the following set of commands would achieve this objective? 
+> What would the other commands do?
+>
+> ~~~
+> $ cp -r 2016-05-18-data/ 2016-05-20-data/ 
+> $ rm 2016-05-20-data/data/raw/* 
+> $ rm 2016-6-7-data/data/processed/*
+> ~~~
+> {: .bash}
+> ~~~
+> $ rm 2016-05-20-data/data/raw/*
+> $ rm 2016-05-20-data/data/processed/*
+> $ cp -r 2016-05-18-data/ 2016-5-20-data/
+> ~~~
+> {: .bash}
+> ~~~
+> $ cp -r 2016-05-18-data/ 2016-6-7-data/
+> $ rm -r -i 2016-05-20-data/
+> ~~~
+> {: .bash}
+{: .challenge}
