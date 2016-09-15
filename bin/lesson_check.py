@@ -155,6 +155,10 @@ def check_config(reporter, source_dir):
     reporter.check_field(config_file, 'configuration', config, 'title')
     reporter.check_field(config_file, 'configuration', config, 'email')
 
+    reporter.check({'values': {'root': '..'}} in config.get('defaults', []),
+                   'configuration',
+                   '"root" not set to ".." in configuration')
+
 
 def read_all_markdown(source_dir, parser):
     """Read source files, returning
@@ -423,6 +427,12 @@ class CheckIndex(CheckBase):
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
         super(CheckIndex, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
         self.layout = 'lesson'
+
+    def check_metadata(self):
+        super(CheckIndex, self).check_metadata()
+        self.reporter.check(self.metadata.get('root', '') == '.',
+                            self.filename,
+                            'Root not set to "."')
 
 
 class CheckEpisode(CheckBase):
