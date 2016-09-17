@@ -210,7 +210,10 @@ head -n "$2" "$1" | tail -n "$3"
 
 A comment starts with a `#` character and runs to the end of the line.
 The computer ignores comments,
-but they're invaluable for helping people understand and use scripts.
+but they're invaluable for helping people (including your future self) understand and use scripts.
+The only caveat is that each time you modify the script,
+you should check that the comment is still accurate:
+an explanation that sends the reader in the wrong direction is worse than none at all.
 
 What if we want to process many files in a single pipeline?
 For example, if we want to sort our `.pdb` files by length, we would type:
@@ -290,34 +293,8 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > sitting there: the script doesn't appear to do anything.
 {: .callout}
 
-We have two more things to do before we're finished with our simple shell scripts.
-If you look at a script like:
 
-~~~
-$ wc -l "$@" | sort -n
-~~~
-{: .bash}
-
-you can probably puzzle out what it does.
-On the other hand,
-if you look at this script:
-
-~~~
-# List files sorted by number of lines.
-$ wc -l "$@" | sort -n
-~~~
-{: .bash}
-
-you don't have to puzzle it out --- the comment at the top tells you what it does.
-A line or two of documentation like this make it much easier for other people
-(including your future self)
-to re-use your work.
-The only caveat is that each time you modify the script,
-you should check that the comment is still accurate:
-an explanation that sends the reader in the wrong direction is worse than none at all.
-
-Second,
-suppose we have just run a series of commands that did something useful --- for example,
+Suppose we have just run a series of commands that did something useful --- for example,
 that created a graph we'd like to use in a paper.
 We'd like to be able to re-create the graph later if we need to,
 so we want to save the commands in a file.
