@@ -458,6 +458,16 @@ but it does find the copy in `thesis` that we didn't delete.
 > 2. `mv statstics.txt statistics.txt`
 > 3. `mv statstics.txt .`
 > 4. `cp statstics.txt .`
+>
+> > ## Solution
+> > 1. No.  While this would create a file with the correct name, the incorrectly named file still exists in the directory 
+> > and would need to be deleted.
+> > 2. Yes, this would work to rename the file.
+> > 3. No, the period(.) indicates where to move the file, but does not provide a new file name; identical file names 
+> > cannot be created.
+> > 4. No, the period(.) indicates where to copy the file, but does not provide a new file name; identical file names
+> > cannot be created.
+> {: .solution}
 {: .challenge}
 
 > ## Moving and Copying
@@ -492,6 +502,19 @@ but it does find the copy in `thesis` that we didn't delete.
 > 2.   `recombine`
 > 3.   `proteins.dat recombine`
 > 4.   `proteins-saved.dat`
+>
+> > ## Solution
+> > We start in the /Users/jamie/data directory, and create a new folder called recombine.
+> > The second line moves (mv) the file proteins.dat to the new folder (recombine).
+> > The third line makes a copy of the file we just moved.  The tricky part here is where the file was 
+> > copied to.  Recall that .. means "go up a level", so the copied file is now in /Users/jamie.
+> > So, the only thing that will show using ls (in /Users/jamie/data) is the recombine folder.
+> > 
+> > 1. No, see explanation above.  proteins-saved.dat is located at /Users/jamie
+> > 2. Yes
+> > 3. No, see explanation above.  proteins.dat is located at /Users/jamie/data/recombine
+> > 4. No, see explanation above.  proteins-saved.dat is located at /Users/jamie
+> {: .solution}
 {: .challenge}
 
 > ## Organizing Directories and Files
@@ -618,4 +641,38 @@ but it does find the copy in `thesis` that we didn't delete.
 >
 >What happens when we type `rm -i thesis/quotations.txt`?
 >Why would we want this protection when using `rm`?
+{: .challenge}
+
+> ## Copy a folder structure sans files
+>
+> You're starting a new experiment, and would like to duplicate the file 
+> structure from your previous experiment without the data files so you can 
+> add new data. 
+>
+> Assume that the file structure is in a folder called '2016-05-18-data', 
+> which contains folders named 'raw' and 'processed' that contain data files.
+> The goal is to copy the file structure of the `2016-05-18-data` folder
+> into a folder called `2016-05-20-data` and remove the data files from 
+> the directory you just created.
+> 
+> Which of the following set of commands would achieve this objective? 
+> What would the other commands do?
+>
+> ~~~
+> $ cp -r 2016-05-18-data/ 2016-05-20-data/ 
+> $ rm 2016-05-20-data/data/raw/* 
+> $ rm 2016-6-7-data/data/processed/*
+> ~~~
+> {: .bash}
+> ~~~
+> $ rm 2016-05-20-data/data/raw/*
+> $ rm 2016-05-20-data/data/processed/*
+> $ cp -r 2016-05-18-data/ 2016-5-20-data/
+> ~~~
+> {: .bash}
+> ~~~
+> $ cp -r 2016-05-18-data/ 2016-6-7-data/
+> $ rm -r -i 2016-05-20-data/
+> ~~~
+> {: .bash}
 {: .challenge}

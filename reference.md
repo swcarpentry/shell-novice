@@ -15,6 +15,14 @@ permalink: /reference/
 | Create      | nano  | mkdir        |
 | Delete      | rm    | rmdir, rm -r |
 
+## Filesystem heirarchy
+
+The following is an overview of a standard Unix filesystem.
+The exact heirarchy is dependent on the platform,
+so you may not see exactly the same files/directories on your computer:
+
+![Linux filesystem heirarchy](../fig/standard-filesystem-hierarchy.svg)
+
 ## Glossary
 
 absolute path
