@@ -661,7 +661,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~
 > $ cp -r 2016-05-18-data/ 2016-05-20-data/ 
 > $ rm 2016-05-20-data/data/raw/* 
-> $ rm 2016-6-7-data/data/processed/*
+> $ rm 2016-05-20-data/data/processed/*
 > ~~~
 > {: .bash}
 > ~~~
@@ -671,7 +671,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~
 > {: .bash}
 > ~~~
-> $ cp -r 2016-05-18-data/ 2016-6-7-data/
+> $ cp -r 2016-05-18-data/ 2016-05-20-data/
 > $ rm -r -i 2016-05-20-data/
 > ~~~
 > {: .bash}
