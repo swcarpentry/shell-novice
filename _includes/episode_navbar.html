@@ -1,6 +1,5 @@
 {% comment %}
   Find previous and next episodes (if any).
-  Including file must pass episode_navbar_title=true or ...=false to display episode title.
 {% endcomment %}
 {% for episode in site.episodes  %}
   {% if episode.url == page.url %}
@@ -21,9 +20,9 @@
   <div class="col-md-1">
     <h3>
       {% if prev_episode %}
-      <a href="{{ page.root }}{{ prev_episode.url }}"><span class="glyphicon glyphicon-menu-left"></span></a>
+      <a href="{{ page.root }}{{ prev_episode.url }}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
       {% else %}
-      <a href="{{ page.root }}/"><span class="glyphicon glyphicon-menu-up"></span></a>
+      <a href="{{ page.root }}/"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">lesson home</span></a>
       {% endif %}
     </h3>
   </div>
@@ -36,9 +35,9 @@
   <div class="col-md-1">
     <h3>
       {% if next_episode %}
-      <a href="{{ page.root }}{{ next_episode.url }}"><span class="glyphicon glyphicon-menu-right"></span></a>
+      <a href="{{ page.root }}{{ next_episode.url }}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
       {% else %}
-      <a href="{{ page.root }}/"><span class="glyphicon glyphicon-menu-up"></span></a>
+      <a href="{{ page.root }}/"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">lesson home</span></a>
       {% endif %}
     </h3>
   </div>
