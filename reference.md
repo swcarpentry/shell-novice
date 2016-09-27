@@ -25,6 +25,7 @@ so you may not see exactly the same files/directories on your computer:
 
 ## Glossary
 
+{:auto_ids}
 absolute path
 :   A [path](#path) that refers to a particular location in a file system.
     Absolute paths are usually written with respect to the file system's
