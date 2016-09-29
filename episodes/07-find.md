@@ -463,9 +463,9 @@ $ grep "FE" $(find .. -name '*.pdb')
 > formulas?
 >
 > The third choice is to recognize that the shell and text processing have
-> their limits, and to use a programming language such as Python instead.
+> their limits, and to use another programming language.
 > When the time comes to do this, don't be too hard on the shell: many
-> modern programming languages, Python included, have borrowed a lot of
+> modern programming languages have borrowed a lot of
 > ideas from it, and imitation is also the sincerest form of praise.
 {: .callout}
 
