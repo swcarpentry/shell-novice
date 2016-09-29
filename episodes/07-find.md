@@ -585,7 +585,7 @@ about them."
 > book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the
 > most mentioned.  You, however, are certain it was Amy.  Luckily, you
 > have a file `LittleWomen.txt` containing the full text of the novel.
-> Using a`for` loop, how would you tabulate the number of times each
+> Using a `for` loop, how would you tabulate the number of times each
 > of the four sisters is mentioned?
 >
 > Hint: one solution might employ
