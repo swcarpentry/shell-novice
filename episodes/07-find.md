@@ -482,23 +482,9 @@ about them."
 
 > ## Using `grep`
 >
-> ~~~
-> The Tao that is seen
-> Is not the true Tao, until
-> You bring fresh toner.
->
-> With searching comes loss
-> and the presence of absence:
-> "My Thesis" not found.
->
-> Yesterday it worked
-> Today it is not working
-> Software is like that.
-> ~~~
-> {: .source}
->
-> From the above text, contained in the file `haiku.txt`, which command would result in the
-> following output:
+> Considering the content of the file `haiku.txt`
+> presented at the begin of this topic,
+> which command would result in the following output:
 >
 > ~~~
 > and the presence of absence:
