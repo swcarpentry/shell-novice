@@ -49,7 +49,8 @@ it selects lines 11-15 of the file `octane.pdb`.
 Remember, we are *not* running it as a command just yet:
 we are putting the commands in a file.
 
-Then we save the file (using `Ctrl-O`), and exit the text editor (using `Ctrl-X`).
+Then we save the file (in nano you can use `Ctrl-O`),
+ and exit the text editor (in nano you can use `Ctrl-X`).
 Check that the directory `molecules` now contains a file called `middle.sh`.
 
 Once we have saved the file,
