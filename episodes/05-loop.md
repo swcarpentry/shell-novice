@@ -199,7 +199,9 @@ done
 because then the first time through the loop,
 when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as a program.
 Finally,
-the `head` and `tail` combination selects a set of lines from whatever file is being processed.
+the `head` and `tail` combination selects lines 81-100
+from whatever file is being processed
+(assuming the file has at least 100 lines).
 
 > ## Spaces in Names
 >
