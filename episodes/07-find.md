@@ -482,7 +482,7 @@ about them."
 
 > ## Using `grep`
 >
-> Considering the content of the file `haiku.txt`
+> Referring to `haiku.txt`
 > presented at the begin of this topic,
 > which command would result in the following output:
 >
