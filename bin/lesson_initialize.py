@@ -181,8 +181,10 @@ carpentry: "swc"
 # Overall title for pages.
 title: "Lesson Title"
 
-# Contact email address.
-email: lessons@software-carpentry.org
+# Contact.  This *must* include the protocol: if it's an email
+# address, it must look like "mailto:lessons@software-carpentry.org",
+# or if it's a URL, "https://gitter.im/username/ProjectName".
+contact: mailto:lessons@software-carpentry.org
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
