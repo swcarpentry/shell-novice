@@ -8,7 +8,7 @@
 	{% elsif site.carpentry == "dc" %}
 	<a href="{{ site.dc_site }}">Data Carpentry</a>
 	{% elsif site.carpentry == "lc" %}
-	<a href="{{ site.dc_site }}">Library Carpentry</a>
+	<a href="{{ site.lc_site }}">Library Carpentry</a>
 	{% endif %}
       </h4>
     </div>
@@ -20,7 +20,7 @@
 	/
 	<a href="{{ site.github.repository_url }}/blob/gh-pages/CITATION">Cite</a>
 	/
-	<a href="mailto:{{ site.contact }}">Contact</a>
+	<a href="{{ site.contact }}">Contact</a>
       </h4>
     </div>
   </div>
