@@ -3,7 +3,7 @@
   Days are displayed if at least one episode has 'start = true'.
 {% endcomment %}
 <div class="syllabus">
-  <h2>Schedule</h2>
+  <h2 id="schedule">Schedule</h2>
 
   {% assign day = 0 %}
   {% assign multiday = false %}
@@ -34,7 +34,7 @@
       {% if multiday %}<td class="col-md-1">{% if episode.start %}Day {{ day }}{% endif %}</td>{% endif %}
       <td class="col-md-1">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
       <td class="col-md-3">
-        <a href="{{ site.github.url }}{{ episode.url }}">{{ episode.title }}</a>
+        <a href="{{ page.root }}{{ episode.url }}">{{ episode.title }}</a>
       </td>
       <td class="col-md-7">
         {% if episode.break %}
@@ -62,4 +62,9 @@
     <td class="col-md-7"></td>
   </tr>
   </table>
+
+  <p>
+    The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
+  </p>
+
 </div>

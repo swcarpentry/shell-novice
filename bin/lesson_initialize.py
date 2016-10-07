@@ -211,6 +211,7 @@ training_site: "https://swcarpentry.github.io/instructor-training"
 # Surveys.
 pre_survey: "https://www.surveymonkey.com/r/swc_pre_workshop_v1?workshop_id="
 post_survey: "https://www.surveymonkey.com/r/swc_post_workshop_v1?workshop_id="
+training_post_survey: "https://www.surveymonkey.com/r/post-instructor-training"
 
 # Start time in minutes (0 to be clock-independent, 540 to show a start at 09:00 am).
 start_time: 0
@@ -225,6 +226,8 @@ collections:
 
 # Set the default layout for things in the episodes collection.
 defaults:
+  - values:
+      root: ..
   - scope:
       path: ""
       type: episodes
@@ -243,6 +246,7 @@ highlighter: false
 ROOT_INDEX_MD = '''\
 ---
 layout: lesson
+root: .
 ---
 FIXME: home page introduction
 
@@ -316,7 +320,7 @@ permalink: /figures/
 EXTRAS_GUIDE_MD = '''\
 ---
 layout: page
-title: "Instructors' Guide"
+title: "Instructor Notes"
 permalink: /guide/
 ---
 FIXME
