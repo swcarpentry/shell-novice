@@ -151,9 +151,9 @@ def check_config(reporter, source_dir):
     config_file = os.path.join(source_dir, '_config.yml')
     config = load_yaml(config_file)
     reporter.check_field(config_file, 'configuration', config, 'kind', 'lesson')
-    reporter.check_field(config_file, 'configuration', config, 'carpentry', ('swc', 'dc'))
+    reporter.check_field(config_file, 'configuration', config, 'carpentry', ('swc', 'dc', 'lc'))
     reporter.check_field(config_file, 'configuration', config, 'title')
-    reporter.check_field(config_file, 'configuration', config, 'email')
+    reporter.check_field(config_file, 'configuration', config, 'contact')
 
     reporter.check({'values': {'root': '..'}} in config.get('defaults', []),
                    'configuration',
