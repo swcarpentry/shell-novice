@@ -241,6 +241,21 @@ and so on.
 Since `sorted-lengths.txt` contains the lengths of our files ordered from least to greatest,
 the output of `head` must be the file with the fewest lines.
 
+> ## Redirecting to the same file
+> 
+> It's a very bad idea to try redirecting
+> the output of a command that operates on a file
+> to the same file. For example:
+> 
+> ~~~
+> $ sort -n lengths.txt > lengths.txt
+> ~~~
+> {: .bash}
+>
+> Doing something like this may give you
+> incorrect results and/or delete
+> the contents of `lengths.txt`.
+
 If you think this is confusing,
 you're in good company:
 even once you understand what `wc`, `sort`, and `head` do,
