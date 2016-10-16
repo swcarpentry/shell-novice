@@ -225,6 +225,7 @@ and then move up one directory to `/Users/nelle/Desktop/data-shell` using `cd ..
 ~~~
 $ pwd
 ~~~
+{: .bash}
 
 ~~~
 /Users/nelle/Desktop/data-shell/thesis

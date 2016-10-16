@@ -255,6 +255,7 @@ the output of `head` must be the file with the fewest lines.
 > Doing something like this may give you
 > incorrect results and/or delete
 > the contents of `lengths.txt`.
+{: .callout}
 
 If you think this is confusing,
 you're in good company:
