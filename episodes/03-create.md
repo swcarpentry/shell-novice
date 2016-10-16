@@ -504,16 +504,18 @@ but it does find the copy in `thesis` that we didn't delete.
 > 4.   `proteins-saved.dat`
 >
 > > ## Solution
-> > We start in the /Users/jamie/data directory, and create a new folder called recombine.
-> > The second line moves (mv) the file proteins.dat to the new folder (recombine).
-> > The third line makes a copy of the file we just moved.  The tricky part here is where the file was 
-> > copied to.  Recall that .. means "go up a level", so the copied file is now in /Users/jamie.
-> > So, the only thing that will show using ls (in /Users/jamie/data) is the recombine folder.
-> > 
-> > 1. No, see explanation above.  proteins-saved.dat is located at /Users/jamie
+> > We start in the `/Users/jamie/data` directory, and create a new folder called `recombine`.
+> > The second line moves (`mv`) the file `proteins.dat` to the new folder (`recombine`).
+> > The third line makes a copy of the file we just moved.  The tricky part here is where the file was
+> > copied to.  Recall that `..` means "go up a level", so the copied file is now in `/Users/jamie`.
+> > Notice that `..` is interpreted with respect to the current working
+> > directory, **not** with respect to the location of the file being copied.
+> > So, the only thing that will show using ls (in `/Users/jamie/data`) is the recombine folder.
+> >
+> > 1. No, see explanation above.  `proteins-saved.dat` is located at `/Users/jamie`
 > > 2. Yes
-> > 3. No, see explanation above.  proteins.dat is located at /Users/jamie/data/recombine
-> > 4. No, see explanation above.  proteins-saved.dat is located at /Users/jamie
+> > 3. No, see explanation above.  `proteins.dat` is located at `/Users/jamie/data/recombine`
+> > 4. No, see explanation above.  `proteins-saved.dat` is located at `/Users/jamie`
 > {: .solution}
 {: .challenge}
 
