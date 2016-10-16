@@ -110,7 +110,7 @@ molecules/  solar.pdf
 > or another non-alphanumeric character you should put quotes around the name.
 {: .callout}
 
-However, there's nothing in it yet:
+Since we've just created the `thesis` directory, there's nothing in it yet:
 
 ~~~
 $ ls -F thesis
