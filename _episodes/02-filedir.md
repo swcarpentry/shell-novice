@@ -571,7 +571,7 @@ but we'll see some uses for it soon.
 
 > ## Orthogonality
 >
-> The special names `.` and `..` don't belong to `ls`;
+> The special names `.` and `..` don't belong to `cd`;
 > they are interpreted the same way by every program.
 > For example,
 > if we are in `/Users/nelle/data`,
