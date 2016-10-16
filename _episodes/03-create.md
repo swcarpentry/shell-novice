@@ -595,9 +595,12 @@ but it does find the copy in `thesis` that we didn't delete.
 >
 > We have seen how to create text files using the `nano` editor.
 > Now, try the following command in your home directory:
-> 
+>
+> ~~~
 > $ cd                  # go to your home directory
 > $ touch my_file.txt
+> ~~~
+> {: .bash}
 >
 > 1.  What did the touch command do?
 >     When you look at your home directory using the GUI file explorer,
