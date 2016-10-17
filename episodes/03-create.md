@@ -633,14 +633,13 @@ but it does find the copy in `thesis` that we didn't delete.
 
 > ## Using `rm` Safely
 >
->What happens when we type `rm -i thesis/quotations.txt`?
->Why would we want this protection when using `rm`?
-{: .challenge}
-
-> ## Using `rm` Safely
+> What happens when we type `rm -i thesis/quotations.txt`?
+> Why would we want this protection when using `rm`?
 >
->What happens when we type `rm -i thesis/quotations.txt`?
->Why would we want this protection when using `rm`?
+> > ## Solution
+> >
+> > Ask for confirmation.
+> {: .solution}
 {: .challenge}
 
 > ## Copy a folder structure sans files
