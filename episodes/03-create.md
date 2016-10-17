@@ -642,12 +642,6 @@ but it does find the copy in `thesis` that we didn't delete.
 > {: .solution}
 {: .challenge}
 
-> ## Using `rm` Safely
->
->What happens when we type `rm -i thesis/quotations.txt`?
->Why would we want this protection when using `rm`?
-{: .challenge}
-
 > ## Copy a folder structure sans files
 >
 > You're starting a new experiment, and would like to duplicate the file 
