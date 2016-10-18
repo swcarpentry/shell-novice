@@ -242,11 +242,11 @@ Since `sorted-lengths.txt` contains the lengths of our files ordered from least 
 the output of `head` must be the file with the fewest lines.
 
 > ## Redirecting to the same file
-> 
+>
 > It's a very bad idea to try redirecting
 > the output of a command that operates on a file
 > to the same file. For example:
-> 
+>
 > ~~~
 > $ sort -n lengths.txt > lengths.txt
 > ~~~
@@ -255,6 +255,7 @@ the output of `head` must be the file with the fewest lines.
 > Doing something like this may give you
 > incorrect results and/or delete
 > the contents of `lengths.txt`.
+{: .callout}
 
 If you think this is confusing,
 you're in good company:
@@ -557,7 +558,7 @@ so this matches all the valid data files she has.
 {: .challenge}
 
 > ## More on Wildcards
-> 
+>
 > Sam has a directory containing calibration data, datasets, and descriptions of
 > the datasets:
 >
@@ -745,8 +746,8 @@ so this matches all the valid data files she has.
 
 > ## Appending Data
 >
-> Consider the file `animals.txt`, used in previous exercise. 
-> After these commands, select the alternative that 
+> Consider the file `animals.txt`, used in previous exercise.
+> After these commands, select the alternative that
 > corresponds the file `animalsUpd.txt`:
 >
 > ~~~
@@ -754,7 +755,7 @@ so this matches all the valid data files she has.
 > $ tail -2 animals.txt >> animalsUpd.txt
 > ~~~
 > {: .bash}
-> 
+>
 > 1. The first three lines of `animals.txt`
 > 2. The last two lines of `animals.txt`
 > 3. The first three lines and the last two lines of `animals.txt`
