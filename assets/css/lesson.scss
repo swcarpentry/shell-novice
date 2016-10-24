@@ -1,0 +1,142 @@
+---
+---
+
+//----------------------------------------
+// Colors.
+//----------------------------------------
+
+// branding
+$color-brand:       #2b3990 !default;
+
+// code boxes
+$color-error:       #bd2c00 !default;
+$color-output:      #303030 !default;
+$color-source:      #6e5494 !default;
+
+// blockquotes
+$color-callout:     #f4fd9c !default;
+$color-challenge:   #eec275 !default;
+$color-checklist:   #dfd2a0 !default;
+$color-discussion:  #eec275 !default;
+$color-keypoints:   #7ae78e !default;
+$color-objectives:  #daee84 !default;
+$color-prereq:      #9cd6dc !default;
+$color-solution:    #ded4b9 !default;
+$color-testimonial: #fc8dc1 !default;
+
+//----------------------------------------
+// Specialized code blocks.
+//----------------------------------------
+
+@mixin cdSetup($color) {
+  color: $color;
+  border-left: solid 5px $color;
+  margin-bottom: 0px;
+}
+
+.error  { @include cdSetup($color-error); }
+.output { @include cdSetup($color-output); }
+.source { @include cdSetup($color-source); }
+
+.bash   { @include cdSetup($color-source); }
+.make   { @include cdSetup($color-source); }
+.matlab { @include cdSetup($color-source); }
+.python { @include cdSetup($color-source); }
+.r      { @include cdSetup($color-source); }
+.sql    { @include cdSetup($color-source); }
+
+//----------------------------------------
+// Specialized blockquote environments for learning objectives, callouts, etc.
+//----------------------------------------
+
+$codeblock-padding: 5px !default;
+
+@mixin bkSetup($color, $glyph) {
+
+  $gradientcolor1: $color;
+  $gradientcolor2: scale-color($color, $lightness: 10%);
+
+  padding-left: $codeblock-padding;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+  border: 1px solid;
+  border-color: $color;
+  padding-bottom: $codeblock-padding;
+
+  h2 {
+    padding-top: $codeblock-padding;
+    padding-bottom: $codeblock-padding;
+    font-size: 20px;
+    background: linear-gradient(to bottom, $gradientcolor1, $gradientcolor2);
+    border-color: $color;
+    margin-top: 0px;
+    margin-left: -$codeblock-padding; // to move back to the left margin of the enclosing blockquote
+  }
+  h2:before {
+    font-family: 'Glyphicons Halflings';
+    content: $glyph;
+    float: left;
+    padding-left: $codeblock-padding;
+    padding-right: $codeblock-padding;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+  }
+
+}
+
+.callout{ @include bkSetup($color-callout, "\e146"); }
+.challenge{ @include bkSetup($color-challenge, "\270f"); }
+.checklist{ @include bkSetup($color-checklist, "\e067"); }
+.discussion{ @include bkSetup($color-discussion, "\e123"); }
+.keypoints{ @include bkSetup($color-keypoints, "\e101"); }
+.objectives{ @include bkSetup($color-objectives, "\e085"); }
+.prereq{ @include bkSetup($color-prereq, "\e124"); }
+.solution{ @include bkSetup($color-solution, "\e105"); }
+.testimonial{ @include bkSetup($color-testimonial, "\e143"); }
+
+//----------------------------------------
+// Override Bootstrap settings.
+//----------------------------------------
+
+code {
+  padding: 0 0;
+  color: inherit;
+  background-color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+//----------------------------------------
+// Miscellaneous.
+//----------------------------------------
+
+.maintitle {
+  text-align: center;
+}
+
+.footertext {
+  text-align: center;
+}
+
+img.navbar-logo {
+  height: 40px; // synchronize with height of navbar
+  padding-top: 5px;
+  padding-right: 10px;
+}
+
+div.branding {
+  color: $color-brand;
+}
+
+ul,
+ol {
+  padding-left: 1em;
+}
+
+span.fold-unfold {
+  margin-left: 1em;
+  opacity: 0.5;
+}

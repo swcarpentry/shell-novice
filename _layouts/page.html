@@ -1,29 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="pandoc">
-    <title>Software Carpentry: $pagetitle$</title>
-    $header$
-  </head>
-  <body class="lesson">
-    <div class="container card">
-      $banner$
-      <article>
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          $if(subtitle)$
-          <a href="index.html"><h1 class="title">$title$</h1></a>
-          <h2 class="subtitle">$subtitle$</h2>
-          $else$
-          <h1 class="title">$title$</h1>
-          $endif$
-$body$
-        </div>
-      </div>
-      </article>
-      $footer$
-    </div>
-    $javascript$
-  </body>
-</html>
+---
+layout: base
+---
+{% include main_title.html %}
+{{content}}

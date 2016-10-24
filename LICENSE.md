@@ -1,13 +1,15 @@
 ---
 layout: page
-title: Licenses
+title: "Licenses"
+permalink: /license/
 ---
 ## Instructional Material
 
-All Software Carpentry instructional material is made available under
-the [Creative Commons Attribution license][cc-by-human]. The following
-is a human-readable summary of (and not a substitute for) the [full
-legal text of the CC BY 4.0 license][cc-by-legal].
+All Software Carpentry and Data Carpentry instructional material is
+made available under the [Creative Commons Attribution
+license][cc-by-human]. The following is a human-readable summary of
+(and not a substitute for) the [full legal text of the CC BY 4.0
+license][cc-by-legal].
 
 You are free:
 
@@ -46,7 +48,7 @@ Notices:
 ## Software
 
 Except where otherwise noted, the example programs and other software
-provided by Software Carpentry are made available under the
+provided by Software Carpentry and Data Carpentry are made available under the
 [OSI][osi]-approved
 [MIT license][mit-license].
 
@@ -71,8 +73,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Trademark
 
-"Software Carpentry" and the Software Carpentry logo are registered
-trademarks of [NumFOCUS][numfocus].
+"Software Carpentry" an "Data Carpentry" and their respective logos
+are registered trademarks of [NumFOCUS][numfocus].
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode

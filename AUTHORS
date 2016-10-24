@@ -1,61 +1,112 @@
-shell-novice was written by:
-Harriet Alexander <halexand@mit.edu>
-James Allen <jamesallen0108@gmail.com>
-Areej Alsheikh-Hussain <areej.alsheikh@gmail.com>
-Piotr Banaszkiewicz <piotr@banaszkiewicz.org>
-Pauline Barmby <pbarmby@uwo.ca>
-Rob Beagrie <rob@beagrie.com>
-Trevor Bekolay <tbekolay@gmail.com>
-John Blischak <jdblischak@gmail.com>
-Jessica Bonnie <jessica.k.bonnie@gmail.com>
-Andy Boughton <abought@gmail.com>
-Amy Brown <amyrhoda@gmail.com>
-Orion Buske <orion.buske@gmail.com>
-Abigail Cabunoc <abigail.cabunoc@oicr.on.ca>
-Daniel Chen <Maveri2k@yahoo.com>
-Gabriel A. Devenyi <gdevenyi@gmail.com>
-Rémi Emonet <remi.emonet@reverse--com.heeere>
-Filipe Fernandes <ocefpaf@gmail.com>
-Ivan Gonzalez <iglpdc@gmail.com>
-Michael Hansen <hansen.mike@gmail.com>
-Emelie Harstad <eharstad@unl.edu>
-Adina Howe <adina.chuang@gmail.com>
-Fatma Imamoglu <fatmaimamoglu@gmail.com>
-Damien Irving <damien_irving@yahoo.com.au>
-Michael Jennings <mej@lbl.gov>
-Tom Kelly <tom.kelly@postgrad.otago.ac.nz>
-Jan T. Kim <jttkim@gmail.com>
-W. Trevor King <wking@tremily.us>
-Christina Koch <ckoch5@wisc.edu>
-Bernhard Konrad <bernhard.konrad@gmail.com>
-Sherry Lake <shlake@virginia.edu>
-Doug Latornell <djl@douglatornell.ca>
-Joshua Madin <joshua.madin@mq.edu.au>
-Emily Jane McTavish <ejmctavish@gmail.com>
-François Michonneau <francois.michonneau@gmail.com>
-Bill Mills <mills.wj@gmail.com>
-Amanda Miotto <amandamiotto@users.noreply.github.com>
-Sarah Mount <s.mount@wlv.ac.uk>
-Lex Nederbragt <lex.nederbragt@bio.uio.no>
-Aaron O'Leary <aaron.oleary@gmail.com>
-Randy Olson <rso@randalolson.com>
-Kirill Palamartchouk <kpalamartchouk@gmail.com>
-Jon Pipitone <jon.pipitone@utoronto.ca>
-Timothée Poisot <tim@poisotlab.io>
-Noam Ross <noam.ross@gmail.com>
-Genevieve Shattow <gshattow@astro.swin.edu.au>
-Raniere Silva <raniere@ime.unicamp.br>
-Sarah Simpkin <ssimpkin@users.noreply.github.com>
-Daniel Standage <daniel.standage@gmail.com>
-Meg Staton <mestato@gmail.com>
-Peter Steinbach <steinbac@mpi-cbg.de>
-Tiffany Timbers <tiffany.timbers@gmail.com>
-Stephen Turner <vustephen@gmail.com>
-Anelda van der Walt <anelda.vdwalt@gmail.com>
-Jens von der Linden <jensvonderlinden@gmail.com>
-Andrew Walker <andrew.walker@bristol.ac.uk>
-Ethan White <ethan@weecology.org>
-Carol Willing <carolcode@willingconsulting.com>
-Greg Wilson <gvwilson@software-carpentry.org>
-Donny Winston <dwinston@alum.mit.edu>
-Lee Zamparo <zamparo@gmail.com>
+Inigo Aldazabal Mensa
+Harriet Alexander
+James Allen
+Areej Alsheikh-Hussain
+Daniel Baird
+Piotr Banaszkiewicz
+Pauline Barmby
+Rob Beagrie
+Trevor Bekolay
+Evgenij Belikov
+Jason Bell
+Kai Blin
+John Blischak
+Simon Boardman
+Maxime Boissonneault
+Jessica Bonnie
+Andy Boughton
+Ry4an Brase
+Amy Brown
+Dana Brunson
+Orion Buske
+Abigail Cabunoc Mayes
+Daniel Chen
+Kathy Chung
+Gabriel A. Devenyi
+Emily Dolson
+Jonah Duckles
+Rémi Emonet
+David Eyers
+Filipe Fernandes
+Hugues Fontenelle
+Francis Gacenga
+Matthew Gidden
+Ivan Gonzalez
+Norman Gray
+Varda F. Hagh
+Michael Hansen
+Emelie Harstad
+Adina Howe
+Fatma Imamoglu
+Damien Irving
+Mike Jackson
+Emily Jane McTavish
+Michael Jennings
+Dan Jones
+Alix Keener
+Kristopher Keipert
+Tom Kelly
+Jan T. Kim
+W. Trevor King
+Christina Koch
+Bernhard Konrad
+Sherry Lake
+Doug Latornell
+Philip Lijnzaad
+Eric Ma
+Joshua Madin
+Camille Marini
+Kunal Marwaha
+Sergey Mashchenko
+François Michonneau
+Ryan Middleson
+Jackie Milhans
+Bill Mills
+Amanda Miotto
+Sarah Mount
+Lex Nederbragt
+Daiva Nielsen
+Aaron O'Leary
+Randy Olson
+Adam Orr
+Nina Overgard Therkildsen
+Kirill Palamartchouk
+Adam Perry
+Jon Pipitone
+Timothée Poisot
+Hossein Pourreza
+Timothy Povall
+Adam Richie-Halford
+Scott Ritchie
+Noam Ross
+Halfdan Rydbeck
+Mahdi Sadjadi
+Pat Schloss
+Bertie Seyffert
+Genevieve Shattow
+Raniere Silva
+Sarah Simpkin
+John Simpson
+Byron Smith
+Nicola Soranzo
+Ashwin Srinath
+Daniel Standage
+Meg Staton
+Peter Steinbach
+Marcel Stimberg
+Bartosz Telenczuk
+Florian Thoele
+Tiffany Timbers
+Stephen Turner
+Jay van Schyndel
+Anelda van der Walt
+David Vollmer
+Jens von der Linden
+Andrew Walker
+Josh Waterfall
+Ethan White
+Carol Willing
+Greg Wilson
+Donny Winston
+Lynn Young
+Lee Zamparo
