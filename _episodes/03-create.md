@@ -100,11 +100,12 @@ molecules/  solar.pdf
 >
 >    Commands treat names starting with `-` as options.
 >
-> 3. Stay with letters, numbers, `.`, `-` and `_`.
+> 3. Stay with letters, numbers, `.`, `-`, and `_`.
 >
->    May of the others characters have an special meaning on the command line
->    that we will learn during this lesson. Some will only make your command not work at all
->    but for some of them you can even lose some data.
+>    Many other characters have special meanings on the command line.
+>    We will learn about some of these during this lesson.
+>    There are special characters that can cause your command not work as expected
+>    but some can result in data loss.
 >
 > If you need to refer to names of files or directories that have whitespace
 > or another non-alphanumeric character you should put quotes around the name.
