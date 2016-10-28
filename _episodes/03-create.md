@@ -85,13 +85,13 @@ molecules/  solar.pdf
 
 > ## Good names for files and directories
 >
-> Complicated names of files and directories can make your life very painful
+> Complicated names of files and directories can make your life painful
 > when working on the command line. Here we provide a few useful
-> tips for the names of your files from now on.
+> tips for the names of your files.
 >
 > 1. Don't use whitespaces.
 >
->    White spaces can make a name more meaningful
+>    Whitespaces can make a name more meaningful
 >    but since whitespace is used to break arguments on the command line
 >    is better to avoid them on name of files and directories.
 >    You can use `-` or `_` instead of whitespace.
