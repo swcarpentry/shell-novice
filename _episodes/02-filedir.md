@@ -488,7 +488,7 @@ animals.txt       morse.txt     planets.txt     sunspot.txt
 ~~~
 {: .output}
 
-We now know how to go down the directory tree:
+We now know how to go down the directory tree, but
 how do we go up?  We might try the following:
 
 ~~~
