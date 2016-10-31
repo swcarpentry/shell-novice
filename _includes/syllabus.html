@@ -13,6 +13,11 @@
   {% assign current = site.start_time %}
 
   <table class="table table-striped">
+  <tr>
+    <td class="col-md-1"></td>
+    <td class="col-md-3"><a href="{{ page.root }}/setup">Setup</a></td>
+    <td class="col-md-7">Dowload files used on the lesson.</td>
+  </tr>
   {% for episode in site.episodes %}
     {% if episode.start %} {% comment %} Starting a new day? {% endcomment %}
       {% assign day = day | plus: 1 %}
