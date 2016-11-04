@@ -252,4 +252,4 @@ And please also make use of our
 [Software Carpentry Windows Installer][windows-installer].
 
 [shebang]: http://www.in-ulm.de/~mascheck/various/shebang/
-[windows-installer]: ({{ site.swc_github }}/windows-installer)
+[windows-installer]: {{ site.swc_github }}/windows-installer
