@@ -17,6 +17,10 @@
       <a href="{{ site.dc_site }}" class="pull-left">
         <img class="navbar-logo" src="{{ page.root }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" />
       </a>
+      {% elsif page.carpentry == "lc" %}
+      <a href="{{ site.lc_site }}" class="pull-left">
+        <img class="navbar-logo" src="{{ page.root }}/assets/img/lc-icon-black.svg" alt="Library Carpentry logo" />
+      </a>
       {% elsif site.carpentry == "swc" %}
       <a href="{{ site.swc_site }}" class="pull-left">
         <img class="navbar-logo" src="{{ page.root }}/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
@@ -24,6 +28,10 @@
       {% elsif site.carpentry == "dc" %}
       <a href="{{ site.dc_site }}" class="pull-left">
         <img class="navbar-logo" src="{{ page.root }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" />
+      </a>
+      {% elsif site.carpentry == "lc" %}
+      <a href="{{ site.lc_site }}" class="pull-left">
+        <img class="navbar-logo" src="{{ page.root }}/assets/img/lc-icon-black.svg" alt="Library Carpentry logo" />
       </a>
       {% endif %}
 

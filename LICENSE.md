@@ -73,7 +73,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Trademark
 
-"Software Carpentry" an "Data Carpentry" and their respective logos
+"Software Carpentry" and "Data Carpentry" and their respective logos
 are registered trademarks of [NumFOCUS][numfocus].
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
