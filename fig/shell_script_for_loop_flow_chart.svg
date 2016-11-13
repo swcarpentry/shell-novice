@@ -767,7 +767,7 @@
        y="306.69904"
        x="232.46616"
        id="tspan16742"
-       sodipodi:role="line">input-1.dat</tspan></text>
+       sodipodi:role="line">input-2.dat</tspan></text>
 <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:11.99998856px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -779,7 +779,7 @@
        id="tspan16746"
        x="230.34015"
        y="337.88016"
-       style="font-size:10.99998951px">input-1.dat</tspan></text>
+       style="font-size:10.99998951px">input-3.dat</tspan></text>
 <text
      sodipodi:linespacing="125%"
      id="text16748"
@@ -815,7 +815,7 @@
        y="306.69904"
        x="557.32788"
        id="tspan16762"
-       sodipodi:role="line">cp input-1.dat original-input-1.dat</tspan></text>
+       sodipodi:role="line">cp input-2.dat original-input-2.dat</tspan></text>
 <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:11.99998856px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -827,7 +827,7 @@
        id="tspan16766"
        x="556.26685"
        y="337.88016"
-       style="font-size:10.99998951px">cp input-1.dat original-input-1.dat</tspan></text>
+       style="font-size:10.99998951px">cp input-3.dat original-input-3.dat</tspan></text>
 <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:10.99998951px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
