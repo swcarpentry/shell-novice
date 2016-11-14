@@ -137,6 +137,9 @@ as long as learners using Windows do not run into roadblocks such as:
     The quickest way past these problems is to have more knowledgeable learners
     help those who need it.
 
+*   Introducing and navigating the filesystem in the shell (covered in
+    [Navigating Files and Directories]({{ page.root }}/02-filedir/) section) can be confusing. You may have both terminal and GUI file explorer open side by side so learners can see the content and file structure while they're using terminal to navigate the system.
+
 *   Tab completion sounds like a small thing: it isn't.
     Re-running old commands using `!123` or `!wc`
     isn't a small thing either,
