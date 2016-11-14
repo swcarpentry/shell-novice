@@ -118,11 +118,6 @@ as long as learners using Windows do not run into roadblocks such as:
     If you think there is a place where the lesson is lacking,
     feel free to file an issue or submit a pull request.
 
-*   Optional setup:
-    *   Run `tools/gen-nene.py` to regenerate random data files if needed
-        (some are already in the `data` directory, so you don't have to do this).
-    *   Similarly, run `tools/gen-sequence.py` to regenerate random sequence data if needed.
-
 ## Teaching Notes
 
 *   Super cool online resource!
