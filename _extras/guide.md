@@ -6,14 +6,14 @@ permalink: /guide/
 *   Why do we learn to use the shell?
     *   Allows users to automate repetitive tasks
     *   And capture small data manipulation steps that are normally not recorded
-        to make research reproducible 
+        to make research reproducible
 *   The Problem
     *   Running the same workflow on several samples can be unnecessarily labour intensive
     *   Manual manipulation of data files:
         *   is often not captured in documentation
         *   is hard to reproduce
         *   is hard to troubleshoot, review, or improve
-*   The Shell 
+*   The Shell
     *   Workflows can be automated through the use of shell scripts
     *   Built-in commands allow for easy data manipulation (e.g. sort, grep, etc.)
     *   Every step can be captured in the shell script and allow reproducibility and easy troubleshooting
@@ -84,11 +84,10 @@ as long as learners using Windows do not run into roadblocks such as:
 ## Preparing to Teach
 
 *   Use the `data` directory for in-workshop exercises and live coding examples.
-    You can clone the shell-novice directory or use the `Download ZIP` 
-    button on the right to get the entire repository; we also now provide 
-    a zip file of the `data` directory that can be downloaded on its own 
-    from the repository by right-click + save.  See the "Get Ready" box 
-    on the front page of the website for more details.  
+     You can clone the shell-novice directory or use the `Download ZIP`
+     button on the right to get the entire [repository](https://github.com/swcarpentry/shell-novice). We also now provide
+     a zip file of the `data` directory that can be downloaded on its own
+     from the repository by right-click + save or see the ["setup"]({{ page.root }}/setup/) page on the lesson website for more details.  
 
 *   Website: various practices have been used.
     *   Option 1: Can give links to learners before the lesson so they can follow along,
@@ -119,21 +118,16 @@ as long as learners using Windows do not run into roadblocks such as:
     If you think there is a place where the lesson is lacking,
     feel free to file an issue or submit a pull request.
 
-*   Optional setup:
-    *   Run `tools/gen-nene.py` to regenerate random data files if needed
-        (some are already in the `data` directory, so you don't have to do this).
-    *   Similarly, run `tools/gen-sequence.py` to regenerate random sequence data if needed.
-
 ## Teaching Notes
 
 *   Super cool online resource!
     <http://explainshell.com/> will dissect any shell command you type in
     and display help text for each piece.  
 
-*   Resources for "splitting" your shell so that recent commands 
+*   Resources for "splitting" your shell so that recent commands
     remain in view: <https://github.com/rgaiacs/swc-shell-split-window>.
 
-*   Running a text editor from the command line can be 
+*   Running a text editor from the command line can be
     the biggest stumbling block during the entire lesson:
     many will try to run the same editor as the instructor
     (which may leave them trapped in the awful nether hell that is Vim),
@@ -142,6 +136,9 @@ as long as learners using Windows do not run into roadblocks such as:
     or will run a word processor rather than a plain text editor.
     The quickest way past these problems is to have more knowledgeable learners
     help those who need it.
+
+*   Introducing and navigating the filesystem in the shell (covered in
+    [Navigating Files and Directories]({{ page.root }}/02-filedir/) section) can be confusing. You may have both terminal and GUI file explorer open side by side so learners can see the content and file structure while they're using terminal to navigate the system.
 
 *   Tab completion sounds like a small thing: it isn't.
     Re-running old commands using `!123` or `!wc`
