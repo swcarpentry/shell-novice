@@ -84,10 +84,10 @@ as long as learners using Windows do not run into roadblocks such as:
 ## Preparing to Teach
 
 *   Use the `data` directory for in-workshop exercises and live coding examples.
-     You can clone the shell-novice directory or use the `Download ZIP`
-     button on the right to get the entire [repository](https://github.com/swcarpentry/shell-novice). We also now provide
-     a zip file of the `data` directory that can be downloaded on its own
-     from the repository by right-click + save or see the ["setup"]({{ page.root }}/setup/) page on the lesson website for more details.  
+    You can clone the shell-novice directory or use the `Download ZIP`
+    button on the right to get the entire [repository](https://github.com/swcarpentry/shell-novice). We also now provide
+    a zip file of the `data` directory that can be downloaded on its own
+    from the repository by right-click + save or see the ["setup"]({{ page.root }}/setup/) page on the lesson website for more details.
 
 *   Website: various practices have been used.
     *   Option 1: Can give links to learners before the lesson so they can follow along,
@@ -118,11 +118,6 @@ as long as learners using Windows do not run into roadblocks such as:
     If you think there is a place where the lesson is lacking,
     feel free to file an issue or submit a pull request.
 
-*   Optional setup:
-    *   Run `tools/gen-nene.py` to regenerate random data files if needed
-        (some are already in the `data` directory, so you don't have to do this).
-    *   Similarly, run `tools/gen-sequence.py` to regenerate random sequence data if needed.
-
 ## Teaching Notes
 
 *   Super cool online resource!
@@ -141,6 +136,10 @@ as long as learners using Windows do not run into roadblocks such as:
     or will run a word processor rather than a plain text editor.
     The quickest way past these problems is to have more knowledgeable learners
     help those who need it.
+
+*   Introducing and navigating the filesystem in the shell (covered in
+  [Navigating Files and Directories]({{ page.root }}/02-filedir/) section) can be confusing. You may have both terminal and GUI file explorer open side by side so learners can see the content and file structure while they're using terminal to navigate the system.
+
 
 *   Tab completion sounds like a small thing: it isn't.
     Re-running old commands using `!123` or `!wc`
@@ -195,7 +194,7 @@ as long as learners using Windows do not run into roadblocks such as:
 
 *   On Windows machines
     if `nano` hasn't been properly installed with the
-    [Software Carpentry Windows Installer][windows-installer]
+    [Software Carpentry Windows Installer][windows-installer],
     it is possible to use `notepad` as an alternative.  There will be a GUI
     interface and line endings are treated differently, but otherwise, for
     the purposes of this lesson, `notepad` and `nano` can be used almost interchangeably.
