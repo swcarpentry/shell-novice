@@ -549,6 +549,7 @@ Desktop/            north-pacific-gyre/ writing/
 ~~~
 {: .output}
 
+Note that `ls -Fa`is equivalent to `ls -F -a`, if you prefer to type fewer characters. 
 `-a` stands for "show all";
 it forces `ls` to show us file and directory names that begin with `.`,
 such as `..` (which, if we're in `/Users/nelle`, refers to the `/Users` directory)
