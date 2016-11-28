@@ -327,7 +327,10 @@ Every process has an input channel called **standard input**.
 (By this point, you may be surprised that the name is so memorable, but don't worry:
 most Unix programmers call it "stdin").
 Every process also has a default output channel called **standard output**
-(or "stdout").
+(or "stdout"). A third output channel called **standard error** (stderr) also 
+exists. This channel is typically used for error or diagnostic messages, and it
+allows a user to pipe the output of one program into another while still receiving 
+error messages in the terminal. 
 
 The shell is actually just another program.
 Under normal circumstances,
