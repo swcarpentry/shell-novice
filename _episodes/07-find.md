@@ -191,6 +191,50 @@ $ grep -n -w -v "the" haiku.txt
 ~~~
 {: .output}
 
+
+`grep` also has the ability to search for a a pattern recursively through a set of 
+files in subdirectories.
+
+To demonstrate this we will `split` the haiku into one file per line (for a total 
+of 11 files) and move each file to its own subdirectory.
+
+~~~
+# Create 11 files (xaa - xak) each containing one line of the haiku
+$ split -l 1 haiku.txt
+# Create a nested directory tree
+mkdir -p d01/d02/d03/d04/d05/d06/d07/d08/d09/d10/d10
+# Move each file into a subdirectory
+mv xaa d01
+mv xab d01/d02
+mv xac d01/d02/d03
+mv xad d01/d02/d03/d04
+mv xae d01/d02/d03/d04/d05
+mv xaf d01/d02/d03/d04/d05/d06
+mv xag d01/d02/d03/d04/d05/d06/d07
+mv xah d01/d02/d03/d04/d05/d06/d07/d08
+mv xai d01/d02/d03/d04/d05/d06/d07/d08/d09
+mv xaj d01/d02/d03/d04/d05/d06/d07/d08/d09/d10
+mv xak d01/d02/d03/d04/d05/d06/d07/d08/d09/d10/d11
+# Recursively view the directory and file layout
+ls -R d01
+~~~
+{: .bash}
+
+Now we want to use the option `-r` to recusrively search the directory tree for
+the pattern "it"
+
+~~~
+grep -R "it" d01
+~~~
+{: .bash}
+
+~~~
+d01/d02/d03/d04/d05/d06/d07/d08/d09/d10/xaj:Today it is not working
+d01/d02/d03/d04/d05/d06/d07/d08/d09/xai:Yesterday it worked
+d01/d02/d03/d04/d05/xae:With searching comes loss
+~~~
+{: .output}
+
 `grep` has lots of other options. To find out what they are, we can type:
 
 ~~~
