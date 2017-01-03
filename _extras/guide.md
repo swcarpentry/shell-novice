@@ -124,6 +124,9 @@ as long as learners using Windows do not run into roadblocks such as:
     <http://explainshell.com/> will dissect any shell command you type in
     and display help text for each piece.  
 
+*   Another super cool online resource is <http://www.shellcheck.net>,
+    which will check shell scripts (both uploaded and typed in) for common errors.
+
 *   Resources for "splitting" your shell so that recent commands
     remain in view: <https://github.com/rgaiacs/swc-shell-split-window>.
 
