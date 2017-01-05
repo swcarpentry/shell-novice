@@ -616,7 +616,7 @@ $ cd Desktop/data-shell/data
 ~~~
 {: .bash}
 
-Check that we've moved to the right place by running `pwd` and `ls -F`.  
+Check that we've moved to the right place by running `pwd` and `ls -F`  
 
 If we want to move up one level from the data directory, we could use `cd ..`.  But
 there is another way to move to any directory, regardless of your

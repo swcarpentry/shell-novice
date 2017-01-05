@@ -348,7 +348,7 @@ silently overwrite any existing file with the same name, which could
 lead to data loss. An additional flag, `mv -i` (or `mv --interactive`),
 can be used to make `mv` ask you for confirmation before overwriting.
 
-Just for the sake of inconsistency,
+Just for the sake of consistency,
 `mv` also works on directories --- there is no separate `mvdir` command.
 
 Let's move `quotes.txt` into the current working directory.
