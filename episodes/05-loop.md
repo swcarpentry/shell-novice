@@ -80,27 +80,34 @@ UPDATED: 1738-11-24
 {: .output}
 
 When the shell sees the keyword `for`,
-it knows it is supposed to repeat a command (or group of commands) once for each thing in a list.
-In this case, the list is the two filenames.
-Each time through the loop,
-the name of the thing currently being operated on is assigned to
-the **variable** called `filename`.
+it knows to repeat a command (or group of commands) once for each thing `in` a list.
+For each iteration,
+the name of the each thing is sequentially assigned to
+the **variable** and the commands inside the loop are executed before moving on to 
+the next thing in the list.
 Inside the loop,
-we get the variable's value by putting `$` in front of it:
-`$filename` is `basilisk.dat` the first time through the loop,
-`unicorn.dat` the second,
-and so on.
+we call for the variable's value by putting `$` in front of it.
+The `$` tells the shell interpreter to treat
+the **variable** as a variable name and substitute its value in its place,
+rather than treat it as text or an external command. 
 
-By using the dollar sign we are telling the shell interpreter to treat
-`filename` as a variable name and substitute its value on its place,
-but not as some text or external command. When using variables it is also
+In this example, the list is two filenames: `basilisk.dat` and `unicorn.dat`.
+Each time the loop iterates, it will assign a file name to the variable `filename`
+and run the `head` command.
+The first time throught the loop,
+`$filename` is `basilisk.dat`. 
+The interpreter runs the command `head` on `basilisk.dat`, 
+and the prints the 
+first three lines of `basilisk.dat`.
+For the second iteration, `$filename` becomes 
+`unicorn.dat`. This time, the shell runs `head` on `unicorn.dat`
+and prints the first three lines of `unicorn.dat`. 
+Since the list was only two items, the shell exits the `for` loop.
+
+When using variables it is also
 possible to put the names into curly braces to clearly delimit the variable
 name: `$filename` is equivalent to `${filename}`, but is different from
 `${file}name`. You may find this notation in other people's programs.
-
-Finally,
-the command that's actually being run is our old friend `head`,
-so this loop prints out the first three lines of each data file in turn.
 
 > ## Follow the Prompt
 >
