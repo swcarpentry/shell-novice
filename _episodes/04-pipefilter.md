@@ -303,7 +303,7 @@ $ wc -l *.pdb | sort -n
 ~~~
 {: .output}
 
-And now we send the output ot this pipe, through another pipe, to `head`, so that the full pipeline becomes:
+And now we send the output of this pipe, through another pipe, to `head`, so that the full pipeline becomes:
 
 ~~~
 $ wc -l *.pdb | sort -n | head -n 1

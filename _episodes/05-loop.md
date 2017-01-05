@@ -227,7 +227,7 @@ from whatever file is being processed
 > ~~~
 > {: .bash}
 >
-> Is simpler just to avoid using whitespaces (or other special characters) in filenames.
+> It is simpler just to avoid using whitespaces (or other special characters) in filenames.
 {: .callout}
 
 Going back to our original file copying problem,
