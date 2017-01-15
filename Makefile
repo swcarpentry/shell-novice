@@ -89,7 +89,7 @@ ${RMD_DST} : ${RMD_SRC}
 
 ## lesson-check     : validate lesson Markdown.
 lesson-check :
-	@bin/lesson_check.py -s . -p ${PARSER}
+	@bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md
 
 ## lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace.
 lesson-check-all :
