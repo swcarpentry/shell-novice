@@ -94,7 +94,7 @@ rather than treat it as text or an external command.
 In this example, the list is two filenames: `basilisk.dat` and `unicorn.dat`.
 Each time the loop iterates, it will assign a file name to the variable `filename`
 and run the `head` command.
-The first time throught the loop,
+The first time through the loop,
 `$filename` is `basilisk.dat`. 
 The interpreter runs the command `head` on `basilisk.dat`, 
 and the prints the 
@@ -121,7 +121,7 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 >
 > Here we see `>` being used a shell prompt, whereas `>` is also
 > used to redirect output.
-> Similarly, `$` is used as a shell prompt, but, as we saw earler,
+> Similarly, `$` is used as a shell prompt, but, as we saw earlier,
 > it is also used to ask the shell to get the value of a variable.
 >
 > If the *shell* prints `>` or `$` then it expects you to type something,
