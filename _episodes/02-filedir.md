@@ -834,7 +834,7 @@ and we will see it in many other tools as we go on.
 >
 > > ## Solution
 > > The `-l` argument makes `ls` use a **l**ong listing format, showing not only
-> > the file/directory names but also additional properties of each file/directory. 
+> > the file or directory names but also additional properties of each file or directory. 
 > > Consider this example output of `ls -l` in the `shell-novice` folder:
 
 `-rwxr-xr--   1 nelly  staff   690  5 Jan 16:02 README.md`
@@ -845,30 +845,32 @@ and we will see it in many other tools as we go on.
 > > group name, number of bytes in the file, abbreviated month, day-of-month, hour 
 > > and minute of the last modification of the file and the file/folder name.
 
-> > 1. 	The file mode field is made up of 10 characters. The the first character indicates 
+> > 1. 	The **file mode** field is made up of 10 characters. The the first character indicates 
 > > 	a type of file: `-` for a regular file or `d` for a directory. Other type of files can be:
 > > 	block special (`b`), character special (`c`), symbolic link (`l`), socket link (`s`)
 > > 	or a named pipe (`p`), wich we will only mention here: please consult 
-> > 	[the explanation of these types of files on Wikipedia](https://en.wikipedia.org/wiki/Unix_file_types) to learn more.
-> > 2. 	The remaining of the field mode is a group of 9 characters in groups of 3 to indicate 
-> > 	who has permission to read (`r`), write (`w`) and e**x**ecute (`x`) the file. 
-> > 	A dash (`-`) indicates no permissions. The first group of 3 symbols indicate 
-> > 	permissions for the owner of the file, the second for the group, and the third for 
-> > 	other. For example, the field mode for the file `README.md` in the example 
-> > 	above (`-rwxr--r--`) indicate that this is a regular file (`-`) which the owner 
-> > 	can read, write and execute (`rwx`) and the group (`staff`) can read and execute
-> > 	(`r-x`) and the other can read but not write or execute (`r--`).
-> > 3. 	The next field is called "number of links" and it indicates how many links 
+> > 	[the description of these types of files on Wikipedia](https://en.wikipedia.org/wiki/Unix_file_types) 
+> > 	to learn more.
+> > 2. 	The remainder of the **field mode** is a group of 9 characters in groups of 3 to indicate 
+> > 	who has permission to **r**ead (`r`), **w**rite (`w`) and e**x**ecute (`x`) the file. 
+> > 	A dash (`-`) indicates no permissions. The first group of 3 symbols indicates 
+> > 	permissions for the owner of the file, the second for the group of users, 
+> > 	and the third for "other". For example, the field mode for the file `README.md` 
+> > 	above (`-rwxr--r--`) indicates a regular file (`-`) that the owner can read, 
+> > 	write and execute (`rwx`); the users who belong to the group `staff` can read 
+> > 	and execute but not write (`r-x`); the others can read but not write or execute 
+> > 	(`r--`).
+> > 3. 	The next field is called **number of links** and it indicates how many links 
 > > 	are there in the file system to this particular file or folder (this number includes 
 > > 	special cases like `.` and `..`).
-> > 4. 	The next two fields are the names of the owner of the file and the group that this user belongs to.
-> > 	Groups can contain multiple users and there are typically several groups of
-> > 	users in a filesystem.
-> > 5. 	The next field is the size of the file or folder in bytes. For larger files, this
+> > 4. 	The next two fields are the names of the owner of the file and the group that 
+> > 	this user belongs to. There are typically several groups of multiple users 
+> > 	in a filesystem.
+> > 5. 	The next field is the **size of the file or folder in bytes**. For larger files, this
 > > 	number gets very large very quickly; to make it easier to understand, the `-h` 
-> > 	argument makes the file size "**h**uman readable", i.e. displays the file size in
+> > 	argument makes the file size "**h**uman readable": it displays the file size in
 > > 	kilo-, mega-, giga-, terabytes or larger units instead of bytes.
-> > 6. 	The next three field contain date of last modification of the file in 
+> > 6. 	The next three fields contain **date of last modification** of the file or folder in 
 > > 	day of month, month, hour and minute format.
 > > 
 > > A more detailed explanation of most of the fields and options for `ls` 
