@@ -15,7 +15,6 @@ keypoints:
 - "`mkdir path` creates a new directory."
 - "`mv old new` moves (renames) a file or directory."
 - "`rm path` removes (deletes) a file."
-- "`rmdir path` removes (deletes) an empty directory."
 - "Use of the Control key may be described in many ways, including `Ctrl-X`, `Control-X`, and `^X`."
 - "The shell does not have a trash bin: once something is deleted, it's really gone."
 - "Nano is a very simple text editor: please use something else for real work."
@@ -85,13 +84,13 @@ molecules/  solar.pdf
 
 > ## Good names for files and directories
 >
-> Complicated names of files and directories can make your life very painful
+> Complicated names of files and directories can make your life painful
 > when working on the command line. Here we provide a few useful
-> tips for the names of your files from now on.
+> tips for the names of your files.
 >
 > 1. Don't use whitespaces.
 >
->    White spaces can make a name more meaningful
+>    Whitespaces can make a name more meaningful
 >    but since whitespace is used to break arguments on the command line
 >    is better to avoid them on name of files and directories.
 >    You can use `-` or `_` instead of whitespace.
@@ -102,9 +101,10 @@ molecules/  solar.pdf
 >
 > 3. Stick with letters, numbers, `.` (period), `-` (dash) and `_` (underscore).
 >
->    Many other characters have a special meaning on the command line
->    that we will learn during this lesson. Some will only make your command not work,
->    but some of them may even cause you to lose some data!
+>    Many other characters have special meanings on the command line.
+>    We will learn about some of these during this lesson.
+>    There are special characters that can cause your command to not work as
+>    expected and can even result in data loss.
 >
 > If you need to refer to names of files or directories that have whitespace
 > or another non-alphanumeric character, you should surround the name in quotes (`""`).
