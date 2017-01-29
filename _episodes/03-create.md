@@ -95,19 +95,19 @@ molecules/  solar.pdf
 >    is better to avoid them on name of files and directories.
 >    You can use `-` or `_` instead of whitespace.
 >
-> 2. Don't begin the name with `-`.
+> 2. Don't begin the name with `-` (dash).
 >
 >    Commands treat names starting with `-` as options.
 >
-> 3. Stay with letters, numbers, `.`, `-`, and `_`.
+> 3. Stick with letters, numbers, `.` (period), `-` (dash) and `_` (underscore).
 >
 >    Many other characters have special meanings on the command line.
 >    We will learn about some of these during this lesson.
->    There are special characters that can cause your command not work as expected
->    but some can result in data loss.
+>    There are special characters that can cause your command to not work as
+>    expected and can even result in data loss.
 >
 > If you need to refer to names of files or directories that have whitespace
-> or another non-alphanumeric character you should put quotes around the name.
+> or another non-alphanumeric character, you should surround the name in quotes (`""`).
 {: .callout}
 
 Since we've just created the `thesis` directory, there's nothing in it yet:
@@ -348,7 +348,7 @@ silently overwrite any existing file with the same name, which could
 lead to data loss. An additional flag, `mv -i` (or `mv --interactive`),
 can be used to make `mv` ask you for confirmation before overwriting.
 
-Just for the sake of inconsistency,
+Just for the sake of consistency,
 `mv` also works on directories --- there is no separate `mvdir` command.
 
 Let's move `quotes.txt` into the current working directory.
@@ -391,7 +391,7 @@ The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
 We can check that it did the right thing using `ls`
 with two paths as parameters --- like most Unix commands,
-`ls` can be given thousands of paths at once:
+`ls` can be given multiple paths at once:
 
 ~~~
 $ cp quotes.txt thesis/quotations.txt
