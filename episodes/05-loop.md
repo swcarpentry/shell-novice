@@ -94,7 +94,7 @@ rather than treat it as text or an external command.
 In this example, the list is two filenames: `basilisk.dat` and `unicorn.dat`.
 Each time the loop iterates, it will assign a file name to the variable `filename`
 and run the `head` command.
-The first time throught the loop,
+The first time through the loop,
 `$filename` is `basilisk.dat`. 
 The interpreter runs the command `head` on `basilisk.dat`, 
 and the prints the 
