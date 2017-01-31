@@ -12,3 +12,16 @@
   ga('create', 'UA-37305346-2', 'auto');
   ga('send', 'pageview');
 </script>
+<script>
+  $('dt').each(function () {
+    if (!this.id) {
+      var id = $(this).text();
+      var index = id.indexOf('(');
+      if (index > 0) {
+        id = id.substring(0, index);
+      }
+      id = id.trim().replace(/ /g, '-').toLowerCase();
+      this.id = id;
+    }
+  });
+</script>
