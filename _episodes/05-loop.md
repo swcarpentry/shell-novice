@@ -248,8 +248,6 @@ done
 ~~~
 {: .bash}
 
-![For Loop in Action](../fig/shell_script_for_loop_flow_chart.svg)
-
 This loop runs the `cp` command once for each filename.
 The first time,
 when `$filename` expands to `basilisk.dat`,
@@ -266,6 +264,14 @@ The second time, the command is:
 cp unicorn.dat original-unicorn.dat
 ~~~
 {: .bash}
+
+Since the `cp` command does not normally produce any output, it's hard to check 
+that the loop is doing the correct thing. By prefixing the command with `echo` 
+it is possible to see each command as it _would_ be executed. The following diagram 
+shows what happens when the modified script is executed, and demonstrates how the 
+judicious use of `echo` is a good debugging technique.
+
+![For Loop in Action](../fig/shell_script_for_loop_flow_chart.svg)
 
 ## Nelle's Pipeline: Processing Files
 
