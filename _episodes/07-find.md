@@ -80,32 +80,41 @@ every alphanumeric character matches against itself.
 After the pattern comes the name or names of the files we're searching in.
 The output is the three lines in the file that contain the letters "not".
 
-Let's try a different pattern: "day".
+Let's try a different pattern: "The".
 
 ~~~
-$ grep day haiku.txt
+$ grep The haiku.txt
 ~~~
 {: .bash}
 
 ~~~
-Yesterday it worked
-Today it is not working
+The Tao that is seen
+"My Thesis" not found.
 ~~~
 {: .output}
 
 This time,
-two lines that include the letters "day" are outputted.
-However, these letters are contained within larger words.
-To restrict matches to lines containing the word "day" on its own,
+two lines that include the letters "The" are outputted.
+However, one instance of those letters is contained within a larger word,
+"Thesis".
+
+To restrict matches to lines containing the word "The" on its own,
 we can give `grep` with the `-w` flag.
 This will limit matches to word boundaries.
 
 ~~~
-$ grep -w day haiku.txt
+$ grep -w The haiku.txt
 ~~~
 {: .bash}
 
-In this case, there aren't any, so `grep`'s output is empty. Sometimes we don't
+~~~
+The Tao that is seen
+~~~
+{: .output}
+
+Note that a "word boundary" includes the start and end of a line, so not
+just letters surrounded by spaces. 
+Sometimes we don't
 want to search for a single word, but a phrase. This is also easy to do with
 `grep` by putting the phrase in quotes.
 
