@@ -578,6 +578,11 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~
 > {: .bash}
 >
+> > ## Solution
+> > The command `cp` makes a copy of each one of the files we gave as arguments into the directory
+> > which is specified as the last argument.
+> {: .solution}
+>
 > What does `cp` do when given three or more filenames, as in:
 >
 > ~~~
@@ -592,6 +597,11 @@ but it does find the copy in `thesis` that we didn't delete.
 > $ cp intro.txt methods.txt survey.txt
 > ~~~
 > {: .bash}
+>
+> > ## Solution
+> > An error message appears stating that the last argument specified is a file while it was
+> > instead expected for it to be a location, therefore a folder.
+> {: .solution}
 {: .challenge}
 
 > ## Listing Recursively and By Time
@@ -655,6 +665,8 @@ but it does find the copy in `thesis` that we didn't delete.
 > > ## Solution
 > >
 > > Ask for confirmation.
+> > Because the command `rm` removes files forever. Unlike GUIs there is no location (such a "Rubbish Bin"
+> > directory) in which we can retrieve our files if we made a mistake.
 > {: .solution}
 {: .challenge}
 
