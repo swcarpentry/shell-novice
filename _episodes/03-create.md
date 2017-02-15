@@ -554,6 +554,18 @@ but it does find the copy in `thesis` that we didn't delete.
 > fructose.dat    sucrose.dat
 > ~~~
 > {: .output}
+
+> > ## Solution
+> > Jamie wants to move `fructose.dat` and `sucrose.dat` files into the directory `analyzed/`
+> > The appropriate command to use is `mv` giving as first argument the name of the file we want to
+> > move followed by the location (second argument) where we want it to be moved in.
+> >
+> > ~~~
+> > $ mv fructose.dat analyzed/
+> > $ mv sucrose.dat analyzed/
+> > ~~~
+> > {: .bash}
+> {: .solution}
 {: .challenge}
 
 > ## Copy with Multiple Filenames
