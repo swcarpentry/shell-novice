@@ -26,7 +26,8 @@ a bunch of commands saved in a file is usually called a **shell script**,
 but make no mistake:
 these are actually small programs.
 
-Let's start by going back to `molecules/` and putting the following line into a new file, `middle.sh`:
+Let's start by going back to `molecules/` and creating a new file, `middle.sh` which will
+become our shell script:
 
 ~~~
 $ cd molecules
@@ -37,7 +38,7 @@ $ nano middle.sh
 The command `nano middle.sh` opens the file `middle.sh` within the text editor "nano"
 (which runs within the shell).
 If the file does not exist, it will be created.
-We can use the text editor to directly edit the file---we'll simply insert the following line:
+We can use the text editor to directly edit the file -- we'll simply insert the following line:
 
 ~~~
 head -n 15 octane.pdb | tail -n 5
