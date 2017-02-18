@@ -12,3 +12,22 @@
   ga('create', 'UA-37305346-2', 'auto');
   ga('send', 'pageview');
 </script>
+<script>
+  // This snippet fixes a bug caused by Github's pages-gem using kramdown v1.11.1.
+  // In order for anchor links to point to the correct place in the glossary, they must have an id
+  // This snippet ensures every definition term has an id
+  // See https://github.com/swcarpentry/styles/pull/129
+  $('dt').each(function () {
+    if (!this.id) {
+      var id = $(this).text();
+      // If there's a ( in the name (e.g., "comma-separated values (CSV)") - just take everything up to the first (
+      var index = id.indexOf('(');
+      if (index > 0) {
+        id = id.substring(0, index);
+      }
+      // Strip leading and trailing whitespace, convert spaces to dashes and convert everything to lowercase
+      id = id.trim().replace(/ /g, '-').toLowerCase();
+      this.id = id;
+    }
+  });
+</script>
