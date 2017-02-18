@@ -5,6 +5,7 @@
 <div class="syllabus">
   <h2 id="schedule">Schedule</h2>
 
+  {% assign lesson_number = 0 %}
   {% assign day = 0 %}
   {% assign multiday = false %}
   {% for episode in site.episodes %}
@@ -40,7 +41,8 @@
       {% if multiday %}<td class="col-md-1">{% if episode.start %}Day {{ day }}{% endif %}</td>{% endif %}
       <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
       <td class="col-md-3">
-        <a href="{{ page.root }}{{ episode.url }}">{{ episode.title }}</a>
+        {% assign lesson_number = lesson_number | plus: 1 %}
+	{{ lesson_number }}. <a href="{{ page.root }}{{ episode.url }}">{{ episode.title }}</a>
       </td>
       <td class="col-md-7">
         {% if episode.break %}
