@@ -14,8 +14,8 @@
 
   <table class="table table-striped">
   <tr>
-    <td class="col-md-1"></td>
-    <td class="col-md-1"></td>
+    {% if multiday %}<td class="col-md-1"></td>{% endif %}
+    <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}"></td>
     <td class="col-md-3"><a href="{{ page.root }}/setup">Setup</a></td>
     <td class="col-md-7">Dowload files used on the lesson.</td>
   </tr>
@@ -26,8 +26,8 @@
         {% assign hours = current | divided_by: 60 %}
         {% assign minutes = current | modulo: 60 %}
         <tr>
-          {% if multiday %}<td></td>{% endif %}
-          <td class="col-md-1">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
+          {% if multiday %}<td class="col-md-1"></td>{% endif %}
+          <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
           <td class="col-md-3">Finish</td>
           <td class="col-md-7"></td>
         </tr>
@@ -38,7 +38,7 @@
     {% assign minutes = current | modulo: 60 %}
     <tr>
       {% if multiday %}<td class="col-md-1">{% if episode.start %}Day {{ day }}{% endif %}</td>{% endif %}
-      <td class="col-md-1">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
+      <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
       <td class="col-md-3">
         <a href="{{ page.root }}{{ episode.url }}">{{ episode.title }}</a>
       </td>
@@ -62,8 +62,8 @@
   {% assign hours = current | divided_by: 60 %}
   {% assign minutes = current | modulo: 60 %}
   <tr>
-    {% if multiday %}<td></td>{% endif %}
-    <td class="col-md-1">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
+    {% if multiday %}<td class="col-md-1"></td>{% endif %}
+    <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
     <td class="col-md-3">Finish</td>
     <td class="col-md-7"></td>
   </tr>
