@@ -556,7 +556,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > {: .output}
 >
 > > ## Solution
-> > Jamie needs to move her files `fructose.dat` and `sucrose.dat` to `analyzed` directory:
+> > Jamie needs to move her files `fructose.dat` and `sucrose.dat` to the `analyzed` directory:
 > >
 > > ~~~
 > > $ mv fructose.dat sucrose.dat analyzed
