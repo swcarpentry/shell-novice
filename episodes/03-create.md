@@ -554,6 +554,15 @@ but it does find the copy in `thesis` that we didn't delete.
 > fructose.dat    sucrose.dat
 > ~~~
 > {: .output}
+>
+> > ## Solution
+> > Jamie needs to move her files `fructose.dat` and `sucrose.dat` to the `analyzed` directory:
+> >
+> > ~~~
+> > $ mv fructose.dat sucrose.dat analyzed
+> > ~~~
+> > {: .bash}
+> {: .solution}
 {: .challenge}
 
 > ## Copy with Multiple Filenames
@@ -580,6 +589,11 @@ but it does find the copy in `thesis` that we didn't delete.
 > $ cp intro.txt methods.txt survey.txt
 > ~~~
 > {: .bash}
+>
+> > ## Solution
+> > When given several filenames and a directory name, `cp` copies the files to the destination directory (the last argument).
+> > When given three or more filenames, `cp` expects the last argument to be the destination directory, therefore it returns an error: `target survey.txt is not a directory`.
+> {: .solution}
 {: .challenge}
 
 > ## Listing Recursively and By Time
