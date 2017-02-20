@@ -770,13 +770,25 @@ so this matches all the valid data files she has.
 > 2. `rm *.txt`
 > 3. `rm * .txt`
 > 4. `rm *.*`
+>
+> > ## Solution
+> > 1. This would remove .txt files with one-character names
+> > 2. This is correct answer
+> > 3. The shell would expand * to match everything in the current directory,
+> > so the command would try to remove all matched files and an additional
+> > file called .txt
+> > 4. The shell would expand *.* to match all files with any extension,
+> > so this command would delete all files
+> {: .solution}
 {: .challenge}
 
 > ## Wildcard Expressions
 >
 > Wildcard expressions can be very complex, but you can sometimes write
 > them in ways that only use simple syntax, at the expense of being a bit
-> more verbose.  For example, the wildcard expression `*[AB].txt`
+> more verbose.  
+> Consider the directory data-shell/north-pacific-gyre/2012-07-03 :
+> the wildcard expression `*[AB].txt`
 > matches all files ending in `A.txt` or `B.txt`. Imagine you forgot about
 > this.
 >
@@ -790,6 +802,19 @@ so this matches all the valid data files she has.
 >
 > 3.  Under what circumstances would your new expression produce an error message
 >     where the original one would not?
+>
+> > ## Solution
+> > 1. 
+> >
+> > ```
+> > $ ls *A.txt
+> > $ ls *B.txt
+> > ```
+> > {: .bash}
+> > 2. The output from the new commands is separated because there are two commands.
+> > 3. When there are no files ending in `A.txt`, or there are no files ending in
+> > `B.txt`.
+> {: .solution}
 {: .challenge}
 
 > ## Which Pipe?
