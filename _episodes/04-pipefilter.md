@@ -530,19 +530,52 @@ so this matches all the valid data files she has.
 
 > ## What Does `<` Mean?
 >
+> Change directory to data-shell (the top level of our downloaded example data)
+> ```
+> cd ~/data-shell
+> ```
+> {: .bash}
 > What is the difference between:
 >
 > ~~~
-> $ wc -l < mydata.dat
+> $ wc -l notes.txt
 > ~~~
 > {: .bash}
 >
 > and:
 >
 > ~~~
-> $ wc -l mydata.dat
+> $ wc -l < notes.txt
 > ~~~
 > {: .bash}
+>
+> > ## Solution
+> > `<` is used to redirect input to a command. 
+> >
+> > In both examples, the shell returns the number of lines from the input to
+> > the `wc` command.
+> > In the first example, the input is a the file notes.txt and the file name is
+> > given in the output from the `wc` command.
+> > In the second example, the contents of the file notes.txt are redirected to
+> > standard input.
+> > It is as if we have entered the contents of the file by typing at the prompt.
+> > Hence the file name is not given in the output - just the number of lines.
+> > Try this for yourself:
+> >
+> > ```
+> > $ wc -l
+> > this
+> > is
+> > a test
+> > Ctrl-D # This lets the shell know you have finished typing the input
+> > ```
+> > {: .bash}
+> >
+> > ```
+> > 3
+> > ```
+> > {: .output}
+> {: .solution}
 {: .challenge}
 
 > ## What Does `>>` Mean?
