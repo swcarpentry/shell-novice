@@ -664,7 +664,7 @@ so this matches all the valid data files she has.
 > ## Why Does `uniq` Only Remove Adjacent Duplicates?
 >
 > The command `uniq` removes adjacent duplicated lines from its input.
-> For example, if a file `salmon.txt` contains:
+> For example, the file data-shell/data/salmon.txt contains:
 >
 > ~~~
 > coho
@@ -676,7 +676,7 @@ so this matches all the valid data files she has.
 > ~~~
 > {: .source}
 >
-> then `uniq salmon.txt` produces:
+> Running the command `uniq salmon.txt` from the data-shell/data directory produces:
 >
 > ~~~
 > coho
@@ -689,6 +689,13 @@ so this matches all the valid data files she has.
 > Why do you think `uniq` only removes *adjacent* duplicated lines?
 > (Hint: think about very large data sets.) What other command could
 > you combine with it in a pipe to remove all duplicated lines?
+>
+> > ## Solution
+> > ```
+> > $ sort salmon.txt | uniq
+> > ```
+> > {: .bash}
+> {: .solution}
 {: .challenge}
 
 > ## Pipe Reading Comprehension
