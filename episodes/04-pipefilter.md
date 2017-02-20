@@ -746,6 +746,13 @@ so this matches all the valid data files she has.
 > What other command(s) could be added to this in a pipeline to find
 > out what animals the file contains (without any duplicates in their
 > names)?
+>
+> > ## Solution
+> > ```
+> > $ cut -d , -f 2 animals.txt | sort | uniq
+> > ```
+> > {: .bash}
+> {: .solution}
 {: .challenge}
 
 > ## Removing Unneeded Files
