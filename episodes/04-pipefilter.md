@@ -697,7 +697,7 @@ so this matches all the valid data files she has.
 
 > ## Pipe Reading Comprehension
 >
-> A file called `animals.txt` contains the following data:
+> A file called `animals.txt` (in the `data-shell/data` folder) contains the following data:
 >
 > ~~~
 > 2012-11-05,deer
@@ -717,6 +717,7 @@ so this matches all the valid data files she has.
 > $ cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt
 > ~~~
 > {: .bash}
+> Hint: build the pipeline up one command at a time to test your understanding
 {: .challenge}
 
 > ## Pipe Construction
