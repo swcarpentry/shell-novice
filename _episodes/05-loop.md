@@ -417,10 +417,14 @@ so she decides to get some coffee and catch up on her reading.
 > ## Other History Commands
 >
 > There are a number of other shortcut commands for getting at the history.
-> Two of the more useful are `!!`, which retrieves the immediately
-> preceding command (you may or may not find this more convenient than
-> plain up-arrow), and `!$`, which retrieves the last word of the last
-> command.  That's useful more often than you might expect: after
+>
+> - `!!` retrieves the immediately preceding command 
+> (you may or may not find this more convenient than using the up-arrow)
+> - `Ctrl-R` enters a history search mode "reverse-i-search" and looks for
+> matches to the text you enter next.
+> Press `Ctrl-R` again to cycle through matches.
+> - `!$` retrieves the last word of the  last command.
+> That's useful more often than you might expect: after
 > `bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
 > `less !$` to look at the file `stats-NENE01729B.txt`, which is
 > quicker than doing up-arrow and editing the command-line.
