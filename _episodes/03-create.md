@@ -710,4 +710,19 @@ but it does find the copy in `thesis` that we didn't delete.
 > $ rm -r -i 2016-05-20-data/
 > ~~~
 > {: .bash}
+> >
+> > ## Solution
+> > The first set of commands achieves this objective.
+> > First we have a recursive copy of a data folder.
+> > Then two `rm` commands which remove all files in the specified directories.
+> > The shell expands the '*' wild card to match all files and subdirectories.
+> >
+> > The second set of commands have the wrong order: 
+> > attempting to delete files which haven't yet been copied,
+> > followed by the recursive copy command which would copy them.
+> >
+> > The third set of commands would achieve the objective, but in a time-consuming way:
+> > the first command copies the directory recursively, but the second command deletes
+> > interactively, prompting for confirmation for each file and directory.
+> {: .solution}
 {: .challenge}
