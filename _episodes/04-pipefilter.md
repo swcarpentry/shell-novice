@@ -819,7 +819,7 @@ so this matches all the valid data files she has.
 
 > ## Which Pipe?
 >
-> A file called animals.txt contains 586 lines of data formatted as follows:
+> The file data-shell/data/animals.txt contains 586 lines of data formatted as follows:
 >
 > ~~~
 > 2012-11-05,deer
@@ -830,7 +830,8 @@ so this matches all the valid data files she has.
 > ~~~
 > {: .output}
 >
-> What command would you use to produce a table that shows
+> Assuming your current directory is data-shell/data/,
+> what command would you use to produce a table that shows
 > the total count of each type of animal in the file?
 >
 > 1.  `grep {deer, rabbit, raccoon, deer, fox, bear} animals.txt | wc -l`
@@ -839,6 +840,12 @@ so this matches all the valid data files she has.
 > 4.  `cut -d, -f 2 animals.txt | uniq -c`
 > 5.  `cut -d, -f 2 animals.txt | sort | uniq -c`
 > 6.  `cut -d, -f 2 animals.txt | sort | uniq -c | wc -l`
+>
+> > ## Solution
+> > 5. is the correct answer.
+> > If you have difficulty understanding why, try running the commands, or sub-sections of
+> > the pipe lines (make sure you are in the data-shell/data directory).
+> {: .solution}
 {: .challenge}
 
 > ## Appending Data
