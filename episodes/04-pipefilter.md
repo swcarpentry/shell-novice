@@ -848,8 +848,8 @@ so this matches all the valid data files she has.
 > ## Appending Data
 >
 > Consider the file `animals.txt`, used in previous exercise.
-> After these commands, select the alternative that
-> corresponds the file `animalsUpd.txt`:
+> After these commands, select the answer that
+> corresponds to the file `animalsUpd.txt`:
 >
 > ~~~
 > $ head -3 animals.txt > animalsUpd.txt
@@ -861,4 +861,8 @@ so this matches all the valid data files she has.
 > 2. The last two lines of `animals.txt`
 > 3. The first three lines and the last two lines of `animals.txt`
 > 4. The second and third lines of `animals.txt`
+>
+> > ## Solution
+> > 3.
+> {: .solution}
 {: .challenge}
