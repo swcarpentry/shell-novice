@@ -554,6 +554,14 @@ but it does find the copy in `thesis` that we didn't delete.
 > fructose.dat    sucrose.dat
 > ~~~
 > {: .output}
+> > ## Solution
+> > ```
+> > mv *.dat analyzed
+> > ```
+> > {: .bash}
+> > The shell will expand *.dat to match all .dat files in the current directory.
+> > The `mv` command then moves the list of .dat files to the "analyzed" directory.
+> {: .solution}
 {: .challenge}
 
 > ## Copy with Multiple Filenames
