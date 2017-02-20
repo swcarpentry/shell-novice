@@ -556,12 +556,13 @@ but it does find the copy in `thesis` that we didn't delete.
 > {: .output}
 >
 > > ## Solution
-> > Jamie needs to move her files `fructose.dat` and `sucrose.dat` to the `analyzed` directory:
-> >
-> > ~~~
-> > $ mv fructose.dat sucrose.dat analyzed
-> > ~~~
+> > ```
+> > mv *.dat analyzed
+> > ```
 > > {: .bash}
+> > Jamie needs to move her files `fructose.dat` and `sucrose.dat` to the `analyzed` directory.
+> > The shell will expand *.dat to match all .dat files in the current directory.
+> > The `mv` command then moves the list of .dat files to the "analyzed" directory.
 > {: .solution}
 {: .challenge}
 
