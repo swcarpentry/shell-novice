@@ -651,6 +651,14 @@ so this matches all the valid data files she has.
 > 2. `wc -l * | sort -n | head -n 1-3`
 > 3. `wc -l * | head -n 3 | sort -n`
 > 4. `wc -l * | sort -n | head -n 3`
+>
+> > ## Solution
+> > Option 4 is the solution.
+> > The pipe character `|` is used to feed the standard output from one process to
+> > the standard input of another.
+> > `>` is used to redirect standard output to a file.
+> > Try it in the molecules directory!
+> {: .solution}
 {: .challenge}
 
 > ## Why Does `uniq` Only Remove Adjacent Duplicates?
