@@ -631,6 +631,15 @@ so this matches all the valid data files she has.
 > {: .bash}
 >
 > Help Sam by filling in the blanks.
+>
+> > ## Solution
+> > ```
+> > $ cp *calibration.txt /backup/calibration
+> > $ cp 2015-11-* ~/send_to_bob/all_november_files/
+> > $ cp *-23-dataset* ~send_to_bob/all_datasets_created_on_a_23rd/
+> > ```
+> > {: .bash}
+> {: .solution}
 {: .challenge}
 
 > ## Piping Commands Together
