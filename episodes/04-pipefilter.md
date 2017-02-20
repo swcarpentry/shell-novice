@@ -522,6 +522,10 @@ so this matches all the valid data files she has.
 > {: .output}
 >
 > Explain why `-n` has this effect.
+>
+> > ## Solution
+> > The `-n` flag specifies a numeric sort, rather than alphabetical.
+> {: .solution}
 {: .challenge}
 
 > ## What Does `<` Mean?
