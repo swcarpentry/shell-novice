@@ -631,7 +631,7 @@ but it does find the copy in `thesis` that we didn't delete.
 >     When you look at your home directory using the GUI file explorer,
 >     does the file show up?
 >
-> 2.  Use `ls -l` to inspect the file's.  How large is `my_file.txt`?
+> 2.  Use `ls -l` to inspect the files.  How large is `my_file.txt`?
 >
 > 3.  When might you want to create a file this way?
 {: .challenge}
