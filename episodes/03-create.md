@@ -568,32 +568,42 @@ but it does find the copy in `thesis` that we didn't delete.
 
 > ## Copy with Multiple Filenames
 >
-> What does `cp` do when given several filenames and a directory name, as in:
+> For this exercise, you can test the commands in the `data-shell/data directory`.
+>
+> In the example below, what does `cp` do when given several filenames and a directory name?
 >
 > ~~~
 > $ mkdir backup
-> $ cp thesis/citations.txt thesis/quotations.txt backup
+> $ cp amino-acids.txt animals.txt backup/
 > ~~~
 > {: .bash}
 >
-> What does `cp` do when given three or more filenames, as in:
+> In the example below, what does `cp` do when given three or more file names?
 >
 > ~~~
 > $ ls -F
 > ~~~
 > {: .bash}
 > ~~~
-> intro.txt    methods.txt    survey.txt
+> amino-acids.txt  animals.txt  backup/  elements/  morse.txt  pdb/  planets.txt  salmon.txt  sunspot.txt
 > ~~~
 > {: .output}
 > ~~~
-> $ cp intro.txt methods.txt survey.txt
+> $ cp amino-acids.txt animals.txt morse.txt 
 > ~~~
 > {: .bash}
 >
 > > ## Solution
-> > When given several filenames and a directory name, `cp` copies the files to the destination directory (the last argument).
-> > When given three or more filenames, `cp` expects the last argument to be the destination directory, therefore it returns an error: `target survey.txt is not a directory`.
+> > If given more than one file name followed by a directory name (i.e. the destination directory must 
+> > be the last argument), `cp` copies the files to the named directory.
+> >
+> > If given three file names, `cp` throws an error because it is expecting a directory
+> > name as the last argument.
+> >
+> > ```
+> > cp: target ‘morse.txt’ is not a directory
+> > ```
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
