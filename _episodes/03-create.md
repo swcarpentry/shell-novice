@@ -657,6 +657,14 @@ but it does find the copy in `thesis` that we didn't delete.
 > $ mv ___/sucrose.dat  ___/maltose.dat ___
 > ~~~
 > {: .bash}
+> > ## Solution
+> > ```
+> > $ mv ../analyzed/sucrose.dat ../analyzed/maltose.dat .
+> > ```
+> > {: .bash}
+> > Recall that `..` refers to the parent directory (i.e. one above the current directory)
+> > and that `.` refers to the current directory.
+> {: .solution}
 {: .challenge}
 
 > ## Using `rm` Safely
