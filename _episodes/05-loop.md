@@ -524,30 +524,29 @@ so she decides to get some coffee and catch up on her reading.
 
 > ## Saving to a File in a Loop - Part Two
 >
-> In another directory, where `ls` returns:
+> In the same directory, what would be the output of the following loop?
 >
 > ~~~
-> fructose.dat    glucose.dat   sucrose.dat   maltose.txt
-> ~~~
-> {: .output}
->
-> What would be the output of the following loop?
->
-> ~~~
-> for datafile in *.dat
+> for datafile in *.pdb
 > do
->     cat $datafile >> sugar.dat
+>     cat $datafile >> all.pdb
 > done
 > ~~~
 > {: .bash}
 >
-> 1.  All of the text from `fructose.dat`, `glucose.dat` and `sucrose.dat` would be
->     concatenated and saved to a file called `sugar.dat`.
-> 2.  The text from `sucrose.dat` will be saved to a file called `sugar.dat`.
-> 3.  All of the text from `fructose.dat`, `glucose.dat`, `sucrose.dat` and `maltose.txt`
->     would be concatenated and saved to a file called `sugar.dat`.
-> 4.  All of the text from `fructose.dat`, `glucose.dat` and `sucrose.dat` would be printed
->     to the screen and saved to a file called `sugar.dat`
+> 1.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and
+>     `pentane.pdb` would be concatenated and saved to a file called `all.pdb`.
+> 2.  The text from `ethane.pdb` will be saved to a file called `all.pdb`.
+> 3.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb`
+>     and `propane.pdb` would be concatenated and saved to a file called `all.pdb`.
+> 4.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb`
+>     and `propane.pdb` would be printed to the screen and saved to a file called `all.pdb`.
+>
+> > ## Solution
+> > 3 is the correct answer. `>>` appends to a file, rather than overwriting it with the redirected
+> > output from a command.
+> > Given the output from the `cat` command has been redirected, nothing is printed to the screen.
+> {: .solution}
 {: .challenge}
 
 > ## Limiting Sets of Files
