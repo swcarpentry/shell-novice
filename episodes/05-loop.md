@@ -428,7 +428,7 @@ so she decides to get some coffee and catch up on her reading.
 
 > ## Variables in Loops
 >
-> This exercise refers to the data-shell/molecules directory.
+> This exercise refers to the `data-shell/molecules` directory.
 > `ls` gives the following output:
 >
 > ~~~
@@ -464,6 +464,14 @@ so she decides to get some coffee and catch up on her reading.
 > > Bash expands the wildcard `*.pdb` within the loop body (as well as
 > > before the loop starts) to match all files ending in `.pdb`
 > > and then lists them using `ls`.
+> > The expanded loop would look like this:
+> > ```
+> > for datafile in cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > do
+> >	ls cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > done
+> > ```
+> > {: .bash}
 > >
 > > ```
 > > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
@@ -491,20 +499,27 @@ so she decides to get some coffee and catch up on her reading.
 > In the same directory, what is the effect of this loop?
 >
 > ~~~
-> for sugar in *.dat
+> for species in *.pdb
 > do
->     echo $sugar
->     cat $sugar > xylose.dat
+>     echo $species
+>     cat $species > alkanes.pdb
 > done
 > ~~~
 > {: .bash}
 >
-> 1.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and the text from `sucrose.dat` will be saved to a file called `xylose.dat`.
-> 2.  Prints `fructose.dat`, `glucose.dat`, and `sucrose.dat`, and the text from all three files would be
->     concatenated and saved to a file called `xylose.dat`.
-> 3.  Prints `fructose.dat`, `glucose.dat`, `sucrose.dat`, and
->     `xylose.dat`, and the text from `sucrose.dat` will be saved to a file called `xylose.dat`.
+> 1.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb` and `propane.pdb`,
+>     and the text from `propane.pdb` will be saved to a file called `alkanes.pdb`.
+> 2.  Prints `cubane.pdb`, `ethane.pdb`, and `methane.pdb`, and the text from all three files would be
+>     concatenated and saved to a file called `alkanes.pdb`.
+> 3.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and `pentane.pdb`, and the text
+>     from `propane.pdb` will be saved to a file called `alkanes.pdb`.
 > 4.  None of the above.
+>
+> > ## Solution
+> > 1. The text from each file in turn gets written to the `alkanes.pdb` file.
+> > However, the file gets overwritten on each loop interation, so the final content of `alkanes.pdb`
+> > is the text from the `propane.pdb` file.
+> {: .solution}
 {: .challenge}
 
 > ## Saving to a File in a Loop - Part Two
