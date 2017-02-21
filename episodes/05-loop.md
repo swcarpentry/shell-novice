@@ -428,27 +428,28 @@ so she decides to get some coffee and catch up on her reading.
 
 > ## Variables in Loops
 >
-> Suppose that `ls` initially displays:
+> This exercise refers to the data-shell/molecules directory.
+> `ls` gives the following output:
 >
 > ~~~
-> fructose.dat    glucose.dat   sucrose.dat
+> cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
 > ~~~
 > {: .output}
 >
-> What is the output of:
+> What is the output of the following code?
 >
 > ~~~
-> for datafile in *.dat
+> for datafile in *.pdb
 > do
->     ls *.dat
+>     ls *.pdb
 > done
 > ~~~
 > {: .bash}
 >
-> Now, what is the output of:
+> Now, what is the output of the following code?
 >
 > ~~~
-> for datafile in *.dat
+> for datafile in *.pdb
 > do
 >	ls $datafile
 > done
@@ -456,6 +457,33 @@ so she decides to get some coffee and catch up on her reading.
 > {: .bash}
 >
 > Why do these two loops give different outputs?
+>
+> > ## Solution
+> > The first code block gives the same output on each iteration through
+> > the loop.
+> > Bash expands the wildcard `*.pdb` within the loop body (as well as
+> > before the loop starts) to match all files ending in `.pdb`
+> > and then lists them using `ls`.
+> >
+> > ```
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > ```
+> > {: .output}
+> >
+> > The second code block lists a different file on each loop iteration.
+> > The value of the `datafile` variable is evaluated using `$datafile`,
+> > and then listed using `ls`.
+> >
+> > ```
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > ```
+> > {: .output}
+> {: .solution}
 {: .challenge}
 
 > ## Saving to a File in a Loop - Part One
