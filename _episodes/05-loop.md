@@ -551,17 +551,10 @@ so she decides to get some coffee and catch up on her reading.
 
 > ## Limiting Sets of Files
 >
-> In the same directory, where `ls` returns (without the `sugar.dat` file):
+> In the same directory, what would be the output of the following loop?
 >
 > ~~~
-> fructose.dat    glucose.dat   sucrose.dat   maltose.txt
-> ~~~
-> {: .output}
-> 
-> What would be the output of the following loop?
->
-> ~~~
-> for filename in s*
+> for filename in c*
 > do
 >     ls $filename 
 > done
@@ -570,13 +563,18 @@ so she decides to get some coffee and catch up on her reading.
 >
 > 1.  No files are listed.
 > 2.  All files are listed.
-> 3.  Only `fructose.dat`, `glucose.dat` and `maltose.txt` are listed.
-> 4.  Only `sucrose.dat` is listed.
+> 3.  Only `cubane.pdb`, `octane.pdb` and `pentane.pdb` are listed.
+> 4.  Only `cubane.pdb` is listed.
+>
+> > ## Solution
+> > 4 is the correct answer. `*` matches zero or more characters, so any file name starting with 
+> > the letter c, followed by zero or more other characters will be matched.
+> {: .solution}
 >
 > How would the output differ from using this command instead?
 >
 > ~~~
-> for filename in *s*
+> for filename in *c*
 > do
 >     ls $filename 
 > done
@@ -586,7 +584,13 @@ so she decides to get some coffee and catch up on her reading.
 > 1.  The same files would be listed.
 > 2.  All the files are listed this time.
 > 3.  No files are listed this time.
-> 4.  The file `sucrose.dat` will be listed twice, with the other files listed once each.
+> 4.  The files `cubane.pdb` and `octane.pdb` will be listed.
+> 5.  Only the file `octane.pdb` will be listed.
+>
+> > ## Solution
+> > 5 is the correct answer. `*` matches zero or more characters, so a file name with zero or more
+> > characters before a letter c and zero or more characters after the letter c will be matched.
+> {: .solution}
 {: .challenge}
 
 > ## Doing a Dry Run
