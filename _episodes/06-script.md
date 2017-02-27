@@ -525,6 +525,13 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > the shell has added `history` to the command log before actually
 > running it. In fact, the shell *always* adds commands to the log
 > before running them. Why do you think it does this?
+>
+> > ## Solution
+> > If a command causes something to crash or hang, it might be useful
+> > to know what that command was, in order to investigate the problem.
+> > Were the command only be recorded after running it, we would not
+> > have a record of the last command run in the event of a crash.
+> {: .solution}
 {: .challenge}
 
 > ## Script Reading Comprehension
