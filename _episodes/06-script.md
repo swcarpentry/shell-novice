@@ -536,10 +536,11 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Script Reading Comprehension
 >
-> Joel's `data` directory contains three files: `fructose.dat`,
-> `glucose.dat`, and `sucrose.dat`. Explain what a script called
-> `example.sh` would do when run as `bash example.sh *.dat` if it
-> contained the following lines:
+> For this question, consider the `data-shell/molecules` directory once again.
+> This contains a number of `.pdb` files in addition to any other files you
+> may have created.
+> Explain what a script called `example.sh` would do when run as
+> `bash example.sh *.pdb` if it contained the following lines:
 >
 > ~~~
 > # Script 1
@@ -558,9 +559,19 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >
 > ~~~
 > # Script 3
-> echo $@.dat
+> echo $@.pdb
 > ~~~
 > {: .bash}
+>
+> > ## Solutions
+> > Script 1 would print out a list of all files containing a dot in their name.
+> >
+> > Script 2 would print the contents of the first 3 files matching the file extension.
+> > The shell expands the wildcard before passing the arguments to the `example.sh` script.
+> >
+> > Script 3 would print all the arguments to the script (i.e. all the `.pdb` files),
+> > followed by `.txt`.
+> {: .solution}
 {: .challenge}
 
 > ## Debugging Scripts
