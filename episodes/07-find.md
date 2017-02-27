@@ -567,15 +567,14 @@ about them."
 > ~~~
 > {: .source}
 >
-> She wants to write a shell script that takes a directory and a species 
-> as command-line parameters and return one file called `species.txt` 
-> containing a list of dates and the number of that species seen on that date,
-> such as this file for rabbits:
+> She wants to write a shell script that takes a species as the first command-line argument 
+> and a directory as the second argument. The script should return one file called `species.txt` 
+> containing a list of dates and the number of that species seen on each date.
+> For example using the data shown above, `rabbits.txt` would contain:
 > 
 > ~~~
 > 2013-11-05,22
 > 2013-11-06,19
-> 2013-11-07,18
 > ~~~
 > {: .source}
 >
@@ -594,6 +593,23 @@ about them."
 >
 > Hint: use `man grep` to look for how to grep text recursively in a directory
 > and `man cut` to select more than one field in a line.
+>
+> An example of such a file is provided in `data-shell/data/animal-counts/animals.txt`
+>
+> > ## Solution
+> >
+> > ```
+> > grep -w $1 -r $2 | cut -d : -f 2 | cut -d , -f 1,3  > $1.txt
+> > ```
+> > {: .source}
+> >
+> > You would call the script above like this:
+> >
+> > ```
+> > $ bash count-species.sh bear .
+> > ```
+> > {: .bash}
+> {: .solution}
 {: .challenge}
 
 > ## Little Women
