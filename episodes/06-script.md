@@ -457,10 +457,26 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ~~~
 > {: .source}
 >
+> An example of this type of file is given in `data-shell/data/animals.txt`.
+> 
 > Write a shell script called `species.sh` that takes any number of
 > filenames as command-line parameters, and uses `cut`, `sort`, and
 > `uniq` to print a list of the unique species appearing in each of
 > those files separately.
+>
+> > ## Solution
+> >
+> > ```
+> > # Loop over all files
+> > for file in $@ 
+> > do
+> > 	echo "Unique species in $file:"
+> > 	# Extract species names
+> > 	cut -d , -f 2 $file | sort | uniq
+> > done
+> > ```
+> > {: .source}
+> {: .solution}
 {: .challenge}
 
 > ## Find the Longest File With a Given Extension
