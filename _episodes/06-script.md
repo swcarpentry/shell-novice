@@ -606,4 +606,12 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >
 > What is the output showing you?
 > Which line is responsible for the error?
+>
+> > ## Solution
+> > The `-x` flag causes `bash` to run in debug mode.
+> > This prints out each command as it is run, which will help you to locate errors.
+> > In this example, we can see that `echo` isn't printing anything. We have made a typo
+> > in the loop variable name, and the variable `datfile` doesn't exist, hence returning
+> > an empty string.
+> {: .solution}
 {: .challenge}
