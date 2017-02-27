@@ -504,6 +504,11 @@ about them."
 > 2. `grep -E "of" haiku.txt`
 > 3. `grep -w "of" haiku.txt`
 > 4. `grep -i "of" haiku.txt`
+>
+> > ## Solution
+> > The correct answer is 3, because the `-w` flag looks only for whole-word matches.
+> > The other options will all match "of" when part of another word.
+> {: .solution}
 {: .challenge}
 
 > ## `find` Pipeline Reading Comprehension
