@@ -531,13 +531,26 @@ about them."
 > The `-v` flag to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
 > the following commands will find all files in `/data` whose names
-> end in `ose.dat` (e.g., `sucrose.dat` or `maltose.dat`), but do
-> *not* contain the word `temp`?
+> end in `s.txt` (e.g., `animals.txt` or `planets.txt`), but do
+> *not* contain the word `net`?
+> Once you have thought about your answer, you can test the commands in the `data-shell`
+> directory.
 >
-> 1.  `find /data -name '*.dat' | grep ose | grep -v temp`
-> 2.  `find /data -name ose.dat | grep -v temp`
-> 3.  `grep -v "temp" $(find /data -name '*ose.dat')`
+> 1.  `find /data -name '*s.txt' | grep -v net`
+> 2.  `find /data -name *s.txt | grep -v net`
+> 3.  `grep -v "temp" $(find /data -name '*s.txt')`
 > 4.  None of the above.
+>
+> > ## Solution
+> > The correct answer is 1. Putting the match expression in quotes prevents the shell
+> > expanding it, so it gets passed to the `find` command.
+> >
+> > Option 2 is incorrect because the shell expands `*s.txt` instead of passing the wildcard
+> > expression to `find`.
+> >
+> > Option 3 is incorrect because it searches the contents of the files for lines which
+> > do not match "temp", rather than searching the file names.
+> {: .solution}
 {: .challenge}
 
 > ## Tracking a Species
