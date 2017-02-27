@@ -423,6 +423,22 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > 2. The first and the last line of each file ending in `.pdb` in the `molecules` directory
 > 3. The first and the last line of each file in the `molecules` directory
 > 4. An error because of the quotes around `*.pdb`
+>
+> > ## Solution
+> > The correct answer is 2. 
+> >
+> > The special variables $1, $2 and $3 represent the command line arguments given to the
+> > script, such that the commands run are:
+> >
+> > ```
+> > $ head -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
+> > $ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
+> > ```
+> > {: .bash}
+> > The shell does not expand `'*.pdb'` because it is enclosed by quote marks.
+> > As such, the first argument to the script is `'*.pdb'` which gets expanded within the
+> > script by `head` and `tail`.
+> {: .solution}
 {: .challenge}
 
 > ## List Unique Species
