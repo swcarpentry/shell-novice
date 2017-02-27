@@ -467,6 +467,9 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > ## Solution
 > >
 > > ```
+> > # Script to find unique species in csv files where species is the second data field
+> > # This script accepts any number of file names as command line arguments
+> >
 > > # Loop over all files
 > > for file in $@ 
 > > do
@@ -493,6 +496,20 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >
 > would print the name of the `.pdb` file in `/tmp/data` that has
 > the most lines.
+>
+> > ## Solution
+> >
+> > ```
+> > # Shell script which takes two arguments: 
+> > #    1. a directory name
+> > #    2. a file extension
+> > # and prints the name of the file in that directory
+> > # with the most lines which matches the file extension.
+> > 
+> > wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1
+> > ```
+> > {: .source}
+> {: .solution}
 {: .challenge}
 
 > ## Why Record Commands in the History Before Running Them?
