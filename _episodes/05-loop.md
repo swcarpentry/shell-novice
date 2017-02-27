@@ -597,13 +597,13 @@ so she decides to get some coffee and catch up on her reading.
 >
 > A loop is a way to do many things at once --- or to make many mistakes at
 > once if it does the wrong thing. One way to check what a loop *would* do
-> is to echo the commands it would run instead of actually running them.
+> is to `echo` the commands it would run instead of actually running them.
 > 
 > Suppose we want to preview the commands the following loop will execute
 > without actually running those commands:
 >
 > ~~~
-> for file in *.dat
+> for file in *.pdb
 > do
 >   analyze $file > analyzed-$file
 > done
@@ -615,7 +615,7 @@ so she decides to get some coffee and catch up on her reading.
 >
 > ~~~
 > # Version 1
-> for file in *.dat
+> for file in *.pdb
 > do
 >   echo analyze $file > analyzed-$file
 > done
@@ -624,12 +624,25 @@ so she decides to get some coffee and catch up on her reading.
 >
 > ~~~
 > # Version 2
-> for file in *.dat
+> for file in *.pdb
 > do
 >   echo "analyze $file > analyzed-$file"
 > done
 > ~~~
 > {: .bash}
+>
+> > ## Solution
+> > The second version is the one we want to run.
+> > This prints to screen everything enclosed in the quote marks, expanding the
+> > loop variable name because we have prefixed it with a dollar sign.
+> >
+> > The first version redirects the output from the command `echo analyze $file` to
+> > a file, `analyzed-$file`. A series of files is generated: `cubane.pdb`,
+> > `ethane.pdb` etc.
+> > 
+> > Try both versions for yourself to see the output! Be sure to open the 
+> > `analyzed-*.pdb` files to view their contents.
+> {: .solution}
 {: .challenge}
 
 > ## Nested Loops
