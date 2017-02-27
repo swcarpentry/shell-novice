@@ -602,13 +602,39 @@ about them."
 > Louisa May Alcott, are in an argument.  Of the four sisters in the
 > book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the
 > most mentioned.  You, however, are certain it was Amy.  Luckily, you
-> have a file `LittleWomen.txt` containing the full text of the novel.
+> have a file `LittleWomen.txt` containing the full text of the novel
+> (`data-shell/writing/data/LittleWomen.txt`).
 > Using a `for` loop, how would you tabulate the number of times each
 > of the four sisters is mentioned?
 >
 > Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+>
+> > ## Solutions
+> > ```
+> > for sis in Jo Meg Beth Amy
+> > do
+> > 	echo $sis:
+> >	grep -ow $sis littlewomen.txt | wc -l
+> > done
+> > ```
+> > {: .source}
+> >
+> > Alternative, slightly inferior solution:
+> > ```
+> > for sis in Jo Meg Beth Amy
+> > do
+> > 	echo $sis:
+> >	grep -ocw $sis LittleWomen.txt
+> > done
+> > ```
+> > {: .source}
+> >
+> > This solution is inferior because `grep -c` only reports the number of lines matched.
+> > The total number of matches reported by this method will be lower if there is more
+> > than one match per line.
+> {: .solution}
 {: .challenge}
 
 > ## Finding Files With Different Properties
