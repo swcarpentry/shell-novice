@@ -623,10 +623,12 @@ about them."
 >
 > Hint 2: The value for `-mtime` will need to be negative---why?
 >
-> Solution: Assuming that Nelle’s home is our working directory we type:
->
-> ~~~
-> $ find ./ -type f -mtime -1 -user ahmed
-> ~~~
-> {: .bash}
+> > ## Solution
+> > Assuming that Nelle’s home is our working directory we type:
+> >
+> > ~~~
+> > $ find ./ -type f -mtime -1 -user ahmed
+> > ~~~
+> > {: .bash}
+> {: .solution}
 {: .challenge}
