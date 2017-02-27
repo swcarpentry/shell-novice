@@ -648,18 +648,26 @@ so she decides to get some coffee and catch up on her reading.
 > ## Nested Loops
 >
 > Suppose we want to set up up a directory structure to organize
-> some experiments measuring the growth rate under different sugar
-> types *and* different temperatures.  What would be the
+> some experiments measuring reaction rate constants with different compounds
+> *and* different temperatures.  What would be the
 > result of the following code:
 >
 > ~~~
-> for sugar in fructose glucose sucrose
+> for species in cubane ethane methane
 > do
 >     for temperature in 25 30 37 40
 >     do
->         mkdir $sugar-$temperature
+>         mkdir $species-$temperature
 >     done
 > done
 > ~~~
 > {: .bash}
+>
+> > ## Solution
+> > We have a nested loop, i.e. contained within another loop, so for each species
+> > in the outer loop, the inner loop (the nested loop) iterates over the list of
+> > temperatures, and creates a new directory for each combination.
+> >
+> > Try running the code for yourself to see which directories are created!
+> {: .solution}
 {: .challenge}
