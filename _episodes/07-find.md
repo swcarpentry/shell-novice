@@ -519,6 +519,11 @@ about them."
 > wc -l $(find . -name '*.dat') | sort -n
 > ~~~
 > {: .bash}
+>
+> > ## Solution
+> > Find all files with a `.dat` extension in the current directory.
+> > Count the number of lines each of these files contains, then sort the output numerically.
+> {: .solution}
 {: .challenge}
 
 > ## Matching and Subtracting
