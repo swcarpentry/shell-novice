@@ -639,7 +639,9 @@ so this matches all the valid data files she has.
 
 > ## Pipe Reading Comprehension
 >
-> A file called `animals.txt` contains the following data:
+> Explore a file called `animals.txt` located in `data-shell/data`
+> directory of the data downloaded for the shell lesson. The file
+> contains the following data:
 >
 > ~~~
 > 2012-11-05,deer
@@ -725,16 +727,21 @@ so this matches all the valid data files she has.
 
 > ## Which Pipe?
 >
-> A file called animals.txt contains 586 lines of data formatted as follows:
+> Consider the file called `animals.txt` located in `data-shell/data`
+> directory of the data downloaded for the shell lesson. The file
+> contains the following data:
 >
 > ~~~
 > 2012-11-05,deer
 > 2012-11-05,rabbit
 > 2012-11-05,raccoon
 > 2012-11-06,rabbit
-> ...
+> 2012-11-06,deer
+> 2012-11-06,fox
+> 2012-11-07,rabbit
+> 2012-11-07,bear
 > ~~~
-> {: .output}
+> {: .source}
 >
 > What command would you use to produce a table that shows
 > the total count of each type of animal in the file?
@@ -749,9 +756,10 @@ so this matches all the valid data files she has.
 
 > ## Appending Data
 >
-> Consider the file `animals.txt`, used in previous exercise.
-> After these commands, select the alternative that
-> corresponds the file `animalsUpd.txt`:
+> Consider the file `animals.txt`, used in the previous exercise.
+> Which one of the provided alternatives (1.-4.) corresponds
+> to the content of file `animalsUpd.txt` after run of the following
+> commands?
 >
 > ~~~
 > $ head -3 animals.txt > animalsUpd.txt
