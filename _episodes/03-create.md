@@ -556,43 +556,54 @@ but it does find the copy in `thesis` that we didn't delete.
 > {: .output}
 >
 > > ## Solution
-> > Jamie needs to move her files `fructose.dat` and `sucrose.dat` to the `analyzed` directory:
-> >
-> > ~~~
-> > $ mv fructose.dat sucrose.dat analyzed
-> > ~~~
+> > ```
+> > mv *.dat analyzed
+> > ```
 > > {: .bash}
+> > Jamie needs to move her files `fructose.dat` and `sucrose.dat` to the `analyzed` directory.
+> > The shell will expand *.dat to match all .dat files in the current directory.
+> > The `mv` command then moves the list of .dat files to the "analyzed" directory.
 > {: .solution}
 {: .challenge}
 
 > ## Copy with Multiple Filenames
 >
-> What does `cp` do when given several filenames and a directory name, as in:
+> For this exercise, you can test the commands in the `data-shell/data directory`.
+>
+> In the example below, what does `cp` do when given several filenames and a directory name?
 >
 > ~~~
 > $ mkdir backup
-> $ cp thesis/citations.txt thesis/quotations.txt backup
+> $ cp amino-acids.txt animals.txt backup/
 > ~~~
 > {: .bash}
 >
-> What does `cp` do when given three or more filenames, as in:
+> In the example below, what does `cp` do when given three or more file names?
 >
 > ~~~
 > $ ls -F
 > ~~~
 > {: .bash}
 > ~~~
-> intro.txt    methods.txt    survey.txt
+> amino-acids.txt  animals.txt  backup/  elements/  morse.txt  pdb/  planets.txt  salmon.txt  sunspot.txt
 > ~~~
 > {: .output}
 > ~~~
-> $ cp intro.txt methods.txt survey.txt
+> $ cp amino-acids.txt animals.txt morse.txt 
 > ~~~
 > {: .bash}
 >
 > > ## Solution
-> > When given several filenames and a directory name, `cp` copies the files to the destination directory (the last argument).
-> > When given three or more filenames, `cp` expects the last argument to be the destination directory, therefore it returns an error: `target survey.txt is not a directory`.
+> > If given more than one file name followed by a directory name (i.e. the destination directory must 
+> > be the last argument), `cp` copies the files to the named directory.
+> >
+> > If given three file names, `cp` throws an error because it is expecting a directory
+> > name as the last argument.
+> >
+> > ```
+> > cp: target ‘morse.txt’ is not a directory
+> > ```
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
@@ -621,7 +632,7 @@ but it does find the copy in `thesis` that we didn't delete.
 >     When you look at your home directory using the GUI file explorer,
 >     does the file show up?
 >
-> 2.  Use `ls -l` to inspect the file's.  How large is `my_file.txt`?
+> 2.  Use `ls -l` to inspect the files.  How large is `my_file.txt`?
 >
 > 3.  When might you want to create a file this way?
 {: .challenge}
@@ -647,6 +658,14 @@ but it does find the copy in `thesis` that we didn't delete.
 > $ mv ___/sucrose.dat  ___/maltose.dat ___
 > ~~~
 > {: .bash}
+> > ## Solution
+> > ```
+> > $ mv ../analyzed/sucrose.dat ../analyzed/maltose.dat .
+> > ```
+> > {: .bash}
+> > Recall that `..` refers to the parent directory (i.e. one above the current directory)
+> > and that `.` refers to the current directory.
+> {: .solution}
 {: .challenge}
 
 > ## Using `rm` Safely
@@ -692,4 +711,19 @@ but it does find the copy in `thesis` that we didn't delete.
 > $ rm -r -i 2016-05-20-data/
 > ~~~
 > {: .bash}
+> >
+> > ## Solution
+> > The first set of commands achieves this objective.
+> > First we have a recursive copy of a data folder.
+> > Then two `rm` commands which remove all files in the specified directories.
+> > The shell expands the '*' wild card to match all files and subdirectories.
+> >
+> > The second set of commands have the wrong order: 
+> > attempting to delete files which haven't yet been copied,
+> > followed by the recursive copy command which would copy them.
+> >
+> > The third set of commands would achieve the objective, but in a time-consuming way:
+> > the first command copies the directory recursively, but the second command deletes
+> > interactively, prompting for confirmation for each file and directory.
+> {: .solution}
 {: .challenge}
