@@ -642,6 +642,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > >     populate with its output.  The touch command allows you to
 > >     efficiently generate a blank text file to be used by such
 > >     programs.
+> {: .solution}
 {: .challenge}
 
 > ## Moving to the Current Folder
