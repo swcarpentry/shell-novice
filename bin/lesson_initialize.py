@@ -158,7 +158,6 @@ You can also [reach us by email][contact].
 [dc-lessons]: http://datacarpentry.org/lessons/
 [dc-site]: http://datacarpentry.org/
 [discuss-list]: http://lists.software-carpentry.org/listinfo/discuss
-[example-site]: https://swcarpentry.github.io/lesson-example/
 [github]: http://github.com
 [github-flow]: https://guides.github.com/introduction/flow/
 [github-join]: https://github.com/join
@@ -175,14 +174,16 @@ ROOT_CONFIG_YML = '''\
 # Values for this lesson.
 #------------------------------------------------------------
 
-# Which carpentry is this ("swc" or "dc")?
+# Which carpentry is this ("swc", "dc", or "lc")?
 carpentry: "swc"
 
 # Overall title for pages.
 title: "Lesson Title"
 
-# Contact email address.
-email: lessons@software-carpentry.org
+# Contact.  This *must* include the protocol: if it's an email
+# address, it must look like "mailto:lessons@software-carpentry.org",
+# or if it's a URL, "https://gitter.im/username/ProjectName".
+contact: "mailto:lessons@software-carpentry.org"
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
@@ -201,6 +202,7 @@ dc_site: "http://datacarpentry.org"
 swc_github: "https://github.com/swcarpentry"
 swc_site: "https://software-carpentry.org"
 swc_pages: "https://swcarpentry.github.io"
+lc_site: "http://librarycarpentry.github.io/"
 template_repo: "https://github.com/swcarpentry/styles"
 example_repo: "https://github.com/swcarpentry/lesson-example"
 example_site: "https://swcarpentry.github.com/lesson-example"
@@ -211,6 +213,7 @@ training_site: "https://swcarpentry.github.io/instructor-training"
 # Surveys.
 pre_survey: "https://www.surveymonkey.com/r/swc_pre_workshop_v1?workshop_id="
 post_survey: "https://www.surveymonkey.com/r/swc_post_workshop_v1?workshop_id="
+training_post_survey: "https://www.surveymonkey.com/r/post-instructor-training"
 
 # Start time in minutes (0 to be clock-independent, 540 to show a start at 09:00 am).
 start_time: 0

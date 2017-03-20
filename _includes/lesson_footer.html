@@ -1,19 +1,37 @@
+{% comment %}
+  Footer for lesson pages.
+{% endcomment %}
 <footer>
   <div class="row">
     <div class="col-md-6" align="left">
       <h4>
-	Copyright &copy; 2016
-	{% if site.carpentry == "swc" %}<a href="{{ site.swc_site }}">Software Carpentry Foundation</a>{% endif %}
-	{% if site.carpentry == "dc" %}<a href="{{ site.dc_site }}">Data Carpentry</a>{% endif %}
+	Copyright &copy; 2016–{{ 'now' | date: "%Y" }}
+	{% if site.carpentry == "swc" %}
+	<a href="{{ site.swc_site }}">Software Carpentry Foundation</a>
+	{% elsif site.carpentry == "dc" %}
+	<a href="{{ site.dc_site }}">Data Carpentry</a>
+	{% elsif site.carpentry == "lc" %}
+	<a href="{{ site.lc_site }}">Library Carpentry</a>
+	{% endif %}
       </h4>
     </div>
     <div class="col-md-6" align="right">
       <h4>
-	<a href="{{ site.github.repository_url }}/">Source</a>
+	{% if page.source %}
+	{% if page.source == "Rmd" %}
+	<a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}">Edit on GitHub</a>
+	{% endif %}
+	{% else %}
+	<a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path}}">Edit on GitHub</a>
+	{% endif %}
 	/
 	<a href="{{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
 	/
-	<a href="mailto:{{ site.email }}">Contact</a>
+	<a href="{{ site.github.repository_url }}/">Source</a>
+	/
+	<a href="{{ site.github.repository_url }}/blob/gh-pages/CITATION">Cite</a>
+	/
+	<a href="{{ site.contact }}">Contact</a>
       </h4>
     </div>
   </div>
