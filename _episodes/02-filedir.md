@@ -182,6 +182,22 @@ examples here, this is why we get `/Users/nelle` as our home directory.
 Typically, when you open a new command prompt you will be in
 your home directory to start.  
 
+Sometimes it is also helpful to view the directory structure as a tree:
+.
+├── .bash_profile
+├── data_directory
+│   ├── data_file1.cvs
+│   ├── data_file2.txt
+│   └── data_file3.sql
+├── images
+│   ├── wolfman.jpg
+│   ├── Wolverine.gif
+│   └── software_fox.jpg
+├── program.exe
+└── readme.txt
+
+This structure can be viewed from any level, so if you run the tree command from home you are likely to get a very big tree. It is generally better to do this further down your directory structure. 
+
 Now let's learn the command that will let us see the contents of our
 own filesystem.  We can see what's in our home directory by running `ls`,
 which stands for "listing":
