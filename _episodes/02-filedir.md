@@ -22,6 +22,7 @@ keypoints:
 - "`pwd` prints the user's current working directory."
 - "`whoami` shows the user's current identity."
 - "`/` on its own is the root directory of the whole file system."
+- "`tree` Displays the entire hierarchy of directories and files."
 - "A relative path specifies a location starting from the current location."
 - "An absolute path specifies a location from the root of the file system."
 - "Directory names in a path are separated with '/' on Unix, but '\\\\' on Windows."
