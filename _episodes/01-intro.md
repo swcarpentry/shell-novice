@@ -13,10 +13,10 @@ keypoints:
 - "Construct absolute and relative paths that identify specific files and directories."
 - "Explain the steps in the shell's read-run-print cycle."
 - "Identify the actual command, flags, and filenames in a command-line call."
-- "Demonstrate the use of tab completion, and explain its advantages."
+- "Demonstrate the use of tab completion and explain its advantages."
 keypoints:
 - "A shell is a program whose primary purpose is to read commands and run other programs."
-- "The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and that it can be used to access networked machines."
+- "The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and its capacity to access networked machines."
 - "The shell's main disadvantages are its primarily textual nature and how cryptic its commands and operation can be."
 ---
 
@@ -24,8 +24,8 @@ At a high level, computers do four things:
 
 -   run programs
 -   store data
--   communicate with each other
--   and interact with us
+-   communicate with each other, and
+-   interact with us
 
 They can do the last of these in many different ways,
 including direct brain-computer and speech interfaces.
@@ -85,13 +85,13 @@ and their output is lines of text rather than something visual like a graph.
 On the other hand,
 with only a few keystrokes, the shell allows us to combine existing tools into 
 powerful pipelines and handle large volumes of data automatically. This automation
-not only makes us more productive, but also improves the reproducibility of our workflows by 
+not only makes us more productive but also improves the reproducibility of our workflows by 
 allowing us to repeat them with few simple commands.
 In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
 Familiarity with the shell is near essential to run a variety of specialized tools and resources
 including high-performance computing systems.
 As clusters and cloud computing systems become more popular for scientific data crunching,
-being able to interact with them is becoming a necessary skill.
+being able to interact with the shell is becoming a necessary skill.
 We can build on the command-line skills covered here
 to tackle a wide range of scientific questions and computational challenges.
 
@@ -102,7 +102,7 @@ has just returned from a six-month survey of the
 [North Pacific Gyre](http://en.wikipedia.org/wiki/North_Pacific_Gyre),
 where she has been sampling gelatinous marine life in the
 [Great Pacific Garbage Patch](http://en.wikipedia.org/wiki/Great_Pacific_Garbage_Patch).
-She has 1520 samples in all, and now needs to:
+She has 1520 samples in all and now needs to:
 
 1.  Run each sample through an assay machine
     that will measure the relative abundance of 300 different proteins.
