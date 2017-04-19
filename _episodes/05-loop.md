@@ -492,7 +492,12 @@ so she decides to get some coffee and catch up on her reading.
 > > and then listed using `ls`.
 > >
 > > ```
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > cubane.pdb
+> > ethane.pdb
+> > methane.pdb
+> > octane.pdb
+> > pentane.pdb
+> > propane.pdb
 > > ```
 > > {: .output}
 > {: .solution}
