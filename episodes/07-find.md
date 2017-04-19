@@ -626,6 +626,9 @@ about them."
 > Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+> There is often more than one way to solve a programming task, so a
+> particular solution is usually chosen based on a combination of
+> yielding the correct result, elegance, readability, and speed.
 >
 > > ## Solutions
 > > ```
