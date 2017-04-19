@@ -521,8 +521,9 @@ about them."
 > {: .bash}
 >
 > > ## Solution
-> > Find all files with a `.dat` extension in the current directory.
-> > Count the number of lines each of these files contains, then sort the output numerically.
+> > 1. Find all files with a `.dat` extension in the current directory
+> > 2. Count the number of lines each of these files contains
+> > 3. Sort the output from step 2. numerically
 > {: .solution}
 {: .challenge}
 
