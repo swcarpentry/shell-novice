@@ -492,7 +492,12 @@ so she decides to get some coffee and catch up on her reading.
 > > and then listed using `ls`.
 > >
 > > ```
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > cubane.pdb
+> > ethane.pdb
+> > methane.pdb
+> > octane.pdb
+> > pentane.pdb
+> > propane.pdb
 > > ```
 > > {: .output}
 > {: .solution}
@@ -592,7 +597,7 @@ so she decides to get some coffee and catch up on her reading.
 > 5.  Only the file `octane.pdb` will be listed.
 >
 > > ## Solution
-> > 5 is the correct answer. `*` matches zero or more characters, so a file name with zero or more
+> > 4 is the correct answer. `*` matches zero or more characters, so a file name with zero or more
 > > characters before a letter c and zero or more characters after the letter c will be matched.
 > {: .solution}
 {: .challenge}
