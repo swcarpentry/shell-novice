@@ -839,7 +839,7 @@ so this matches all the valid data files she has.
 > 6.  `cut -d, -f 2 animals.txt | sort | uniq -c | wc -l`
 >
 > > ## Solution
-> > 5. is the correct answer.
+> > Option 5. is the correct answer.
 > > If you have difficulty understanding why, try running the commands, or sub-sections of
 > > the pipelines (make sure you are in the `data-shell/data` directory).
 > {: .solution}
