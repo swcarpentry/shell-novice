@@ -235,6 +235,24 @@ from whatever file is being processed
 > {: .bash}
 >
 > It is simpler just to avoid using whitespaces (or other special characters) in filenames.
+>
+> The files above don't exist, so if we run the above code, the `head` command will be unable
+> to find them, however the error message returned will show the name of the files it is
+> expecting:
+> ```
+> head: cannot open ‘red dragon.dat’ for reading: No such file or directory
+> head: cannot open ‘purple unicorn.dat’ for reading: No such file or directory
+> ```
+> {: .output}
+> Try removing the quotes around `$filename` in the loop above to see the effect of the quote
+> marks on whitespace:
+> ```
+> head: cannot open ‘red’ for reading: No such file or directory
+> head: cannot open ‘dragon.dat’ for reading: No such file or directory
+> head: cannot open ‘purple’ for reading: No such file or directory
+> head: cannot open ‘unicorn.dat’ for reading: No such file or directory
+> ```
+> {: . output}
 {: .callout}
 
 Going back to our original file copying problem,
