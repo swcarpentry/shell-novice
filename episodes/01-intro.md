@@ -19,7 +19,7 @@ keypoints:
 - "The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and its capacity to access networked machines."
 - "The shell's main disadvantages are its primarily textual nature and how cryptic its commands and operation can be."
 ---
-
+### Background
 At a high level, computers do four things:
 
 -   run programs
@@ -37,6 +37,7 @@ widespread until 1980s. The roots of such *graphical user interfaces*  go back
 to Doug Engelbart's work in the 1960s, which you can see in what has been
 called "[The Mother of All Demos](http://www.youtube.com/watch?v=a11JDLBXtPQ)".
 
+### The Command-Line Interface
 Going back even further,
 the only way to interact with early computers was to rewire them.
 But in between,
@@ -58,6 +59,7 @@ and prints its output.
 The user then types another command,
 and so on until the user logs off.
 
+### The Shell
 This description makes it sound as though the user sends commands directly to the computer,
 and the computer sends output directly to the user.
 In fact,
@@ -77,6 +79,7 @@ the Bourne Again SHell
 Bash is the default shell on most modern implementations of Unix
 and in most packages that provide Unix-like tools for Windows.
 
+### Why bother?
 Using Bash or any other shell
 sometimes feels more like programming than like using a mouse.
 Commands are terse (often only a couple of characters long),
