@@ -8,8 +8,8 @@ generate_md_episodes <- function() {
 
     if (require("checkpoint")) {
         required_pkgs <-
-            checkpoint:::projectScanPackages(project = "_episodes_rmd",
-                                             verbose=FALSE, use.knitr = TRUE)$pkgs
+             checkpoint:::scanForPackages(project = "_episodes_rmd",
+                                          verbose=FALSE, use.knitr = TRUE)$pkgs
     } else {
         stop("The checkpoint package is required to build the lessons.")
     }
@@ -22,7 +22,7 @@ generate_md_episodes <- function() {
         install.packages(missing_pkgs)
     }
 
-    ## find all the Rmd files, and generates the paths for their respective outputs
+    ## find all the Rmd files, and generate the paths for their respective outputs
     src_rmd <- list.files(pattern = "??-*.Rmd$", path = "_episodes_rmd", full.names = TRUE)
     dest_md <- file.path("_episodes", gsub("Rmd$", "md", basename(src_rmd)))
 
