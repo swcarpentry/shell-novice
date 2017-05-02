@@ -62,7 +62,7 @@ the prompt. When typing commands, either from these lessons or from other source
 do not type the prompt, only the commands that follow it.
 
 Type the command `whoami`,
-then press the Enter key (sometimes marked Return) to send the command to the shell.
+then press the 'enter' key (sometimes marked Return) to send the command to the shell.
 The command's output is the ID of the current user,
 i.e.,
 it shows us who the shell thinks we are:
