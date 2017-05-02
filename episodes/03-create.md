@@ -172,6 +172,7 @@ return to the shell.
 > * `Ctrl-X`
 > * `Ctrl+X`
 > * `^X`
+> * `C-x`
 >
 > In nano, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
 > This means that you can use `Control-G` to get help and `Control-O` to save your
