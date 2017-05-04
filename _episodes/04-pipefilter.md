@@ -5,7 +5,7 @@ exercises: 0
 questions:
 - "How can I combine existing commands to do new things?"
 objectives:
-- "Redirect a command's output to a file."
+- "Redirect a command's output to a file and also show it on the screen simultaneously."
 - "Process a file instead of keyboard input using redirection."
 - "Construct command pipelines with two or more stages."
 - "Explain what usually happens if a program or pipeline isn't given any input to process."
@@ -19,6 +19,7 @@ keypoints:
 - "`*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`."
 - "`?` matches any single character in a filename, so `?.txt` matches `a.txt` but not `any.txt`."
 - "`command > file` redirects a command's output to a file."
+- "`command | tee file` directs a command's output to the screen and a file simultaneously."
 - "`first | second` is a pipeline: the output of the first command is used as the input to the second."
 - "The best way to use the shell is to use pipes to combine simple single-purpose programs (filters)."
 ---
@@ -146,8 +147,12 @@ $ wc -l *.pdb > lengths.txt
 The greater than symbol, `>`, tells the shell to **redirect** the command's output
 to a file instead of printing it to the screen. (This is why there is no screen output:
 everything that `wc` would have printed has gone into the
-file `lengths.txt` instead.)  The shell will create
-the file if it doesn't exist. If the file exists, it will be
+file `lengths.txt` instead.)  
+
+Alternatively, the pipe symbol and "tee", '| tee' tells the shell to direct the command's output
+to the screen and a file simultaneously.
+
+The shell will create the file if it doesn't exist. If the file exists, it will be
 silently overwritten, which may lead to data loss and thus requires
 some caution.
 `ls lengths.txt` confirms that the file exists:
