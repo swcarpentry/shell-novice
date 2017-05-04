@@ -418,12 +418,12 @@ so she decides to get some coffee and catch up on her reading.
 >
 > There are a number of other shortcut commands for getting at the history.
 >
-> - `Ctrl-R` enters a history search mode "reverse-i-search" and looks for
-> matches to the text you enter next.
-> Press `Ctrl-R` again to cycle through matches.
+> - `Ctrl-R` enters a history search mode "reverse-i-search" and finds the 
+> most recent command in your history that matches the text you enter next.
+> Press `Ctrl-R` one or more additional times to search for earlier matches.
 > - `!!` retrieves the immediately preceding command 
 > (you may or may not find this more convenient than using the up-arrow)
-> - `!$` retrieves the last word of the  last command.
+> - `!$` retrieves the last word of the last command.
 > That's useful more often than you might expect: after
 > `bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
 > `less !$` to look at the file `stats-NENE01729B.txt`, which is
