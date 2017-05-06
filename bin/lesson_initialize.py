@@ -278,7 +278,7 @@ permalink: /setup/
 FIXME
 '''
 
-ROOT_SETUP_MD = '''\
+ROOT_AIO_MD = '''\
 ---
 layout: page 
 permalink: /aio/
