@@ -2,7 +2,10 @@
 layout: base
 ---
 {% include episode_navbar.html episode_navbar_title=true %}
+<article>
+{% include episode_title.html %}
 {% include episode_overview.html %}
 {{content}}
 {% include episode_keypoints.html %}
+</article>
 {% include episode_navbar.html episode_navbar_title=false %}
