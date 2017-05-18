@@ -17,7 +17,7 @@ keypoints:
 - "`rm path` removes (deletes) a file."
 - "Use of the Control key may be described in many ways, including `Ctrl-X`, `Control-X`, and `^X`."
 - "The shell does not have a trash bin: once something is deleted, it's really gone."
-- "Nano is a very simple text editor: please use something else for real work."
+- "Depending on the type of work you do, you may need a more powerful text editor than Nano."
 ---
 
 We now know how to explore files and directories,
@@ -130,12 +130,13 @@ $ nano draft.txt
 >
 > When we say, "`nano` is a text editor," we really do mean "text": it can
 > only work with plain character data, not tables, images, or any other
-> human-friendly media. We use it in examples because almost anyone can
-> drive it anywhere without training, but please use something more
-> powerful for real work. On Unix systems (such as Linux and Mac OS X),
+> human-friendly media. We use it in examples because it is one of the 
+> least complex text editors. However, because of this trait, it may 
+> not be powerful enough or flexible enough for the work you need to do
+> after this workshop. On Unix systems (such as Linux and Mac OS X),
 > many programmers use [Emacs](http://www.gnu.org/software/emacs/) or
-> [Vim](http://www.vim.org/) (both of which are completely unintuitive,
-> even by Unix standards), or a graphical editor such as
+> [Vim](http://www.vim.org/) (both of which are unintuitive), 
+> or a graphical editor such as
 > [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
 > use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in
 > editor called `notepad` that can be run from the command line in the same
