@@ -109,6 +109,13 @@ $ wc *.pdb
 > 2. `ls *t?ne.*`
 > 3. `ls *t??ne.pdb`
 > 4. `ls ethane.*`
+>
+> > ## Solution
+> > 1. No: This outputs `ethane.pdb  methane.pdb octane.pdb  pentane.pdb`
+> > 2. No: This outputs `octane.pdb  pentane.pdb`
+> > 3. Yes: This outputs `ethane.pdb methane.pdb`
+> > 4. No: This outputs `ethane.pdb`
+> {: .solution}
 {: .challenge}
 
 If we run `wc -l` instead of just `wc`,
