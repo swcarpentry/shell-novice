@@ -97,6 +97,29 @@ More specifically, when we type `whoami` the shell:
 > what follows, `nelle` should always be replaced by that username.  
 {: .callout}
 
+> ## Unknown commands
+> Remember, the Shell is a program that runs other programs rather than doing
+> calculations itself. So the commands you type must be the names of existing
+> programs.
+> If you type the name of a program that does not exist and hit enter, you
+> will see an error message similar to this:
+> 
+> ~~~
+> $ mycommand
+> ~~~
+> {: .bash}
+> 
+> ~~~
+> -bash: mycommand: command not found
+> ~~~
+> {: .error}
+> 
+> The Shell (Bash) tells you that it cannot find the program `mycommand`
+> because the program you are trying to run does not exist on your computer.
+> We will touch quite a few command in the course of this tutorial, but there
+> are actually many more than we can cover here.
+{: .callout}
+
 Next,
 let's find out where we are by running a command called `pwd`
 (which stands for "print working directory").
@@ -346,6 +369,22 @@ or available locally via: info '(coreutils) ls invocation'
 Many bash commands, and programs that people have written that can be
 run from within bash, support a `--help` flag to display more
 information on how to use the commands or programs.
+
+> ## Unsupported comand-line options
+> If you try to use an option that is not supported, `ls` and other programs
+> will print an error message similar to this:
+>
+> ~~~
+> $ ls -j
+> ~~~
+> {: .bash}
+> 
+> ~~~
+> ls: invalid option -- 'j'
+> Try 'ls --help' for more information.
+> ~~~
+> {: .error}
+{: .callout}
 
 For more information on how to use `ls` we can type `man ls`.
 `man` is the Unix "manual" command:
