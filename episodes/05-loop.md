@@ -526,10 +526,10 @@ so she decides to get some coffee and catch up on her reading.
 > In the same directory, what is the effect of this loop?
 >
 > ~~~
-> for species in *.pdb
+> for alkanes in *.pdb
 > do
->     echo $species
->     cat $species > alkanes.pdb
+>     echo $alkanes
+>     cat $alkanes > alkanes.pdb
 > done
 > ~~~
 > {: .bash}
