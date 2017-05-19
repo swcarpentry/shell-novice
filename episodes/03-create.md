@@ -722,13 +722,13 @@ but it does find the copy in `thesis` that we didn't delete.
 >
 > ~~~
 > $ cp -r 2016-05-18-data/ 2016-05-20-data/
-> $ rm 2016-05-20-data/data/raw/*
-> $ rm 2016-05-20-data/data/processed/*
+> $ rm 2016-05-20-data/raw/*
+> $ rm 2016-05-20-data/processed/*
 > ~~~
 > {: .bash}
 > ~~~
-> $ rm 2016-05-20-data/data/raw/*
-> $ rm 2016-05-20-data/data/processed/*
+> $ rm 2016-05-20-data/raw/*
+> $ rm 2016-05-20-data/processed/*
 > $ cp -r 2016-05-18-data/ 2016-5-20-data/
 > ~~~
 > {: .bash}
