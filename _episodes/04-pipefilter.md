@@ -109,6 +109,13 @@ $ wc *.pdb
 > 2. `ls *t?ne.*`
 > 3. `ls *t??ne.pdb`
 > 4. `ls ethane.*`
+>
+> > ## Solution:
+> > 1. No: This outputs `ethane.pdb  methane.pdb octane.pdb  pentane.pdb`
+> > 2. No: This outputs `octane.pdb  pentane.pdb`
+> > 3. Yes: This outputs `ethane.pdb methane.pdb`
+> > 4. No: This outputs `ethane.pdb`
+> {: .solution}
 {: .challenge}
 
 If we run `wc -l` instead of just `wc`,
@@ -551,7 +558,7 @@ so this matches all the valid data files she has.
 > >
 > > In both examples, the shell returns the number of lines from the input to
 > > the `wc` command.
-> > In the first example, the input is a the file `notes.txt` and the file name is
+> > In the first example, the input is the file `notes.txt` and the file name is
 > > given in the output from the `wc` command.
 > > In the second example, the contents of the file `notes.txt` are redirected to
 > > standard input.
