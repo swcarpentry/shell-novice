@@ -74,10 +74,8 @@ Today it is not working
 ~~~
 {: .output}
 
-Here, `not` is the pattern we're searching for.
-It's pretty simple:
-every alphanumeric character matches against itself.
-After the pattern comes the name or names of the files we're searching in.
+Here, `not` is the pattern we're searching for. The grep command searches through the file, looking for matches to the pattern specified. To use it type grep, then the pattern we're searching for and finally the name of the file (or files) we're searching in.
+
 The output is the three lines in the file that contain the letters "not".
 
 Let's try a different pattern: "The".
