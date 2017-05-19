@@ -535,9 +535,9 @@ about them."
 > Once you have thought about your answer, you can test the commands in the `data-shell`
 > directory.
 >
-> 1.  `find /data -name '*s.txt' | grep -v net`
-> 2.  `find /data -name *s.txt | grep -v net`
-> 3.  `grep -v "temp" $(find /data -name '*s.txt')`
+> 1.  `find data -name '*s.txt' | grep -v net`
+> 2.  `find data -name *s.txt | grep -v net`
+> 3.  `grep -v "temp" $(find data -name '*s.txt')`
 > 4.  None of the above.
 >
 > > ## Solution
