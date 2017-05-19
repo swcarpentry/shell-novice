@@ -28,9 +28,9 @@ At a high level, computers do four things:
 -   interact with us
 
 They can do the last of these in many different ways,
-including direct brain-computer and speech interfaces.
-Since these hardware interfaces are still in their infancy,
-we still have to rely on screens, mice, touchpads and keyboards.
+including direct brain-computer interfaces and speech recognition, using systems such as Alexa or Google Home.
+While such hardware interfaces are becoming more commonplace, most interaction is still
+done using screens, mice, touchpads and keyboards.
 Although most modern desktop operating systems communicate with their human users by
 means of windows, icons and pointers, these software technologies didn't become
 widespread until 1980s. The roots of such *graphical user interfaces*  go back
