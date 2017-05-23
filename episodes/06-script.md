@@ -568,9 +568,10 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > >
 > > Script 2 would print the contents of the first 3 files matching the file extension.
 > > The shell expands the wildcard before passing the arguments to the `example.sh` script.
-> >
+> > 
 > > Script 3 would print all the arguments to the script (i.e. all the `.pdb` files),
-> > followed by `.txt`.
+> > followed by `.pdb`.
+> > cubane.pdb ethane.pdb methane.pdb octane.pdb pentane.pdb propane.pdb.pdb
 > {: .solution}
 {: .challenge}
 
