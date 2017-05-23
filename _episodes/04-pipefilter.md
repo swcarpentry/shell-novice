@@ -551,7 +551,7 @@ so this matches all the valid data files she has.
 > >
 > > In both examples, the shell returns the number of lines from the input to
 > > the `wc` command.
-> > In the first example, the input is a the file `notes.txt` and the file name is
+> > In the first example, the input is the file `notes.txt` and the file name is
 > > given in the output from the `wc` command.
 > > In the second example, the contents of the file `notes.txt` are redirected to
 > > standard input.
