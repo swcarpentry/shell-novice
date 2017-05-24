@@ -712,10 +712,10 @@ but it does find the copy in `thesis` that we didn't delete.
 > add new data.
 >
 > Assume that the file structure is in a folder called '2016-05-18-data',
-> which contains folders named 'raw' and 'processed' that contain data files.
-> The goal is to copy the file structure of the `2016-05-18-data` folder
-> into a folder called `2016-05-20-data` and remove the data files from
-> the directory you just created.
+> which contains a 'data' folder that in turn contains folders named 'raw' and
+> 'processed' that contain data files.  The goal is to copy the file structure
+> of the `2016-05-18-data` folder into a folder called `2016-05-20-data` and
+> remove the data files from the directory you just created.
 >
 > Which of the following set of commands would achieve this objective?
 > What would the other commands do?
