@@ -22,6 +22,7 @@ keypoints:
 - "`pwd` prints the user's current working directory."
 - "`whoami` shows the user's current identity."
 - "`/` on its own is the root directory of the whole file system."
+- "`tree` Displays the entire hierarchy of directories and files."
 - "A relative path specifies a location starting from the current location."
 - "An absolute path specifies a location from the root of the file system."
 - "Directory names in a path are separated with '/' on Unix, but '\\\\' on Windows."
@@ -203,6 +204,22 @@ and Nelle's in `/Users/nelle`.  Because Nelle is the user in our
 examples here, this is why we get `/Users/nelle` as our home directory.  
 Typically, when you open a new command prompt you will be in
 your home directory to start.  
+
+Sometimes it is also helpful to view the directory structure as a tree:
+.
+├── .bash_profile
+├── data_directory
+│   ├── data_file1.cvs
+│   ├── data_file2.txt
+│   └── data_file3.sql
+├── images
+│   ├── wolfman.jpg
+│   ├── Wolverine.gif
+│   └── software_fox.jpg
+├── program.exe
+└── readme.txt
+
+This structure can be viewed from any level, so if you run the tree command from home you are likely to get a very big tree. It is generally better to do this further down your directory structure. 
 
 Now let's learn the command that will let us see the contents of our
 own filesystem.  We can see what's in our home directory by running `ls`,
