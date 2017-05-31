@@ -328,6 +328,7 @@ $ find . -type d
 ~~~
 {: .output}
 
+Notice that the objects `find` finds are not listed in any particular order.
 If we change `-type d` to `-type f`,
 we get a listing of all the files instead:
 
