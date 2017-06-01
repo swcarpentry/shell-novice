@@ -21,7 +21,8 @@ These lessons will start you on a path towards using these resources effectively
 > the word “file” and either “directory” or “folder” (two common words
 > for the same thing), you're ready for this lesson.
 >
-> If you're already comfortable manipulating files and directories,
+> Even if you're already comfortable manipulating files and directories,
 > searching for files with `grep` and `find`, and writing simple loops
-> and scripts, you probably won't learn much from this lesson.
+> and scripts, you will likely learn something new or practice something 
+> useful in this lesson.
 {: .prereq}
