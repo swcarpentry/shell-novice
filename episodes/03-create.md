@@ -617,6 +617,11 @@ but it does find the copy in `thesis` that we didn't delete.
 > The command `ls -t` lists things by time of last change,
 > with most recently changed files or directories first.
 > In what order does `ls -R -t` display things?
+> > ## Solution
+> > The command `ls -R -t` displays the directories recursively in 
+> > alphabetical order at each level, but the files in each directory
+> > are displayed chronologically.
+> {: .solution}
 {: .challenge}
 
 > ## Creating Files a Different Way
