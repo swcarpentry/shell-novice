@@ -227,12 +227,12 @@ def check_eventbrite(eventbrite):
 
 
 @look_for_fixme
-def check_etherpad(etherpad):
+def check_collaborative_notes(collaborative_notes):
     """
-    'etherpad' must be a valid URL.
+    'collaborative_notes' must be a valid URL.
     """
 
-    return bool(re.match(URL_PATTERN, etherpad))
+    return bool(re.match(URL_PATTERN, collaborative_notes))
 
 
 @look_for_fixme
@@ -292,7 +292,7 @@ HANDLERS = {
 
     'eventbrite': (False, check_eventbrite, 'Eventbrite key appears invalid'),
 
-    'etherpad':   (False, check_etherpad, 'Etherpad URL appears invalid'),
+    'collaborative_notes':   (False, check_collaborative_notes, 'Collaborative Notes URL appears invalid'),
 
     'venue':      (False, check_pass, 'venue name not specified'),
 
