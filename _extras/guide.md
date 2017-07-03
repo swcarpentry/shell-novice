@@ -122,7 +122,7 @@ as long as learners using Windows do not run into roadblocks such as:
 
 *   Super cool online resource!
     <http://explainshell.com/> will dissect any shell command you type in
-    and display help text for each piece.  
+    and display help text for each piece. Additional nice manual tool could be <http://tldr-pages.github.io/> with short very descriptive manuals for shell commands, useful especially on Windows while using Git BASH where `man` could not work.
 
 *   Another super cool online resource is <http://www.shellcheck.net>,
     which will check shell scripts (both uploaded and typed in) for common errors.

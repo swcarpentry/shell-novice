@@ -74,38 +74,45 @@ Today it is not working
 ~~~
 {: .output}
 
-Here, `not` is the pattern we're searching for.
-It's pretty simple:
-every alphanumeric character matches against itself.
-After the pattern comes the name or names of the files we're searching in.
+Here, `not` is the pattern we're searching for. The grep command searches through the file, looking for matches to the pattern specified. To use it type grep, then the pattern we're searching for and finally the name of the file (or files) we're searching in.
+
 The output is the three lines in the file that contain the letters "not".
 
-Let's try a different pattern: "day".
+Let's try a different pattern: "The".
 
 ~~~
-$ grep day haiku.txt
+$ grep The haiku.txt
 ~~~
 {: .bash}
 
 ~~~
-Yesterday it worked
-Today it is not working
+The Tao that is seen
+"My Thesis" not found.
 ~~~
 {: .output}
 
 This time,
-two lines that include the letters "day" are outputted.
-However, these letters are contained within larger words.
-To restrict matches to lines containing the word "day" on its own,
+two lines that include the letters "The" are outputted.
+However, one instance of those letters is contained within a larger word,
+"Thesis".
+
+To restrict matches to lines containing the word "The" on its own,
 we can give `grep` with the `-w` flag.
 This will limit matches to word boundaries.
 
 ~~~
-$ grep -w day haiku.txt
+$ grep -w The haiku.txt
 ~~~
 {: .bash}
 
-In this case, there aren't any, so `grep`'s output is empty. Sometimes we don't
+~~~
+The Tao that is seen
+~~~
+{: .output}
+
+Note that a "word boundary" includes the start and end of a line, so not
+just letters surrounded by spaces. 
+Sometimes we don't
 want to search for a single word, but a phrase. This is also easy to do with
 `grep` by putting the phrase in quotes.
 
@@ -303,7 +310,7 @@ of them.
 The first option in our list is
 `-type d` that means "things that are directories".
 Sure enough,
-`find`'s output is the names of the five directories in our little tree
+`find`'s output is the names of the six directories in our little tree
 (including `.`):
 
 ~~~
@@ -313,6 +320,7 @@ $ find . -type d
 
 ~~~
 ./
+./old
 ./data
 ./thesis
 ./tools
@@ -320,6 +328,7 @@ $ find . -type d
 ~~~
 {: .output}
 
+Notice that the objects `find` finds are not listed in any particular order.
 If we change `-type d` to `-type f`,
 we get a listing of all the files instead:
 
@@ -495,6 +504,11 @@ about them."
 > 2. `grep -E "of" haiku.txt`
 > 3. `grep -w "of" haiku.txt`
 > 4. `grep -i "of" haiku.txt`
+>
+> > ## Solution
+> > The correct answer is 3, because the `-w` flag looks only for whole-word matches.
+> > The other options will all match "of" when part of another word.
+> {: .solution}
 {: .challenge}
 
 > ## `find` Pipeline Reading Comprehension
@@ -505,6 +519,12 @@ about them."
 > wc -l $(find . -name '*.dat') | sort -n
 > ~~~
 > {: .bash}
+>
+> > ## Solution
+> > 1. Find all files with a `.dat` extension in the current directory
+> > 2. Count the number of lines each of these files contains
+> > 3. Sort the output from step 2. numerically
+> {: .solution}
 {: .challenge}
 
 > ## Matching and Subtracting
@@ -512,13 +532,26 @@ about them."
 > The `-v` flag to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
 > the following commands will find all files in `/data` whose names
-> end in `ose.dat` (e.g., `sucrose.dat` or `maltose.dat`), but do
-> *not* contain the word `temp`?
+> end in `s.txt` (e.g., `animals.txt` or `planets.txt`), but do
+> *not* contain the word `net`?
+> Once you have thought about your answer, you can test the commands in the `data-shell`
+> directory.
 >
-> 1.  `find /data -name '*.dat' | grep ose | grep -v temp`
-> 2.  `find /data -name ose.dat | grep -v temp`
-> 3.  `grep -v "temp" $(find /data -name '*ose.dat')`
+> 1.  `find data -name '*s.txt' | grep -v net`
+> 2.  `find data -name *s.txt | grep -v net`
+> 3.  `grep -v "temp" $(find data -name '*s.txt')`
 > 4.  None of the above.
+>
+> > ## Solution
+> > The correct answer is 1. Putting the match expression in quotes prevents the shell
+> > expanding it, so it gets passed to the `find` command.
+> >
+> > Option 2 is incorrect because the shell expands `*s.txt` instead of passing the wildcard
+> > expression to `find`.
+> >
+> > Option 3 is incorrect because it searches the contents of the files for lines which
+> > do not match "temp", rather than searching the file names.
+> {: .solution}
 {: .challenge}
 
 > ## Tracking a Species
@@ -535,15 +568,14 @@ about them."
 > ~~~
 > {: .source}
 >
-> She wants to write a shell script that takes a directory and a species 
-> as command-line parameters and return one file called `species.txt` 
-> containing a list of dates and the number of that species seen on that date,
-> such as this file for rabbits:
+> She wants to write a shell script that takes a species as the first command-line argument 
+> and a directory as the second argument. The script should return one file called `species.txt` 
+> containing a list of dates and the number of that species seen on each date.
+> For example using the data shown above, `rabbits.txt` would contain:
 > 
 > ~~~
 > 2013-11-05,22
 > 2013-11-06,19
-> 2013-11-07,18
 > ~~~
 > {: .source}
 >
@@ -562,6 +594,23 @@ about them."
 >
 > Hint: use `man grep` to look for how to grep text recursively in a directory
 > and `man cut` to select more than one field in a line.
+>
+> An example of such a file is provided in `data-shell/data/animal-counts/animals.txt`
+>
+> > ## Solution
+> >
+> > ```
+> > grep -w $1 -r $2 | cut -d : -f 2 | cut -d , -f 1,3  > $1.txt
+> > ```
+> > {: .source}
+> >
+> > You would call the script above like this:
+> >
+> > ```
+> > $ bash count-species.sh bear .
+> > ```
+> > {: .bash}
+> {: .solution}
 {: .challenge}
 
 > ## Little Women
@@ -570,13 +619,42 @@ about them."
 > Louisa May Alcott, are in an argument.  Of the four sisters in the
 > book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the
 > most mentioned.  You, however, are certain it was Amy.  Luckily, you
-> have a file `LittleWomen.txt` containing the full text of the novel.
+> have a file `LittleWomen.txt` containing the full text of the novel
+> (`data-shell/writing/data/LittleWomen.txt`).
 > Using a `for` loop, how would you tabulate the number of times each
 > of the four sisters is mentioned?
 >
 > Hint: one solution might employ
 > the commands `grep` and `wc` and a `|`, while another might utilize
 > `grep` options.
+> There is often more than one way to solve a programming task, so a
+> particular solution is usually chosen based on a combination of
+> yielding the correct result, elegance, readability, and speed.
+>
+> > ## Solutions
+> > ```
+> > for sis in Jo Meg Beth Amy
+> > do
+> > 	echo $sis:
+> >	grep -ow $sis littlewomen.txt | wc -l
+> > done
+> > ```
+> > {: .source}
+> >
+> > Alternative, slightly inferior solution:
+> > ```
+> > for sis in Jo Meg Beth Amy
+> > do
+> > 	echo $sis:
+> >	grep -ocw $sis LittleWomen.txt
+> > done
+> > ```
+> > {: .source}
+> >
+> > This solution is inferior because `grep -c` only reports the number of lines matched.
+> > The total number of matches reported by this method will be lower if there is more
+> > than one match per line.
+> {: .solution}
 {: .challenge}
 
 > ## Finding Files With Different Properties
@@ -591,10 +669,12 @@ about them."
 >
 > Hint 2: The value for `-mtime` will need to be negative---why?
 >
-> Solution: Assuming that Nelle’s home is our working directory we type:
->
-> ~~~
-> $ find ./ -type f -mtime -1 -user ahmed
-> ~~~
-> {: .bash}
+> > ## Solution
+> > Assuming that Nelle’s home is our working directory we type:
+> >
+> > ~~~
+> > $ find ./ -type f -mtime -1 -user ahmed
+> > ~~~
+> > {: .bash}
+> {: .solution}
 {: .challenge}
