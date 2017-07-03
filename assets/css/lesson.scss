@@ -32,6 +32,7 @@ $color-testimonial: #fc8dc1 !default;
   color: $color;
   border-left: solid 5px $color;
   margin-bottom: 0px;
+  border-radius: 4px 0 0 4px;
 }
 
 .error  { @include cdSetup($color-error); }
@@ -44,6 +45,18 @@ $color-testimonial: #fc8dc1 !default;
 .python { @include cdSetup($color-source); }
 .r      { @include cdSetup($color-source); }
 .sql    { @include cdSetup($color-source); }
+
+.error pre,
+.output pre,
+.source pre,
+.bash pre,
+.make pre,
+.matlab pre,
+.python pre,
+.r pre,
+.sql pre {
+  border-radius: 0 4px 4px 0;
+}
 
 //----------------------------------------
 // Specialized blockquote environments for learning objectives, callouts, etc.
@@ -100,9 +113,9 @@ $codeblock-padding: 5px !default;
 //----------------------------------------
 
 code {
-  padding: 0 0;
-  color: inherit;
-  background-color: inherit;
+  padding: 2px 5px;
+  color: #3d90d9;
+  background-color: #e7e7e7;
 }
 
 img {
@@ -133,7 +146,7 @@ div.branding {
 
 ul,
 ol {
-  padding-left: 1em;
+  padding-left: 2em;
 }
 
 span.fold-unfold {

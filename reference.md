@@ -15,10 +15,10 @@ permalink: /reference/
 | Create      | nano  | mkdir        |
 | Delete      | rm    | rmdir, rm -r |
 
-## Filesystem heirarchy
+## Filesystem hierarchy
 
 The following is an overview of a standard Unix filesystem.
-The exact hierarchy is dependent on the platform,
+The exact hierarchy depends on the platform,
 so you may not see exactly the same files/directories on your computer:
 
 ![Linux filesystem hierarchy](../fig/standard-filesystem-hierarchy.svg)
@@ -41,7 +41,7 @@ command shell
 :   See [shell](#shell)
 
 command-line interface
-:   An interface based on typing commands,
+:   A user interface based on typing commands,
     usually at a [REPL](#read-evaluate-print-loop).
     See also: [graphical user interface](#graphical-user-interface).
 
@@ -71,7 +71,7 @@ filename extension
     By convention this identifies the file's type:
     `.txt` means "text file", `.png` means "Portable Network Graphics file",
     and so on. These conventions are not enforced by most operating systems:
-    it is perfectly possible to name an MP3 sound file `homepage.html`.
+    it is perfectly possible (but confusing!) to name an MP3 sound file `homepage.html`.
     Since many applications use filename extensions to identify the [MIME type](#mime-type) of the file,
     misnaming files may cause those applications to fail.
 
@@ -93,7 +93,7 @@ for loop
     See also: [while loop](#while-loop).
 
 graphical user interface
-:   A graphical user interface,
+:   A user interface based on selecting items and actions from a graphical display,
     usually controlled by using a mouse.
     See also: [command-line interface](#command-line-interface).
 
@@ -123,7 +123,7 @@ orthogonal
     they can be combined in any way.
 
 parameter
-:   A variable named in the function's declaration that is used to hold a value passed into the call.
+:   A variable named in a function's declaration that is used to hold a value passed into the call.
     The term is often used interchangeably (and inconsistently) with [argument](#argument).
 
 parent directory

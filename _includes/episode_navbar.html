@@ -1,26 +1,11 @@
 {% comment %}
-  Find previous and next episodes (if any).
-{% endcomment %}
-{% for episode in site.episodes  %}
-  {% if episode.url == page.url %}
-    {% unless forloop.first %}
-      {% assign prev_episode = prev %}
-    {% endunless %}
-    {% unless forloop.last %}
-      {% assign next_episode = site.episodes[forloop.index] %}
-    {% endunless %}
-  {% endif %}
-  {% assign prev = episode %}
-{% endfor %}
-
-{% comment %}
-  Display title and prev/next links.
+  Navigation bar for an episode.
 {% endcomment %}
 <div class="row">
   <div class="col-md-1">
     <h3>
-      {% if prev_episode %}
-      <a href="{{ page.root }}{{ prev_episode.url }}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      {% if page.previous.url %}
+      <a href="{{ page.root }}{{ page.previous.url }}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
       {% else %}
       <a href="{{ page.root }}/"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">lesson home</span></a>
       {% endif %}
@@ -29,13 +14,12 @@
   <div class="col-md-10">
     {% if include.episode_navbar_title %}
     <h3 class="maintitle"><a href="{{ page.root }}/">{{ site.title }}</a></h3>
-    <h1 class="maintitle">{{ page.title }}</h1>
     {% endif %}
   </div>
   <div class="col-md-1">
     <h3>
-      {% if next_episode %}
-      <a href="{{ page.root }}{{ next_episode.url }}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      {% if page.next.url %}
+      <a href="{{ page.root }}{{ page.next.url }}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
       {% else %}
       <a href="{{ page.root }}/"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">lesson home</span></a>
       {% endif %}

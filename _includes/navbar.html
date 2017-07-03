@@ -1,3 +1,6 @@
+{% comment %}
+  Lesson navigation bar.
+{% endcomment %}
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -17,13 +20,9 @@
       <a href="{{ site.dc_site }}" class="pull-left">
         <img class="navbar-logo" src="{{ page.root }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" />
       </a>
-      {% elsif site.carpentry == "swc" %}
-      <a href="{{ site.swc_site }}" class="pull-left">
-        <img class="navbar-logo" src="{{ page.root }}/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" />
-      </a>
-      {% elsif site.carpentry == "dc" %}
-      <a href="{{ site.dc_site }}" class="pull-left">
-        <img class="navbar-logo" src="{{ page.root }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" />
+      {% elsif page.carpentry == "lc" %}
+      <a href="{{ site.lc_site }}" class="pull-left">
+        <img class="navbar-logo" src="{{ page.root }}/assets/img/lc-icon-black.png" alt="Library Carpentry logo" />
       </a>
       {% endif %}
 
@@ -40,13 +39,14 @@
 	{% comment %} Show setup instructions, reference guide, and lesson episodes for lessons. {% endcomment %}
         {% if site.kind == "lesson" %}
         <li><a href="{{ page.root }}/setup/">Setup</a></li>
-        <li><a href="{{ page.root }}/reference/">Reference</a></li>
         <li class="dropdown">
           <a href="{{ page.root }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
           <ul class="dropdown-menu">
             {% for episode in site.episodes %}
             <li><a href="{{ page.root }}{{ episode.url }}">{{ episode.title }}</a></li>
             {% endfor %}
+	    <li role="separator" class="divider"></li>
+            <li><a href="{{ page.root }}/aio/">All in one page (Beta)</a></li>
           </ul>
         </li>
 	{% endif %}
@@ -56,6 +56,7 @@
         <li class="dropdown">
           <a href="{{ page.root }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a href="{{ page.root }}/reference/">Reference</a></li>
             {% for extra in site.extras %}
             <li><a href="{{ page.root }}{{ extra.url }}">{{ extra.title }}</a></li>
             {% endfor %}
@@ -65,6 +66,13 @@
 
 	{% comment %} Always show license. {% endcomment %}
         <li><a href="{{ page.root }}/license/">License</a></li>
+	{% if page.source %}
+	{% if page.source == "Rmd" %}
+	<li><a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}">Improve this page <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></li>
+	{% endif %}
+	{% else %}
+	<li><a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path}}">Improve this page <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></li>
+	{% endif %}
       </ul>
       <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
         <div class="form-group">

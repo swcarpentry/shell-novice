@@ -1,10 +1,24 @@
+{% comment %}
+  Footer for a standard workshop.
+{% endcomment %}
 <footer>
   <div class="row">
     <div class="col-md-6" align="left">
-      <h4><a href="{{ site.swc_site }}">Software Carpentry</a></h4>
+      <h4>
+	Copyright &copy; 2016
+	{% if site.carpentry == "swc" %}
+	<a href="{{ site.swc_site }}">Software Carpentry Foundation</a>
+	{% elsif site.carpentry == "dc" %}
+	<a href="{{ site.dc_site }}">Data Carpentry</a>
+	{% elsif site.carpentry == "lc" %}
+	<a href="{{ site.lc_site }}">Library Carpentry</a>
+	{% endif %}
+      </h4>
     </div>
     <div class="col-md-6" align="right">
-      <h4><a href="{{ site.dc_site }}">Data Carpentry</a></h4>
+      <h4>
+	<a href="mailto:{{ site.email }}">Contact</a>
+      </h4>
     </div>
   </div>
 </footer>
