@@ -296,7 +296,7 @@ Mandatory arguments to long options are mandatory for short options too.
                                file-type (--file-type), classify (-F)
   -i, --inode                print the index number of each file
   -I, --ignore=PATTERN       do not list implied entries matching shell PATTERN
-  -k, --kilobytes            default to 1024-byte blocks for disk usage
+  -k, --kibibytes            default to 1024-byte blocks for disk usage
   -l                         use a long listing format
   -L, --dereference          when showing file information for a symbolic
                                link, show information for the file the link
