@@ -111,6 +111,14 @@ $ wc *.pdb
 > 4. `ls ethane.*`
 {: .challenge}
 
+>> ##Solution
+>> Option 3 is the solution. 
+>> Option 1 shows all files containing something, the letter `t`, something else and `ane.pdb`, this includes `octane.pdb` and `pentane.pdb`. 
+>> Option 2 shows all files contining something, `t`, any single character, `ne.` and anything else. This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything which ends thane.pdb.
+>> Option 3 fixes the problems of option 2 by matching two characters between `t` and `ne`.
+>> Option 4 only shows files starting `ethane.`.
+{: .solution}
+
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
 
