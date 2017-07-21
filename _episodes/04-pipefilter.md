@@ -871,6 +871,9 @@ so this matches all the valid data files she has.
 > 4. The second and third lines of `animals.txt`
 >
 > > ## Solution
-> > 3.
+> > Option 3 is correct. 
+> > For option 1 to be correct we'd only run the `head` command.
+> > For option 2 to be correct we'd only run the `tail` command.
+> > For option 4 to be correct we'd have to pipe the output of `head` into `tail -2` by doing `head -3 animals.txt | tail -2 >> animalsUpd.txt`
 > {: .solution}
 {: .challenge}
