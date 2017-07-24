@@ -113,8 +113,8 @@ $ wc *.pdb
 
 >> ##Solution
 >> Option 3 is the solution. 
->> Option 1 shows all files containing something, the letter `t`, something else and `ane.pdb`, this includes `octane.pdb` and `pentane.pdb`. 
->> Option 2 shows all files contining something, `t`, any single character, `ne.` and anything else. This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything which ends thane.pdb.
+>> Option 1 shows all files that contain any number and combination of characters, followed by the letter `t`, another single character and ends with `ane.pdb`, this includes `octane.pdb` and `pentane.pdb`. 
+>> Option 2 shows all files contain any number and combination of characters, `t`, another single character, `ne.` followed by any number and combination of characters. This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything which ends thane.pdb.
 >> Option 3 fixes the problems of option 2 by matching two characters between `t` and `ne`.
 >> Option 4 only shows files starting `ethane.`.
 {: .solution}
