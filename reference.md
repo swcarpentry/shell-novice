@@ -12,7 +12,7 @@ permalink: /reference/
 | Navigate to |       | cd           |
 | Move        | mv    | mv           |
 | Copy        | cp    | cp -r        |
-| Create      | nano  | mkdir        |
+| Create      | nano, touch  | mkdir        |
 | Delete      | rm    | rmdir, rm -r |
 
 ## Filesystem hierarchy
@@ -58,7 +58,7 @@ current working directory
     equivalently,
     the place where files referenced by name only are searched for.
     Every [process](#process) has a current working directory.
-    The current working directory is usually referred to using the shorthand notation `.` (pronounced "dot").
+    The current working directory is usually referred to using the shorthand notation `.` (pronounced "dot") or `./`.
 
 file system
 :   A set of files, directories, and I/O devices (such as keyboards and screens).
@@ -92,14 +92,14 @@ for loop
 :   A loop that is executed once for each value in some kind of set, list, or range.
     See also: [while loop](#while-loop).
 
-graphical user interface
+graphical user interface (#GUI)
 :   A user interface based on selecting items and actions from a graphical display,
     usually controlled by using a mouse.
     See also: [command-line interface](#command-line-interface).
 
 home directory
 :   The default directory associated with an account on a computer system.
-    By convention, all of a user's files are stored in or below her home directory.
+    By convention, all of a user's files are stored in or below his/her home directory.
 
 loop
 :   A set of instructions to be executed multiple times. Consists of a [loop body](#loop-body) and (usually) a
