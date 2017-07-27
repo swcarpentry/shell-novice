@@ -18,7 +18,7 @@ keypoints:
 - "Information is stored in files, which are stored in directories (folders)."
 - "Directories can also store other directories, which forms a directory tree."
 - "`cd path` changes the current working directory."
-- "`ls path` prints a listing of a specific file or directory; `ls` on its own lists the current working directory."
+- "`ls path` prints a listing of a specific file or directory; `ls` (=`ls ./`) on its own lists the current working directory."
 - "`pwd` prints the user's current working directory."
 - "`whoami` shows the user's current identity."
 - "`/` on its own is the root directory of the whole file system."
@@ -46,7 +46,7 @@ let's open a shell window:
 > If you type the command:
 > `PS1='$ '`
 > into your shell, followed by pressing the 'enter' key,
-> your window should look like our example in this lesson.  
+> your window should look like our example in this lesson.  #the "$" sign disappears.
 > This isn't necessary to follow along (in fact, your prompt may have
 > other helpful information you want to know about).  This is up to you!  
 {: .callout}
