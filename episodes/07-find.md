@@ -310,7 +310,7 @@ of them.
 The first option in our list is
 `-type d` that means "things that are directories".
 Sure enough,
-`find`'s output is the names of the five directories in our little tree
+`find`'s output is the names of the six directories in our little tree
 (including `.`):
 
 ~~~
@@ -320,6 +320,7 @@ $ find . -type d
 
 ~~~
 ./
+./old
 ./data
 ./thesis
 ./tools
@@ -327,6 +328,7 @@ $ find . -type d
 ~~~
 {: .output}
 
+Notice that the objects `find` finds are not listed in any particular order.
 If we change `-type d` to `-type f`,
 we get a listing of all the files instead:
 
