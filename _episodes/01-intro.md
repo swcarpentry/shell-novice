@@ -33,7 +33,7 @@ While such hardware interfaces are becoming more commonplace, most interaction i
 done using screens, mice, touchpads and keyboards.
 Although most modern desktop operating systems communicate with their human users by
 means of windows, icons and pointers, these software technologies didn't become
-widespread until 1980s. The roots of such *graphical user interfaces*  go back
+widespread until the 1980s. The roots of such *graphical user interfaces* go back
 to Doug Engelbart's work in the 1960s, which you can see in what has been
 called "[The Mother of All Demos](http://www.youtube.com/watch?v=a11JDLBXtPQ)".
 

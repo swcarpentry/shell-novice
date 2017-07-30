@@ -378,7 +378,7 @@ it lets the person running it decide what files to process.
 She could have written it as:
 
 ~~~
-# Calculate reduced stats for  A and Site B data files at J = 100 c/bp.
+# Calculate reduced stats for Site A and Site B data files at J = 100 c/bp.
 for datafile in *[AB].txt
 do
     echo $datafile

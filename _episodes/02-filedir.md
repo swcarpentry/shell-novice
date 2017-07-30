@@ -531,7 +531,7 @@ We now know how to go down the directory tree, but
 how do we go up?  We might try the following:
 
 ~~~
-cd data-shell
+$ cd data-shell
 ~~~
 {: .bash}
 
