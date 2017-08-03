@@ -111,6 +111,14 @@ $ wc *.pdb
 > 4. `ls ethane.*`
 {: .challenge}
 
+>> ##Solution
+>> Option 3 is the solution. 
+>> Option 1 shows all files that contain any number and combination of characters, followed by the letter `t`, another single character and ends with `ane.pdb`, this includes `octane.pdb` and `pentane.pdb`. 
+>> Option 2 shows all files contain any number and combination of characters, `t`, another single character, `ne.` followed by any number and combination of characters. This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything which ends thane.pdb.
+>> Option 3 fixes the problems of option 2 by matching two characters between `t` and `ne`.
+>> Option 4 only shows files starting `ethane.`.
+{: .solution}
+
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
 
@@ -863,6 +871,9 @@ so this matches all the valid data files she has.
 > 4. The second and third lines of `animals.txt`
 >
 > > ## Solution
-> > 3.
+> > Option 3 is correct. 
+> > For option 1 to be correct we would only run the `head` command.
+> > For option 2 to be correct we would only run the `tail` command.
+> > For option 4 to be correct we would have to pipe the output of `head` into `tail -2` by doing `head -3 animals.txt | tail -2 >> animalsUpd.txt`
 > {: .solution}
 {: .challenge}

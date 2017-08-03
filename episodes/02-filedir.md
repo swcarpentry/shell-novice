@@ -156,7 +156,7 @@ $ pwd
 
 To understand what a "home directory" is,
 let's have a look at how the file system as a whole is organized.  For the
-sake of example, we'll be
+sake of this example, we'll be
 illustrating the filesystem on our scientist Nelle's computer.  After this
 illustration, you'll be learning commands to explore your own filesystem,
 which will be constructed in a similar way, but not be exactly identical.  
