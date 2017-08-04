@@ -121,7 +121,7 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 >
 > Here we see `>` being used a shell prompt, whereas `>` is also
 > used to redirect output.
-> Similarly, `$` is used as a shell prompt, but, as we saw earler,
+> Similarly, `$` is used as a shell prompt, but, as we saw earlier,
 > it is also used to ask the shell to get the value of a variable.
 >
 > If the *shell* prints `>` or `$` then it expects you to type something,
