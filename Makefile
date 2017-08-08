@@ -65,9 +65,9 @@ MARKDOWN_SRC = \
   index.md \
   CONDUCT.md \
   setup.md \
-  $(wildcard _episodes/*.md) \
+  $(sort $(wildcard _episodes/*.md)) \
   reference.md \
-  $(wildcard _extras/*.md) \
+  $(sort $(wildcard _extras/*.md)) \
   LICENSE.md
 
 # Generated lesson files in the order they appear in the navigation menu.
