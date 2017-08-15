@@ -370,7 +370,7 @@ Many bash commands, and programs that people have written that can be
 run from within bash, support a `--help` flag to display more
 information on how to use the commands or programs.
 
-> ## Unsupported comand-line options
+> ## Unsupported command-line options
 > If you try to use an option that is not supported, `ls` and other programs
 > will print an error message similar to this:
 >
