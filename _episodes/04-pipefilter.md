@@ -816,13 +816,12 @@ so this matches all the valid data files she has.
 >     where the original one would not?
 >
 > > ## Solution
-> > 1. 
-> >
 > > ```
 > > $ ls *A.txt
 > > $ ls *B.txt
 > > ```
 > > {: .bash}
+> > 1. Two expressions can be run as separate commands (or as one: `ls *A.txt *B.txt`). 
 > > 2. The output from the new commands is separated because there are two commands.
 > > 3. When there are no files ending in `A.txt`, or there are no files ending in
 > > `B.txt`.
