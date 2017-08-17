@@ -831,7 +831,7 @@ so this matches all the valid data files she has.
 
 > ## Which Pipe?
 >
-> The file `data-shell/data/animals.txt` contains 586 lines of data formatted as follows:
+> The file `data-shell/data/animals.txt` contains 8 lines of data formatted as follows:
 >
 > ~~~
 > 2012-11-05,deer

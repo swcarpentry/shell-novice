@@ -191,7 +191,7 @@ because its name begins with `/`.
 > it's just a separator.
 {: .callout}
 
-Underneath `/Users`,
+Assume underneath `/Users`,
 we find one directory for each user with an account on Nelle's machine,
 her colleagues the Mummy and Wolfman.  
 
@@ -241,6 +241,13 @@ Desktop/      Downloads/    Movies/       Pictures/
 
 `ls` has lots of other options. To find out what they are, we can type:
 
+On Mac
+~~~
+$ man ls
+~~~
+{: .bash}
+
+On Linux
 ~~~
 $ ls --help
 ~~~
