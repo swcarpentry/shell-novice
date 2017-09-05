@@ -412,7 +412,7 @@ so that you and other people can put those programs into pipes to multiply their
 ## Nelle's Pipeline: Checking Files
 
 Nelle has run her samples through the assay machines
-and created 1520 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
+and created 17 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
 As a quick sanity check, starting from her home directory, Nelle types:
 
 ~~~
@@ -421,7 +421,7 @@ $ wc -l *.txt
 ~~~
 {: .bash}
 
-The output is 1520 lines that look like this:
+The output is 18 lines that look like this:
 
 ~~~
 300 NENE01729A.txt
