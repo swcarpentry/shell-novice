@@ -1,5 +1,7 @@
 generate_md_episodes <- function() {
 
+    library("methods")
+    
     if (require("knitr") && packageVersion("knitr") < '1.9.19')
         stop("knitr must be version 1.9.20 or higher")
 
