@@ -225,7 +225,8 @@ system and how you have customized your filesystem.)
 `ls` prints the names of the files and directories in the current directory in
 alphabetical order,
 arranged neatly into columns.
-We can make its output more comprehensible by using the **flag** `-F`,
+We can make its output more comprehensible by using the **flag** `-F`
+(also known as a **switch** or an **option**) ,
 which tells `ls` to add a trailing `/` to the names of directories:
 
 ~~~
@@ -239,7 +240,7 @@ Desktop/      Downloads/    Movies/       Pictures/
 ~~~
 {: .output}
 
-`ls` has lots of other options. To find out what they are, we can type:
+`ls` has lots of other **flags**. To find out what they are, we can type:
 
 ~~~
 $ ls --help
@@ -371,7 +372,7 @@ run from within bash, support a `--help` flag to display more
 information on how to use the commands or programs.
 
 > ## Unsupported command-line options
-> If you try to use an option that is not supported, `ls` and other programs
+> If you try to use an option (flag) that is not supported, `ls` and other programs
 > will print an error message similar to this:
 >
 > ~~~
@@ -434,8 +435,8 @@ which doesn't exist.
 We can also use `ls` to see the contents of a different directory.  Let's take a
 look at our `Desktop` directory by running `ls -F Desktop`,
 i.e.,
-the command `ls` with the **arguments** `-F` and `Desktop`.
-The second argument --- the one *without* a leading dash --- tells `ls` that
+the command `ls` with the `-F` **flag** and the **argument**  `Desktop`.
+The argument `Desktop` tells `ls` that
 we want a listing of something other than our current working directory:
 
 ~~~
@@ -863,18 +864,18 @@ and we will see it in many other tools as we go on.
 > {: .solution}
 {: .challenge}
 
-> ## Exploring More `ls` Arguments
+> ## Exploring More `ls` Flags
 >
-> What does the command `ls` do when used with the `-l` and `-h` arguments?
+> What does the command `ls` do when used with the `-l` and `-h` flags?
 >
 > Some of its output is about properties that we do not cover in this lesson (such
 > as file permissions and ownership), but the rest should be useful
 > nevertheless.
 >
 > > ## Solution
-> > The `-l` arguments makes `ls` use a **l**ong listing format, showing not only
+> > The `-l` flag makes `ls` use a **l**ong listing format, showing not only
 > > the file/directory names but also additional information such as the file size
-> > and the time of its last modification. The `-h` argument makes the file size
+> > and the time of its last modification. The `-h` flag makes the file size
 > > "**h**uman readable", i.e. display something like `5.3K` instead of `5369`.
 > {: .solution}
 {: .challenge}
