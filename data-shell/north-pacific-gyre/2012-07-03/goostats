@@ -1,11 +1,26 @@
-while getopts J:r: option
+#check options; avoid build-in error message
+while getopts :J:r option 
 do
     case "$option" in
     J) Jarg="$OPTARG"
-       shift $((OPTIND));;
-    r) shift $((OPTIND-1));;
+       ;;
+    r) rflag=1
+       ;;
+    ?) echo "goodstat [-J number] [-r] file1 file2"
+       echo "call goostat with two arguments it accepts the optional options -J with a number and -r"
+       exit 2;;
     esac
 done
+
+shift $((OPTIND-1))
+
+# check for the right number of input arguments
+if [ $# -ne 2 ]
+  then
+    echo "goodstat [-J number] [-r] file1 file2"
+    echo "call goostat with two arguments it accepts the optional options -J with a number and -r"
+    exit 1
+fi
 
 sleep 2
 head -n 3 $1 | cut -d , -f 1 | sort | uniq > $2
