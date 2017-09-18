@@ -116,7 +116,7 @@ More specifically, when we type `whoami` the shell:
 > 
 > The Shell (Bash) tells you that it cannot find the program `mycommand`
 > because the program you are trying to run does not exist on your computer.
-> We will touch quite a few commands in the course of this tutorial, but there
+> We will touch on quite a few commands in the course of this tutorial, but there
 > are actually many more than we can cover here.
 {: .callout}
 
