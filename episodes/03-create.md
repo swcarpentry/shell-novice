@@ -92,7 +92,7 @@ molecules/  solar.pdf
 >
 >    Whitespaces can make a name more meaningful
 >    but since whitespace is used to break arguments on the command line
->    is better to avoid them on name of files and directories.
+>    is better to avoid them in names of files and directories.
 >    You can use `-` or `_` instead of whitespace.
 >
 > 2. Don't begin the name with `-` (dash).

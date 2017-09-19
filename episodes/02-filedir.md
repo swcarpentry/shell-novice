@@ -24,10 +24,10 @@ keypoints:
 - "`/` on its own is the root directory of the whole file system."
 - "A relative path specifies a location starting from the current location."
 - "An absolute path specifies a location from the root of the file system."
-- "Directory names in a path are separated with '/' on Unix, but '\\\\' on Windows."
-- "'..' means 'the directory above the current one'; '.' on its own means 'the current directory'."
+- "Directory names in a path are separated with `/` on Unix, but `\\\\` on Windows."
+- "`..` means 'the directory above the current one'; `.` on its own means 'the current directory'."
 - "Most files' names are `something.extension`. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file."
-- "Most commands take options (flags) which begin with a '-'."
+- "Most commands take options (flags) which begin with a `-`."
 ---
 
 The part of the operating system responsible for managing files and directories
@@ -116,7 +116,7 @@ More specifically, when we type `whoami` the shell:
 > 
 > The Shell (Bash) tells you that it cannot find the program `mycommand`
 > because the program you are trying to run does not exist on your computer.
-> We will touch quite a few commands in the course of this tutorial, but there
+> We will touch on quite a few commands in the course of this tutorial, but there
 > are actually many more than we can cover here.
 {: .callout}
 
