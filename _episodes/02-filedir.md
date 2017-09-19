@@ -420,15 +420,19 @@ without it,
 the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
 
-> ## Parameters vs. Arguments
+> ## Flag or Option vs. Parameters or Arguments
 >
-> According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
-> the terms **argument** and **parameter**
-> mean slightly different things.
-> In practice,
-> however,
-> most people use them interchangeably or inconsistently,
-> so we will too.
+> Although there may be technical differences between the terms, Flag and Option,
+> or between Parameter and Argument, most people use them interchangeably and 
+> sometimes inconsistently.
+> We will too.
+> In general, a flag or option is preceded by a single "-" or double "--" and can be 
+> left out. Alternatively, a command or parameter comes after a command and provides
+> information to either the command or one of its options.
+> As you will see in the next example: ls -F Desktop
+> ls is the command
+> -F is the option or flag
+> Desktop is the argument or parameter
 {: .callout}
 
 We can also use `ls` to see the contents of a different directory.  Let's take a
