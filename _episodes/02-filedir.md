@@ -427,8 +427,15 @@ which doesn't exist.
 > mean slightly different things.
 > In practice,
 > however,
-> most people use them interchangeably or inconsistently,
-> so we will too.
+> most people use them interchangeably
+> to refer to the input term(s) given to a command.
+> Consider the example below:
+> ```
+> ls -lh Documents
+> ```
+> {: .bash}
+> `ls` is the command, `-lh` are the flags (also called options),
+> and `Documents` is the argument.
 {: .callout}
 
 We can also use `ls` to see the contents of a different directory.  Let's take a
