@@ -88,7 +88,7 @@ $ wc *.pdb
 > When the shell sees a wildcard, it expands the wildcard to create a
 > list of matching filenames *before* running the command that was
 > asked for. As an exception, if a wildcard expression does not match
-> any file, Bash will pass the expression as a parameter to the command
+> any file, Bash will pass the expression as an argument to the command
 > as it is. For example typing `ls *.pdf` in the `molecules` directory
 > (which contains only files with names ending with `.pdb`) results in
 > an error message that there is no file called `*.pdf`.
@@ -246,7 +246,7 @@ $ head -n 1 sorted-lengths.txt
 ~~~
 {: .output}
 
-Using the parameter `-n 1` with `head` tells it that
+Using `-n 1` with `head` tells it that
 we only want the first line of the file;
 `-n 20` would get the first 20,
 and so on.
@@ -355,7 +355,7 @@ and whatever the process sends to standard output to the screen.
 
 Here's what happens when we run `wc -l *.pdb > lengths.txt`.
 The shell starts by telling the computer to create a new process to run the `wc` program.
-Since we've provided some filenames as parameters,
+Since we've provided some filenames as arguments,
 `wc` reads from them instead of from standard input.
 And since we've used `>` to redirect output to a file,
 the shell connects the process's standard output to that file.
@@ -400,8 +400,8 @@ so that you and other people can put those programs into pipes to multiply their
 > redirect its input, i.e., to read from a file instead of from standard
 > input. For example, instead of writing `wc ammonia.pdb`, we could write
 > `wc < ammonia.pdb`. In the first case, `wc` gets a command line
-> parameter telling it what file to open. In the second, `wc` doesn't have
-> any command line parameters, so it reads from standard input, but we
+> argument telling it what file to open. In the second, `wc` doesn't have
+> any command line arguments, so it reads from standard input, but we
 > have told the shell to send the contents of `ammonia.pdb` to `wc`'s
 > standard input.
 {: .callout}

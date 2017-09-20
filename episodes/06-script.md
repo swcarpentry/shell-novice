@@ -12,8 +12,8 @@ objectives:
 keypoints:
 - "Save commands in files (usually called shell scripts) for re-use."
 - "`bash filename` runs the commands saved in a file."
-- "`$@` refers to all of a shell script's command-line parameters."
-- "`$1`, `$2`, etc., refer to the first command-line parameter, the second command-line parameter, etc."
+- "`$@` refers to all of a shell script's command-line arguments."
+- "`$1`, `$2`, etc., refer to the first command-line argument, the second command-line argument, etc."
 - "Place variables in quotes if the values might have spaces in them."
 - "Letting users decide what files to process is more flexible and more consistent with built-in Unix commands."
 ---
@@ -106,7 +106,7 @@ head -n 15 "$1" | tail -n 5
 {: .output}
 
 Inside a shell script,
-`$1` means "the first filename (or other parameter) on the command line".
+`$1` means "the first filename (or other argument) on the command line".
 We can now run our script like this:
 
 ~~~
@@ -236,9 +236,9 @@ We can't use `$1`, `$2`, and so on
 because we don't know how many files there are.
 Instead, we use the special variable `$@`,
 which means,
-"All of the command-line parameters to the shell script."
+"All of the command-line arguments to the shell script."
 We also should put `$@` inside double-quotes
-to handle the case of parameters containing spaces
+to handle the case of arguments containing spaces
 (`"$@"` is equivalent to `"$1"` `"$2"` ...)
 Here's an example:
 
@@ -335,7 +335,7 @@ and save it as a shell script.
 ## Nelle's Pipeline: Creating a Script
 
 An off-hand comment from her supervisor has made Nelle realize that
-she should have provided a couple of extra parameters to `goostats` when she processed her files.
+she should have provided a couple of extra arguments to `goostats` when she processed her files.
 This might have been a disaster if she had done all the analysis by hand,
 but thanks to `for` loops,
 it will only take a couple of hours to re-do.
@@ -354,7 +354,7 @@ done
 ~~~
 {: .bash}
 
-(The parameters `-J 100` and `-r` are the ones her supervisor said she should have used.)
+(The arguments `-J 100` and `-r` are the ones her supervisor said she should have used.)
 She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
 
@@ -394,7 +394,7 @@ The disadvantage is that it *always* selects just those files --- she can't run 
 or on the 'G' or 'H' files her colleagues in Antarctica are producing,
 without editing the script.
 If she wanted to be more adventurous,
-she could modify her script to check for command-line parameters,
+she could modify her script to check for command-line arguments,
 and use `*[AB].txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
@@ -460,7 +460,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > An example of this type of file is given in `data-shell/data/animals.txt`.
 > 
 > Write a shell script called `species.sh` that takes any number of
-> filenames as command-line parameters, and uses `cut`, `sort`, and
+> filenames as command-line arguments, and uses `cut`, `sort`, and
 > `uniq` to print a list of the unique species appearing in each of
 > those files separately.
 >
@@ -485,7 +485,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ## Find the Longest File With a Given Extension
 >
 > Write a shell script called `longest.sh` that takes the name of a
-> directory and a filename extension as its parameters, and prints
+> directory and a filename extension as its arguments, and prints
 > out the name of the file with the most lines in that directory
 > with that extension. For example:
 >

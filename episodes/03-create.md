@@ -327,7 +327,7 @@ $ mv thesis/draft.txt thesis/quotes.txt
 ~~~
 {: .bash}
 
-The first parameter tells `mv` what we're "moving",
+The first argument tells `mv` what we're "moving",
 while the second is where it's to go.
 In this case,
 we're moving `thesis/draft.txt` to `thesis/quotes.txt`,
@@ -355,7 +355,7 @@ Just for the sake of consistency,
 
 Let's move `quotes.txt` into the current working directory.
 We use `mv` once again,
-but this time we'll just use the name of a directory as the second parameter
+but this time we'll just use the name of a directory as the second argument
 to tell `mv` that we want to keep the filename,
 but put the file somewhere new.
 (This is why the command is called "move".)
@@ -376,7 +376,7 @@ $ ls thesis
 {: .bash}
 
 Further,
-`ls` with a filename or directory name as a parameter only lists that file or directory.
+`ls` with a filename or directory name as an argument only lists that file or directory.
 We can use this to see that `quotes.txt` is still in our current directory:
 
 ~~~
@@ -392,7 +392,7 @@ quotes.txt
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
 We can check that it did the right thing using `ls`
-with two paths as parameters --- like most Unix commands,
+with two paths as arguments --- like most Unix commands,
 `ls` can be given multiple paths at once:
 
 ~~~
