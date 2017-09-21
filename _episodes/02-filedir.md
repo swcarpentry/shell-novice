@@ -408,7 +408,7 @@ and (if you're lucky) provides a few examples of how to use it.
 
 To navigate through the `man` pages,
 you may use the up and down arrow keys to move line-by-line,
-or try the "b" and spacebar keys to skip up and down by full page.
+or try the "b" and spacebar keys to skip up and down by a full page.
 Quit the `man` pages by typing "q".
 
 Here,
@@ -461,7 +461,7 @@ the start of the lesson.  Take a look at your Desktop to confirm that
 your output is accurate.  
 
 As you may now see, using a bash shell is strongly dependent on the idea that
-your files are organized in an hierarchical file system.  
+your files are organized in a hierarchical file system.
 Organizing things hierarchically in this way helps us keep track of our work:
 it's possible to put hundreds of files in our home directory,
 just as it's possible to pile hundreds of printed papers on our desk,
