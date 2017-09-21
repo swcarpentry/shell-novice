@@ -427,8 +427,15 @@ which doesn't exist.
 > mean slightly different things.
 > In practice,
 > however,
-> most people use them interchangeably or inconsistently,
-> so we will too.
+> most people use them interchangeably
+> to refer to the input term(s) given to a command.
+> Consider the example below:
+> ```
+> ls -lh Documents
+> ```
+> {: .bash}
+> `ls` is the command, `-lh` are the flags (also called options),
+> and `Documents` is the argument.
 {: .callout}
 
 We can also use `ls` to see the contents of a different directory.  Let's take a
@@ -597,8 +604,8 @@ which means "the current working directory".
 It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
 
-Note that in most command line tools, multiple parameters can be combined 
-with a single `-` and no spaces between the parameters: `ls -F -a` is 
+Note that in most command line tools, multiple arguments can be combined 
+with a single `-` and no spaces between the arguments: `ls -F -a` is 
 equivalent to `ls -Fa`.
 
 > ## Other Hidden Files
