@@ -174,7 +174,7 @@ done
 The shell starts by expanding `*.dat` to create the list of files it will process.
 The **loop body**
 then executes two commands for each of those files.
-The first, `echo`, just prints its command-line parameters to standard output.
+The first, `echo`, just prints its command-line arguments to standard output.
 For example:
 
 ~~~
