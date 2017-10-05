@@ -321,7 +321,7 @@ The file `redo-figure-3.sh` now contains:
 {: .source}
 
 
-(goostats is a shell script which calculates some complicated statistics from a datafile -- the first parameter -- and writes them to a file -- the second parameter; the script goodiff compares two datafiles provided as parameters. Nele's superviser provided them without too many explainations.)
+(`goostats` is a shell script which calculates some complicated statistics from a datafile -- the first argument -- and writes them to a file -- the second argument; the script `goodiff` compares two datafiles provided as arguments. Nelle's superviser provided them without too many explainations.)
 
 After a moment's work in an editor to remove the serial numbers on the commands,
 and to remove the final line where we called the `history` command,
