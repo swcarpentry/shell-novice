@@ -619,7 +619,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > In what order does `ls -R -t` display things?
 > > ## Solution
 > > The command `ls -R -t` displays the directories recursively in 
-> > alphabetical order at each level, but the files in each directory
+> > chronological order at each level, and the files in each directory
 > > are displayed chronologically.
 > {: .solution}
 {: .challenge}
