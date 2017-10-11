@@ -636,7 +636,7 @@ about them."
 > > for sis in Jo Meg Beth Amy
 > > do
 > > 	echo $sis:
-> >	grep -ow $sis littlewomen.txt | wc -l
+> >	grep -ow $sis LittleWomen.txt | wc -l
 > > done
 > > ```
 > > {: .source}
