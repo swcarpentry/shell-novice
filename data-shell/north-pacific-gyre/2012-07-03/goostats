@@ -1,24 +1,8 @@
-#check options; avoid build-in error message
-while getopts :J:r option 
-do
-    case "$option" in
-    J) Jarg="$OPTARG"
-       ;;
-    r) rflag=1
-       ;;
-    ?) echo "goodstat [-J number] [-r] file1 file2"
-       echo "call goostat with two arguments it accepts the optional options -J with a number and -r"
-       exit 2;;
-    esac
-done
-
-shift $((OPTIND-1))
-
 # check for the right number of input arguments
 if [ $# -ne 2 ]
   then
-    echo "goodstat [-J number] [-r] file1 file2"
-    echo "call goostat with two arguments it accepts the optional options -J with a number and -r"
+    echo "goodstat file1 file2"
+    echo "call goostat with two arguments"
     exit 1
 fi
 
