@@ -664,8 +664,8 @@ so she decides to get some coffee and catch up on her reading.
 > > loop variable name because we have prefixed it with a dollar sign.
 > >
 > > The first version redirects the output from the command `echo analyze $file` to
-> > a file, `analyzed-$file`. A series of files is generated: `cubane.pdb`,
-> > `ethane.pdb` etc.
+> > a file, `analyzed-$file`. A series of files is generated: `analyzed-cubane.pdb`,
+> > `analyzed-ethane.pdb` etc.
 > > 
 > > Try both versions for yourself to see the output! Be sure to open the 
 > > `analyzed-*.pdb` files to view their contents.
