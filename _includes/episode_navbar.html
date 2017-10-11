@@ -3,7 +3,7 @@
 {% endcomment %}
 <div class="row">
   <div class="col-xs-1">
-    <h3>
+    <h3 class="text-left">
       {% if page.previous.url %}
       <a href="{{ page.root }}{{ page.previous.url }}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
       {% else %}
@@ -17,7 +17,7 @@
     {% endif %}
   </div>
   <div class="col-xs-1">
-    <h3>
+    <h3 class="text-right">
       {% if page.next.url %}
       <a href="{{ page.root }}{{ page.next.url }}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
       {% else %}
