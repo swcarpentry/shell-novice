@@ -88,7 +88,7 @@ $ wc *.pdb
 > When the shell sees a wildcard, it expands the wildcard to create a
 > list of matching filenames *before* running the command that was
 > asked for. As an exception, if a wildcard expression does not match
-> any file, Bash will pass the expression as a parameter to the command
+> any file, Bash will pass the expression as an argument to the command
 > as it is. For example typing `ls *.pdf` in the `molecules` directory
 > (which contains only files with names ending with `.pdb`) results in
 > an error message that there is no file called `*.pdf`.
@@ -111,20 +111,17 @@ $ wc *.pdb
 > 4. `ls ethane.*`
 >
 > > ## Solution
-> > 1. No: This outputs `ethane.pdb  methane.pdb octane.pdb  pentane.pdb`
-> > 2. No: This outputs `octane.pdb  pentane.pdb`
-> > 3. Yes: This outputs `ethane.pdb methane.pdb`
-> > 4. No: This outputs `ethane.pdb`
+>>  The solution is `3.`
+>>
+>> `1.` shows all files that contain any number and combination of characters, followed by the letter `t`, another single character, and end with `ane.pdb`. This includes `octane.pdb` and `pentane.pdb`. 
+>>
+>> `2.` shows all files containing any number and combination of characters, `t`, another single character, `ne.` followed by any number and combination of characters. This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything which ends in `thane.pdb`.
+>>
+>> `3.` fixes the problems of option 2 by matching two characters between `t` and `ne`. This is the solution.
+>>
+>> `4.` only shows files starting with `ethane.`.
 > {: .solution}
 {: .challenge}
-
->> ##Solution
->> Option 3 is the solution. 
->> Option 1 shows all files that contain any number and combination of characters, followed by the letter `t`, another single character and ends with `ane.pdb`, this includes `octane.pdb` and `pentane.pdb`. 
->> Option 2 shows all files contain any number and combination of characters, `t`, another single character, `ne.` followed by any number and combination of characters. This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything which ends thane.pdb.
->> Option 3 fixes the problems of option 2 by matching two characters between `t` and `ne`.
->> Option 4 only shows files starting `ethane.`.
-{: .solution}
 
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
@@ -249,7 +246,7 @@ $ head -n 1 sorted-lengths.txt
 ~~~
 {: .output}
 
-Using the parameter `-n 1` with `head` tells it that
+Using `-n 1` with `head` tells it that
 we only want the first line of the file;
 `-n 20` would get the first 20,
 and so on.
@@ -342,7 +339,7 @@ Every process has an input channel called **standard input**.
 (By this point, you may be surprised that the name is so memorable, but don't worry:
 most Unix programmers call it "stdin").
 Every process also has a default output channel called **standard output**
-(or "stdout"). A third output channel called **standard error** (stderr) also 
+(or "stdout"). A second output channel called **standard error** (stderr) also
 exists. This channel is typically used for error or diagnostic messages, and it
 allows a user to pipe the output of one program into another while still receiving 
 error messages in the terminal. 
@@ -358,7 +355,7 @@ and whatever the process sends to standard output to the screen.
 
 Here's what happens when we run `wc -l *.pdb > lengths.txt`.
 The shell starts by telling the computer to create a new process to run the `wc` program.
-Since we've provided some filenames as parameters,
+Since we've provided some filenames as arguments,
 `wc` reads from them instead of from standard input.
 And since we've used `>` to redirect output to a file,
 the shell connects the process's standard output to that file.
@@ -403,8 +400,8 @@ so that you and other people can put those programs into pipes to multiply their
 > redirect its input, i.e., to read from a file instead of from standard
 > input. For example, instead of writing `wc ammonia.pdb`, we could write
 > `wc < ammonia.pdb`. In the first case, `wc` gets a command line
-> parameter telling it what file to open. In the second, `wc` doesn't have
-> any command line parameters, so it reads from standard input, but we
+> argument telling it what file to open. In the second, `wc` doesn't have
+> any command line arguments, so it reads from standard input, but we
 > have told the shell to send the contents of `ammonia.pdb` to `wc`'s
 > standard input.
 {: .callout}
@@ -818,11 +815,11 @@ so this matches all the valid data files she has.
 > > ## Solution
 > > 1. 
 > >
-> > ```
-> > $ ls *A.txt
-> > $ ls *B.txt
-> > ```
-> > {: .bash}
+> > 	```
+> > 	$ ls *A.txt
+> > 	$ ls *B.txt
+> > 	```
+> >	{: .bash}
 > > 2. The output from the new commands is separated because there are two commands.
 > > 3. When there are no files ending in `A.txt`, or there are no files ending in
 > > `B.txt`.

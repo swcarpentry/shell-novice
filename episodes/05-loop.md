@@ -174,7 +174,7 @@ done
 The shell starts by expanding `*.dat` to create the list of files it will process.
 The **loop body**
 then executes two commands for each of those files.
-The first, `echo`, just prints its command-line parameters to standard output.
+The first, `echo`, just prints its command-line arguments to standard output.
 For example:
 
 ~~~
@@ -301,7 +301,7 @@ these are ones whose names end in 'A' or 'B', rather than 'Z'. Starting from her
 
 ~~~
 $ cd north-pacific-gyre/2012-07-03
-$ for datafile in *[AB].txt
+$ for datafile in NENE*[AB].txt
 > do
 >     echo $datafile
 > done
@@ -324,7 +324,7 @@ Prefixing each input file's name with "stats" seems simple,
 so she modifies her loop to do that:
 
 ~~~
-$ for datafile in *[AB].txt
+$ for datafile in NENE*[AB].txt
 > do
 >     echo $datafile stats-$datafile
 > done
@@ -354,7 +354,7 @@ the shell redisplays the whole loop on one line
 (using semi-colons to separate the pieces):
 
 ~~~
-$ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
+$ for datafile in NENE*[AB].txt; do echo $datafile stats-$datafile; done
 ~~~
 {: .bash}
 
@@ -362,7 +362,7 @@ Using the left arrow key,
 Nelle backs up and changes the command `echo` to `bash goostats`:
 
 ~~~
-$ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
+$ for datafile in NENE*[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
 {: .bash}
 
@@ -376,7 +376,7 @@ uses up-arrow to repeat the command,
 and edits it to read:
 
 ~~~
-$ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
+$ for datafile in NENE*[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
 ~~~
 {: .bash}
 
@@ -664,8 +664,8 @@ so she decides to get some coffee and catch up on her reading.
 > > loop variable name because we have prefixed it with a dollar sign.
 > >
 > > The first version redirects the output from the command `echo analyze $file` to
-> > a file, `analyzed-$file`. A series of files is generated: `cubane.pdb`,
-> > `ethane.pdb` etc.
+> > a file, `analyzed-$file`. A series of files is generated: `analyzed-cubane.pdb`,
+> > `analyzed-ethane.pdb` etc.
 > > 
 > > Try both versions for yourself to see the output! Be sure to open the 
 > > `analyzed-*.pdb` files to view their contents.
