@@ -1,8 +1,8 @@
 # check for the right number of input arguments
 if [ $# -ne 2 ]
   then
-    echo "goodstat file1 file2"
-    echo "call goostat with two arguments"
+    echo "goodstats file1 file2"
+    echo "call goostats with two arguments"
     exit 1
 fi
 
