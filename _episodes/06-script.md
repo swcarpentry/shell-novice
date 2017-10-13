@@ -338,8 +338,7 @@ and save it as a shell script.
 
 ## Nelle's Pipeline: Creating a Script
 
-Experience has taught her that if something needs to be done twice,
-it will probably need to be done a third or fourth time as well.
+Nelle's supervisor insisted that all her analytics must be reproducible. The easiest way to capture all the steps is in a script.
 She runs the editor and writes the following:
 
 ~~~
