@@ -81,9 +81,9 @@ UPDATED: 1738-11-24
 
 When the shell sees the keyword `for`,
 it knows to repeat a command (or group of commands) once for each thing `in` a list.
-Each time the loop runs (called an iteration), a name of a thing in the list is assigned in sequence to
+Each time the loop runs (called an iteration), an item in the list is assigned in sequence to
 the **variable**, and the commands inside the loop are executed, before moving on to 
-the next name in the list.
+the next item in the list.
 Inside the loop,
 we call for the variable's value by putting `$` in front of it.
 The `$` tells the shell interpreter to treat
