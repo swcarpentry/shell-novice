@@ -17,7 +17,9 @@ $ cd
 
 In the lesson, you will find out how to access the data in this folder.  
 
-> ## Where to Type Commands: How to Open and Use a Unix Shell Command-Line Interface program
+> ## Where to type commands: How to open a new shell
+> The `shell` is a program that enables us to send commands to the computer and recive output. It is also referred to as the `terminal` or `command line`.
+>
 > Some computers include a default Unix Shell program. 
 > The steps below describe some methods for identifying and opening a Unix Shell program if you already have one installed. 
 > There are also options for identifying and downloading a Unix Shell program, a Linux/UNIX emulator, or a program to access a UNIX server. 
