@@ -45,8 +45,9 @@ In the lesson, you will find out how to access the data in this folder.
 >
 > ### Windows
 > Computers with Windows operating systems do not automatically have a Unix Shell program installed.
-> In this lesson, we encourage you to use an emulator included in Git for Windows. 
-> This gives you access to both Bash shell commands and Git. 
+> In this lesson, we encourage you to use an emulator included in Git for Windows, 
+> which gives you access to both Bash shell commands and Git. 
+> If you are attending a SWC session, it is likely you have already received instructions on how to install Git for Windows.
 >
 > Once installed, you can open a terminal by running the program Git Bash from the Windows start menu.
 >
