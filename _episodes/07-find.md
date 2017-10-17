@@ -269,7 +269,7 @@ to show how the simplest ones work, we'll use the directory tree shown below.
 Nelle's `writing` directory contains one file called `haiku.txt` and five subdirectories:
 `thesis` (which contains a sadly empty file, `empty-draft.md`),
 `data` (which contains three files `LittleWomen.txt`, `one.txt` and `two.txt`),
-`old` (which contains the empty file `.gitkeep`),
+`old` (which contains the empty file `.gitkeep`, an artifact of how git works, not part of this episode),
 a `tools` directory that contains the programs `format` and `stats`,
 and a subdirectory called `old`, with a file `oldtool`.
 
