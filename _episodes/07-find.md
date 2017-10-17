@@ -268,7 +268,7 @@ to show how the simplest ones work, we'll use the directory tree shown below.
 
 Nelle's `writing` directory contains one file called `haiku.txt` and five subdirectories:
 `thesis` (which contains a sadly empty file, `empty-draft.md`),
-`data` (which contains two files `one.txt` and `two.txt`),
+`data` (which contains three files `LittleWomen.txt`, `one.txt` and `two.txt`),
 `old` (which contains the empty file `.gitkeep`),
 a `tools` directory that contains the programs `format` and `stats`,
 and a subdirectory called `old`, with a file `oldtool`.
@@ -287,6 +287,7 @@ $ find .
 ./old/.gitkeep
 ./data
 ./data/one.txt
+./data/LittleWomen.txt
 ./data/two.txt
 ./tools
 ./tools/format
@@ -340,11 +341,13 @@ $ find . -type f
 
 ~~~
 ./haiku.txt
+./old/.gitkeep
 ./tools/stats
 ./tools/old/oldtool
 ./tools/format
 ./thesis/empty-draft.md
 ./data/one.txt
+./data/LittleWomen.txt
 ./data/two.txt
 ~~~
 {: .output}
@@ -387,6 +390,7 @@ $ find . -name '*.txt'
 
 ~~~
 ./data/one.txt
+./data/LittleWomen.txt
 ./data/two.txt
 ./haiku.txt
 ~~~
@@ -418,19 +422,20 @@ $ wc -l $(find . -name '*.txt')
 ~~~
 11 ./haiku.txt
 300 ./data/two.txt
+21022 ./data/LittleWomen.txt
 70 ./data/one.txt
-381 total
+21403 total
 ~~~
 {: .output}
 
 When the shell executes this command,
 the first thing it does is run whatever is inside the `$()`.
 It then replaces the `$()` expression with that command's output.
-Since the output of `find` is the three filenames `./data/one.txt`, `./data/two.txt`, and `./haiku.txt`,
+Since the output of `find` is the four filenames `./data/one.txt`, `./data/LittleWomen.txt`, `./data/two.txt`, and `./haiku.txt`,
 the shell constructs the command:
 
 ~~~
-$ wc -l ./data/one.txt ./data/two.txt ./haiku.txt
+$ wc -l ./data/one.txt ./data/LittleWomen.txt ./data/two.txt ./haiku.txt
 ~~~
 {: .bash}
 
