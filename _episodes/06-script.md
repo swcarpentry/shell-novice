@@ -355,14 +355,14 @@ She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
 
 ~~~
-$ bash do-stats.sh *[AB].txt
+$ bash do-stats.sh NENE*[AB].txt
 ~~~
 {: .bash}
 
 She can also do this:
 
 ~~~
-$ bash do-stats.sh *[AB].txt | wc -l
+$ bash do-stats.sh NENE*[AB].txt | wc -l
 ~~~
 {: .bash}
 
@@ -375,7 +375,7 @@ She could have written it as:
 
 ~~~
 # Calculate stats for Site A and Site B data files.
-for datafile in *[AB].txt
+for datafile in NENE*[AB].txt
 do
     echo $datafile
     bash goostats $datafile stats-$datafile
@@ -391,7 +391,7 @@ or on the 'G' or 'H' files her colleagues in Antarctica are producing,
 without editing the script.
 If she wanted to be more adventurous,
 she could modify her script to check for command-line arguments,
-and use `*[AB].txt` if none were provided.
+and use `NENE*[AB].txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Variables in Shell Scripts
@@ -589,7 +589,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > When you run it:
 >
 > ~~~
-> $ bash do-errors.sh *[AB].txt
+> $ bash do-errors.sh NENE*[AB].txt
 > ~~~
 > {: .bash}
 >
@@ -597,7 +597,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > To figure out why, re-run the script using the `-x` option:
 >
 > ~~~
-> bash -x do-errors.sh *[AB].txt
+> bash -x do-errors.sh NENE*[AB].txt
 > ~~~
 > {: .bash}
 >
