@@ -802,10 +802,10 @@ so this matches all the valid data files she has.
 > this.
 >
 > 1.  Can you match the same set of files with basic wildcard expressions
->     that do not use the `[]` syntax? *Hint*: You may need more than one
+>     that do not use the `[]` syntax? *Hint*: You can use more than one
 >     expression.
 >
-> 2.  The expression that you found and the expression from the lesson match the
+> 2.  The expressions that you found and the expression from the lesson match the
 >     same set of files in this example. What is the small difference between the
 >     outputs?
 >
@@ -813,16 +813,24 @@ so this matches all the valid data files she has.
 >     where the original one would not?
 >
 > > ## Solution
-> > 1. 
+> > 1. The following example expressions match the same set of files
 > >
 > > 	```
 > > 	$ ls *A.txt
 > > 	$ ls *B.txt
 > > 	```
 > >	{: .bash}
-> > 2. The output from the new commands is separated because there are two commands.
-> > 3. When there are no files ending in `A.txt`, or there are no files ending in
-> > `B.txt`.
+> > 
+> > 	or
+> > 
+> > 	```
+> > 	$ ls *A.txt *B.txt
+> > 	```
+> > 	{: .bash}
+> > 2. The output from the two `ls` commands is separated because there are two commands.
+> > 3. You would get an error message for the commands in point 1 when there are no files
+> >    ending in `A.txt`, or there are no files ending in  `B.txt`. While `ls *[AB].txt would
+> >    not produced an error message, unless all possible expressions are missing.
 > {: .solution}
 {: .challenge}
 
