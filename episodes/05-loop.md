@@ -80,7 +80,7 @@ UPDATED: 1738-11-24
 {: .output}
 
 When the shell sees the keyword `for`,
-it knows to repeat a command (or group of commands) once for each thing `in` a list.
+it knows to repeat a command (or group of commands) once for each thing in a list.
 Each time the loop runs (called an iteration), an item in the list is assigned in sequence to
 the **variable**, and the commands inside the loop are executed, before moving on to 
 the next item in the list.
