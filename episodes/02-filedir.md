@@ -589,10 +589,8 @@ $ ls -F -a
 {: .bash}
 
 ~~~
-./                  creatures/          notes.txt
-../                 data/               pizza.cfg
-.bash_profile       molecules/          solar.pdf
-Desktop/            north-pacific-gyre/ writing/
+./   .bash_profile  data/       north-pacific-gyre/  pizza.cfg  thesis/
+../  creatures/     molecules/  notes.txt            solar.pdf  writing/
 ~~~
 {: .output}
 
