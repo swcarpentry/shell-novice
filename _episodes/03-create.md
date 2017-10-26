@@ -41,9 +41,7 @@ $ ls -F
 {: .bash}
 
 ~~~
-creatures/  molecules/           pizza.cfg
-data/       north-pacific-gyre/  solar.pdf
-Desktop/    notes.txt            writing/
+creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/
 ~~~
 {: .output}
 
@@ -67,10 +65,7 @@ $ ls -F
 {: .bash}
 
 ~~~
-creatures/  north-pacific-gyre/  thesis/
-data/       notes.txt            writing/
-Desktop/    pizza.cfg
-molecules/  solar.pdf
+creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  thesis/  writing/
 ~~~
 {: .output}
 
