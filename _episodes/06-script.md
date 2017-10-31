@@ -567,7 +567,10 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > 
 > > Script 3 would print all the arguments to the script (i.e. all the `.pdb` files),
 > > followed by `.pdb`.
+> > ```
 > > cubane.pdb ethane.pdb methane.pdb octane.pdb pentane.pdb propane.pdb.pdb
+> > ```
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
