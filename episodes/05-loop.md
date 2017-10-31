@@ -292,10 +292,15 @@ judicious use of `echo` is a good debugging technique.
 
 ## Nelle's Pipeline: Processing Files
 
-Nelle is now ready to process her data files.
+Nelle is now ready to process her data files using `goostats` --- a shell script written by her supervisor.
+This calculates some statistics from a protein sample file, and takes two arguments:
+
+1. an input file (containing the raw data)
+2. an output file (to store the calculated statistics)
+
 Since she's still learning how to use the shell,
 she decides to build up the required commands in stages.
-Her first step is to make sure that she can select the right files --- remember,
+Her first step is to make sure that she can select the right input files --- remember,
 these are ones whose names end in 'A' or 'B', rather than 'Z'. Starting from her home directory, Nelle types:
 
 ~~~
