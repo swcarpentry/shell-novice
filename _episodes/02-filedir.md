@@ -387,6 +387,37 @@ information on how to use the commands or programs.
 > {: .error}
 {: .callout}
 
+> ## Exploring More `ls` Flags
+>
+> What does the command `ls` do when used with the `-l` and `-h` flags?
+>
+> Some of its output is about properties that we do not cover in this lesson (such
+> as file permissions and ownership), but the rest should be useful
+> nevertheless.
+>
+> > ## Solution
+> > The `-l` flag makes `ls` use a **l**ong listing format, showing not only
+> > the file/directory names but also additional information such as the file size
+> > and the time of its last modification. The `-h` flag makes the file size
+> > "**h**uman readable", i.e. display something like `5.3K` instead of `5369`.
+> {: .solution}
+{: .challenge}
+
+> ## Listing Recursively and By Time
+>
+> The command `ls -R` lists the contents of directories recursively, i.e., lists
+> their sub-directories, sub-sub-directories, and so on in alphabetical order
+> at each level. The command `ls -t` lists things by time of last change, with
+> most recently changed files or directories first.
+> In what order does `ls -R -t` display things? Hint: `ls -l` uses a long listing
+> format to view timestamps.
+>
+> > ## Solution
+> > The directories are listed alphabetical at each level, the files/directories
+> > in each directory are sorted by time of last change.
+> {: .solution}
+{: .challenge}
+
 For more information on how to use `ls` we can type `man ls`.
 `man` is the Unix "manual" command:
 it prints a description of a command and its options,
@@ -720,78 +751,6 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > think of it as the *Last Channel* button on a TV remote.
 {: .callout}
 
-### Nelle's Pipeline: Organizing Files
-
-Knowing just this much about files and directories,
-Nelle is ready to organize the files that the protein assay machine will create.
-First,
-she creates a directory called `north-pacific-gyre`
-(to remind herself where the data came from).
-Inside that,
-she creates a directory called `2012-07-03`,
-which is the date she started processing the samples.
-She used to use names like `conference-paper` and `revised-results`,
-but she found them hard to understand after a couple of years.
-(The final straw was when she found herself creating
-a directory called `revised-revised-results-3`.)
-
-> ## Sorting Output
->
-> Nelle names her directories "year-month-day",
-> with leading zeroes for months and days,
-> because the shell displays file and directory names in alphabetical order.
-> If she used month names,
-> December would come before July;
-> if she didn't use leading zeroes,
-> November ('11') would come before July ('7'). Similarly, putting the year first
-> means that June 2012 will come before June 2013.
-{: .callout}
-
-Each of her physical samples is labelled according to her lab's convention
-with a unique ten-character ID,
-such as "NENE01729A".
-This is what she used in her collection log
-to record the location, time, depth, and other characteristics of the sample,
-so she decides to use it as part of each data file's name.
-Since the assay machine's output is plain text,
-she will call her files `NENE01729A.txt`, `NENE01812A.txt`, and so on.
-All 1520 files will go into the same directory.
-
-Now in her current directory `data-shell`,
-Nelle can see what files she has using the command:
-
-~~~
-$ ls north-pacific-gyre/2012-07-03/
-~~~
-{: .bash}
-
-This is a lot to type,
-but she can let the shell do most of the work through what is called **tab completion**.
-If she types:
-
-~~~
-$ ls nor
-~~~
-{: .bash}
-
-and then presses tab (the tab key on her keyboard),
-the shell automatically completes the directory name for her:
-
-~~~
-$ ls north-pacific-gyre/
-~~~
-{: .bash}
-
-If she presses tab again,
-Bash will add `2012-07-03/` to the command,
-since it's the only possible completion.
-Pressing tab again does nothing,
-since there are 19 possibilities;
-pressing tab twice brings up a list of all the files,
-and so on.
-This is called **tab completion**,
-and we will see it in many other tools as we go on.
-
 > ## Absolute vs Relative Paths
 >
 > Starting from `/Users/amanda/data/`,
@@ -868,33 +827,74 @@ and we will see it in many other tools as we go on.
 > {: .solution}
 {: .challenge}
 
-> ## Exploring More `ls` Flags
->
-> What does the command `ls` do when used with the `-l` and `-h` flags?
->
-> Some of its output is about properties that we do not cover in this lesson (such
-> as file permissions and ownership), but the rest should be useful
-> nevertheless.
->
-> > ## Solution
-> > The `-l` flag makes `ls` use a **l**ong listing format, showing not only
-> > the file/directory names but also additional information such as the file size
-> > and the time of its last modification. The `-h` flag makes the file size
-> > "**h**uman readable", i.e. display something like `5.3K` instead of `5369`.
-> {: .solution}
-{: .challenge}
+### Nelle's Pipeline: Organizing Files
 
-> ## Listing Recursively and By Time
+Knowing just this much about files and directories,
+Nelle is ready to organize the files that the protein assay machine will create.
+First,
+she creates a directory called `north-pacific-gyre`
+(to remind herself where the data came from).
+Inside that,
+she creates a directory called `2012-07-03`,
+which is the date she started processing the samples.
+She used to use names like `conference-paper` and `revised-results`,
+but she found them hard to understand after a couple of years.
+(The final straw was when she found herself creating
+a directory called `revised-revised-results-3`.)
+
+> ## Sorting Output
 >
-> The command `ls -R` lists the contents of directories recursively, i.e., lists
-> their sub-directories, sub-sub-directories, and so on in alphabetical order
-> at each level. The command `ls -t` lists things by time of last change, with
-> most recently changed files or directories first.
-> In what order does `ls -R -t` display things? Hint: `ls -l` uses a long listing
-> format to view timestamps.
->
-> > ## Solution
-> > The directories are listed alphabetical at each level, the files/directories
-> > in each directory are sorted by time of last change.
-> {: .solution}
-{: .challenge}
+> Nelle names her directories "year-month-day",
+> with leading zeroes for months and days,
+> because the shell displays file and directory names in alphabetical order.
+> If she used month names,
+> December would come before July;
+> if she didn't use leading zeroes,
+> November ('11') would come before July ('7'). Similarly, putting the year first
+> means that June 2012 will come before June 2013.
+{: .callout}
+
+Each of her physical samples is labelled according to her lab's convention
+with a unique ten-character ID,
+such as "NENE01729A".
+This is what she used in her collection log
+to record the location, time, depth, and other characteristics of the sample,
+so she decides to use it as part of each data file's name.
+Since the assay machine's output is plain text,
+she will call her files `NENE01729A.txt`, `NENE01812A.txt`, and so on.
+All 1520 files will go into the same directory.
+
+Now in her current directory `data-shell`,
+Nelle can see what files she has using the command:
+
+~~~
+$ ls north-pacific-gyre/2012-07-03/
+~~~
+{: .bash}
+
+This is a lot to type,
+but she can let the shell do most of the work through what is called **tab completion**.
+If she types:
+
+~~~
+$ ls nor
+~~~
+{: .bash}
+
+and then presses tab (the tab key on her keyboard),
+the shell automatically completes the directory name for her:
+
+~~~
+$ ls north-pacific-gyre/
+~~~
+{: .bash}
+
+If she presses tab again,
+Bash will add `2012-07-03/` to the command,
+since it's the only possible completion.
+Pressing tab again does nothing,
+since there are 19 possibilities;
+pressing tab twice brings up a list of all the files,
+and so on.
+This is called **tab completion**,
+and we will see it in many other tools as we go on.
