@@ -1,6 +1,6 @@
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
-[concept-maps]: http://swcarpentry.github.io/instructor-training/08-memory/
+[concept-maps]: http://carpentries.github.io/instructor-training/05-memory/
 [contact]: mailto:lessons@software-carpentry.org
 [contrib-covenant]: http://contributor-covenant.org/
 [contributing]: {{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md
