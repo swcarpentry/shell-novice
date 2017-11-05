@@ -205,7 +205,7 @@ def check_helpers(helpers):
 @look_for_fixme
 def check_email(email):
     """
-    'contact' must be a valid email address consisting of characters,
+    'email' must be a valid email address consisting of characters,
     an '@', and more characters.  It should not be the default contact
     email address 'admin@software-carpentry.org'.
     """
@@ -286,7 +286,7 @@ HANDLERS = {
                    'helper list isn\'t a valid list of format ' +
                    '["First helper", "Second helper",..]'),
 
-    'contact':    (True, check_email,
+    'email':    (True, check_email,
                    'contact email invalid or still set to ' +
                    '"{0}".'.format(DEFAULT_CONTACT_EMAIL)),
 
