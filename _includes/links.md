@@ -8,7 +8,7 @@
 [cran-knitr]: https://cran.r-project.org/web/packages/knitr/index.html
 [cran-stringr]: https://cran.r-project.org/web/packages/stringr/index.html
 [github-importer]: https://import.github.com/
-[importer]: http://import.github.com/new
+[importer]: https://github.com/new/import
 [jekyll-collection]: https://jekyllrb.com/docs/collections/
 [jekyll-install]: https://jekyllrb.com/docs/installation/
 [jekyll-windows]: http://jekyll-windows.juthilo.com/
