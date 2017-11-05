@@ -163,7 +163,7 @@ def check_config(reporter, source_dir):
     reporter.check_field(config_file, 'configuration', config, 'kind', 'lesson')
     reporter.check_field(config_file, 'configuration', config, 'carpentry', ('swc', 'dc', 'lc'))
     reporter.check_field(config_file, 'configuration', config, 'title')
-    reporter.check_field(config_file, 'configuration', config, 'contact')
+    reporter.check_field(config_file, 'configuration', config, 'email')
 
     reporter.check({'values': {'root': '..'}} in config.get('defaults', []),
                    'configuration',
