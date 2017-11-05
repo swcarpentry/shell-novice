@@ -95,10 +95,6 @@ lesson-check :
 lesson-check-all :
 	@bin/lesson_check.py -s . -p ${PARSER} -l -w
 
-## lesson-figures   : re-generate inclusion displaying all figures.
-lesson-figures :
-	@bin/extract_figures.py -p ${PARSER} ${MARKDOWN_SRC} > _includes/all_figures.html
-
 ## unittest         : run unit tests on checking tools.
 unittest :
 	python bin/test_lesson_check.py
