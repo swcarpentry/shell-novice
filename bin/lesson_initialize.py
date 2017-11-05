@@ -222,9 +222,10 @@ start_time: 0
 collections:
   episodes:
     output: true
-    permalink: /:path/
+    permalink: /:path/index.html
   extras:
     output: true
+    permalink: /:path/index.html
 
 # Set the default layout for things in the episodes collection.
 defaults:
@@ -249,6 +250,7 @@ ROOT_INDEX_MD = '''\
 ---
 layout: lesson
 root: .
+permalink: index.html  # Is the only page that don't follow the partner /:path/index.html
 ---
 FIXME: home page introduction
 
@@ -261,7 +263,6 @@ FIXME: home page introduction
 ROOT_REFERENCE_MD = '''\
 ---
 layout: reference
-permalink: /reference/
 ---
 
 ## Glossary
@@ -273,7 +274,6 @@ ROOT_SETUP_MD = '''\
 ---
 layout: page
 title: Setup
-permalink: /setup/
 ---
 FIXME
 '''
@@ -281,7 +281,6 @@ FIXME
 ROOT_AIO_MD = '''\
 ---
 layout: page 
-permalink: /aio/
 ---
 <script>
   window.onload = function() {
@@ -335,7 +334,6 @@ EXTRAS_ABOUT_MD = '''\
 ---
 layout: page
 title: About
-permalink: /about/
 ---
 {% include carpentries.html %}
 '''
@@ -344,7 +342,6 @@ EXTRAS_DISCUSS_MD = '''\
 ---
 layout: page
 title: Discussion
-permalink: /discuss/
 ---
 FIXME
 '''
@@ -353,7 +350,6 @@ EXTRAS_FIGURES_MD = '''\
 ---
 layout: page
 title: Figures
-permalink: /figures/
 ---
 {% include all_figures.html %}
 '''
@@ -362,7 +358,6 @@ EXTRAS_GUIDE_MD = '''\
 ---
 layout: page
 title: "Instructor Notes"
-permalink: /guide/
 ---
 FIXME
 '''
