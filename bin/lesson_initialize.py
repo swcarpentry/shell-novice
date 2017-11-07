@@ -263,6 +263,7 @@ FIXME: home page introduction
 ROOT_REFERENCE_MD = '''\
 ---
 layout: reference
+root: .
 ---
 
 ## Glossary
@@ -274,6 +275,7 @@ ROOT_SETUP_MD = '''\
 ---
 layout: page
 title: Setup
+root: .
 ---
 FIXME
 '''
@@ -281,6 +283,7 @@ FIXME
 ROOT_AIO_MD = '''\
 ---
 layout: page 
+root: .
 ---
 <script>
   window.onload = function() {
