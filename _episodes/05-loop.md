@@ -80,11 +80,10 @@ UPDATED: 1738-11-24
 {: .output}
 
 When the shell sees the keyword `for`,
-it knows to repeat a command (or group of commands) once for each thing `in` a list.
-For each iteration,
-the name of the each thing is sequentially assigned to
-the **variable** and the commands inside the loop are executed before moving on to 
-the next thing in the list.
+it knows to repeat a command (or group of commands) once for each item in a list.
+Each time the loop runs (called an iteration), an item in the list is assigned in sequence to
+the **variable**, and the commands inside the loop are executed, before moving on to 
+the next item in the list.
 Inside the loop,
 we call for the variable's value by putting `$` in front of it.
 The `$` tells the shell interpreter to treat
@@ -174,7 +173,7 @@ done
 The shell starts by expanding `*.dat` to create the list of files it will process.
 The **loop body**
 then executes two commands for each of those files.
-The first, `echo`, just prints its command-line parameters to standard output.
+The first, `echo`, just prints its command-line arguments to standard output.
 For example:
 
 ~~~
@@ -293,15 +292,20 @@ judicious use of `echo` is a good debugging technique.
 
 ## Nelle's Pipeline: Processing Files
 
-Nelle is now ready to process her data files.
+Nelle is now ready to process her data files using `goostats` --- a shell script written by her supervisor.
+This calculates some statistics from a protein sample file, and takes two arguments:
+
+1. an input file (containing the raw data)
+2. an output file (to store the calculated statistics)
+
 Since she's still learning how to use the shell,
 she decides to build up the required commands in stages.
-Her first step is to make sure that she can select the right files --- remember,
+Her first step is to make sure that she can select the right input files --- remember,
 these are ones whose names end in 'A' or 'B', rather than 'Z'. Starting from her home directory, Nelle types:
 
 ~~~
 $ cd north-pacific-gyre/2012-07-03
-$ for datafile in *[AB].txt
+$ for datafile in NENE*[AB].txt
 > do
 >     echo $datafile
 > done
@@ -324,7 +328,7 @@ Prefixing each input file's name with "stats" seems simple,
 so she modifies her loop to do that:
 
 ~~~
-$ for datafile in *[AB].txt
+$ for datafile in NENE*[AB].txt
 > do
 >     echo $datafile stats-$datafile
 > done
@@ -354,7 +358,7 @@ the shell redisplays the whole loop on one line
 (using semi-colons to separate the pieces):
 
 ~~~
-$ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
+$ for datafile in NENE*[AB].txt; do echo $datafile stats-$datafile; done
 ~~~
 {: .bash}
 
@@ -362,7 +366,7 @@ Using the left arrow key,
 Nelle backs up and changes the command `echo` to `bash goostats`:
 
 ~~~
-$ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
+$ for datafile in NENE*[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
 {: .bash}
 
@@ -376,14 +380,14 @@ uses up-arrow to repeat the command,
 and edits it to read:
 
 ~~~
-$ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
+$ for datafile in NENE*[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
 ~~~
 {: .bash}
 
 > ## Beginning and End
 >
-> We can move to the beginning of a line in the shell by typing `Ctrl-A`
-> and to the end using `Ctrl-E`.
+> We can move to the beginning of a line in the shell by typing `Ctrl-a`
+> and to the end using `Ctrl-e`.
 {: .callout}
 
 When she runs her program now,
@@ -664,8 +668,8 @@ so she decides to get some coffee and catch up on her reading.
 > > loop variable name because we have prefixed it with a dollar sign.
 > >
 > > The first version redirects the output from the command `echo analyze $file` to
-> > a file, `analyzed-$file`. A series of files is generated: `cubane.pdb`,
-> > `ethane.pdb` etc.
+> > a file, `analyzed-$file`. A series of files is generated: `analyzed-cubane.pdb`,
+> > `analyzed-ethane.pdb` etc.
 > > 
 > > Try both versions for yourself to see the output! Be sure to open the 
 > > `analyzed-*.pdb` files to view their contents.

@@ -8,7 +8,7 @@ questions:
 objectives:
 - "Use `grep` to select lines from text files that match simple patterns."
 - "Use `find` to find files whose names match simple patterns."
-- "Use the output of one command as the command-line parameters to another command."
+- "Use the output of one command as the command-line argument(s) to another command."
 - "Explain what is meant by 'text' and 'binary' files, and why many common tools don't handle the latter well."
 keypoints:
 - "`find` finds files with specific properties that match patterns."
@@ -273,10 +273,10 @@ to show how the simplest ones work, we'll use the directory tree shown below.
 
 ![File Tree for Find Example](../fig/find-file-tree.svg)
 
-Nelle's `writing` directory contains one file called `haiku.txt` and four subdirectories:
-`thesis` (which contains a sadly empty file, `empty-draft.md`),
-`data` (which contains two files `one.txt` and `two.txt`),
-a `tools` directory that contains the programs `format` and `stats`,
+Nelle's `writing` directory contains one file called `haiku.txt` and three subdirectories:
+`thesis` (which contains a sadly empty file, `empty-draft.md`);
+`data` (which contains three files `LittleWomen.txt`, `one.txt` and `two.txt`);
+and a `tools` directory that contains the programs `format` and `stats`,
 and a subdirectory called `old`, with a file `oldtool`.
 
 For our first command,
@@ -289,10 +289,9 @@ $ find .
 
 ~~~
 .
-./old
-./old/.gitkeep
 ./data
 ./data/one.txt
+./data/LittleWomen.txt
 ./data/two.txt
 ./tools
 ./tools/format
@@ -327,7 +326,6 @@ $ find . -type d
 
 ~~~
 ./
-./old
 ./data
 ./thesis
 ./tools
@@ -351,6 +349,7 @@ $ find . -type f
 ./tools/format
 ./thesis/empty-draft.md
 ./data/one.txt
+./data/LittleWomen.txt
 ./data/two.txt
 ~~~
 {: .output}
@@ -393,6 +392,7 @@ $ find . -name '*.txt'
 
 ~~~
 ./data/one.txt
+./data/LittleWomen.txt
 ./data/two.txt
 ./haiku.txt
 ~~~
@@ -424,19 +424,20 @@ $ wc -l $(find . -name '*.txt')
 ~~~
 11 ./haiku.txt
 300 ./data/two.txt
+21022 ./data/LittleWomen.txt
 70 ./data/one.txt
-381 total
+21403 total
 ~~~
 {: .output}
 
 When the shell executes this command,
 the first thing it does is run whatever is inside the `$()`.
 It then replaces the `$()` expression with that command's output.
-Since the output of `find` is the three filenames `./data/one.txt`, `./data/two.txt`, and `./haiku.txt`,
+Since the output of `find` is the four filenames `./data/one.txt`, `./data/LittleWomen.txt`, `./data/two.txt`, and `./haiku.txt`,
 the shell constructs the command:
 
 ~~~
-$ wc -l ./data/one.txt ./data/two.txt ./haiku.txt
+$ wc -l ./data/one.txt ./data/LittleWomen.txt ./data/two.txt ./haiku.txt
 ~~~
 {: .bash}
 
@@ -643,7 +644,7 @@ about them."
 > > for sis in Jo Meg Beth Amy
 > > do
 > > 	echo $sis:
-> >	grep -ow $sis littlewomen.txt | wc -l
+> >	grep -ow $sis LittleWomen.txt | wc -l
 > > done
 > > ```
 > > {: .source}

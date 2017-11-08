@@ -28,7 +28,7 @@ At a high level, computers do four things:
 -   interact with us
 
 They can do the last of these in many different ways,
-including direct brain-computer interfaces and speech recognition, using systems such as Alexa or Google Home.
+including through a keyboard and mouse, or touch screen interfaces, or speech recognition using systems.
 While such hardware interfaces are becoming more commonplace, most interaction is still
 done using screens, mice, touchpads and keyboards.
 Although most modern desktop operating systems communicate with their human users by
@@ -112,7 +112,7 @@ She has 1520 samples in all and now needs to:
     The machine's output for a single sample is
     a file with one line for each protein.
 2.  Calculate statistics for each of the proteins separately
-    using a program her supervisor wrote called `goostat`.
+    using a program her supervisor wrote called `goostats`.
 3.  Compare the statistics for each protein
     with corresponding statistics for each other protein
     using a program one of the other graduate students wrote called `goodiff`.
@@ -126,9 +126,9 @@ it only takes two minutes to set each one up.
 Since her lab has eight assay machines that she can use in parallel,
 this step will "only" take about two weeks.
 
-The bad news is that if she has to run `goostat` and `goodiff` by hand,
+The bad news is that if she has to run `goostats` and `goodiff` by hand,
 she'll have to enter filenames and click "OK" 46,370 times
-(1520 runs of `goostat`, plus 300*299/2 (half of 300 times 299) runs of `goodiff`).
+(1520 runs of `goostats`, plus 300*299/2 (half of 300 times 299) runs of `goodiff`).
 At 30 seconds each,
 that will take more than two weeks.
 Not only would she miss her paper deadline,

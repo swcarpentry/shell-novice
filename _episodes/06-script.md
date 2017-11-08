@@ -12,8 +12,8 @@ objectives:
 keypoints:
 - "Save commands in files (usually called shell scripts) for re-use."
 - "`bash filename` runs the commands saved in a file."
-- "`$@` refers to all of a shell script's command-line parameters."
-- "`$1`, `$2`, etc., refer to the first command-line parameter, the second command-line parameter, etc."
+- "`$@` refers to all of a shell script's command-line arguments."
+- "`$1`, `$2`, etc., refer to the first command-line argument, the second command-line argument, etc."
 - "Place variables in quotes if the values might have spaces in them."
 - "Letting users decide what files to process is more flexible and more consistent with built-in Unix commands."
 ---
@@ -106,7 +106,7 @@ head -n 15 "$1" | tail -n 5
 {: .output}
 
 Inside a shell script,
-`$1` means "the first filename (or other parameter) on the command line".
+`$1` means "the first filename (or other argument) on the command line".
 We can now run our script like this:
 
 ~~~
@@ -236,9 +236,9 @@ We can't use `$1`, `$2`, and so on
 because we don't know how many files there are.
 Instead, we use the special variable `$@`,
 which means,
-"All of the command-line parameters to the shell script."
+"All of the command-line arguments to the shell script."
 We also should put `$@` inside double-quotes
-to handle the case of parameters containing spaces
+to handle the case of arguments containing spaces
 (`"$@"` is equivalent to `"$1"` `"$2"` ...)
 Here's an example:
 
@@ -312,13 +312,14 @@ $ history | tail -n 5 > redo-figure-3.sh
 The file `redo-figure-3.sh` now contains:
 
 ~~~
-297 bash goostats -r NENE01729B.txt stats-NENE01729B.txt
+297 bash goostats NENE01729B.txt stats-NENE01729B.txt
 298 bash goodiff stats-NENE01729B.txt /data/validated/01729.txt > 01729-differences.txt
 299 cut -d ',' -f 2-3 01729-differences.txt > 01729-time-series.txt
 300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png
 301 history | tail -n 5 > redo-figure-3.sh
 ~~~
 {: .source}
+
 
 After a moment's work in an editor to remove the serial numbers on the commands,
 and to remove the final line where we called the `history` command,
@@ -334,39 +335,31 @@ and save it as a shell script.
 
 ## Nelle's Pipeline: Creating a Script
 
-An off-hand comment from her supervisor has made Nelle realize that
-she should have provided a couple of extra parameters to `goostats` when she processed her files.
-This might have been a disaster if she had done all the analysis by hand,
-but thanks to `for` loops,
-it will only take a couple of hours to re-do.
-
-But experience has taught her that if something needs to be done twice,
-it will probably need to be done a third or fourth time as well.
+Nelle's supervisor insisted that all her analytics must be reproducible. The easiest way to capture all the steps is in a script.
 She runs the editor and writes the following:
 
 ~~~
-# Calculate reduced stats for data files at J = 100 c/bp.
+# Calculate stats for data files.
 for datafile in "$@"
 do
     echo $datafile
-    bash goostats -J 100 -r $datafile stats-$datafile
+    bash goostats $datafile stats-$datafile
 done
 ~~~
 {: .bash}
 
-(The parameters `-J 100` and `-r` are the ones her supervisor said she should have used.)
 She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
 
 ~~~
-$ bash do-stats.sh *[AB].txt
+$ bash do-stats.sh NENE*[AB].txt
 ~~~
 {: .bash}
 
 She can also do this:
 
 ~~~
-$ bash do-stats.sh *[AB].txt | wc -l
+$ bash do-stats.sh NENE*[AB].txt | wc -l
 ~~~
 {: .bash}
 
@@ -378,11 +371,11 @@ it lets the person running it decide what files to process.
 She could have written it as:
 
 ~~~
-# Calculate reduced stats for Site A and Site B data files at J = 100 c/bp.
-for datafile in *[AB].txt
+# Calculate stats for Site A and Site B data files.
+for datafile in NENE*[AB].txt
 do
     echo $datafile
-    bash goostats -J 100 -r $datafile stats-$datafile
+    bash goostats $datafile stats-$datafile
 done
 ~~~
 {: .bash}
@@ -394,8 +387,8 @@ The disadvantage is that it *always* selects just those files --- she can't run 
 or on the 'G' or 'H' files her colleagues in Antarctica are producing,
 without editing the script.
 If she wanted to be more adventurous,
-she could modify her script to check for command-line parameters,
-and use `*[AB].txt` if none were provided.
+she could modify her script to check for command-line arguments,
+and use `NENE*[AB].txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Variables in Shell Scripts
@@ -457,10 +450,10 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ~~~
 > {: .source}
 >
-> An example of this type of file is given in `data-shell/data/animals.txt`.
+> An example of this type of file is given in `data-shell/data/animal-counts/animals.txt`.
 > 
 > Write a shell script called `species.sh` that takes any number of
-> filenames as command-line parameters, and uses `cut`, `sort`, and
+> filenames as command-line arguments, and uses `cut`, `sort`, and
 > `uniq` to print a list of the unique species appearing in each of
 > those files separately.
 >
@@ -485,7 +478,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ## Find the Longest File With a Given Extension
 >
 > Write a shell script called `longest.sh` that takes the name of a
-> directory and a filename extension as its parameters, and prints
+> directory and a filename extension as its arguments, and prints
 > out the name of the file with the most lines in that directory
 > with that extension. For example:
 >
@@ -571,7 +564,10 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > 
 > > Script 3 would print all the arguments to the script (i.e. all the `.pdb` files),
 > > followed by `.pdb`.
+> > ```
 > > cubane.pdb ethane.pdb methane.pdb octane.pdb pentane.pdb propane.pdb.pdb
+> > ```
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
@@ -581,11 +577,11 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > in Nelle's `north-pacific-gyre/2012-07-03` directory:
 >
 > ~~~
-> # Calculate reduced stats for data files at J = 100 c/bp.
+> # Calculate stats for data files.
 > for datafile in "$@"
 > do
 >     echo $datfile
->     bash goostats -J 100 -r $datafile stats-$datafile
+>     bash goostats $datafile stats-$datafile
 > done
 > ~~~
 > {: .bash}
@@ -593,7 +589,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > When you run it:
 >
 > ~~~
-> $ bash do-errors.sh *[AB].txt
+> $ bash do-errors.sh NENE*[AB].txt
 > ~~~
 > {: .bash}
 >
@@ -601,7 +597,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > To figure out why, re-run the script using the `-x` option:
 >
 > ~~~
-> bash -x do-errors.sh *[AB].txt
+> bash -x do-errors.sh NENE*[AB].txt
 > ~~~
 > {: .bash}
 >

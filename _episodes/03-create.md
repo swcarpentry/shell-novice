@@ -41,9 +41,7 @@ $ ls -F
 {: .bash}
 
 ~~~
-creatures/  molecules/           pizza.cfg
-data/       north-pacific-gyre/  solar.pdf
-Desktop/    notes.txt            writing/
+creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/
 ~~~
 {: .output}
 
@@ -67,10 +65,7 @@ $ ls -F
 {: .bash}
 
 ~~~
-creatures/  north-pacific-gyre/  thesis/
-data/       notes.txt            writing/
-Desktop/    pizza.cfg
-molecules/  solar.pdf
+creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  thesis/  writing/
 ~~~
 {: .output}
 
@@ -92,7 +87,7 @@ molecules/  solar.pdf
 >
 >    Whitespaces can make a name more meaningful
 >    but since whitespace is used to break arguments on the command line
->    is better to avoid them on name of files and directories.
+>    is better to avoid them in names of files and directories.
 >    You can use `-` or `_` instead of whitespace.
 >
 > 2. Don't begin the name with `-` (dash).
@@ -203,6 +198,45 @@ draft.txt
 ~~~
 {: .output}
 
+> ## Creating Files a Different Way
+>
+> We have seen how to create text files using the `nano` editor.
+> Now, try the following command in your home directory:
+>
+> ~~~
+> $ cd                  # go to your home directory
+> $ touch my_file.txt
+> ~~~
+> {: .bash}
+>
+> 1.  What did the touch command do?
+>     When you look at your home directory using the GUI file explorer,
+>     does the file show up?
+>
+> 2.  Use `ls -l` to inspect the files.  How large is `my_file.txt`?
+>
+> 3.  When might you want to create a file this way?
+>
+> > ## Solution
+> > 1.  The touch command generates a new file called 'my_file.txt' in
+> >     your home directory.  If you are in your home directory, you
+> >     can observe this newly generated file by typing 'ls' at the 
+> >     command line prompt.  'my_file.txt' can also be viewed in your
+> >     GUI file explorer.
+> >
+> > 2.  When you inspect the file with 'ls -l', note that the size of
+> >     'my_file.txt' is 0kb.  In other words, it contains no data.
+> >     If you open 'my_file.txt' using your text editor it is blank.
+> >
+> > 3.  Some programs do not generate output files themselves, but
+> >     instead require that empty files have already been generated.
+> >     When the program is run, it searches for an existing file to
+> >     populate with its output.  The touch command allows you to
+> >     efficiently generate a blank text file to be used by such
+> >     programs.
+> {: .solution}
+{: .challenge}
+
 Let's tidy up by running `rm draft.txt`:
 
 ~~~
@@ -293,7 +327,7 @@ $ rmdir thesis
 
 > ## With Great Power Comes Great Responsibility
 >
-> Removing the files in a directory recursively can be very dangerous
+> Removing the files in a directory recursively can be a very dangerous
 > operation. If we're concerned about what we might be deleting we can
 > add the "interactive" flag `-i` to `rm` which will ask us for confirmation
 > before each step
@@ -345,7 +379,7 @@ $ mv thesis/draft.txt thesis/quotes.txt
 ~~~
 {: .bash}
 
-The first parameter tells `mv` what we're "moving",
+The first argument tells `mv` what we're "moving",
 while the second is where it's to go.
 In this case,
 we're moving `thesis/draft.txt` to `thesis/quotes.txt`,
@@ -373,7 +407,7 @@ Just for the sake of consistency,
 
 Let's move `quotes.txt` into the current working directory.
 We use `mv` once again,
-but this time we'll just use the name of a directory as the second parameter
+but this time we'll just use the name of a directory as the second argument
 to tell `mv` that we want to keep the filename,
 but put the file somewhere new.
 (This is why the command is called "move".)
@@ -394,7 +428,7 @@ $ ls thesis
 {: .bash}
 
 Further,
-`ls` with a filename or directory name as a parameter only lists that file or directory.
+`ls` with a filename or directory name as an argument only lists that file or directory.
 We can use this to see that `quotes.txt` is still in our current directory:
 
 ~~~
@@ -410,7 +444,7 @@ quotes.txt
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
 We can check that it did the right thing using `ls`
-with two paths as parameters --- like most Unix commands,
+with two paths as arguments --- like most Unix commands,
 `ls` can be given multiple paths at once:
 
 ~~~
@@ -637,47 +671,8 @@ but it does find the copy in `thesis` that we didn't delete.
 > In what order does `ls -R -t` display things?
 > > ## Solution
 > > The command `ls -R -t` displays the directories recursively in 
-> > alphabetical order at each level, but the files in each directory
+> > chronological order at each level, and the files in each directory
 > > are displayed chronologically.
-> {: .solution}
-{: .challenge}
-
-> ## Creating Files a Different Way
->
-> We have seen how to create text files using the `nano` editor.
-> Now, try the following command in your home directory:
->
-> ~~~
-> $ cd                  # go to your home directory
-> $ touch my_file.txt
-> ~~~
-> {: .bash}
->
-> 1.  What did the touch command do?
->     When you look at your home directory using the GUI file explorer,
->     does the file show up?
->
-> 2.  Use `ls -l` to inspect the files.  How large is `my_file.txt`?
->
-> 3.  When might you want to create a file this way?
->
-> > ## Solution
-> > 1.  The touch command generates a new file called 'my_file.txt' in
-> >     your home directory.  If you are in your home directory, you
-> >     can observe this newly generated file by typing 'ls' at the 
-> >     command line prompt.  'my_file.txt' can also be viewed in your
-> >     GUI file explorer.
-> >
-> > 2.  When you inspect the file with 'ls -l', note that the size of
-> >     'my_file.txt' is 0kb.  In other words, it contains no data.
-> >     If you open 'my_file.txt' using your text editor it is blank.
-> >
-> > 3.  Some programs do not generate output files themselves, but
-> >     instead require that empty files have already been generated.
-> >     When the program is run, it searches for an existing file to
-> >     populate with its output.  The touch command allows you to
-> >     efficiently generate a blank text file to be used by such
-> >     programs.
 > {: .solution}
 {: .challenge}
 
@@ -735,10 +730,10 @@ but it does find the copy in `thesis` that we didn't delete.
 > add new data.
 >
 > Assume that the file structure is in a folder called '2016-05-18-data',
-> which contains folders named 'raw' and 'processed' that contain data files.
-> The goal is to copy the file structure of the `2016-05-18-data` folder
-> into a folder called `2016-05-20-data` and remove the data files from
-> the directory you just created.
+> which contains a `data` folder that in turn contains folders named `raw` and
+> `processed` that contain data files.  The goal is to copy the file structure
+> of the `2016-05-18-data` folder into a folder called `2016-05-20-data` and
+> remove the data files from the directory you just created.
 >
 > Which of the following set of commands would achieve this objective?
 > What would the other commands do?
