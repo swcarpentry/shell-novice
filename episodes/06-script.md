@@ -321,9 +321,6 @@ The file `redo-figure-3.sh` now contains:
 {: .source}
 
 
-(`goostats` is a shell script which calculates some complicated statistics from a protein sample file -- the first argument -- and writes them to a file -- the second argument. 
-`goodiff`is a shell script for comparing statistics between two files, provides as arguments. Nelle's supervisor provided them without too many explanations.)
-
 After a moment's work in an editor to remove the serial numbers on the commands,
 and to remove the final line where we called the `history` command,
 we have a completely accurate record of how we created that figure.
