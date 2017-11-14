@@ -8,7 +8,6 @@ questions:
 objectives:
 - "Create a directory hierarchy that matches a given diagram."
 - "Create files in that hierarchy using an editor or by copying and renaming existing files."
-- "Display the contents of a directory using the command line."
 - "Delete specified files and/or directories."
 keypoints:
 - "`cp old new` copies a file."
