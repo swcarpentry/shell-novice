@@ -8,7 +8,6 @@ questions:
 objectives:
 - "Create a directory hierarchy that matches a given diagram."
 - "Create files in that hierarchy using an editor or by copying and renaming existing files."
-- "Display the contents of a directory using the command line."
 - "Delete specified files and/or directories."
 keypoints:
 - "`cp old new` copies a file."
@@ -640,21 +639,6 @@ but it does find the copy in `thesis` that we didn't delete.
 > > cp: target ‘morse.txt’ is not a directory
 > > ```
 > > {: .output}
-> {: .solution}
-{: .challenge}
-
-> ## Listing Recursively and By Time
->
-> The command `ls -R` lists the contents of directories recursively,
-> i.e., lists their sub-directories, sub-sub-directories, and so on
-> in alphabetical order at each level.
-> The command `ls -t` lists things by time of last change,
-> with most recently changed files or directories first.
-> In what order does `ls -R -t` display things?
-> > ## Solution
-> > The command `ls -R -t` displays the directories recursively in 
-> > chronological order at each level, and the files in each directory
-> > are displayed chronologically.
 > {: .solution}
 {: .challenge}
 
