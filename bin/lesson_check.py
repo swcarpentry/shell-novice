@@ -72,14 +72,14 @@ KNOWN_CODEBLOCKS = {
     'error',
     'output',
     'source',
-    'bash',
+    'language-bash',
     'html',
-    'make',
-    'matlab',
-    'python',
-    'r',
-    'shell',
-    'sql'
+    'language-make',
+    'language-matlab',
+    'language-python',
+    'language-r',
+    'language-shell',
+    'language-sql'
 }
 
 # What fields are required in teaching episode metadata?
