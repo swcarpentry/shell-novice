@@ -73,10 +73,12 @@ KNOWN_CODEBLOCKS = {
     'output',
     'source',
     'bash',
+    'html',
     'make',
     'matlab',
     'python',
     'r',
+    'shell',
     'sql'
 }
 

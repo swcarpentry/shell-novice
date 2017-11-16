@@ -242,8 +242,8 @@ exclude:
   - Makefile
   - bin
 
-# Turn off built-in syntax highlighting.
-highlighter: false
+# Turn on built-in syntax highlighting.
+highlighter: rouge
 '''
 
 ROOT_INDEX_MD = '''\
