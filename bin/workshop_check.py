@@ -21,7 +21,7 @@ URL_PATTERN = r'https?://.+'
 CARPENTRIES = ("dc", "swc")
 DEFAULT_CONTACT_EMAIL = 'admin@software-carpentry.org'
 
-USAGE = 'Usage: "check-workshop path/to/root/directory"'
+USAGE = 'Usage: "workshop_check.py path/to/root/directory"'
 
 # Country and language codes.  Note that codes mean different things: 'ar'
 # is 'Arabic' as a language but 'Argentina' as a country.
