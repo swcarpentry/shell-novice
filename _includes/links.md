@@ -1,14 +1,14 @@
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
-[concept-maps]: http://swcarpentry.github.io/instructor-training/08-memory/
-[contact]: mailto:lessons@software-carpentry.org
+[concept-maps]: http://carpentries.github.io/instructor-training/05-memory/
+[email]: mailto:lessons@software-carpentry.org
 [contrib-covenant]: http://contributor-covenant.org/
 [contributing]: {{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md
 [cran-checkpoint]: https://cran.r-project.org/web/packages/checkpoint/index.html
 [cran-knitr]: https://cran.r-project.org/web/packages/knitr/index.html
 [cran-stringr]: https://cran.r-project.org/web/packages/stringr/index.html
 [github-importer]: https://import.github.com/
-[importer]: http://import.github.com/new
+[importer]: https://github.com/new/import
 [jekyll-collection]: https://jekyllrb.com/docs/collections/
 [jekyll-install]: https://jekyllrb.com/docs/installation/
 [jekyll-windows]: http://jekyll-windows.juthilo.com/

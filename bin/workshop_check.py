@@ -21,7 +21,7 @@ URL_PATTERN = r'https?://.+'
 CARPENTRIES = ("dc", "swc")
 DEFAULT_CONTACT_EMAIL = 'admin@software-carpentry.org'
 
-USAGE = 'Usage: "check-workshop path/to/root/directory"'
+USAGE = 'Usage: "workshop_check.py path/to/root/directory"'
 
 # Country and language codes.  Note that codes mean different things: 'ar'
 # is 'Arabic' as a language but 'Argentina' as a country.
@@ -205,7 +205,7 @@ def check_helpers(helpers):
 @look_for_fixme
 def check_email(email):
     """
-    'contact' must be a valid email address consisting of characters,
+    'email' must be a valid email address consisting of characters,
     an '@', and more characters.  It should not be the default contact
     email address 'admin@software-carpentry.org'.
     """
@@ -227,12 +227,12 @@ def check_eventbrite(eventbrite):
 
 
 @look_for_fixme
-def check_etherpad(etherpad):
+def check_collaborative_notes(collaborative_notes):
     """
-    'etherpad' must be a valid URL.
+    'collaborative_notes' must be a valid URL.
     """
 
-    return bool(re.match(URL_PATTERN, etherpad))
+    return bool(re.match(URL_PATTERN, collaborative_notes))
 
 
 @look_for_fixme
@@ -286,13 +286,13 @@ HANDLERS = {
                    'helper list isn\'t a valid list of format ' +
                    '["First helper", "Second helper",..]'),
 
-    'contact':    (True, check_email,
+    'email':    (True, check_email,
                    'contact email invalid or still set to ' +
                    '"{0}".'.format(DEFAULT_CONTACT_EMAIL)),
 
     'eventbrite': (False, check_eventbrite, 'Eventbrite key appears invalid'),
 
-    'etherpad':   (False, check_etherpad, 'Etherpad URL appears invalid'),
+    'collaborative_notes':   (False, check_collaborative_notes, 'Collaborative Notes URL appears invalid'),
 
     'venue':      (False, check_pass, 'venue name not specified'),
 
