@@ -108,6 +108,79 @@ possible to put the names into curly braces to clearly delimit the variable
 name: `$filename` is equivalent to `${filename}`, but is different from
 `${file}name`. You may find this notation in other people's programs.
 
+> ## Variables in Loops
+>
+> This exercise refers to the `data-shell/molecules` directory.
+> `ls` gives the following output:
+>
+> ~~~
+> cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> ~~~
+> {: .output}
+>
+> What is the output of the following code?
+>
+> ~~~
+> for datafile in *.pdb
+> do
+>     ls *.pdb
+> done
+> ~~~
+> {: .bash}
+>
+> Now, what is the output of the following code?
+>
+> ~~~
+> for datafile in *.pdb
+> do
+>	ls $datafile
+> done
+> ~~~
+> {: .bash}
+>
+> Why do these two loops give different outputs?
+>
+> > ## Solution
+> > The first code block gives the same output on each iteration through
+> > the loop.
+> > Bash expands the wildcard `*.pdb` within the loop body (as well as
+> > before the loop starts) to match all files ending in `.pdb`
+> > and then lists them using `ls`.
+> > The expanded loop would look like this:
+> > ```
+> > for datafile in cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > do
+> >	ls cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > done
+> > ```
+> > {: .bash}
+> >
+> > ```
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > ```
+> > {: .output}
+> >
+> > The second code block lists a different file on each loop iteration.
+> > The value of the `datafile` variable is evaluated using `$datafile`,
+> > and then listed using `ls`.
+> >
+> > ```
+> > cubane.pdb
+> > ethane.pdb
+> > methane.pdb
+> > octane.pdb
+> > pentane.pdb
+> > propane.pdb
+> > ```
+> > {: .output}
+> {: .solution}
+{: .challenge}
+
 > ## Follow the Prompt
 >
 > The shell prompt changes from `$` to `>` and back again as we were
@@ -451,79 +524,6 @@ so she decides to get some coffee and catch up on her reading.
 > `less !$` to look at the file `stats-NENE01729B.txt`, which is
 > quicker than doing up-arrow and editing the command-line.
 {: .callout}
-
-> ## Variables in Loops
->
-> This exercise refers to the `data-shell/molecules` directory.
-> `ls` gives the following output:
->
-> ~~~
-> cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> ~~~
-> {: .output}
->
-> What is the output of the following code?
->
-> ~~~
-> for datafile in *.pdb
-> do
->     ls *.pdb
-> done
-> ~~~
-> {: .bash}
->
-> Now, what is the output of the following code?
->
-> ~~~
-> for datafile in *.pdb
-> do
->	ls $datafile
-> done
-> ~~~
-> {: .bash}
->
-> Why do these two loops give different outputs?
->
-> > ## Solution
-> > The first code block gives the same output on each iteration through
-> > the loop.
-> > Bash expands the wildcard `*.pdb` within the loop body (as well as
-> > before the loop starts) to match all files ending in `.pdb`
-> > and then lists them using `ls`.
-> > The expanded loop would look like this:
-> > ```
-> > for datafile in cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > do
-> >	ls cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > done
-> > ```
-> > {: .bash}
-> >
-> > ```
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > ```
-> > {: .output}
-> >
-> > The second code block lists a different file on each loop iteration.
-> > The value of the `datafile` variable is evaluated using `$datafile`,
-> > and then listed using `ls`.
-> >
-> > ```
-> > cubane.pdb
-> > ethane.pdb
-> > methane.pdb
-> > octane.pdb
-> > pentane.pdb
-> > propane.pdb
-> > ```
-> > {: .output}
-> {: .solution}
-{: .challenge}
 
 > ## Saving to a File in a Loop - Part One
 >
