@@ -438,6 +438,22 @@ which is what we wanted.
 This expansion is exactly what the shell does when it expands wildcards like `*` and `?`,
 but lets us use any command we want as our own "wildcard".
 
+> ## `find` Pipeline Reading Comprehension
+>
+> Write a short explanatory comment for the following shell script:
+>
+> ~~~
+> wc -l $(find . -name '*.dat') | sort -n
+> ~~~
+> {: .bash}
+>
+> > ## Solution
+> > 1. Find all files with a `.dat` extension in the current directory
+> > 2. Count the number of lines each of these files contains
+> > 3. Sort the output from step 2. numerically
+> {: .solution}
+{: .challenge}
+
 It's very common to use `find` and `grep` together.
 The first finds files that match a pattern;
 the second looks for lines inside those files that match another pattern.
@@ -509,22 +525,6 @@ about them."
 > > ## Solution
 > > The correct answer is 3, because the `-w` flag looks only for whole-word matches.
 > > The other options will all match "of" when part of another word.
-> {: .solution}
-{: .challenge}
-
-> ## `find` Pipeline Reading Comprehension
->
-> Write a short explanatory comment for the following shell script:
->
-> ~~~
-> wc -l $(find . -name '*.dat') | sort -n
-> ~~~
-> {: .bash}
->
-> > ## Solution
-> > 1. Find all files with a `.dat` extension in the current directory
-> > 2. Count the number of lines each of these files contains
-> > 3. Sort the output from step 2. numerically
 > {: .solution}
 {: .challenge}
 
