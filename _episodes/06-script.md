@@ -320,10 +320,31 @@ The file `redo-figure-3.sh` now contains:
 ~~~
 {: .source}
 
-
 After a moment's work in an editor to remove the serial numbers on the commands,
 and to remove the final line where we called the `history` command,
 we have a completely accurate record of how we created that figure.
+
+> ## Why Record Commands in the History Before Running Them?
+>
+> If you run the command:
+>
+> ~~~
+> $ history | tail -n 5 > recent.sh
+> ~~~
+> {: .bash}
+>
+> the last command in the file is the `history` command itself, i.e.,
+> the shell has added `history` to the command log before actually
+> running it. In fact, the shell *always* adds commands to the log
+> before running them. Why do you think it does this?
+>
+> > ## Solution
+> > If a command causes something to crash or hang, it might be useful
+> > to know what that command was, in order to investigate the problem.
+> > Were the command only be recorded after running it, we would not
+> > have a record of the last command run in the event of a crash.
+> {: .solution}
+{: .challenge}
 
 In practice, most people develop shell scripts by running commands at the shell prompt a few times
 to make sure they're doing the right thing,
@@ -502,28 +523,6 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1
 > > ```
 > > {: .source}
-> {: .solution}
-{: .challenge}
-
-> ## Why Record Commands in the History Before Running Them?
->
-> If you run the command:
->
-> ~~~
-> $ history | tail -n 5 > recent.sh
-> ~~~
-> {: .bash}
->
-> the last command in the file is the `history` command itself, i.e.,
-> the shell has added `history` to the command log before actually
-> running it. In fact, the shell *always* adds commands to the log
-> before running them. Why do you think it does this?
->
-> > ## Solution
-> > If a command causes something to crash or hang, it might be useful
-> > to know what that command was, in order to investigate the problem.
-> > Were the command only be recorded after running it, we would not
-> > have a record of the last command run in the event of a crash.
 > {: .solution}
 {: .challenge}
 
