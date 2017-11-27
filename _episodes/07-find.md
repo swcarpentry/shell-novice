@@ -228,6 +228,26 @@ Miscellaneous:
 ~~~
 {: .output}
 
+> ## Using `grep`
+>
+> Which command would result in the following output:
+>
+> ~~~
+> and the presence of absence:
+> ~~~
+> {: .output}
+>
+> 1. `grep "of" haiku.txt`
+> 2. `grep -E "of" haiku.txt`
+> 3. `grep -w "of" haiku.txt`
+> 4. `grep -i "of" haiku.txt`
+>
+> > ## Solution
+> > The correct answer is 3, because the `-w` flag looks only for whole-word matches.
+> > The other options will all match "of" when part of another word.
+> {: .solution}
+{: .challenge}
+
 > ## Wildcards
 >
 > `grep`'s real power doesn't come from its options, though; it comes from
@@ -489,28 +509,6 @@ first, but the shell is still unbeaten at the second. And as Alfred
 North Whitehead wrote in 1911, "Civilization advances by extending the
 number of important operations which we can perform without thinking
 about them."
-
-> ## Using `grep`
->
-> Referring to `haiku.txt`
-> presented at the begin of this topic,
-> which command would result in the following output:
->
-> ~~~
-> and the presence of absence:
-> ~~~
-> {: .output}
->
-> 1. `grep "of" haiku.txt`
-> 2. `grep -E "of" haiku.txt`
-> 3. `grep -w "of" haiku.txt`
-> 4. `grep -i "of" haiku.txt`
->
-> > ## Solution
-> > The correct answer is 3, because the `-w` flag looks only for whole-word matches.
-> > The other options will all match "of" when part of another word.
-> {: .solution}
-{: .challenge}
 
 > ## `find` Pipeline Reading Comprehension
 >
