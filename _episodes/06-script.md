@@ -271,6 +271,47 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 ~~~
 {: .output}
 
+> ## List Unique Species
+>
+> Leah has several hundred data files, each of which is formatted like this:
+>
+> ~~~
+> 2013-11-05,deer,5
+> 2013-11-05,rabbit,22
+> 2013-11-05,raccoon,7
+> 2013-11-06,rabbit,19
+> 2013-11-06,deer,2
+> 2013-11-06,fox,1
+> 2013-11-07,rabbit,18
+> 2013-11-07,bear,1
+> ~~~
+> {: .source}
+>
+> An example of this type of file is given in `data-shell/data/animal-counts/animals.txt`.
+> 
+> Write a shell script called `species.sh` that takes any number of
+> filenames as command-line arguments, and uses `cut`, `sort`, and
+> `uniq` to print a list of the unique species appearing in each of
+> those files separately.
+>
+> > ## Solution
+> >
+> > ```
+> > # Script to find unique species in csv files where species is the second data field
+> > # This script accepts any number of file names as command line arguments
+> >
+> > # Loop over all files
+> > for file in $@ 
+> > do
+> > 	echo "Unique species in $file:"
+> > 	# Extract species names
+> > 	cut -d , -f 2 $file | sort | uniq
+> > done
+> > ```
+> > {: .source}
+> {: .solution}
+{: .challenge}
+
 > ## Why Isn't It Doing Anything?
 >
 > What happens if a script is supposed to process a bunch of files, but we
@@ -431,47 +472,6 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > The shell does not expand `'*.pdb'` because it is enclosed by quote marks.
 > > As such, the first argument to the script is `'*.pdb'` which gets expanded within the
 > > script by `head` and `tail`.
-> {: .solution}
-{: .challenge}
-
-> ## List Unique Species
->
-> Leah has several hundred data files, each of which is formatted like this:
->
-> ~~~
-> 2013-11-05,deer,5
-> 2013-11-05,rabbit,22
-> 2013-11-05,raccoon,7
-> 2013-11-06,rabbit,19
-> 2013-11-06,deer,2
-> 2013-11-06,fox,1
-> 2013-11-07,rabbit,18
-> 2013-11-07,bear,1
-> ~~~
-> {: .source}
->
-> An example of this type of file is given in `data-shell/data/animal-counts/animals.txt`.
-> 
-> Write a shell script called `species.sh` that takes any number of
-> filenames as command-line arguments, and uses `cut`, `sort`, and
-> `uniq` to print a list of the unique species appearing in each of
-> those files separately.
->
-> > ## Solution
-> >
-> > ```
-> > # Script to find unique species in csv files where species is the second data field
-> > # This script accepts any number of file names as command line arguments
-> >
-> > # Loop over all files
-> > for file in $@ 
-> > do
-> > 	echo "Unique species in $file:"
-> > 	# Extract species names
-> > 	cut -d , -f 2 $file | sort | uniq
-> > done
-> > ```
-> > {: .source}
 > {: .solution}
 {: .challenge}
 
