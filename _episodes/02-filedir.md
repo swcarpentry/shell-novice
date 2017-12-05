@@ -150,7 +150,6 @@ $ pwd
 > A Unix filesystem is a collection of files and directories that has
 > a root directory `/` that contains other files and directories.
 > 
-{: .callout}
 
 To have a basic understanding of what a Unix directory structure look like,
 let's use the following diagram.   
