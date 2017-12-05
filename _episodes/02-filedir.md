@@ -166,7 +166,6 @@ let's use the following diagram.
 > (Note that it may look slightly different for different versions of Windows.)
 > In future examples, we've used Mac output as the default - Linux and Windows
 > output may differ slightly, but should be generally similar.  
-{: .callout}
 
 To understand what a "home directory" is,
 let's have a look at how the file system as a whole is organized.  For the
