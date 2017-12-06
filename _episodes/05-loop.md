@@ -59,7 +59,40 @@ error.
 
 Instead, we can use a **loop**
 to do some operation once for each thing in a list.
-Here's a simple example that displays the first three lines of each file in turn:
+
+Using our original input, let's craft a **`for` loop** to acomplish the task of backing up
+our files.
+
+~~~
+$ for filename in *.dat
+> do
+>     cp $filename original-$filename
+> done
+~~~
+{: .bash}
+
+When the shell sees the keyword `for`,
+it knows to repeat a command (or group of commands) once for each item in a list.
+Each time the loop runs (called an iteration), an item in the list is assigned in sequence to
+the **variable**, and the commands inside the loop are executed, before moving on to 
+the next item in the list.
+Inside the loop,
+we call for the variable's value by putting `$` in front of it.
+The `$` tells the shell interpreter to treat
+the **variable** as a variable name and substitute its value in its place,
+rather than treat it as text or an external command. 
+
+If the previous example executes correctly, no output will be displayed, because the `cp` command 
+that this loop runs does not produce any output. To see the results, we use the `ls` command to check 
+if the files were backed up as we expected.
+
+~~~
+$ ls
+basilisk.dat  original-basilisk.dat  original-unicorn.dat  unicorn.dat
+~~~
+{: .bash}
+
+Here's another simple example that displays the first three lines of each file in turn:
 
 ~~~
 $ for filename in basilisk.dat unicorn.dat
@@ -78,17 +111,6 @@ CLASSIFICATION: equus monoceros
 UPDATED: 1738-11-24
 ~~~
 {: .output}
-
-When the shell sees the keyword `for`,
-it knows to repeat a command (or group of commands) once for each item in a list.
-Each time the loop runs (called an iteration), an item in the list is assigned in sequence to
-the **variable**, and the commands inside the loop are executed, before moving on to 
-the next item in the list.
-Inside the loop,
-we call for the variable's value by putting `$` in front of it.
-The `$` tells the shell interpreter to treat
-the **variable** as a variable name and substitute its value in its place,
-rather than treat it as text or an external command. 
 
 In this example, the list is two filenames: `basilisk.dat` and `unicorn.dat`.
 Each time the loop iterates, it will assign a file name to the variable `filename`
