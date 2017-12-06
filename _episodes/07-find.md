@@ -200,8 +200,15 @@ $ grep -n -w -v "the" haiku.txt
 
 `grep` has lots of other options. To find out what they are, we can type:
 
+On Linux:
 ~~~
 $ grep --help
+~~~
+{: .bash}
+
+On Mac
+~~~
+$ man grep
 ~~~
 {: .bash}
 

@@ -117,6 +117,16 @@ then run a text editor called Nano to create a file called `draft.txt`:
 ~~~
 $ cd thesis
 $ nano draft.txt
+$ ls -F
+~~~
+{: .bash}
+
+Apparently, if we create empty file using nano, the file won't be saved.
+But we can use command `touch` to create a file called `draft.txt`:
+
+~~~
+$ touch draft.txt
+$ ls -F
 ~~~
 {: .bash}
 
@@ -132,9 +142,9 @@ $ nano draft.txt
 > [Vim](http://www.vim.org/) (both of which require more time to learn), 
 > or a graphical editor such as
 > [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
-> use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in
-> editor called `notepad` that can be run from the command line in the same
-> way as `nano` for the purposes of this lesson.  
+> use [Notepad++](http://notepad-plus-plus.org/) or [nano](https://github.com/lhmouse/nano-win).
+> Windows also has a built-in editor called `notepad` that can be run from the command
+> line in the same way as `nano` for the purposes of this lesson.  
 >
 > No matter what editor you use, you will need to know where it searches
 > for and saves files. If you start it from the shell, it will (probably)
@@ -303,6 +313,14 @@ We can do this with the [recursive](https://en.wikipedia.org/wiki/Recursion) opt
 
 ~~~
 $ rm -r thesis
+~~~
+{: .bash}
+
+However, if the `thesis` directory is empty, we can use `rmdir thesis` to remove the directory
+
+~~~
+$ rm thesis/draft.txt
+$ rmdir thesis
 ~~~
 {: .bash}
 

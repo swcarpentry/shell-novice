@@ -859,6 +859,59 @@ so this matches all the valid data files she has.
 > {: .solution}
 {: .challenge}
 
+> ## Which Pipe?
+>
+> The file `data-shell/data/animals.txt` contains 8 lines of data formatted as follows:
+>
+> ~~~
+> 2012-11-05,deer
+> 2012-11-05,rabbit
+> 2012-11-05,raccoon
+> 2012-11-06,rabbit
+> ...
+> ~~~
+> {: .output}
+>
+> Assuming your current directory is `data-shell/data/`,
+> what command would you use to produce a table that shows
+> the total count of each type of animal in the file?
+>
+> 1.  `grep {deer, rabbit, raccoon, deer, fox, bear} animals.txt | wc -l`
+> 2.  `sort animals.txt | uniq -c`
+> 3.  `sort -t, -k2,2 animals.txt | uniq -c`
+> 4.  `cut -d, -f 2 animals.txt | uniq -c`
+> 5.  `cut -d, -f 2 animals.txt | sort | uniq -c`
+> 6.  `cut -d, -f 2 animals.txt | sort | uniq -c | wc -l`
+>
+> > ## Solution
+> > Option 5. is the correct answer.
+> > If you have difficulty understanding why, try running the commands, or sub-sections of
+> > the pipelines (make sure you are in the `data-shell/data` directory).
+> {: .solution}
+{: .challenge}
+
+> ## Appending Data
+>
+> Consider the file `animals.txt`, used in previous exercise.
+> After two commands below, select the answer that
+> corresponds to the file `animalsUpd.txt`:
+> ~~~
+> $ head -3 animals.txt > animalsUpd.txt
+> $ tail -3 animals.txt >> animalsUpd.txt
+> ~~~
+> {: .bash}
+> 1. The first three lines of animals.txt
+> 2. The last two lines of animals.txt
+> 3. The first three lines and the last two lines of animals.txt
+> 4. The second and third ines of animals.txt
+>
+> > ## Solution
+> > Option 3. is the correct answer.
+> > If you have difficulty understanding why, try running the commands, see the results 
+> > and `man head` and `man tail` see explanation of what these two cmds do.
+> {: .solution}
+{: .challenge}
+
 > ## Removing Unneeded Files
 >
 > Suppose you want to delete your processed data files, and only keep
