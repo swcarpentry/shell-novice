@@ -45,7 +45,7 @@ This is a good way to introduce yourself
 and to meet some of our community members.
 
 1.  If you do not have a [GitHub][github] account,
-    you can [send us comments by email][contact].
+    you can [send us comments by email][email].
     However,
     we will be able to respond more quickly if you use one of the other methods described below.
 
@@ -126,18 +126,18 @@ Before starting work, please make sure your clone of the master `gh-pages` branc
 and create your own revision-specific branch(es) from there.
 Please only work on your newly-created branch(es) and *not*
 your clone of the master `gh-pages` branch.
-To manage changes, we follow [GitHub flow][github-flow]. In brief:
+To manage changes, we follow [GitHub flow][github-flow]. Using the web interface:
 
-1.  Fork the repository to your GitHub profile and create a clone on your desktop.
-2.  Create a new branch in your desktop copy of this repository for each significant
-change being made.
-3.  Make revisions as required.
-4.  Stage all changed files and commit them within the appropriate branch.
-5.  Push any new branches to your forked copy of this repository on GitHub.
-6.  Submit a pull request from that branch to the master repository.
-7.  If you receive feedback, make changes using your desktop copy of the repository and
-push to your branch on GitHub. The pull request will update automatically.
-8.  Repeat as needed.
+1.  Fork the master repository to your GitHub profile.
+2.  Within your version of the forked repository, move to the `gh-pages` branch and
+create a new branch for each significant change being made.
+3.  Navigate to the file(s) you wish to change within the new branches and make revisions as required.
+4.  Commit all changed files within the appropriate branches.
+5.  Create individual pull requests from each of your changed branches
+to the `gh-pages` branch within the master repository.
+6.  If you receive feedback, make changes using your issue-specific branches of the forked
+repository and the pull requests will update automatically.
+7.  Repeat as needed until all feedback has been addressed.
 
 Each lesson has two maintainers who review issues and pull requests or encourage others to do so.
 The maintainers are community volunteers and have final say over what gets merged into the lesson.
@@ -147,9 +147,9 @@ The maintainers are community volunteers and have final say over what gets merge
 General discussion of [Software Carpentry][swc-site] and [Data Carpentry][dc-site]
 happens on the [discussion mailing list][discuss-list],
 which everyone is welcome to join.
-You can also [reach us by email][contact].
+You can also [reach us by email][email].
 
-[contact]: mailto:admin@software-carpentry.org
+[email]: mailto:admin@software-carpentry.org
 [dc-issues]: https://github.com/issues?q=user%3Adatacarpentry
 [dc-lessons]: http://datacarpentry.org/lessons/
 [dc-site]: http://datacarpentry.org/
