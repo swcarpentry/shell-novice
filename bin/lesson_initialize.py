@@ -121,12 +121,10 @@ our lessons must run equally well on all three.
 
 If you choose to contribute via GitHub, you may want to look at
 [How to Contribute to an Open Source Project on GitHub][how-contribute].
-A published copy of the lesson is available in the `gh-pages` branch of the master repository.
-Before starting work, please make sure your clone of the master `gh-pages` branch is up-to-date
-and create your own revision-specific branch(es) from there.
-Please only work on your newly-created branch(es) and *not*
-your clone of the master `gh-pages` branch.
-To manage changes, we follow [GitHub flow][github-flow]. Using the web interface:
+To manage changes, we follow [GitHub flow][github-flow]. 
+Each lesson has two maintainers who review issues and pull requests or encourage others to do so.
+The maintainers are community volunteers and have final say over what gets merged into the lesson.
+To use the web interface for contributing to a lesson:
 
 1.  Fork the master repository to your GitHub profile.
 2.  Within your version of the forked repository, move to the `gh-pages` branch and
@@ -139,8 +137,12 @@ to the `gh-pages` branch within the master repository.
 repository and the pull requests will update automatically.
 7.  Repeat as needed until all feedback has been addressed.
 
-Each lesson has two maintainers who review issues and pull requests or encourage others to do so.
-The maintainers are community volunteers and have final say over what gets merged into the lesson.
+When starting work, please make sure your clone of the master `gh-pages` branch is up-to-date
+before creating your own revision-specific branch(es) from there.
+Additionally, please only work from your newly-created branch(es) and *not*
+your clone of the master `gh-pages` branch.
+Lastly, published copies of all the lessons are available in the `gh-pages` branch of the master
+repository for reference while revising.
 
 ## Other Resources
 
