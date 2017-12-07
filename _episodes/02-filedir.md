@@ -441,7 +441,9 @@ and (if you're lucky) provides a few examples of how to use it.
 To navigate through the `man` pages,
 you may use the up and down arrow keys to move line-by-line,
 or try the "b" and spacebar keys to skip up and down by a full page.
-Quit the `man` pages by typing "q".
+To search for a character or word in the `man` pages, 
+use "/" followed by the character or word you are searching for. 
+Quit the `man` pages by typing "q". 
 
 Here,
 we can see that our home directory contains mostly **sub-directories**.
