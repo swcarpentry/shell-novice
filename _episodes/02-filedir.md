@@ -84,7 +84,6 @@ More specifically, when we type `whoami` the shell:
 3.  displays that program's output, then
 4.  displays a new prompt to tell us that it's ready for more commands.
 
-
 > ## Username Variation
 >
 > In this lesson, we have used the username `nelle` (associated
@@ -143,6 +142,20 @@ $ pwd
 ~~~
 {: .output}
 
+> ## Unix Directory Structure
+>
+> Unix uses a hierarchical file system structure, much like an upside-down 
+> tree, with root (/) at the base of the file system and all other 
+> directories spreading from there.
+> A Unix filesystem is a collection of files and directories that has
+> a root directory `/` that contains other files and directories.
+> 
+
+To have a basic understanding of what a Unix directory structure look like,
+let's use the following diagram.   
+
+![Unix Directory Structure](../fig/directorystructure.png)
+
 > ## Home Directory Variation
 >
 > The home directory path will look different on different operating systems.
@@ -152,7 +165,6 @@ $ pwd
 > (Note that it may look slightly different for different versions of Windows.)
 > In future examples, we've used Mac output as the default - Linux and Windows
 > output may differ slightly, but should be generally similar.  
-{: .callout}
 
 To understand what a "home directory" is,
 let's have a look at how the file system as a whole is organized.  For the
