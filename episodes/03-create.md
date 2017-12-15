@@ -422,6 +422,37 @@ quotes.txt
 ~~~
 {: .output}
 
+> ## Moving to the Current Folder
+>
+> After running the following commands,
+> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder:
+>
+> ~~~
+> $ ls -F
+> raw/ analyzed/
+> $ ls -F analyzed
+> fructose.dat glucose.dat maltose.dat sucrose.dat
+> $ cd raw/
+> ~~~
+> {: .bash}
+>
+> Fill in the blanks to move these files to the current folder
+> (i.e., the one she is currently in):
+>
+> ~~~
+> $ mv ___/sucrose.dat  ___/maltose.dat ___
+> ~~~
+> {: .bash}
+> > ## Solution
+> > ```
+> > $ mv ../analyzed/sucrose.dat ../analyzed/maltose.dat .
+> > ```
+> > {: .bash}
+> > Recall that `..` refers to the parent directory (i.e. one above the current directory)
+> > and that `.` refers to the current directory.
+> {: .solution}
+{: .challenge}
+
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
 We can check that it did the right thing using `ls`
@@ -639,37 +670,6 @@ but it does find the copy in `thesis` that we didn't delete.
 > > cp: target ‘morse.txt’ is not a directory
 > > ```
 > > {: .output}
-> {: .solution}
-{: .challenge}
-
-> ## Moving to the Current Folder
->
-> After running the following commands,
-> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder:
->
-> ~~~
-> $ ls -F
-> raw/ analyzed/
-> $ ls -F analyzed
-> fructose.dat glucose.dat maltose.dat sucrose.dat
-> $ cd raw/
-> ~~~
-> {: .bash}
->
-> Fill in the blanks to move these files to the current folder
-> (i.e., the one she is currently in):
->
-> ~~~
-> $ mv ___/sucrose.dat  ___/maltose.dat ___
-> ~~~
-> {: .bash}
-> > ## Solution
-> > ```
-> > $ mv ../analyzed/sucrose.dat ../analyzed/maltose.dat .
-> > ```
-> > {: .bash}
-> > Recall that `..` refers to the parent directory (i.e. one above the current directory)
-> > and that `.` refers to the current directory.
 > {: .solution}
 {: .challenge}
 
