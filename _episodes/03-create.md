@@ -306,6 +306,22 @@ $ rm -r thesis
 ~~~
 {: .bash}
 
+> ## Using `rm` Safely
+>
+> What happens when we type `rm -i thesis/quotations.txt`?
+> Why would we want this protection when using `rm`?
+>
+> > ## Solution
+> > ```
+> > $ rm: remove regular file 'thesis/quotations.txt'?
+> > ```
+> > {: .bash} 
+> > The -i option will prompt before every removal. 
+> > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever. 
+> > By using the -i flag, we have the chance to check that we are deleting only the files that we want to remove.
+> {: .solution}
+{: .challenge}
+
 > ## With Great Power Comes Great Responsibility
 >
 > Removing the files in a directory recursively can be a very dangerous
@@ -421,6 +437,37 @@ $ ls quotes.txt
 quotes.txt
 ~~~
 {: .output}
+
+> ## Moving to the Current Folder
+>
+> After running the following commands,
+> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder:
+>
+> ~~~
+> $ ls -F
+> raw/ analyzed/
+> $ ls -F analyzed
+> fructose.dat glucose.dat maltose.dat sucrose.dat
+> $ cd raw/
+> ~~~
+> {: .bash}
+>
+> Fill in the blanks to move these files to the current folder
+> (i.e., the one she is currently in):
+>
+> ~~~
+> $ mv ___/sucrose.dat  ___/maltose.dat ___
+> ~~~
+> {: .bash}
+> > ## Solution
+> > ```
+> > $ mv ../analyzed/sucrose.dat ../analyzed/maltose.dat .
+> > ```
+> > {: .bash}
+> > Recall that `..` refers to the parent directory (i.e. one above the current directory)
+> > and that `.` refers to the current directory.
+> {: .solution}
+{: .challenge}
 
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
@@ -639,53 +686,6 @@ but it does find the copy in `thesis` that we didn't delete.
 > > cp: target ‘morse.txt’ is not a directory
 > > ```
 > > {: .output}
-> {: .solution}
-{: .challenge}
-
-> ## Moving to the Current Folder
->
-> After running the following commands,
-> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder:
->
-> ~~~
-> $ ls -F
-> raw/ analyzed/
-> $ ls -F analyzed
-> fructose.dat glucose.dat maltose.dat sucrose.dat
-> $ cd raw/
-> ~~~
-> {: .bash}
->
-> Fill in the blanks to move these files to the current folder
-> (i.e., the one she is currently in):
->
-> ~~~
-> $ mv ___/sucrose.dat  ___/maltose.dat ___
-> ~~~
-> {: .bash}
-> > ## Solution
-> > ```
-> > $ mv ../analyzed/sucrose.dat ../analyzed/maltose.dat .
-> > ```
-> > {: .bash}
-> > Recall that `..` refers to the parent directory (i.e. one above the current directory)
-> > and that `.` refers to the current directory.
-> {: .solution}
-{: .challenge}
-
-> ## Using `rm` Safely
->
-> What happens when we type `rm -i thesis/quotations.txt`?
-> Why would we want this protection when using `rm`?
->
-> > ## Solution
-> > ```
-> > $ rm: remove regular file 'thesis/quotations.txt'?
-> > ```
-> > {: .bash} 
-> > The -i option will prompt before every removal. 
-> > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever. 
-> > By using the -i flag, we have the chance to check that we are deleting only the files that we want to remove.
 > {: .solution}
 {: .challenge}
 
