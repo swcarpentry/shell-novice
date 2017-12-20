@@ -1,7 +1,7 @@
 ---
 title: "Navigating Files and Directories"
 teaching: 15
-exercises: 0
+exercises: 20
 questions:
 - "How can I move around on my computer?"
 - "How can I see what files and directories I have?"
