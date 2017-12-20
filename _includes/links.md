@@ -1,8 +1,8 @@
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
-[concept-maps]: http://carpentries.github.io/instructor-training/05-memory/
+[concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
 [email]: mailto:lessons@software-carpentry.org
-[contrib-covenant]: http://contributor-covenant.org/
+[contrib-covenant]: https://contributor-covenant.org/
 [contributing]: {{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md
 [cran-checkpoint]: https://cran.r-project.org/web/packages/checkpoint/index.html
 [cran-knitr]: https://cran.r-project.org/web/packages/knitr/index.html
@@ -14,10 +14,10 @@
 [jekyll-windows]: http://jekyll-windows.juthilo.com/
 [jekyll]: https://jekyllrb.com/
 [jupyter]: https://jupyter.org/
-[mit-license]: http://opensource.org/licenses/mit-license.html
+[mit-license]: https://opensource.org/licenses/mit-license.html
 [morea]: https://morea-framework.github.io/
-[numfocus]: http://numfocus.org/
-[osi]: http://opensource.org
+[numfocus]: https://numfocus.org/
+[osi]: https://opensource.org
 [pandoc]: https://pandoc.org/
 [paper-now]: https://github.com/PeerJ/paper-now
 [python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
@@ -25,10 +25,10 @@
 [r-markdown]: http://rmarkdown.rstudio.com/
 [rstudio]: https://www.rstudio.com/
 [ruby-install-guide]: https://www.ruby-lang.org/en/downloads/
-[ruby-installer]: http://rubyinstaller.org/
+[ruby-installer]: https://rubyinstaller.org/
 [rubygems]: https://rubygems.org/pages/download/
 [styles]: https://github.com/swcarpentry/styles/
-[training]: http://swcarpentry.github.io/instructor-training/
+[training]: https://swcarpentry.github.io/instructor-training/
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
 [coc]: https://software-carpentry.org/conduct/
