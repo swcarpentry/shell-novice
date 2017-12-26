@@ -84,6 +84,8 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 >
 > 1. Don't use whitespaces.
 >
+>     [Whitespace](https://en.wikipedia.org/wiki/Whitespace_character) is defined as any character or series of characters that represent horizontal or vertical space in typography. When rendered, a whitespace character does not correspond to a visible mark, but typically does occupy an area on a page.
+>
 >    Whitespaces can make a name more meaningful
 >    but since whitespace is used to break arguments on the command line
 >    is better to avoid them in names of files and directories.
