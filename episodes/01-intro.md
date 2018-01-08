@@ -113,10 +113,7 @@ She has 1520 samples in all and now needs to:
     a file with one line for each protein.
 2.  Calculate statistics for each of the proteins separately
     using a program her supervisor wrote called `goostats`.
-3.  Compare the statistics for each protein
-    with corresponding statistics for each other protein
-    using a program one of the other graduate students wrote called `goodiff`.
-4.  Write up results.
+3.  Write up results.
     Her supervisor would really like her to do this by the end of the month
     so that her paper can appear in an upcoming special issue of *Aquatic Goo Letters*.
 
@@ -126,13 +123,16 @@ it only takes two minutes to set each one up.
 Since her lab has eight assay machines that she can use in parallel,
 this step will "only" take about two weeks.
 
-The bad news is that if she has to run `goostats` and `goodiff` by hand,
-she'll have to enter filenames and click "OK" 46,370 times
-(1520 runs of `goostats`, plus 300*299/2 (half of 300 times 299) runs of `goodiff`).
-At 30 seconds each,
-that will take more than two weeks.
-Not only would she miss her paper deadline,
-the chances of her typing all of those commands right are practically zero.
+The bad news is that if she has to run `goostats` by hand,
+she'll have to enter filenames and click "OK" 1520 times.
+At 30 seconds per sample,
+the whole process will take more than 12 hours
+(and that's assuming the best-case scenario where she is ready to enter the next file name
+as soon as the previous sample analysis has finished).
+This zero-breaks always-ready scenario is only achieveable by a machine so it would
+likely take much longer than 12 hours, not to mention that
+the chances of her typing all of those commands correctly are practically zero.
+Missing that paper deadline is looking increasingly likely.
 
 The next few lessons will explore what she should do instead.
 More specifically,
