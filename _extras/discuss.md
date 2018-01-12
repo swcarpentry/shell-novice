@@ -68,4 +68,4 @@ This excellent blog post "[Bash Configurations Demystified][bash-demystified]"
 from Dalton Hubble
 covers tips, tricks, and how to avoid dangers.
 
-[bash-demystified]: http://dghubble.com/blog/posts/.bashprofile-.profile-and-.bashrc-conventions/
+[bash-demystified]: https://blog.dghubble.io/post/.bashprofile-.profile-and-.bashrc-conventions/
