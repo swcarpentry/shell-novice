@@ -674,8 +674,9 @@ so that you and other people can put those programs into pipes to multiply their
 > $ cut -d , -f 2 animals.txt
 > ~~~
 > {: .bash}
->
-> produces the following output:
+> 
+> uses the -d flag to separate the line by comma and the -f flag
+> to print the second field, to give the following output:
 >
 > ~~~
 > deer
