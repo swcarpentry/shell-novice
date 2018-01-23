@@ -36,7 +36,7 @@ $ cd
 $ cd writing
 $ cat haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 The Tao that is seen
@@ -65,7 +65,7 @@ Let's find lines that contain the word "not":
 ~~~
 $ grep not haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 Is not the true Tao, until
@@ -83,7 +83,7 @@ Let's try a different pattern: "The".
 ~~~
 $ grep The haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 The Tao that is seen
@@ -103,7 +103,7 @@ This will limit matches to word boundaries.
 ~~~
 $ grep -w The haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 The Tao that is seen
@@ -119,7 +119,7 @@ want to search for a single word, but a phrase. This is also easy to do with
 ~~~
 $ grep -w "is not" haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 Today it is not working
@@ -137,7 +137,7 @@ Another useful option is `-n`, which numbers the lines that match:
 ~~~
 $ grep -n "it" haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 5:With searching comes loss
@@ -155,7 +155,7 @@ the option `-w` to find the lines that contain the word "the" and `-n` to number
 ~~~
 $ grep -n -w "the" haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 2:Is not the true Tao, until
@@ -168,7 +168,7 @@ Now we want to use the option `-i` to make our search case-insensitive:
 ~~~
 $ grep -n -w -i "the" haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 1:The Tao that is seen
@@ -183,7 +183,7 @@ the lines that do not contain the word "the".
 ~~~
 $ grep -n -w -v "the" haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 1:The Tao that is seen
@@ -203,7 +203,7 @@ $ grep -n -w -v "the" haiku.txt
 ~~~
 $ grep --help
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 Usage: grep [OPTION]... PATTERN [FILE]...
@@ -261,7 +261,7 @@ Miscellaneous:
 > ~~~
 > $ grep -E '^.o' haiku.txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > ~~~
 > You bring fresh toner.
@@ -314,7 +314,7 @@ Miscellaneous:
 > $1.txt  
 > cut -d , -f 1,3  
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > Hint: use `man grep` to look for how to grep text recursively in a directory
 > and `man cut` to select more than one field in a line.
@@ -333,7 +333,7 @@ Miscellaneous:
 > > ```
 > > $ bash count-species.sh bear .
 > > ```
-> > {: .bash}
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
@@ -401,7 +401,7 @@ let's run `find .`.
 ~~~
 $ find .
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 .
@@ -438,7 +438,7 @@ Sure enough,
 ~~~
 $ find . -type d
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ./
@@ -456,7 +456,7 @@ we get a listing of all the files instead:
 ~~~
 $ find . -type f
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ./haiku.txt
@@ -475,7 +475,7 @@ Now let's try matching by name:
 ~~~
 $ find . -name *.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ./haiku.txt
@@ -491,7 +491,7 @@ the command we actually ran was:
 ~~~
 $ find . -name haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 `find` did what we asked; we just asked for the wrong thing.
 
@@ -504,7 +504,7 @@ This way,
 ~~~
 $ find . -name '*.txt'
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ./data/one.txt
@@ -535,7 +535,7 @@ The simplest way is to put the `find` command inside `$()`:
 ~~~
 $ wc -l $(find . -name '*.txt')
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 11 ./haiku.txt
@@ -555,7 +555,7 @@ the shell constructs the command:
 ~~~
 $ wc -l ./data/one.txt ./data/LittleWomen.txt ./data/two.txt ./haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 which is what we wanted.
 This expansion is exactly what the shell does when it expands wildcards like `*` and `?`,
@@ -570,7 +570,7 @@ by looking for the string "FE" in all the `.pdb` files above the current directo
 ~~~
 $ grep "FE" $(find .. -name '*.pdb')
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518
@@ -647,7 +647,7 @@ about them."
 > ~~~
 > wc -l $(find . -name '*.dat') | sort -n
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > > ## Solution
 > > 1. Find all files with a `.dat` extension in the current directory
@@ -692,7 +692,7 @@ about them."
 > $1.txt  
 > cut -d , -f 1,3  
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > Hint: use `man grep` to look for how to grep text recursively in a directory
 > and `man cut` to select more than one field in a line.
@@ -711,7 +711,7 @@ about them."
 > > ```
 > > $ bash count-species.sh bear .
 > > ```
-> > {: .bash}
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
@@ -777,6 +777,6 @@ about them."
 > > ~~~
 > > $ find ./ -type f -mtime -1 -user ahmed
 > > ~~~
-> > {: .bash}
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
