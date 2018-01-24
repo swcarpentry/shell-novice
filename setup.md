@@ -13,7 +13,7 @@ You need to download some files to follow this lesson:
 In the lesson, you will find out how to access the data in this folder.  
 
 > ## Where to type commands: How to open a new shell
-> The `shell` is a program that enables us to send commands to the computer and recive output. It is also referred to as the `terminal` or `command line`.
+> The `shell` is a program that enables us to send commands to the computer and receive output. It is also referred to as the `terminal` or `command line`.
 >
 > Some computers include a default Unix Shell program. 
 > The steps below describe some methods for identifying and opening a Unix Shell program if you already have one installed. 
@@ -22,7 +22,7 @@ In the lesson, you will find out how to access the data in this folder.
 > If none of the options below address your circumstances, try an online search for: UNIX shell [your computer model] [your operating system].
 >
 > ### Linux
-> The default shell for Linux operating systems is usually Bash.
+> The default shell for Linux operating systems is usually Bash (acronym for Borne Again SHell).
 > On most versions of Linux, it is accessible by running the Terminal program,
 >  which can be found via the applications menu or the search bar.  
 > If your machine is set up to use something other than bash, you can run it by opening a terminal and typing `bash`.
