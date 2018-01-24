@@ -10,8 +10,6 @@ objectives:
 - "Explain the similarities and differences between a file and a directory."
 - "Translate an absolute path into a relative path and vice versa."
 - "Construct absolute and relative paths that identify specific files and directories."
-- "Explain the steps in the shell's read-run-print cycle."
-- "Identify the actual command, flags, and filenames in a command-line call."
 - "Demonstrate the use of tab completion, and explain its advantages."
 keypoints:
 - "The file system is responsible for managing information on the disk."
@@ -27,10 +25,9 @@ keypoints:
 - "Directory names in a path are separated with `/` on Unix, but `\\\\` on Windows."
 - "`..` means 'the directory above the current one'; `.` on its own means 'the current directory'."
 - "Most files' names are `something.extension`. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file."
-- "Most commands take options (flags) which begin with a `-`."
 ---
 
-The part of the operating system responsible for managing files and directories
+The part of the operating system responsible for managing files and directories 
 is called the **file system**.
 It organizes our data into files,
 which hold information,
@@ -38,100 +35,14 @@ and directories (also called "folders"),
 which hold files or other directories.
 
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
-To start exploring them,
-let's open a shell window:
+To start exploring them, we'll go to our open shell window:
 
-> ## Preparation Magic
->
-> If you type the command:
-> `PS1='$ '`
-> into your shell, followed by pressing the 'enter' key,
-> your window should look like our example in this lesson.  
-> This isn't necessary to follow along (in fact, your prompt may have
-> other helpful information you want to know about).  This is up to you!  
-{: .callout}
-
-~~~
-$
-~~~
-{: .language-bash}
-
-The dollar sign is a **prompt**, which shows us that the shell is waiting for input;
-your shell may use a different character as a prompt and may add information before
-the prompt. When typing commands, either from these lessons or from other sources,
-do not type the prompt, only the commands that follow it.
-
-Type the command `whoami`,
-then press the Enter key (sometimes marked Return) to send the command to the shell.
-The command's output is the ID of the current user,
-i.e.,
-it shows us who the shell thinks we are:
-
-~~~
-$ whoami
-~~~
-{: .language-bash}
-
-~~~
-nelle
-~~~
-{: .output}
-
-More specifically, when we type `whoami` the shell:
-
-1.  finds a program called `whoami`,
-2.  runs that program,
-3.  displays that program's output, then
-4.  displays a new prompt to tell us that it's ready for more commands.
-
-
-> ## Username Variation
->
-> In this lesson, we have used the username `nelle` (associated
-> with our hypothetical scientist Nelle) in example input and output throughout.  
-> However, when
-> you type this lesson's commands on your computer,
-> you should see and use something different,
-> namely, the username associated with the user account on your computer.  This
-> username will be the output from `whoami`.  In
-> what follows, `nelle` should always be replaced by that username.  
-{: .callout}
-
-> ## Unknown commands
-> Remember, the Shell is a program that runs other programs rather than doing
-> calculations itself. So the commands you type must be the names of existing
-> programs.
-> If you type the name of a program that does not exist and hit enter, you
-> will see an error message similar to this:
-> 
-> ~~~
-> $ mycommand
-> ~~~
-> {: .language-bash}
-> 
-> ~~~
-> -bash: mycommand: command not found
-> ~~~
-> {: .error}
-> 
-> The Shell (Bash) tells you that it cannot find the program `mycommand`
-> because the program you are trying to run does not exist on your computer.
-> We will touch on quite a few commands in the course of this tutorial, but there
-> are actually many more than we can cover here.
-{: .callout}
-
-Next,
-let's find out where we are by running a command called `pwd`
-(which stands for "print working directory").
-At any moment,
-our **current working directory**
-is our current default directory,
-i.e.,
-the directory that the computer assumes we want to run commands in
-unless we explicitly specify something else.
-Here,
-the computer's response is `/Users/nelle`,
-which is Nelle's **home directory**:
+First let's find out where we are by running a command called `pwd`
+(which stands for "print working directory"). Directories are like *places* - at any time
+while we are using the shell we are in exactly one place, called
+our **current working directory**. Commands mostly read and write files in the 
+current working directory, i.e. "here", so knowing where you are before running
+a command is important. `pwd` shows you where you are:
 
 ~~~
 $ pwd
@@ -142,6 +53,10 @@ $ pwd
 /Users/nelle
 ~~~
 {: .output}
+
+Here,
+the computer's response is `/Users/nelle`,
+which is Nelle's **home directory**:
 
 > ## Home Directory Variation
 >
@@ -223,11 +138,14 @@ Desktop      Downloads    Movies       Pictures
 system and how you have customized your filesystem.)
 
 `ls` prints the names of the files and directories in the current directory in
-alphabetical order,
-arranged neatly into columns.
+alphabetical order, arranged neatly into columns.
 We can make its output more comprehensible by using the **flag** `-F`
 (also known as a **switch** or an **option**) ,
-which tells `ls` to add a trailing `/` to the names of directories:
+which tells `ls` to add a marker to file and directory names to indicate what
+they are. A trailing `/` indicates that this is a directory. Depending on your
+terminal, it might also use colors to indicate whether each entry is a file or 
+directory.
+You might recall that we used `ls -F` in an earlier example.
 
 ~~~
 $ ls -F
@@ -240,7 +158,43 @@ Desktop/      Downloads/    Movies/       Pictures/
 ~~~
 {: .output}
 
-`ls` has lots of other **flags**. To find out what they are, we can type:
+### Getting help
+
+`ls` has lots of other **flags**. There are two common ways to find out how 
+to use a command and what flags it accepts:
+
+1. We can pass a `--help` flag to the command, such as:
+    ~~~
+    $ ls --help
+    ~~~
+    {: .bash}
+
+2. We can read its manual with `man`, such as:
+    ~~~
+    $ man ls 
+    ~~~
+    {: .bash}
+
+If you use a Mac, or Git for Windows, you might find that only one of these works 
+(probably `man` on Mac and `--help` in Windows). We'll describe both ways.
+
+Of course there is a third way: searching the internet via your web browser. 
+When using internet search, including the phrase `unix man page` in your search
+query will help to find relevant results.
+
+> ## Manual pages on the web
+>
+> GNU provides links to its
+> [manuals](http://www.gnu.org/manual/manual.html) including the
+> [core GNU utilities](http://www.gnu.org/software/coreutils/manual/coreutils.html),
+> which covers many commands introduced within this lesson.
+{: .callout}
+
+#### The `--help` flag
+
+Many bash commands, and programs that people have written that can be
+run from within bash, support a `--help` flag to display more
+information on how to use the command or program.
 
 ~~~
 $ ls --help
@@ -367,13 +321,9 @@ or available locally via: info '(coreutils) ls invocation'
 ~~~
 {: .output}
 
-Many bash commands, and programs that people have written that can be
-run from within bash, support a `--help` flag to display more
-information on how to use the commands or programs.
-
 > ## Unsupported command-line options
 > If you try to use an option (flag) that is not supported, `ls` and other programs
-> will print an error message similar to this:
+> will usually print an error message similar to this:
 >
 > ~~~
 > $ ls -j
@@ -386,6 +336,27 @@ information on how to use the commands or programs.
 > ~~~
 > {: .error}
 {: .callout}
+
+#### The `man` command
+
+The other way to learn about `ls` is to type 
+~~~
+$ man ls
+~~~
+{: .bash}
+
+This will turn your terminal into a page with a description 
+of the `ls` command and its options and, if you're lucky, some examples
+of how to use it.
+
+To navigate through the `man` pages,
+you may use the up and down arrow keys to move line-by-line,
+or try the "b" and spacebar keys to skip up and down by a full page.
+To search for a character or word in the `man` pages, 
+use "/" followed by the character or word you are searching for. 
+
+To **quit** the `man` pages, press `q`. 
+
 
 > ## Exploring More `ls` Flags
 >
@@ -418,33 +389,6 @@ information on how to use the commands or programs.
 > {: .solution}
 {: .challenge}
 
-For more information on how to use `ls` we can type `man ls`.
-`man` is the Unix "manual" command:
-it prints a description of a command and its options,
-and (if you're lucky) provides a few examples of how to use it.
-
-> ## `man` and Git for Windows
->
-> The bash shell provided by Git for Windows does not
-> support the `man` command. Doing a web search for
-> `unix man page COMMAND` (e.g. `unix man page grep`)
-> provides links to numerous copies of the Unix manual
-> pages online.
-> For example, GNU provides links to its
-> [manuals](http://www.gnu.org/manual/manual.html):
-> these include [grep](http://www.gnu.org/software/grep/manual/),
-> and the
-> [core GNU utilities](http://www.gnu.org/software/coreutils/manual/coreutils.html),
-> which covers many commands introduced within this lesson.
-{: .callout}
-
-To navigate through the `man` pages,
-you may use the up and down arrow keys to move line-by-line,
-or try the "b" and spacebar keys to skip up and down by a full page.
-To search for a character or word in the `man` pages, 
-use "/" followed by the character or word you are searching for. 
-Quit the `man` pages by typing "q". 
-
 Here,
 we can see that our home directory contains mostly **sub-directories**.
 Any names in your output that don't have trailing slashes,
@@ -453,24 +397,6 @@ And note that there is a space between `ls` and `-F`:
 without it,
 the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
-
-> ## Parameters vs. Arguments
->
-> According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
-> the terms **argument** and **parameter**
-> mean slightly different things.
-> In practice,
-> however,
-> most people use them interchangeably
-> to refer to the input term(s) given to a command.
-> Consider the example below:
-> ```
-> ls -lh Documents
-> ```
-> {: .language-bash}
-> `ls` is the command, `-lh` are the flags (also called options),
-> and `Documents` is the argument.
-{: .callout}
 
 We can also use `ls` to see the contents of a different directory.  Let's take a
 look at our `Desktop` directory by running `ls -F Desktop`,
