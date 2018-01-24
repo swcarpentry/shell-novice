@@ -193,12 +193,12 @@ because its name begins with `/`.
 
 Underneath `/Users`,
 we find one directory for each user with an account on Nelle's machine,
-her colleagues the Mummy and Wolfman.  
+her colleagues the `imhotep` and `larry`.  
 
 ![Home Directories](../fig/home-directories.svg)
 
-The Mummy's files are stored in `/Users/imhotep`,
-Wolfman's in `/Users/larry`,
+The user imhotep's files are stored in `/Users/imhotep`,
+user larry's in `/Users/larry`,
 and Nelle's in `/Users/nelle`.  Because Nelle is the user in our
 examples here, this is why we get `/Users/nelle` as our home directory.  
 Typically, when you open a new command prompt you will be in
@@ -442,7 +442,7 @@ To navigate through the `man` pages,
 you may use the up and down arrow keys to move line-by-line,
 or try the "b" and spacebar keys to skip up and down by a full page.
 To search for a character or word in the `man` pages, 
-use "/" followed by the character or word you are searching for. 
+use "/" followed by the character or word you are searching for. At times, a search will result in multiple hits.  If so, you can move between hits using `n` key (for moving forward) and `N` key (for moving backward).
 Quit the `man` pages by typing "q". 
 
 Here,
@@ -540,8 +540,7 @@ $ cd data
 {: .bash}
 
 These commands will move us from our home directory onto our Desktop, then into
-the `data-shell` directory, then into the `data` directory.  `cd` doesn't print anything,
-but if we run `pwd` after it, we can see that we are now
+the `data-shell` directory, then into the `data` directory.  You will notice that `cd` doesn't print anything.  This is normal.  Many linux commands will not output anything to the screen when successfully executed.  But if we run `pwd` after it, we can see that we are now
 in `/Users/nelle/Desktop/data-shell/data`.
 If we run `ls` without arguments now,
 it lists the contents of `/Users/nelle/Desktop/data-shell/data`,
@@ -808,7 +807,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > Assuming a directory structure as in the above Figure
 > (File System for Challenge Questions), if `pwd` displays `/Users/backup`,
 > and `-r` tells `ls` to display things in reverse order,
-> what command will display:
+> what command will result in the following output:
 >
 > ~~~
 > pnas_sub/ pnas_final/ original/
