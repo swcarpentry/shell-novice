@@ -76,7 +76,7 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 > the files and directories themselves are the same.
 {: .callout}
 
-> ## Good names for files and directories
+> ## Best practices for naming files and directories
 >
 > Complicated names of files and directories can make your life painful
 > when working on the command line. Here we provide a few useful
@@ -358,6 +358,12 @@ $ pwd
 ~~~
 $ mkdir thesis
 $ nano thesis/draft.txt
+~~~
+{: .language-bash}
+
+Save the file (`^O`) and close it (`^X`).  Then list files in `thesis` folder.
+
+~~~
 $ ls thesis
 ~~~
 {: .language-bash}
