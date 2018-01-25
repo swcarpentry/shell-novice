@@ -33,7 +33,7 @@ become our shell script:
 $ cd molecules
 $ nano middle.sh
 ~~~
-{: .bash}
+{: .language-bash}
 
 The command `nano middle.sh` opens the file `middle.sh` within the text editor "nano"
 (which runs within the shell).
@@ -61,7 +61,7 @@ Our shell is called `bash`, so we run the following command:
 ~~~
 $ bash middle.sh
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
@@ -96,7 +96,7 @@ Instead, let's edit `middle.sh` and make it more versatile:
 ~~~
 $ nano middle.sh
 ~~~
-{: .bash}
+{: .language-bash}
 
 Now, within "nano", replace the text `octane.pdb` with the special variable called `$1`:
 
@@ -112,7 +112,7 @@ We can now run our script like this:
 ~~~
 $ bash middle.sh octane.pdb
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
@@ -128,7 +128,7 @@ or on a different file like this:
 ~~~
 $ bash middle.sh pentane.pdb
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ATOM      9  H           1       1.324   0.350  -1.332  1.00  0.00
@@ -154,7 +154,7 @@ number of lines to be passed to `head` and `tail` respectively:
 ~~~
 $ nano middle.sh
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 head -n "$2" "$1" | tail -n "$3"
@@ -166,7 +166,7 @@ We can now run:
 ~~~
 $ bash middle.sh pentane.pdb 15 5
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ATOM      9  H           1       1.324   0.350  -1.332  1.00  0.00
@@ -183,7 +183,7 @@ behaviour:
 ~~~
 $ bash middle.sh pentane.pdb 20 5
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ATOM     14  H           1      -1.259   1.420   0.112  1.00  0.00
@@ -201,7 +201,7 @@ We can improve our script by adding some **comments** at the top:
 ~~~
 $ nano middle.sh
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 # Select lines from the middle of a file.
@@ -223,7 +223,7 @@ For example, if we want to sort our `.pdb` files by length, we would type:
 ~~~
 $ wc -l *.pdb | sort -n
 ~~~
-{: .bash}
+{: .language-bash}
 
 because `wc -l` lists the number of lines in the files
 (recall that `wc` stands for 'word count', adding the `-l` flag means 'count lines' instead)
@@ -245,7 +245,7 @@ Here's an example:
 ~~~
 $ nano sorted.sh
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 # Sort filenames by their length.
@@ -257,7 +257,7 @@ wc -l "$@" | sort -n
 ~~~
 $ bash sorted.sh *.pdb ../creatures/*.dat
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 9 methane.pdb
@@ -320,7 +320,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > ~~~
 > $ bash sorted.sh
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > but don't say `*.dat` (or anything else)? In this case, `$@` expands to
 > nothing at all, so the pipeline inside the script is effectively:
@@ -328,7 +328,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > ~~~
 > $ wc -l | sort -n
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > Since it doesn't have any filenames, `wc` assumes it is supposed to
 > process standard input, so it just sits there and waits for us to give
@@ -348,7 +348,7 @@ we can do this:
 ~~~
 $ history | tail -n 5 > redo-figure-3.sh
 ~~~
-{: .bash}
+{: .language-bash}
 
 The file `redo-figure-3.sh` now contains:
 
@@ -372,7 +372,7 @@ we have a completely accurate record of how we created that figure.
 > ~~~
 > $ history | tail -n 5 > recent.sh
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > the last command in the file is the `history` command itself, i.e.,
 > the shell has added `history` to the command log before actually
@@ -408,7 +408,7 @@ do
     bash goostats $datafile stats-$datafile
 done
 ~~~
-{: .bash}
+{: .language-bash}
 
 She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
@@ -416,14 +416,14 @@ so that she can now re-do the first stage of her analysis by typing:
 ~~~
 $ bash do-stats.sh NENE*[AB].txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 She can also do this:
 
 ~~~
 $ bash do-stats.sh NENE*[AB].txt | wc -l
 ~~~
-{: .bash}
+{: .language-bash}
 
 so that the output is just the number of files processed
 rather than the names of the files that were processed.
@@ -440,7 +440,7 @@ do
     bash goostats $datafile stats-$datafile
 done
 ~~~
-{: .bash}
+{: .language-bash}
 
 The advantage is that this always selects the right files:
 she doesn't have to remember to exclude the 'Z' files.
@@ -462,14 +462,14 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > head -n $2 $1
 > tail -n $3 $1
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > While you are in the `molecules` directory, you type the following command:
 >
 > ~~~
 > bash script.sh '*.pdb' 1 1
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > Which of the following outputs would you expect to see?
 >
@@ -489,7 +489,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > $ head -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
 > > $ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
 > > ```
-> > {: .bash}
+> > {: .language-bash}
 > > The shell does not expand `'*.pdb'` because it is enclosed by quote marks.
 > > As such, the first argument to the script is `'*.pdb'` which gets expanded within the
 > > script by `head` and `tail`.
@@ -506,7 +506,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ~~~
 > $ bash longest.sh /tmp/data pdb
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > would print the name of the `.pdb` file in `/tmp/data` that has
 > the most lines.
@@ -538,7 +538,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > # Script 1
 > echo *.*
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > ~~~
 > # Script 2
@@ -547,13 +547,13 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >     cat $filename
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > ~~~
 > # Script 3
 > echo $@.pdb
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > > ## Solutions
 > > Script 1 would print out a list of all files containing a dot in their name.
@@ -583,14 +583,14 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >     bash goostats $datafile stats-$datafile
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > When you run it:
 >
 > ~~~
 > $ bash do-errors.sh NENE*[AB].txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > the output is blank.
 > To figure out why, re-run the script using the `-x` option:
@@ -598,7 +598,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ~~~
 > bash -x do-errors.sh NENE*[AB].txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > What is the output showing you?
 > Which line is responsible for the error?
