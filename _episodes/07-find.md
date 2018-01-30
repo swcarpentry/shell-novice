@@ -18,8 +18,8 @@ keypoints:
 - "`$(command)` inserts a command's output in place."
 ---
 
-In the same way that many of us now use "Google" as a 
-verb meaning "to find", Unix programmers often use the 
+In the same way that many of us now use "Google" as a
+verb meaning "to find", Unix programmers often use the
 word "grep".
 "grep" is a contraction of "global/regular expression/print",
 a common sequence of operations in early Unix text editors.
@@ -111,7 +111,7 @@ The Tao that is seen
 {: .output}
 
 Note that a "word boundary" includes the start and end of a line, so not
-just letters surrounded by spaces. 
+just letters surrounded by spaces.
 Sometimes we don't
 want to search for a single word, but a phrase. This is also easy to do with
 `grep` by putting the phrase in quotes.
@@ -279,10 +279,10 @@ Miscellaneous:
 {: .callout}
 
 > ## Tracking a Species
-> 
-> Leah has several hundred 
+>
+> Leah has several hundred
 > data files saved in one directory, each of which is formatted like this:
-> 
+>
 > ~~~
 > 2013-11-05,deer,5
 > 2013-11-05,rabbit,22
@@ -292,11 +292,11 @@ Miscellaneous:
 > ~~~
 > {: .source}
 >
-> She wants to write a shell script that takes a species as the first command-line argument 
-> and a directory as the second argument. The script should return one file called `species.txt` 
+> She wants to write a shell script that takes a species as the first command-line argument
+> and a directory as the second argument. The script should return one file called `species.txt`
 > containing a list of dates and the number of that species seen on each date.
 > For example using the data shown above, `rabbits.txt` would contain:
-> 
+>
 > ~~~
 > 2013-11-05,22
 > 2013-11-06,19
@@ -304,7 +304,7 @@ Miscellaneous:
 > {: .source}
 >
 > Put these commands and pipes in the right order to achieve this:
-> 
+>
 > ~~~
 > cut -d : -f 2  
 > >  
@@ -426,7 +426,7 @@ which is where we want our search to start.
 `find`'s output is the names of every file **and** directory
 under the current working directory.
 This can seem useless at first but `find` has many options
-to filter the output and in this lesson we will discover some 
+to filter the output and in this lesson we will discover some
 of them.
 
 The first option in our list is
@@ -657,22 +657,25 @@ about them."
 {: .challenge}
 
 > ## Finding Files With Different Properties
-> 
+>
 > The `find` command can be given several other criteria known as "tests"
 > to locate files with specific attributes, such as creation time, size,
 > permissions, or ownership.  Use `man find` to explore these, and then
 > write a single command to find all files in or below the current directory
-> that were modified by the user `ahmed` in the last 24 hours.
+> that were modified by the user in the last 24 hours.
 >
 > Hint 1: you will need to use three tests: `-type`, `-mtime`, and `-user`.
 >
 > Hint 2: The value for `-mtime` will need to be negative---why?
 >
+>
+> Hint 3: How can you specify user name to `find` without explicitly writing it?
+>
 > > ## Solution
 > > Assuming that Nelle’s home is our working directory we type:
 > >
 > > ~~~
-> > $ find ./ -type f -mtime -1 -user ahmed
+> > $ find ./ -type f -mtime -1 -user $(whoami)
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
