@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Licenses"
-permalink: /license/
+root: .
 ---
 ## Instructional Material
 
@@ -78,6 +78,6 @@ are registered trademarks of [NumFOCUS][numfocus].
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
-[mit-license]: http://opensource.org/licenses/mit-license.html
-[numfocus]: http://numfocus.org/
-[osi]: http://opensource.org
+[mit-license]: https://opensource.org/licenses/mit-license.html
+[numfocus]: https://numfocus.org/
+[osi]: https://opensource.org

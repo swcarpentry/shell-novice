@@ -17,7 +17,7 @@
   <tr>
     {% if multiday %}<td class="col-md-1"></td>{% endif %}
     <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}"></td>
-    <td class="col-md-3"><a href="{{ page.root }}/setup">Setup</a></td>
+    <td class="col-md-3"><a href="{{ page.root }}{% link setup.md %}">Setup</a></td>
     <td class="col-md-7">Download files required for the lesson</td>
   </tr>
   {% for episode in site.episodes %}
