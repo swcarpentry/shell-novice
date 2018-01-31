@@ -117,7 +117,7 @@ More specifically, when we type `whoami` the shell:
 > The Shell (Bash) tells you that it cannot find the program `mycommand`
 > because the program you are trying to run does not exist on your computer.
 > We will touch on quite a few commands in the course of this tutorial, but there
-> are actually many more than we can cover here.
+> are actually many more than we can cover here.  For a more complete list of common (and less common, but useful) bash commands please look at the ss64 documentation here: https://ss64.com/bash/
 {: .callout}
 
 Next,
