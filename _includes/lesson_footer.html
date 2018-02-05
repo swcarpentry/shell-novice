@@ -1,5 +1,5 @@
 {% comment %}
-  Footer for lesson pages.
+  Pie de página para las páginas de lecciones.
 {% endcomment %}
 <footer>
   <div class="row">
@@ -19,19 +19,19 @@
       <h4>
 	{% if page.source %}
 	{% if page.source == "Rmd" %}
-	<a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}">Edit on GitHub</a>
+	<a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}">Editar en GitHub</a>
 	{% endif %}
 	{% else %}
-	<a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path}}">Edit on GitHub</a>
+	<a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path}}">Editar en GitHub</a>
 	{% endif %}
 	/
-	<a href="{{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	<a href="{{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md">Contribuir</a>
 	/
-	<a href="{{ site.github.repository_url }}/">Source</a>
+	<a href="{{ site.github.repository_url }}/">Fuente</a>
 	/
 	<a href="{{ site.github.repository_url }}/blob/gh-pages/CITATION">Cite</a>
 	/
-	<a href="{{ site.email }}">Contact</a>
+	<a href="{{ site.email }}">Contacto</a>
       </h4>
     </div>
   </div>

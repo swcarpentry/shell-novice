@@ -1,9 +1,9 @@
 {% comment %}
-  Display syllabus in tabular form.
-  Days are displayed if at least one episode has 'start = true'.
+  Mostrar plan de estudios en forma de tabla.
+  Los días se muestran si al menos un episodio tiene 'start = true'.
 {% endcomment %}
 <div class="syllabus">
-  <h2 id="schedule">Schedule</h2>
+  <h2 id="schedule">Horario</h2>
 
   {% assign lesson_number = 0 %}
   {% assign day = 0 %}
@@ -17,23 +17,23 @@
   <tr>
     {% if multiday %}<td class="col-md-1"></td>{% endif %}
     <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}"></td>
-    <td class="col-md-3"><a href="{{ page.root }}{% link setup.md %}">Setup</a></td>
-    <td class="col-md-7">Download files required for the lesson</td>
+    <td class="col-md-3"><a href="{{ page.root }}{% link setup.md %}">Configuración</a></td>
+    <td class="col-md-7">Descargar los archivos necesarios para la lección</td>
   </tr>
   {% for episode in site.episodes %}
-    {% if episode.start %} {% comment %} Starting a new day? {% endcomment %}
+    {% if episode.start %} {% comment %} ¿Comenzando un nuevo día? {% endcomment %}
       {% assign day = day | plus: 1 %}
-      {% if day > 1 %} {% comment %} If about to start day 2 or later, show finishing time for previous day {% endcomment %}
+      {% if day > 1 %} {% comment %} Si está por comenzar el día 2 o más tarde, muestre el tiempo de finalización del día anterior {% endcomment %}
         {% assign hours = current | divided_by: 60 %}
         {% assign minutes = current | modulo: 60 %}
         <tr>
           {% if multiday %}<td class="col-md-1"></td>{% endif %}
           <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
-          <td class="col-md-3">Finish</td>
+          <td class="col-md-3">Finalizar</td>
           <td class="col-md-7"></td>
         </tr>
       {% endif %}
-      {% assign current = site.start_time %} {% comment %}Re-set start time of this episode to general daily start time {% endcomment %}
+      {% assign current = site.start_time %} {% comment %}Restablecer el tiempo de inicio de este episodio a la hora de inicio diaria general {% endcomment %}
     {% endif %}
     {% assign hours = current | divided_by: 60 %}
     {% assign minutes = current | modulo: 60 %}
@@ -46,7 +46,7 @@
       </td>
       <td class="col-md-7">
         {% if episode.break %}
-          Break
+          Descanso
         {% else %}
           {% if episode.questions %}
             {% for question in episode.questions %}
@@ -72,7 +72,7 @@
   </table>
 
   <p>
-    The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
+   El horario real puede variar ligeramente dependiendo de los temas y ejercicios elegidos por el instructor.
   </p>
 
 </div>
