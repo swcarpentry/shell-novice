@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Contributor Code of Conduct"
+title: "Código de conducta del contribuyente"
 permalink: /conduct/
 ---
 Los contribuyentes y mantenedores de este proyecto,

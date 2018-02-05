@@ -1,11 +1,11 @@
 ---
 layout: page
-title: "Licenses"
+title: "Licencias"
 root: .
 ---
 ### Material didáctico
 
-Todo el material instructivo de Carpintería de Software y Carpintería de Datos es
+Todo el material instructivo de Software Carpentry and Data Carpentry es
 disponible bajo el [Creative Commons Attribution
 licencia][cc-por-humano]. El siguiente es un resumen de lectura humana
 (y no un sustituto) del [texto legal completo de CC BY 4.0
@@ -25,7 +25,7 @@ Bajo los siguientes términos:
 
 * **Atribución** --- Debe otorgar el crédito apropiado (mencionando eso
   su trabajo se deriva del trabajo que es Copyright © Software
-  Carpintería y, donde sea práctico, enlace a
+  Carpentry y, donde sea práctico, enlace a
   http://software-carpentry.org/), proporcione un [enlace al
   licencia][cc-por-humano], e indique si se realizaron cambios. Puedes hacer
   así que de cualquier manera razonable, pero no de ninguna manera que sugiera
