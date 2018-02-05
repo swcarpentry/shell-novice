@@ -1,5 +1,5 @@
 {% comment %}
-  Advertising box at the top of a workshop website home page.
+Cuadro de publicidad en la parte superior de la página de inicio del sitio web de un taller.
 {% endcomment %}
 <div class="jumbotron">
   <div class="row">
@@ -12,7 +12,7 @@
         </div>
         <div class="col-md-6">
           <p>
-          <strong>Instructors:</strong>
+          <strong>Instructores:</strong>
           {% if page.instructor %}
           {{page.instructor | join: ', ' %}}
           {% else %}
@@ -21,7 +21,7 @@
           </p>
           {% if page.helper %}
           <p>
-          <strong>Helpers:</strong>
+          <strong>Ayudantes</strong>
           {{page.helper | join: ', ' %}}
           </p>
           {% endif %}
