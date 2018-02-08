@@ -470,7 +470,7 @@ which doesn't exist.
 > {: .language-bash}
 > `ls` is the command, `-lh` are the flags (also called options),
 > and `Documents` is the argument.  Notice in this example, we combined two
-separate flags, `-l -h` into a single flag, `-lh`.  This grouping is common
+separate flags, `-l -h` into a group of flags, `-lh`.  This grouping is common
 with single-character flags.
 {: .callout}
 
