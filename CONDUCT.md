@@ -39,7 +39,7 @@ Instancias de comportamiento abusivo, acosador o de otra manera inaceptable
 puede informarse siguiendo nuestras [guías de informes][coc-reporting].
 
 
-- [Código de conducta de software y carpintería de datos][coc]
+- [Código de conducta de Software y Data Carpentry][coc]
 - [Guía de informes del código de conducta][coc-reporting]
 
 {% include links.md %}
