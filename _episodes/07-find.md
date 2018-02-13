@@ -58,6 +58,7 @@ Software is like that.
 > We haven't linked to the original haikus because they don't appear to be on *Salon*'s site any longer.
 > As [Jeff Rothenberg said](http://www.clir.org/pubs/archives/ensuring.pdf),
 > "Digital information lasts forever --- or five years, whichever comes first."
+> Luckily, popular content often [has backups](http://wiki.c2.com/?ComputerErrorHaiku).
 {: .callout}
 
 Let's find lines that contain the word "not":
