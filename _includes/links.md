@@ -33,3 +33,4 @@
 [yaml]: http://yaml.org/
 [coc]: https://software-carpentry.org/conduct/
 [coc-reporting]: https://software-carpentry.org/CoC-reporting/
+[lesson-example]: https://swcarpentry.github.io/lesson-example/
