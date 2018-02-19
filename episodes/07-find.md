@@ -36,7 +36,7 @@ $ cd
 $ cd writing
 $ cat haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 The Tao that is seen
@@ -58,6 +58,7 @@ Software is like that.
 > We haven't linked to the original haikus because they don't appear to be on *Salon*'s site any longer.
 > As [Jeff Rothenberg said](http://www.clir.org/pubs/archives/ensuring.pdf),
 > "Digital information lasts forever --- or five years, whichever comes first."
+> Luckily, popular content often [has backups](http://wiki.c2.com/?ComputerErrorHaiku).
 {: .callout}
 
 Let's find lines that contain the word "not":
@@ -65,7 +66,7 @@ Let's find lines that contain the word "not":
 ~~~
 $ grep not haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 Is not the true Tao, until
@@ -83,7 +84,7 @@ Let's try a different pattern: "The".
 ~~~
 $ grep The haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 The Tao that is seen
@@ -103,7 +104,7 @@ This will limit matches to word boundaries.
 ~~~
 $ grep -w The haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 The Tao that is seen
@@ -119,7 +120,7 @@ want to search for a single word, but a phrase. This is also easy to do with
 ~~~
 $ grep -w "is not" haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 Today it is not working
@@ -137,7 +138,7 @@ Another useful option is `-n`, which numbers the lines that match:
 ~~~
 $ grep -n "it" haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 5:With searching comes loss
@@ -155,7 +156,7 @@ the option `-w` to find the lines that contain the word "the" and `-n` to number
 ~~~
 $ grep -n -w "the" haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 2:Is not the true Tao, until
@@ -168,7 +169,7 @@ Now we want to use the option `-i` to make our search case-insensitive:
 ~~~
 $ grep -n -w -i "the" haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 1:The Tao that is seen
@@ -183,7 +184,7 @@ the lines that do not contain the word "the".
 ~~~
 $ grep -n -w -v "the" haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 1:The Tao that is seen
@@ -203,7 +204,7 @@ $ grep -n -w -v "the" haiku.txt
 ~~~
 $ grep --help
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 Usage: grep [OPTION]... PATTERN [FILE]...
@@ -261,7 +262,7 @@ Miscellaneous:
 > ~~~
 > $ grep -E '^.o' haiku.txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > ~~~
 > You bring fresh toner.
@@ -314,7 +315,7 @@ Miscellaneous:
 > $1.txt  
 > cut -d , -f 1,3  
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > Hint: use `man grep` to look for how to grep text recursively in a directory
 > and `man cut` to select more than one field in a line.
@@ -333,7 +334,7 @@ Miscellaneous:
 > > ```
 > > $ bash count-species.sh bear .
 > > ```
-> > {: .bash}
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
@@ -401,7 +402,7 @@ let's run `find .`.
 ~~~
 $ find .
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 .
@@ -438,7 +439,7 @@ Sure enough,
 ~~~
 $ find . -type d
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ./
@@ -456,7 +457,7 @@ we get a listing of all the files instead:
 ~~~
 $ find . -type f
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ./haiku.txt
@@ -475,7 +476,7 @@ Now let's try matching by name:
 ~~~
 $ find . -name *.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ./haiku.txt
@@ -491,7 +492,7 @@ the command we actually ran was:
 ~~~
 $ find . -name haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 `find` did what we asked; we just asked for the wrong thing.
 
@@ -504,7 +505,7 @@ This way,
 ~~~
 $ find . -name '*.txt'
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ./data/one.txt
@@ -535,7 +536,7 @@ The simplest way is to put the `find` command inside `$()`:
 ~~~
 $ wc -l $(find . -name '*.txt')
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 11 ./haiku.txt
@@ -555,7 +556,7 @@ the shell constructs the command:
 ~~~
 $ wc -l ./data/one.txt ./data/LittleWomen.txt ./data/two.txt ./haiku.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 which is what we wanted.
 This expansion is exactly what the shell does when it expands wildcards like `*` and `?`,
@@ -570,7 +571,7 @@ by looking for the string "FE" in all the `.pdb` files above the current directo
 ~~~
 $ grep "FE" $(find .. -name '*.pdb')
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518
@@ -647,115 +648,12 @@ about them."
 > ~~~
 > wc -l $(find . -name '*.dat') | sort -n
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > > ## Solution
 > > 1. Find all files with a `.dat` extension in the current directory
 > > 2. Count the number of lines each of these files contains
 > > 3. Sort the output from step 2. numerically
-> {: .solution}
-{: .challenge}
-
-> ## Tracking a Species
-> 
-> Leah has several hundred 
-> data files saved in one directory, each of which is formatted like this:
-> 
-> ~~~
-> 2013-11-05,deer,5
-> 2013-11-05,rabbit,22
-> 2013-11-05,raccoon,7
-> 2013-11-06,rabbit,19
-> 2013-11-06,deer,2
-> ~~~
-> {: .source}
->
-> She wants to write a shell script that takes a species as the first command-line argument 
-> and a directory as the second argument. The script should return one file called `species.txt` 
-> containing a list of dates and the number of that species seen on each date.
-> For example using the data shown above, `rabbits.txt` would contain:
-> 
-> ~~~
-> 2013-11-05,22
-> 2013-11-06,19
-> ~~~
-> {: .source}
->
-> Put these commands and pipes in the right order to achieve this:
-> 
-> ~~~
-> cut -d : -f 2  
-> >  
-> |  
-> grep -w $1 -r $2  
-> |  
-> $1.txt  
-> cut -d , -f 1,3  
-> ~~~
-> {: .bash}
->
-> Hint: use `man grep` to look for how to grep text recursively in a directory
-> and `man cut` to select more than one field in a line.
->
-> An example of such a file is provided in `data-shell/data/animal-counts/animals.txt`
->
-> > ## Solution
-> >
-> > ```
-> > grep -w $1 -r $2 | cut -d : -f 2 | cut -d , -f 1,3  > $1.txt
-> > ```
-> > {: .source}
-> >
-> > You would call the script above like this:
-> >
-> > ```
-> > $ bash count-species.sh bear .
-> > ```
-> > {: .bash}
-> {: .solution}
-{: .challenge}
-
-> ## Little Women
->
-> You and your friend, having just finished reading *Little Women* by
-> Louisa May Alcott, are in an argument.  Of the four sisters in the
-> book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the
-> most mentioned.  You, however, are certain it was Amy.  Luckily, you
-> have a file `LittleWomen.txt` containing the full text of the novel
-> (`data-shell/writing/data/LittleWomen.txt`).
-> Using a `for` loop, how would you tabulate the number of times each
-> of the four sisters is mentioned?
->
-> Hint: one solution might employ
-> the commands `grep` and `wc` and a `|`, while another might utilize
-> `grep` options.
-> There is often more than one way to solve a programming task, so a
-> particular solution is usually chosen based on a combination of
-> yielding the correct result, elegance, readability, and speed.
->
-> > ## Solutions
-> > ```
-> > for sis in Jo Meg Beth Amy
-> > do
-> > 	echo $sis:
-> >	grep -ow $sis LittleWomen.txt | wc -l
-> > done
-> > ```
-> > {: .source}
-> >
-> > Alternative, slightly inferior solution:
-> > ```
-> > for sis in Jo Meg Beth Amy
-> > do
-> > 	echo $sis:
-> >	grep -ocw $sis LittleWomen.txt
-> > done
-> > ```
-> > {: .source}
-> >
-> > This solution is inferior because `grep -c` only reports the number of lines matched.
-> > The total number of matches reported by this method will be lower if there is more
-> > than one match per line.
 > {: .solution}
 {: .challenge}
 
@@ -777,6 +675,6 @@ about them."
 > > ~~~
 > > $ find ./ -type f -mtime -1 -user ahmed
 > > ~~~
-> > {: .bash}
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}

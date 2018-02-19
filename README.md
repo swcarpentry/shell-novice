@@ -11,7 +11,11 @@ Maintainers:
 
 * [Gabriel Devenyi][devenyi_gabriel]
 * [Ashwin Srinath][srinath_ashwin]
+* [Colin Morris][colin_morris]
+* [Will Pitchers][will_pitchers]
 
 [devenyi_gabriel]: http://software-carpentry.org/team/#devenyi_gabriel
 [srinath_ashwin]: http://software-carpentry.org/team/#srinath_ashwin
+[colin_morris]: https://github.com/colinmorris
+[will_pitchers]: https://software-carpentry.org/team/#pitchers_w
 [lesson-example]: https://swcarpentry.github.io/lesson-example/

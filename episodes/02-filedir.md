@@ -54,7 +54,7 @@ let's open a shell window:
 ~~~
 $
 ~~~
-{: .bash}
+{: .language-bash}
 
 The dollar sign is a **prompt**, which shows us that the shell is waiting for input;
 your shell may use a different character as a prompt and may add information before
@@ -70,7 +70,7 @@ it shows us who the shell thinks we are:
 ~~~
 $ whoami
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 nelle
@@ -107,7 +107,7 @@ More specifically, when we type `whoami` the shell:
 > ~~~
 > $ mycommand
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > 
 > ~~~
 > -bash: mycommand: command not found
@@ -136,7 +136,7 @@ which is Nelle's **home directory**:
 ~~~
 $ pwd
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 /Users/nelle
@@ -211,7 +211,7 @@ which stands for "listing":
 ~~~
 $ ls
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 Applications Documents    Library      Music        Public
@@ -232,7 +232,7 @@ which tells `ls` to add a trailing `/` to the names of directories:
 ~~~
 $ ls -F
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 Applications/ Documents/    Library/      Music/        Public/
@@ -245,7 +245,7 @@ Desktop/      Downloads/    Movies/       Pictures/
 ~~~
 $ ls --help
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 Usage: ls [OPTION]... [FILE]...
@@ -378,7 +378,7 @@ information on how to use the commands or programs.
 > ~~~
 > $ ls -j
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > 
 > ~~~
 > ls: invalid option -- 'j'
@@ -467,9 +467,11 @@ which doesn't exist.
 > ```
 > ls -lh Documents
 > ```
-> {: .bash}
+> {: .language-bash}
 > `ls` is the command, `-lh` are the flags (also called options),
-> and `Documents` is the argument.
+> and `Documents` is the argument.  Notice in this example, we combined two
+separate flags, `-l -h` into a group of flags, `-lh`.  This grouping is common
+with single-character flags.
 {: .callout}
 
 We can also use `ls` to see the contents of a different directory.  Let's take a
@@ -482,7 +484,7 @@ we want a listing of something other than our current working directory:
 ~~~
 $ ls -F Desktop
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 data-shell/
@@ -510,7 +512,7 @@ a directory name to `ls`:
 ~~~
 $ ls -F Desktop/data-shell
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 creatures/          molecules/          notes.txt           solar.pdf
@@ -537,7 +539,7 @@ $ cd Desktop
 $ cd data-shell
 $ cd data
 ~~~
-{: .bash}
+{: .language-bash}
 
 These commands will move us from our home directory onto our Desktop, then into
 the `data-shell` directory, then into the `data` directory.  `cd` doesn't print anything,
@@ -550,7 +552,7 @@ because that's where we now are:
 ~~~
 $ pwd
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 /Users/nelle/Desktop/data-shell/data
@@ -560,7 +562,7 @@ $ pwd
 ~~~
 $ ls -F
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 amino-acids.txt   elements/     pdb/	        salmon.txt
@@ -574,7 +576,7 @@ how do we go up?  We might try the following:
 ~~~
 $ cd data-shell
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 -bash: cd: data-shell: No such file or directory
@@ -594,7 +596,7 @@ that looks like this:
 ~~~
 $ cd ..
 ~~~
-{: .bash}
+{: .language-bash}
 
 `..` is a special directory name meaning
 "the directory containing this one",
@@ -606,7 +608,7 @@ if we run `pwd` after running `cd ..`, we're back in `/Users/nelle/Desktop/data-
 ~~~
 $ pwd
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 /Users/nelle/Desktop/data-shell
@@ -619,7 +621,7 @@ to display it, we can give `ls` the `-a` flag:
 ~~~
 $ ls -F -a
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ./   .bash_profile  data/       north-pacific-gyre/  pizza.cfg  thesis/
@@ -672,14 +674,14 @@ a directory?
 ~~~
 $ cd
 ~~~
-{: .bash}
+{: .language-bash}
 
 How can you check what happened?  `pwd` gives us the answer!  
 
 ~~~
 $ pwd
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 /Users/nelle
@@ -696,7 +698,7 @@ to move to `data` in one step:
 ~~~
 $ cd Desktop/data-shell/data
 ~~~
-{: .bash}
+{: .language-bash}
 
 Check that we've moved to the right place by running `pwd` and `ls -F`  
 
@@ -723,7 +725,7 @@ to move to `data-shell`.
 ~~~
 $ pwd
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 /Users/nelle/Desktop/data-shell/data
@@ -733,7 +735,7 @@ $ pwd
 ~~~
 $ cd /Users/nelle/Desktop/data-shell
 ~~~
-{: .bash}
+{: .language-bash}
 
 Run `pwd` and `ls -F` to ensure that we're in the directory we expect.  
 
@@ -872,7 +874,7 @@ Nelle can see what files she has using the command:
 ~~~
 $ ls north-pacific-gyre/2012-07-03/
 ~~~
-{: .bash}
+{: .language-bash}
 
 This is a lot to type,
 but she can let the shell do most of the work through what is called **tab completion**.
@@ -881,7 +883,7 @@ If she types:
 ~~~
 $ ls nor
 ~~~
-{: .bash}
+{: .language-bash}
 
 and then presses tab (the tab key on her keyboard),
 the shell automatically completes the directory name for her:
@@ -889,7 +891,7 @@ the shell automatically completes the directory name for her:
 ~~~
 $ ls north-pacific-gyre/
 ~~~
-{: .bash}
+{: .language-bash}
 
 If she presses tab again,
 Bash will add `2012-07-03/` to the command,
