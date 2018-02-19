@@ -34,7 +34,7 @@ a simple text format that specifies the type and position of each atom in the mo
 ~~~
 $ ls molecules
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 cubane.pdb    ethane.pdb    methane.pdb
@@ -52,7 +52,7 @@ so the shell turns `*.pdb` into a list of all `.pdb` files in the current direct
 $ cd molecules
 $ wc *.pdb
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
   20  156 1158 cubane.pdb
@@ -142,7 +142,7 @@ $ wc *.pdb
 > 2015-11-23-dataset2.txt
 > 2015-11-23-dataset_overview.txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > Before heading off to another field trip, she wants to back up her data and
 > send some datasets to her colleague Bob. Sam uses the following commands
@@ -154,7 +154,7 @@ $ wc *.pdb
 > $ cp 2015-____-____ ~/send_to_bob/all_november_files/
 > $ cp ____ ~/send_to_bob/all_datasets_created_on_a_23rd/
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > Help Sam by filling in the blanks.
 >
@@ -164,7 +164,7 @@ $ wc *.pdb
 > > $ cp 2015-11-* ~/send_to_bob/all_november_files/
 > > $ cp *-23-dataset* ~send_to_bob/all_datasets_created_on_a_23rd/
 > > ```
-> > {: .bash}
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
@@ -174,7 +174,7 @@ the output shows only the number of lines per file:
 ~~~
 $ wc -l *.pdb
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
   20  cubane.pdb
@@ -198,7 +198,7 @@ Our first step toward a solution is to run the command:
 ~~~
 $ wc -l *.pdb > lengths.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 The greater than symbol, `>`, tells the shell to **redirect** the command's output
 to a file instead of printing it to the screen. (This is why there is no screen output:
@@ -212,7 +212,7 @@ some caution.
 ~~~
 $ ls lengths.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 lengths.txt
@@ -226,14 +226,14 @@ lengths.txt
 > ~~~
 > $ echo hello > testfile01.txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > and:
 >
 > ~~~
 > $ echo hello >> testfile02.txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > Hint: Try executing each command twice in a row and then examining the output files.
 {: .challenge}
@@ -248,7 +248,7 @@ lengths.txt
 > $ head -3 animals.txt > animalsUpd.txt
 > $ tail -2 animals.txt >> animalsUpd.txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > 1. The first three lines of `animals.txt`
 > 2. The last two lines of `animals.txt`
@@ -272,7 +272,7 @@ so `cat` just shows us what it contains:
 ~~~
 $ cat lengths.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
   20  cubane.pdb
@@ -348,7 +348,7 @@ instead, it sends the sorted result to the screen:
 ~~~
 $ sort -n lengths.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
   9  methane.pdb
@@ -371,7 +371,7 @@ we can run another command called `head` to get the first few lines in `sorted-l
 $ sort -n lengths.txt > sorted-lengths.txt
 $ head -n 1 sorted-lengths.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
   9  methane.pdb
@@ -394,7 +394,7 @@ the output of `head` must be the file with the fewest lines.
 > ~~~
 > $ sort -n lengths.txt > lengths.txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > Doing something like this may give you
 > incorrect results and/or delete
@@ -410,7 +410,7 @@ We can make it easier to understand by running `sort` and `head` together:
 ~~~
 $ sort -n lengths.txt | head -n 1
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
   9  methane.pdb
@@ -434,7 +434,7 @@ Thus we first use a pipe to send the output of `wc` to `sort`:
 ~~~
 $ wc -l *.pdb | sort -n
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
    9 methane.pdb
@@ -452,7 +452,7 @@ And now we send the output of this pipe, through another pipe, to `head`, so tha
 ~~~
 $ wc -l *.pdb | sort -n | head -n 1
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
    9  methane.pdb
@@ -566,14 +566,14 @@ so that you and other people can put those programs into pipes to multiply their
 > ~~~
 > $ wc -l notes.txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > and:
 >
 > ~~~
 > $ wc -l < notes.txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > > ## Solution
 > > `<` is used to redirect input to a command. 
@@ -595,7 +595,7 @@ so that you and other people can put those programs into pipes to multiply their
 > > a test
 > > Ctrl-D # This lets the shell know you have finished typing the input
 > > ```
-> > {: .bash}
+> > {: .language-bash}
 > >
 > > ```
 > > 3
@@ -625,7 +625,7 @@ so that you and other people can put those programs into pipes to multiply their
 > ~~~
 > $ cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > Hint: build the pipeline up one command at a time to test your understanding
 {: .challenge}
 
@@ -662,7 +662,7 @@ so that you and other people can put those programs into pipes to multiply their
 > > ```
 > > $ sort salmon.txt | uniq
 > > ```
-> > {: .bash}
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
@@ -673,7 +673,7 @@ so that you and other people can put those programs into pipes to multiply their
 > ~~~
 > $ cut -d , -f 2 animals.txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > 
 > uses the -d flag to separate each line by comma, and the -f flag
 > to print the second field in each line, to give the following output:
@@ -698,7 +698,7 @@ so that you and other people can put those programs into pipes to multiply their
 > > ```
 > > $ cut -d , -f 2 animals.txt | sort | uniq
 > > ```
-> > {: .bash}
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
@@ -743,7 +743,7 @@ As a quick sanity check, starting from her home directory, Nelle types:
 $ cd north-pacific-gyre/2012-07-03
 $ wc -l *.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 The output is 18 lines that look like this:
 
@@ -763,7 +763,7 @@ Now she types this:
 ~~~
 $ wc -l *.txt | sort -n | head -n 5
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
  240 NENE02018B.txt
@@ -785,7 +785,7 @@ she checks to see if any files have too much data:
 ~~~
 $ wc -l *.txt | sort -n | tail -n 5
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
  300 NENE02040B.txt
@@ -805,7 +805,7 @@ To find others like it, she does this:
 ~~~
 $ ls *Z.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 NENE01971Z.txt    NENE02040Z.txt
@@ -853,7 +853,7 @@ so this matches all the valid data files she has.
 > > 	$ ls *A.txt
 > > 	$ ls *B.txt
 > > 	```
-> >	{: .bash}
+> >	{: .language-bash}
 > > 2. The output from the new commands is separated because there are two commands.
 > > 3. When there are no files ending in `A.txt`, or there are no files ending in
 > > `B.txt`.
