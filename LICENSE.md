@@ -5,45 +5,42 @@ root: .
 ---
 ### Material didáctico
 
-Todo el material instructivo de Software Carpentry and Data Carpentry es
-disponible bajo el [Creative Commons Attribution
-licencia][cc-por-humano]. El siguiente es un resumen de lectura humana
+Todo el material de instrucción de Software Carpentry and Data Carpentry está
+disponible bajo la licencia [Creative Commons Attribution][cc-por-humano]. El siguiente es un resumen de licencia
 (y no un sustituto) del [texto legal completo de CC BY 4.0
 licencia][cc-por-legal].
 
-Estas libre:
+Puedes libremente:
 
 * **Compartir** --- copiar y redistribuir el material en cualquier medio o formato
-* **Adaptar** --- remezclar, transformar y construir sobre el material
+* **Adaptar** --- remezclar, transformar y construir a partir del material
 
 para cualquier propósito, incluso comercialmente.
 
-El licenciante no puede revocar estas libertades mientras siga el
+El licenciante no puede revocar estas libertades mientras se siga las
 condiciones de la licencia.
 
 Bajo los siguientes términos:
 
-* **Atribución** --- Debe otorgar el crédito apropiado (mencionando eso
-  su trabajo se deriva del trabajo que es Copyright © Software
-  Carpentry y, donde sea práctico, enlace a
-  http://software-carpentry.org/), proporcione un [enlace al
-  licencia][cc-por-humano], e indique si se realizaron cambios. Puedes hacer
-  así que de cualquier manera razonable, pero no de ninguna manera que sugiera
-  licenciante lo respalda a usted o a su uso.
+* **Atribución** --- Debes otorgar crédito a éste material de manera adecuada (mencionando que
+  su trabajo se deriva del trabajo que es Copyright de © Software
+  Carpentry y, donde sea práctico, agrega un enlace a
+  http://software-carpentry.org/), proporciona un [enlace a la
+  licencia][cc-por-humano], e indica si se realizaron cambios. Puedes hacerlo en cualquier forma razonable, 
+  pero no de forma tal que sugiera que tú o el uso del material derivado tienen el respaldo del licenciante. 
 
-**Sin restricciones adicionales** --- No puede aplicar términos legales o
-medidas tecnológicas que legalmente restringen a otros a hacer
-todo lo que la licencia permita. Entendiendo que:
+**Sin restricciones adicionales** --- No puedes aplicar términos legales o
+medidas tecnológicas que restrinjan a otros hacer
+todo lo que la licencia permite. 
 
 Avisos:
 
-* No tiene que cumplir con la licencia para elementos de la
-  material en el dominio público o donde su uso está permitido por un
-  excepción o limitación aplicable.
+* No tiene que cumplir con la licencia con los materiales que estén en el dominio público 
+  o cuando su uso esté permitido por una excepción o limitación aplicable. 
 * No se dan garantías. La licencia puede no darle todos los
-  permisos necesarios para su uso previsto. Por ejemplo, otro
+  permisos necesarios para su uso previsto. Por ejemplo, otros
   derechos como la publicidad, la privacidad, o los derechos morales pueden limitar la forma en que
-  usa el material.
+  uses el material.
 
 ## Software
 
