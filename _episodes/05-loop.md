@@ -367,8 +367,26 @@ from whatever file is being processed
 > head: cannot open ‘red’ for reading: No such file or directory
 > head: cannot open ‘dragon.dat’ for reading: No such file or directory
 > head: cannot open ‘purple’ for reading: No such file or directory
-
-> head: cannot open ‘unicorn.dat’ for reading: No such file or directory
+> CGGTACCGAA
+> AAGGGTCGCG
+> CAAGTGTTCC
+> CGGGACAATA
+> GTTCTGCTAA
+> GATAAGTATG
+> TGCCGACTTA
+> CCCGACCGTC
+> TAGGTTATAA
+> GGCACAACCG
+> CTTCACTGTA
+> GAGGTGTACA
+> AGGATCCGTT
+> GCGCGGGCGG
+> CAGTCTATGT
+> TTTTCGACAC
+> TGGACTGCTT
+> CCCTTTGAGG
+> GTGGATTTTT
+> CGTAACGGGT
 > ```
 > {: . output}
 {: .callout}
