@@ -362,7 +362,7 @@ from whatever file is being processed
 > ```
 > {: .output}
 > Try removing the quotes around `$filename` in the loop above to see the effect of the quote
-> marks on whitespace:
+> marks on whitespace. Note that we get a result from the loop command for unicorn.dat if you ran this code in the creatures directory:
 > ```
 > head: cannot open ‘red’ for reading: No such file or directory
 > head: cannot open ‘dragon.dat’ for reading: No such file or directory
