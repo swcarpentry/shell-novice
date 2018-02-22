@@ -346,7 +346,7 @@ from whatever file is being processed
 > ~~~
 > for filename in "red dragon.dat" "purple unicorn.dat"
 > do
->     head -n 100 "$filename" | tail -n 20
+>     head -n 100 "$filename" | tail -n 3
 > done
 > ~~~
 > {: .language-bash}
@@ -362,12 +362,14 @@ from whatever file is being processed
 > ```
 > {: .output}
 > Try removing the quotes around `$filename` in the loop above to see the effect of the quote
-> marks on whitespace:
+> marks on whitespace. Note that we get a result from the loop command for unicorn.dat when we run this code in the `creatures` directory:
 > ```
 > head: cannot open ‘red’ for reading: No such file or directory
 > head: cannot open ‘dragon.dat’ for reading: No such file or directory
 > head: cannot open ‘purple’ for reading: No such file or directory
-> head: cannot open ‘unicorn.dat’ for reading: No such file or directory
+> CGGTACCGAA
+> AAGGGTCGCG
+> CAAGTGTTCC
 > ```
 > {: . output}
 {: .callout}
