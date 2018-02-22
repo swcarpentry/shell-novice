@@ -300,7 +300,7 @@ Now let's use the `sort` command to sort its contents.
 
 > ## What Does `sort -n` Do?
 >
-> If we run `sort` on this file:
+> If we run `sort` on a file containing the following lines:
 >
 > ~~~
 > 10
@@ -604,31 +604,6 @@ so that you and other people can put those programs into pipes to multiply their
 > {: .solution}
 {: .challenge}
 
-> ## Pipe Reading Comprehension
->
-> A file called `animals.txt` (in the `data-shell/data` folder) contains the following data:
->
-> ~~~
-> 2012-11-05,deer
-> 2012-11-05,rabbit
-> 2012-11-05,raccoon
-> 2012-11-06,rabbit
-> 2012-11-06,deer
-> 2012-11-06,fox
-> 2012-11-07,rabbit
-> 2012-11-07,bear
-> ~~~
-> {: .source}
->
-> What text passes through each of the pipes and the final redirect in the pipeline below?
->
-> ~~~
-> $ cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt
-> ~~~
-> {: .language-bash}
-> Hint: build the pipeline up one command at a time to test your understanding
-{: .challenge}
-
 > ## Why Does `uniq` Only Remove Adjacent Duplicates?
 >
 > The command `uniq` removes adjacent duplicated lines from its input.
@@ -664,6 +639,31 @@ so that you and other people can put those programs into pipes to multiply their
 > > ```
 > > {: .language-bash}
 > {: .solution}
+{: .challenge}
+
+> ## Pipe Reading Comprehension
+>
+> A file called `animals.txt` (in the `data-shell/data` folder) contains the following data:
+>
+> ~~~
+> 2012-11-05,deer
+> 2012-11-05,rabbit
+> 2012-11-05,raccoon
+> 2012-11-06,rabbit
+> 2012-11-06,deer
+> 2012-11-06,fox
+> 2012-11-07,rabbit
+> 2012-11-07,bear
+> ~~~
+> {: .source}
+>
+> What text passes through each of the pipes and the final redirect in the pipeline below?
+>
+> ~~~
+> $ cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt
+> ~~~
+> {: .language-bash}
+> Hint: build the pipeline up one command at a time to test your understanding
 {: .challenge}
 
 > ## Pipe Construction
@@ -704,7 +704,7 @@ so that you and other people can put those programs into pipes to multiply their
 
 > ## Which Pipe?
 >
-> The file `data-shell/data/animals.txt` contains 586 lines of data formatted as follows:
+> The file `animals.txt` contains 586 lines of data formatted as follows:
 >
 > ~~~
 > 2012-11-05,deer
