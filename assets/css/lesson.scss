@@ -39,22 +39,28 @@ $color-testimonial: #fc8dc1 !default;
 .output { @include cdSetup($color-output); }
 .source { @include cdSetup($color-source); }
 
-.bash   { @include cdSetup($color-source); }
-.make   { @include cdSetup($color-source); }
-.matlab { @include cdSetup($color-source); }
-.python { @include cdSetup($color-source); }
-.r      { @include cdSetup($color-source); }
-.sql    { @include cdSetup($color-source); }
+.bash, .language-bash     { @include cdSetup($color-source); }
+.make, .language-make     { @include cdSetup($color-source); }
+.matlab, .language-matlab { @include cdSetup($color-source); }
+.python, .language-python { @include cdSetup($color-source); }
+.r, .language-r           { @include cdSetup($color-source); }
+.sql, .langauge-sql       { @include cdSetup($color-source); }
 
 .error pre,
 .output pre,
 .source pre,
 .bash pre,
+.language-bash pre,
 .make pre,
+.language-make pre,
 .matlab pre,
+.language-matlab pre,
 .python pre,
+.language-python pre,
 .r pre,
-.sql pre {
+.language-r pre,
+.sql pre ,
+.language-sql pre {
   border-radius: 0 4px 4px 0;
 }
 
