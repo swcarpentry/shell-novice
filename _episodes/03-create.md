@@ -445,7 +445,7 @@ quotes.txt
 >
 > ~~~
 > $ ls -F
-> raw/ analyzed/
+>  analyzed/ raw/
 > $ ls -F analyzed
 > fructose.dat glucose.dat maltose.dat sucrose.dat
 > $ cd raw/
