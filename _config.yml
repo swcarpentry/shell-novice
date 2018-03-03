@@ -20,7 +20,7 @@ kind: "lesson"
 
 # Magic to make URLs resolve both locally and on GitHub.
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
-repository: <USERNAME>/<PROJECT>
+repository: rrlove/shell-novice
 
 # Sites.
 amy_site: "https://amy.software-carpentry.org/workshops"
