@@ -240,7 +240,11 @@ Desktop/      Downloads/    Movies/       Pictures/
 ~~~
 {: .output}
 
-`ls` has lots of other **flags**. To find out what they are, we can type:
+`ls` has lots of other **flags**. To find out what they are, we might
+need to use different syntax depending on what operating system we're
+using.
+
+We can use the `--help` flag with `ls`, like this:
 
 ~~~
 $ ls --help
@@ -366,6 +370,15 @@ Full documentation at: <http://www.gnu.org/software/coreutils/ls>
 or available locally via: info '(coreutils) ls invocation'
 ~~~
 {: .output}
+
+We can also access the manual, or **man page**, for `ls` like this:
+~~~
+$ man ls
+~~~
+{: .language-bash}
+
+Most man pages are available on the Internet, so you can also
+search for them there.
 
 Many bash commands, and programs that people have written that can be
 run from within bash, support a `--help` flag to display more
