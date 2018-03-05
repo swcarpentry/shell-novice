@@ -203,7 +203,8 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 > the shell to redirect output or get the value of a variable.
 {: .callout}
 
-We have called the variable in this loop `filename`
+Returning to our example in the `data-shell/creatures` directory,
+we have called the variable in this loop `filename`
 in order to make its purpose clearer to human readers.
 The shell itself doesn't care what the variable is called;
 if we wrote this loop as:
@@ -276,7 +277,7 @@ increase the odds that the program won't do what its readers think it does.
 > {: .solution}
 {: .challenge}
 
-
+Let's continue with our example in the `data-shell/creatures` directory.
 Here's a slightly more complicated loop:
 
 ~~~
@@ -574,7 +575,7 @@ so she decides to get some coffee and catch up on her reading.
 
 > ## Saving to a File in a Loop - Part One
 >
-> In the same directory, what is the effect of this loop?
+> In the `data-shell/molecules` directory, what is the effect of this loop?
 >
 > ~~~
 > for alkanes in *.pdb
@@ -602,7 +603,7 @@ so she decides to get some coffee and catch up on her reading.
 
 > ## Saving to a File in a Loop - Part Two
 >
-> In the same directory, what would be the output of the following loop?
+> Also in the `data-shell/molecules` directory, what would be the output of the following loop?
 >
 > ~~~
 > for datafile in *.pdb
