@@ -226,9 +226,11 @@ draft.txt
 > {: .solution}
 {: .challenge}
 
-Let's tidy up by running `rm draft.txt`:
+Returning to the `data-shell` directory,
+let's tidy up the `thesis` directory by removing the draft we created:
 
 ~~~
+$ cd thesis
 $ rm draft.txt
 ~~~
 {: .language-bash}
