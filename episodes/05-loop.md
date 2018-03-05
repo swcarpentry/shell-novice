@@ -64,7 +64,7 @@ Here's a simple example that displays the first three lines of each file in turn
 ~~~
 $ for filename in basilisk.dat unicorn.dat
 > do
->    head -n 3 $filename
+>    head -n 3 $filename	# Indentation within the loop aids legibility
 > done
 ~~~
 {: .language-bash}
@@ -78,6 +78,11 @@ CLASSIFICATION: equus monoceros
 UPDATED: 1738-11-24
 ~~~
 {: .output}
+
+> ## Indentation of code within a for loop
+> Note that it is common practice to indent the line(s) of code within a for loop.
+> The only purpose is to make the code easier to read -- it is not required for the loop to run.
+{: .callout}
 
 When the shell sees the keyword `for`,
 it knows to repeat a command (or group of commands) once for each item in a list.
