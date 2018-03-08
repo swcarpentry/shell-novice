@@ -8,11 +8,10 @@ objectives:
 - "Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs."
 - "Explain when and why command-line interfaces should be used instead of graphical interfaces."
 keypoints:
-- "Explain the similarities and differences between a file and a directory."
-- "Translate an absolute path into a relative path and vice versa."
-- "Construct absolute and relative paths that identify specific files and directories."
 - "Explain the steps in the shell's read-run-print cycle."
+- "Most commands take flags (options) which begin with a `-`."
 - "Identify the actual command, flags, and filenames in a command-line call."
+- "Explain the steps in the shell's read-run-print cycle."
 - "Demonstrate the use of tab completion and explain its advantages."
 keypoints:
 - "A shell is a program whose primary purpose is to read commands and run other programs."
@@ -31,44 +30,28 @@ They can do the last of these in many different ways,
 including through a keyboard and mouse, or touch screen interfaces, or speech recognition using systems.
 While such hardware interfaces are becoming more commonplace, most interaction is still
 done using screens, mice, touchpads and keyboards.
-Although most modern desktop operating systems communicate with their human users by
-means of windows, icons and pointers, these software technologies didn't become
-widespread until the 1980s. The roots of such *graphical user interfaces* go back
-to Doug Engelbart's work in the 1960s, which you can see in what has been
-called "[The Mother of All Demos](http://www.youtube.com/watch?v=a11JDLBXtPQ)".
 
-### The Command-Line Interface
-Going back even further,
-the only way to interact with early computers was to rewire them.
-But in between,
-from the 1950s to the 1980s,
-most people used line printers.
-These devices only allowed input and output of the letters, numbers, and punctuation found on a standard keyboard,
-so programming languages and software interfaces had to be designed around that constraint.
+We are all familiar with **graphical user interfaces** (GUI - windows, icons and pointers). 
+They are easy to learn and fantastic for simple tasks where a vocabulary consisting of
+"click" translates easily into "do the thing I want". But this magic relies on 
+wanting a simple set of things, and having programs that can do exactly those things.
 
-This kind of interface is called a
-**command-line interface**, or CLI,
-to distinguish it from a
-**graphical user interface**, or GUI,
-which most people now use.
-The heart of a CLI is a **read-evaluate-print loop**, or REPL:
-when the user types a command and then presses the Enter (or Return) key,
-the computer reads it,
-executes it,
-and prints its output.
-The user then types another command,
-and so on until the user logs off.
+If you wish to do complex, purpose-specific things it helps to have a richer means
+of expressing your instructions to the computer. It doesn't need to be complicated or
+difficult, just a vocabulary of commands and a simple grammar for using them.
 
+This is what the shell provides - a simple language and a **command-line interface** 
+to use it through. 
+
+The heart of a command-line interface is a **read-evaluate-print loop**, or REPL, called
+so because when you type a command and press the Enter (or Return) key, the shell:
+1. Reads it
+2. Executes (or "evaluates" it)
+3. Prints the output
+
+and then prints the prompt and waits for you to enter another command.
+ 
 ### The Shell
-This description makes it sound as though the user sends commands directly to the computer,
-and the computer sends output directly to the user.
-In fact,
-there is usually a program in between called a
-**command shell**.
-What the user types goes into the shell,
-which then figures out what commands to run and orders the computer to execute them.
-(Note that the shell is called "the shell" because it encloses the operating system
-in order to hide some of its complexity and make it simpler to interact with.)
 
 A shell is a program like any other.
 What's special about it is that its job is to run other programs
@@ -79,17 +62,102 @@ the Bourne Again SHell
 Bash is the default shell on most modern implementations of Unix
 and in most packages that provide Unix-like tools for Windows.
 
-### Why bother?
-Using Bash or any other shell
-sometimes feels more like programming than like using a mouse.
-Commands are terse (often only a couple of characters long),
-their names are frequently cryptic,
-and their output is lines of text rather than something visual like a graph.
-On the other hand,
-with only a few keystrokes, the shell allows us to combine existing tools into 
-powerful pipelines and handle large volumes of data automatically. This automation
-not only makes us more productive but also improves the reproducibility of our workflows by 
-allowing us to repeat them with a few simple commands.
+### What does it look like?
+
+A typical shell command and output looks something like this:
+
+~~~
+bash-3.2$ 
+bash-3.2$ ls -F / 
+Applications/         System/
+Library/              Users/
+Network/              Volumes/
+bash-3.2$ 
+~~~
+{: .language-bash}
+
+The first line shows only a **prompt**, indicating that the shell is waiting
+for input. Your shell may use different text for the prompt. Most importantly: 
+when typing commands, either from these lessons or from other sources,
+*do not type the prompt*, only the commands that follow it.
+
+The part that you type, in this example `ls -F /` is made up of a **command**,
+some **flags** (also called **options**) and an **argument**. The main difference 
+between flags and arguments is that options start with a dash (`-`). Sometimes
+flags and arguments are referred to as parameters, and the difference is 
+not too important. The parameters are sometimes optional.
+
+In the example above, our **command** is `ls`, with a **flag** `-F` and an
+**argument** `/`. Each part is separated by spaces: if you omit the space 
+between `ls` and `-F` the shell will look for a command called `ls-F`, which 
+doesn't exist. Also, capitalization matters: `LS` is different to `ls`. 
+
+Next we see the output that our command produced. In this case it is a listing 
+of files and folders in a location called `/` - we'll cover what all these mean 
+later today. Those with a Mac might recognize the output in this example.
+
+Finally, the shell again prints the prompt and waits for you to type the next 
+command.
+
+In the examples for this lesson, we'll show the prompt as `$ `. You can make your 
+prompt look the same by entering the command `PS1='$ '`. But you can also leave 
+your prompt as it is - often the prompt includes useful information about who and where 
+you are.
+
+Open a shell window and try entering `ls -F /` for yourself (don't forget that spaces
+and capitalization are important!). You can change the prompt too, if you like.
+
+### How does the shell know what 'ls' and its parameters mean?
+
+Every command is a program stored somewhere on the computer, and the shell keeps a
+list of places to search for commands (the list is in a **variable** called `$PATH`, 
+but those are concepts we'll meet later and not too important at the moment). Recall
+that commands, flags and arguments are separated by spaces
+
+So let's look at the REPL (read-evaluate-print loop) in more detail. Notice that the
+"evaluate" step is made of two parts:
+
+1. Read what was typed (`ls -F /` in our example)  
+    The shell uses the spaces to split the line into a command and some parameters
+2. Evaluate:  
+    a. Find a program called `ls`  
+    b. Execute it, giving it the list of parameters (`-F` and `/`) to 
+       interpret as the program sees fit 
+3. Print the output produced by the program
+
+and then print the prompt and wait for you to enter another command.
+
+> ## Command not found 
+> If the shell can't find a program whose name is the command you typed, it 
+> will print an erorr message like:
+> 
+> ~~~
+> $ ls-F
+> -bash: ls-F: command not found
+> ~~~
+> {: .language-bash}
+> 
+> Usually this means that you have mis-typed the command - in this case we omitted
+> the space between `ls` and `-F`. 
+{: .callout}
+
+### Is it difficult?
+
+It isn't difficult, but it is a different model of interacting than a GUI, and that 
+will take some effort - and some time - to learn. A GUI 
+presents you with choices and you select one. With a CLI the choices are combinations 
+of commands and parameters, more like words in a language than buttons on a screen. They
+are not presented to you so
+you must learn a few, like learning some vocabulary in a new language. But a small 
+number of commands gets you a long way, and we'll cover those essential few today.
+
+### Flexibility and automation 
+
+The grammar of a shell allows you to combine existing tools into powerful
+pipelines and handle large volumes of data automatically. And sequences of
+commands can be written into a *script*, improving the reproducibility of 
+workflows and allowing you to repeat them easily.
+
 In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
 Familiarity with the shell is near essential to run a variety of specialized tools and resources
 including high-performance computing systems.
