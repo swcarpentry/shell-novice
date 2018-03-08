@@ -36,14 +36,14 @@ We can't use:
 ~~~
 $ cp *.dat original-*.dat
 ~~~
-{: .bash}
+{: .language-bash}
 
 because that would expand to:
 
 ~~~
 $ cp basilisk.dat unicorn.dat original-*.dat
 ~~~
-{: .bash}
+{: .language-bash}
 
 This wouldn't back up our files, instead we get an error:
 
@@ -64,10 +64,10 @@ Here's a simple example that displays the first three lines of each file in turn
 ~~~
 $ for filename in basilisk.dat unicorn.dat
 > do
->    head -n 3 $filename
+>    head -n 3 $filename	# Indentation within the loop aids legibility
 > done
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 COMMON NAME: basilisk
@@ -78,6 +78,11 @@ CLASSIFICATION: equus monoceros
 UPDATED: 1738-11-24
 ~~~
 {: .output}
+
+> ## Indentation of code within a for loop
+> Note that it is common practice to indent the line(s) of code within a for loop.
+> The only purpose is to make the code easier to read -- it is not required for the loop to run.
+{: .callout}
 
 When the shell sees the keyword `for`,
 it knows to repeat a command (or group of commands) once for each item in a list.
@@ -126,7 +131,7 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 >     ls *.pdb
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > Now, what is the output of the following code?
 >
@@ -136,7 +141,7 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 >	ls $datafile
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > Why do these two loops give different outputs?
 >
@@ -153,7 +158,7 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 > >	ls cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
 > > done
 > > ```
-> > {: .bash}
+> > {: .language-bash}
 > >
 > > ```
 > > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
@@ -203,7 +208,8 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 > the shell to redirect output or get the value of a variable.
 {: .callout}
 
-We have called the variable in this loop `filename`
+Returning to our example in the `data-shell/creatures` directory,
+we have called the variable in this loop `filename`
 in order to make its purpose clearer to human readers.
 The shell itself doesn't care what the variable is called;
 if we wrote this loop as:
@@ -214,7 +220,7 @@ do
     head -n 3 $x
 done
 ~~~
-{: .bash}
+{: .language-bash}
 
 or:
 
@@ -224,7 +230,7 @@ do
     head -n 3 $temperature
 done
 ~~~
-{: .bash}
+{: .language-bash}
 
 it would work exactly the same way.
 *Don't do this.*
@@ -242,7 +248,7 @@ increase the odds that the program won't do what its readers think it does.
 >     ls $filename 
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > 1.  No files are listed.
 > 2.  All files are listed.
@@ -262,7 +268,7 @@ increase the odds that the program won't do what its readers think it does.
 >     ls $filename 
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > 1.  The same files would be listed.
 > 2.  All the files are listed this time.
@@ -276,7 +282,7 @@ increase the odds that the program won't do what its readers think it does.
 > {: .solution}
 {: .challenge}
 
-
+Let's continue with our example in the `data-shell/creatures` directory.
 Here's a slightly more complicated loop:
 
 ~~~
@@ -286,7 +292,7 @@ do
     head -n 100 $filename | tail -n 20
 done
 ~~~
-{: .bash}
+{: .language-bash}
 
 The shell starts by expanding `*.dat` to create the list of files it will process.
 The **loop body**
@@ -297,7 +303,7 @@ For example:
 ~~~
 $ echo hello there
 ~~~
-{: .bash}
+{: .language-bash}
 
 prints:
 
@@ -318,7 +324,7 @@ do
     head -n 100 $filename | tail -n 20
 done
 ~~~
-{: .bash}
+{: .language-bash}
 
 because then the first time through the loop,
 when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as a program.
@@ -346,10 +352,10 @@ from whatever file is being processed
 > ~~~
 > for filename in "red dragon.dat" "purple unicorn.dat"
 > do
->     head -n 100 "$filename" | tail -n 20
+>     head -n 100 "$filename" | tail -n 3
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > It is simpler just to avoid using whitespaces (or other special characters) in filenames.
 >
@@ -362,12 +368,14 @@ from whatever file is being processed
 > ```
 > {: .output}
 > Try removing the quotes around `$filename` in the loop above to see the effect of the quote
-> marks on whitespace:
+> marks on whitespace. Note that we get a result from the loop command for unicorn.dat when we run this code in the `creatures` directory:
 > ```
 > head: cannot open ‘red’ for reading: No such file or directory
 > head: cannot open ‘dragon.dat’ for reading: No such file or directory
 > head: cannot open ‘purple’ for reading: No such file or directory
-> head: cannot open ‘unicorn.dat’ for reading: No such file or directory
+> CGGTACCGAA
+> AAGGGTCGCG
+> CAAGTGTTCC
 > ```
 > {: . output}
 {: .callout}
@@ -381,7 +389,7 @@ do
     cp $filename original-$filename
 done
 ~~~
-{: .bash}
+{: .language-bash}
 
 This loop runs the `cp` command once for each filename.
 The first time,
@@ -391,14 +399,14 @@ the shell executes:
 ~~~
 cp basilisk.dat original-basilisk.dat
 ~~~
-{: .bash}
+{: .language-bash}
 
 The second time, the command is:
 
 ~~~
 cp unicorn.dat original-unicorn.dat
 ~~~
-{: .bash}
+{: .language-bash}
 
 Since the `cp` command does not normally produce any output, it's hard to check 
 that the loop is doing the correct thing. By prefixing the command with `echo` 
@@ -428,7 +436,7 @@ $ for datafile in NENE*[AB].txt
 >     echo $datafile
 > done
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 NENE01729A.txt
@@ -451,7 +459,7 @@ $ for datafile in NENE*[AB].txt
 >     echo $datafile stats-$datafile
 > done
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 NENE01729A.txt stats-NENE01729A.txt
@@ -478,7 +486,7 @@ the shell redisplays the whole loop on one line
 ~~~
 $ for datafile in NENE*[AB].txt; do echo $datafile stats-$datafile; done
 ~~~
-{: .bash}
+{: .language-bash}
 
 Using the left arrow key,
 Nelle backs up and changes the command `echo` to `bash goostats`:
@@ -486,7 +494,7 @@ Nelle backs up and changes the command `echo` to `bash goostats`:
 ~~~
 $ for datafile in NENE*[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
-{: .bash}
+{: .language-bash}
 
 When she presses Enter,
 the shell runs the modified command.
@@ -500,7 +508,7 @@ and edits it to read:
 ~~~
 $ for datafile in NENE*[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
 ~~~
-{: .bash}
+{: .language-bash}
 
 > ## Beginning and End
 >
@@ -540,7 +548,7 @@ so she decides to get some coffee and catch up on her reading.
 > ~~~
 > $ history | tail -n 5
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 >   456  ls -l NENE0*.txt
 >   457  rm stats-NENE01729B.txt.txt
@@ -572,7 +580,7 @@ so she decides to get some coffee and catch up on her reading.
 
 > ## Saving to a File in a Loop - Part One
 >
-> In the same directory, what is the effect of this loop?
+> In the `data-shell/molecules` directory, what is the effect of this loop?
 >
 > ~~~
 > for alkanes in *.pdb
@@ -581,7 +589,7 @@ so she decides to get some coffee and catch up on her reading.
 >     cat $alkanes > alkanes.pdb
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > 1.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb` and `propane.pdb`,
 >     and the text from `propane.pdb` will be saved to a file called `alkanes.pdb`.
@@ -600,7 +608,7 @@ so she decides to get some coffee and catch up on her reading.
 
 > ## Saving to a File in a Loop - Part Two
 >
-> In the same directory, what would be the output of the following loop?
+> Also in the `data-shell/molecules` directory, what would be the output of the following loop?
 >
 > ~~~
 > for datafile in *.pdb
@@ -608,7 +616,7 @@ so she decides to get some coffee and catch up on her reading.
 >     cat $datafile >> all.pdb
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > 1.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and
 >     `pentane.pdb` would be concatenated and saved to a file called `all.pdb`.
@@ -640,7 +648,7 @@ so she decides to get some coffee and catch up on her reading.
 >   analyze $file > analyzed-$file
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > What is the difference between the two loops below, and which one would we
 > want to run?
@@ -652,7 +660,7 @@ so she decides to get some coffee and catch up on her reading.
 >   echo analyze $file > analyzed-$file
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > ~~~
 > # Version 2
@@ -661,7 +669,7 @@ so she decides to get some coffee and catch up on her reading.
 >   echo "analyze $file > analyzed-$file"
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > > ## Solution
 > > The second version is the one we want to run.
@@ -693,7 +701,7 @@ so she decides to get some coffee and catch up on her reading.
 >     done
 > done
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > > ## Solution
 > > We have a nested loop, i.e. contained within another loop, so for each species

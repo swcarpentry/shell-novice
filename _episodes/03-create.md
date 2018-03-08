@@ -27,7 +27,7 @@ and use `ls -F` to see what it contains:
 ~~~
 $ pwd
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 /Users/nelle/Desktop/data-shell
@@ -37,7 +37,7 @@ $ pwd
 ~~~
 $ ls -F
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/
@@ -50,7 +50,7 @@ Let's create a new directory called `thesis` using the command `mkdir thesis`
 ~~~
 $ mkdir thesis
 ~~~
-{: .bash}
+{: .language-bash}
 
 As you might guess from its name,
 `mkdir` means "make directory".
@@ -61,7 +61,7 @@ the new directory is created in the current working directory:
 ~~~
 $ ls -F
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  thesis/  writing/
@@ -86,7 +86,7 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 >
 >    Whitespaces can make a name more meaningful
 >    but since whitespace is used to break arguments on the command line
->    is better to avoid them in names of files and directories.
+>    it is better to avoid them in names of files and directories.
 >    You can use `-` or `_` instead of whitespace.
 >
 > 2. Don't begin the name with `-` (dash).
@@ -109,7 +109,7 @@ Since we've just created the `thesis` directory, there's nothing in it yet:
 ~~~
 $ ls -F thesis
 ~~~
-{: .bash}
+{: .language-bash}
 
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
@@ -118,7 +118,7 @@ then run a text editor called Nano to create a file called `draft.txt`:
 $ cd thesis
 $ nano draft.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 > ## Which Editor?
 >
@@ -180,7 +180,7 @@ but `ls` now shows that we have created a file called `draft.txt`:
 ~~~
 $ ls
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 draft.txt
@@ -196,7 +196,7 @@ draft.txt
 > $ cd                  # go to your home directory
 > $ touch my_file.txt
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > 1.  What did the touch command do?
 >     When you look at your home directory using the GUI file explorer,
@@ -226,12 +226,14 @@ draft.txt
 > {: .solution}
 {: .challenge}
 
-Let's tidy up by running `rm draft.txt`:
+Returning to the `data-shell` directory,
+let's tidy up the `thesis` directory by removing the draft we created:
 
 ~~~
+$ cd thesis
 $ rm draft.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 This command removes files (`rm` is short for "remove").
 If we run `ls` again,
@@ -241,7 +243,7 @@ which tells us that our file is gone:
 ~~~
 $ ls
 ~~~
-{: .bash}
+{: .language-bash}
 
 > ## Deleting Is Forever
 >
@@ -260,7 +262,7 @@ and then move up one directory to `/Users/nelle/Desktop/data-shell` using `cd ..
 ~~~
 $ pwd
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 /Users/nelle/Desktop/data-shell/thesis
@@ -271,7 +273,7 @@ $ pwd
 $ nano draft.txt
 $ ls
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 draft.txt
@@ -281,7 +283,7 @@ draft.txt
 ~~~
 $ cd ..
 ~~~
-{: .bash}
+{: .language-bash}
 
 If we try to remove the entire `thesis` directory using `rm thesis`,
 we get an error message:
@@ -289,7 +291,7 @@ we get an error message:
 ~~~
 $ rm thesis
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 rm: cannot remove `thesis': Is a directory
@@ -304,7 +306,7 @@ We can do this with the [recursive](https://en.wikipedia.org/wiki/Recursion) opt
 ~~~
 $ rm -r thesis
 ~~~
-{: .bash}
+{: .language-bash}
 
 > ## Using `rm` Safely
 >
@@ -315,7 +317,7 @@ $ rm -r thesis
 > > ```
 > > $ rm: remove regular file 'thesis/quotations.txt'?
 > > ```
-> > {: .bash} 
+> > {: .language-bash} 
 > > The -i option will prompt before every removal. 
 > > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever. 
 > > By using the -i flag, we have the chance to check that we are deleting only the files that we want to remove.
@@ -335,7 +337,7 @@ $ rm -r thesis
 > rm: remove regular file ‘thesis/draft.txt’? y
 > rm: remove directory ‘thesis’? y
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > This removes everything in the directory, then the directory itself, asking
 > at each step for you to confirm the deletion.
@@ -348,7 +350,7 @@ rather than going into the `thesis` directory and running `nano` on `draft.txt` 
 ~~~
 $ pwd
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 /Users/nelle/Desktop/data-shell
@@ -360,7 +362,7 @@ $ mkdir thesis
 $ nano thesis/draft.txt
 $ ls thesis
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 draft.txt
@@ -374,7 +376,7 @@ which is short for "move":
 ~~~
 $ mv thesis/draft.txt thesis/quotes.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 The first argument tells `mv` what we're "moving",
 while the second is where it's to go.
@@ -387,7 +389,7 @@ Sure enough,
 ~~~
 $ ls thesis
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 quotes.txt
@@ -414,7 +416,7 @@ the directory name we use is the special directory name `.` that we mentioned ea
 ~~~
 $ mv thesis/quotes.txt .
 ~~~
-{: .bash}
+{: .language-bash}
 
 The effect is to move the file from the directory it was in to the current working directory.
 `ls` now shows us that `thesis` is empty:
@@ -422,7 +424,7 @@ The effect is to move the file from the directory it was in to the current worki
 ~~~
 $ ls thesis
 ~~~
-{: .bash}
+{: .language-bash}
 
 Further,
 `ls` with a filename or directory name as an argument only lists that file or directory.
@@ -431,7 +433,7 @@ We can use this to see that `quotes.txt` is still in our current directory:
 ~~~
 $ ls quotes.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 quotes.txt
@@ -445,12 +447,12 @@ quotes.txt
 >
 > ~~~
 > $ ls -F
-> raw/ analyzed/
+>  analyzed/ raw/
 > $ ls -F analyzed
 > fructose.dat glucose.dat maltose.dat sucrose.dat
 > $ cd raw/
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > Fill in the blanks to move these files to the current folder
 > (i.e., the one she is currently in):
@@ -458,12 +460,12 @@ quotes.txt
 > ~~~
 > $ mv ___/sucrose.dat  ___/maltose.dat ___
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > > ## Solution
 > > ```
 > > $ mv ../analyzed/sucrose.dat ../analyzed/maltose.dat .
 > > ```
-> > {: .bash}
+> > {: .language-bash}
 > > Recall that `..` refers to the parent directory (i.e. one above the current directory)
 > > and that `.` refers to the current directory.
 > {: .solution}
@@ -479,7 +481,7 @@ with two paths as arguments --- like most Unix commands,
 $ cp quotes.txt thesis/quotations.txt
 $ ls quotes.txt thesis/quotations.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 quotes.txt   thesis/quotations.txt
@@ -494,7 +496,7 @@ and then run that same `ls` again.
 $ rm quotes.txt
 $ ls quotes.txt thesis/quotations.txt
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 ls: cannot access quotes.txt: No such file or directory
@@ -560,7 +562,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~
 > $ pwd
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 > /Users/jamie/data
 > ~~~
@@ -568,7 +570,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~
 > $ ls
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 > proteins.dat
 > ~~~
@@ -579,7 +581,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > $ cp recombine/proteins.dat ../proteins-saved.dat
 > $ ls
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > 1.   `proteins-saved.dat recombine`
 > 2.   `recombine`
@@ -610,7 +612,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~
 > $ ls -F
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 > analyzed/  fructose.dat    raw/   sucrose.dat
 > ~~~
@@ -623,7 +625,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~
 > $ ls -F
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 > analyzed/   raw/
 > ~~~
@@ -631,7 +633,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~
 > $ ls analyzed
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 > fructose.dat    sucrose.dat
 > ~~~
@@ -641,7 +643,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > > ```
 > > mv *.dat analyzed
 > > ```
-> > {: .bash}
+> > {: .language-bash}
 > > Jamie needs to move her files `fructose.dat` and `sucrose.dat` to the `analyzed` directory.
 > > The shell will expand *.dat to match all .dat files in the current directory.
 > > The `mv` command then moves the list of .dat files to the "analyzed" directory.
@@ -658,14 +660,14 @@ but it does find the copy in `thesis` that we didn't delete.
 > $ mkdir backup
 > $ cp amino-acids.txt animals.txt backup/
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > In the example below, what does `cp` do when given three or more file names?
 >
 > ~~~
 > $ ls -F
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 > amino-acids.txt  animals.txt  backup/  elements/  morse.txt  pdb/  planets.txt  salmon.txt  sunspot.txt
 > ~~~
@@ -673,7 +675,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~
 > $ cp amino-acids.txt animals.txt morse.txt 
 > ~~~
-> {: .bash}
+> {: .language-bash}
 >
 > > ## Solution
 > > If given more than one file name followed by a directory name (i.e. the destination directory must 
@@ -709,18 +711,18 @@ but it does find the copy in `thesis` that we didn't delete.
 > $ rm 2016-05-20-data/raw/*
 > $ rm 2016-05-20-data/processed/*
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 > $ rm 2016-05-20-data/raw/*
 > $ rm 2016-05-20-data/processed/*
 > $ cp -r 2016-05-18-data/ 2016-5-20-data/
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > ~~~
 > $ cp -r 2016-05-18-data/ 2016-05-20-data/
 > $ rm -r -i 2016-05-20-data/
 > ~~~
-> {: .bash}
+> {: .language-bash}
 > >
 > > ## Solution
 > > The first set of commands achieves this objective.
