@@ -81,11 +81,14 @@ for input. Your shell may use different text for the prompt. Most importantly:
 when typing commands, either from these lessons or from other sources,
 *do not type the prompt*, only the commands that follow it.
 
-The part that you type, in this example `ls -F /` is made up of a **command**,
-some **flags** (also called **options**) and an **argument**. The main difference 
-between flags and arguments is that options start with a dash (`-`). Sometimes
-flags and arguments are referred to as parameters, and the difference is 
-not too important. The parameters are sometimes optional.
+The part that you type (in this example `ls -F /`)
+typically has the following structure: a **command**,
+some **flags** (also called **options** or **switches**) and an **argument**.
+Flags start with a dash (`-`), and change the behaviour of a command.
+Arguments tell the command what to operate on (e.g. files and directories).
+Sometimes flags and arguments are referred to as parameters.
+A command can be called with more than one flag and more than one argument: but a
+command doesn't always require an argument or a flag.
 
 In the example above, our **command** is `ls`, with a **flag** `-F` and an
 **argument** `/`. Each part is separated by spaces: if you omit the space 
@@ -107,21 +110,21 @@ you are.
 Open a shell window and try entering `ls -F /` for yourself (don't forget that spaces
 and capitalization are important!). You can change the prompt too, if you like.
 
-### How does the shell know what 'ls' and its parameters mean?
+### How does the shell know what `ls` and its flags mean?
 
 Every command is a program stored somewhere on the computer, and the shell keeps a
 list of places to search for commands (the list is in a **variable** called `$PATH`, 
 but those are concepts we'll meet later and not too important at the moment). Recall
-that commands, flags and arguments are separated by spaces
+that commands, flags and arguments are separated by spaces.
 
 So let's look at the REPL (read-evaluate-print loop) in more detail. Notice that the
 "evaluate" step is made of two parts:
 
 1. Read what was typed (`ls -F /` in our example)  
-    The shell uses the spaces to split the line into a command and some parameters
+    The shell uses the spaces to split the line into the command, flags, and arguments
 2. Evaluate:  
     a. Find a program called `ls`  
-    b. Execute it, giving it the list of parameters (`-F` and `/`) to 
+    b. Execute it, passing it the flags and arguments (`-F` and `/`) to 
        interpret as the program sees fit 
 3. Print the output produced by the program
 
@@ -154,7 +157,7 @@ number of commands gets you a long way, and we'll cover those essential few toda
 ### Flexibility and automation 
 
 The grammar of a shell allows you to combine existing tools into powerful
-pipelines and handle large volumes of data automatically. And sequences of
+pipelines and handle large volumes of data automatically. Sequences of
 commands can be written into a *script*, improving the reproducibility of 
 workflows and allowing you to repeat them easily.
 
