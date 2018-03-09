@@ -83,7 +83,7 @@ when typing commands, either from these lessons or from other sources,
 
 The part that you type, in this example `ls -F /` is made up of a **command**,
 some **flags** (also called **options**) and an **argument**. The main difference 
-between flags and arguments is that options start with a dash (`-`). Sometimes
+between flags and arguments is that flags start with a dash (`-`). Sometimes
 flags and arguments are referred to as parameters, and the difference is 
 not too important. The parameters are sometimes optional.
 
