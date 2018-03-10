@@ -577,7 +577,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > {: .output}
 > ~~~
 > $ mkdir recombine
-> $ mv proteins.dat recombine
+> $ mv proteins.dat recombine/
 > $ cp recombine/proteins.dat ../proteins-saved.dat
 > $ ls
 > ~~~
