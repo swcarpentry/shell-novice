@@ -1,12 +1,16 @@
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
+[ci]: http://communityin.org/
+[coc-reporting]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html#reporting-guidelines
+[coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
 [concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
-[email]: mailto:lessons@software-carpentry.org
+[concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
 [contrib-covenant]: https://contributor-covenant.org/
 [contributing]: {{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md
-[cran-checkpoint]: https://cran.r-project.org/package=checkpoint
-[cran-knitr]: https://cran.r-project.org/package=knitr
-[cran-stringr]: https://cran.r-project.org/package=stringr
+[cran-checkpoint]: https://cran.r-project.org/web/packages/checkpoint/index.html
+[cran-knitr]: https://cran.r-project.org/web/packages/knitr/index.html
+[cran-stringr]: https://cran.r-project.org/web/packages/stringr/index.html
+[email]: mailto:lessons@software-carpentry.org
 [github-importer]: https://import.github.com/
 [importer]: https://github.com/new/import
 [jekyll-collection]: https://jekyllrb.com/docs/collections/
@@ -14,10 +18,10 @@
 [jekyll-windows]: http://jekyll-windows.juthilo.com/
 [jekyll]: https://jekyllrb.com/
 [jupyter]: https://jupyter.org/
+[lesson-example]: https://swcarpentry.github.io/lesson-example/
 [mit-license]: https://opensource.org/licenses/mit-license.html
 [morea]: https://morea-framework.github.io/
 [numfocus]: https://numfocus.org/
-[ci]: http://communityin.org/
 [osi]: https://opensource.org
 [pandoc]: https://pandoc.org/
 [paper-now]: https://github.com/PeerJ/paper-now
@@ -33,6 +37,3 @@
 [training]: https://swcarpentry.github.io/instructor-training/
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
-[coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
-[coc-reporting]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html#reporting-guidelines
-[lesson-example]: https://swcarpentry.github.io/lesson-example/
