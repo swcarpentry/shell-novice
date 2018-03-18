@@ -34,6 +34,5 @@
 [rubygems]: https://rubygems.org/pages/download/
 [styles]: https://github.com/swcarpentry/styles/
 [swc-releases]: https://github.com/swcarpentry/swc-releases
-[training]: https://swcarpentry.github.io/instructor-training/
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
