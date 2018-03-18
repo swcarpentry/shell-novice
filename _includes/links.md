@@ -23,7 +23,7 @@
 [paper-now]: https://github.com/PeerJ/paper-now
 [python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
 [pyyaml]: https://pypi.python.org/pypi/PyYAML
-[r-markdown]: http://rmarkdown.rstudio.com/
+[r-markdown]: https://rmarkdown.rstudio.com/
 [rstudio]: https://www.rstudio.com/
 [ruby-install-guide]: https://www.ruby-lang.org/en/downloads/
 [ruby-installer]: https://rubyinstaller.org/
