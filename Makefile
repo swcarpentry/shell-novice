@@ -110,6 +110,13 @@ lesson-files :
 lesson-fixme :
 	@fgrep -i -n FIXME ${MARKDOWN_SRC} || true
 
+.PHONY : zip
+ZIPFILE = data/data-shell.zip
+
+## zip              : create zip file for learners to download
+zip : data-shell
+	zip -r $(ZIPFILE) $<
+
 #-------------------------------------------------------------------------------
 # Include extra commands if available.
 #-------------------------------------------------------------------------------
