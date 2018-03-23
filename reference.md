@@ -1,6 +1,6 @@
 ---
 layout: reference
-root: .
+permalink: /reference/
 ---
 
 ## Summary of Basic Commands
@@ -227,3 +227,23 @@ wildcard
     In the Unix shell,
     the wildcard `*` matches zero or more characters,
     so that `*.txt` matches all files whose names end in `.txt`.
+
+## External references
+
+### Opening a terminal
+* [How to Use Terminal on a Mac](http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/)
+* [Git for Windows](https://git-for-windows.github.io/)
+* [How to Install Bash shell command-line tool on Windows 10](https://www.windowscentral.com/how-install-bash-shell-command-line-windows-10)
+* [Install and Use the Linux Bash Shell on Windows 10](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
+* [Using the Windows 10 Bash Shell](https://www.howtogeek.com/265900/everything-you-can-do-with-windows-10s-new-bash-shell/)
+* [Using a UNIX/Linux emulator (Cygwin) or Secure Shell (SSH) client (Putty)](http://faculty.smu.edu/reynolds/unixtut/windows.html)
+
+### Manuals
+* [GNU manuals](http://www.gnu.org/manual/manual.html)
+* [Core GNU utilities](http://www.gnu.org/software/coreutils/manual/coreutils.html)
+
+### Miscellaneous
+* [North Pacific Gyre](http://en.wikipedia.org/wiki/North_Pacific_Gyre)
+* [Great Pacific Garbage Patch](http://en.wikipedia.org/wiki/Great_Pacific_Garbage_Patch)
+* ['Ensuring the longevity of digital information' by Jeff Rothenberg](http://www.clir.org/pubs/archives/ensuring.pdf)
+* [Computer error haikus](http://wiki.c2.com/?ComputerErrorHaiku)
