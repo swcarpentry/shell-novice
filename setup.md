@@ -22,7 +22,7 @@ In the lesson, you will find out how to access the data in this folder.
 > If none of the options below address your circumstances, try an online search for: UNIX shell [your computer model] [your operating system].
 >
 > ### Linux
-> The default shell for Linux operating systems is usually Bash.
+> The default shell for Linux operating systems is usually Bash (acronym for Borne Again SHell).
 > On most versions of Linux, it is accessible by running the Terminal program,
 >  which can be found via the applications menu or the search bar.  
 > If your machine is set up to use something other than bash, you can run it by opening a terminal and typing `bash`.
