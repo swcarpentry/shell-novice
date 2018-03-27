@@ -26,8 +26,8 @@ keypoints:
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
-We'll start with a directory called `molecules`
-that contains six files describing some simple organic molecules.
+Within the `data-shell` directory, there is a directory called `molecules`
+which contains six files describing some simple organic molecules.
 The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
 
@@ -43,8 +43,7 @@ octane.pdb    pentane.pdb   propane.pdb
 {: .output}
 
 Let's go into that directory with `cd` and run the command `wc *.pdb`.
-`wc` is the "word count" command:
-it counts the number of lines, words, and characters in files.
+`wc` is the "word count" command  that counts the number of lines, words, and characters in files.
 The `*` in `*.pdb` matches zero or more characters,
 so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
 
@@ -100,7 +99,7 @@ $ wc *.pdb
 
 > ## Using Wildcards
 >
-> When run in the `molecules` directory, which `ls` command(s) will
+> When run in the `molecules` directory, which `ls` command will
 > produce this output?
 >
 > `ethane.pdb   methane.pdb`
@@ -113,7 +112,7 @@ $ wc *.pdb
 > > ## Solution
 >>  The solution is `3.`
 >>
->> `1.` shows all files that contain any number and combination of characters, followed by the letter `t`, another single character, and end with `ane.pdb`. This includes `octane.pdb` and `pentane.pdb`. 
+>> `1.` shows all files that contain any number and combination of characters, followed by the letter `t`, another single character, and end with `ane.pdb`. The output includes `ethane.pdb`, `methane.pdb`, `octane.pdb` and `pentane.pdb`. 
 >>
 >> `2.` shows all files containing any number and combination of characters, `t`, another single character, `ne.` followed by any number and combination of characters. This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything which ends in `thane.pdb`.
 >>
@@ -675,8 +674,7 @@ so that you and other people can put those programs into pipes to multiply their
 > ~~~
 > {: .language-bash}
 > 
-> uses the -d flag to separate each line by comma, and the -f flag
-> to print the second field in each line, to give the following output:
+> uses the `-d` [delimiter] flag to separate each line by `,` [comma], and the `-f` [list] flag to print the second field in each line, to give the following output:
 >
 > ~~~
 > deer
@@ -736,7 +734,7 @@ so that you and other people can put those programs into pipes to multiply their
 ## Nelle's Pipeline: Checking Files
 
 Nelle has run her samples through the assay machines
-and created 17 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
+and created 18 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
 As a quick sanity check, starting from her home directory, Nelle types:
 
 ~~~
@@ -777,8 +775,8 @@ $ wc -l *.txt | sort -n | head -n 5
 Whoops: one of the files is 60 lines shorter than the others.
 When she goes back and checks it,
 she sees that she did that assay at 8:00 on a Monday morning --- someone
-was probably in using the machine on the weekend,
-and she forgot to reset it.
+was probably using the machine on the weekend,
+and forgot to reset it.
 Before re-running that sample,
 she checks to see if any files have too much data:
 
