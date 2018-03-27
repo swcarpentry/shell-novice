@@ -733,7 +733,7 @@ so that you and other people can put those programs into pipes to multiply their
 
 ## Nelle's Pipeline: Checking Files
 
-Nelle has run her samples through the assay machines
+Nelle has run a subset of her samples through the assay machines
 and created 18 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
 As a quick sanity check, starting from her home directory, Nelle types:
 
