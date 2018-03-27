@@ -41,7 +41,7 @@ First let's find out where we are by running a command called `pwd`
 (which stands for "print working directory"). Directories are like *places* - at any time
 while we are using the shell we are in exactly one place, called
 our **current working directory**. Commands mostly read and write files in the 
-current working directory, i.e. "here", so knowing where you are before running
+current working directory (i.e. "here") so knowing where you are, before running
 a command is important. `pwd` shows you where you are:
 
 ~~~
@@ -61,7 +61,7 @@ which is Nelle's **home directory**:
 > ## Home Directory Variation
 >
 > The home directory path will look different on different operating systems.
-> On Linux it may look like `/home/nelle`,
+> On Linux and Mac it may look like `/home/nelle`,
 > and on Windows it will be similar to `C:\Documents and Settings\nelle` or
 > `C:\Users\nelle`.  
 > (Note that it may look slightly different for different versions of Windows.)
@@ -102,18 +102,18 @@ because its name begins with `/`.
 >
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
-> it refers to the root directory. When it appears *inside* a name,
+> it refers to the root directory. When it appears *between* two names,
 > it's just a separator.
 {: .callout}
 
 Underneath `/Users`,
 we find one directory for each user with an account on Nelle's machine,
-her colleagues the Mummy and Wolfman.  
+her colleagues Imhotep and Larry.  
 
 ![Home Directories](../fig/home-directories.svg)
 
-The Mummy's files are stored in `/Users/imhotep`,
-Wolfman's in `/Users/larry`,
+Imhotep's files are stored in `/Users/imhotep`,
+Larry's in `/Users/larry`,
 and Nelle's in `/Users/nelle`.  Because Nelle is the user in our
 examples here, this is why we get `/Users/nelle` as our home directory.  
 Typically, when you open a new command prompt you will be in
@@ -160,25 +160,24 @@ Desktop/      Downloads/    Movies/       Pictures/
 
 ### Getting help
 
-`ls` has lots of other **flags**. There are two common ways to find out how 
+`ls` has lots of other **flags**. Depending on your operating system, to find out how 
 to use a command and what flags it accepts:
 
-1. We can pass a `--help` flag to the command, such as:
+1. (Windows) We can pass a `--help` flag to the command, such as:
     ~~~
     $ ls --help
     ~~~
     {: .bash}
 
-2. We can read its manual with `man`, such as:
+2. (Mac) We can read its manual with `man`, such as:
     ~~~
     $ man ls 
     ~~~
     {: .bash}
 
-If you use a Mac, or Git for Windows, you might find that only one of these works 
-(probably `man` on Mac and `--help` in Windows). We'll describe both ways.
+We will describe both ways.
 
-Of course there is a third way: searching the internet via your web browser. 
+Of course, there is another way: searching the internet via your web browser. 
 When using internet search, including the phrase `unix man page` in your search
 query will help to find relevant results.
 
@@ -388,6 +387,18 @@ To **quit** the `man` pages, press `q`.
 > > in each directory are sorted by time of last change.
 > {: .solution}
 {: .challenge}
+
+Let's go back to our example of our home directory:
+~~~
+$ ls -F
+~~~
+{: .language-bash}
+
+~~~
+Applications/ Documents/    Library/      Music/        Public/
+Desktop/      Downloads/    Movies/       Pictures/
+~~~
+{: .output}
 
 Here,
 we can see that our home directory contains mostly **sub-directories**.
