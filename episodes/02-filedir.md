@@ -137,13 +137,12 @@ Desktop      Downloads    Movies       Pictures
 (Again, your results may be slightly different depending on your operating
 system and how you have customized your filesystem.)
 
-`ls` prints the names of the files and directories in the current directory in
-alphabetical order, arranged neatly into columns.
+`ls` prints the names of the files and directories in the current directory. 
 We can make its output more comprehensible by using the **flag** `-F`
 (also known as a **switch** or an **option**) ,
 which tells `ls` to add a marker to file and directory names to indicate what
 they are. A trailing `/` indicates that this is a directory. Depending on your
-terminal, it might also use colors to indicate whether each entry is a file or 
+settings, it might also use colors to indicate whether each entry is a file or 
 directory.
 You might recall that we used `ls -F` in an earlier example.
 
@@ -377,15 +376,14 @@ To **quit** the `man` pages, press `q`.
 > ## Listing Recursively and By Time
 >
 > The command `ls -R` lists the contents of directories recursively, i.e., lists
-> their sub-directories, sub-sub-directories, and so on in alphabetical order
-> at each level. The command `ls -t` lists things by time of last change, with
-> most recently changed files or directories first.
+> their sub-directories, sub-sub-directories, and so on at each level. The command
+> `ls -t` lists things by time of last change, with most recently changed files or
+> directories first.
 > In what order does `ls -R -t` display things? Hint: `ls -l` uses a long listing
 > format to view timestamps.
 >
 > > ## Solution
-> > The directories are listed alphabetical at each level, the files/directories
-> > in each directory are sorted by time of last change.
+> > The files/directories in each directory are sorted by time of last change.
 > {: .solution}
 {: .challenge}
 
