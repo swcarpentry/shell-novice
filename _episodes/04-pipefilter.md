@@ -301,6 +301,8 @@ Now let's use the `sort` command to sort its contents.
 >
 > If we run `sort` on a file containing the following lines:
 >
+> {: .callout}
+>
 > ~~~
 > 10
 > 2
