@@ -7,7 +7,6 @@ questions:
 objectives:
 - "Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs."
 - "Explain when and why command-line interfaces should be used instead of graphical interfaces."
-keypoints:
 - "Explain the steps in the shell's read-run-print cycle."
 - "Most commands take flags (options) which begin with a `-`."
 - "Identify the actual command, flags, and filenames in a command-line call."
@@ -36,11 +35,11 @@ They are easy to learn and fantastic for simple tasks where a vocabulary consist
 "click" translates easily into "do the thing I want". But this magic relies on 
 wanting a simple set of things, and having programs that can do exactly those things.
 
-If you wish to do complex, purpose-specific things it helps to have a richer means
-of expressing your instructions to the computer. It doesn't need to be complicated or
+If you wish to do complex, purpose-specific things you need a richer means
+of expressing your instructions to the computer. This doesn't need to be complicated or
 difficult, just a vocabulary of commands and a simple grammar for using them.
 
-This is what the shell provides - a simple language and a **command-line interface** 
+This is what the shell provides - a simple language and a **command-line interface** (CLI) 
 to use it through. 
 
 The heart of a command-line interface is a **read-evaluate-print loop**, or REPL, called
@@ -49,15 +48,15 @@ so because when you type a command and press the Enter (or Return) key, the shel
 2. Executes (or "evaluates" it)
 3. Prints the output
 
-and then prints the prompt and waits for you to enter another command.
+and then print the prompt and wait for a new command.
  
 ### The Shell
 
 A shell is a program like any other.
-What's special about it is that its job is to run other programs
+However, the shell is special because its job is to run other programs
 rather than to do calculations itself.
 The most popular Unix shell is Bash,
-the Bourne Again SHell
+the Bourne Again Shell
 (so-called because it's derived from a shell written by Stephen Bourne).
 Bash is the default shell on most modern implementations of Unix
 and in most packages that provide Unix-like tools for Windows.
@@ -97,7 +96,7 @@ doesn't exist. Also, capitalization matters: `LS` is different to `ls`.
 
 Next we see the output that our command produced. In this case it is a listing 
 of files and folders in a location called `/` - we'll cover what all these mean 
-later today. Those with a Mac might recognize the output in this example.
+later today. Those with a Mac might recognize the output in the above example.
 
 Finally, the shell again prints the prompt and waits for you to type the next 
 command.
@@ -118,7 +117,7 @@ but those are concepts we'll meet later and not too important at the moment). Re
 that commands, flags and arguments are separated by spaces.
 
 So let's look at the REPL (read-evaluate-print loop) in more detail. Notice that the
-"evaluate" step is made of two parts:
+"evaluate" step is made up of two parts:
 
 1. Read what was typed (`ls -F /` in our example)  
     The shell uses the spaces to split the line into the command, flags, and arguments
@@ -128,7 +127,7 @@ So let's look at the REPL (read-evaluate-print loop) in more detail. Notice that
        interpret as the program sees fit 
 3. Print the output produced by the program
 
-and then print the prompt and wait for you to enter another command.
+and then print the prompt and wait for a new command.
 
 > ## Command not found 
 > If the shell can't find a program whose name is the command you typed, it 
@@ -146,27 +145,27 @@ and then print the prompt and wait for you to enter another command.
 
 ### Is it difficult?
 
-It isn't difficult, but it is a different model of interacting than a GUI, and that 
-will take some effort - and some time - to learn. A GUI 
+Using the command shell is not difficult, but a different method of interacting with the computer than a GUI, and 
+will take some effort - and time - to learn. A GUI 
 presents you with choices and you select one. With a CLI the choices are combinations 
-of commands and parameters, more like words in a language than buttons on a screen. They
+of commands and parameters, more like words in a language than buttons on a screen. These choices
 are not presented to you so
-you must learn a few, like learning some vocabulary in a new language. But a small 
-number of commands gets you a long way, and we'll cover those essential few today.
+you must learn the commands and parameters, similar to learning the vocabulary in a new language. A small 
+number of commands will go a long way, and we will cover those that are essential today.
 
 ### Flexibility and automation 
 
 The grammar of a shell allows you to combine existing tools into powerful
-pipelines and handle large volumes of data automatically. Sequences of
+pipelines that can handle large volumes of data automatically. Sequences of
 commands can be written into a *script*, improving the reproducibility of 
-workflows and allowing you to repeat them easily.
+workflows and allow you to repeat them easily.
 
 In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
 Familiarity with the shell is near essential to run a variety of specialized tools and resources
 including high-performance computing systems.
 As clusters and cloud computing systems become more popular for scientific data crunching,
 being able to interact with the shell is becoming a necessary skill.
-We can build on the command-line skills covered here
+You will be able build on the command-line skills covered here
 to tackle a wide range of scientific questions and computational challenges.
 
 ## Nelle's Pipeline: Starting Point
@@ -185,8 +184,8 @@ She has 1520 samples in all and now needs to:
 2.  Calculate statistics for each of the proteins separately
     using a program her supervisor wrote called `goostats`.
 3.  Write up results.
-    Her supervisor would really like her to do this by the end of the month
-    so that her paper can appear in an upcoming special issue of *Aquatic Goo Letters*.
+    
+Her supervisor would really like her to do this by the end of the month so that her paper can appear in an upcoming special issue of *Aquatic Goo Letters*.
 
 It takes about half an hour for the assay machine to process each sample.
 The good news is that
