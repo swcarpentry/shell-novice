@@ -101,7 +101,7 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 >    expected and can even result in data loss.
 >
 > If you need to refer to names of files or directories that have whitespace
-> or another non-alphanumeric character, you should surround the name in quotes (`""`).
+> or another non-alphanumeric character, you should surround the name in quotes (`""`), alternatively, you can use a backward slash `\` before the white space.
 {: .callout}
 
 Since we've just created the `thesis` directory, there's nothing in it yet:
@@ -301,7 +301,7 @@ rm: cannot remove `thesis': Is a directory
 This happens because `rm` by default only works on files, not directories.
 
 To really get rid of `thesis` we must also delete the file `draft.txt`.
-We can do this with the [recursive](https://en.wikipedia.org/wiki/Recursion) option for `rm`:
+We can do this with the `-r` [recursive](https://en.wikipedia.org/wiki/Recursion) option for `rm`:
 
 ~~~
 $ rm -r thesis
