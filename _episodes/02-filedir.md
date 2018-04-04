@@ -11,6 +11,8 @@ objectives:
 - "Translate an absolute path into a relative path and vice versa."
 - "Construct absolute and relative paths that identify specific files and directories."
 - "Demonstrate the use of tab completion, and explain its advantages."
+- "How to navigate between directories."
+- "How to list the contents of a directory."
 keypoints:
 - "The file system is responsible for managing information on the disk."
 - "Information is stored in files, which are stored in directories (folders)."
@@ -24,6 +26,7 @@ keypoints:
 - "Directory names in a path are separated with `/` on Unix, but `\\` on Windows."
 - "`..` means 'the directory above the current one'; `.` on its own means 'the current directory'."
 - "Most files' names are `something.extension`. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file."
+- "Tab key can be used to complete file and directory names."
 ---
 
 The part of the operating system responsible for managing files and directories 
@@ -100,9 +103,8 @@ because its name begins with `/`.
 > ## Slashes
 >
 > Notice that there are two meanings for the `/` character.
-> When it appears at the front of a file or directory name,
-> it refers to the root directory. When it appears *inside* a name,
-> it's just a separator.
+> When it appears at the very beginning of a file or directory name,
+> it refers to the root directory. Otherwise it's just a separator (When it appears *inside* a name).
 {: .callout}
 
 Underneath `/Users`,
@@ -320,7 +322,7 @@ or available locally via: info '(coreutils) ls invocation'
 {: .output}
 
 > ## Unsupported command-line options
-> If you try to use an option (flag) that is not supported, `ls` and other programs
+> If you try to use an option (flag) that is not supported, `ls` and other commands
 > will usually print an error message similar to this:
 >
 > ~~~
