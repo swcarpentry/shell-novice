@@ -131,7 +131,7 @@ def check_labels(reporter, repo_url):
 
     overlap = set(EXPECTED.keys()).intersection(set(actual.keys()))
     for name in sorted(overlap):
-        reporter.check(EXPECTED[name] == actual[name],
+        reporter.check(EXPECTED[name].lower() == actual[name].lower(),
                        None,
                        'Color mis-match for label {0} in {1}: expected {2}, found {3}',
                        name, repo_url, EXPECTED[name], actual[name])
