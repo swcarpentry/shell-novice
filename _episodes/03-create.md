@@ -652,7 +652,7 @@ but it does find the copy in `thesis` that we didn't delete.
 
 > ## Copy with Multiple Filenames
 >
-> For this exercise, you can test the commands in the `data-shell/data directory`.
+> For this exercise, you can test the commands in the `data-shell/data` directory.
 >
 > In the example below, what does `cp` do when given several filenames and a directory name?
 >
