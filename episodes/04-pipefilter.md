@@ -219,50 +219,6 @@ lengths.txt
 ~~~
 {: .output}
 
-> ## What Does `>>` Mean?
->
-> What is the difference between:
->
-> ~~~
-> $ echo hello > testfile01.txt
-> ~~~
-> {: .language-bash}
->
-> and:
->
-> ~~~
-> $ echo hello >> testfile02.txt
-> ~~~
-> {: .language-bash}
->
-> Hint: Try executing each command twice in a row and then examining the output files.
-{: .challenge}
-
-> ## Appending Data
->
-> Consider the file `data-shell/data/animals.txt`.
-> After these commands, select the answer that
-> corresponds to the file `animalsUpd.txt`:
->
-> ~~~
-> $ head -3 animals.txt > animalsUpd.txt
-> $ tail -2 animals.txt >> animalsUpd.txt
-> ~~~
-> {: .language-bash}
->
-> 1. The first three lines of `animals.txt`
-> 2. The last two lines of `animals.txt`
-> 3. The first three lines and the last two lines of `animals.txt`
-> 4. The second and third lines of `animals.txt`
->
-> > ## Solution
-> > Option 3 is correct. 
-> > For option 1 to be correct we would only run the `head` command.
-> > For option 2 to be correct we would only run the `tail` command.
-> > For option 4 to be correct we would have to pipe the output of `head` into `tail -2` by doing `head -3 animals.txt | tail -2 >> animalsUpd.txt`
-> {: .solution}
-{: .challenge}
-
 We can now send the content of `lengths.txt` to the screen using `cat lengths.txt`.
 `cat` stands for "concatenate":
 it prints the contents of files one after another.
@@ -400,6 +356,53 @@ the output of `head` must be the file with the fewest lines.
 > incorrect results and/or delete
 > the contents of `lengths.txt`.
 {: .callout}
+
+> ## What Does `>>` Mean?
+>
+> What is the difference between:
+>
+> ~~~
+> $ echo hello > testfile01.txt
+> ~~~
+> {: .language-bash}
+>
+> and:
+>
+> ~~~
+> $ echo hello >> testfile02.txt
+> ~~~
+> {: .language-bash}
+>
+> Hint: Try executing each command twice in a row and then examining the output files.
+{: .challenge}
+
+> ## Appending Data
+>
+> We have already met the `head` command, which prints lines from the start of a file.
+> `tail` is similar, but prints lines from the end of a file instead.
+>
+> Consider the file `data-shell/data/animals.txt`.
+> After these commands, select the answer that
+> corresponds to the file `animalsUpd.txt`:
+>
+> ~~~
+> $ head -n 3 animals.txt > animalsUpd.txt
+> $ tail -n 2 animals.txt >> animalsUpd.txt
+> ~~~
+> {: .language-bash}
+>
+> 1. The first three lines of `animals.txt`
+> 2. The last two lines of `animals.txt`
+> 3. The first three lines and the last two lines of `animals.txt`
+> 4. The second and third lines of `animals.txt`
+>
+> > ## Solution
+> > Option 3 is correct. 
+> > For option 1 to be correct we would only run the `head` command.
+> > For option 2 to be correct we would only run the `tail` command.
+> > For option 4 to be correct we would have to pipe the output of `head` into `tail -2` by doing `head -3 animals.txt | tail -2 >> animalsUpd.txt`
+> {: .solution}
+{: .challenge}
 
 If you think this is confusing,
 you're in good company:
