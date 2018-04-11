@@ -378,6 +378,9 @@ the output of `head` must be the file with the fewest lines.
 
 > ## Appending Data
 >
+> We have already met the `head` command, which prints lines from the start of a file.
+> `tail` is similar, but prints lines from the end of a file instead.
+>
 > Consider the file `data-shell/data/animals.txt`.
 > After these commands, select the answer that
 > corresponds to the file `animalsUpd.txt`:
