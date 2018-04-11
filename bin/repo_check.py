@@ -35,15 +35,26 @@ F_API_URL = 'https://api.github.com/repos/{0}/{1}/labels'
 
 # Expected labels and colors.
 EXPECTED = {
-    'bug' : 'bd2c00',
-    'discussion' : 'fc8dc1',
-    'enhancement' : '9cd6dc',
-    'help-wanted' : 'f4fd9c',
-    'instructor-training' : '6e5494',
-    'newcomer-friendly' : 'eec275',
-    'question' : '808040',
-    'template-and-tools' : '2b3990',
-    'work-in-progress' : '7ae78e'
+    'help wanted' : 'dcecc7',
+    'status:in progress' : '9bcc65',
+    'status:changes requested' : '679f38',
+    'status:wait' : 'fff2df',
+    'status:refer to cac' : 'ffdfb2',
+    'status:need more info' : 'ee6c00',
+    'status:blocked' : 'e55100',
+    'status:out of scope' : 'eeeeee',
+    'status:duplicate' : 'bdbdbd',
+    'type:typo text' : 'f8bad0',
+    'type:bug' : 'eb3f79',
+    'type:formatting' : 'ac1357',
+    'type:template and tools' : '7985cb',
+    'type:instructor guide' : '00887a',
+    'type:discussion' : 'b2e5fc',
+    'type:enhancement' : '7fdeea',
+    'type:clarification' : '00acc0',
+    'type:teaching example' : 'ced8dc',
+    'good first issue' : 'ffeb3a',
+    'high priority' : 'd22e2e'
 }
 
 
@@ -131,7 +142,7 @@ def check_labels(reporter, repo_url):
 
     overlap = set(EXPECTED.keys()).intersection(set(actual.keys()))
     for name in sorted(overlap):
-        reporter.check(EXPECTED[name] == actual[name],
+        reporter.check(EXPECTED[name].lower() == actual[name].lower(),
                        None,
                        'Color mis-match for label {0} in {1}: expected {2}, found {3}',
                        name, repo_url, EXPECTED[name], actual[name])
