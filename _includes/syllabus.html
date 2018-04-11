@@ -29,7 +29,7 @@
         <tr>
           {% if multiday %}<td class="col-md-1"></td>{% endif %}
           <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
-          <td class="col-md-3">Finalizar</td>
+          <td class="col-md-3">Final</td>
           <td class="col-md-7"></td>
         </tr>
       {% endif %}
@@ -66,7 +66,7 @@
   <tr>
     {% if multiday %}<td class="col-md-1"></td>{% endif %}
     <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
-    <td class="col-md-3">Finish</td>
+    <td class="col-md-3">Final</td>
     <td class="col-md-7"></td>
   </tr>
   </table>
