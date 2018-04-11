@@ -245,8 +245,8 @@ lengths.txt
 > corresponds to the file `animalsUpd.txt`:
 >
 > ~~~
-> $ head -3 animals.txt > animalsUpd.txt
-> $ tail -2 animals.txt >> animalsUpd.txt
+> $ head -n 3 animals.txt > animalsUpd.txt
+> $ tail -n 2 animals.txt >> animalsUpd.txt
 > ~~~
 > {: .language-bash}
 >
