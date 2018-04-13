@@ -33,6 +33,6 @@
 [training]: https://swcarpentry.github.io/instructor-training/
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
-[coc]: https://software-carpentry.org/conduct/
-[coc-reporting]: https://software-carpentry.org/CoC-reporting/
+[coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
+[coc-reporting]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html#reporting-guidelines
 [lesson-example]: https://swcarpentry.github.io/lesson-example/
