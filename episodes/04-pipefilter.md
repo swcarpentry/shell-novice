@@ -358,8 +358,9 @@ the output of `head` must be the file with the fewest lines.
 {: .callout}
 
 > ## What Does `>>` Mean?
->
-> What is the difference between:
+> We have seen the use of `>`, but there is a similar operator `>>` which works slightly differently.
+> By using the `echo` command to print strings, test the commands below to reveal the difference
+> between the two operators:
 >
 > ~~~
 > $ echo hello > testfile01.txt
@@ -374,6 +375,14 @@ the output of `head` must be the file with the fewest lines.
 > {: .language-bash}
 >
 > Hint: Try executing each command twice in a row and then examining the output files.
+> > ## Solution
+> > In the first example with `>`, the string "hello" is written to `testfile01.txt`,
+> > but the file gets overwritten each time we run the command.
+> >
+> > We see from the second example that the `>>` operator also writes "hello" to a file
+> > (in this case`testfile02.txt`),
+> > but appends the string to the file if it already exists (i.e. when we run it for the second time).
+> {: .solution}
 {: .challenge}
 
 > ## Appending Data
