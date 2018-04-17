@@ -87,11 +87,11 @@ and to meet some of our community members.
 There are many ways to contribute,
 from writing new exercises and improving existing ones
 to updating or filling in the documentation
-and and submitting [bug reports][issues]
+and submitting [bug reports][issues]
 about things that don't work, aren't clear, or are missing.
-If you are looking for ideas,
-please see [the list of issues for this repository][issues],
-or the issues for [Data Carpentry][dc-issues]
+If you are looking for ideas, please see the 'Issues' tab for
+a list of issues associated with this repository,
+or you may also look at the issues for [Data Carpentry][dc-issues]
 and [Software Carpentry][swc-issues] projects.
 
 Comments on issues and reviews of pull requests are just as welcome:
@@ -119,32 +119,30 @@ our lessons must run equally well on all three.
 
 ## Using GitHub
 
-If you choose to contribute via GitHub,
-you may want to look at
+If you choose to contribute via GitHub, you may want to look at
 [How to Contribute to an Open Source Project on GitHub][how-contribute].
-In brief:
+To manage changes, we follow [GitHub flow][github-flow]. 
+Each lesson has two maintainers who review issues and pull requests or encourage others to do so.
+The maintainers are community volunteers and have final say over what gets merged into the lesson.
+To use the web interface for contributing to a lesson:
 
-1.  The published copy of the lesson is in the `gh-pages` branch of the repository
-    (so that GitHub will regenerate it automatically).
-    Please create all branches from that,
-    and merge the [master repository][repo]'s `gh-pages` branch into your `gh-pages` branch
-    before starting work.
-    Please do *not* work directly in your `gh-pages` branch,
-    since that will make it difficult for you to work on other contributions.
+1.  Fork the originating repository to your GitHub profile.
+2.  Within your version of the forked repository, move to the `gh-pages` branch and
+create a new branch for each significant change being made.
+3.  Navigate to the file(s) you wish to change within the new branches and make revisions as required.
+4.  Commit all changed files within the appropriate branches.
+5.  Create individual pull requests from each of your changed branches
+to the `gh-pages` branch within the originating repository.
+6.  If you receive feedback, make changes using your issue-specific branches of the forked
+repository and the pull requests will update automatically.
+7.  Repeat as needed until all feedback has been addressed.
 
-2.  We use [GitHub flow][github-flow] to manage changes:
-    1.  Create a new branch in your desktop copy of this repository for each significant change.
-    2.  Commit the change in that branch.
-    3.  Push that branch to your fork of this repository on GitHub.
-    4.  Submit a pull request from that branch to the [master repository][repo].
-    5.  If you receive feedback,
-        make changes on your desktop and push to your branch on GitHub:
-        the pull request will update automatically.
-
-Each lesson has two maintainers who review issues and pull requests
-or encourage others to do so.
-The maintainers are community volunteers,
-and have final say over what gets merged into the lesson.
+When starting work, please make sure your clone of the originating `gh-pages` branch is up-to-date
+before creating your own revision-specific branch(es) from there.
+Additionally, please only work from your newly-created branch(es) and *not*
+your clone of the originating `gh-pages` branch.
+Lastly, published copies of all the lessons are available in the `gh-pages` branch of the originating
+repository for reference while revising.
 
 ## Other Resources
 
@@ -158,15 +156,14 @@ You can also [reach us by email][email].
 [dc-lessons]: http://datacarpentry.org/lessons/
 [dc-site]: http://datacarpentry.org/
 [discuss-list]: http://lists.software-carpentry.org/listinfo/discuss
-[github]: http://github.com
+[github]: https://github.com
 [github-flow]: https://guides.github.com/introduction/flow/
 [github-join]: https://github.com/join
 [how-contribute]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
-[issues]: https://github.com/swcarpentry/FIXME/issues/
-[repo]: https://github.com/swcarpentry/FIXME/
+[issues]: https://guides.github.com/features/issues/
 [swc-issues]: https://github.com/issues?q=user%3Aswcarpentry
-[swc-lessons]: http://software-carpentry.org/lessons/
-[swc-site]: http://software-carpentry.org/
+[swc-lessons]: https://software-carpentry.org/lessons/
+[swc-site]: https://software-carpentry.org/
 '''
 
 ROOT_CONFIG_YML = '''\
@@ -202,7 +199,7 @@ dc_site: "http://datacarpentry.org"
 swc_github: "https://github.com/swcarpentry"
 swc_site: "https://software-carpentry.org"
 swc_pages: "https://swcarpentry.github.io"
-lc_site: "http://librarycarpentry.github.io/"
+lc_site: "https://librarycarpentry.github.io/"
 template_repo: "https://github.com/swcarpentry/styles"
 example_repo: "https://github.com/swcarpentry/lesson-example"
 example_site: "https://swcarpentry.github.com/lesson-example"
