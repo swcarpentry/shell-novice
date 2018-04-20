@@ -160,7 +160,7 @@ def load_yaml(filename):
     try:
         with open(filename, 'r') as reader:
             return yaml.load(reader)
-    except (yaml.YAMLError, FileNotFoundError) as e:
+    except (yaml.YAMLError, IOError) as e:
         print('Unable to load YAML file {0}:\n{1}'.format(filename, e), file=sys.stderr)
         sys.exit(1)
 
