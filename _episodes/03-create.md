@@ -93,7 +93,7 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 >
 >    Commands treat names starting with `-` as options.
 >
-> 3. Stick with letters, numbers, `.` (period), `-` (dash) and `_` (underscore).
+> 3. Stick with letters, numbers, `.` (period or 'full stop'), `-` (dash) and `_` (underscore).
 >
 >    Many other characters have special meanings on the command line.
 >    We will learn about some of these during this lesson.
