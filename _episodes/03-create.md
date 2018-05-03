@@ -691,7 +691,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > {: .solution}
 {: .challenge}
 
-> ## Copy a folder structure sans files
+> ## Copy a folder structure but not the files
 >
 > You're starting a new experiment, and would like to duplicate the file
 > structure from your previous experiment without the data files so you can
