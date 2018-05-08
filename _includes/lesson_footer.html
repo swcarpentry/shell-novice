@@ -4,7 +4,6 @@
 <footer>
   <div class="row">
     <div class="col-md-6" align="left">
-      <h4>
 	Copyright &copy; 2016–{{ 'now' | date: "%Y" }}
 	{% if site.carpentry == "swc" %}
 	<a href="{{ site.swc_site }}">Software Carpentry Foundation</a>
@@ -13,10 +12,8 @@
 	{% elsif site.carpentry == "lc" %}
 	<a href="{{ site.lc_site }}">Library Carpentry</a>
 	{% endif %}
-      </h4>
     </div>
     <div class="col-md-6" align="right">
-      <h4>
 	{% if page.source %}
 	{% if page.source == "Rmd" %}
 	<a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}">Edit on GitHub</a>
@@ -32,7 +29,6 @@
 	<a href="{{ site.github.repository_url }}/blob/gh-pages/CITATION">Cite</a>
 	/
 	<a href="mailto:{{ site.email }}">Contact</a>
-      </h4>
     </div>
   </div>
 </footer>
