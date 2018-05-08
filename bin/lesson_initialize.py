@@ -3,7 +3,6 @@
 """Initialize a newly-created repository."""
 
 
-from __future__ import print_function
 import sys
 import os
 
@@ -121,7 +120,7 @@ our lessons must run equally well on all three.
 
 If you choose to contribute via GitHub, you may want to look at
 [How to Contribute to an Open Source Project on GitHub][how-contribute].
-To manage changes, we follow [GitHub flow][github-flow]. 
+To manage changes, we follow [GitHub flow][github-flow].
 Each lesson has two maintainers who review issues and pull requests or encourage others to do so.
 The maintainers are community volunteers and have final say over what gets merged into the lesson.
 To use the web interface for contributing to a lesson:
@@ -279,7 +278,7 @@ FIXME
 
 ROOT_AIO_MD = '''\
 ---
-layout: page 
+layout: page
 root: .
 ---
 <script>

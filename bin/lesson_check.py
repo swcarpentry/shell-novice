@@ -4,15 +4,14 @@
 Check lesson files and their contents.
 """
 
-from __future__ import print_function
-import sys
+
 import os
 import glob
-import json
 import re
 from optparse import OptionParser
 
-from util import Reporter, read_markdown, load_yaml, check_unwanted_files, require, IMAGE_FILE_SUFFIX
+from util import (Reporter, read_markdown, load_yaml, check_unwanted_files,
+                  require)
 
 __version__ = '0.3'
 
@@ -23,8 +22,9 @@ SOURCE_DIRS = ['', '_episodes', '_extras']
 # FIXME: We do not yet validate whether any files have the required
 #   YAML headers, but should in the future.
 # The '%' is replaced with the source directory path for checking.
-# Episodes are handled specially, and extra files in '_extras' are also handled specially.
-# This list must include all the Markdown files listed in the 'bin/initialize' script.
+# Episodes are handled specially, and extra files in '_extras' are also handled
+# specially. This list must include all the Markdown files listed in the
+# 'bin/initialize' script.
 REQUIRED_FILES = {
     '%/CONDUCT.md': True,
     '%/CONTRIBUTING.md': False,
@@ -101,6 +101,7 @@ BREAK_METADATA_FIELDS = {
 # How long are lines allowed to be?
 MAX_LINE_LEN = 100
 
+
 def main():
     """Main driver."""
 
@@ -110,9 +111,9 @@ def main():
     args.references = read_references(args.reporter, args.reference_path)
 
     docs = read_all_markdown(args.source_dir, args.parser)
-    check_fileset(args.source_dir, args.reporter, docs.keys())
+    check_fileset(args.source_dir, args.reporter, list(docs.keys()))
     check_unwanted_files(args.source_dir, args.reporter)
-    for filename in docs.keys():
+    for filename in list(docs.keys()):
         checker = create_checker(args, filename, docs[filename])
         checker.check()
 
@@ -160,8 +161,10 @@ def check_config(reporter, source_dir):
 
     config_file = os.path.join(source_dir, '_config.yml')
     config = load_yaml(config_file)
-    reporter.check_field(config_file, 'configuration', config, 'kind', 'lesson')
-    reporter.check_field(config_file, 'configuration', config, 'carpentry', ('swc', 'dc', 'lc'))
+    reporter.check_field(config_file, 'configuration',
+                         config, 'kind', 'lesson')
+    reporter.check_field(config_file, 'configuration',
+                         config, 'carpentry', ('swc', 'dc', 'lc'))
     reporter.check_field(config_file, 'configuration', config, 'title')
     reporter.check_field(config_file, 'configuration', config, 'email')
 
@@ -235,17 +238,17 @@ def check_fileset(source_dir, reporter, filenames_present):
         if m and m.group(1):
             seen.append(m.group(1))
         else:
-            reporter.add(None, 'Episode {0} has badly-formatted filename', filename)
+            reporter.add(
+                None, 'Episode {0} has badly-formatted filename', filename)
 
     # Check for duplicate episode numbers.
     reporter.check(len(seen) == len(set(seen)),
-                        None,
-                        'Duplicate episode numbers {0} vs {1}',
-                        sorted(seen), sorted(set(seen)))
+                   None,
+                   'Duplicate episode numbers {0} vs {1}',
+                   sorted(seen), sorted(set(seen)))
 
     # Check that numbers are consecutive.
-    seen = [int(s) for s in seen]
-    seen.sort()
+    seen = sorted([int(s) for s in seen])
     clean = True
     for i in range(len(seen) - 1):
         clean = clean and ((seen[i+1] - seen[i]) == 1)
@@ -271,7 +274,7 @@ class CheckBase(object):
 
         super(CheckBase, self).__init__()
         self.args = args
-        self.reporter = self.args.reporter # for convenience
+        self.reporter = self.args.reporter  # for convenience
         self.filename = filename
         self.metadata = metadata
         self.metadata_len = metadata_len
@@ -280,7 +283,6 @@ class CheckBase(object):
         self.doc = doc
 
         self.layout = None
-
 
     def check(self):
         """Run tests."""
@@ -292,7 +294,6 @@ class CheckBase(object):
         self.check_codeblock_classes()
         self.check_defined_link_references()
 
-
     def check_metadata(self):
         """Check the YAML metadata."""
 
@@ -301,52 +302,50 @@ class CheckBase(object):
                             'Missing metadata entirely')
 
         if self.metadata and (self.layout is not None):
-            self.reporter.check_field(self.filename, 'metadata', self.metadata, 'layout', self.layout)
-
+            self.reporter.check_field(
+                self.filename, 'metadata', self.metadata, 'layout', self.layout)
 
     def check_line_lengths(self):
         """Check the raw text of the lesson body."""
 
         if self.args.line_lengths:
-            over = [i for (i, l, n) in self.lines if (n > MAX_LINE_LEN) and (not l.startswith('!'))]
+            over = [i for (i, l, n) in self.lines if (
+                n > MAX_LINE_LEN) and (not l.startswith('!'))]
             self.reporter.check(not over,
                                 self.filename,
                                 'Line(s) are too long: {0}',
                                 ', '.join([str(i) for i in over]))
 
-
     def check_trailing_whitespace(self):
         """Check for whitespace at the ends of lines."""
 
         if self.args.trailing_whitespace:
-            trailing = [i for (i, l, n) in self.lines if P_TRAILING_WHITESPACE.match(l)]
+            trailing = [
+                i for (i, l, n) in self.lines if P_TRAILING_WHITESPACE.match(l)]
             self.reporter.check(not trailing,
                                 self.filename,
                                 'Line(s) end with whitespace: {0}',
                                 ', '.join([str(i) for i in trailing]))
 
-
     def check_blockquote_classes(self):
         """Check that all blockquotes have known classes."""
 
-        for node in self.find_all(self.doc, {'type' : 'blockquote'}):
+        for node in self.find_all(self.doc, {'type': 'blockquote'}):
             cls = self.get_val(node, 'attr', 'class')
             self.reporter.check(cls in KNOWN_BLOCKQUOTES,
                                 (self.filename, self.get_loc(node)),
                                 'Unknown or missing blockquote type {0}',
                                 cls)
 
-
     def check_codeblock_classes(self):
         """Check that all code blocks have known classes."""
 
-        for node in self.find_all(self.doc, {'type' : 'codeblock'}):
+        for node in self.find_all(self.doc, {'type': 'codeblock'}):
             cls = self.get_val(node, 'attr', 'class')
             self.reporter.check(cls in KNOWN_CODEBLOCKS,
                                 (self.filename, self.get_loc(node)),
                                 'Unknown or missing code block type {0}',
                                 cls)
-
 
     def check_defined_link_references(self):
         """Check that defined links resolve in the file.
@@ -355,7 +354,7 @@ class CheckBase(object):
         """
 
         result = set()
-        for node in self.find_all(self.doc, {'type' : 'text'}):
+        for node in self.find_all(self.doc, {'type': 'text'}):
             for match in P_INTERNAL_LINK_REF.findall(node['value']):
                 text = match[0]
                 link = match[1]
@@ -366,11 +365,10 @@ class CheckBase(object):
                             'Internally-defined links may be missing definitions: {0}',
                             ', '.join(sorted(result)))
 
-
     def find_all(self, node, pattern, accum=None):
         """Find all matches for a pattern."""
 
-        assert type(pattern) == dict, 'Patterns must be dictionaries'
+        assert isinstance(pattern, dict), 'Patterns must be dictionaries'
         if accum is None:
             accum = []
         if self.match(node, pattern):
@@ -379,7 +377,6 @@ class CheckBase(object):
             self.find_all(child, pattern, accum)
         return accum
 
-
     def match(self, node, pattern):
         """Does this node match the given pattern?"""
 
@@ -387,14 +384,13 @@ class CheckBase(object):
             if key not in node:
                 return False
             val = pattern[key]
-            if type(val) == str:
+            if isinstance(val, str):
                 if node[key] != val:
                     return False
-            elif type(val) == dict:
+            elif isinstance(val, dict):
                 if not self.match(node[key], val):
                     return False
         return True
-
 
     def get_val(self, node, *chain):
         """Get value one or more levels down."""
@@ -405,7 +401,6 @@ class CheckBase(object):
             if curr is None:
                 break
         return curr
-
 
     def get_loc(self, node):
         """Convenience method to get node's line number."""
@@ -420,8 +415,8 @@ class CheckNonJekyll(CheckBase):
     """Check a file that isn't translated by Jekyll."""
 
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
-        super(CheckNonJekyll, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
-
+        super(CheckNonJekyll, self).__init__(
+            args, filename, metadata, metadata_len, text, lines, doc)
 
     def check_metadata(self):
         self.reporter.check(self.metadata is None,
@@ -433,7 +428,8 @@ class CheckIndex(CheckBase):
     """Check the main index page."""
 
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
-        super(CheckIndex, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
+        super(CheckIndex, self).__init__(args, filename,
+                                         metadata, metadata_len, text, lines, doc)
         self.layout = 'lesson'
 
     def check_metadata(self):
@@ -447,15 +443,14 @@ class CheckEpisode(CheckBase):
     """Check an episode page."""
 
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
-        super(CheckEpisode, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
-
+        super(CheckEpisode, self).__init__(args, filename,
+                                           metadata, metadata_len, text, lines, doc)
 
     def check(self):
         """Run extra tests."""
 
         super(CheckEpisode, self).check()
         self.check_reference_inclusion()
-
 
     def check_metadata(self):
         super(CheckEpisode, self).check_metadata()
@@ -470,18 +465,16 @@ class CheckEpisode(CheckBase):
             else:
                 self.check_metadata_fields(TEACHING_METADATA_FIELDS)
 
-
     def check_metadata_fields(self, expected):
         for (name, type_) in expected:
             if name not in self.metadata:
                 self.reporter.add(self.filename,
                                   'Missing metadata field {0}',
                                   name)
-            elif type(self.metadata[name]) != type_:
+            elif not isinstance(self.metadata[name], type_):
                 self.reporter.add(self.filename,
                                   '"{0}" has wrong type in metadata ({1} instead of {2})',
                                   name, type(self.metadata[name]), type_)
-
 
     def check_reference_inclusion(self):
         """Check that links file has been included."""
@@ -507,7 +500,8 @@ class CheckReference(CheckBase):
     """Check the reference page."""
 
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
-        super(CheckReference, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
+        super(CheckReference, self).__init__(
+            args, filename, metadata, metadata_len, text, lines, doc)
         self.layout = 'reference'
 
 
@@ -515,7 +509,8 @@ class CheckGeneric(CheckBase):
     """Check a generic page."""
 
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
-        super(CheckGeneric, self).__init__(args, filename, metadata, metadata_len, text, lines, doc)
+        super(CheckGeneric, self).__init__(args, filename,
+                                           metadata, metadata_len, text, lines, doc)
         self.layout = 'page'
 
 

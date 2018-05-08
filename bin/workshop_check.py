@@ -4,7 +4,7 @@
 docstrings on the checking functions for a summary of the checks.
 '''
 
-from __future__ import print_function
+
 import sys
 import os
 import re
@@ -174,8 +174,8 @@ def check_latitude_longitude(latlng):
     try:
         lat, lng = latlng.split(',')
         lat = float(lat)
-        long = float(lng)
-        return (-90.0 <= lat <= 90.0) and (-180.0 <= long <= 180.0)
+        lng = float(lng)
+        return (-90.0 <= lat <= 90.0) and (-180.0 <= lng <= 180.0)
     except ValueError:
         return False
 
@@ -203,9 +203,9 @@ def check_helpers(helpers):
 
 
 @look_for_fixme
-def check_email(email):
+def check_emails(emails):
     """
-    'email' must be a comma-separated list of valid email addresses.
+    'emails' must be a comma-separated list of valid email addresses.
     The list may be empty. A valid email address consists of characters,
     an '@', and more characters.  It should not contain the default contact
     """
@@ -217,7 +217,7 @@ def check_email(email):
                 return False
     else:
         return False
-  
+
     return True
 
 
@@ -294,9 +294,9 @@ HANDLERS = {
                    '["First helper", "Second helper",..]'),
 
     'email':    (True, check_emails,
-                   'contact email list isn\'t a valid list of format ' +
-                   '["me@example.org", "you@example.org",..] or contains incorrectly formatted email addresses or ' +
-                   '"{0}".'.format(DEFAULT_CONTACT_EMAIL)),
+                 'contact email list isn\'t a valid list of format ' +
+                 '["me@example.org", "you@example.org",..] or contains incorrectly formatted email addresses or ' +
+                 '"{0}".'.format(DEFAULT_CONTACT_EMAIL)),
 
     'eventbrite': (False, check_eventbrite, 'Eventbrite key appears invalid'),
 
@@ -308,10 +308,10 @@ HANDLERS = {
 }
 
 # REQUIRED is all required categories.
-REQUIRED = set([k for k in HANDLERS if HANDLERS[k][0]])
+REQUIRED = {k for k in HANDLERS if HANDLERS[k][0]}
 
 # OPTIONAL is all optional categories.
-OPTIONAL = set([k for k in HANDLERS if not HANDLERS[k][0]])
+OPTIONAL = {k for k in HANDLERS if not HANDLERS[k][0]}
 
 
 def check_blank_lines(reporter, raw):
@@ -319,7 +319,8 @@ def check_blank_lines(reporter, raw):
     Blank lines are not allowed in category headers.
     """
 
-    lines = [(i, x) for (i, x) in enumerate(raw.strip().split('\n')) if not x.strip()]
+    lines = [(i, x) for (i, x) in enumerate(
+        raw.strip().split('\n')) if not x.strip()]
     reporter.check(not lines,
                    None,
                    'Blank line(s) in header: {0}',
