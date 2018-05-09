@@ -333,6 +333,19 @@ or available locally via: info '(coreutils) ls invocation'
 > Try 'ls --help' for more information.
 > ~~~
 > {: .error}
+> Note the differences between this error and the type we saw earlier:
+>
+> ~~~
+> $ ls-j
+> ~~~
+> {: .language-bash}
+> 
+> ~~~
+> -bash: ls-j: command not found
+> ~~~
+> {: .error}
+> The errors have two different sources - the ls program and bash,
+> indicated at the start of the error message.
 {: .callout}
 
 #### The `man` command
