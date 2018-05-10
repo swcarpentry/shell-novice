@@ -145,32 +145,32 @@ $ nano draft.txt
 {: .callout}
 
 Let's type in a few lines of text.
-Once we're happy with our text, we can press `Ctrl-O` (press the Ctrl or Control key and, while
+Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd> (press the Ctrl or Control key and, while
 holding it down, press the O key) to write our data to disk
 (we'll be asked what file we want to save this to:
-press Return to accept the suggested default of `draft.txt`).
+press <kbd>Return</kbd> to accept the suggested default of `draft.txt`).
 
 ![Nano in Action](../fig/nano-screenshot.png)
 
-Once our file is saved, we can use `Ctrl-X` to quit the editor and
+Once our file is saved, we can use <kbd>Ctrl</kbd>+<kbd>X</kbd> to quit the editor and
 return to the shell.
 
 > ## Control, Ctrl, or ^ Key
 >
 > The Control key is also called the "Ctrl" key. There are various ways
 > in which using the Control key may be described. For example, you may
-> see an instruction to press the Control key and, while holding it down,
-> press the X key, described as any of:
+> see an instruction to press the <kbd>Ctrl</kbd> key and, while holding it down,
+> press the <kbd>X</kbd> key, described as any of:
 >
-> * `Control-X`
-> * `Control+X`
-> * `Ctrl-X`
-> * `Ctrl+X`
-> * `^X`
-> * `C-x`
+> * Control-X
+> * Control+X
+> * Ctrl-X
+> * Ctrl+X
+> * ^X
+> * C-x
 >
 > In nano, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
-> This means that you can use `Control-G` to get help and `Control-O` to save your
+> This means that you can use <kbd>Ctrl</kbd>+<kbd>G</kbd> to get help and <kbd>Ctrl</kbd>+<kbd>O</kbd> to save your
 > file.
 {: .callout}
 
@@ -207,15 +207,15 @@ draft.txt
 > 3.  When might you want to create a file this way?
 >
 > > ## Solution
-> > 1.  The touch command generates a new file called 'my_file.txt' in
+> > 1.  The touch command generates a new file called `my_file.txt` in
 > >     your home directory.  If you are in your home directory, you
-> >     can observe this newly generated file by typing 'ls' at the 
-> >     command line prompt.  'my_file.txt' can also be viewed in your
+> >     can observe this newly generated file by typing `ls` at the 
+> >     command line prompt.  `my_file.txt` can also be viewed in your
 > >     GUI file explorer.
 > >
-> > 2.  When you inspect the file with 'ls -l', note that the size of
-> >     'my_file.txt' is 0kb.  In other words, it contains no data.
-> >     If you open 'my_file.txt' using your text editor it is blank.
+> > 2.  When you inspect the file with `ls -l`, note that the size of
+> >     `my_file.txt` is 0kb.  In other words, it contains no data.
+> >     If you open `my_file.txt` using your text editor it is blank.
 > >
 > > 3.  Some programs do not generate output files themselves, but
 > >     instead require that empty files have already been generated.
@@ -314,13 +314,18 @@ $ rm -r thesis
 > Why would we want this protection when using `rm`?
 >
 > > ## Solution
-> > ```
+> >
+> > ~~~
+> > $ rm -r thesis/quotations.txt
+> > ~~~
+> > {: .language-bash}
+> > ~~~
 > > $ rm: remove regular file 'thesis/quotations.txt'?
-> > ```
-> > {: .language-bash} 
-> > The -i option will prompt before every removal. 
+> > ~~~
+> > {: .output} 
+> > The `-i` option will prompt before every removal. 
 > > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever. 
-> > By using the -i flag, we have the chance to check that we are deleting only the files that we want to remove.
+> > By using the `-i` flag, we have the chance to check that we are deleting only the files that we want to remove.
 > {: .solution}
 {: .challenge}
 
@@ -333,11 +338,14 @@ $ rm -r thesis
 >
 > ~~~
 > $ rm -r -i thesis
+> ~~~
+> {: .language-bash}
+> ~~~
 > rm: descend into directory ‘thesis’? y
 > rm: remove regular file ‘thesis/draft.txt’? y
 > rm: remove directory ‘thesis’? y
 > ~~~
-> {: .language-bash}
+> {: .output}
 >
 > This removes everything in the directory, then the directory itself, asking
 > at each step for you to confirm the deletion.
@@ -447,18 +455,30 @@ quotes.txt
 >
 > ~~~
 > $ ls -F
+> ~~~
+> ~~~
 >  analyzed/ raw/
+> ~~~
+> {: .output}
+> ~~~
 > $ ls -F analyzed
+> ~~~
+> {: .language-bash}
+> ~~~
 > fructose.dat glucose.dat maltose.dat sucrose.dat
+> ~~~
+> {: .output}
+> ~~~
 > $ cd raw/
 > ~~~
 > {: .language-bash}
 >
-> Fill in the blanks to move these files to the current folder
+> Replace `placeholder1`, `placeholder2` and `placeholder3`PLACEHOLDER2 in the blanks
+> to move these files to the current folder
 > (i.e., the one she is currently in):
 >
 > ~~~
-> $ mv ___/sucrose.dat  ___/maltose.dat ___
+> $ mv placeholder1/sucrose.dat placeholder2/maltose.dat placeholder3
 > ~~~
 > {: .language-bash}
 > > ## Solution
@@ -548,9 +568,9 @@ but it does find the copy in `thesis` that we didn't delete.
 > > 1. No.  While this would create a file with the correct name, the incorrectly named file still exists in the directory
 > > and would need to be deleted.
 > > 2. Yes, this would work to rename the file.
-> > 3. No, the period(.) indicates where to move the file, but does not provide a new file name; identical file names
+> > 3. No, the period (.) indicates where to move the file, but does not provide a new file name; identical file names
 > > cannot be created.
-> > 4. No, the period(.) indicates where to copy the file, but does not provide a new file name; identical file names
+> > 4. No, the period (.) indicates where to copy the file, but does not provide a new file name; identical file names
 > > cannot be created.
 > {: .solution}
 {: .challenge}
@@ -645,8 +665,8 @@ but it does find the copy in `thesis` that we didn't delete.
 > > ```
 > > {: .language-bash}
 > > Jamie needs to move her files `fructose.dat` and `sucrose.dat` to the `analyzed` directory.
-> > The shell will expand *.dat to match all .dat files in the current directory.
-> > The `mv` command then moves the list of .dat files to the "analyzed" directory.
+> > The shell will expand `*.dat` to match all `.dat` files in the current directory.
+> > The `mv` command then moves the list of `.dat` files to the `analyzed` directory.
 > {: .solution}
 {: .challenge}
 
@@ -728,7 +748,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > > The first set of commands achieves this objective.
 > > First we have a recursive copy of a data folder.
 > > Then two `rm` commands which remove all files in the specified directories.
-> > The shell expands the '*' wild card to match all files and subdirectories.
+> > The shell expands the `*` wild card to match all files and subdirectories.
 > >
 > > The second set of commands have the wrong order: 
 > > attempting to delete files which haven't yet been copied,
