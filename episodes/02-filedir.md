@@ -34,7 +34,7 @@ and directories (also called "folders"),
 which hold files or other directories.
 
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
-To start exploring them, we'll go to our open shell window:
+To start exploring them, we'll go to our open shell window.
 
 First let's find out where we are by running a command called `pwd`
 (which stands for "print working directory"). Directories are like *places* - at any time
@@ -81,7 +81,7 @@ On Nelle's computer, the filesystem looks like this:
 
 At the top is the **root directory**
 that holds everything else.
-We refer to it using a slash character `/` on its own;
+We refer to it using a slash character, `/`, on its own;
 this is the leading slash in `/Users/nelle`.
 
 Inside that directory are several other directories:
@@ -321,7 +321,7 @@ or available locally via: info '(coreutils) ls invocation'
 
 > ## Unsupported command-line options
 > If you try to use an option (flag) that is not supported, `ls` and other programs
-> will usually print an error message similar to this:
+> will usually print an error message similar to:
 >
 > ~~~
 > $ ls -j
@@ -348,13 +348,12 @@ of the `ls` command and its options and, if you're lucky, some examples
 of how to use it.
 
 To navigate through the `man` pages,
-you may use the up and down arrow keys to move line-by-line,
-or try the "b" and spacebar keys to skip up and down by a full page.
+you may use <kbd>↑</kbd> and <kbd>↓</kbd> to move line-by-line,
+or try <kbd>B</kbd> and <kbd>Spacebar</kbd> to skip up and down by a full page.
 To search for a character or word in the `man` pages, 
-use "/" followed by the character or word you are searching for. 
+use <kbd>/</kbd> followed by the character or word you are searching for. 
 
-To **quit** the `man` pages, press `q`. 
-
+To **quit** the `man` pages, press <kbd>Q</kbd>. 
 
 > ## Exploring More `ls` Flags
 >
@@ -414,7 +413,7 @@ data-shell/
 
 Your output should be a list of all the files and sub-directories on your
 Desktop, including the `data-shell` directory you downloaded at
-the start of the lesson.  Take a look at your Desktop to confirm that
+the [setup for this lesson]({{ page.root }}{% link setup.md %}).  Take a look at your Desktop to confirm that
 your output is accurate.  
 
 As you may now see, using a bash shell is strongly dependent on the idea that
