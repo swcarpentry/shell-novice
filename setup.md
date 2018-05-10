@@ -23,8 +23,8 @@ In the lesson, you will find out how to access the data in this folder.
 >
 > ### Linux
 > The default shell for Linux operating systems is usually Bash.
-> On most versions of Linux, it is accessible by running the Terminal program,
->  which can be found via the applications menu or the search bar.  
+> On most versions of Linux, it is accessible by running the [(Gnome) Terminal](https://help.gnome.org/users/gnome-terminal/stable/) or [(KDE) Konsole](https://konsole.kde.org/),
+> which can be found via the applications menu or the search bar.
 > If your machine is set up to use something other than bash, you can run it by opening a terminal and typing `bash`.
 >
 > ### Mac OS
@@ -33,7 +33,7 @@ In the lesson, you will find out how to access the data in this folder.
 >
 > To open Terminal, try one or both of the following:
 > * Go to your Applications. Within Applications, open the Utilities folder. Locate Terminal in the Utilities folder and open it.
-> * Use the Mac ‘Spotlight’ computer search function. Search for: Terminal and press [Enter] - this will open Terminal.
+> * Use the Mac ‘Spotlight’ computer search function. Search for: `Terminal` and press <kbd>Return</kbd>.
 >
 > #### Reference 
 > [How to Use Terminal on a Mac](http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/)
@@ -42,11 +42,11 @@ In the lesson, you will find out how to access the data in this folder.
 > Computers with Windows operating systems do not automatically have a Unix Shell program installed.
 > In this lesson, we encourage you to use an emulator included in Git for Windows, 
 > which gives you access to both Bash shell commands and Git. 
-> If you are attending a SWC session, it is likely you have already received instructions on how to install Git for Windows.
+> If you are attending a Software Carpentry workshop session, it is likely you have already received instructions on how to install Git for Windows.
 >
 > Once installed, you can open a terminal by running the program Git Bash from the Windows start menu.
 >
-> Other solutions are available for running Bash commands on Windows systems. 
+> Other solutions are available for running Bash commands on Windows. 
 > There is now a Bash shell command-line tool available for Windows 10. 
 > Additionally, you can run Bash commands on a remote UNIX computer or server from your Windows machine. 
 > This can be done through a Secure Shell (SSH) client. 
