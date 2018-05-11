@@ -473,12 +473,11 @@ quotes.txt
 > ~~~
 > {: .language-bash}
 >
-> Replace `placeholder1`, `placeholder2` and `placeholder3`PLACEHOLDER2 in the blanks
-> to move these files to the current folder
+> Fill in the blanks to move these files to the current folder
 > (i.e., the one she is currently in):
 >
 > ~~~
-> $ mv placeholder1/sucrose.dat placeholder2/maltose.dat placeholder3
+> $ mv ___/sucrose.dat  ___/maltose.dat ___
 > ~~~
 > {: .language-bash}
 > > ## Solution
