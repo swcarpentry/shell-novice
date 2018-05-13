@@ -3,7 +3,7 @@
 {% endcomment %}
 <footer>
   <div class="row">
-    <div class="col-md-6" align="left">
+    <div class="col-md-6 copyright" align="left">
 	{% if site.carpentry == "swc" %}
 	Copyright &copy; 2018–{{ 'now' | date: "%Y" }}
 	<a href="{{ site.carpentries_site }}">The Carpentries</a>
@@ -21,7 +21,7 @@
 	<a href="{{ site.lc_site }}">Library Carpentry</a>
 	{% endif %}
     </div>
-    <div class="col-md-6" align="right">
+    <div class="col-md-6 help-links" align="right">
 	{% if page.source %}
 	{% if page.source == "Rmd" %}
 	<a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}">Edit on GitHub</a>
@@ -37,6 +37,12 @@
 	<a href="{{ site.github.repository_url }}/blob/gh-pages/CITATION">Cite</a>
 	/
 	<a href="mailto:{{ site.email }}">Contact</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" align="center">
+      Using <a href="https://github.com/swcarpentry/styles/">The Carpentries style</a> 
+      version <a href="https://github.com/swcarpentry/styles/releases/tag/v9.4.0">9.4.0</a>.
     </div>
   </div>
 </footer>
