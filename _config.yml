@@ -46,9 +46,10 @@ start_time: 0
 collections:
   episodes:
     output: true
-    permalink: /:path/
+    permalink: /:path/index.html
   extras:
     output: true
+    permalink: /:path/index.html
 
 # Set the default layout for things in the episodes collection.
 defaults:
@@ -66,4 +67,4 @@ exclude:
   - bin
 
 # Turn off built-in syntax highlighting.
-highlighter: false
+highlighter: rouge
