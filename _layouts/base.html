@@ -13,13 +13,9 @@
     <link rel="stylesheet" type="text/css" href="{{ page.root }}/assets/css/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="{{ page.root }}/assets/css/lesson.css" />
     <link rel="stylesheet" type="text/css" href="{{ page.root }}/assets/css/syntax.css" />
-    {% if site.carpentry == "swc" %}
-    <link rel="shortcut icon" type="image/x-icon" href="{{ page.root }}/assets/img/favicon-swc.ico" />
-    {% elsif site.carpentry == "dc" %}
-    <link rel="shortcut icon" type="image/x-icon" href="{{ page.root }}/assets/img/favicon-dc.ico" />
-    {% elsif site.carpentry == "lc" %}
-    <link rel="shortcut icon" type="image/x-icon" href="{{ page.root }}/assets/img/favicon-lc.ico" />
-    {% endif %}
+
+    {% include favicons.html %}
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
