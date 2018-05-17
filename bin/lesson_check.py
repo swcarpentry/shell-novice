@@ -118,8 +118,8 @@ def main():
         checker.check()
 
     args.reporter.report()
-    if args.reporter.messages:
-        raise SystemExit(1)
+    if args.reporter.messages and not args.permissive:
+        exit(1)
 
 
 def parse_args():
@@ -148,6 +148,11 @@ def parse_args():
                       action="store_true",
                       dest='trailing_whitespace',
                       help='Check for trailing whitespace')
+    parser.add_option('--permissive',
+                      default=False,
+                      action="store_true",
+                      dest='permissive',
+                      help='Do not raise an error even if issues are detected')
 
     args, extras = parser.parse_args()
     require(args.parser is not None,
