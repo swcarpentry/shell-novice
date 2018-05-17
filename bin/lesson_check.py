@@ -118,6 +118,8 @@ def main():
         checker.check()
 
     args.reporter.report()
+    if args.reporter.messages:
+        raise SystemExit(1)
 
 
 def parse_args():
