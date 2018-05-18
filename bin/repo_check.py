@@ -9,7 +9,7 @@ import sys
 import os
 from subprocess import Popen, PIPE
 import re
-from optparse import OptionParser
+from argparse import ArgumentParser
 
 from util import Reporter, require
 
@@ -65,7 +65,7 @@ def main():
 
     args = parse_args()
     reporter = Reporter()
-    repo_url = get_repo_url(args.source_dir, args.repo_url)
+    repo_url = get_repo_url(args.repo_url)
     check_labels(reporter, repo_url)
     reporter.report()
 
@@ -75,24 +75,24 @@ def parse_args():
     Parse command-line arguments.
     """
 
-    parser = OptionParser()
-    parser.add_option('-r', '--repo',
-                      default=None,
-                      dest='repo_url',
-                      help='repository URL')
-    parser.add_option('-s', '--source',
-                      default=os.curdir,
-                      dest='source_dir',
-                      help='source directory')
+    parser = ArgumentParser(description="""Check repository settings.""")
+    parser.add_argument('-r', '--repo',
+                        default=None,
+                        dest='repo_url',
+                        help='repository URL')
+    parser.add_argument('-s', '--source',
+                        default=os.curdir,
+                        dest='source_dir',
+                        help='source directory')
 
-    args, extras = parser.parse_args()
+    args, extras = parser.parse_known_args()
     require(not extras,
             'Unexpected trailing command-line arguments "{0}"'.format(extras))
 
     return args
 
 
-def get_repo_url(source_dir, repo_url):
+def get_repo_url(repo_url):
     """
     Figure out which repository to query.
     """
