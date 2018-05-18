@@ -398,7 +398,8 @@ class CheckBase(object):
                     return False
         return True
 
-    def get_val(self, node, *chain):
+    @staticmethod
+    def get_val(node, *chain):
         """Get value one or more levels down."""
 
         curr = node
