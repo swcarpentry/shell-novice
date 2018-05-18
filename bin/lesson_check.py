@@ -8,7 +8,7 @@ Check lesson files and their contents.
 import os
 import glob
 import re
-from optparse import OptionParser
+from argparse import ArgumentParser
 
 from util import (Reporter, read_markdown, load_yaml, check_unwanted_files,
                   require)
@@ -125,36 +125,36 @@ def main():
 def parse_args():
     """Parse command-line arguments."""
 
-    parser = OptionParser()
-    parser.add_option('-l', '--linelen',
-                      default=False,
-                      action="store_true",
-                      dest='line_lengths',
-                      help='Check line lengths')
-    parser.add_option('-p', '--parser',
-                      default=None,
-                      dest='parser',
-                      help='path to Markdown parser')
-    parser.add_option('-r', '--references',
-                      default=None,
-                      dest='reference_path',
-                      help='path to Markdown file of external references')
-    parser.add_option('-s', '--source',
-                      default=os.curdir,
-                      dest='source_dir',
-                      help='source directory')
-    parser.add_option('-w', '--whitespace',
-                      default=False,
-                      action="store_true",
-                      dest='trailing_whitespace',
-                      help='Check for trailing whitespace')
-    parser.add_option('--permissive',
-                      default=False,
-                      action="store_true",
-                      dest='permissive',
-                      help='Do not raise an error even if issues are detected')
+    parser = ArgumentParser(description="""Check episode files in a lesson.""")
+    parser.add_argument('-l', '--linelen',
+                        default=False,
+                        action="store_true",
+                        dest='line_lengths',
+                        help='Check line lengths')
+    parser.add_argument('-p', '--parser',
+                        default=None,
+                        dest='parser',
+                        help='path to Markdown parser')
+    parser.add_argument('-r', '--references',
+                        default=None,
+                        dest='reference_path',
+                        help='path to Markdown file of external references')
+    parser.add_argument('-s', '--source',
+                        default=os.curdir,
+                        dest='source_dir',
+                        help='source directory')
+    parser.add_argument('-w', '--whitespace',
+                        default=False,
+                        action="store_true",
+                        dest='trailing_whitespace',
+                        help='Check for trailing whitespace')
+    parser.add_argument('--permissive',
+                        default=False,
+                        action="store_true",
+                        dest='permissive',
+                        help='Do not raise an error even if issues are detected')
 
-    args, extras = parser.parse_args()
+    args, extras = parser.parse_known_args()
     require(args.parser is not None,
             'Path to Markdown parser not provided')
     require(not extras,
