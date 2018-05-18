@@ -473,6 +473,7 @@ class CheckEpisode(CheckBase):
                 self.check_metadata_fields(TEACHING_METADATA_FIELDS)
 
     def check_metadata_fields(self, expected):
+        """Check metadata fields."""
         for (name, type_) in expected:
             if name not in self.metadata:
                 self.reporter.add(self.filename,
