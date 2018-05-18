@@ -114,6 +114,18 @@ $codeblock-padding: 5px !default;
 .solution{ @include bkSetup($color-solution, "\e105"); }
 .testimonial{ @include bkSetup($color-testimonial, "\e143"); }
 
+.callout h3,
+.challenge h3,
+.checklist h3,
+.discussion h3,
+.keypoints h3,
+.objectives h3,
+.prereq h3,
+.solution h3,
+.testimonial h3 {
+font-size: 18px;
+}
+
 //----------------------------------------
 // Override Bootstrap settings.
 //----------------------------------------
