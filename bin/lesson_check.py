@@ -279,7 +279,6 @@ class CheckBase(object):
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
         """Cache arguments for checking."""
 
-        super(CheckBase, self).__init__()
         self.args = args
         self.reporter = self.args.reporter  # for convenience
         self.filename = filename
@@ -421,10 +420,6 @@ class CheckBase(object):
 class CheckNonJekyll(CheckBase):
     """Check a file that isn't translated by Jekyll."""
 
-    def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
-        super(CheckNonJekyll, self).__init__(
-            args, filename, metadata, metadata_len, text, lines, doc)
-
     def check_metadata(self):
         self.reporter.check(self.metadata is None,
                             self.filename,
@@ -435,12 +430,11 @@ class CheckIndex(CheckBase):
     """Check the main index page."""
 
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
-        super(CheckIndex, self).__init__(args, filename,
-                                         metadata, metadata_len, text, lines, doc)
+        super().__init__(args, filename, metadata, metadata_len, text, lines, doc)
         self.layout = 'lesson'
 
     def check_metadata(self):
-        super(CheckIndex, self).check_metadata()
+        super().check_metadata()
         self.reporter.check(self.metadata.get('root', '') == '.',
                             self.filename,
                             'Root not set to "."')
@@ -449,18 +443,14 @@ class CheckIndex(CheckBase):
 class CheckEpisode(CheckBase):
     """Check an episode page."""
 
-    def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
-        super(CheckEpisode, self).__init__(args, filename,
-                                           metadata, metadata_len, text, lines, doc)
-
     def check(self):
         """Run extra tests."""
 
-        super(CheckEpisode, self).check()
+        super().check()
         self.check_reference_inclusion()
 
     def check_metadata(self):
-        super(CheckEpisode, self).check_metadata()
+        super().check_metadata()
         if self.metadata:
             if 'layout' in self.metadata:
                 if self.metadata['layout'] == 'break':
@@ -508,8 +498,7 @@ class CheckReference(CheckBase):
     """Check the reference page."""
 
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
-        super(CheckReference, self).__init__(
-            args, filename, metadata, metadata_len, text, lines, doc)
+        super().__init__(args, filename, metadata, metadata_len, text, lines, doc)
         self.layout = 'reference'
 
 
@@ -517,8 +506,7 @@ class CheckGeneric(CheckBase):
     """Check a generic page."""
 
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
-        super(CheckGeneric, self).__init__(args, filename,
-                                           metadata, metadata_len, text, lines, doc)
+        super().__init__(args, filename, metadata, metadata_len, text, lines, doc)
         self.layout = 'page'
 
 
