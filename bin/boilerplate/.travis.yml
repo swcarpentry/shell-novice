@@ -1,0 +1,14 @@
+language: python
+python: 3.6
+branches:
+  only:
+  - gh-pages
+  - /.*/
+before_install:
+  - rvm default
+  - gem install json kramdown
+install:
+  - pip install pyyaml
+script:
+  - make lesson-check
+  - make lesson-check-all
