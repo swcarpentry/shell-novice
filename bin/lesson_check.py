@@ -271,7 +271,7 @@ def create_checker(args, filename, info):
     for (pat, cls) in CHECKERS:
         if pat.search(filename):
             return cls(args, filename, **info)
-
+    return NotImplemented
 
 class CheckBase(object):
     """Base class for checking Markdown files."""
