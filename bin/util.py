@@ -65,36 +65,38 @@ class Reporter(object):
 
         self.messages.append((location, fmt.format(*args)))
 
+    @staticmethod
+    def pretty(item):
+        location, message = item
+        if isinstance(location, type(None)):
+            return message
+        elif isinstance(location, str):
+            return location + ': ' + message
+        elif isinstance(location, tuple):
+            return '{0}:{1}: '.format(*location) + message
+        else:
+            assert False, 'Unknown item "{0}"'.format(item)
+
+    @staticmethod
+    def key(item):
+        location, message = item
+        if isinstance(location, type(None)):
+            return ('', -1, message)
+        elif isinstance(location, str):
+            return (location, -1, message)
+        elif isinstance(location, tuple):
+            return (location[0], location[1], message)
+        else:
+            assert False, 'Unknown item "{0}"'.format(item)
+
     def report(self, stream=sys.stdout):
         """Report all messages in order."""
 
         if not self.messages:
             return
 
-        def pretty(item):
-            location, message = item
-            if isinstance(location, type(None)):
-                return message
-            elif isinstance(location, str):
-                return location + ': ' + message
-            elif isinstance(location, tuple):
-                return '{0}:{1}: '.format(*location) + message
-            else:
-                assert False, 'Unknown item "{0}"'.format(item)
-
-        def key(item):
-            location, message = item
-            if isinstance(location, type(None)):
-                return ('', -1, message)
-            elif isinstance(location, str):
-                return (location, -1, message)
-            elif isinstance(location, tuple):
-                return (location[0], location[1], message)
-            else:
-                assert False, 'Unknown item "{0}"'.format(item)
-
-        for m in sorted(self.messages, key=key):
-            print(pretty(m), file=stream)
+        for m in sorted(self.messages, key=self.key):
+            print(self.pretty(m), file=stream)
 
 
 def read_markdown(parser, path):
