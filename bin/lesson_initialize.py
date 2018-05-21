@@ -12,7 +12,7 @@ BOILERPLATE = (
     'AUTHORS',
     'CITATION',
     'CONTRIBUTING.md',
-    'README.md'
+    'README.md',
     '_config.yml',
     '_episodes/01-introduction.md',
     '_extras/about.md',
