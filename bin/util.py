@@ -30,7 +30,7 @@ UNWANTED_FILES = [
 REPORTER_NOT_SET = []
 
 
-class Reporter(object):
+class Reporter:
     """Collect and report errors."""
 
     def __init__(self):
