@@ -74,8 +74,9 @@ class Reporter(object):
             return location + ': ' + message
         elif isinstance(location, tuple):
             return '{0}:{1}: '.format(*location) + message
-        else:
-            assert False, 'Unknown item "{0}"'.format(item)
+
+        print('Unknown item "{0}"'.format(item), file=sys.stderr)
+        return NotImplemented
 
     @staticmethod
     def key(item):
@@ -86,8 +87,9 @@ class Reporter(object):
             return (location, -1, message)
         elif isinstance(location, tuple):
             return (location[0], location[1], message)
-        else:
-            assert False, 'Unknown item "{0}"'.format(item)
+
+        print('Unknown item "{0}"'.format(item), file=sys.stderr)
+        return NotImplemented
 
     def report(self, stream=sys.stdout):
         """Report all messages in order."""
