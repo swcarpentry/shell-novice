@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 '''Check that a workshop's index.html metadata is valid.  See the
 docstrings on the checking functions for a summary of the checks.

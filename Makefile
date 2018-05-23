@@ -97,7 +97,7 @@ lesson-check-all :
 
 ## unittest         : run unit tests on checking tools.
 unittest :
-	python bin/test_lesson_check.py
+	@bin/test_lesson_check.py
 
 ## lesson-files     : show expected names of generated files for debugging.
 lesson-files :
