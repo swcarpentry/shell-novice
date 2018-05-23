@@ -35,8 +35,6 @@ class Reporter:
 
     def __init__(self):
         """Constructor."""
-
-        super(Reporter, self).__init__()
         self.messages = []
 
     def check_field(self, filename, name, values, key, expected=REPORTER_NOT_SET):
