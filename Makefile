@@ -93,7 +93,7 @@ lesson-check :
 
 ## lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace.
 lesson-check-all :
-	@bin/lesson_check.py -s . -p ${PARSER} -l -w --permissive
+	@bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md -l -w --permissive
 
 ## unittest         : run unit tests on checking tools.
 unittest :
