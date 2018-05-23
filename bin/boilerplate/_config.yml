@@ -61,12 +61,20 @@ collections:
 # Set the default layout for things in the episodes collection.
 defaults:
   - values:
-      root: ..
+      root: .
+      layout: page
   - scope:
       path: ""
       type: episodes
     values:
+      root: ..
       layout: episode
+  - scope:
+      path: ""
+      type: extras
+    values:
+      root: ..
+      layout: page
 
 # Files and directories that are not to be copied.
 exclude:
