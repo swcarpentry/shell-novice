@@ -1,4 +1,3 @@
-from __future__ import print_function
 import sys
 import os
 import json
@@ -29,15 +28,13 @@ UNWANTED_FILES = [
 # (Can't use 'None' because that might be a legitimate value.)
 REPORTER_NOT_SET = []
 
-class Reporter(object):
+
+class Reporter:
     """Collect and report errors."""
 
     def __init__(self):
         """Constructor."""
-
-        super(Reporter, self).__init__()
         self.messages = []
-
 
     def check_field(self, filename, name, values, key, expected=REPORTER_NOT_SET):
         """Check that a dictionary has an expected value."""
@@ -48,10 +45,11 @@ class Reporter(object):
             pass
         elif type(expected) in (tuple, set, list):
             if values[key] not in expected:
-                self.add(filename, '{0} {1} value {2} is not in {3}', name, key, values[key], expected)
+                self.add(
+                    filename, '{0} {1} value {2} is not in {3}', name, key, values[key], expected)
         elif values[key] != expected:
-            self.add(filename, '{0} {1} is {2} not {3}', name, key, values[key], expected)
-
+            self.add(filename, '{0} {1} is {2} not {3}',
+                     name, key, values[key], expected)
 
     def check(self, condition, location, fmt, *args):
         """Append error if condition not met."""
@@ -59,12 +57,36 @@ class Reporter(object):
         if not condition:
             self.add(location, fmt, *args)
 
-
     def add(self, location, fmt, *args):
         """Append error unilaterally."""
 
         self.messages.append((location, fmt.format(*args)))
 
+    @staticmethod
+    def pretty(item):
+        location, message = item
+        if isinstance(location, type(None)):
+            return message
+        elif isinstance(location, str):
+            return location + ': ' + message
+        elif isinstance(location, tuple):
+            return '{0}:{1}: '.format(*location) + message
+
+        print('Unknown item "{0}"'.format(item), file=sys.stderr)
+        return NotImplemented
+
+    @staticmethod
+    def key(item):
+        location, message = item
+        if isinstance(location, type(None)):
+            return ('', -1, message)
+        elif isinstance(location, str):
+            return (location, -1, message)
+        elif isinstance(location, tuple):
+            return (location[0], location[1], message)
+
+        print('Unknown item "{0}"'.format(item), file=sys.stderr)
+        return NotImplemented
 
     def report(self, stream=sys.stdout):
         """Report all messages in order."""
@@ -72,30 +94,8 @@ class Reporter(object):
         if not self.messages:
             return
 
-        def pretty(item):
-            location, message = item
-            if isinstance(location, type(None)):
-                return message
-            elif isinstance(location, str):
-                return location + ': ' + message
-            elif isinstance(location, tuple):
-                return '{0}:{1}: '.format(*location) + message
-            else:
-                assert False, 'Unknown item "{0}"'.format(item)
-
-        def key(item):
-            location, message = item
-            if isinstance(location, type(None)):
-                return ('', -1, message)
-            elif isinstance(location, str):
-                return (location, -1, message)
-            elif isinstance(location, tuple):
-                return (location[0], location[1], message)
-            else:
-                assert False, 'Unknown item "{0}"'.format(item)
-
-        for m in sorted(self.messages, key=key):
-            print(pretty(m), file=stream)
+        for m in sorted(self.messages, key=self.key):
+            print(self.pretty(m), file=stream)
 
 
 def read_markdown(parser, path):
@@ -111,11 +111,13 @@ def read_markdown(parser, path):
 
     # Split into lines.
     metadata_len = 0 if metadata_raw is None else metadata_raw.count('\n')
-    lines = [(metadata_len+i+1, line, len(line)) for (i, line) in enumerate(body.split('\n'))]
+    lines = [(metadata_len+i+1, line, len(line))
+             for (i, line) in enumerate(body.split('\n'))]
 
     # Parse Markdown.
     cmd = 'ruby {0}'.format(parser)
-    p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, close_fds=True, universal_newlines=True)
+    p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE,
+              close_fds=True, universal_newlines=True)
     stdout_data, stderr_data = p.communicate(body)
     doc = json.loads(stdout_data)
 
@@ -136,7 +138,6 @@ def split_metadata(path, text):
 
     metadata_raw = None
     metadata_yaml = None
-    metadata_len = None
 
     pieces = text.split('---', 2)
     if len(pieces) == 3:
@@ -145,7 +146,8 @@ def split_metadata(path, text):
         try:
             metadata_yaml = yaml.load(metadata_raw)
         except yaml.YAMLError as e:
-            print('Unable to parse YAML header in {0}:\n{1}'.format(path, e), file=sys.stderr)
+            print('Unable to parse YAML header in {0}:\n{1}'.format(
+                path, e), file=sys.stderr)
             sys.exit(1)
 
     return metadata_raw, metadata_yaml, text
@@ -160,8 +162,9 @@ def load_yaml(filename):
     try:
         with open(filename, 'r') as reader:
             return yaml.load(reader)
-    except (yaml.YAMLError, FileNotFoundError) as e:
-        print('Unable to load YAML file {0}:\n{1}'.format(filename, e), file=sys.stderr)
+    except (yaml.YAMLError, IOError) as e:
+        print('Unable to load YAML file {0}:\n{1}'.format(
+            filename, e), file=sys.stderr)
         sys.exit(1)
 
 
