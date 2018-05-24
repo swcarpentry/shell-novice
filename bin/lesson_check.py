@@ -175,9 +175,14 @@ def check_config(reporter, source_dir):
     reporter.check_field(config_file, 'configuration', config, 'title')
     reporter.check_field(config_file, 'configuration', config, 'email')
 
-    reporter.check({'values': {'root': '..'}} in config.get('defaults', []),
+    for defaults in [
+            {'values': {'root': '.', 'layout': 'page'}},
+            {'values': {'root': '..', 'layout': 'episode'}, 'scope': {'type': 'episodes', 'path': ''}},
+            {'values': {'root': '..', 'layout': 'page'}, 'scope': {'type': 'extras', 'path': ''}}
+            ]:
+        reporter.check(defaults in config.get('defaults', []),
                    'configuration',
-                   '"root" not set to ".." in configuration')
+                   '"root" not set to "." in configuration')
 
 
 def read_references(reporter, ref_path):
@@ -508,7 +513,6 @@ class CheckGeneric(CheckBase):
 
     def __init__(self, args, filename, metadata, metadata_len, text, lines, doc):
         super().__init__(args, filename, metadata, metadata_len, text, lines, doc)
-        self.layout = 'page'
 
 
 CHECKERS = [
@@ -517,6 +521,7 @@ CHECKERS = [
     (re.compile(r'index\.md'), CheckIndex),
     (re.compile(r'reference\.md'), CheckReference),
     (re.compile(r'_episodes/.*\.md'), CheckEpisode),
+    (re.compile(r'aio\.md'), CheckNonJekyll),
     (re.compile(r'.*\.md'), CheckGeneric)
 ]
 
