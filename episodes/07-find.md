@@ -296,7 +296,7 @@ Miscellaneous:
 > She wants to write a shell script that takes a species as the first command-line argument 
 > and a directory as the second argument. The script should return one file called `species.txt` 
 > containing a list of dates and the number of that species seen on each date.
-> For example using the data shown above, `rabbits.txt` would contain:
+> For example using the data shown above, `rabbit.txt` would contain:
 > 
 > ~~~
 > 2013-11-05,22
@@ -433,7 +433,7 @@ of them.
 The first option in our list is
 `-type d` that means "things that are directories".
 Sure enough,
-`find`'s output is the names of the six directories in our little tree
+`find`'s output is the names of the five directories in our little tree
 (including `.`):
 
 ~~~
