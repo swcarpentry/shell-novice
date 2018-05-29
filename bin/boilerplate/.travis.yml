@@ -1,0 +1,23 @@
+# dist: trusty  # Ubuntu 14.04
+language: python
+python: 3.6
+branches:
+  only:
+  - gh-pages
+  - /.*/
+before_install:
+  - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+  - echo "deb https://cran.rstudio.com/bin/linux/ubuntu trusty/" | sudo tee -a /etc/apt/sources.list
+  - sudo apt-get update -y
+  - sudo apt-get install -y r-base
+  - sudo Rscript -e "install.packages('knitr', repos = 'https://', dependencies = TRUE)"
+  - sudo Rscript -e "install.packages('stringr', repos = 'https://cran.rstudio.com', dependencies = TRUE)"
+  - sudo Rscript -e "install.packages('checkpoint', repos = 'https://cran.rstudio.com', dependencies = TRUE)"
+  - sudo Rscript -e "install.packages('ggplot2', repos = 'https://cran.rstudio.com', dependencies = TRUE)"
+  - rvm default
+  - gem install json kramdown jekyll
+install:
+  - pip install pyyaml
+script:
+  - make lesson-check-all
+  - make --always-make site

@@ -1,17 +1,17 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Check repository settings.
 """
 
-from __future__ import print_function
+
 import sys
 import os
 from subprocess import Popen, PIPE
 import re
-from optparse import OptionParser
+from argparse import ArgumentParser
 
-from util import Reporter, load_yaml, require
+from util import Reporter, require
 
 # Import this way to produce a more useful error message.
 try:
@@ -35,26 +35,26 @@ F_API_URL = 'https://api.github.com/repos/{0}/{1}/labels'
 
 # Expected labels and colors.
 EXPECTED = {
-    'help wanted' : 'dcecc7',
-    'status:in progress' : '9bcc65',
-    'status:changes requested' : '679f38',
-    'status:wait' : 'fff2df',
-    'status:refer to cac' : 'ffdfb2',
-    'status:need more info' : 'ee6c00',
-    'status:blocked' : 'e55100',
-    'status:out of scope' : 'eeeeee',
-    'status:duplicate' : 'bdbdbd',
-    'type:typo text' : 'f8bad0',
-    'type:bug' : 'eb3f79',
-    'type:formatting' : 'ac1357',
-    'type:template and tools' : '7985cb',
-    'type:instructor guide' : '00887a',
-    'type:discussion' : 'b2e5fc',
-    'type:enhancement' : '7fdeea',
-    'type:clarification' : '00acc0',
-    'type:teaching example' : 'ced8dc',
-    'good first issue' : 'ffeb3a',
-    'high priority' : 'd22e2e'
+    'help wanted': 'dcecc7',
+    'status:in progress': '9bcc65',
+    'status:changes requested': '679f38',
+    'status:wait': 'fff2df',
+    'status:refer to cac': 'ffdfb2',
+    'status:need more info': 'ee6c00',
+    'status:blocked': 'e55100',
+    'status:out of scope': 'eeeeee',
+    'status:duplicate': 'bdbdbd',
+    'type:typo text': 'f8bad0',
+    'type:bug': 'eb3f79',
+    'type:formatting': 'ac1357',
+    'type:template and tools': '7985cb',
+    'type:instructor guide': '00887a',
+    'type:discussion': 'b2e5fc',
+    'type:enhancement': '7fdeea',
+    'type:clarification': '00acc0',
+    'type:teaching example': 'ced8dc',
+    'good first issue': 'ffeb3a',
+    'high priority': 'd22e2e'
 }
 
 
@@ -65,7 +65,7 @@ def main():
 
     args = parse_args()
     reporter = Reporter()
-    repo_url = get_repo_url(args.source_dir, args.repo_url)
+    repo_url = get_repo_url(args.repo_url)
     check_labels(reporter, repo_url)
     reporter.report()
 
@@ -75,24 +75,24 @@ def parse_args():
     Parse command-line arguments.
     """
 
-    parser = OptionParser()
-    parser.add_option('-r', '--repo',
-                      default=None,
-                      dest='repo_url',
-                      help='repository URL')
-    parser.add_option('-s', '--source',
-                      default=os.curdir,
-                      dest='source_dir',
-                      help='source directory')
+    parser = ArgumentParser(description="""Check repository settings.""")
+    parser.add_argument('-r', '--repo',
+                        default=None,
+                        dest='repo_url',
+                        help='repository URL')
+    parser.add_argument('-s', '--source',
+                        default=os.curdir,
+                        dest='source_dir',
+                        help='source directory')
 
-    args, extras = parser.parse_args()
+    args, extras = parser.parse_known_args()
     require(not extras,
             'Unexpected trailing command-line arguments "{0}"'.format(extras))
 
     return args
 
 
-def get_repo_url(source_dir, repo_url):
+def get_repo_url(repo_url):
     """
     Figure out which repository to query.
     """
@@ -103,7 +103,8 @@ def get_repo_url(source_dir, repo_url):
 
     # Guess.
     cmd = 'git remote -v'
-    p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, close_fds=True, universal_newlines=True)
+    p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE,
+              close_fds=True, universal_newlines=True)
     stdout_data, stderr_data = p.communicate()
     stdout_data = stdout_data.split('\n')
     matches = [P_GIT_REMOTE.match(line) for line in stdout_data]
@@ -112,10 +113,12 @@ def get_repo_url(source_dir, repo_url):
             'Unexpected output from git remote command: "{0}"'.format(matches))
 
     username = matches[0].group(1)
-    require(username, 'empty username in git remote output {0}'.format(matches[0]))
+    require(
+        username, 'empty username in git remote output {0}'.format(matches[0]))
 
     project_name = matches[0].group(2)
-    require(username, 'empty project name in git remote output {0}'.format(matches[0]))
+    require(
+        username, 'empty project name in git remote output {0}'.format(matches[0]))
 
     url = F_REPO_URL.format(username, project_name)
     return url
@@ -154,13 +157,15 @@ def get_labels(repo_url):
     """
 
     m = P_REPO_URL.match(repo_url)
-    require(m, 'repository URL {0} does not match expected pattern'.format(repo_url))
+    require(
+        m, 'repository URL {0} does not match expected pattern'.format(repo_url))
 
     username = m.group(1)
     require(username, 'empty username in repository URL {0}'.format(repo_url))
 
     project_name = m.group(2)
-    require(username, 'empty project name in repository URL {0}'.format(repo_url))
+    require(
+        username, 'empty project name in repository URL {0}'.format(repo_url))
 
     url = F_API_URL.format(username, project_name)
     r = requests.get(url)
