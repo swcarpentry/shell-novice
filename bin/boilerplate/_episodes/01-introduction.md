@@ -3,11 +3,12 @@ title: "Introduction"
 teaching: 0
 exercises: 0
 questions:
-- "Key question"
+- "Key question (FIXME)"
 objectives:
-- "First objective."
+- "First objective. (FIXME)"
 keypoints:
-- "First key point."
+- "First key point. (FIXME)"
 ---
+FIXME
 
 {% include links.md %}
