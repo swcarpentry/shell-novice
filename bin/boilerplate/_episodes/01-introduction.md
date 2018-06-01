@@ -5,7 +5,7 @@ exercises: 0
 questions:
 - "Key question"
 objectives:
-- "First objective."
+- "First learning objective."
 keypoints:
-- "First key point."
+- "First key point. Brief Answer to questions."
 ---
