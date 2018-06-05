@@ -11,6 +11,7 @@ BOILERPLATE = (
     '.travis.yml',
     'AUTHORS',
     'CITATION',
+    'CODE_OF_CONDUCT.md',
     'CONTRIBUTING.md',
     'README.md',
     '_config.yml',
