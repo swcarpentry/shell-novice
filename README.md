@@ -22,4 +22,4 @@ Maintainers:
 [srinath_ashwin]: http://software-carpentry.org/team/#srinath_ashwin
 [colin_morris]: https://github.com/colinmorris
 [will_pitchers]: https://software-carpentry.org/team/#pitchers_w
-[lesson-example]: https://swcarpentry.github.io/lesson-example/
+[lesson-example]: https://carpentries.github.io/lesson-example/
