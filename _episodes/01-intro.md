@@ -150,7 +150,7 @@ and then print the prompt and wait for you to enter another command.
 
 ### Is it difficult?
 
-It isn't difficult, but it is a different model of interacting than a GUI, and that 
+It is a different model of interacting than a GUI, and that 
 will take some effort - and some time - to learn. A GUI 
 presents you with choices and you select one. With a **command line interface** (CLI) the choices are combinations 
 of commands and parameters, more like words in a language than buttons on a screen. They
