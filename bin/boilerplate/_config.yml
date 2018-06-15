@@ -2,7 +2,11 @@
 # Values for this lesson.
 #------------------------------------------------------------
 
-# Which carpentry is this ("swc", "dc", or "lc")?
+# Which carpentry is this ("swc", "dc", "lc", or "cp")?
+# swc: Software Carpentry
+# dc: Data Carpentry
+# lc: Library Carpentry
+# cp: Carpentries (to use for instructor traning for instance)
 carpentry: "swc"
 
 # Overall title for pages.
@@ -20,6 +24,7 @@ kind: "lesson"
 
 # Magic to make URLs resolve both locally and on GitHub.
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
+# Please don't change it: <USERNAME>/<PROJECT> is correct.
 repository: <USERNAME>/<PROJECT>
 
 # Sites.
