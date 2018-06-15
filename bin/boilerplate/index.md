@@ -9,3 +9,5 @@ FIXME: home page introduction
 >
 > FIXME
 {: .prereq}
+
+{% include links.md %}
