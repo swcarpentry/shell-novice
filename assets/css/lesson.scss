@@ -114,11 +114,24 @@ $codeblock-padding: 5px !default;
 .solution{ @include bkSetup($color-solution, "\e105"); }
 .testimonial{ @include bkSetup($color-testimonial, "\e143"); }
 
+.callout h3,
+.challenge h3,
+.checklist h3,
+.discussion h3,
+.keypoints h3,
+.objectives h3,
+.prereq h3,
+.solution h3,
+.testimonial h3 {
+font-size: 18px;
+}
+
 //----------------------------------------
 // Override Bootstrap settings.
 //----------------------------------------
 
 code {
+  white-space: nowrap;
   padding: 2px 5px;
   color: #3d90d9;
   background-color: #e7e7e7;
@@ -138,6 +151,16 @@ img {
 
 .footertext {
   text-align: center;
+}
+
+footer .copyright,
+footer .help-links
+{
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.1;
 }
 
 img.navbar-logo {
