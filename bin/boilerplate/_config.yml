@@ -12,9 +12,6 @@ carpentry: "swc"
 # Overall title for pages.
 title: "Lesson Title"
 
-# Email address, no mailto:
-email: "lessons@software-carpentry.org"
-
 #------------------------------------------------------------
 # Generic settings (should not need to change).
 #------------------------------------------------------------
@@ -26,6 +23,9 @@ kind: "lesson"
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
 # Please don't change it: <USERNAME>/<PROJECT> is correct.
 repository: <USERNAME>/<PROJECT>
+
+# Email address, no mailto:
+email: "team@carpentries.org"
 
 # Sites.
 amy_site: "https://amy.software-carpentry.org/workshops"
