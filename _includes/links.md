@@ -18,8 +18,8 @@
 [jekyll-windows]: http://jekyll-windows.juthilo.com/
 [jekyll]: https://jekyllrb.com/
 [jupyter]: https://jupyter.org/
-[lesson-example]: https://carpentries.github.io/lesson-example/
 [lc-lessons]: https://librarycarpentry.org/#portfolio
+[lesson-example]: https://carpentries.github.io/lesson-example/
 [mit-license]: https://opensource.org/licenses/mit-license.html
 [morea]: https://morea-framework.github.io/
 [numfocus]: https://numfocus.org/
@@ -34,7 +34,7 @@
 [ruby-installer]: https://rubyinstaller.org/
 [rubygems]: https://rubygems.org/pages/download/
 [styles]: https://github.com/carpentries/styles/
-[swc-releases]: https://github.com/swcarpentry/swc-releases
 [swc-lessons]: https://software-carpentry.org/lessons/ 
+[swc-releases]: https://github.com/swcarpentry/swc-releases
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
