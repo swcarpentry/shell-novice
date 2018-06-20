@@ -4,6 +4,7 @@
 # Settings
 MAKEFILES=Makefile $(wildcard *.mk)
 JEKYLL=jekyll
+JEKYLL_VERSION=3.7.3
 PARSER=bin/markdown_ast.rb
 DST=_site
 
@@ -15,6 +16,10 @@ all : commands
 ## commands         : show all commands.
 commands :
 	@grep -h -E '^##' ${MAKEFILES} | sed -e 's/## //g'
+
+## docker-serve     : use docker to build the site
+docker-serve :
+	docker run --rm -it -v ${PWD}:/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:${JEKYLL_VERSION} make serve
 
 ## serve            : run a local server.
 serve : lesson-md
@@ -63,7 +68,7 @@ RMD_DST = $(patsubst _episodes_rmd/%.Rmd,_episodes/%.md,$(RMD_SRC))
 # Lesson source files in the order they appear in the navigation menu.
 MARKDOWN_SRC = \
   index.md \
-  CONDUCT.md \
+  CODE_OF_CONDUCT.md \
   setup.md \
   $(sort $(wildcard _episodes/*.md)) \
   reference.md \
@@ -88,16 +93,16 @@ ${RMD_DST} : ${RMD_SRC}
 	@bin/knit_lessons.sh ${RMD_SRC}
 
 ## lesson-check     : validate lesson Markdown.
-lesson-check :
+lesson-check : lesson-fixme
 	@bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md
 
 ## lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace.
 lesson-check-all :
-	@bin/lesson_check.py -s . -p ${PARSER} -l -w
+	@bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md -l -w --permissive
 
 ## unittest         : run unit tests on checking tools.
 unittest :
-	python bin/test_lesson_check.py
+	@bin/test_lesson_check.py
 
 ## lesson-files     : show expected names of generated files for debugging.
 lesson-files :

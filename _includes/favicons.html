@@ -1,0 +1,33 @@
+{% assign favicon_url = site.baseurl | append: '/assets/favicons/' | append: site.carpentry | prepend: site.url %}
+
+{% if site.carpentry == 'swc' %}
+{% assign carpentry = 'Software Carpentry' %}
+{% elsif site.carpentry == 'dc' %}
+{% assign carpentry = 'Data Carpentry' %}
+{% elsif site.carpentry == 'lc' %}
+{% assign carpentry = 'Library Carpentry' %}
+{% elsif site.carpentry == 'cp' %}
+{% assign carpentry = 'The Carpentries' %}
+{% endif %}
+
+    <!-- Favicons for everyone -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ favicon_url }}/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ favicon_url }}/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ favicon_url }}/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ favicon_url }}/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{ favicon_url }}/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ favicon_url }}/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ favicon_url }}/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ favicon_url }}/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="{{ favicon_url }}/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="{{ favicon_url }}/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="{{ favicon_url }}/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ favicon_url }}/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="{{ favicon_url }}/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="{{ carpentry }} - {{ site.title }}"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="{{ favicon_url }}/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="{{ favicon_url }}/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="{{ favicon_url }}/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="{{ favicon_url }}/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="{{ favicon_url }}/mstile-310x310.png" />

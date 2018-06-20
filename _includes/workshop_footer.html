@@ -7,11 +7,13 @@
       <h4>
 	Copyright &copy; 2016–{{ 'now' | date: "%Y" }}
 	{% if site.carpentry == "swc" %}
-	<a href="{{ site.swc_site }}">Software Carpentry Foundation</a>
+	<a href="{{ site.swc_site }}">Software Carpentry</a>
 	{% elsif site.carpentry == "dc" %}
 	<a href="{{ site.dc_site }}">Data Carpentry</a>
 	{% elsif site.carpentry == "lc" %}
 	<a href="{{ site.lc_site }}">Library Carpentry</a>
+	{% elsif site.carpentry == "cp" %}
+	<a href="{{ site.carpentries_site }}">The Carpentries</a>
 	{% endif %}
       </h4>
     </div>
