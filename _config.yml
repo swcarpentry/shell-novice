@@ -2,14 +2,16 @@
 # Values for this lesson.
 #------------------------------------------------------------
 
-# Which carpentry is this ("swc" or "dc")?
+# Which carpentry is this ("swc", "dc", "lc", or "cp")?
+# swc: Software Carpentry
+# dc: Data Carpentry
+# lc: Library Carpentry
+# cp: Carpentries (to use for instructor traning for instance)
 carpentry: "swc"
 
 # Overall title for pages.
 title: "The Unix Shell"
 
-# Contact email address.
-email: lessons@software-carpentry.org
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
@@ -20,26 +22,35 @@ kind: "lesson"
 
 # Magic to make URLs resolve both locally and on GitHub.
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
+# Please don't change it: <USERNAME>/<PROJECT> is correct.
 repository: <USERNAME>/<PROJECT>
+
+# Email address, no mailto:
+email: "team@carpentries.org"
 
 # Sites.
 amy_site: "https://amy.software-carpentry.org/workshops"
+carpentries_github: "https://github.com/carpentries"
+carpentries_pages: "https://carpentries.github.io"
+carpentries_site: "https://carpentries.org/"
 dc_site: "http://datacarpentry.org"
-swc_github: "https://github.com/swcarpentry"
-swc_site: "https://software-carpentry.org"
-swc_pages: "https://swcarpentry.github.io"
-template_repo: "https://github.com/carpentries/styles"
 example_repo: "https://github.com/carpentries/lesson-example"
 example_site: "https://carpentries.github.io/lesson-example"
+lc_site: "https://librarycarpentry.github.io/"
+swc_github: "https://github.com/swcarpentry"
+swc_pages: "https://swcarpentry.github.io"
+swc_site: "https://software-carpentry.org"
+template_repo: "https://github.com/carpentries/styles"
+training_site: "https://carpentries.github.io/instructor-training"
 workshop_repo: "https://github.com/carpentries/workshop-template"
 workshop_site: "https://carpentries.github.io/workshop-template"
-training_site: "https://carpentries.github.io/instructor-training"
 
 # Surveys.
 pre_survey: "https://www.surveymonkey.com/r/swc_pre_workshop_v1?workshop_id="
 post_survey: "https://www.surveymonkey.com/r/swc_post_workshop_v1?workshop_id="
+training_post_survey: "https://www.surveymonkey.com/r/post-instructor-training"
 
-# Start time in minutes (0 to be clock-independent, 540 to show a start at 09:00 am)
+# Start time in minutes (0 to be clock-independent, 540 to show a start at 09:00 am).
 start_time: 0
 
 # Specify that things in the episodes collection should be output.
@@ -54,17 +65,26 @@ collections:
 # Set the default layout for things in the episodes collection.
 defaults:
   - values:
-      root: ..
+      root: .
+      layout: page
   - scope:
       path: ""
       type: episodes
     values:
+      root: ..
       layout: episode
+  - scope:
+      path: ""
+      type: extras
+    values:
+      root: ..
+      layout: page
 
 # Files and directories that are not to be copied.
 exclude:
   - Makefile
-  - bin
+  - bin/
+  - .Rproj.user/
 
-# Turn off built-in syntax highlighting.
+# Turn on built-in syntax highlighting.
 highlighter: rouge
