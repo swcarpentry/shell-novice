@@ -46,7 +46,7 @@ to use it through.
 The heart of a command-line interface is a **read-evaluate-print loop** (REPL). It is called
 so because when you type a command and press <kbd>Return</kbd> the shell
 reads your command,
-executes (or "evaluates") it,
+evaluates (or "executes") it,
 prints the output of your command,
 loops back and waits for you to enter another command.
  
