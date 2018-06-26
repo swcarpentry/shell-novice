@@ -43,13 +43,12 @@ difficult, just a vocabulary of commands and a simple grammar for using them.
 This is what the shell provides - a simple language and a **command-line interface** 
 to use it through. 
 
-The heart of a command-line interface is a **read-evaluate-print loop** (REPL) called
-so because when you type a command and press <kbd>Return</kbd>.
-The shell
-reads it,
-executes (or "evaluates" it),
-prints the output,
-prints the prompt and waits for you to enter another command.
+The heart of a command-line interface is a **read-evaluate-print loop** (REPL). It is called
+so because when you type a command and press <kbd>Return</kbd> the shell
+reads your command,
+executes (or "evaluates") it,
+prints the output of your command,
+loops back and waits for you to enter another command.
  
 ### The Shell
 
