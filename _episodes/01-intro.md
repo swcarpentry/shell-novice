@@ -114,7 +114,7 @@ and capitalization are important!). You can change the prompt too, if you like.
 
 Every command is a program stored somewhere on the computer, and the shell keeps a
 list of places to search for commands (the list is in a **variable** called `PATH`, 
-but those are concepts we'll meet later and not too important at the moment). Recall
+but those are concepts we'll meet later and are not too important at the moment). Recall
 that commands, flags and arguments are separated by spaces.
 
 So let's look at the REPL (read-evaluate-print loop) in more detail. Notice that the
