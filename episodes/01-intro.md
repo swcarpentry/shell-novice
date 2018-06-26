@@ -28,8 +28,8 @@ At a high level, computers do four things:
 
 They can do the last of these in many different ways,
 including through a keyboard and mouse, or touch screen interfaces, or using speech recognition systems.
-While such hardware interfaces are becoming more commonplace, most interaction is still
-done using screens, mice, touchpads and keyboards.
+While touch and voice interfaces are becoming more commonplace, most interaction is still
+done using traditional screens, mice, touchpads and keyboards.
 
 We are all familiar with **graphical user interfaces** (GUI): windows, icons and pointers.
 They are easy to learn and fantastic for simple tasks where a vocabulary consisting of
