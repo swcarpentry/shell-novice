@@ -27,7 +27,7 @@ At a high level, computers do four things:
 -   interact with us
 
 They can do the last of these in many different ways,
-including through a keyboard and mouse, or touch screen interfaces, or speech recognition using systems.
+including through a keyboard and mouse, or touch screen interfaces, or using speech recognition systems.
 While such hardware interfaces are becoming more commonplace, most interaction is still
 done using screens, mice, touchpads and keyboards.
 
