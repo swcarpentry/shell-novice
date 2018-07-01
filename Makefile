@@ -88,9 +88,8 @@ HTML_DST = \
 ## lesson-md        : convert Rmarkdown files to markdown
 lesson-md : ${RMD_DST}
 
-# Use of .NOTPARALLEL makes rule execute only once
-${RMD_DST} : ${RMD_SRC}
-	@bin/knit_lessons.sh ${RMD_SRC}
+_episodes/%.md: _episodes_rmd/%.Rmd
+	@bin/knit_lessons.sh $< $@
 
 ## lesson-check     : validate lesson Markdown.
 lesson-check : lesson-fixme
