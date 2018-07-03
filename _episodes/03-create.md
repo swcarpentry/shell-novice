@@ -319,7 +319,7 @@ $ rm -r thesis
 > > ```
 > > {: .language-bash} 
 > > The -i option will prompt before every removal. 
-> > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever. 
+> > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever. The -i flag stands for interactive, meaning, that the user must type y(es) or n(o) before permanatly deleting the file(s).
 > > By using the -i flag, we have the chance to check that we are deleting only the files that we want to remove.
 > {: .solution}
 {: .challenge}
