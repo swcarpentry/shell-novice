@@ -1,7 +1,7 @@
 ---
 title: "Working With Files and Directories"
-teaching: 25
-exercises: 10
+teaching: 30
+exercises: 20
 questions:
 - "How can I create, copy, and delete files and directories?"
 - "How can I edit files?"
