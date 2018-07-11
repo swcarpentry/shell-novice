@@ -173,8 +173,9 @@ to use a command and what flags it accepts:
     ~~~
     {: .bash}
 
-If you use a Mac, or Git for Windows, you might find that only one of these works 
-(probably `man` on Mac and `--help` in Windows). We'll describe both ways.
+**Depending on your environment you might find that only one of these works
+(either `man` or `--help`).**
+We'll describe both ways below.
 
 Of course there is a third way: searching the internet via your web browser. 
 When using internet search, including the phrase `unix man page` in your search
