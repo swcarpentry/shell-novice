@@ -679,7 +679,7 @@ so that you and other people can put those programs into pipes to multiply their
 > > ## Solution
 > > The `head` command extracts the first 5 lines from `animals.txt`.
 > > Then, the last 3 lines are extracted from the previous 5 by using the `tail` command.
-> > With the `sort -r` command those 3 lines are sorted in reverse alphabetical order and finally,
+> > With the `sort -r` command those 3 lines are sorted in reverse order and finally,
 > > the output is redirected to a file `final.txt`.
 > > The content of this file can be checked by executing `cat final.txt`.
 > > The file should contain the following lines:
