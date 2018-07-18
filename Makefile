@@ -43,7 +43,7 @@ clean :
 	@find . -name '*.pyc' -exec rm {} \;
 
 ## clean-rmd        : clean intermediate R files (that need to be committed to the repo).
-clear-rmd :
+clean-rmd :
 	@rm -rf ${RMD_DST}
 	@rm -rf fig/rmd-*
 
