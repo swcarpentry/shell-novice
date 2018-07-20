@@ -52,6 +52,8 @@ dc_pre_survey: "https://www.surveymonkey.com/r/dcpreworkshopassessment?workshop_
 dc_post_survey: "https://www.surveymonkey.com/r/dcpostworkshopassessment?workshop_id="
 lc_pre_survey: "https://www.surveymonkey.com/r/lcpreworkshopsurvey?workshop_id="
 lc_post_survey: "https://www.surveymonkey.com/r/lcpostworkshopsurvey?workshop_id="
+instructor_pre_survey: "https://www.surveymonkey.com/r/instructor_training_pre_survey?workshop_id="
+instructor_post_survey: "https://www.surveymonkey.com/r/instructor_training_post_survey?workshop_id="
 
 
 # Start time in minutes (0 to be clock-independent, 540 to show a start at 09:00 am).
