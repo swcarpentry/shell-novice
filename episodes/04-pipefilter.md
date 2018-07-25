@@ -55,13 +55,14 @@ $ wc *.pdb
 {: .language-bash}
 
 ~~~
-  20  156 1158 cubane.pdb
-  12   84  622 ethane.pdb
-   9   57  422 methane.pdb
-  30  246 1828 octane.pdb
-  21  165 1226 pentane.pdb
-  15  111  825 propane.pdb
- 107  819 6081 total
+lines  words characters
+  20    156     1158      cubane.pdb
+  12    84      622       ethane.pdb
+   9    57      422       methane.pdb
+  30    246     1828      octane.pdb
+  21    165     1226      pentane.pdb
+  15    111     825       propane.pdb
+ 107    819     6081      total
 ~~~
 {: .output}
 
