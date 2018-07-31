@@ -388,7 +388,7 @@ Again,
 it has a lot of options;
 to show how the simplest ones work, we'll use the directory tree shown below.
 
-![File Tree for Find Example](../fig/find-file-tree.svg)
+<img alt="File Tree for Find Example" src="../fig/find-file-tree.svg" width="500">
 
 Nelle's `writing` directory contains one file called `haiku.txt` and three subdirectories:
 `thesis` (which contains a sadly empty file, `empty-draft.md`);
