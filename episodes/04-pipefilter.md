@@ -44,7 +44,7 @@ octane.pdb    pentane.pdb   propane.pdb
 
 Let's go into that directory with `cd` and run the command `wc *.pdb`.
 `wc` is the "word count" command:
-it counts the number of lines, words, and characters in files.
+it counts the number of lines, words, and characters in files (from left to right, in that order).
 The `*` in `*.pdb` matches zero or more characters,
 so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
 
@@ -55,13 +55,13 @@ $ wc *.pdb
 {: .language-bash}
 
 ~~~
-  20  156 1158 cubane.pdb
-  12   84  622 ethane.pdb
-   9   57  422 methane.pdb
-  30  246 1828 octane.pdb
-  21  165 1226 pentane.pdb
-  15  111  825 propane.pdb
- 107  819 6081 total
+  20  156  1158  cubane.pdb
+  12  84   622   ethane.pdb
+   9  57   422   methane.pdb
+  30  246  1828  octane.pdb
+  21  165  1226  pentane.pdb
+  15  111  825   propane.pdb
+ 107  819  6081  total
 ~~~
 {: .output}
 
