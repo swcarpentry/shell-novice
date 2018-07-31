@@ -8,7 +8,7 @@ questions:
 objectives:
 - "Create a directory hierarchy that matches a given diagram."
 - "Create files in that hierarchy using an editor or by copying and renaming existing files."
-- "Delete specified files and/or directories."
+- "Delete, copy and move specified files and/or directories."
 keypoints:
 - "`cp old new` copies a file."
 - "`mkdir path` creates a new directory."
