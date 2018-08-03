@@ -26,7 +26,7 @@ SOURCE_DIRS = ['', '_episodes', '_extras']
 # specially. This list must include all the Markdown files listed in the
 # 'bin/initialize' script.
 REQUIRED_FILES = {
-    '%/CONDUCT.md': True,
+    '%/CODE_OF_CONDUCT.md': True,
     '%/CONTRIBUTING.md': False,
     '%/LICENSE.md': True,
     '%/README.md': False,
@@ -171,7 +171,7 @@ def check_config(reporter, source_dir):
     reporter.check_field(config_file, 'configuration',
                          config, 'kind', 'lesson')
     reporter.check_field(config_file, 'configuration',
-                         config, 'carpentry', ('swc', 'dc', 'lc'))
+                         config, 'carpentry', ('swc', 'dc', 'lc', 'cp'))
     reporter.check_field(config_file, 'configuration', config, 'title')
     reporter.check_field(config_file, 'configuration', config, 'email')
 
