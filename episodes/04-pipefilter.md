@@ -12,8 +12,8 @@ objectives:
 - "Explain Unix's 'small pieces, loosely joined' philosophy."
 keypoints:
 - "`cat` displays the contents of its inputs."
-- "`head` displays the first few lines of its input."
-- "`tail` displays the last few lines of its input."
+- "`head` displays the first 10 lines of its input."
+- "`tail` displays the last 10 lines of its input."
 - "`sort` sorts its inputs."
 - "`wc` counts lines, words, and characters in its inputs."
 - "`*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`."
