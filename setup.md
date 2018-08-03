@@ -17,12 +17,12 @@ In the lesson, you will find out how to access the data in this folder.
 >
 > Some computers include a default Unix Shell program. 
 > The steps below describe some methods for identifying and opening a Unix Shell program if you already have one installed. 
-> There are also options for identifying and downloading a Unix Shell program, a Linux/UNIX emulator, or a program to access a UNIX server. 
+> There are also options for identifying and downloading a Unix Shell program, a Linux/UNIX emulator, or a program to access a Unix Shell on a server. 
 >
-> If none of the options below address your circumstances, try an online search for: UNIX shell [your computer model] [your operating system].
+> If none of the options below address your circumstances, try an online search for: Unix shell [your computer model] [your operating system].
 >
 > ### Linux
-> The default shell for Linux operating systems is usually Bash.
+> The default Unix Shell for Linux operating systems is usually Bash.
 > On most versions of Linux, it is accessible by running the [(Gnome) Terminal](https://help.gnome.org/users/gnome-terminal/stable/)
 > or [(KDE) Konsole](https://konsole.kde.org/)
 > or [xterm](https://en.wikipedia.org/wiki/Xterm),
@@ -50,16 +50,16 @@ In the lesson, you will find out how to access the data in this folder.
 >
 > Other solutions are available for running Bash commands on Windows. 
 > There is now a Bash shell command-line tool available for Windows 10. 
-> Additionally, you can run Bash commands on a remote UNIX computer or server from your Windows machine. 
-> This can be done through a Secure Shell (SSH) client. 
+> Additionally, you can run Bash commands on a remote computer or server that already has a Unix Shell, from your Windows machine. 
+> This can usually be done through a Secure Shell (SSH) client. 
 > One such client available for free for Windows computers is PuTTY. 
 > See the reference below for information on installing and using PuTTY, 
-> using the Windows 10 command-line tool, or installing and using a UNIX/Linux emulator.
+> using the Windows 10 command-line tool, or installing and using a Unix/Linux emulator.
 >
 > #### Reference
 > * [Git for Windows](https://git-for-windows.github.io/)
 > * [How to Install Bash shell command-line tool on Windows 10](https://www.windowscentral.com/how-install-bash-shell-command-line-windows-10)
 > * [Install and Use the Linux Bash Shell on Windows 10](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
 > * [Using the Windows 10 Bash Shell](https://www.howtogeek.com/265900/everything-you-can-do-with-windows-10s-new-bash-shell/)
-> * [Using a UNIX/Linux emulator (Cygwin) or Secure Shell (SSH) client (Putty)](http://faculty.smu.edu/reynolds/unixtut/windows.html)
+> * [Using a Unix/Linux emulator (Cygwin) or Secure Shell (SSH) client (Putty)](http://faculty.smu.edu/reynolds/unixtut/windows.html)
 {: .callout}
