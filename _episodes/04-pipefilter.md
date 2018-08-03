@@ -1,7 +1,7 @@
 ---
 title: "Pipes and Filters"
-teaching: 30
-exercises: 20
+teaching: 25
+exercises: 10
 questions:
 - "How can I combine existing commands to do new things?"
 objectives:
@@ -45,6 +45,7 @@ octane.pdb    pentane.pdb   propane.pdb
 Let's go into that directory with `cd` and run the command `wc *.pdb`.
 `wc` is the "word count" command:
 it counts the number of lines, words, and characters in files (from left to right, in that order).
+
 The `*` in `*.pdb` matches zero or more characters,
 so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
 
@@ -65,108 +66,7 @@ $ wc *.pdb
 ~~~
 {: .output}
 
-> ## Wildcards
->
-> `*` is a **wildcard**. It matches zero or more
-> characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
-> file that ends with '.pdb'. On the other hand, `p*.pdb` only matches
-> `pentane.pdb` and `propane.pdb`, because the 'p' at the front only
-> matches filenames that begin with the letter 'p'.
->
-> `?` is also a wildcard, but it only matches a single character. This
-> means that `p?.pdb` would match `pi.pdb` or `p5.pdb` (if we had these two
-> files in the `molecules` directory), but not `propane.pdb`.
-> We can use any number of wildcards at a time: for example, `p*.p?*`
-> matches anything that starts with a 'p' and ends with '.', 'p', and at
-> least one more character (since the `?` has to match one character, and
-> the final `*` can match any number of characters). Thus, `p*.p?*` would
-> match `preferred.practice`, and even `p.pi` (since the first `*` can
-> match no characters at all), but not `quality.practice` (doesn't start
-> with 'p') or `preferred.p` (there isn't at least one character after the
-> '.p').
->
-> When the shell sees a wildcard, it expands the wildcard to create a
-> list of matching filenames *before* running the command that was
-> asked for. As an exception, if a wildcard expression does not match
-> any file, Bash will pass the expression as an argument to the command
-> as it is. For example typing `ls *.pdf` in the `molecules` directory
-> (which contains only files with names ending with `.pdb`) results in
-> an error message that there is no file called `*.pdf`.
-> However, generally commands like `wc` and `ls` see the lists of
-> file names matching these expressions, but not the wildcards
-> themselves. It is the shell, not the other programs, that deals with
-> expanding wildcards, and this is another example of orthogonal design.
-{: .callout}
 
-> ## Using Wildcards
->
-> When run in the `molecules` directory, which `ls` command(s) will
-> produce this output?
->
-> `ethane.pdb   methane.pdb`
->
-> 1. `ls *t*ane.pdb`
-> 2. `ls *t?ne.*`
-> 3. `ls *t??ne.pdb`
-> 4. `ls ethane.*`
->
-> > ## Solution
->>  The solution is `3.`
->>
->> `1.` shows all files whose names contain zero or more characters (`*`) followed by the letter `t`, then zero or more characters (`*`) followed by `ane.pdb`. This gives `ethane.pdb  methane.pdb  octane.pdb  pentane.pdb`. 
->>
->> `2.` shows all files whose names start with zero or more characters (`*`) followed by the letter `t`, then a single character (`?`), then `ne.` followed by zero or more characters (`*`). This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything which ends in `thane.pdb`.
->>
->> `3.` fixes the problems of option 2 by matching two characters (`??`) between `t` and `ne`. This is the solution.
->>
->> `4.` only shows files starting with `ethane.`.
-> {: .solution}
-{: .challenge}
-
-> ## More on Wildcards
->
-> Sam has a directory containing calibration data, datasets, and descriptions of
-> the datasets:
->
-> ~~~
-> 2015-10-23-calibration.txt
-> 2015-10-23-dataset1.txt
-> 2015-10-23-dataset2.txt
-> 2015-10-23-dataset_overview.txt
-> 2015-10-26-calibration.txt
-> 2015-10-26-dataset1.txt
-> 2015-10-26-dataset2.txt
-> 2015-10-26-dataset_overview.txt
-> 2015-11-23-calibration.txt
-> 2015-11-23-dataset1.txt
-> 2015-11-23-dataset2.txt
-> 2015-11-23-dataset_overview.txt
-> ~~~
-> {: .language-bash}
->
-> Before heading off to another field trip, she wants to back up her data and
-> send some datasets to her colleague Bob. Sam uses the following commands
-> to get the job done:
->
-> ~~~
-> $ cp *dataset* /backup/datasets
-> $ cp ____calibration____ /backup/calibration
-> $ cp 2015-____-____ ~/send_to_bob/all_november_files/
-> $ cp ____ ~/send_to_bob/all_datasets_created_on_a_23rd/
-> ~~~
-> {: .language-bash}
->
-> Help Sam by filling in the blanks.
->
-> > ## Solution
-> > ```
-> > $ cp *calibration.txt /backup/calibration
-> > $ cp 2015-11-* ~/send_to_bob/all_november_files/
-> > $ cp *-23-dataset* ~send_to_bob/all_datasets_created_on_a_23rd/
-> > ```
-> > {: .language-bash}
-> {: .solution}
-{: .challenge}
 
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
