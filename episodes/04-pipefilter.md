@@ -601,7 +601,7 @@ so that you and other people can put those programs into pipes to multiply their
 > ~~~
 > {: .language-bash}
 > 
-> uses the -d flag to separate each line by comma, and the -f flag
+> uses the `-d` flag to separate each line by comma, and the `-f` flag
 > to print the second field in each line, to give the following output:
 >
 > ~~~

@@ -27,9 +27,9 @@ At a high level, computers do four things:
 -   interact with us
 
 They can do the last of these in many different ways,
-including through a keyboard and mouse, or touch screen interfaces, or speech recognition using systems.
-While such hardware interfaces are becoming more commonplace, most interaction is still
-done using screens, mice, touchpads and keyboards.
+including through a keyboard and mouse, or touch screen interfaces, or using speech recognition systems.
+While touch and voice interfaces are becoming more commonplace, most interaction is still
+done using traditional screens, mice, touchpads and keyboards.
 
 We are all familiar with **graphical user interfaces** (GUI): windows, icons and pointers.
 They are easy to learn and fantastic for simple tasks where a vocabulary consisting of
@@ -43,13 +43,12 @@ difficult, just a vocabulary of commands and a simple grammar for using them.
 This is what the shell provides - a simple language and a **command-line interface** 
 to use it through. 
 
-The heart of a command-line interface is a **read-evaluate-print loop** (REPL) called
-so because when you type a command and press <kbd>Return</kbd>.
-The shell
-reads it,
-executes (or "evaluates" it),
-prints the output,
-prints the prompt and waits for you to enter another command.
+The heart of a command-line interface is a **read-evaluate-print loop** (REPL). It is called
+so because when you type a command and press <kbd>Return</kbd> the shell
+reads your command,
+evaluates (or "executes") it,
+prints the output of your command,
+loops back and waits for you to enter another command.
  
 ### The Shell
 
@@ -115,7 +114,7 @@ and capitalization are important!). You can change the prompt too, if you like.
 
 Every command is a program stored somewhere on the computer, and the shell keeps a
 list of places to search for commands (the list is in a **variable** called `PATH`, 
-but those are concepts we'll meet later and not too important at the moment). Recall
+but those are concepts we'll meet later and are not too important at the moment). Recall
 that commands, flags and arguments are separated by spaces.
 
 So let's look at the REPL (read-evaluate-print loop) in more detail. Notice that the
