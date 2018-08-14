@@ -1,5 +1,21 @@
 ---
 ---
+
+{% comment %}
+When rendering websites locally, `site.github.url` doesn't get resolved
+properly unless GitHub PAT are set up and available in the environment.
+This leads to warnings and errors when trying to serve the site locally.
+To work around this, we use the `jekyll.environment` variable which is set to
+`development` when rendering the site locally, and set to `production` on
+GitHub where `site.github.url` will be defined.
+{% endcomment %}
+
+{% if jekyll.environment == "development" %}
+{% assign search_domain_url = "" %}
+{% elsif jekyll.environment == "production" %}
+{% assign search_domain_url = site.github.url  %}
+{% endif %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +24,7 @@
     <meta http-equiv="last-modified" content="{{ site.time }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
-    <meta name="search-domain" value="{{ site.github.url }}">
+    <meta name="search-domain" value="{{ search_domain_url }}">
     <link rel="stylesheet" type="text/css" href="{{ page.root }}/assets/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="{{ page.root }}/assets/css/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="{{ page.root }}/assets/css/lesson.css" />

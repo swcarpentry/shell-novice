@@ -94,7 +94,3 @@ exclude:
 
 # Turn on built-in syntax highlighting.
 highlighter: rouge
-
-# Allow local rendering around github metadata
-# from: https://github.com/github/pages-gem/issues/399#issuecomment-301827749
-github: [metadata]
