@@ -132,7 +132,7 @@ and then print the prompt and wait for you to enter another command.
 
 > ## Command not found 
 > If the shell can't find a program whose name is the command you typed, it 
-> will print an erorr message like:
+> will print an error message like:
 > 
 > ~~~
 > $ ls-F
