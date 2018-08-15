@@ -29,10 +29,10 @@ $color-testimonial: #fc8dc1 !default;
 //----------------------------------------
 
 @mixin cdSetup($color) {
-  color: $color;
-  border-left: solid 5px $color;
-  margin-bottom: 0px;
-  border-radius: 4px 0 0 4px;
+    color: $color;
+    border-left: solid 5px $color;
+    margin: 15px;
+    border-radius: 4px 0 0 4px;
 }
 
 .error  { @include cdSetup($color-error); }
@@ -81,7 +81,10 @@ $codeblock-padding: 5px !default;
   padding-right: 0;
   border: 1px solid;
   border-color: $color;
+  border-radius: 4px;
   padding-bottom: $codeblock-padding;
+
+  margin: 15px;
 
   h2 {
     padding-top: $codeblock-padding;
@@ -124,6 +127,10 @@ $codeblock-padding: 5px !default;
 .solution h3,
 .testimonial h3 {
 font-size: 18px;
+}
+
+blockquote p {
+    margin: 5px;
 }
 
 //----------------------------------------
