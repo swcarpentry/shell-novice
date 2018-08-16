@@ -16,7 +16,9 @@ keypoints:
 - "`tail` displays the last 10 lines of its input."
 - "`sort` sorts its inputs."
 - "`wc` counts lines, words, and characters in its inputs."
-- "`command > file` redirects a command's output to a file."
+- "`command > file` redirects a command's output to a new `file` (when `file` doesn't exist) or rewrite (if `file` exists)."
+- "`$command >> $file` appends a command's output to the `file`"
+- "`<` operator redirects input to a command"
 - "`first | second` is a pipeline: the output of the first command is used as the input to the second."
 - "The best way to use the shell is to use pipes to combine simple single-purpose programs (filters)."
 ---
