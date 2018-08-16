@@ -7,6 +7,8 @@ questions:
 objectives:
 - "Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs."
 - "Explain when and why command-line interfaces should be used instead of graphical interfaces."
+- "Explain how a typical shell window looks like"
+- "Explain the general structure of a shell command"
 keypoints:
 - "Explain the steps in the shell's read-run-print cycle."
 - "Most commands take flags (options) which begin with a `-`."
@@ -17,6 +19,8 @@ keypoints:
 - "A shell is a program whose primary purpose is to read commands and run other programs."
 - "The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and its capacity to access networked machines."
 - "The shell's main disadvantages are its primarily textual nature and how cryptic its commands and operation can be."
+- "General structure of a shell command: (i)command or (ii) command argument or (iii) command flag/switch argument"
+- "Shell commands are case-sensitive and each part is separated by a space"
 ---
 ### Background
 At a high level, computers do four things:
@@ -34,7 +38,7 @@ done using traditional screens, mice, touchpads and keyboards.
 We are all familiar with **graphical user interfaces** (GUI): windows, icons and pointers.
 They are easy to learn and fantastic for simple tasks where a vocabulary consisting of
 "click" translates easily into "do the thing I want". But this magic relies on 
-wanting a simple set of things, and having programs that can do exactly those things.
+wanting a simple set of things and having programs that can do exactly those things.
 
 If you wish to do complex, purpose-specific things it helps to have a richer means
 of expressing your instructions to the computer. It doesn't need to be complicated or
@@ -84,7 +88,7 @@ The part that you type,
 `ls -F /` in the second line of the example,
 typically has the following structure: a **command**,
 some **flags** (also called **options** or **switches**) and an **argument**.
-Flags start with a single dash (`-`) or two dashes (`--`), and change the behaviour of a command.
+Flags start with a single dash (`-`) or two dashes (`--`) and change the behaviour of a command.
 Arguments tell the command what to operate on (e.g. files and directories).
 Sometimes flags and arguments are referred to as parameters.
 A command can be called with more than one flag and more than one argument: but a
@@ -95,7 +99,7 @@ In the second line of the example above, our **command** is `ls`, with a **flag*
 between `ls` and `-F` the shell will look for a command called `ls-F`, which 
 doesn't exist. Also, capitalization matters: `LS` is different to `ls`. 
 
-Next we see the output that our command produced. In this case it is a listing 
+Next, we see the output that our command produced. In this case it is a listing 
 of files and folders in a location called `/` - we'll cover what all these mean 
 later today. Those using a macOS might recognize the output in this example.
 
@@ -117,7 +121,7 @@ list of places to search for commands (the list is in a **variable** called `PAT
 but those are concepts we'll meet later and are not too important at the moment). Recall
 that commands, flags and arguments are separated by spaces.
 
-So let's look at the REPL (read-evaluate-print loop) in more detail. Notice that the
+So, let's look at the REPL (read-evaluate-print loop) in more detail. Notice that the
 "evaluate" step is made of two parts:
 
 1. Read what was typed (`ls -F /` in our example)  
@@ -132,7 +136,7 @@ and then print the prompt and wait for you to enter another command.
 
 > ## Command not found 
 > If the shell can't find a program whose name is the command you typed, it 
-> will print an erorr message like:
+> will print an error message like:
 > 
 > ~~~
 > $ ls-F
@@ -203,7 +207,7 @@ At 30 seconds per sample,
 the whole process will take more than 12 hours
 (and that's assuming the best-case scenario where she is ready to enter the next file name
 as soon as the previous sample analysis has finished).
-This zero-breaks always-ready scenario is only achieveable by a machine so it would
+This zero-breaks always-ready scenario is only achievable by a machine so it would
 likely take much longer than 12 hours, not to mention that
 the chances of her typing all of those commands correctly are practically zero.
 Missing that paper deadline is looking increasingly likely.
