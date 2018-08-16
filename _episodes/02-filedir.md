@@ -6,11 +6,14 @@ questions:
 - "How can I move around on my computer?"
 - "How can I see what files and directories I have?"
 - "How can I specify the location of a file or directory on my computer?"
+- "How can I get help "
 objectives:
+- "Explain what a file system is"
+- "Understand the structure of the file system"
 - "Explain the similarities and differences between a file and a directory."
 - "Translate an absolute path into a relative path and vice versa."
 - "Construct absolute and relative paths that identify specific files and directories."
-- "Demonstrate the use of tab completion, and explain its advantages."
+- "Demonstrate the use of tab completion and explain its advantages."
 keypoints:
 - "The file system is responsible for managing information on the disk."
 - "Information is stored in files, which are stored in directories (folders)."
@@ -24,6 +27,7 @@ keypoints:
 - "Directory names in a path are separated with `/` on Unix, but `\\` on Windows."
 - "`..` means 'the directory above the current one'; `.` on its own means 'the current directory'."
 - "Most files' names are `something.extension`. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file."
+- "`--help command` or `man command` provides details on how to use a command and what flags it accepts"
 ---
 
 The part of the operating system responsible for managing files and directories 
@@ -73,7 +77,7 @@ let's have a look at how the file system as a whole is organized.  For the
 sake of this example, we'll be
 illustrating the filesystem on our scientist Nelle's computer.  After this
 illustration, you'll be learning commands to explore your own filesystem,
-which will be constructed in a similar way, but not be exactly identical.  
+which will be constructed in a similar way, but not be identical.  
 
 On Nelle's computer, the filesystem looks like this:
 
@@ -347,7 +351,7 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 
 > ## Manual pages on the web
 >
-> Of course there is a third way to access help for commands:
+> Of course, there is a third way to access help for commands:
 > searching the internet via your web browser. 
 > When using internet search, including the phrase `unix man page` in your search
 > query will help to find relevant results.
