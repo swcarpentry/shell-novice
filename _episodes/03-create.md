@@ -312,12 +312,19 @@ $ rm -r thesis
 
 > ## Using `rm` Safely
 >
-> What happens when we type `rm -i thesis/quotations.txt`?
+> Let's create a file called delete_me.txt:
+>
+> ~~~
+> touch delete_me.txt
+> ~~~
+> {: .language-bash}
+>
+> What happens when we type `rm -i delete_me.txt`?
 > Why would we want this protection when using `rm`?
 >
 > > ## Solution
 > > ```
-> > $ rm: remove regular file 'thesis/quotations.txt'?
+> > $ rm: remove regular file 'delete_me.txt'?
 > > ```
 > > {: .language-bash} 
 > > The -i option will prompt before every removal. 
