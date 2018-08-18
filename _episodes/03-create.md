@@ -126,12 +126,12 @@ $ nano draft.txt
 >
 > When we say, "`nano` is a text editor," we really do mean "text": it can
 > only work with plain character data, not tables, images, or any other
-> human-friendly media. We use it in examples because it is one of the 
-> least complex text editors. However, because of this trait, it may 
+> human-friendly media. We use it in examples because it is one of the
+> least complex text editors. However, because of this trait, it may
 > not be powerful enough or flexible enough for the work you need to do
 > after this workshop. On Unix systems (such as Linux and Mac OS X),
 > many programmers use [Emacs](http://www.gnu.org/software/emacs/) or
-> [Vim](http://www.vim.org/) (both of which require more time to learn), 
+> [Vim](http://www.vim.org/) (both of which require more time to learn),
 > or a graphical editor such as
 > [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
 > use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in
@@ -211,7 +211,7 @@ draft.txt
 > > ## Solution
 > > 1.  The touch command generates a new file called 'my_file.txt' in
 > >     your home directory.  If you are in your home directory, you
-> >     can observe this newly generated file by typing 'ls' at the 
+> >     can observe this newly generated file by typing 'ls' at the
 > >     command line prompt.  'my_file.txt' can also be viewed in your
 > >     GUI file explorer.
 > >
@@ -273,6 +273,12 @@ $ pwd
 
 ~~~
 $ nano draft.txt
+~~~
+{: .language-bash}
+
+Let's again type in a few lines of text. Once we're happy with our text, we can press `Ctrl-O` to write our data to disk. Once our file is saved, we can use `Ctrl-X` to quit the editor and return to the shell.
+
+~~~
 $ ls
 ~~~
 {: .language-bash}
@@ -319,9 +325,9 @@ $ rm -r thesis
 > > ```
 > > $ rm: remove regular file 'thesis/quotations.txt'?
 > > ```
-> > {: .language-bash} 
-> > The -i option will prompt before every removal. 
-> > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever. 
+> > {: .language-bash}
+> > The -i option will prompt before every removal.
+> > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
 > > By using the -i flag, we have the chance to check that we are deleting only the files that we want to remove.
 > {: .solution}
 {: .challenge}
@@ -362,6 +368,12 @@ $ pwd
 ~~~
 $ mkdir thesis
 $ nano thesis/draft.txt
+~~~
+{: .language-bash}
+
+Type in a few lines of text. Once we're happy with our text, we can press `Ctrl-O` to write our data to disk. Once our file is saved, we can use `Ctrl-X` to quit the editor and return to the shell.
+
+~~~
 $ ls thesis
 ~~~
 {: .language-bash}
@@ -629,12 +641,12 @@ but it does find the copy in `thesis` that we didn't delete.
 > ~~~
 > {: .output}
 > ~~~
-> $ cp amino-acids.txt animals.txt morse.txt 
+> $ cp amino-acids.txt animals.txt morse.txt
 > ~~~
 > {: .language-bash}
 >
 > > ## Solution
-> > If given more than one file name followed by a directory name (i.e. the destination directory must 
+> > If given more than one file name followed by a directory name (i.e. the destination directory must
 > > be the last argument), `cp` copies the files to the named directory.
 > >
 > > If given three file names, `cp` throws an error because it is expecting a directory
@@ -695,7 +707,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > > ## Solution
 >>  The solution is `3.`
 >>
->> `1.` shows all files whose names contain zero or more characters (`*`) followed by the letter `t`, then zero or more characters (`*`) followed by `ane.pdb`. This gives `ethane.pdb  methane.pdb  octane.pdb  pentane.pdb`. 
+>> `1.` shows all files whose names contain zero or more characters (`*`) followed by the letter `t`, then zero or more characters (`*`) followed by `ane.pdb`. This gives `ethane.pdb  methane.pdb  octane.pdb  pentane.pdb`.
 >>
 >> `2.` shows all files whose names start with zero or more characters (`*`) followed by the letter `t`, then a single character (`?`), then `ne.` followed by zero or more characters (`*`). This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything which ends in `thane.pdb`.
 >>
@@ -835,7 +847,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > > Then two `rm` commands which remove all files in the specified directories.
 > > The shell expands the '*' wild card to match all files and subdirectories.
 > >
-> > The second set of commands have the wrong order: 
+> > The second set of commands have the wrong order:
 > > attempting to delete files which haven't yet been copied,
 > > followed by the recursive copy command which would copy them.
 > >
