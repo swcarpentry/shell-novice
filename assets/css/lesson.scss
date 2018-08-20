@@ -144,8 +144,10 @@ code {
   background-color: #e7e7e7;
 }
 
-img {
-  max-width: 100%;
+article img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
 }
 
 //----------------------------------------
