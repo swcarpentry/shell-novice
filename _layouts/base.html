@@ -41,6 +41,9 @@ GitHub where `site.github.url` will be defined.
     <title>{{ site.title }}{% if page.title %}: {{ page.title }}{% endif %}</title>
   </head>
   <body>
+
+    {% include life_cycle.html %}
+
     <div class="container">
       {% include navbar.html %}
 {{ content }}

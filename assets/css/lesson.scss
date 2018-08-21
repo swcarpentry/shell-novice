@@ -194,6 +194,37 @@ span.fold-unfold {
 
 
 //----------------------------------------
+// Life cycle box
+//----------------------------------------
+
+div.life-cycle {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: -1px;
+    border-radius: 0;
+}
+
+.pre-alpha {
+    color: #a94442;
+    background: #f2dede;
+}
+
+.alpha {
+    color: #8a6d3b;
+    background: #fcf8e3;
+}
+
+.beta {
+    color: #31708f;
+    background: #d9edf7;
+}
+
+
+//----------------------------------------
 // keyboard key style, from StackExchange.
 //----------------------------------------
 
