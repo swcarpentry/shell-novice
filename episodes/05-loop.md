@@ -126,20 +126,20 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 > What is the output of the following code?
 >
 > ~~~
-> for datafile in *.pdb
-> do
->     ls *.pdb
-> done
+> $ for datafile in *.pdb
+> > do
+> >    ls *.pdb
+> > done
 > ~~~
 > {: .language-bash}
 >
 > Now, what is the output of the following code?
 >
 > ~~~
-> for datafile in *.pdb
-> do
->	ls $datafile
-> done
+> $ for datafile in *.pdb
+> > do
+> >	ls $datafile
+> > done
 > ~~~
 > {: .language-bash}
 >
@@ -153,10 +153,10 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 > > and then lists them using `ls`.
 > > The expanded loop would look like this:
 > > ```
-> > for datafile in cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > do
-> >	ls cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > done
+> > $ for datafile in cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > > do
+> > >	ls cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > > done
 > > ```
 > > {: .language-bash}
 > >
@@ -215,20 +215,20 @@ The shell itself doesn't care what the variable is called;
 if we wrote this loop as:
 
 ~~~
-for x in basilisk.dat unicorn.dat
-do
-    head -n 3 $x
-done
+$ for x in basilisk.dat unicorn.dat
+> do
+>    head -n 3 $x
+> done
 ~~~
 {: .language-bash}
 
 or:
 
 ~~~
-for temperature in basilisk.dat unicorn.dat
-do
-    head -n 3 $temperature
-done
+$ for temperature in basilisk.dat unicorn.dat
+> do
+>    head -n 3 $temperature
+> done
 ~~~
 {: .language-bash}
 
@@ -243,10 +243,10 @@ increase the odds that the program won't do what its readers think it does.
 > What would be the output of running the following loop in the `data-shell/molecules` directory?
 >
 > ~~~
-> for filename in c*
-> do
->     ls $filename 
-> done
+> $ for filename in c*
+> > do
+> >    ls $filename 
+> > done
 > ~~~
 > {: .language-bash}
 >
@@ -263,10 +263,10 @@ increase the odds that the program won't do what its readers think it does.
 > How would the output differ from using this command instead?
 >
 > ~~~
-> for filename in *c*
-> do
->     ls $filename 
-> done
+> $ for filename in *c*
+> > do
+> >    ls $filename 
+> > done
 > ~~~
 > {: .language-bash}
 >
@@ -286,11 +286,11 @@ Let's continue with our example in the `data-shell/creatures` directory.
 Here's a slightly more complicated loop:
 
 ~~~
-for filename in *.dat
-do
-    echo $filename
-    head -n 100 $filename | tail -n 20
-done
+$ for filename in *.dat
+> do
+>     echo $filename
+>     head -n 100 $filename | tail -n 20
+> done
 ~~~
 {: .language-bash}
 
@@ -318,11 +318,11 @@ since the shell expands `$filename` to be the name of a file,
 Note that we can't write this as:
 
 ~~~
-for filename in *.dat
-do
-    $filename
-    head -n 100 $filename | tail -n 20
-done
+$ for filename in *.dat
+> do
+>     $filename
+>     head -n 100 $filename | tail -n 20
+> done
 ~~~
 {: .language-bash}
 
@@ -350,10 +350,10 @@ from whatever file is being processed
 > We need to use
 > 
 > ~~~
-> for filename in "red dragon.dat" "purple unicorn.dat"
-> do
->     head -n 100 "$filename" | tail -n 3
-> done
+> $ for filename in "red dragon.dat" "purple unicorn.dat"
+> > do
+> >     head -n 100 "$filename" | tail -n 3
+> > done
 > ~~~
 > {: .language-bash}
 >
@@ -384,10 +384,10 @@ Going back to our original file copying problem,
 we can solve it using this loop:
 
 ~~~
-for filename in *.dat
-do
-    cp $filename original-$filename
-done
+$ for filename in *.dat
+> do
+>     cp $filename original-$filename
+> done
 ~~~
 {: .language-bash}
 
@@ -583,11 +583,11 @@ so she decides to get some coffee and catch up on her reading.
 > In the `data-shell/molecules` directory, what is the effect of this loop?
 >
 > ~~~
-> for alkanes in *.pdb
-> do
->     echo $alkanes
->     cat $alkanes > alkanes.pdb
-> done
+> $ for alkanes in *.pdb
+> > do
+> >     echo $alkanes
+> >     cat $alkanes > alkanes.pdb
+> > done
 > ~~~
 > {: .language-bash}
 >
@@ -611,11 +611,11 @@ so she decides to get some coffee and catch up on her reading.
 > Also in the `data-shell/molecules` directory, what would be the output of the following loop?
 >
 > ~~~
-> for datafile in *.pdb
-> do
->     cat $datafile >> all.pdb
-> done
-> ~~~
+> $ for datafile in *.pdb
+> > do
+> >     cat $datafile >> all.pdb
+> > done
+> > ~~~
 > {: .language-bash}
 >
 > 1.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and
@@ -643,10 +643,10 @@ so she decides to get some coffee and catch up on her reading.
 > without actually running those commands:
 >
 > ~~~
-> for file in *.pdb
-> do
->   analyze $file > analyzed-$file
-> done
+> $ for file in *.pdb
+> > do
+> >   analyze $file > analyzed-$file
+> > done
 > ~~~
 > {: .language-bash}
 >
@@ -655,19 +655,19 @@ so she decides to get some coffee and catch up on her reading.
 >
 > ~~~
 > # Version 1
-> for file in *.pdb
-> do
->   echo analyze $file > analyzed-$file
-> done
+> $ for file in *.pdb
+> > do
+> >   echo analyze $file > analyzed-$file
+> > done
 > ~~~
 > {: .language-bash}
 >
 > ~~~
 > # Version 2
-> for file in *.pdb
-> do
->   echo "analyze $file > analyzed-$file"
-> done
+> $ for file in *.pdb
+> > do
+> >   echo "analyze $file > analyzed-$file"
+> > done
 > ~~~
 > {: .language-bash}
 >
@@ -693,13 +693,13 @@ so she decides to get some coffee and catch up on her reading.
 > result of the following code:
 >
 > ~~~
-> for species in cubane ethane methane
-> do
->     for temperature in 25 30 37 40
->     do
->         mkdir $species-$temperature
->     done
-> done
+> $ for species in cubane ethane methane
+> > do
+> >     for temperature in 25 30 37 40
+> >     do
+> >         mkdir $species-$temperature
+> >     done
+> > done
 > ~~~
 > {: .language-bash}
 >
