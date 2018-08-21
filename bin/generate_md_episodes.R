@@ -26,7 +26,7 @@ generate_md_episodes <- function() {
 
     ## get the Rmd file to process from the command line, and generate the path for their respective outputs
     args  <- commandArgs(trailingOnly = TRUE)
-    if (length(args) != 2){
+    if (!identical(length(args), 2L)) {
       stop("input and output file must be passed to the script")
     }
     
