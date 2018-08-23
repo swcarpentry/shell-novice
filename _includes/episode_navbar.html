@@ -1,6 +1,14 @@
 {% comment %}
+For some reason, the relative_root_path seems out of scope in this file, so we
+need to re-assign it here
+{% endcomment %}
+
+{% include base_path.html %}
+
+{% comment %}
   Navigation bar for an episode.
 {% endcomment %}
+
 <div class="row">
   <div class="col-xs-1">
     <h3 class="text-left">
