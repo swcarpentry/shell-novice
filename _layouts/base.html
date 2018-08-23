@@ -1,6 +1,5 @@
 ---
 ---
-
 {% comment %}
 When rendering websites locally, `site.github.url` doesn't get resolved
 properly unless GitHub PAT are set up and available in the environment.
@@ -16,6 +15,8 @@ GitHub where `site.github.url` will be defined.
 {% assign search_domain_url = site.github.url  %}
 {% endif %}
 
+{% include base_path.html %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,10 +26,10 @@ GitHub where `site.github.url` will be defined.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="{{ search_domain_url }}">
-    <link rel="stylesheet" type="text/css" href="{{ page.root }}/assets/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="{{ page.root }}/assets/css/bootstrap-theme.css" />
-    <link rel="stylesheet" type="text/css" href="{{ page.root }}/assets/css/lesson.css" />
-    <link rel="stylesheet" type="text/css" href="{{ page.root }}/assets/css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="{{ relative_root_path }}/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="{{ relative_root_path }}/assets/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="{{ relative_root_path }}/assets/css/lesson.css" />
+    <link rel="stylesheet" type="text/css" href="{{ relative_root_path }}/assets/css/syntax.css" />
 
     {% include favicons.html %}
 

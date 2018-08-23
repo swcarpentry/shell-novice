@@ -51,7 +51,7 @@ title: Figures
           }
         }
       }
-      episode_url = "{{ page.root }}" + lesson_episodes[i];
+      episode_url = "{{ base }}" + lesson_episodes[i];
       xmlHttp[i].open("GET", episode_url);
       xmlHttp[i].send(null);
     }
