@@ -31,7 +31,7 @@ $color-testimonial: #fc8dc1 !default;
 @mixin cdSetup($color) {
     color: $color;
     border-left: solid 5px $color;
-    margin: 15px;
+    margin: 15px 0;
     border-radius: 4px 0 0 4px;
 }
 
@@ -84,7 +84,7 @@ $codeblock-padding: 5px !default;
   border-radius: 4px;
   padding-bottom: $codeblock-padding;
 
-  margin: 15px;
+  margin: 15px 0;
 
   h2 {
     padding-top: $codeblock-padding;
