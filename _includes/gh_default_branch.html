@@ -1,0 +1,19 @@
+{% comment %}
+identify the default branch of the GitHub repo for the lesson, to create the correct link for "Improve on GitHub"
+{% endcomment %}
+
+{% comment %}
+First, get the name of the repository
+{% endcomment %}
+{% assign repo_name = site.github.repository_name %}
+
+{% comment %}
+`site.github.public_repositories` contains comprehensive information for all public repositories for the organization. We use `where` to extract the part
+of the metadata that is relevant to the present repository.
+{% endcomment %}
+{% assign repo_info = site.github.public_repositories | where: "name", repo_name %}
+
+{% comment %}
+Now, we can extract the default branch for the repo
+{% endcomment %}
+{% assign default_branch = repo_info[0].default_branch %}

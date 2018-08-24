@@ -1,6 +1,9 @@
 {% comment %}
   Footer for lesson pages.
 {% endcomment %}
+
+{% include gh_default_branch.html %}
+
 <footer>
   <div class="row">
     <div class="col-md-6 copyright" align="left">
@@ -27,17 +30,17 @@
     <div class="col-md-6 help-links" align="right">
 	{% if page.source %}
 	{% if page.source == "Rmd" %}
-	<a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}">Edit on GitHub</a>
+	<a href="{{site.github.repository_url}}/edit/{{ default_branch }}/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}">Edit on GitHub</a>
 	{% endif %}
 	{% else %}
-	<a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path}}">Edit on GitHub</a>
+	<a href="{{site.github.repository_url}}/edit/{{ default_branch }}/{{page.path}}">Edit on GitHub</a>
 	{% endif %}
 	/
-	<a href="{{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	<a href="{{ site.github.repository_url }}/blob/{{ site.github.source.branch }}/CONTRIBUTING.md">Contributing</a>
 	/
 	<a href="{{ site.github.repository_url }}/">Source</a>
 	/
-	<a href="{{ site.github.repository_url }}/blob/gh-pages/CITATION">Cite</a>
+	<a href="{{ site.github.repository_url }}/blob/{{ site.github.source.branch }}/CITATION">Cite</a>
 	/
 	<a href="mailto:{{ site.email }}">Contact</a>
     </div>
