@@ -44,7 +44,7 @@ $color-testimonial: #fc8dc1 !default;
 .matlab, .language-matlab { @include cdSetup($color-source); }
 .python, .language-python { @include cdSetup($color-source); }
 .r, .language-r           { @include cdSetup($color-source); }
-.sql, .langauge-sql       { @include cdSetup($color-source); }
+.sql, .language-sql       { @include cdSetup($color-source); }
 
 .error pre,
 .output pre,
