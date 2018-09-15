@@ -1,7 +1,7 @@
 ---
 title: "Finding Things"
 teaching: 25
-exercises: 20
+exercises: 21
 questions:
 - "How can I find files?"
 - "How can I find things in files?"
@@ -18,8 +18,8 @@ keypoints:
 - "`$(command)` inserts a command's output in place."
 ---
 
-In the same way that many of us now use "Google" as a 
-verb meaning "to find", Unix programmers often use the 
+In the same way that many of us now use "Google" as a
+verb meaning "to find", Unix programmers often use the
 word "grep".
 "grep" is a contraction of "global/regular expression/print",
 a common sequence of operations in early Unix text editors.
@@ -112,7 +112,7 @@ The Tao that is seen
 {: .output}
 
 Note that a "word boundary" includes the start and end of a line, so not
-just letters surrounded by spaces. 
+just letters surrounded by spaces.
 Sometimes we don't
 want to search for a single word, but a phrase. This is also easy to do with
 `grep` by putting the phrase in quotes.
@@ -249,6 +249,34 @@ Miscellaneous:
 > {: .solution}
 {: .challenge}
 
+> ## More `grep` practice
+>
+> What would be the correct command for the of the following text :
+>
+>  `Today it is not working`
+>
+>  `The Tao that is seen`
+>
+>  `Is not the true Tao, until`
+>
+>  `Software is like that.`
+>
+
+> {: .output}
+>
+> 1. `grep -w "is" haiku.txt`
+> 2. `grep -w -i "is" haiku.txt`
+> 3. `grep -w haiku.txt`
+> 4. `grep -i "is" haiku.txt`
+>
+> > ## Solution
+> > The correct answer is 2, because the `-w` flag looks only for whole-word matches and the `-i` looks for case-insensitive matches.
+> > Solution 1 will only provide matches for lower case `"is"`
+> > Solution 3 will not provide any matches. This solution requires the `"is"` word to find a match.
+> > Solution 4 will provide matches for all words that include `"is"` in the word. This solution requires the `-w` flag in order to search for only the word `"is"`
+> {: .solution}
+{: .challenge}
+
 > ## Wildcards
 >
 > `grep`'s real power doesn't come from its options, though; it comes from
@@ -280,10 +308,10 @@ Miscellaneous:
 {: .callout}
 
 > ## Tracking a Species
-> 
-> Leah has several hundred 
+>
+> Leah has several hundred
 > data files saved in one directory, each of which is formatted like this:
-> 
+>
 > ~~~
 > 2013-11-05,deer,5
 > 2013-11-05,rabbit,22
@@ -293,11 +321,11 @@ Miscellaneous:
 > ~~~
 > {: .source}
 >
-> She wants to write a shell script that takes a species as the first command-line argument 
-> and a directory as the second argument. The script should return one file called `species.txt` 
+> She wants to write a shell script that takes a species as the first command-line argument
+> and a directory as the second argument. The script should return one file called `species.txt`
 > containing a list of dates and the number of that species seen on each date.
 > For example using the data shown above, `rabbit.txt` would contain:
-> 
+>
 > ~~~
 > 2013-11-05,22
 > 2013-11-06,19
@@ -305,7 +333,7 @@ Miscellaneous:
 > {: .source}
 >
 > Put these commands and pipes in the right order to achieve this:
-> 
+>
 > ~~~
 > cut -d : -f 2  
 > >  
@@ -427,7 +455,7 @@ which is where we want our search to start.
 `find`'s output is the names of every file **and** directory
 under the current working directory.
 This can seem useless at first but `find` has many options
-to filter the output and in this lesson we will discover some 
+to filter the output and in this lesson we will discover some
 of them.
 
 The first option in our list is
@@ -658,7 +686,7 @@ about them."
 {: .challenge}
 
 > ## Finding Files With Different Properties
-> 
+>
 > The `find` command can be given several other criteria known as "tests"
 > to locate files with specific attributes, such as creation time, size,
 > permissions, or ownership.  Use `man find` to explore these, and then
