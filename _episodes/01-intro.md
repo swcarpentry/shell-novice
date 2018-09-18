@@ -210,7 +210,7 @@ Missing that paper deadline is looking increasingly likely.
 
 The next few lessons will explore what she should do instead.
 More specifically,
-they explain how she can use a command shell
+they explain how she can use a shell command
 to automate the repetitive steps in her processing pipeline
 so that her computer can work 24 hours a day while she writes her paper.
 As a bonus,
