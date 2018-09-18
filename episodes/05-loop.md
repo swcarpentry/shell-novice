@@ -615,7 +615,7 @@ so she decides to get some coffee and catch up on her reading.
 > > do
 > >     cat $datafile >> all.pdb
 > > done
-> > ~~~
+> ~~~
 > {: .language-bash}
 >
 > 1.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and
