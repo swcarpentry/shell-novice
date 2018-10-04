@@ -15,7 +15,7 @@ In exchange,
 we will address your issues and/or assess your change proposal as promptly as we can,
 and help you become a member of our community.
 Everyone involved in [Software Carpentry][swc-site] and [Data Carpentry][dc-site]
-agrees to abide by our [code of conduct](CONDUCT.md).
+agrees to abide by our [code of conduct](CODE_OF_CONDUCT.md).
 
 ## How to Contribute
 
@@ -50,19 +50,19 @@ and to meet some of our community members.
     which can be viewed at <https://swcarpentry.github.io/FIXME>.
 
 2.  If you wish to change the example lesson,
-    please work in <https://github.com/swcarpentry/lesson-example>,
+    please work in <https://github.com/carpentries/lesson-example>,
     which documents the format of our lessons
-    and can be viewed at <https://swcarpentry.github.io/lesson-example>.
+    and can be viewed at <https://carpentries.github.io/lesson-example>.
 
 3.  If you wish to change the template used for workshop websites,
-    please work in <https://github.com/swcarpentry/workshop-template>.
+    please work in <https://github.com/carpentries/workshop-template>.
     The home page of that repository explains how to set up workshop websites,
-    while the extra pages in <https://swcarpentry.github.io/workshop-template>
+    while the extra pages in <https://carpentries.github.io/workshop-template>
     provide more background on our design choices.
 
 4.  If you wish to change CSS style files, tools,
     or HTML boilerplate for lessons or workshops stored in `_includes` or `_layouts`,
-    please work in <https://github.com/swcarpentry/styles>.
+    please work in <https://github.com/carpentries/styles>.
 
 ## What to Contribute
 
