@@ -388,6 +388,13 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > {: .solution}
 {: .challenge}
 
+> ## Clearing your terminal
+>
+> If your screen gets too cluttered, you can clear your terminal using <kbd>Ctrl</kbd> + <kbd>l</kbd>.
+> You can still access previous commands using <kbd>↑</kbd> and <kbd>↓</kbd> to move line-by-line,
+> or by scrolling in your terminal.
+{: .callout}
+
 Here,
 we can see that our home directory contains mostly **sub-directories**.
 Any names in your output that don't have trailing slashes,
