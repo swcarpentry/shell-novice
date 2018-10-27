@@ -628,7 +628,7 @@ so that you and other people can put those programs into pipes to multiply their
 
 > ## Which Pipe?
 >
-> The file `animals.txt` contains 586 lines of data formatted as follows:
+> The file `animals.txt` contains 8 lines of data formatted as follows:
 >
 > ~~~
 > 2012-11-05,deer
