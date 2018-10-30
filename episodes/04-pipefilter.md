@@ -190,12 +190,12 @@ Now let's use the `sort` command to sort its contents.
 > Explain why `-n` has this effect.
 >
 > > ## Solution
-> > The `-n` flag specifies a numeric sort, rather than alphabetical.
+> > The `-n` flag specifies a numerical rather than an alphanumerical sort.
 > {: .solution}
 {: .challenge}
 
 We will also use the `-n` flag to specify that the sort is
-numerical instead of alphabetical.
+numerical instead of alphanumerical.
 This does *not* change the file;
 instead, it sends the sorted result to the screen:
 
