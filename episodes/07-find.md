@@ -609,9 +609,9 @@ $ grep "FE" $(find .. -name '*.pdb')
 >
 > We have focused exclusively on finding things in text files. What if
 > your data is stored as images, in databases, or in some other format?
-> One option would be to extend tools like `grep` to handle those formats.
-> This hasn't happened, and probably won't, because there are too many
-> formats to support.
+> One option is to extend tools like `grep` to handle those formats.
+> One such tool is `pdfgrep` which does in pdf what `grep` does in text files.
+> But the vast majority of formats do not have any equivalent.
 >
 > The second option is to convert the data to text, or extract the
 > text-ish bits from the data. This is probably the most common approach,
