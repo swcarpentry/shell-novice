@@ -609,18 +609,17 @@ $ grep "FE" $(find .. -name '*.pdb')
 >
 > We have focused exclusively on finding patterns in text files. What if
 > your data is stored as images, in databases, or in some other format?
-> A handful of tools extend `grep` to handle a few non text formats. But an
-> approach which works for any format is to convert the data to text, or to
-> extract the text-like bits from the data. This is probably the most common approach,
-> since it only requires people to build one tool per data format (to
-> extract information). On the one hand, it makes simple things easy to
-> do. On the negative side, complex things are usually impossible. For
+>
+> A handful of tools extend `grep` to handle a few non text formats. But a
+> more generalizable approach is to convert the data to text, or
+> extract the text-like elements from the data. On the one hand, it makes simple
+> things easy to do. On the other hand, complex things are usually impossible. For
 > example, it's easy enough to write a program that will extract X and Y
 > dimensions from image files for `grep` to play with, but how would you
 > write something to find values in a spreadsheet whose cells contained
 > formulas?
 >
-> The third choice is to recognize that the shell and text processing have
+> A last option is to recognize that the shell and text processing have
 > their limits, and to use another programming language.
 > When the time comes to do this, don't be too hard on the shell: many
 > modern programming languages have borrowed a lot of
