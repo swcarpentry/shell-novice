@@ -607,14 +607,11 @@ $ grep "FE" $(find .. -name '*.pdb')
 
 > ## Binary Files
 >
-> We have focused exclusively on finding things in text files. What if
+> We have focused exclusively on finding patterns in text files. What if
 > your data is stored as images, in databases, or in some other format?
-> One option is to extend tools like `grep` to handle those formats.
-> One such tool is `pdfgrep` which does in pdf what `grep` does in text files.
-> But the vast majority of formats do not have any equivalent.
->
-> The second option is to convert the data to text, or extract the
-> text-ish bits from the data. This is probably the most common approach,
+> A handful of tools extend `grep` to handle a few non text formats. But an
+> approach which works for any format is to convert the data to text, or to
+> extract the text-like bits from the data. This is probably the most common approach,
 > since it only requires people to build one tool per data format (to
 > extract information). On the one hand, it makes simple things easy to
 > do. On the negative side, complex things are usually impossible. For
