@@ -74,7 +74,7 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 > Using the shell to create a directory is no different than using a file explorer.
 > If you open the current directory using your operating system's graphical file explorer,
 > the `thesis` directory will appear there too.
-> While they are two different ways of interacting with the files,
+> While there are two different ways of interacting with the files,
 > the files and directories themselves are the same.
 {: .callout}
 
