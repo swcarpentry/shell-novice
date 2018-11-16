@@ -211,11 +211,11 @@ draft.txt
 > > ## Solution
 > > 1.  The touch command generates a new file called 'my_file.txt' in
 > >     your home directory.  If you are in your home directory, you
-> >     can observe this newly generated file by typing 'ls' at the 
+> >     can observe this newly generated file by typing `ls` at the 
 > >     command line prompt.  'my_file.txt' can also be viewed in your
 > >     GUI file explorer.
 > >
-> > 2.  When you inspect the file with 'ls -l', note that the size of
+> > 2.  When you inspect the file with `ls -l`, note that the size of
 > >     'my_file.txt' is 0kb.  In other words, it contains no data.
 > >     If you open 'my_file.txt' using your text editor it is blank.
 > >
