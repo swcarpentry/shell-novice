@@ -104,11 +104,11 @@ Finally, the shell again prints the prompt and waits for you to type the next
 command.
 
 In the examples for this lesson, we'll show the prompt as `$ `. You can make your 
-prompt look the same by entering the command `PS1='$ '`. But you can also leave 
+prompt look the same by executing the command `PS1='$ '`. But you can also leave 
 your prompt as it is - often the prompt includes useful information about who and where 
 you are.
 
-Open a shell window and try entering `ls -F /` for yourself (don't forget that spaces
+Open a shell window and try executing `ls -F /` for yourself (don't forget that spaces
 and capitalization are important!). You can change the prompt too, if you like.
 
 ### How does the shell know what `ls` and its flags mean?
