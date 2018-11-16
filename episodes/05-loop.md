@@ -101,7 +101,7 @@ and run the `head` command.
 The first time through the loop,
 `$filename` is `basilisk.dat`. 
 The interpreter runs the command `head` on `basilisk.dat`, 
-and the prints the 
+and then prints the 
 first three lines of `basilisk.dat`.
 For the second iteration, `$filename` becomes 
 `unicorn.dat`. This time, the shell runs `head` on `unicorn.dat`
@@ -196,7 +196,7 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 
 > ## Same Symbols, Different Meanings
 >
-> Here we see `>` being used a shell prompt, whereas `>` is also
+> Here we see `>` being used as the shell prompt, whereas `>` is also
 > used to redirect output.
 > Similarly, `$` is used as a shell prompt, but, as we saw earlier,
 > it is also used to ask the shell to get the value of a variable.
