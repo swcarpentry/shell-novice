@@ -312,7 +312,7 @@ $ rm -r thesis
 
 > ## Using `rm` Safely
 >
-> What happens when we type `rm -i thesis/quotations.txt`?
+> What happens when we execute `rm -i thesis/quotations.txt`?
 > Why would we want this protection when using `rm`?
 >
 > > ## Solution
