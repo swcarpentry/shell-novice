@@ -198,22 +198,23 @@ it only takes two minutes to set each one up.
 Since her lab has eight assay machines that she can use in parallel,
 this step will "only" take about two weeks.
 
-The bad news is that if she has to run `goostats` by hand,
-she'll have to enter filenames and click "OK" 1520 times.
+The bad news is that if she has to run `goostats` by hand using a GUI,
+she'll have to select a files using an open file dialog 1520 times.
 At 30 seconds per sample,
 the whole process will take more than 12 hours
-(and that's assuming the best-case scenario where she is ready to enter the next file name
+(and that's assuming the best-case scenario where she is ready to select the next file
 as soon as the previous sample analysis has finished).
 This zero-breaks always-ready scenario is only achieveable by a machine so it would
 likely take much longer than 12 hours, not to mention that
-the chances of her typing all of those commands correctly are practically zero.
+the chances of her selecting all of those files correctly are practically zero.
 Missing that paper deadline is looking increasingly likely.
 
 The next few lessons will explore what she should do instead.
 More specifically,
-they explain how she can use a command shell
-to automate the repetitive steps in her processing pipeline
+they explain how she can use a command shell to run the `goostats` program,
+using loops to automate the repetitive steps e.g. entering file names,
 so that her computer can work 24 hours a day while she writes her paper.
+
 As a bonus,
 once she has put a processing pipeline together,
 she will be able to use it again whenever she collects more data.
