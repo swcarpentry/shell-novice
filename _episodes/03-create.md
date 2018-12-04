@@ -47,6 +47,34 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 ~~~
 {: .output}
 
+> ## Good names for files and directories
+>
+> Complicated names of files and directories can make your life painful
+> when working on the command line. Here we provide a few useful
+> tips for the names of your files.
+>
+> 1. Don't use whitespaces.
+>
+>    Whitespaces can make a name more meaningful
+>    but since whitespace is used to break arguments on the command line
+>    it is better to avoid them in names of files and directories.
+>    You can use `-` or `_` instead of whitespace.
+>
+> 2. Don't begin the name with `-` (dash).
+>
+>    Commands treat names starting with `-` as options.
+>
+> 3. Stick with letters, numbers, `.` (period or 'full stop'), `-` (dash) and `_` (underscore).
+>
+>    Many other characters have special meanings on the command line.
+>    We will learn about some of these during this lesson.
+>    There are special characters that can cause your command to not work as
+>    expected and can even result in data loss.
+>
+> If you need to refer to names of files or directories that have whitespace
+> or another non-alphanumeric character, you should surround the name in quotes (`""`).
+{: .callout}
+
 Let's create a new directory called `thesis` using the command `mkdir thesis`
 (which has no output):
 
@@ -77,34 +105,6 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 > the `thesis` directory will appear there too.
 > While the shell and the file explorer are two different ways of interacting with the files,
 > the files and directories themselves are the same.
-{: .callout}
-
-> ## Good names for files and directories
->
-> Complicated names of files and directories can make your life painful
-> when working on the command line. Here we provide a few useful
-> tips for the names of your files.
->
-> 1. Don't use whitespaces.
->
->    Whitespaces can make a name more meaningful
->    but since whitespace is used to break arguments on the command line
->    it is better to avoid them in names of files and directories.
->    You can use `-` or `_` instead of whitespace.
->
-> 2. Don't begin the name with `-` (dash).
->
->    Commands treat names starting with `-` as options.
->
-> 3. Stick with letters, numbers, `.` (period or 'full stop'), `-` (dash) and `_` (underscore).
->
->    Many other characters have special meanings on the command line.
->    We will learn about some of these during this lesson.
->    There are special characters that can cause your command to not work as
->    expected and can even result in data loss.
->
-> If you need to refer to names of files or directories that have whitespace
-> or another non-alphanumeric character, you should surround the name in quotes (`""`).
 {: .callout}
 
 Since we've just created the `thesis` directory, there's nothing in it yet:
