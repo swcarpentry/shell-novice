@@ -19,7 +19,13 @@
 [jekyll]: https://jekyllrb.com/
 [jupyter]: https://jupyter.org/
 [lc-lessons]: https://librarycarpentry.org/lessons/
+[lesson-aio]: {{ relative_root_path }}{% link aio.md %}
+[lesson-coc]: {{ relative_root_path }}{% link CODE_OF_CONDUCT.md %}
 [lesson-example]: https://carpentries.github.io/lesson-example/
+[lesson-license]: {{ relative_root_path }}{% link LICENSE.md %}
+[lesson-mainpage]: {{ relative_root_path }}{% link index.md %}
+[lesson-reference]: {{ relative_root_path }}{% link reference.md %}
+[lesson-setup]: {{ relative_page_root }}{% link setup.md %}
 [mit-license]: https://opensource.org/licenses/mit-license.html
 [morea]: https://morea-framework.github.io/
 [numfocus]: https://numfocus.org/
