@@ -35,6 +35,7 @@ REQUIRED_FILES = {
     '%/README.md': False,
     '%/_extras/discuss.md': True,
     '%/_extras/guide.md': True,
+    '%/_config.yml': True,
     '%/index.md': True,
     '%/reference.md': True,
     '%/setup.md': True,
