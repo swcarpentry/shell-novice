@@ -23,7 +23,7 @@ keypoints:
 ---
 
 **Loops** are key to productivity improvements through automation as they allow us to execute
-commands repetitively. Similar to wildcards and tab completion, using loops also reduces the
+commands repeatedly. Similar to wildcards and tab completion, using loops also reduces the
 amount of typing (and typing mistakes).
 Suppose we have several hundred genome data files named `basilisk.dat`, `unicorn.dat`, and so on.
 In this example,
