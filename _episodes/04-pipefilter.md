@@ -331,6 +331,8 @@ The vertical bar, `|`, between the two commands is called a **pipe**.
 It tells the shell that we want to use
 the output of the command on the left
 as the input to the command on the right.
+To type the vertical bar `|` if one can't find it on the keyboard
+an easy way is to hold 'ALT' and type 124 for the ASCII code **ALT+124**.  
 The computer might create a temporary file if it needs to,
 or copy data from one program to the other in memory,
 or something else entirely;
