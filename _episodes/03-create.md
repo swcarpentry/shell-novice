@@ -20,9 +20,11 @@ keypoints:
 - "The shell does not have a trash bin: once something is deleted, it's really gone."
 - "Depending on the type of work you do, you may need a more powerful text editor than Nano."
 ---
-
+## Creating directories
 We now know how to explore files and directories,
 but how do we create them in the first place?
+
+### Step one: see where we are and what we already have
 Let's go back to our `data-shell` directory on the Desktop
 and use `ls -F` to see what it contains:
 
@@ -46,6 +48,8 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 ~~~
 {: .output}
 
+### Create a directory
+
 Let's create a new directory called `thesis` using the command `mkdir thesis`
 (which has no output):
 
@@ -57,7 +61,7 @@ $ mkdir thesis
 As you might guess from its name,
 `mkdir` means "make directory".
 Since `thesis` is a relative path
-(i.e., doesn't have a leading slash),
+(i.e., does not have a leading slash, like `/what/ever/thesis`),
 the new directory is created in the current working directory:
 
 ~~~
@@ -113,6 +117,7 @@ $ ls -F thesis
 ~~~
 {: .language-bash}
 
+### Create a text file
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
 
@@ -152,7 +157,7 @@ holding it down, press the O key) to write our data to disk
 (we'll be asked what file we want to save this to:
 press Return to accept the suggested default of `draft.txt`).
 
-![Nano in Action](../fig/nano-screenshot.png)
+<div style="width:80% margin: auto;">![Nano in Action](../fig/nano-screenshot.png)</div>
 
 Once our file is saved, we can use `Ctrl-X` to quit the editor and
 return to the shell.
@@ -227,6 +232,8 @@ draft.txt
 > >     programs.
 > {: .solution}
 {: .challenge}
+
+## Removing files and directories
 
 Returning to the `data-shell` directory,
 let's tidy up the `thesis` directory by removing the draft we created:
@@ -345,6 +352,7 @@ $ rm -r thesis
 > at each step for you to confirm the deletion.
 {: .callout}
 
+## Moving files and directories
 Let's create that directory and file one more time.
 (Note that this time we're running `nano` with the path `thesis/draft.txt`,
 rather than going into the `thesis` directory and running `nano` on `draft.txt` there.)
@@ -473,6 +481,8 @@ quotes.txt
 > {: .solution}
 {: .challenge}
 
+## Copying files and directories
+
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
 We can check that it did the right thing using `ls`
@@ -533,9 +543,11 @@ but it does find the copy in `thesis` that we didn't delete.
 > when someone double-clicks it.
 {: .callout}
 
+### Excercises
+
 > ## Renaming Files
 >
-> Suppose that you created a `.txt` file in your current directory to contain a list of the
+> Suppose that you created a plain-text file in your current directory to contain a list of the
 > statistical tests you will need to do to analyze your data, and named it: `statstics.txt`
 >
 > After creating and saving this file you realize you misspelled the filename! You want to
@@ -606,6 +618,10 @@ but it does find the copy in `thesis` that we didn't delete.
 > {: .solution}
 {: .challenge}
 
+## Operations with multiple files and directories
+
+Oftentimes one needs to copy or move several files at once. This can be done by providing a list of individual filenames, or specifying a naming pattern using wildcards.  
+
 > ## Copy with Multiple Filenames
 >
 > For this exercise, you can test the commands in the `data-shell/data` directory.
@@ -647,6 +663,8 @@ but it does find the copy in `thesis` that we didn't delete.
 > {: .solution}
 {: .challenge}
 
+### Using wildcards for accessing multiple files at once
+
 > ## Wildcards
 >
 > `*` is a **wildcard**. It matches zero or more
@@ -680,7 +698,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > expanding wildcards, and this is another example of orthogonal design.
 {: .callout}
 
-> ## Using Wildcards
+> ## List filenames matching a pattern
 >
 > When run in the `molecules` directory, which `ls` command(s) will
 > produce this output?
