@@ -88,7 +88,7 @@ $ wc -l *.pdb
 We can also use `-w` to get only the number of words,
 or `-c` to get only the number of characters.
 
-Which of these files is shortest?
+Which of these files contains the fewest lines?
 It's an easy question to answer when there are only six files,
 but what if there were 6000?
 Our first step toward a solution is to run the command:
@@ -144,7 +144,7 @@ $ cat lengths.txt
 > We'll continue to use `cat` in this lesson, for convenience and consistency,
 > but it has the disadvantage that it always dumps the whole file onto your screen.
 > More useful in practice is the command `less`,
-> which you use with `$ less lengths.txt`.
+> which you use with `less lengths.txt`.
 > This displays a screenful of the file, and then stops.
 > You can go forward one screenful by pressing the spacebar,
 > or back one by pressing `b`.  Press `q` to quit.
