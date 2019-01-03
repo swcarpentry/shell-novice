@@ -397,7 +397,15 @@ and save it as a shell script.
 
 ## Nelle's Pipeline: Creating a Script
 
+
 Nelle's supervisor insisted that all her analytics must be reproducible. The easiest way to capture all the steps is in a script.
+
+First we return to Nelle's data directory:
+```
+$ cd ../north-pacific-gyre/2012-07-03/
+```
+{: .language-bash}
+
 She runs the editor and writes the following:
 
 ~~~
