@@ -156,6 +156,15 @@ Desktop/      Downloads/    Movies/       Pictures/
 ~~~
 {: .output}
 
+Here,
+we can see that our home directory contains mostly **sub-directories**.
+Any names in your output that don't have trailing slashes,
+are plain old **files**.
+And note that there is a space between `ls` and `-F`:
+without it,
+the shell thinks we're trying to run a command called `ls-F`,
+which doesn't exist.
+
 ### Getting help
 
 `ls` has lots of other **flags**. There are two common ways to find out how 
@@ -387,15 +396,6 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > > The files/directories in each directory are sorted by time of last change.
 > {: .solution}
 {: .challenge}
-
-Here,
-we can see that our home directory contains mostly **sub-directories**.
-Any names in your output that don't have trailing slashes,
-are plain old **files**.
-And note that there is a space between `ls` and `-F`:
-without it,
-the shell thinks we're trying to run a command called `ls-F`,
-which doesn't exist.
 
 We can also use `ls` to see the contents of a different directory.  Let's take a
 look at our `Desktop` directory by running `ls -F Desktop`,
