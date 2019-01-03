@@ -199,7 +199,7 @@ Since her lab has eight assay machines that she can use in parallel,
 this step will "only" take about two weeks.
 
 The bad news is that if she has to run `goostats` by hand using a GUI,
-she'll have to select a files using an open file dialog 1520 times.
+she'll have to select a file using an open file dialog 1520 times.
 At 30 seconds per sample,
 the whole process will take more than 12 hours
 (and that's assuming the best-case scenario where she is ready to select the next file
