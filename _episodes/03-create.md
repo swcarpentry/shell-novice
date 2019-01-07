@@ -152,10 +152,10 @@ $ nano draft.txt
 {: .callout}
 
 Let's type in a few lines of text.
-Once we're happy with our text, we can press `Ctrl-O` (press the Ctrl or Control key and, while
+Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd> (press the Ctrl or Control key and, while
 holding it down, press the O key) to write our data to disk
 (we'll be asked what file we want to save this to:
-press Return to accept the suggested default of `draft.txt`).
+press <kbd>Return</kbd> to accept the suggested default of `draft.txt`).
 
 <div style="width:80%; margin: auto;"><img alt="Nano in Action" src="../fig/nano-screenshot.png"></div>
 
