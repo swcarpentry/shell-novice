@@ -135,6 +135,35 @@ possible to put the names into curly braces to clearly delimit the variable
 name: `$filename` is equivalent to `${filename}`, but is different from
 `${file}name`. You may find this notation in other people's programs.
 
+We have called the variable in this loop `filename`
+in order to make its purpose clearer to human readers.
+The shell itself doesn't care what the variable is called;
+if we wrote this loop as:
+
+~~~
+$ for x in basilisk.dat unicorn.dat
+> do
+>    head -n 3 $x
+> done
+~~~
+{: .language-bash}
+
+or:
+
+~~~
+$ for temperature in basilisk.dat unicorn.dat
+> do
+>    head -n 3 $temperature
+> done
+~~~
+{: .language-bash}
+
+it would work exactly the same way.
+*Don't do this.*
+Programs are only useful if people can understand them,
+so meaningless names (like `x`) or misleading names (like `temperature`)
+increase the odds that the program won't do what its readers think it does.
+
 > ## Variables in Loops
 >
 > This exercise refers to the `data-shell/molecules` directory.
@@ -207,36 +236,6 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 > > {: .output}
 > {: .solution}
 {: .challenge}
-
-Returning to our example in the `data-shell/creatures` directory,
-we have called the variable in this loop `filename`
-in order to make its purpose clearer to human readers.
-The shell itself doesn't care what the variable is called;
-if we wrote this loop as:
-
-~~~
-$ for x in basilisk.dat unicorn.dat
-> do
->    head -n 3 $x
-> done
-~~~
-{: .language-bash}
-
-or:
-
-~~~
-$ for temperature in basilisk.dat unicorn.dat
-> do
->    head -n 3 $temperature
-> done
-~~~
-{: .language-bash}
-
-it would work exactly the same way.
-*Don't do this.*
-Programs are only useful if people can understand them,
-so meaningless names (like `x`) or misleading names (like `temperature`)
-increase the odds that the program won't do what its readers think it does.
 
 > ## Limiting Sets of Files
 >
