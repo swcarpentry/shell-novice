@@ -79,6 +79,14 @@ UPDATED: 1738-11-24
 ~~~
 {: .output}
 
+> ## Follow the Prompt
+>
+> The shell prompt changes from `$` to `>` and back again as we were
+> typing in our loop. The second prompt, `>`, is different to remind
+> us that we haven't finished typing a complete command yet. A semicolon, `;`,
+> can be used to separate two commands written on a single line.
+{: .callout}
+
 > ## Indentation of code within a for loop
 > Note that it is common practice to indent the line(s) of code within a for loop.
 > The only purpose is to make the code easier to read -- it is not required for the loop to run.
@@ -95,13 +103,18 @@ The `$` tells the shell interpreter to treat
 the **variable** as a variable name and substitute its value in its place,
 rather than treat it as text or an external command. 
 
-> ## Follow the Prompt
->
-> The shell prompt changes from `$` to `>` and back again as we were
-> typing in our loop. The second prompt, `>`, is different to remind
-> us that we haven't finished typing a complete command yet. A semicolon, `;`,
-> can be used to separate two commands written on a single line.
-{: .callout}
+In this example, the list is two filenames: `basilisk.dat` and `unicorn.dat`.
+Each time the loop iterates, it will assign a file name to the variable `filename`
+and run the `head` command.
+The first time through the loop,
+`$filename` is `basilisk.dat`. 
+The interpreter runs the command `head` on `basilisk.dat`, 
+and then prints the 
+first three lines of `basilisk.dat`.
+For the second iteration, `$filename` becomes 
+`unicorn.dat`. This time, the shell runs `head` on `unicorn.dat`
+and prints the first three lines of `unicorn.dat`. 
+Since the list was only two items, the shell exits the `for` loop.
 
 > ## Same Symbols, Different Meanings
 >
@@ -116,19 +129,6 @@ rather than treat it as text or an external command.
 > If *you* type `>` or `$` yourself, it is an instruction from you that
 > the shell to redirect output or get the value of a variable.
 {: .callout}
-
-In this example, the list is two filenames: `basilisk.dat` and `unicorn.dat`.
-Each time the loop iterates, it will assign a file name to the variable `filename`
-and run the `head` command.
-The first time through the loop,
-`$filename` is `basilisk.dat`. 
-The interpreter runs the command `head` on `basilisk.dat`, 
-and then prints the 
-first three lines of `basilisk.dat`.
-For the second iteration, `$filename` becomes 
-`unicorn.dat`. This time, the shell runs `head` on `unicorn.dat`
-and prints the first three lines of `unicorn.dat`. 
-Since the list was only two items, the shell exits the `for` loop.
 
 When using variables it is also
 possible to put the names into curly braces to clearly delimit the variable
