@@ -79,6 +79,14 @@ UPDATED: 1738-11-24
 ~~~
 {: .output}
 
+> ## Follow the Prompt
+>
+> The shell prompt changes from `$` to `>` and back again as we were
+> typing in our loop. The second prompt, `>`, is different to remind
+> us that we haven't finished typing a complete command yet. A semicolon, `;`,
+> can be used to separate two commands written on a single line.
+{: .callout}
+
 > ## Indentation of code within a for loop
 > Note that it is common practice to indent the line(s) of code within a for loop.
 > The only purpose is to make the code easier to read -- it is not required for the loop to run.
@@ -108,10 +116,53 @@ For the second iteration, `$filename` becomes
 and prints the first three lines of `unicorn.dat`. 
 Since the list was only two items, the shell exits the `for` loop.
 
+> ## Same Symbols, Different Meanings
+>
+> Here we see `>` being used a shell prompt, whereas `>` is also
+> used to redirect output.
+> Similarly, `$` is used as a shell prompt, but, as we saw earlier,
+> it is also used to ask the shell to get the value of a variable.
+>
+> If the *shell* prints `>` or `$` then it expects you to type something,
+> and the symbol is a prompt.
+>
+> If *you* type `>` or `$` yourself, it is an instruction from you that
+> the shell to redirect output or get the value of a variable.
+{: .callout}
+
 When using variables it is also
 possible to put the names into curly braces to clearly delimit the variable
 name: `$filename` is equivalent to `${filename}`, but is different from
 `${file}name`. You may find this notation in other people's programs.
+
+We have called the variable in this loop `filename`
+in order to make its purpose clearer to human readers.
+The shell itself doesn't care what the variable is called;
+if we wrote this loop as:
+
+~~~
+$ for x in basilisk.dat unicorn.dat
+> do
+>    head -n 3 $x
+> done
+~~~
+{: .language-bash}
+
+or:
+
+~~~
+$ for temperature in basilisk.dat unicorn.dat
+> do
+>    head -n 3 $temperature
+> done
+~~~
+{: .language-bash}
+
+it would work exactly the same way.
+*Don't do this.*
+Programs are only useful if people can understand them,
+so meaningless names (like `x`) or misleading names (like `temperature`)
+increase the odds that the program won't do what its readers think it does.
 
 > ## Variables in Loops
 >
@@ -186,58 +237,6 @@ name: `$filename` is equivalent to `${filename}`, but is different from
 > {: .solution}
 {: .challenge}
 
-> ## Follow the Prompt
->
-> The shell prompt changes from `$` to `>` and back again as we were
-> typing in our loop. The second prompt, `>`, is different to remind
-> us that we haven't finished typing a complete command yet. A semicolon, `;`,
-> can be used to separate two commands written on a single line.
-{: .callout}
-
-> ## Same Symbols, Different Meanings
->
-> Here we see `>` being used as the shell prompt, whereas `>` is also
-> used to redirect output.
-> Similarly, `$` is used as a shell prompt, but, as we saw earlier,
-> it is also used to ask the shell to get the value of a variable.
->
-> If the *shell* prints `>` or `$` then it expects you to type something,
-> and the symbol is a prompt.
->
-> If *you* type `>` or `$` yourself, it is an instruction from you that
-> the shell to redirect output or get the value of a variable.
-{: .callout}
-
-Returning to our example in the `data-shell/creatures` directory,
-we have called the variable in this loop `filename`
-in order to make its purpose clearer to human readers.
-The shell itself doesn't care what the variable is called;
-if we wrote this loop as:
-
-~~~
-$ for x in basilisk.dat unicorn.dat
-> do
->    head -n 3 $x
-> done
-~~~
-{: .language-bash}
-
-or:
-
-~~~
-$ for temperature in basilisk.dat unicorn.dat
-> do
->    head -n 3 $temperature
-> done
-~~~
-{: .language-bash}
-
-it would work exactly the same way.
-*Don't do this.*
-Programs are only useful if people can understand them,
-so meaningless names (like `x`) or misleading names (like `temperature`)
-increase the odds that the program won't do what its readers think it does.
-
 > ## Limiting Sets of Files
 >
 > What would be the output of running the following loop in the `data-shell/molecules` directory?
@@ -279,6 +278,61 @@ increase the odds that the program won't do what its readers think it does.
 > > ## Solution
 > > 4 is the correct answer. `*` matches zero or more characters, so a file name with zero or more
 > > characters before a letter c and zero or more characters after the letter c will be matched.
+> {: .solution}
+{: .challenge}
+
+> ## Saving to a File in a Loop - Part One
+>
+> In the `data-shell/molecules` directory, what is the effect of this loop?
+>
+> ~~~
+> for alkanes in *.pdb
+> do
+>     echo $alkanes
+>     cat $alkanes > alkanes.pdb
+> done
+> ~~~
+> {: .language-bash}
+>
+> 1.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb` and `propane.pdb`,
+>     and the text from `propane.pdb` will be saved to a file called `alkanes.pdb`.
+> 2.  Prints `cubane.pdb`, `ethane.pdb`, and `methane.pdb`, and the text from all three files would be
+>     concatenated and saved to a file called `alkanes.pdb`.
+> 3.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and `pentane.pdb`, and the text
+>     from `propane.pdb` will be saved to a file called `alkanes.pdb`.
+> 4.  None of the above.
+>
+> > ## Solution
+> > 1. The text from each file in turn gets written to the `alkanes.pdb` file.
+> > However, the file gets overwritten on each loop interation, so the final content of `alkanes.pdb`
+> > is the text from the `propane.pdb` file.
+> {: .solution}
+{: .challenge}
+
+> ## Saving to a File in a Loop - Part Two
+>
+> Also in the `data-shell/molecules` directory, what would be the output of the following loop?
+>
+> ~~~
+> for datafile in *.pdb
+> do
+>     cat $datafile >> all.pdb
+> done
+> ~~~
+> {: .language-bash}
+>
+> 1.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and
+>     `pentane.pdb` would be concatenated and saved to a file called `all.pdb`.
+> 2.  The text from `ethane.pdb` will be saved to a file called `all.pdb`.
+> 3.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb`
+>     and `propane.pdb` would be concatenated and saved to a file called `all.pdb`.
+> 4.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb`
+>     and `propane.pdb` would be printed to the screen and saved to a file called `all.pdb`.
+>
+> > ## Solution
+> > 3 is the correct answer. `>>` appends to a file, rather than overwriting it with the redirected
+> > output from a command.
+> > Given the output from the `cat` command has been redirected, nothing is printed to the screen.
 > {: .solution}
 {: .challenge}
 
@@ -577,61 +631,6 @@ so she decides to get some coffee and catch up on her reading.
 > `less !$` to look at the file `stats-NENE01729B.txt`, which is
 > quicker than doing up-arrow and editing the command-line.
 {: .callout}
-
-> ## Saving to a File in a Loop - Part One
->
-> In the `data-shell/molecules` directory, what is the effect of this loop?
->
-> ~~~
-> $ for alkanes in *.pdb
-> > do
-> >     echo $alkanes
-> >     cat $alkanes > alkanes.pdb
-> > done
-> ~~~
-> {: .language-bash}
->
-> 1.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb` and `propane.pdb`,
->     and the text from `propane.pdb` will be saved to a file called `alkanes.pdb`.
-> 2.  Prints `cubane.pdb`, `ethane.pdb`, and `methane.pdb`, and the text from all three files would be
->     concatenated and saved to a file called `alkanes.pdb`.
-> 3.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and `pentane.pdb`, and the text
->     from `propane.pdb` will be saved to a file called `alkanes.pdb`.
-> 4.  None of the above.
->
-> > ## Solution
-> > 1. The text from each file in turn gets written to the `alkanes.pdb` file.
-> > However, the file gets overwritten on each loop interation, so the final content of `alkanes.pdb`
-> > is the text from the `propane.pdb` file.
-> {: .solution}
-{: .challenge}
-
-> ## Saving to a File in a Loop - Part Two
->
-> Also in the `data-shell/molecules` directory, what would be the output of the following loop?
->
-> ~~~
-> $ for datafile in *.pdb
-> > do
-> >     cat $datafile >> all.pdb
-> > done
-> ~~~
-> {: .language-bash}
->
-> 1.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and
->     `pentane.pdb` would be concatenated and saved to a file called `all.pdb`.
-> 2.  The text from `ethane.pdb` will be saved to a file called `all.pdb`.
-> 3.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb`
->     and `propane.pdb` would be concatenated and saved to a file called `all.pdb`.
-> 4.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb`
->     and `propane.pdb` would be printed to the screen and saved to a file called `all.pdb`.
->
-> > ## Solution
-> > 3 is the correct answer. `>>` appends to a file, rather than overwriting it with the redirected
-> > output from a command.
-> > Given the output from the `cat` command has been redirected, nothing is printed to the screen.
-> {: .solution}
-{: .challenge}
 
 > ## Doing a Dry Run
 >
