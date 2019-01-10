@@ -550,7 +550,7 @@ $ for datafile in NENE*[AB].txt; do bash goostats $datafile stats-$datafile; don
 ~~~
 {: .language-bash}
 
-When she presses Enter,
+When she presses <kbd>Enter</kbd>,
 the shell runs the modified command.
 However, nothing appears to happen --- there is no output.
 After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,

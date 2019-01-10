@@ -808,7 +808,7 @@ $ ls nor
 ~~~
 {: .language-bash}
 
-and then presses tab (the tab key on her keyboard),
+and then presses <kbd>Tab</kbd> (the tab key on her keyboard),
 the shell automatically completes the directory name for her:
 
 ~~~
@@ -816,12 +816,12 @@ $ ls north-pacific-gyre/
 ~~~
 {: .language-bash}
 
-If she presses tab again,
+If she presses <kbd>Tab</kbd> again,
 Bash will add `2012-07-03/` to the command,
 since it's the only possible completion.
-Pressing tab again does nothing,
+Pressing <kbd>Tab</kbd> again does nothing,
 since there are 19 possibilities;
-pressing tab twice brings up a list of all the files,
+pressing <kbd>Tab</kbd> twice brings up a list of all the files,
 and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
