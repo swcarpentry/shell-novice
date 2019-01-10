@@ -204,7 +204,7 @@ At 30 seconds per sample,
 the whole process will take more than 12 hours
 (and that's assuming the best-case scenario where she is ready to select the next file
 as soon as the previous sample analysis has finished).
-This zero-breaks always-ready scenario is only achieveable by a machine so it would
+This zero-breaks always-ready scenario is only achievable by a machine so it would
 likely take much longer than 12 hours, not to mention that
 the chances of her selecting all of those files correctly are practically zero.
 Missing that paper deadline is looking increasingly likely.
