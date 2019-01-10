@@ -45,7 +45,7 @@ This is what the shell provides - a simple language and a **command-line interfa
 to use it through. 
 
 The heart of a command-line interface is a **read-evaluate-print loop** (REPL). It is called
-so because when you type a command and press <kbd>Return</kbd> the shell
+so because when you type a command and press <kbd>Return</kbd> (also known as <kbd>Enter</kbd>) the shell
 reads your command,
 evaluates (or "executes") it,
 prints the output of your command,
