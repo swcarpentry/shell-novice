@@ -234,33 +234,15 @@ draft.txt
 {: .challenge}
 
 ## Moving files and directories
-Let's create that directory and file one more time.
-(Note that this time we're running `nano` with the path `thesis/draft.txt`,
-rather than going into the `thesis` directory and running `nano` on `draft.txt` there.)
+This section starts in the `data-shell` directory
 
-~~~
-$ pwd
-~~~
+```
+cd ~/Desktop/data-shell/
+```
 {: .language-bash}
 
-~~~
-/Users/nelle/Desktop/data-shell
-~~~
-{: .output}
-
-~~~
-$ mkdir thesis
-$ nano thesis/draft.txt
-$ ls thesis
-~~~
-{: .language-bash}
-
-~~~
-draft.txt
-~~~
-{: .output}
-
-`draft.txt` isn't a particularly informative name,
+In our `thesis` directory we have a file `draft.txt`
+which isn't a particularly informative name,
 so let's change the file's name using `mv`,
 which is short for "move":
 
@@ -292,8 +274,7 @@ silently overwrite any existing file with the same name, which could
 lead to data loss. An additional flag, `mv -i` (or `mv --interactive`),
 can be used to make `mv` ask you for confirmation before overwriting.
 
-Just for the sake of consistency,
-`mv` also works on directories
+Note that `mv` also works on directories.
 
 Let's move `quotes.txt` into the current working directory.
 We use `mv` once again,
