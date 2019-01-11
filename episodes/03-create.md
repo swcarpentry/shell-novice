@@ -488,23 +488,25 @@ quotations.txt
 ## Removing files and directories
 
 Returning to the `data-shell` directory,
-let's tidy up the `thesis` directory by removing the draft we created:
+let's tidy up this directory by removing the `quotes.txt` file we created.
+The Unix command we'll use for this is `rm` (short for 'remove'):
 
 ~~~
-$ cd thesis
-$ rm quotations.txt
+$ rm quotes.txt
 ~~~
 {: .language-bash}
 
-This command removes files (`rm` is short for "remove").
-If we run `ls` again,
-its output is empty once more,
-which tells us that our file is gone:
+We can confirm the file has gone using `ls`:
 
 ~~~
-$ ls
+$ ls quotes.txt
 ~~~
 {: .language-bash}
+
+```
+ls: cannot access 'quotes.txt': No such file or directory
+```
+{: .output}
 
 > ## Deleting Is Forever
 >
@@ -516,19 +518,6 @@ $ ls
 > work in any particular situation, since the computer may recycle the
 > file's disk space right away.
 {: .callout}
-
-Let's move up one directory to `/Users/nelle/Desktop/data-shell`:
-
-~~~
-$ cd ..
-$ pwd
-~~~
-{: .language-bash}
-
-~~~
-/Users/nelle/Desktop/data-shell
-~~~
-{: .output}
 
 
 If we try to remove the `thesis` directory using `rm thesis`,
