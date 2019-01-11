@@ -492,7 +492,7 @@ let's tidy up the `thesis` directory by removing the draft we created:
 
 ~~~
 $ cd thesis
-$ rm draft.txt
+$ rm quotations.txt
 ~~~
 {: .language-bash}
 
@@ -559,7 +559,9 @@ recursive flag `-r`, however ...
 >
 > ~~~
 > $ rm -r -i thesis
-> rm: remove directory ‘thesis’? y
+> rm: descend into directory 'thesis'? y
+> rm: remove regular empty file 'thesis/quotations.txt'? y
+> rm: remove directory 'thesis'? y
 > ~~~
 > {: .language-bash}
 >
