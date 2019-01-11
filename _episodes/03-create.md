@@ -362,6 +362,30 @@ quotes.txt   thesis/quotations.txt
 ~~~
 {: .output}
 
+We can also copy a directory and all its contents by using the
+[recursive](https://en.wikipedia.org/wiki/Recursion) flag `-r`,
+e.g. to back up a directory:
+
+```
+$ cp -r thesis thesis_backup
+```
+{: .language-bash}
+
+We can check the result by listing the contents of both the `thesis` and `thesis_backup` directory:
+
+```
+$ ls thesis thesis_backup
+```
+{: .language-bash}
+
+```
+thesis:
+quotations.txt
+
+thesis_backup:
+quotations.txt
+```
+{: .output}
 
 > ## What's In A Name?
 >
@@ -523,8 +547,7 @@ rm: cannot remove `thesis': Is a directory
 This happens because `rm` by default only works on files, not directories.
 
 `rm` can remove a directory *and all its contents* if we use the 
-[recursive](https://en.wikipedia.org/wiki/Recursion) flag `-r`,
-however ...
+recursive flag `-r`, however ...
 
 
 > ## With Great Power Comes Great Responsibility
