@@ -234,7 +234,7 @@ draft.txt
 {: .challenge}
 
 ## Moving files and directories
-This section starts in the `data-shell` directory
+Returning to the `data-shell` directory,
 
 ```
 cd ~/Desktop/data-shell/
@@ -362,24 +362,6 @@ quotes.txt   thesis/quotations.txt
 ~~~
 {: .output}
 
-To prove that we made a copy,
-let's delete the `quotes.txt` file in the current directory
-and then run that same `ls` again.
-
-~~~
-$ rm quotes.txt
-$ ls quotes.txt thesis/quotations.txt
-~~~
-{: .language-bash}
-
-~~~
-ls: cannot access quotes.txt: No such file or directory
-thesis/quotations.txt
-~~~
-{: .error}
-
-This time it tells us that it can't find `quotes.txt` in the current directory,
-but it does find the copy in `thesis` that we didn't delete.
 
 > ## What's In A Name?
 >
@@ -405,7 +387,6 @@ but it does find the copy in `thesis` that we didn't delete.
 > when someone double-clicks it.
 {: .callout}
 
-### Excercises
 
 > ## Renaming Files
 >
