@@ -369,7 +369,8 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 
 > ## Exploring More `ls` Flags
 >
-> What does the command `ls` do when used with the `-l` and `-h` flags?
+> You can also use two flags at the same time. What does the command `ls` do when used 
+> with the `-l` flag? What about if you use both the `-l` and the `-h` flag?
 >
 > Some of its output is about properties that we do not cover in this lesson (such
 > as file permissions and ownership), but the rest should be useful
@@ -378,8 +379,9 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > > ## Solution
 > > The `-l` flag makes `ls` use a **l**ong listing format, showing not only
 > > the file/directory names but also additional information such as the file size
-> > and the time of its last modification. The `-h` flag makes the file size
-> > "**h**uman readable", i.e. display something like `5.3K` instead of `5369`.
+> > and the time of its last modification. If you use both the `-h` flag and the `-l` flag,
+> > this makes the file size "**h**uman readable", i.e. displaying something like `5.3K` 
+> > instead of `5369`.
 > {: .solution}
 {: .challenge}
 
