@@ -45,7 +45,7 @@ This is what the shell provides - a simple language and a **command-line interfa
 to use it through. 
 
 The heart of a command-line interface is a **read-evaluate-print loop** (REPL). It is called
-so because when you type a command and press <kbd>Return</kbd> the shell
+so because when you type a command and press <kbd>Return</kbd> (also known as <kbd>Enter</kbd>) the shell
 reads your command,
 evaluates (or "executes") it,
 prints the output of your command,
@@ -94,7 +94,7 @@ command doesn't always require an argument or a flag.
 In the second line of the example above, our **command** is `ls`, with a **flag** `-F` and an
 **argument** `/`. Each part is separated by spaces: if you omit the space 
 between `ls` and `-F` the shell will look for a command called `ls-F`, which 
-doesn't exist. Also, capitalization matters: `LS` is different to `ls`. 
+doesn't exist. Also, capitalization matters: `LS` is different from `ls`. 
 
 Next we see the output that our command produced. In this case it is a listing 
 of files and folders in a location called `/` - we'll cover what all these mean 
@@ -199,12 +199,12 @@ Since her lab has eight assay machines that she can use in parallel,
 this step will "only" take about two weeks.
 
 The bad news is that if she has to run `goostats` by hand using a GUI,
-she'll have to select a files using an open file dialog 1520 times.
+she'll have to select a file using an open file dialog 1520 times.
 At 30 seconds per sample,
 the whole process will take more than 12 hours
 (and that's assuming the best-case scenario where she is ready to select the next file
 as soon as the previous sample analysis has finished).
-This zero-breaks always-ready scenario is only achieveable by a machine so it would
+This zero-breaks always-ready scenario is only achievable by a machine so it would
 likely take much longer than 12 hours, not to mention that
 the chances of her selecting all of those files correctly are practically zero.
 Missing that paper deadline is looking increasingly likely.

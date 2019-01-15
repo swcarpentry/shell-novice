@@ -155,6 +155,15 @@ Desktop/      Downloads/    Movies/       Pictures/
 ~~~
 {: .output}
 
+Here,
+we can see that our home directory contains mostly **sub-directories**.
+Any names in your output that don't have trailing slashes,
+are plain old **files**.
+And note that there is a space between `ls` and `-F`:
+without it,
+the shell thinks we're trying to run a command called `ls-F`,
+which doesn't exist.
+
 ### Getting help
 
 `ls` has lots of other **flags**. There are two common ways to find out how 
@@ -359,7 +368,8 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 
 > ## Exploring More `ls` Flags
 >
-> What does the command `ls` do when used with the `-l` and `-h` flags?
+> You can also use two flags at the same time. What does the command `ls` do when used 
+> with the `-l` flag? What about if you use both the `-l` and the `-h` flag?
 >
 > Some of its output is about properties that we do not cover in this lesson (such
 > as file permissions and ownership), but the rest should be useful
@@ -368,8 +378,9 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > > ## Solution
 > > The `-l` flag makes `ls` use a **l**ong listing format, showing not only
 > > the file/directory names but also additional information such as the file size
-> > and the time of its last modification. The `-h` flag makes the file size
-> > "**h**uman readable", i.e. display something like `5.3K` instead of `5369`.
+> > and the time of its last modification. If you use both the `-h` flag and the `-l` flag,
+> > this makes the file size "**h**uman readable", i.e. displaying something like `5.3K` 
+> > instead of `5369`.
 > {: .solution}
 {: .challenge}
 
@@ -386,15 +397,6 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > > The files/directories in each directory are sorted by time of last change.
 > {: .solution}
 {: .challenge}
-
-Here,
-we can see that our home directory contains mostly **sub-directories**.
-Any names in your output that don't have trailing slashes,
-are plain old **files**.
-And note that there is a space between `ls` and `-F`:
-without it,
-the shell thinks we're trying to run a command called `ls-F`,
-which doesn't exist.
 
 We can also use `ls` to see the contents of a different directory.  Let's take a
 look at our `Desktop` directory by running `ls -F Desktop`,
@@ -807,7 +809,7 @@ $ ls nor
 ~~~
 {: .language-bash}
 
-and then presses tab (the tab key on her keyboard),
+and then presses <kbd>Tab</kbd> (the tab key on her keyboard),
 the shell automatically completes the directory name for her:
 
 ~~~
@@ -815,12 +817,12 @@ $ ls north-pacific-gyre/
 ~~~
 {: .language-bash}
 
-If she presses tab again,
+If she presses <kbd>Tab</kbd> again,
 Bash will add `2012-07-03/` to the command,
 since it's the only possible completion.
-Pressing tab again does nothing,
+Pressing <kbd>Tab</kbd> again does nothing,
 since there are 19 possibilities;
-pressing tab twice brings up a list of all the files,
+pressing <kbd>Tab</kbd> twice brings up a list of all the files,
 and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.

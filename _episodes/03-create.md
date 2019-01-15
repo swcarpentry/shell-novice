@@ -21,9 +21,11 @@ keypoints:
 - "Most files' names are `something.extension`. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file."
 - "Depending on the type of work you do, you may need a more powerful text editor than Nano."
 ---
-
+## Creating directories
 We now know how to explore files and directories,
 but how do we create them in the first place?
+
+### Step one: see where we are and what we already have
 Let's go back to our `data-shell` directory on the Desktop
 and use `ls -F` to see what it contains:
 
@@ -46,6 +48,40 @@ $ ls -F
 creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/
 ~~~
 {: .output}
+
+### Create a directory
+
+Let's create a new directory called `thesis` using the command `mkdir thesis`
+(which has no output):
+
+~~~
+$ mkdir thesis
+~~~
+{: .language-bash}
+
+As you might guess from its name,
+`mkdir` means "make directory".
+Since `thesis` is a relative path
+(i.e., does not have a leading slash, like `/what/ever/thesis`),
+the new directory is created in the current working directory:
+
+~~~
+$ ls -F
+~~~
+{: .language-bash}
+
+~~~
+creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  thesis/  writing/
+~~~
+{: .output}
+
+> ## Two ways of doing the same thing
+> Using the shell to create a directory is no different than using a file explorer.
+> If you open the current directory using your operating system's graphical file explorer,
+> the `thesis` directory will appear there too.
+> While the shell and the file explorer are two different ways of interacting with the files,
+> the files and directories themselves are the same.
+{: .callout}
 
 > ## Good names for files and directories
 >
@@ -75,62 +111,6 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 > or another non-alphanumeric character, you should surround the name in quotes (`""`).
 {: .callout}
 
-> ## What's In A Name?
->
-> You may have noticed that all of Nelle's files' names are "something dot
-> something", and in this part of the lesson, we will mostly use the extension
-> `.txt`.  This is just a convention: we can call a file `mythesis` or
-> almost anything else we want. However, most people use two-part names
-> most of the time to help them (and their programs) tell different kinds
-> of files apart. The second part of such a name is called the
-> **filename extension**, and indicates
-> what type of data the file holds: `.txt` signals a plain text file, `.pdf`
-> indicates a PDF document, `.cfg` is a configuration file full of parameters
-> for some program or other, `.png` is a PNG image, and so on.
->
-> This is just a convention, albeit an important one. Files contain
-> bytes: it's up to us and our programs to interpret those bytes
-> according to the rules for plain text files, PDF documents, configuration
-> files, images, and so on.
->
-> Naming a PNG image of a whale as `whale.mp3` doesn't somehow
-> magically turn it into a recording of whalesong, though it *might*
-> cause the operating system to try to open it with a music player
-> when someone double-clicks it.
-{: .callout}
-
-Let's create a new directory called `thesis` using the command `mkdir thesis`
-(which has no output):
-
-~~~
-$ mkdir thesis
-~~~
-{: .language-bash}
-
-As you might guess from its name,
-`mkdir` means "make directory".
-Since `thesis` is a relative path
-(i.e., doesn't have a leading slash),
-the new directory is created in the current working directory:
-
-~~~
-$ ls -F
-~~~
-{: .language-bash}
-
-~~~
-creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  thesis/  writing/
-~~~
-{: .output}
-
-> ## Two ways of doing the same thing
-> Using the shell to create a directory is no different than using a file explorer.
-> If you open the current directory using your operating system's graphical file explorer,
-> the `thesis` directory will appear there too.
-> While the shell and the file explorer are two different ways of interacting with the files,
-> the files and directories themselves are the same.
-{: .callout}
-
 Since we've just created the `thesis` directory, there's nothing in it yet:
 
 ~~~
@@ -138,6 +118,7 @@ $ ls -F thesis
 ~~~
 {: .language-bash}
 
+### Create a text file
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
 
@@ -172,12 +153,12 @@ $ nano draft.txt
 {: .callout}
 
 Let's type in a few lines of text.
-Once we're happy with our text, we can press `Ctrl-O` (press the Ctrl or Control key and, while
+Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd> (press the Ctrl or Control key and, while
 holding it down, press the O key) to write our data to disk
 (we'll be asked what file we want to save this to:
-press Return to accept the suggested default of `draft.txt`).
+press <kbd>Return</kbd> to accept the suggested default of `draft.txt`).
 
-![Nano in Action](../fig/nano-screenshot.png)
+<div style="width:80%; margin: auto;"><img alt="Nano in Action" src="../fig/nano-screenshot.png"></div>
 
 Once our file is saved, we can use `Ctrl-X` to quit the editor and
 return to the shell.
@@ -252,6 +233,8 @@ draft.txt
 > >     programs.
 > {: .solution}
 {: .challenge}
+
+## Removing files and directories
 
 Returning to the `data-shell` directory,
 let's tidy up the `thesis` directory by removing the draft we created:
@@ -370,6 +353,7 @@ $ rm -r thesis
 > at each step for you to confirm the deletion.
 {: .callout}
 
+## Moving files and directories
 Let's create that directory and file one more time.
 (Note that this time we're running `nano` with the path `thesis/draft.txt`,
 rather than going into the `thesis` directory and running `nano` on `draft.txt` there.)
@@ -498,6 +482,8 @@ quotes.txt
 > {: .solution}
 {: .challenge}
 
+## Copying files and directories
+
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
 We can check that it did the right thing using `ls`
@@ -534,9 +520,35 @@ thesis/quotations.txt
 This time it tells us that it can't find `quotes.txt` in the current directory,
 but it does find the copy in `thesis` that we didn't delete.
 
+> ## What's In A Name?
+>
+> You may have noticed that all of Nelle's files' names are "something dot
+> something", and in this part of the lesson, we always used the extension
+> `.txt`.  This is just a convention: we can call a file `mythesis` or
+> almost anything else we want. However, most people use two-part names
+> most of the time to help them (and their programs) tell different kinds
+> of files apart. The second part of such a name is called the
+> **filename extension**, and indicates
+> what type of data the file holds: `.txt` signals a plain text file, `.pdf`
+> indicates a PDF document, `.cfg` is a configuration file full of parameters
+> for some program or other, `.png` is a PNG image, and so on.
+>
+> This is just a convention, albeit an important one. Files contain
+> bytes: it's up to us and our programs to interpret those bytes
+> according to the rules for plain text files, PDF documents, configuration
+> files, images, and so on.
+>
+> Naming a PNG image of a whale as `whale.mp3` doesn't somehow
+> magically turn it into a recording of whalesong, though it *might*
+> cause the operating system to try to open it with a music player
+> when someone double-clicks it.
+{: .callout}
+
+### Excercises
+
 > ## Renaming Files
 >
-> Suppose that you created a `.txt` file in your current directory to contain a list of the
+> Suppose that you created a plain-text file in your current directory to contain a list of the
 > statistical tests you will need to do to analyze your data, and named it: `statstics.txt`
 >
 > After creating and saving this file you realize you misspelled the filename! You want to
@@ -607,6 +619,10 @@ but it does find the copy in `thesis` that we didn't delete.
 > {: .solution}
 {: .challenge}
 
+## Operations with multiple files and directories
+
+Oftentimes one needs to copy or move several files at once. This can be done by providing a list of individual filenames, or specifying a naming pattern using wildcards.  
+
 > ## Copy with Multiple Filenames
 >
 > For this exercise, you can test the commands in the `data-shell/data` directory.
@@ -648,6 +664,8 @@ but it does find the copy in `thesis` that we didn't delete.
 > {: .solution}
 {: .challenge}
 
+### Using wildcards for accessing multiple files at once
+
 > ## Wildcards
 >
 > `*` is a **wildcard**. It matches zero or more
@@ -681,7 +699,7 @@ but it does find the copy in `thesis` that we didn't delete.
 > expanding wildcards, and this is another example of orthogonal design.
 {: .callout}
 
-> ## Using Wildcards
+> ## List filenames matching a pattern
 >
 > When run in the `molecules` directory, which `ls` command(s) will
 > produce this output?

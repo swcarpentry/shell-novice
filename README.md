@@ -14,12 +14,12 @@ or run `make` in this directory for a list of helpful commands.
 Maintainers:
 
 * [Gabriel Devenyi][devenyi_gabriel]
-* [Ashwin Srinath][srinath_ashwin]
 * [Colin Morris][colin_morris]
 * [Will Pitchers][will_pitchers]
+* [Gerard Capes][gerard_capes]
 
 [devenyi_gabriel]: http://software-carpentry.org/team/#devenyi_gabriel
-[srinath_ashwin]: http://software-carpentry.org/team/#srinath_ashwin
 [colin_morris]: https://github.com/colinmorris
 [will_pitchers]: https://software-carpentry.org/team/#pitchers_w
+[gerard_capes]: https://carpentries.org/instructors/#capes_gerard
 [lesson-example]: https://carpentries.github.io/lesson-example/
