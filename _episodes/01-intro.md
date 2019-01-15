@@ -94,7 +94,7 @@ command doesn't always require an argument or a flag.
 In the second line of the example above, our **command** is `ls`, with a **flag** `-F` and an
 **argument** `/`. Each part is separated by spaces: if you omit the space 
 between `ls` and `-F` the shell will look for a command called `ls-F`, which 
-doesn't exist. Also, capitalization matters: `LS` is different to `ls`. 
+doesn't exist. Also, capitalization matters: `LS` is different from `ls`. 
 
 Next we see the output that our command produced. In this case it is a listing 
 of files and folders in a location called `/` - we'll cover what all these mean 
