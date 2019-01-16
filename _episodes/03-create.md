@@ -235,7 +235,7 @@ draft.txt
 
 > ## What's In A Name?
 >
-> You may have noticed that all of Nelle's files' names are "something dot
+> You may have noticed that all of Nelle's files are named "something dot
 > something", and in this part of the lesson, we always used the extension
 > `.txt`.  This is just a convention: we can call a file `mythesis` or
 > almost anything else we want. However, most people use two-part names
