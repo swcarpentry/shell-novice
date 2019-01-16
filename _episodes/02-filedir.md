@@ -23,7 +23,6 @@ keypoints:
 - "An absolute path specifies a location from the root of the file system."
 - "Directory names in a path are separated with `/` on Unix, but `\\` on Windows."
 - "`..` means 'the directory above the current one'; `.` on its own means 'the current directory'."
-- "Most files' names are `something.extension`. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file."
 ---
 
 The part of the operating system responsible for managing files and directories 
