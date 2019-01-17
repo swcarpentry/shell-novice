@@ -53,12 +53,10 @@ loops back and waits for you to enter another command.
  
 ### The Shell
 
-A shell is a program like any other.
-What's special about it is that its job is to run other programs
-rather than to do calculations itself.
-The most popular Unix shell is Bash,
-the Bourne Again SHell
-(so-called because it's derived from a shell written by Stephen Bourne).
+
+The Shell is a program which runs other programs rather than doing calculations itself.
+The most popular Unix shell is Bash, (the Bourne Again SHell --- so-called because 
+it's derived from a shell written by Stephen Bourne).
 Bash is the default shell on most modern implementations of Unix
 and in most packages that provide Unix-like tools for Windows.
 
