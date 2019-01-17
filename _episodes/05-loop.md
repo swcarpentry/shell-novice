@@ -31,31 +31,24 @@ we'll use the `creatures` directory which only has two example files,
 but the principles can be applied to many many more files at once.
 We would like to modify these files, but also save a version of the original files, naming the copies
 `original-basilisk.dat` and `original-unicorn.dat`.
-We can't use:
 
 ~~~
-$ cp *.dat original-*.dat
+$ mv basilisk.dat original-basilisk.dat
+$ mv unicorn.dat original-unicorn.dat
+
 ~~~
 {: .language-bash}
 
-because that would expand to:
-
+Now we want to extract the first three lines of these files
+We can use 
 ~~~
-$ cp basilisk.dat unicorn.dat original-*.dat
+$ head -n3 original-basilisk.dat
+$ head -n3 original-unicorn.dat
+
 ~~~
 {: .language-bash}
 
-This wouldn't back up our files, instead we get an error:
-
-~~~
-cp: target `original-*.dat' is not a directory
-~~~
-{: .error}
-
-This problem arises when `cp` receives more than two inputs. When this happens, it
-expects the last input to be a directory where it can copy all the files it was passed.
-Since there is no directory named `original-*.dat` in the `creatures` directory we get an
-error.
+This would be easy for only 2 files but gets complicated if you are dealing with multiple files
 
 Instead, we can use a **loop**
 to do some operation once for each thing in a list.
