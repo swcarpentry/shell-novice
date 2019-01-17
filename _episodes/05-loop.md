@@ -35,7 +35,6 @@ We would like to modify these files, but also save a version of the original fil
 ~~~
 $ mv basilisk.dat original-basilisk.dat
 $ mv unicorn.dat original-unicorn.dat
-
 ~~~
 {: .language-bash}
 
@@ -44,7 +43,6 @@ We can use
 ~~~
 $ head -n3 original-basilisk.dat
 $ head -n3 original-unicorn.dat
-
 ~~~
 {: .language-bash}
 
