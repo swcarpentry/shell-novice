@@ -318,7 +318,7 @@ or available locally via: info '(coreutils) ls invocation'
 {: .output}
 
 > ## Unsupported command-line options
-> If you try to use an option (flag) that is not supported, `ls` and other programs
+> If you try to use an option (flag) that is not supported, `ls` and other commands
 > will usually print an error message similar to:
 >
 > ~~~
