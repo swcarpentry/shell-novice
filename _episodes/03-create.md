@@ -512,7 +512,7 @@ ls: cannot access 'quotes.txt': No such file or directory
 >
 > The Unix shell doesn't have a trash bin that we can recover deleted
 > files from (though most graphical interfaces to Unix do).  Instead,
-> when we delete files, they are unhooked from the file system so that
+> when we delete files, they are unlinked from the file system so that
 > their storage space on disk can be recycled. Tools for finding and
 > recovering deleted files do exist, but there's no guarantee they'll
 > work in any particular situation, since the computer may recycle the
