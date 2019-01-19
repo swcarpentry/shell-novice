@@ -45,7 +45,7 @@ This is what the shell provides - a simple language and a **command-line interfa
 to use it through. 
 
 The heart of a command-line interface is a **read-evaluate-print loop** (REPL). It is called
-so because when you type a command and press <kbd>Enter</kbd> on your keyboard (also known as <kbd>Return</kbd>) the shell
+so because when you type a command and press <kbd>Return</kbd> on your keyboard (also known as <kbd>Enter</kbd>) the shell
 reads your command,
 evaluates (or "executes") it,
 prints the output of your command,
@@ -54,10 +54,9 @@ loops back and waits for you to enter another command.
 ### The Shell
 
 
-The Shell runs other programs rather than doing calculations itself.
-The most popular Unix shell is **Bash**,
-the **B**ourne **A**gain **SH**ell
-(so-called because it's derived from a shell written by Stephen Bourne).
+The Shell is a program which runs other programs rather than doing calculations itself.
+The most popular Unix shell is Bash, (the Bourne Again SHell --- so-called because 
+it's derived from a shell written by Stephen Bourne).
 Bash is the default shell on most modern implementations of Unix
 and in most packages that provide Unix-like tools for Windows.
 
