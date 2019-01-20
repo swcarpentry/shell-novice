@@ -215,7 +215,7 @@ draft.txt
 >
 > > ## Solution
 > > 1.  The `touch` command generates a new file called `my_file.txt` in
-> >     your home directory.  If you are in your home directory, you
+> >     your current directory.  You
 > >     can observe this newly generated file by typing `ls` at the 
 > >     command line prompt.  `my_file.txt` can also be viewed in your
 > >     GUI file explorer.
