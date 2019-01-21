@@ -195,7 +195,7 @@ draft.txt
 ~~~
 {: .output}
 
-> ## Creating files a different way
+> ## Creating Files a Different Way
 >
 > We have seen how to create text files using the `nano` editor.
 > Now, try the following command:
