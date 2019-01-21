@@ -520,6 +520,23 @@ ls: cannot access 'quotes.txt': No such file or directory
 {: .callout}
 
 
+> ## Using `rm` Safely
+>
+> What happens when we execute `rm -i thesis_backup/quotations.txt`?
+> Why would we want this protection when using `rm`?
+>
+> > ## Solution
+> > ```
+> > $ rm: remove regular file 'thesis_backup/quotations.txt'?
+> > ```
+> > {: .language-bash}
+> > The `-i` flag will prompt before every removal.
+> > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
+> > By using the `-i` flag, we have the chance to check that we are deleting only the files that we want to remove.
+> {: .solution}
+{: .challenge}
+
+
 If we try to remove the `thesis` directory using `rm thesis`,
 we get an error message:
 
@@ -537,7 +554,6 @@ This happens because `rm` by default only works on files, not directories.
 
 `rm` can remove a directory *and all its contents* if we use the 
 recursive flag `-r`, however ...
-
 
 > ## With Great Power Comes Great Responsibility
 >
@@ -566,22 +582,6 @@ $ rm -r thesis
 ~~~
 {: .language-bash}
 
-
-> ## Using `rm` Safely
->
-> What happens when we execute `rm -i thesis_backup/quotations.txt`?
-> Why would we want this protection when using `rm`?
->
-> > ## Solution
-> > ```
-> > $ rm: remove regular file 'thesis_backup/quotations.txt'?
-> > ```
-> > {: .language-bash}
-> > The `-i` flag will prompt before every removal.
-> > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
-> > By using the `-i` flag, we have the chance to check that we are deleting only the files that we want to remove.
-> {: .solution}
-{: .challenge}
 
 ## Operations with multiple files and directories
 
