@@ -234,153 +234,40 @@ draft.txt
 > {: .solution}
 {: .challenge}
 
-## Removing files and directories
-
-Returning to the `data-shell` directory,
-let's tidy up the `thesis` directory by removing the draft we created:
-
-~~~
-$ cd thesis
-$ rm draft.txt
-~~~
-{: .language-bash}
-
-This command removes files (`rm` is short for "remove").
-If we run `ls` again,
-its output is empty once more,
-which tells us that our file is gone:
-
-~~~
-$ ls
-~~~
-{: .language-bash}
-
-> ## Deleting Is Forever
+> ## What's In A Name?
 >
-> The Unix shell doesn't have a trash bin that we can recover deleted
-> files from (though most graphical interfaces to Unix do).  Instead,
-> when we delete files, they are unhooked from the file system so that
-> their storage space on disk can be recycled. Tools for finding and
-> recovering deleted files do exist, but there's no guarantee they'll
-> work in any particular situation, since the computer may recycle the
-> file's disk space right away.
-{: .callout}
-
-Let's re-create that file
-and then move up one directory to `/Users/nelle/Desktop/data-shell` using `cd ..`:
-
-~~~
-$ pwd
-~~~
-{: .language-bash}
-
-~~~
-/Users/nelle/Desktop/data-shell/thesis
-~~~
-{: .output}
-
-~~~
-$ nano draft.txt
-$ ls
-~~~
-{: .language-bash}
-
-~~~
-draft.txt
-~~~
-{: .output}
-
-~~~
-$ cd ..
-~~~
-{: .language-bash}
-
-If we try to remove the entire `thesis` directory using `rm thesis`,
-we get an error message:
-
-~~~
-$ rm thesis
-~~~
-{: .language-bash}
-
-~~~
-rm: cannot remove `thesis': Is a directory
-~~~
-{: .error}
-
-This happens because `rm` by default only works on files, not directories.
-
-To really get rid of `thesis` we must also delete the file `draft.txt`.
-We can do this with the [recursive](https://en.wikipedia.org/wiki/Recursion) option for `rm`:
-
-~~~
-$ rm -r thesis
-~~~
-{: .language-bash}
-
-> ## Using `rm` Safely
+> You may have noticed that all of Nelle's files are named "something dot
+> something", and in this part of the lesson, we always used the extension
+> `.txt`.  This is just a convention: we can call a file `mythesis` or
+> almost anything else we want. However, most people use two-part names
+> most of the time to help them (and their programs) tell different kinds
+> of files apart. The second part of such a name is called the
+> **filename extension**, and indicates
+> what type of data the file holds: `.txt` signals a plain text file, `.pdf`
+> indicates a PDF document, `.cfg` is a configuration file full of parameters
+> for some program or other, `.png` is a PNG image, and so on.
 >
-> What happens when we execute `rm -i thesis/quotations.txt`?
-> Why would we want this protection when using `rm`?
+> This is just a convention, albeit an important one. Files contain
+> bytes: it's up to us and our programs to interpret those bytes
+> according to the rules for plain text files, PDF documents, configuration
+> files, images, and so on.
 >
-> > ## Solution
-> > ```
-> > $ rm: remove regular file 'thesis/quotations.txt'?
-> > ```
-> > {: .language-bash} 
-> > The `-i` flag will prompt before every removal. 
-> > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever. 
-> > By using the `-i` flag, we have the chance to check that we are deleting only the files that we want to remove.
-> {: .solution}
-{: .challenge}
-
-> ## With Great Power Comes Great Responsibility
->
-> Removing the files in a directory recursively can be a very dangerous
-> operation. If we're concerned about what we might be deleting we can
-> add the "interactive" flag `-i` to `rm` which will ask us for confirmation
-> before each step
->
-> ~~~
-> $ rm -r -i thesis
-> rm: descend into directory ‘thesis’? y
-> rm: remove regular file ‘thesis/draft.txt’? y
-> rm: remove directory ‘thesis’? y
-> ~~~
-> {: .language-bash}
->
-> This removes everything in the directory, then the directory itself, asking
-> at each step for you to confirm the deletion.
+> Naming a PNG image of a whale as `whale.mp3` doesn't somehow
+> magically turn it into a recording of whalesong, though it *might*
+> cause the operating system to try to open it with a music player
+> when someone double-clicks it.
 {: .callout}
 
 ## Moving files and directories
-Let's create that directory and file one more time.
-(Note that this time we're running `nano` with the path `thesis/draft.txt`,
-rather than going into the `thesis` directory and running `nano` on `draft.txt` there.)
+Returning to the `data-shell` directory,
 
-~~~
-$ pwd
-~~~
+```
+cd ~/Desktop/data-shell/
+```
 {: .language-bash}
 
-~~~
-/Users/nelle/Desktop/data-shell
-~~~
-{: .output}
-
-~~~
-$ mkdir thesis
-$ nano thesis/draft.txt
-$ ls thesis
-~~~
-{: .language-bash}
-
-~~~
-draft.txt
-~~~
-{: .output}
-
-`draft.txt` isn't a particularly informative name,
+In our `thesis` directory we have a file `draft.txt`
+which isn't a particularly informative name,
 so let's change the file's name using `mv`,
 which is short for "move":
 
@@ -412,8 +299,7 @@ silently overwrite any existing file with the same name, which could
 lead to data loss. An additional flag, `mv -i` (or `mv --interactive`),
 can be used to make `mv` ask you for confirmation before overwriting.
 
-Just for the sake of consistency,
-`mv` also works on directories
+Note that `mv` also works on directories.
 
 Let's move `quotes.txt` into the current working directory.
 We use `mv` once again,
@@ -501,50 +387,31 @@ quotes.txt   thesis/quotations.txt
 ~~~
 {: .output}
 
-To prove that we made a copy,
-let's delete the `quotes.txt` file in the current directory
-and then run that same `ls` again.
+We can also copy a directory and all its contents by using the
+[recursive](https://en.wikipedia.org/wiki/Recursion) flag `-r`,
+e.g. to back up a directory:
 
-~~~
-$ rm quotes.txt
-$ ls quotes.txt thesis/quotations.txt
-~~~
+```
+$ cp -r thesis thesis_backup
+```
 {: .language-bash}
 
-~~~
-ls: cannot access quotes.txt: No such file or directory
-thesis/quotations.txt
-~~~
-{: .error}
+We can check the result by listing the contents of both the `thesis` and `thesis_backup` directory:
 
-This time it tells us that it can't find `quotes.txt` in the current directory,
-but it does find the copy in `thesis` that we didn't delete.
+```
+$ ls thesis thesis_backup
+```
+{: .language-bash}
 
-> ## What's In A Name?
->
-> You may have noticed that all of Nelle's files' names are "something dot
-> something", and in this part of the lesson, we always used the extension
-> `.txt`.  This is just a convention: we can call a file `mythesis` or
-> almost anything else we want. However, most people use two-part names
-> most of the time to help them (and their programs) tell different kinds
-> of files apart. The second part of such a name is called the
-> **filename extension**, and indicates
-> what type of data the file holds: `.txt` signals a plain text file, `.pdf`
-> indicates a PDF document, `.cfg` is a configuration file full of parameters
-> for some program or other, `.png` is a PNG image, and so on.
->
-> This is just a convention, albeit an important one. Files contain
-> bytes: it's up to us and our programs to interpret those bytes
-> according to the rules for plain text files, PDF documents, configuration
-> files, images, and so on.
->
-> Naming a PNG image of a whale as `whale.mp3` doesn't somehow
-> magically turn it into a recording of whalesong, though it *might*
-> cause the operating system to try to open it with a music player
-> when someone double-clicks it.
-{: .callout}
+```
+thesis:
+quotations.txt
 
-### Excercises
+thesis_backup:
+quotations.txt
+```
+{: .output}
+
 
 > ## Renaming Files
 >
@@ -618,6 +485,104 @@ but it does find the copy in `thesis` that we didn't delete.
 > > 4. No, see explanation above.  `proteins-saved.dat` is located at `/Users/jamie`
 > {: .solution}
 {: .challenge}
+
+## Removing files and directories
+
+Returning to the `data-shell` directory,
+let's tidy up this directory by removing the `quotes.txt` file we created.
+The Unix command we'll use for this is `rm` (short for 'remove'):
+
+~~~
+$ rm quotes.txt
+~~~
+{: .language-bash}
+
+We can confirm the file has gone using `ls`:
+
+~~~
+$ ls quotes.txt
+~~~
+{: .language-bash}
+
+```
+ls: cannot access 'quotes.txt': No such file or directory
+```
+{: .output}
+
+> ## Deleting Is Forever
+>
+> The Unix shell doesn't have a trash bin that we can recover deleted
+> files from (though most graphical interfaces to Unix do).  Instead,
+> when we delete files, they are unlinked from the file system so that
+> their storage space on disk can be recycled. Tools for finding and
+> recovering deleted files do exist, but there's no guarantee they'll
+> work in any particular situation, since the computer may recycle the
+> file's disk space right away.
+{: .callout}
+
+
+> ## Using `rm` Safely
+>
+> What happens when we execute `rm -i thesis_backup/quotations.txt`?
+> Why would we want this protection when using `rm`?
+>
+> > ## Solution
+> > ```
+> > $ rm: remove regular file 'thesis_backup/quotations.txt'?
+> > ```
+> > {: .language-bash}
+> > The `-i` flag will prompt before every removal.
+> > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
+> > By using the `-i` flag, we have the chance to check that we are deleting only the files that we want to remove.
+> {: .solution}
+{: .challenge}
+
+
+If we try to remove the `thesis` directory using `rm thesis`,
+we get an error message:
+
+~~~
+$ rm thesis
+~~~
+{: .language-bash}
+
+~~~
+rm: cannot remove `thesis': Is a directory
+~~~
+{: .error}
+
+This happens because `rm` by default only works on files, not directories.
+
+`rm` can remove a directory *and all its contents* if we use the 
+recursive flag `-r`, however ...
+
+> ## With Great Power Comes Great Responsibility
+>
+> Removing the files in a directory recursively can be a very dangerous
+> operation. If we're concerned about what we might be deleting we can
+> add the "interactive" flag `-i` to `rm` which will ask us for confirmation
+> before each step
+>
+> ~~~
+> $ rm -r -i thesis
+> rm: descend into directory 'thesis'? y
+> rm: remove regular empty file 'thesis/quotations.txt'? y
+> rm: remove directory 'thesis'? y
+> ~~~
+> {: .language-bash}
+>
+> This removes any files in the directory, then the directory itself, asking
+> at each step for you to confirm the deletion.
+{: .callout}
+
+If you haven't already deleted the `thesis` directory using the interactive flag,
+you can delete the directory without any confirmation prompts using the following command:
+
+~~~
+$ rm -r thesis
+~~~
+{: .language-bash}
+
 
 ## Operations with multiple files and directories
 
