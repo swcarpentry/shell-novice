@@ -633,8 +633,9 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 
 > ## Wildcards
 >
-> `*` is a **wildcard**. It matches zero or more
-> characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
+> `*` is a **wildcard**. It matches zero or more  characters,
+> so if we consider the `data-shell/molecules` directory
+> `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
 > file that ends with '.pdb'. On the other hand, `p*.pdb` only matches
 > `pentane.pdb` and `propane.pdb`, because the 'p' at the front only
 > matches filenames that begin with the letter 'p'.
