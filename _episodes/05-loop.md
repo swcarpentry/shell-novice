@@ -127,7 +127,7 @@ Since the list was only two items, the shell exits the `for` loop.
 > and the symbol is a prompt.
 >
 > If *you* type `>` or `$` yourself, it is an instruction from you that
-> the shell to redirect output or get the value of a variable.
+> the shell should redirect output or get the value of a variable.
 {: .callout}
 
 When using variables it is also
