@@ -206,7 +206,7 @@ draft.txt
 > {: .language-bash}
 >
 > 1.  What did the `touch` command do?
->     When you look at your home directory using the GUI file explorer,
+>     When you look at your current directory using the GUI file explorer,
 >     does the file show up?
 >
 > 2.  Use `ls -l` to inspect the files.  How large is `my_file.txt`?
