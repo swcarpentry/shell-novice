@@ -1,4 +1,4 @@
-Please delete the text below before submitting your contribution. 
+Please delete this line and the text below before submitting your contribution.
 
 ---
 
