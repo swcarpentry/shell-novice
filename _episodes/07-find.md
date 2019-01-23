@@ -382,6 +382,65 @@ Miscellaneous:
 > {: .solution}
 {: .challenge}
 
+> ## Using grep in a loop
+> Navigate to Nelle's `data-shell/data/pdb/` directory, which contains Protein Data Bank files.
+> Write a `for` loop which uses `echo` and `grep` to print each file name followed by the number
+> of atoms in the compound.
+>
+> Here's the beginning and end of the output your loop should return:
+> ```
+> aldrin.pdb 26
+> ammonia.pdb 4
+> ascorbic-acid.pdb 20
+> ...
+> vanillin.pdb 19
+> vinyl-chloride.pdb 6
+> vitamin-a.pdb 51
+> ```
+> {: .output}
+>
+> Hint: Read `man echo` for an option to suppress newlines
+> and `man grep` for an option to produce counts only.
+>
+> > ## Solution
+> > ```
+> > for file in *.pdb
+> >	do
+> >		echo -n $file " "
+> >		grep -c ATOM $file
+> >	done
+> > ```
+> > {: .language-bash}
+> {: .solution}
+>
+> Extend the previous solution to sort the output by the number of atoms.
+> Here's the beginning and end of the output:
+>
+> ~~~
+> ammonia.pdb 4
+> methane.pdb 5
+> methanol.pdb 6
+> ...
+> cholesterol.pdb 74
+> heme.pdb 75
+> lanoxin.pdb 121
+> ~~~
+> {: .output}
+>
+> Hint: Read `man sort` and look at the `-k` option to sort by a field.
+>
+> > ## Solution
+> > ```
+> > for file in *.pdb
+> >	do
+> >		echo -n $file " "
+> >		grep -c ATOM $file
+> >	done | sort -k 2 -n
+> > ```
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
+
 While `grep` finds lines in files,
 the `find` command finds files themselves.
 Again,
