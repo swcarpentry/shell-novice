@@ -79,7 +79,9 @@ Here, `not` is the pattern we're searching for. The grep command searches throug
 
 The output is the three lines in the file that contain the letters "not".
 
-Let's try a different pattern: "The".
+By default, grep searches for a pattern in a case-sensitive way. In addition, the search pattern we have selected does not have to form a complete word, as we will see in the next example.
+
+Let's search for the pattern: "The".
 
 ~~~
 $ grep The haiku.txt
@@ -92,14 +94,14 @@ The Tao that is seen
 ~~~
 {: .output}
 
-This time,
-two lines that include the letters "The" are outputted.
-However, one instance of those letters is contained within a larger word,
-"Thesis".
+This time, two lines that include the letters "The" are outputted,
+one of which contained our search pattern within a larger word, "Thesis".
 
 To restrict matches to lines containing the word "The" on its own,
 we can give `grep` with the `-w` flag.
 This will limit matches to word boundaries.
+
+Later in this lesson, we will also see how we can change the search behavior of grep with respect to its case sensitivity.
 
 ~~~
 $ grep -w The haiku.txt
