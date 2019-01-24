@@ -130,15 +130,12 @@ as long as learners using Windows do not run into roadblocks such as:
 *   Resources for "splitting" your shell so that recent commands
     remain in view: <https://github.com/rgaiacs/swc-shell-split-window>.
 
-*   Running a text editor from the command line can be
-    the biggest stumbling block during the entire lesson:
-    many will try to run the same editor as the instructor
-    (which may leave them trapped in the awful nether hell that is Vim),
-    or will not know how to navigate to the right directory
-    to save their file,
-    or will run a word processor rather than a plain text editor.
-    The quickest way past these problems is to have more knowledgeable learners
-    help those who need it.
+*   Learners can sometimes get trapped within command-line text editors such as
+    Vim, Emacs, or Nano.
+    Closing the terminal emulator and opening a new one can be frustrating
+    as learners will have to navigate to the correct folder again.
+    Our recommendation to mitigate this problem is that instructors should use
+    the same text editor as the learners during workshops (in most cases Nano).
 
 *   Introducing and navigating the filesystem in the shell (covered in
     [Navigating Files and Directories]({{ page.root }}{% link _episodes/02-filedir.md %}) section) can be confusing. You may have both terminal and GUI file explorer open side by side so learners can see the content and file structure while they're using terminal to navigate the system.
