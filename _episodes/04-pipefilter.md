@@ -263,6 +263,11 @@ the output of `head` must be the file with the fewest lines.
 > $ echo The echo command prints text
 > ~~~
 > {: .language-bash}
+~~~
+The echo command prints text
+~~~
+{: .output}
+
 > The `echo` command has many uses. Let's use the `echo` command to test the commands below to reveal the difference
 > between the two operators:
 >
