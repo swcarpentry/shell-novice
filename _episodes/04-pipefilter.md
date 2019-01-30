@@ -256,10 +256,14 @@ the output of `head` must be the file with the fewest lines.
 > incorrect results and/or delete
 > the contents of `lengths.txt`.
 {: .callout}
-
 > ## What Does `>>` Mean?
 > We have seen the use of `>`, but there is a similar operator `>>` which works slightly differently.
-> By using the `echo` command to print strings, test the commands below to reveal the difference
+> First, let's try using the `echo` command to print strings, e.g.: 
+> ~~~
+> $ The echo command prints text
+> ~~~
+> {: .language-bash}
+> By using the `echo` command to print strings, let's now test the commands below to reveal the difference
 > between the two operators:
 >
 > ~~~
