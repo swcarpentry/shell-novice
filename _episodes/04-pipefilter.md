@@ -260,10 +260,10 @@ the output of `head` must be the file with the fewest lines.
 > We have seen the use of `>`, but there is a similar operator `>>` which works slightly differently.
 > First, let's try using the `echo` command to print strings, e.g.: 
 > ~~~
-> $ The echo command prints text
+> $ echo The echo command prints text
 > ~~~
 > {: .language-bash}
-> By using the `echo` command to print strings, let's now test the commands below to reveal the difference
+> The `echo` command has many uses. Let's use the `echo` command to test the commands below to reveal the difference
 > between the two operators:
 >
 > ~~~
