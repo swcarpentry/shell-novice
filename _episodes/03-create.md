@@ -89,12 +89,12 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 > when working on the command line. Here we provide a few useful
 > tips for the names of your files.
 >
-> 1. Don't use whitespaces.
+> 1. Don't use spaces.
 >
->    Whitespaces can make a name more meaningful
->    but since whitespace is used to break arguments on the command line
+>    Spaces can make a name more meaningful,
+>    but since spaces are used to separate arguments on the command line
 >    it is better to avoid them in names of files and directories.
->    You can use `-` or `_` instead of whitespace.
+>    You can use `-` or `_` instead (e.g. `north-pacific-gyre/` rather than `north pacific gyre/`).
 >
 > 2. Don't begin the name with `-` (dash).
 >
@@ -107,8 +107,8 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 >    There are special characters that can cause your command to not work as
 >    expected and can even result in data loss.
 >
-> If you need to refer to names of files or directories that have whitespace
-> or another non-alphanumeric character, you should surround the name in quotes (`""`).
+> If you need to refer to names of files or directories that have spaces
+> or other special characters, you should surround the name in quotes (`""`).
 {: .callout}
 
 Since we've just created the `thesis` directory, there's nothing in it yet:
