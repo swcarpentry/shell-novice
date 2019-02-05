@@ -406,7 +406,7 @@ from whatever file is being processed
 > ~~~
 > $ for filename in "red dragon.dat" "purple unicorn.dat"
 > > do
-> >     head -n 100 "$filename" | tail -n 3
+> >     head -n 100 "$filename" | tail -n 20
 > > done
 > ~~~
 > {: .language-bash}
