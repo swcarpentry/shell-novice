@@ -389,10 +389,10 @@ from whatever file is being processed
 
 > ## Spaces in Names
 >
-> Whitespace is used to separate the elements on the list
-> that we are going to loop over. If on the list we have elements
-> with whitespace we need to quote those elements
-> and our variable when using it.
+> Spaces are used to separate the elements of the list
+> that we are going to loop over. If one of those elements
+> contains a space character, we need to surround it with
+> quotes, and do the same thing to our loop variable.
 > Suppose our data files are named:
 >
 > ~~~
@@ -401,17 +401,17 @@ from whatever file is being processed
 > ~~~
 > {: .source}
 > 
-> We need to use
+> To loop over these files, we would need to add double quotes like so:
 > 
 > ~~~
 > $ for filename in "red dragon.dat" "purple unicorn.dat"
 > > do
-> >     head -n 100 "$filename" | tail -n 3
+> >     head -n 100 "$filename" | tail -n 20
 > > done
 > ~~~
 > {: .language-bash}
 >
-> It is simpler just to avoid using whitespaces (or other special characters) in filenames.
+> It is simpler just to avoid using spaces (or other special characters) in filenames.
 >
 > The files above don't exist, so if we run the above code, the `head` command will be unable
 > to find them, however the error message returned will show the name of the files it is
@@ -422,7 +422,7 @@ from whatever file is being processed
 > ```
 > {: .output}
 > Try removing the quotes around `$filename` in the loop above to see the effect of the quote
-> marks on whitespace. Note that we get a result from the loop command for unicorn.dat when we run this code in the `creatures` directory:
+> marks on spaces. Note that we get a result from the loop command for unicorn.dat when we run this code in the `creatures` directory:
 > ```
 > head: cannot open ‘red’ for reading: No such file or directory
 > head: cannot open ‘dragon.dat’ for reading: No such file or directory
