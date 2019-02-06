@@ -401,7 +401,7 @@ from whatever file is being processed
 > ~~~
 > {: .source}
 > 
-> Then we would need to write
+> To loop over these files, we would need to add double quotes like so:
 > 
 > ~~~
 > $ for filename in "red dragon.dat" "purple unicorn.dat"
