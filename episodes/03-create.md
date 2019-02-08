@@ -632,23 +632,20 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 
 > ## Wildcards
 >
-> `*` is a **wildcard**. It matches zero or more
-> characters, so `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
+> `*` is a **wildcard**, which matches zero or more  characters.
+> Let's consider the `data-shell/molecules` directory:
+> `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
 > file that ends with '.pdb'. On the other hand, `p*.pdb` only matches
 > `pentane.pdb` and `propane.pdb`, because the 'p' at the front only
 > matches filenames that begin with the letter 'p'.
 >
-> `?` is also a wildcard, but it only matches a single character. This
-> means that `p?.pdb` would match `pi.pdb` or `p5.pdb` (if we had these two
-> files in the `molecules` directory), but not `propane.pdb`.
-> We can use any number of wildcards at a time: for example, `p*.p?*`
-> matches anything that starts with a 'p' and ends with '.', 'p', and at
-> least one more character (since the `?` has to match one character, and
-> the final `*` can match any number of characters). Thus, `p*.p?*` would
-> match `preferred.practice`, and even `p.pi` (since the first `*` can
-> match no characters at all), but not `quality.practice` (doesn't start
-> with 'p') or `preferred.p` (there isn't at least one character after the
-> '.p').
+> `?` is also a wildcard, but it only matches a single character.
+> So `?ethane.pdb` would match `methane.pdb` whereas
+> `*ethane.pdb` matches both `ethane.pdb`, and `methane.pdb`.
+>
+> Wildcards can be used in combination with each other
+> e.g. `???ane.pdb` matches three characters followed by `ane.pdb`,
+> giving `cubane.pdb  ethane.pdb  octane.pdb`.
 >
 > When the shell sees a wildcard, it expands the wildcard to create a
 > list of matching filenames *before* running the command that was
