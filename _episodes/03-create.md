@@ -527,10 +527,10 @@ ls: cannot access 'quotes.txt': No such file or directory
 >
 > > ## Solution
 > > ```
-> > $ rm: remove regular file 'thesis_backup/quotations.txt'?
+> > $ rm: remove regular file 'thesis_backup/quotations.txt'? y
 > > ```
 > > {: .language-bash}
-> > The `-i` flag will prompt before every removal.
+> > The `-i` flag will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion or <kbd>N</kbd> to keep the file).
 > > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
 > > By using the `-i` flag, we have the chance to check that we are deleting only the files that we want to remove.
 > {: .solution}
@@ -553,35 +553,15 @@ rm: cannot remove `thesis': Is a directory
 This happens because `rm` by default only works on files, not directories.
 
 `rm` can remove a directory *and all its contents* if we use the 
-recursive flag `-r`, however ...
-
-> ## With Great Power Comes Great Responsibility
->
-> Removing the files in a directory recursively can be a very dangerous
-> operation. If we're concerned about what we might be deleting we can
-> add the "interactive" flag `-i` to `rm` which will ask us for confirmation
-> before each step
->
-> ~~~
-> $ rm -r -i thesis
-> rm: descend into directory 'thesis'? y
-> rm: remove regular empty file 'thesis/quotations.txt'? y
-> rm: remove directory 'thesis'? y
-> ~~~
-> {: .language-bash}
->
-> This removes any files in the directory, then the directory itself, asking
-> at each step for you to confirm the deletion.
-{: .callout}
-
-If you haven't already deleted the `thesis` directory using the interactive flag,
-you can delete the directory without any confirmation prompts using the following command:
+recursive flag `-r`, and it will do so *without any confirmation prompts*:
 
 ~~~
 $ rm -r thesis
 ~~~
 {: .language-bash}
 
+Given that there is no way to retrieve files deleted using the shell,
+`rm -r` *should be used with great caution* (you might consider adding the interactive flag `rm -r -i`).
 
 ## Operations with multiple files and directories
 
