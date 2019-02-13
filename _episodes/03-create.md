@@ -618,7 +618,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > > If given more than one file name followed by a directory name (i.e. the destination directory must 
 > > be the last argument), `cp` copies the files to the named directory.
 > >
-> > If given three file names, `cp` throws an error because it is expecting a directory
+> > If given three file names, `cp` throws an error such as the one below, because it is expecting a directory
 > > name as the last argument.
 > >
 > > ```
