@@ -423,6 +423,8 @@ $ find .
 ~~~
 {: .output}
 
+> If you're seeing a file structure that's different than the one shown above, chances are you are not executing the find command in the appropiate folder (`data-shell/writing`). Reminder: you can use the `pwd` command to show what you're current path is. {: .output}
+
 As always,
 the `.` on its own means the current working directory,
 which is where we want our search to start.
