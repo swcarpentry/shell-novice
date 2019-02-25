@@ -399,7 +399,7 @@ and a `tools` directory that contains the programs `format` and `stats`,
 and a subdirectory called `old`, with a file `oldtool`.
 
 For our first command,
-let's run `find .`.
+let's run `find .` (remember to run this command from the `data-shell/writing` folder).
 
 ~~~
 $ find .
