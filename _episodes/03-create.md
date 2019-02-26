@@ -756,51 +756,62 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > {: .solution}
 {: .challenge}
 
-> ## Copy a folder structure but not the files
+> ## Reproduce a folder structure
 >
-> You're starting a new experiment, and would like to duplicate the file
-> structure from your previous experiment without the data files so you can
-> add new data.
+> You're starting a new experiment, and would like to duplicate the directory
+> structure from your previous experiment so you can add new data.
 >
-> Assume that the file structure is in a folder called '2016-05-18-data',
+> Assume that the previous experiment is in a folder called '2016-05-18',
 > which contains a `data` folder that in turn contains folders named `raw` and
-> `processed` that contain data files.  The goal is to copy the file structure
-> of the `2016-05-18-data` folder into a folder called `2016-05-20-data` and
-> remove the data files from the directory you just created.
+> `processed` that contain data files.  The goal is to copy the folder structure
+> of the `2016-05-18-data` folder into a folder called `2016-05-20`
+> so that your final directory structure looks like this:
 >
+>	2016-05-20/
+>	└── data
+>	    ├── processed
+>	    └── raw
+> 
 > Which of the following set of commands would achieve this objective?
 > What would the other commands do?
 >
 > ~~~
-> $ cp -r 2016-05-18-data/ 2016-05-20-data/
-> $ rm 2016-05-20-data/raw/*
-> $ rm 2016-05-20-data/processed/*
+> $ mkdir 2016-05-20
+> $ mkdir 2016-05-20/data
+> $ mkdir 2016-05-20/data/processed
+> $ mkdir 2016-05-20/data/raw
 > ~~~
 > {: .language-bash}
 > ~~~
-> $ rm 2016-05-20-data/raw/*
-> $ rm 2016-05-20-data/processed/*
-> $ cp -r 2016-05-18-data/ 2016-5-20-data/
+> $ mkdir 2016-05-20
+> $ cd 2016-05-20
+> $ mkdir data
+> $ cd data
+> $ mkdir raw processed
 > ~~~
 > {: .language-bash}
 > ~~~
-> $ cp -r 2016-05-18-data/ 2016-05-20-data/
-> $ rm -r -i 2016-05-20-data/
+> $ mkdir 2016-05-20/data/raw
+> $ mkdir 2016-05-20/data/processed
+> ~~~
+> {: .language-bash}
+> ~~~
+> $ mkdir 2016-05-20
+> $ cd 2016-05-20
+> $ mkdir data
+> $ mkdir raw processed
 > ~~~
 > {: .language-bash}
 > >
 > > ## Solution
-> > The first set of commands achieves this objective.
-> > First we have a recursive copy of a data folder.
-> > Then two `rm` commands which remove all files in the specified directories.
-> > The shell expands the '*' wild card to match all files and subdirectories.
+> > The first two sets of commands achieve this objective.
+> > The first set uses relative paths to create the top level directory before
+> > the subdirectories.
 > >
-> > The second set of commands have the wrong order: 
-> > attempting to delete files which haven't yet been copied,
-> > followed by the recursive copy command which would copy them.
-> >
-> > The third set of commands would achieve the objective, but in a time-consuming way:
-> > the first command copies the directory recursively, but the second command deletes
-> > interactively, prompting for confirmation for each file and directory.
+> > The third set of commands will give an error because `mkdir` won't create a subdirectory
+> > of a non-existant directory: the intermediate level folders must be created first.
+> > 
+> > The final set of commands generates the 'raw' and 'processed' directories at the same level
+> > as the 'data' directory.
 > {: .solution}
 {: .challenge}
