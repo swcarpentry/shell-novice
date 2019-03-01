@@ -129,6 +129,17 @@ $codeblock-padding: 5px !default;
 font-size: 18px;
 }
 
+.challenge    { background-color: #eec27520; }
+.callout      { background-color: #f4fd9c20; }
+.challenge    { background-color: #eec27520; }
+.checklist    { background-color: #dfd2a020; }
+.discussion   { background-color: #eec27520; }
+.keypoints    { background-color: #7ae78e20; }
+.objectives   { background-color: #daee8420; }
+.prereq       { background-color: #9cd6dc20; }
+.solution     { background-color: #ded4b94d; }
+.testimonial  { background-color: #fc8dc120; }
+
 blockquote p {
     margin: 5px;
 }
