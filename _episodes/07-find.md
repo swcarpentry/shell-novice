@@ -258,27 +258,30 @@ Miscellaneous:
 > these is **regular expressions**, which
 > is what the "re" in "grep" stands for.) Regular expressions are both complex
 > and powerful; if you want to do complex searches, please look at the lesson
-> on [our website](http://v4.software-carpentry.org/regexp/index.html). As a taster, we can
-> find lines that have an 'o' in the second position like this:
+> on [our website](http://v4.software-carpentry.org/regexp/index.html).
+> As a taster, suppose you wanted to find a phone number in a
+> document.  Knowing just the structure of the phone number, without
+> knowing the phone number itself, you could search for it like this:
 >
 > ~~~
-> $ grep -E '^.o' haiku.txt
+> $ grep -E '[0-9]{3}-[0-9]{4}' document.txt
 > ~~~
 > {: .language-bash}
 >
 > ~~~
-> You bring fresh toner.
-> Today it is not working
-> Software is like that.
+> Mary said she could be reached at 555-1212 in the morning...
 > ~~~
 > {: .output}
 >
 > We use the `-E` flag and put the pattern in quotes to prevent the shell
 > from trying to interpret it. (If the pattern contained a `*`, for
 > example, the shell would try to expand it before running `grep`.) The
-> `^` in the pattern anchors the match to the start of the line. The `.`
-> matches a single character (just like `?` in the shell), while the `o`
-> matches an actual 'o'.
+> regular expression pattern `[0-9]` matches any single character
+> within a range of characters, in this case, any decimal digit.  The
+> construct `{3}` indicates the number of times the preceding pattern
+> must be repeated.  Putting it all together, the pattern says: look
+> for 3 decimal digits, followed by a hyphen, followed by 4 decimal
+> digits.
 {: .callout}
 
 > ## Tracking a Species
