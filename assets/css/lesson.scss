@@ -30,8 +30,9 @@ $color-testimonial: #fc8dc1 !default;
 
 @mixin cdSetup($color) {
     color: $color;
+    border: solid 0.5px $color;
     border-left: solid 5px $color;
-    margin: 15px 0;
+    margin: 15px 5px 10px 0;
     border-radius: 4px 0 0 4px;
 }
 
@@ -46,23 +47,31 @@ $color-testimonial: #fc8dc1 !default;
 .r, .language-r           { @include cdSetup($color-source); }
 .sql, .language-sql       { @include cdSetup($color-source); }
 
-.error pre,
-.output pre,
-.source pre,
-.bash pre,
-.language-bash pre,
-.make pre,
-.language-make pre,
-.matlab pre,
-.language-matlab pre,
-.python pre,
-.language-python pre,
-.r pre,
-.language-r pre,
-.sql pre ,
-.language-sql pre {
-  border-radius: 0 4px 4px 0;
+.error::before,
+.output::before,
+.source::before,
+.bash::before, .language-bash::before,
+.make::before, .language-make::before,
+.matlab::before, .language-matlab::before,
+.python::before, .language-python::before,
+.r::before, .language-r::before,
+.sql::before, .language-sql::before {
+  background-color: #f2eff6;
+  display: block;
+  font-weight: bold;
+  padding: 5px 10px;
 }
+
+.error::before  { background-color: #ffebe6; content: "Error"; }
+.output::before { background-color: #efefef; content: "Output"; }
+.source::before { content: "Code"; }
+.bash::before, .language-bash::before { content: "Bash"; }
+.make::before, .language-make::before { content: "Make"; }
+.matlab::before, .language-matlab::before { content: "Matlab"; }
+.python::before, .language-python::before { content: "Python"; }
+.r::before, .language-r::before { content: "R"; }
+.sql::before, .language-sql::before { content: "SQL"; }
+
 
 //----------------------------------------
 // Specialized blockquote environments for learning objectives, callouts, etc.
@@ -75,16 +84,12 @@ $codeblock-padding: 5px !default;
   $gradientcolor1: $color;
   $gradientcolor2: scale-color($color, $lightness: 10%);
 
-  padding-left: $codeblock-padding;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-right: 0;
+  padding: 0 0 $codeblock-padding $codeblock-padding;
   border: 1px solid;
   border-color: $color;
   border-radius: 4px;
-  padding-bottom: $codeblock-padding;
 
-  margin: 15px 0;
+  margin: 15px 5px 10px 0;
 
   h2 {
     padding-top: $codeblock-padding;
