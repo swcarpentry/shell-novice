@@ -539,8 +539,8 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > For this question, consider the `data-shell/molecules` directory once again.
 > This contains a number of `.pdb` files in addition to any other files you
 > may have created.
-> Explain what a script called `example.sh` would do when run as
-> `bash example.sh *.pdb` if it contained the following lines:
+> Explain what each of the following three scripts would do when run as
+> `bash script1.sh *.pdb`, `bash script2.sh *.pdb`, and `bash script3.sh *.pdb` respectively.
 >
 > ~~~
 > # Script 1
@@ -564,13 +564,18 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > {: .language-bash}
 >
 > > ## Solutions
-> > Script 1 would print out a list of all files containing a dot in their name.
+> > In each case, the shell expands the wildcard in `*.pdb` before passing the resulting
+> > list of file names as arguments to the script.
 > >
-> > Script 2 would print the contents of the first 3 files matching the file extension.
-> > The shell expands the wildcard before passing the arguments to the `example.sh` script.
+> > Script 1 would print out a list of all files containing a dot in their name.
+> > The arguments passed to the script are not actually used anywhere in the script.
+> >
+> > Script 2 would print the contents of the first 3 files with a `.pdb` file extension.
+> > `$1`, `$2`, and `$3` refer to the first, second, and third argument respectively.
 > > 
 > > Script 3 would print all the arguments to the script (i.e. all the `.pdb` files),
 > > followed by `.pdb`.
+> > `$@` refers to *all* the arguments given to a shell script.
 > > ```
 > > cubane.pdb ethane.pdb methane.pdb octane.pdb pentane.pdb propane.pdb.pdb
 > > ```
