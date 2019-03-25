@@ -83,6 +83,14 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 > the files and directories themselves are the same.
 {: .callout}
 
+> ## Case Sensitive
+> Is the directory `thesis/` the same as `THESIS/` ?
+> It depends on the operating system and file system. In the Unix shell environment files
+> and directories are case-sensitive. Which means that they are different directories 
+> and `thesis/`, and `THESIS/` etc can be present the same time on the same directory level 
+> with different content.
+{: .callout}
+
 > ## Good names for files and directories
 >
 > Complicated names of files and directories can make your life painful
