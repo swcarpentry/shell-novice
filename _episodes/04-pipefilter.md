@@ -305,11 +305,11 @@ the output of `head` must be the file with the fewest lines.
 >
 > Consider the file `data-shell/data/animals.txt`.
 > After these commands, select the answer that
-> corresponds to the file `animalsUpd.txt`:
+> corresponds to the file `animals-subset.txt`:
 >
 > ~~~
-> $ head -n 3 animals.txt > animalsUpd.txt
-> $ tail -n 2 animals.txt >> animalsUpd.txt
+> $ head -n 3 animals.txt > animals-subset.txt
+> $ tail -n 2 animals.txt >> animals-subset.txt
 > ~~~
 > {: .language-bash}
 >
@@ -322,7 +322,7 @@ the output of `head` must be the file with the fewest lines.
 > > Option 3 is correct. 
 > > For option 1 to be correct we would only run the `head` command.
 > > For option 2 to be correct we would only run the `tail` command.
-> > For option 4 to be correct we would have to pipe the output of `head` into `tail -n 2` by doing `head -n 3 animals.txt | tail -n 2 > animalsUpd.txt`
+> > For option 4 to be correct we would have to pipe the output of `head` into `tail -n 2` by doing `head -n 3 animals.txt | tail -n 2 > animals-subset.txt`
 > {: .solution}
 {: .challenge}
 
