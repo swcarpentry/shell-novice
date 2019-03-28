@@ -671,18 +671,25 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > the datasets:
 >
 > ~~~
-> 2015-10-23-calibration.txt
-> 2015-10-23-dataset1.txt
-> 2015-10-23-dataset2.txt
-> 2015-10-23-dataset_overview.txt
-> 2015-10-26-calibration.txt
-> 2015-10-26-dataset1.txt
-> 2015-10-26-dataset2.txt
-> 2015-10-26-dataset_overview.txt
-> 2015-11-23-calibration.txt
-> 2015-11-23-dataset1.txt
-> 2015-11-23-dataset2.txt
-> 2015-11-23-dataset_overview.txt
+> .
+> ├── 2015-10-23-calibration.txt
+> ├── 2015-10-23-dataset1.txt
+> ├── 2015-10-23-dataset2.txt
+> ├── 2015-10-23-dataset_overview.txt
+> ├── 2015-10-26-calibration.txt
+> ├── 2015-10-26-dataset1.txt
+> ├── 2015-10-26-dataset2.txt
+> ├── 2015-10-26-dataset_overview.txt
+> ├── 2015-11-23-calibration.txt
+> ├── 2015-11-23-dataset1.txt
+> ├── 2015-11-23-dataset2.txt
+> ├── 2015-11-23-dataset_overview.txt
+> ├── backup
+> │   ├── calibration
+> │   └── datasets
+> └── send_to_bob
+>     ├── all_datasets_created_on_a_23rd
+>     └── all_november_files
 > ~~~
 > {: .language-bash}
 >
@@ -691,20 +698,66 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > to get the job done:
 >
 > ~~~
-> $ cp *dataset* /backup/datasets
-> $ cp ____calibration____ /backup/calibration
-> $ cp 2015-____-____ ~/send_to_bob/all_november_files/
-> $ cp ____ ~/send_to_bob/all_datasets_created_on_a_23rd/
+> $ cp *dataset* backup/datasets
+> $ cp ____calibration____ backup/calibration
+> $ cp 2015-____-____ send_to_bob/all_november_files/
+> $ cp ____ send_to_bob/all_datasets_created_on_a_23rd/
 > ~~~
 > {: .language-bash}
 >
 > Help Sam by filling in the blanks.
 >
+> The resulting directory structure should look like this
+> ```
+> .
+> ├── 2015-10-23-calibration.txt
+> ├── 2015-10-23-dataset1.txt
+> ├── 2015-10-23-dataset2.txt
+> ├── 2015-10-23-dataset_overview.txt
+> ├── 2015-10-26-calibration.txt
+> ├── 2015-10-26-dataset1.txt
+> ├── 2015-10-26-dataset2.txt
+> ├── 2015-10-26-dataset_overview.txt
+> ├── 2015-11-23-calibration.txt
+> ├── 2015-11-23-dataset1.txt
+> ├── 2015-11-23-dataset2.txt
+> ├── 2015-11-23-dataset_overview.txt
+> ├── backup
+> │   ├── calibration
+> │   │   ├── 2015-10-23-calibration.txt
+> │   │   ├── 2015-10-26-calibration.txt
+> │   │   └── 2015-11-23-calibration.txt
+> │   └── datasets
+> │       ├── 2015-10-23-dataset1.txt
+> │       ├── 2015-10-23-dataset2.txt
+> │       ├── 2015-10-23-dataset_overview.txt
+> │       ├── 2015-10-26-dataset1.txt
+> │       ├── 2015-10-26-dataset2.txt
+> │       ├── 2015-10-26-dataset_overview.txt
+> │       ├── 2015-11-23-dataset1.txt
+> │       ├── 2015-11-23-dataset2.txt
+> │       └── 2015-11-23-dataset_overview.txt
+> └── send_to_bob
+>     ├── all_datasets_created_on_a_23rd
+>     │   ├── 2015-10-23-dataset1.txt
+>     │   ├── 2015-10-23-dataset2.txt
+>     │   ├── 2015-10-23-dataset_overview.txt
+>     │   ├── 2015-11-23-dataset1.txt
+>     │   ├── 2015-11-23-dataset2.txt
+>     │   └── 2015-11-23-dataset_overview.txt
+>     └── all_november_files
+>         ├── 2015-11-23-calibration.txt
+>         ├── 2015-11-23-dataset1.txt
+>         ├── 2015-11-23-dataset2.txt
+>         └── 2015-11-23-dataset_overview.txt
+> ```
+> {: .language-bash}
+>
 > > ## Solution
 > > ```
-> > $ cp *calibration.txt /backup/calibration
-> > $ cp 2015-11-* ~/send_to_bob/all_november_files/
-> > $ cp *-23-dataset* ~send_to_bob/all_datasets_created_on_a_23rd/
+> > $ cp *calibration.txt backup/calibration
+> > $ cp 2015-11-* send_to_bob/all_november_files/
+> > $ cp *-23-dataset* send_to_bob/all_datasets_created_on_a_23rd/
 > > ```
 > > {: .language-bash}
 > {: .solution}
