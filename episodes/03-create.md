@@ -619,7 +619,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > `pentane.pdb` and `propane.pdb`, because the 'p' at the front only
 > matches filenames that begin with the letter 'p'.
 >
-> `?` is also a wildcard, but it only matches a single character.
+> `?` is also a wildcard, but it matches exactly one character.
 > So `?ethane.pdb` would match `methane.pdb` whereas
 > `*ethane.pdb` matches both `ethane.pdb`, and `methane.pdb`.
 >
