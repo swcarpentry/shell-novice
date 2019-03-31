@@ -614,7 +614,7 @@ so that you and other people can put those programs into pipes to multiply their
 > ~~~
 > {: .language-bash}
 > 
-> uses the `-d` flag to separate each line by comma, and the `-f` flag
+> uses the `-d` flag to each line by comma, and the `-f` flag
 > to print the second field in each line, to give the following output:
 >
 > ~~~
@@ -775,27 +775,15 @@ so this matches all the valid data files she has.
 > this.
 >
 > 1.  Can you match the same set of files with basic wildcard expressions
->     that do not use the `[]` syntax? *Hint*: You may need more than one
->     expression.
->
-> 2.  The expression that you found and the expression from the lesson match the
->     same set of files in this example. What is the small difference between the
->     outputs?
->
-> 3.  Under what circumstances would your new expression produce an error message
->     where the original one would not?
+>     that do not use the `[]` syntax?
 >
 > > ## Solution
 > > 1. 
 > >
 > > 	```
-> > 	$ ls *A.txt
-> > 	$ ls *B.txt
+> > 	$ ls *A.txt *B.txt
 > > 	```
 > >	{: .language-bash}
-> > 2. The output from the new commands is separated because there are two commands.
-> > 3. When there are no files ending in `A.txt`, or there are no files ending in
-> > `B.txt`.
 > {: .solution}
 {: .challenge}
 
