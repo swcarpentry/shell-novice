@@ -411,8 +411,8 @@ from whatever file is being processed
 > {: . output}
 {: .callout}
 
-We would like to modify these files, but also save a version of the original files, naming the copies
-`original-basilisk.dat` and `original-unicorn.dat`.
+We would like to modify each of the files in `data-shell/creatures`, but also save a version
+of the original files, naming the copies `original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
 ~~~
