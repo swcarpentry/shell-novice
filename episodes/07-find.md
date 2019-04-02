@@ -661,7 +661,7 @@ about them."
 > to locate files with specific attributes, such as creation time, size,
 > permissions, or ownership.  Use `man find` to explore these, and then
 > write a single command to find all files in or below the current directory
-> that were modified by the user `ahmed` in the last 24 hours.
+> that are owned by the user `ahmed` and were modified in the last 24 hours.
 >
 > Hint 1: you will need to use three tests: `-type`, `-mtime`, and `-user`.
 >
