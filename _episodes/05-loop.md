@@ -39,7 +39,7 @@ We'll use a loop to solve this problem, but first let's look at the general form
 ```
 for thing in list_of_things
 do
-    operation_using $thing
+    operation_using $thing    # Indentation within the loop is not required, but aids legibility
 done
 ```
 {: .language-bash}
@@ -49,7 +49,7 @@ and we can apply this to our example like this:
 ```
 $ for filename in basilisk.dat unicorn.dat
 > do
->    head -n 2 $filename | tail -1	# Indentation within the loop is not required, but aids legibility
+>    head -n 2 $filename | tail -1
 > done
 ```
 {: .language-bash}
@@ -67,11 +67,6 @@ COMMON NAME: unicorn
 > typing in our loop. The second prompt, `>`, is different to remind
 > us that we haven't finished typing a complete command yet. A semicolon, `;`,
 > can be used to separate two commands written on a single line.
-{: .callout}
-
-> ## Indentation of code within a for loop
-> Note that it is common practice to indent the line(s) of code within a for loop.
-> The only purpose is to make the code easier to read -- it is not required for the loop to run.
 {: .callout}
 
 When the shell sees the keyword `for`,
