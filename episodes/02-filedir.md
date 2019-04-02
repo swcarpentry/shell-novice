@@ -682,7 +682,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 
 > ## Absolute vs Relative Paths
 >
-> Starting from `/Users/amanda/data/`,
+> Starting from `/Users/amanda/data`,
 > which of the following commands could Amanda use to navigate to her home directory,
 > which is `/Users/amanda`?
 >
