@@ -24,7 +24,7 @@ keypoints:
 
 **Loops** are a programming construct which allow us to repeat a command or set of commands
 for each item in a list.
-As such they are key to productivity improvements through automation. 
+As such they are key to productivity improvements through automation.
 Similar to wildcards and tab completion, using loops also reduces the
 amount of typing required (and hence reduces the number of typing mistakes).
 
@@ -72,25 +72,25 @@ COMMON NAME: unicorn
 When the shell sees the keyword `for`,
 it knows to repeat a command (or group of commands) once for each item in a list.
 Each time the loop runs (called an iteration), an item in the list is assigned in sequence to
-the **variable**, and the commands inside the loop are executed, before moving on to 
+the **variable**, and the commands inside the loop are executed, before moving on to
 the next item in the list.
 Inside the loop,
 we call for the variable's value by putting `$` in front of it.
 The `$` tells the shell interpreter to treat
 the variable as a variable name and substitute its value in its place,
-rather than treat it as text or an external command. 
+rather than treat it as text or an external command.
 
 In this example, the list is two filenames: `basilisk.dat` and `unicorn.dat`.
 Each time the loop iterates, it will assign a file name to the variable `filename`
 and run the `head` command.
 The first time through the loop,
-`$filename` is `basilisk.dat`. 
-The interpreter runs the command `head` on `basilisk.dat`, 
-and then prints the 
+`$filename` is `basilisk.dat`.
+The interpreter runs the command `head` on `basilisk.dat`,
+and then prints the
 first three lines of `basilisk.dat`.
-For the second iteration, `$filename` becomes 
+For the second iteration, `$filename` becomes
 `unicorn.dat`. This time, the shell runs `head` on `unicorn.dat`
-and prints the first three lines of `unicorn.dat`. 
+and prints the first three lines of `unicorn.dat`.
 Since the list was only two items, the shell exits the `for` loop.
 
 > ## Same Symbols, Different Meanings
@@ -221,7 +221,7 @@ increase the odds that the program won't do what its readers think it does.
 > ~~~
 > $ for filename in c*
 > > do
-> >    ls $filename 
+> >    ls $filename
 > > done
 > ~~~
 > {: .language-bash}
@@ -232,7 +232,7 @@ increase the odds that the program won't do what its readers think it does.
 > 4.  Only `cubane.pdb` is listed.
 >
 > > ## Solution
-> > 4 is the correct answer. `*` matches zero or more characters, so any file name starting with 
+> > 4 is the correct answer. `*` matches zero or more characters, so any file name starting with
 > > the letter c, followed by zero or more other characters will be matched.
 > {: .solution}
 >
@@ -241,7 +241,7 @@ increase the odds that the program won't do what its readers think it does.
 > ~~~
 > $ for filename in *c*
 > > do
-> >    ls $filename 
+> >    ls $filename
 > > done
 > ~~~
 > {: .language-bash}
@@ -377,9 +377,9 @@ from whatever file is being processed
 > purple unicorn.dat
 > ~~~
 > {: .source}
-> 
+>
 > To loop over these files, we would need to add double quotes like so:
-> 
+>
 > ~~~
 > $ for filename in "red dragon.dat" "purple unicorn.dat"
 > > do
@@ -465,10 +465,14 @@ cp unicorn.dat original-unicorn.dat
 ~~~
 {: .language-bash}
 
-Since the `cp` command does not normally produce any output, it's hard to check 
-that the loop is doing the correct thing. By prefixing the command with `echo` 
-it is possible to see each command as it _would_ be executed. The following diagram 
-shows what happens when the modified loop is executed, and demonstrates how the 
+Since the `cp` command does not normally produce any output, it's hard to check
+that the loop is doing the correct thing.
+However, we learned earlier how to print strings using `echo`, and we can modify the loop
+to use `echo` to print our commands without actually executing them.
+As such we can check what commands *would be* run in the unmodified loop.
+
+The following diagram
+shows what happens when the modified loop is executed, and demonstrates how the
 judicious use of `echo` is a good debugging technique.
 
 ![For Loop in Action](../fig/shell_script_for_loop_flow_chart.svg)
@@ -623,10 +627,10 @@ so she decides to get some coffee and catch up on her reading.
 >
 > There are a number of other shortcut commands for getting at the history.
 >
-> - `Ctrl-R` enters a history search mode "reverse-i-search" and finds the 
+> - `Ctrl-R` enters a history search mode "reverse-i-search" and finds the
 > most recent command in your history that matches the text you enter next.
 > Press `Ctrl-R` one or more additional times to search for earlier matches.
-> - `!!` retrieves the immediately preceding command 
+> - `!!` retrieves the immediately preceding command
 > (you may or may not find this more convenient than using the up-arrow)
 > - `!$` retrieves the last word of the last command.
 > That's useful more often than you might expect: after
@@ -640,7 +644,7 @@ so she decides to get some coffee and catch up on her reading.
 > A loop is a way to do many things at once --- or to make many mistakes at
 > once if it does the wrong thing. One way to check what a loop *would* do
 > is to `echo` the commands it would run instead of actually running them.
-> 
+>
 > Suppose we want to preview the commands the following loop will execute
 > without actually running those commands:
 >
@@ -681,8 +685,8 @@ so she decides to get some coffee and catch up on her reading.
 > > The first version redirects the output from the command `echo analyze $file` to
 > > a file, `analyzed-$file`. A series of files is generated: `analyzed-cubane.pdb`,
 > > `analyzed-ethane.pdb` etc.
-> > 
-> > Try both versions for yourself to see the output! Be sure to open the 
+> >
+> > Try both versions for yourself to see the output! Be sure to open the
 > > `analyzed-*.pdb` files to view their contents.
 > {: .solution}
 {: .challenge}
