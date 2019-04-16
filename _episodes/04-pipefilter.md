@@ -728,12 +728,11 @@ so this matches all the valid data files she has.
 >     where the original one would not?
 >
 > > ## Solution
-> > 1.
-> >
-> > 	```
+> > 1. 
+> > 	~~~
 > > 	$ ls *A.txt
 > > 	$ ls *B.txt
-> > 	```
+> > 	~~~
 > >	{: .language-bash}
 > > 2. The output from the new commands is separated because there are two commands.
 > > 3. When there are no files ending in `A.txt`, or there are no files ending in
