@@ -319,7 +319,7 @@ the output of `head` must be the file with the fewest lines.
 > 4. The second and third lines of `animals.txt`
 >
 > > ## Solution
-> > Option 3 is correct. 
+> > Option 3 is correct.
 > > For option 1 to be correct we would only run the `head` command.
 > > For option 2 to be correct we would only run the `tail` command.
 > > For option 4 to be correct we would have to pipe the output of `head` into `tail -n 2` by doing `head -n 3 animals.txt | tail -n 2 > animals-subset.txt`
@@ -417,8 +417,8 @@ most Unix programmers call it "stdin").
 Every process also has a default output channel called **standard output**
 (or "stdout"). A second output channel called **standard error** (stderr) also
 exists. This channel is typically used for error or diagnostic messages, and it
-allows a user to pipe the output of one program into another while still receiving 
-error messages in the terminal. 
+allows a user to pipe the output of one program into another while still receiving
+error messages in the terminal.
 
 The shell is actually just another program.
 Under normal circumstances,
@@ -470,64 +470,6 @@ can be combined with every other program that behaves this way as well.
 You can *and should* write your programs this way
 so that you and other people can put those programs into pipes to multiply their power.
 
-> ## Redirecting Input
->
-> As well as using `>` to redirect a program's output, we can use `<` to
-> redirect its input, i.e., to read from a file instead of from standard
-> input. For example, instead of writing `wc ammonia.pdb`, we could write
-> `wc < ammonia.pdb`. In the first case, `wc` gets a command line
-> argument telling it what file to open. In the second, `wc` doesn't have
-> any command line arguments, so it reads from standard input, but we
-> have told the shell to send the contents of `ammonia.pdb` to `wc`'s
-> standard input.
-{: .callout}
-
-> ## What Does `<` Mean?
->
-> Change directory to `data-shell` (the top level of our downloaded example data).
->
-> What is the difference between:
->
-> ~~~
-> $ wc -l notes.txt
-> ~~~
-> {: .language-bash}
->
-> and:
->
-> ~~~
-> $ wc -l < notes.txt
-> ~~~
-> {: .language-bash}
->
-> > ## Solution
-> > `<` is used to redirect input to a command. 
-> >
-> > In both examples, the shell returns the number of lines from the input to
-> > the `wc` command.
-> > In the first example, the input is the file `notes.txt` and the file name is
-> > given in the output from the `wc` command.
-> > In the second example, the contents of the file `notes.txt` are redirected to
-> > standard input.
-> > It is as if we have entered the contents of the file by typing at the prompt.
-> > Hence the file name is not given in the output - just the number of lines.
-> > Try this for yourself:
-> >
-> > ```
-> > $ wc -l
-> > this
-> > is
-> > a test
-> > Ctrl-D # This lets the shell know you have finished typing the input
-> > ```
-> > {: .language-bash}
-> >
-> > ```
-> > 3
-> > ```
-> > {: .output}
-> {: .solution}
-{: .challenge}
 
 > ## Why Does `uniq` Only Remove Adjacent Duplicates?
 >
@@ -613,7 +555,7 @@ so that you and other people can put those programs into pipes to multiply their
 > $ cut -d , -f 2 animals.txt
 > ~~~
 > {: .language-bash}
-> 
+>
 > uses the `-d` flag to split each line by comma, and the `-f` flag
 > to print the second field in each line, to give the following output:
 >
@@ -768,7 +710,7 @@ so this matches all the valid data files she has.
 >
 > Wildcard expressions can be very complex, but you can sometimes write
 > them in ways that only use simple syntax, at the expense of being a bit
-> more verbose.  
+> more verbose.
 > Consider the directory `data-shell/north-pacific-gyre/2012-07-03` :
 > the wildcard expression `*[AB].txt`
 > matches all files ending in `A.txt` or `B.txt`. Imagine you forgot about
@@ -786,13 +728,12 @@ so this matches all the valid data files she has.
 >     where the original one would not?
 >
 > > ## Solution
-> > 1. 
-> >
-> > 	```
-> > 	$ ls *A.txt
-> > 	$ ls *B.txt
-> > 	```
-> >	{: .language-bash}
+> > 1. A solution using two wildcard expressions:
+> >     ~~~
+> >     $ ls *A.txt
+> >     $ ls *B.txt
+> >     ~~~
+> >     {: .language-bash}
 > > 2. The output from the new commands is separated because there are two commands.
 > > 3. When there are no files ending in `A.txt`, or there are no files ending in
 > > `B.txt`.
