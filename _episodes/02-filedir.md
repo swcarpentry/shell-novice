@@ -682,7 +682,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 
 > ## Absolute vs Relative Paths
 >
-> Starting from `/Users/amanda/data/`,
+> Starting from `/Users/amanda/data`,
 > which of the following commands could Amanda use to navigate to her home directory,
 > which is `/Users/amanda`?
 >
@@ -732,27 +732,27 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 
 > ## `ls` Reading Comprehension
 >
-> Assuming a directory structure as in the above Figure
-> (File System for Challenge Questions), if `pwd` displays `/Users/backup`,
+> Using the filesystem diagram below,
+> if `pwd` displays `/Users/backup`,
 > and `-r` tells `ls` to display things in reverse order,
-> what command will result in the following output:
+> what command(s) will result in the following output:
 >
 > ~~~
 > pnas_sub/ pnas_final/ original/
 > ~~~
 > {: .output}
 >
+> ![File System for Challenge Questions](../fig/filesystem-challenge.svg)
+>
 > 1.  `ls pwd`
 > 2.  `ls -r -F`
 > 3.  `ls -r -F /Users/backup`
-> 4.  Either #2 or #3 above, but not #1.
 >
 > > ## Solution
 > >  1. No: `pwd` is not the name of a directory.
 > >  2. Yes: `ls` without directory argument lists files and directories
 > >     in the current directory.
 > >  3. Yes: uses the absolute path explicitly.
-> >  4. Correct: see explanations above.
 > {: .solution}
 {: .challenge}
 
