@@ -347,10 +347,10 @@ of how to use it.
 
 To navigate through the `man` pages,
 you may use <kbd>↑</kbd> and <kbd>↓</kbd> to move line-by-line,
-or try <kbd>B</kbd> and <kbd>Spacebar</kbd> to skip up and down by a full page.
+or try <kbd>b</kbd> and <kbd>Spacebar</kbd> to skip up and down by a full page.
 To search for a character or word in the `man` pages, 
 use <kbd>/</kbd> followed by the character or word you are searching for. 
-Sometimes a search will result in multiple hits.  If so, you can move between hits using <kbd>N</kbd> (for moving forward) and <kbd>Shift</kbd>+<kbd>N</kbd> (for moving backward).
+Sometimes a search will result in multiple hits.  If so, you can move between hits using <kbd>n</kbd> (for moving forward) and <kbd>Shift</kbd>+<kbd>n</kbd> (for moving backward).
 
 To **quit** the `man` pages, press <kbd>Q</kbd>. 
 
