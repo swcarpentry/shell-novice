@@ -342,7 +342,7 @@ class CheckBase:
                 n > MAX_LINE_LEN) and (not l.startswith('!'))]
             self.reporter.check(not over,
                                 self.filename,
-                                'Line(s) are too long: {0}',
+                                'Line(s) too long: {0}',
                                 ', '.join([str(i) for i in over]))
 
     def check_trailing_whitespace(self):
