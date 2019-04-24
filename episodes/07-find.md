@@ -56,7 +56,7 @@ Software is like that.
 > ## Forever, or Five Years
 >
 > We haven't linked to the original haikus because they don't appear to be on *Salon*'s site any longer.
-> As [Jeff Rothenberg said](http://webcache.googleusercontent.com/search?q=cache:L8Qc7a8pP8YJ:www.clir.org/pubs/archives/ensuring.pdf+&cd=1&hl=en&ct=clnk&gl=us),
+> As [Jeff Rothenberg said](https://www.clir.org/wp-content/uploads/sites/6/ensuring.pdf),
 > "Digital information lasts forever --- or five years, whichever comes first."
 > Luckily, popular content often [has backups](http://wiki.c2.com/?ComputerErrorHaiku).
 {: .callout}
