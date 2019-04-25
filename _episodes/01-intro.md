@@ -15,8 +15,10 @@ keypoints:
 - "Demonstrate the use of tab completion and explain its advantages."
 keypoints:
 - "A shell is a program whose primary purpose is to read commands and run other programs."
-- "The shell's main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and its capacity to access networked machines."
-- "The shell's main disadvantages are its primarily textual nature and how cryptic its commands and operation can be."
+- "The shell's main advantages are its high action-to-keystroke ratio, its support for 
+automating repetitive tasks, and its capacity to access networked machines."
+- "The shell's main disadvantages are its primarily textual nature and how 
+cryptic its commands and operation can be."
 ---
 ### Background
 At a high level, computers do four things:
@@ -32,10 +34,19 @@ including through a keyboard and mouse, touch screen interfaces, or using speech
 While touch and voice interfaces are becoming more commonplace, most interaction is still
 done using traditional screens, mice, touchpads and keyboards.
 
-The **graphical user interface** (GUI) is the most widely used way to interact with personal computers. We give instructions (to run a program, to copy a file, to create a new folder/directory) with the convenience of a few mouse clicks. This way of interacting with a computer is intuitive and very easy to learn. But this way of giving instructions to a computer scales very poorly if we are to give a large stream of instructions even if they are similar or identical. For example if we have to copy the third line of each of a thousand text files stored in thousand different folders/directories and paste it into a single file line by line. Using the tradition GUI approach of clicks will take several hours to do this.  
+The **graphical user interface** (GUI) is the most widely used way to interact with 
+personal computers. We give instructions (to run a program, to copy a file, to create 
+a new folder/directory) with the convenience of a few mouse clicks. This way of interacting 
+with a computer is intuitive and very easy to learn. But this way of giving instructions to 
+a computer scales very poorly if we are to give a large stream of instructions even if they 
+are similar or identical. For example if we have to copy the third line of each of a thousand 
+text files stored in thousand different folders/directories and paste it into a single file 
+line by line. Using the tradition GUI approach of clicks will take several hours to do this.  
 
 This is where we take advange of the shell - a **command-line interface** 
-to make such repetitive tasks automatic and fast. It can take a single instruction and repeat it over as it is or with some modification as many times as we want. The task in the example above can be accomplished in a few minutes at most. 
+to make such repetitive tasks automatic and fast. It can take a single instruction and 
+repeat it over as it is or with some modification as many times as we want. The task in 
+the example above can be accomplished in a few minutes at most. 
 
 The heart of a command-line interface is a **read-evaluate-print loop** (REPL). It is called
 so because when you type a command and press <kbd>Return</kbd> (also known as <kbd>Enter</kbd>) the shell
@@ -47,7 +58,10 @@ loops back and waits for you to enter another command.
 ### The Shell
 
 
-The Shell is a program which runs other programs rather than doing calculations itself. Those programs can be as complicated as a climate modeling software and as simple as a program that creates a new folder/directory. The simple programs which are used to perform stand alone tasks are usually refered to as commands.  
+The Shell is a program which runs other programs rather than doing calculations itself. 
+Those programs can be as complicated as a climate modeling software and as simple as a 
+program that creates a new folder/directory. The simple programs which are used to perform 
+stand alone tasks are usually refered to as commands.  
 The most popular Unix shell is Bash, (the Bourne Again SHell --- so-called because 
 it's derived from a shell written by Stephen Bourne).
 Bash is the default shell on most modern implementations of Unix
@@ -184,7 +198,8 @@ She has 1520 samples in all and now needs to:
     so that her paper can appear in an upcoming special issue of *Aquatic Goo Letters*.
 
 It takes her about two weeks to run her samples by the assay machine. 
-Now she has the daunting task of analysing her results by running 'goostats'. The bad news is that if she has to run `goostats` by hand using a GUI,
+Now she has the daunting task of analysing her results by running 'goostats'. 
+The bad news is that if she has to run `goostats` by hand using a GUI,
 she'll have to select a file using an open file dialog 1520 times.
 At 30 seconds per sample,
 the whole process will take more than 12 hours
