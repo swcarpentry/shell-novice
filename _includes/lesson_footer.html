@@ -30,10 +30,10 @@
     <div class="col-md-6 help-links" align="right">
 	{% if page.source %}
 	{% if page.source == "Rmd" %}
-	<a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}">Edit on GitHub</a>
+	<a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}" data-checker-ignore>Edit on GitHub</a>
 	{% endif %}
 	{% else %}
-	<a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path}}">Edit on GitHub</a>
+	<a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path}}" data-checker-ignore>Edit on GitHub</a>
 	{% endif %}
 	/
 	<a href="{{ repo_url }}/blob/{{ source_branch }}/CONTRIBUTING.md" data-checker-ignore>Contributing</a>
