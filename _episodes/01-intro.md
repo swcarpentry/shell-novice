@@ -9,8 +9,8 @@ objectives:
 - "Explain when and why command-line interfaces should be used instead of graphical interfaces."
 keypoints:
 - "Explain the steps in the shell's read-run-print cycle."
-- "Most commands take flags (options) which begin with a `-`."
-- "Identify the actual command, flags, and filenames in a command-line call."
+- "Most commands take options (flags) which begin with a `-`."
+- "Identify the actual command, options, and filenames in a command-line call."
 - "Explain the steps in the shell's read-run-print cycle."
 - "Demonstrate the use of tab completion and explain its advantages."
 keypoints:
@@ -89,14 +89,14 @@ when typing commands, either from these lessons or from other sources,
 The part that you type,
 `ls -F /` in the second line of the example,
 typically has the following structure: a **command**,
-some **flags** (also called **options** or **switches**) and an **argument**.
+some **options** (also called **switches** or **flags**) and an **argument**.
 Flags start with a single dash (`-`) or two dashes (`--`), and change the behaviour of a command.
 Arguments tell the command what to operate on (e.g. files and directories).
-Sometimes flags and arguments are referred to as parameters.
-A command can be called with more than one flag and more than one argument: but a
-command doesn't always require an argument or a flag.
+Sometimes options and arguments are referred to as parameters.
+A command can be called with more than one option and more than one argument: but a
+command doesn't always require an argument or an option.
 
-In the second line of the example above, our **command** is `ls`, with a **flag** `-F` and an
+In the second line of the example above, our **command** is `ls`, with an **option** `-F` and an
 **argument** `/`. Each part is separated by spaces: if you omit the space 
 between `ls` and `-F` the shell will look for a command called `ls-F`, which 
 doesn't exist. Also, capitalization matters: `LS` is different from `ls`. 
@@ -116,21 +116,21 @@ you are.
 Open a shell window and try executing `ls -F /` for yourself (don't forget that spaces
 and capitalization are important!). You can change the prompt too, if you like.
 
-### How does the shell know what `ls` and its flags mean?
+### How does the shell know what `ls` and its options mean?
 
 Every command is a program stored somewhere on the computer, and the shell keeps a
 list of places to search for commands (the list is in a **variable** called `PATH`, 
 but those are concepts we'll meet later and are not too important at the moment). Recall
-that commands, flags and arguments are separated by spaces.
+that commands, options and arguments are separated by spaces.
 
 So let's look at the REPL (read-evaluate-print loop) in more detail. Notice that the
 "evaluate" step is made of two parts:
 
 1. Read what was typed (`ls -F /` in our example)  
-    The shell uses the spaces to split the line into the command, flags, and arguments
+    The shell uses the spaces to split the line into the command, options, and arguments
 2. Evaluate:  
     a. Find a program called `ls`  
-    b. Execute it, passing it the flags and arguments (`-F` and `/`) to 
+    b. Execute it, passing it the options and arguments (`-F` and `/`) to 
        interpret as the program sees fit 
 3. Print the output produced by the program
 

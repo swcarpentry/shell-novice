@@ -136,7 +136,7 @@ Desktop      Downloads    Movies       Pictures
 system and how you have customized your filesystem.)
 
 `ls` prints the names of the files and directories in the current directory. 
-We can make its output more comprehensible by using the **flag** `-F`
+We can make its output more comprehensible by using the **option** `-F`
 (also known as a **switch** or an **option**) ,
 which tells `ls` to add a marker to file and directory names to indicate what
 they are. A trailing `/` indicates that this is a directory. Depending on your
@@ -166,10 +166,10 @@ which doesn't exist.
 
 ### Getting help
 
-`ls` has lots of other **flags**. There are two common ways to find out how 
-to use a command and what flags it accepts:
+`ls` has lots of other **options**. There are two common ways to find out how 
+to use a command and what options it accepts:
 
-1. We can pass a `--help` flag to the command, such as:
+1. We can pass a `--help` option to the command, such as:
     ~~~
     $ ls --help
     ~~~
@@ -186,10 +186,10 @@ to use a command and what flags it accepts:
 We'll describe both ways below.
 
 
-#### The `--help` flag
+#### The `--help` option
 
 Many bash commands, and programs that people have written that can be
-run from within bash, support a `--help` flag to display more
+run from within bash, support a `--help` option to display more
 information on how to use the command or program.
 
 ~~~
@@ -369,17 +369,17 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 
 > ## Exploring More `ls` Flags
 >
-> You can also use two flags at the same time. What does the command `ls` do when used 
-> with the `-l` flag? What about if you use both the `-l` and the `-h` flag?
+> You can also use two options at the same time. What does the command `ls` do when used 
+> with the `-l` option? What about if you use both the `-l` and the `-h` option?
 >
 > Some of its output is about properties that we do not cover in this lesson (such
 > as file permissions and ownership), but the rest should be useful
 > nevertheless.
 >
 > > ## Solution
-> > The `-l` flag makes `ls` use a **l**ong listing format, showing not only
+> > The `-l` option makes `ls` use a **l**ong listing format, showing not only
 > > the file/directory names but also additional information such as the file size
-> > and the time of its last modification. If you use both the `-h` flag and the `-l` flag,
+> > and the time of its last modification. If you use both the `-h` option and the `-l` option,
 > > this makes the file size "**h**uman readable", i.e. displaying something like `5.3K` 
 > > instead of `5369`.
 > {: .solution}
@@ -403,7 +403,7 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 We can also use `ls` to see the contents of a different directory.  Let's take a
 look at our `Desktop` directory by running `ls -F Desktop`,
 i.e.,
-the command `ls` with the `-F` **flag** and the **argument**  `Desktop`.
+the command `ls` with the `-F` **option** and the **argument**  `Desktop`.
 The argument `Desktop` tells `ls` that
 we want a listing of something other than our current working directory:
 
@@ -541,7 +541,7 @@ $ pwd
 {: .output}
 
 The special directory `..` doesn't usually show up when we run `ls`.  If we want
-to display it, we can give `ls` the `-a` flag:
+to display it, we can give `ls` the `-a` option:
 
 ~~~
 $ ls -F -a
@@ -563,8 +563,8 @@ which means "the current working directory".
 It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
 
-Note that in most command line tools, multiple flags can be combined 
-with a single `-` and no spaces between the flags: `ls -F -a` is 
+Note that in most command line tools, multiple options can be combined 
+with a single `-` and no spaces between the options: `ls -F -a` is 
 equivalent to `ls -Fa`.
 
 > ## Other Hidden Files
