@@ -295,7 +295,7 @@ quotes.txt
 
 One has to be careful when specifying the target file name, since `mv` will
 silently overwrite any existing file with the same name, which could
-lead to data loss. An additional flag, `mv -i` (or `mv --interactive`),
+lead to data loss. An additional option, `mv -i` (or `mv --interactive`),
 can be used to make `mv` ask you for confirmation before overwriting.
 
 Note that `mv` also works on directories.
@@ -387,7 +387,7 @@ quotes.txt   thesis/quotations.txt
 {: .output}
 
 We can also copy a directory and all its contents by using the
-[recursive](https://en.wikipedia.org/wiki/Recursion) flag `-r`,
+[recursive](https://en.wikipedia.org/wiki/Recursion) option `-r`,
 e.g. to back up a directory:
 
 ```
@@ -530,9 +530,9 @@ ls: cannot access 'quotes.txt': No such file or directory
 > > $ rm: remove regular file 'thesis_backup/quotations.txt'? y
 > > ```
 > > {: .language-bash}
-> > The `-i` flag will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion or <kbd>N</kbd> to keep the file).
+> > The `-i` option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion or <kbd>N</kbd> to keep the file).
 > > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
-> > By using the `-i` flag, we have the chance to check that we are deleting only the files that we want to remove.
+> > By using the `-i` option, we have the chance to check that we are deleting only the files that we want to remove.
 > {: .solution}
 {: .challenge}
 
@@ -553,7 +553,7 @@ rm: cannot remove `thesis': Is a directory
 This happens because `rm` by default only works on files, not directories.
 
 `rm` can remove a directory *and all its contents* if we use the 
-recursive flag `-r`, and it will do so *without any confirmation prompts*:
+recursive option `-r`, and it will do so *without any confirmation prompts*:
 
 ~~~
 $ rm -r thesis
@@ -561,7 +561,7 @@ $ rm -r thesis
 {: .language-bash}
 
 Given that there is no way to retrieve files deleted using the shell,
-`rm -r` *should be used with great caution* (you might consider adding the interactive flag `rm -r -i`).
+`rm -r` *should be used with great caution* (you might consider adding the interactive option `rm -r -i`).
 
 ## Operations with multiple files and directories
 
