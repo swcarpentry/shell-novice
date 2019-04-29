@@ -192,11 +192,11 @@ Now let's use the `sort` command to sort its contents.
 > Explain why `-n` has this effect.
 >
 > > ## Solution
-> > The `-n` flag specifies a numerical rather than an alphanumerical sort.
+> > The `-n` option specifies a numerical rather than an alphanumerical sort.
 > {: .solution}
 {: .challenge}
 
-We will also use the `-n` flag to specify that the sort is
+We will also use the `-n` option to specify that the sort is
 numerical instead of alphanumerical.
 This does *not* change the file;
 instead, it sends the sorted result to the screen:
@@ -556,7 +556,7 @@ so that you and other people can put those programs into pipes to multiply their
 > ~~~
 > {: .language-bash}
 >
-> uses the `-d` flag to split each line by comma, and the `-f` flag
+> uses the `-d` option to split each line by comma, and the `-f` option
 > to print the second field in each line, to give the following output:
 >
 > ~~~

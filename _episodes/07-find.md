@@ -13,7 +13,7 @@ objectives:
 keypoints:
 - "`find` finds files with specific properties that match patterns."
 - "`grep` selects lines in files that match patterns."
-- "`--help` is a flag supported by many bash commands, and programs that can be run from within Bash, to display more information on how to use these commands or programs."
+- "`--help` is an option supported by many bash commands, and programs that can be run from within Bash, to display more information on how to use these commands or programs."
 - "`man command` displays the manual page for a given command."
 - "`$(command)` inserts a command's output in place."
 ---
@@ -98,7 +98,7 @@ This time, two lines that include the letters "The" are outputted,
 one of which contained our search pattern within a larger word, "Thesis".
 
 To restrict matches to lines containing the word "The" on its own,
-we can give `grep` with the `-w` flag.
+we can give `grep` with the `-w` option.
 This will limit matches to word boundaries.
 
 Later in this lesson, we will also see how we can change the search behavior of grep with respect to its case sensitivity.
@@ -246,7 +246,7 @@ Miscellaneous:
 > 4. `grep -i "of" haiku.txt`
 >
 > > ## Solution
-> > The correct answer is 3, because the `-w` flag looks only for whole-word matches.
+> > The correct answer is 3, because the `-w` option looks only for whole-word matches.
 > > The other options will also match "of" when part of another word.
 > {: .solution}
 {: .challenge}
@@ -273,7 +273,7 @@ Miscellaneous:
 > ~~~
 > {: .output}
 >
-> We use the `-E` flag and put the pattern in quotes to prevent the shell
+> We use the `-E` option and put the pattern in quotes to prevent the shell
 > from trying to interpret it. (If the pattern contained a `*`, for
 > example, the shell would try to expand it before running `grep`.) The
 > `^` in the pattern anchors the match to the start of the line. The `.`
@@ -582,7 +582,7 @@ $ grep "FE" $(find .. -name '*.pdb')
 
 > ## Matching and Subtracting
 >
-> The `-v` flag to `grep` inverts pattern matching, so that only lines
+> The `-v` option to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
 > the following commands will find all files in `/data` whose names
 > end in `s.txt` (e.g., `animals.txt` or `planets.txt`), but do
