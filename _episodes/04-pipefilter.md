@@ -235,8 +235,8 @@ $ head -n 1 sorted-lengths.txt
 {: .output}
 
 Using `-n 1` with `head` tells it that
-we only want the first line of the file;
-`-n 20` would get the first 20,
+we only want the first line of the file (`head -1` may also be used to show the first line of a file);
+`-n 20` (or `-20`) would get the first 20,
 and so on.
 Since `sorted-lengths.txt` contains the lengths of our files ordered from least to greatest,
 the output of `head` must be the file with the fewest lines.
