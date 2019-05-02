@@ -49,14 +49,14 @@ and we can apply this to our example like this:
 ```
 $ for filename in basilisk.dat unicorn.dat
 > do
->    head -n 2 $filename | tail -1
+>    head -n 2 $filename | tail -n 1
 > done
 ```
 {: .language-bash}
 
 ```
-COMMON NAME: basilisk
-COMMON NAME: unicorn
+CLASSIFICATION: basiliscus vulgaris
+CLASSIFICATION: equus monoceros
 ```
 {: .output}
 
