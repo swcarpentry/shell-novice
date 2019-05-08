@@ -87,6 +87,27 @@ $ wc -l *.pdb
 ~~~
 {: .output}
 
+> ## Why Isn't It Doing Anything?
+>
+> What happens if a command is supposed to process a file, but we
+> don't give it a filename? For example, what if we type:
+>
+> ~~~
+> $ wc -l
+> ~~~
+> {: .language-bash}
+>
+> but don't type `*.pdb` (or anything else) after the command? 
+> Since it doesn't have any filenames, `wc` assumes it is supposed to
+> process standard input, so it just sits there and waits for us to give
+> it some data interactively. From the outside, though, all we see is it
+> sitting there: the command doesn't appear to do anything.
+>
+> If you make this kind of mistake, you can escape out of this state by holding down 
+> the control key (CTRL) and typing the letter 'c' once and letting go of the CTRL key.
+> CTRL + c
+{: .callout}
+
 We can also use `-w` to get only the number of words,
 or `-c` to get only the number of characters.
 
