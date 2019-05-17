@@ -136,13 +136,14 @@ Desktop      Downloads    Movies       Pictures
 system and how you have customized your filesystem.)
 
 `ls` prints the names of the files and directories in the current directory. 
-We can make its output more comprehensible by using the **option** `-F`
-(also known as a **switch** or an **option**) ,
+We can make its output more comprehensible by using the classify **option** `-F`
+(also known as a **switch** or a **flag**) ,
 which tells `ls` to add a marker to file and directory names to indicate what
-they are. A trailing `/` indicates that this is a directory. Depending on your
-settings, it might also use colors to indicate whether each entry is a file or 
+they are. A trailing `/` indicates that this is a directory, `@` indicates a link,
+and `*` indicates an executable.
+Depending on your default options,
+the shell might also use colors to indicate whether each entry is a file or 
 directory.
-You might recall that we used `ls -F` in an earlier example.
 
 ~~~
 $ ls -F
@@ -157,12 +158,44 @@ Desktop/      Downloads/    Movies/       Pictures/
 
 Here,
 we can see that our home directory contains mostly **sub-directories**.
-Any names in your output that don't have trailing slashes,
+Any names in your output that don't have a classification symbol,
 are plain old **files**.
-And note that there is a space between `ls` and `-F`:
-without it,
-the shell thinks we're trying to run a command called `ls-F`,
-which doesn't exist.
+
+
+## General syntax of a shell command
+Consider the command below as a general example of a command,
+which we will dissect into its component parts:
+
+~~~
+$ ls -F /
+~~~
+{: .language-bash}
+
+
+`ls` is the **command**, with an **option** `-F` and an
+**argument** `/`. 
+We've already encountered options (also called **switches** or **flags**) which
+either start with a single dash (`-`) or two dashes (`--`), and they change the behaviour of a command.
+Arguments tell the command what to operate on (e.g. files and directories).
+Sometimes options and arguments are referred to as **parameters**.
+A command can be called with more than one option and more than one argument: but a
+command doesn't always require an argument or an option.
+
+Each part is separated by spaces: if you omit the space
+between `ls` and `-F` the shell will look for a command called `ls-F`, which
+doesn't exist. Also, capitalization can be important: `ls -r` is different to `ls -R`.
+
+Putting all that together, our command above gives us a listing
+of files and directories in the root directory `/`.
+An example of the output you might get from the above command is given below:
+
+~~~
+$ ls -F /
+Applications/         System/
+Library/              Users/
+Network/              Volumes/
+~~~
+{: .output}
 
 ### Getting help
 
