@@ -40,12 +40,12 @@ a new folder/directory) with the convenience of a few mouse clicks. This way of 
 with a computer is intuitive and very easy to learn. But this way of giving instructions to
 a computer scales very poorly if we are to give a large stream of instructions even if they
 are similar or identical. For example if we have to copy the third line of each of a thousand
-text files stored in thousand different folders/directories and paste it into a single file
+text files stored in thousand different directories and paste it into a single file
 line by line. Using the tradition GUI approach of clicks will take several hours to do this.
 
 This is where we take advange of the shell - a **command-line interface**
 to make such repetitive tasks automatic and fast. It can take a single instruction and
-repeat it over as it is or with some modification as many times as we want. The task in
+repeat it as it is or with some modification as many times as we want. The task in
 the example above can be accomplished in a few minutes at most.
 
 The heart of a command-line interface is a **read-evaluate-print loop** (REPL). It is called
@@ -59,98 +59,61 @@ loops back and waits for you to enter another command.
 
 
 The Shell is a program which runs other programs rather than doing calculations itself.
-Those programs can be as complicated as a climate modeling software and as simple as a
-program that creates a new folder/directory. The simple programs which are used to perform
+Those programs can be as complicated as climate modeling software and as simple as a
+program that creates a new directory. The simple programs which are used to perform
 stand alone tasks are usually refered to as commands.
 The most popular Unix shell is Bash, (the Bourne Again SHell --- so-called because
 it's derived from a shell written by Stephen Bourne).
 Bash is the default shell on most modern implementations of Unix
 and in most packages that provide Unix-like tools for Windows.
 
-### What does it look like?
 
-A typical shell window looks something like:
-
-~~~
-bash-3.2$
-bash-3.2$ ls -F /
-Applications/         System/
-Library/              Users/
-Network/              Volumes/
-bash-3.2$
-~~~
-
-The first line shows only a **prompt**,
+When the shell is first opened, you are presented with a **prompt**,
 indicating that the shell is waiting for input.
-Your shell may use different text for the prompt. Most importantly:
+
+~~~
+$
+~~~
+{: .language-bash}
+
+The shell typically uses `$ ` as the prompt, but may use a different symbol.
+Most importantly:
 when typing commands, either from these lessons or from other sources,
 *do not type the prompt*, only the commands that follow it.
-
-The part that you type,
-`ls -F /` in the second line of the example,
-typically has the following structure: a **command**,
-some **options** (also called **switches** or **flags**) and an **argument**.
-Flags start with a single dash (`-`) or two dashes (`--`), and change the behaviour of a command.
-Arguments tell the command what to operate on (e.g. files and directories).
-Sometimes options and arguments are referred to as **parameters**.
-A command can be called with more than one option and more than one argument: but a
-command doesn't always require an argument or an option.
-
-In the second line of the example above, our **command** is `ls`, with an **option** `-F` and an
-**argument** `/`. Each part is separated by spaces: if you omit the space
-between `ls` and `-F` the shell will look for a command called `ls-F`, which
-doesn't exist. Also, capitalization matters: `LS` is different from `ls`.
-
-Next we see the output that our command produced. In this case it is a listing
-of files and folders in a location called `/` - we'll cover what all these mean
-later today. Those using a macOS might recognize the output in this example.
-
-Finally, the shell again prints the prompt and waits for you to type the next
-command.
 
 In the examples for this lesson, we'll show the prompt as `$ `. You can make your
 prompt look the same by executing the command `PS1='$ '`. But you can also leave
 your prompt as it is - often the prompt includes useful information about who and where
 you are.
 
-Open a shell window and try executing `ls -F /` for yourself (don't forget that spaces
-and capitalization are important!). You can change the prompt too, if you like.
+So let's try our first command, which will list the contents of the current directory
+(assuming that our current directory contains some files or subdirectories):
 
-### How does the shell know what `ls` and its options mean?
+~~~
+$ ls
+~~~
+{: .language-bash}
 
-Every command is a program stored somewhere on the computer, and the shell keeps a
-list of places to search for commands (the list is in a **variable** called `PATH`,
-but those are concepts we'll meet later and are not too important at the moment). Recall
-that commands, options and arguments are separated by spaces.
-
-So let's look at the REPL (read-evaluate-print loop) in more detail. Notice that the
-"evaluate" step is made of two parts:
-
-1. Read what was typed (`ls -F /` in our example)
-    The shell uses the spaces to split the line into the command, options, and arguments
-2. Evaluate:
-    a. Find a program called `ls`
-    b. Execute it, passing it the options and arguments (`-F` and `/`) to
-       interpret as the program sees fit
-3. Print the output produced by the program
-
-and then print the prompt and wait for you to enter another command.
+~~~
+Desktop     Downloads   Movies      Pictures
+Documents   Library     Music       Public
+~~~
+{: .output}
 
 > ## Command not found
 > If the shell can't find a program whose name is the command you typed, it
-> will print an error message like:
+> will print an error message such as:
 >
 > ~~~
-> $ ls-F
+> $ ks
 > ~~~
 > {: .language-bash}
 > ~~~
-> -bash: ls-F: command not found
+> ks: command not found
 > ~~~
 > {: .output}
 >
-> Usually this means that you have mis-typed the command - in this case we omitted
-> the space between `ls` and `-F`.
+> Usually this means that you have mis-typed the command.
 {: .callout}
 
 ### Is it difficult?
