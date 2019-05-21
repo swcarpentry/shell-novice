@@ -86,11 +86,12 @@ and run the `head` command.
 The first time through the loop,
 `$filename` is `basilisk.dat`.
 The interpreter runs the command `head` on `basilisk.dat`,
-and then prints the
-first three lines of `basilisk.dat`.
+pipes the first two lines to the `tail` command, 
+and then prints the second line of `basilisk.dat`.
 For the second iteration, `$filename` becomes
 `unicorn.dat`. This time, the shell runs `head` on `unicorn.dat`
-and prints the first three lines of `unicorn.dat`.
+pipes the first two lines to the `tail` command, 
+and then prints the second line of `unicorn.dat`.
 Since the list was only two items, the shell exits the `for` loop.
 
 > ## Same Symbols, Different Meanings
