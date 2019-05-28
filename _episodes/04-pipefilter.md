@@ -556,7 +556,7 @@ so that you and other people can put those programs into pipes to multiply their
 > ~~~
 > {: .language-bash}
 >
-> The `cut` command is used to remove or "cut out" certain sections of each line in the file. The optional `-d` flag is used to define the delimiter. The default delimiter is tab. The `-f` flag is used to specify the field to cut out.
+> The `cut` command is used to remove or "cut out" certain sections of each line in the file. The optional `-d` flag is used to define the delimiter. The default delimiter is <kbd>Tab</kbd>. The `-f` flag is used to specify the field (column) to cut out.
 > The command above uses the `-d` option to split each line by comma, and the `-f` option
 > to print the second field in each line, to give the following output:
 >
