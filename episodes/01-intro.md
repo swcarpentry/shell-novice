@@ -77,14 +77,10 @@ $
 {: .language-bash}
 
 The shell typically uses `$ ` as the prompt, but may use a different symbol.
+In the examples for this lesson, we'll show the prompt as `$ `.
 Most importantly:
 when typing commands, either from these lessons or from other sources,
 *do not type the prompt*, only the commands that follow it.
-
-In the examples for this lesson, we'll show the prompt as `$ `. You can make your
-prompt look the same by executing the command `PS1='$ '`. But you can also leave
-your prompt as it is - often the prompt includes useful information about who and where
-you are.
 
 So let's try our first command, which will list the contents of the current directory
 (assuming that our current directory contains some files or subdirectories):
