@@ -104,8 +104,8 @@ $ wc -l *.pdb
 > sitting there: the command doesn't appear to do anything.
 >
 > If you make this kind of mistake, you can escape out of this state by holding down 
-> the control key (CTRL) and typing the letter 'c' once and letting go of the CTRL key.
-> CTRL + c
+> the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and letting go of the <kbd>Ctrl</kbd> key.
+> <kbd>Ctrl</kbd>+<kbd>C</kbd>
 {: .callout}
 
 We can also use `-w` to get only the number of words,
