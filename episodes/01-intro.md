@@ -45,7 +45,7 @@ line by line. Using the tradition GUI approach of clicks will take several hours
 
 This is where we take advange of the shell - a **command-line interface**
 to make such repetitive tasks automatic and fast. It can take a single instruction and
-repeat it as it is or with some modification as many times as we want. The task in
+repeat it as is or with some modification as many times as we want. The task in
 the example above can be accomplished in a few minutes at most.
 
 The heart of a command-line interface is a **read-evaluate-print loop** (REPL). It is called
