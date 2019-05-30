@@ -312,30 +312,6 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > {: .solution}
 {: .challenge}
 
-> ## Why Isn't It Doing Anything?
->
-> What happens if a script is supposed to process a bunch of files, but we
-> don't give it any filenames? For example, what if we type:
->
-> ~~~
-> $ bash sorted.sh
-> ~~~
-> {: .language-bash}
->
-> but don't say `*.dat` (or anything else)? In this case, `$@` expands to
-> nothing at all, so the pipeline inside the script is effectively:
->
-> ~~~
-> $ wc -l | sort -n
-> ~~~
-> {: .language-bash}
->
-> Since it doesn't have any filenames, `wc` assumes it is supposed to
-> process standard input, so it just sits there and waits for us to give
-> it some data interactively. From the outside, though, all we see is it
-> sitting there: the script doesn't appear to do anything.
-{: .callout}
-
 
 Suppose we have just run a series of commands that did something useful --- for example,
 that created a graph we'd like to use in a paper.
