@@ -57,7 +57,10 @@ In the lesson, you will find out how to access the data in this folder.
 > using the Windows 10 command-line tool, or installing and using a Unix/Linux emulator.
 >
 > #### Reference
-> * [Git for Windows](https://git-for-windows.github.io/)
+> * [Git for Windows](https://git-for-windows.github.io/) - *Recommended*
+>
+> ### For advanced users, you may choose one of the following alternatives: 
 > * [Install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 > * [Using a Unix/Linux emulator (Cygwin) or Secure Shell (SSH) client (Putty)](http://faculty.smu.edu/reynolds/unixtut/windows.html)
 {: .callout}
+>   *Please note that commands in the Windows Subsystem for Linux (WSL) or Cygwin may differ slightly from those shown in the lesson or presented in the workshop. 
