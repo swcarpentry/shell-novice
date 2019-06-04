@@ -268,6 +268,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 30 octane.pdb
 163 ../creatures/basilisk.dat
 163 ../creatures/unicorn.dat
+433 total
 ~~~
 {: .output}
 
