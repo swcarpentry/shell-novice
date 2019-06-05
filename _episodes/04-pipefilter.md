@@ -492,43 +492,6 @@ You can *and should* write your programs this way
 so that you and other people can put those programs into pipes to multiply their power.
 
 
-> ## Why Does `uniq` Only Remove Adjacent Duplicates?
->
-> The command `uniq` removes adjacent duplicated lines from its input.
-> For example, the file `data-shell/data/salmon.txt` contains:
->
-> ~~~
-> coho
-> coho
-> steelhead
-> coho
-> steelhead
-> steelhead
-> ~~~
-> {: .source}
->
-> Running the command `uniq salmon.txt` from the `data-shell/data` directory produces:
->
-> ~~~
-> coho
-> steelhead
-> coho
-> steelhead
-> ~~~
-> {: .output}
->
-> Why do you think `uniq` only removes *adjacent* duplicated lines?
-> (Hint: think about very large data sets.) What other command could
-> you combine with it in a pipe to remove all duplicated lines?
->
-> > ## Solution
-> > ```
-> > $ sort salmon.txt | uniq
-> > ```
-> > {: .language-bash}
-> {: .solution}
-{: .challenge}
-
 > ## Pipe Reading Comprehension
 >
 > A file called `animals.txt` (in the `data-shell/data` folder) contains the following data:
