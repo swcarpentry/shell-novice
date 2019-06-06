@@ -99,7 +99,7 @@ $ wc -l *.pdb
 >
 > but don't type `*.pdb` (or anything else) after the command?
 > Since it doesn't have any filenames, `wc` assumes it is supposed to
-> process standard input, so it just sits there and waits for us to give
+> process input given at the command prompt, so it just sits there and waits for us to give
 > it some data interactively. From the outside, though, all we see is it
 > sitting there: the command doesn't appear to do anything.
 >
@@ -423,8 +423,8 @@ The redirection and pipes used in the last few commands are illustrated below:
 >
 > > ## Solution
 > > Option 4 is the solution.
-> > The pipe character `|` is used to feed the standard output from one process to
-> > the standard input of another.
+> > The pipe character `|` is used to connect the output from one command to
+> > the input of another.
 > > `>` is used to redirect standard output to a file.
 > > Try it in the `data-shell/molecules` directory!
 > {: .solution}
