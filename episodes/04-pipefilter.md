@@ -618,19 +618,19 @@ so that you and other people can put those programs into pipes to multiply their
 > ~~~
 > {: .output}
 >
-> Assuming your current directory is `data-shell/data/`,
-> what command would you use to produce a table that shows
-> the total count of each type of animal in the file?
+> The `uniq` command has a `-c` option which gives a count of the
+> number of times a line occurs in its input.  Assuming your current
+> directory is `data-shell/data/`, what command would you use to produce
+> a table that shows the total count of each type of animal in the file?
 >
-> 1.  `grep {deer, rabbit, raccoon, deer, fox, bear} animals.txt | wc -l`
-> 2.  `sort animals.txt | uniq -c`
-> 3.  `sort -t, -k2,2 animals.txt | uniq -c`
-> 4.  `cut -d, -f 2 animals.txt | uniq -c`
-> 5.  `cut -d, -f 2 animals.txt | sort | uniq -c`
-> 6.  `cut -d, -f 2 animals.txt | sort | uniq -c | wc -l`
+> 1.  `sort animals.txt | uniq -c`
+> 2.  `sort -t, -k2,2 animals.txt | uniq -c`
+> 3.  `cut -d, -f 2 animals.txt | uniq -c`
+> 4.  `cut -d, -f 2 animals.txt | sort | uniq -c`
+> 5.  `cut -d, -f 2 animals.txt | sort | uniq -c | wc -l`
 >
 > > ## Solution
-> > Option 5. is the correct answer.
+> > Option 4. is the correct answer.
 > > If you have difficulty understanding why, try running the commands, or sub-sections of
 > > the pipelines (make sure you are in the `data-shell/data` directory).
 > {: .solution}
