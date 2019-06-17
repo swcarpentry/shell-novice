@@ -4,7 +4,7 @@
 # Settings
 MAKEFILES=Makefile $(wildcard *.mk)
 JEKYLL=jekyll
-JEKYLL_VERSION=3.7.3
+JEKYLL_VERSION=3.8.5
 PARSER=bin/markdown_ast.rb
 DST=_site
 
