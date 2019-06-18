@@ -1476,7 +1476,7 @@ abbr[data-original-title] {
 blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
-  font-size: 17.5px;
+  font-size: inherit;
   border-left: 5px solid #eeeeee;
 }
 blockquote p:last-child,
@@ -1608,8 +1608,8 @@ pre code {
   margin-left: auto;
 }
 .row {
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: -10px;
+  margin-left: -10px;
 }
 .row-no-gutters {
   margin-right: 0;
