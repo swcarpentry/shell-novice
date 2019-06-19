@@ -41,7 +41,7 @@ with a computer is intuitive and very easy to learn. But this way of giving inst
 a computer scales very poorly if we are to give a large stream of instructions even if they
 are similar or identical. For example if we have to copy the third line of each of a thousand
 text files stored in thousand different directories and paste it into a single file
-line by line. Using the tradition GUI approach of clicks will take several hours to do this.
+line by line. Using the traditional GUI approach of clicks will take several hours to do this.
 
 This is where we take advange of the shell - a **command-line interface**
 to make such repetitive tasks automatic and fast. It can take a single instruction and
