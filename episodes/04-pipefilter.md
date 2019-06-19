@@ -97,13 +97,13 @@ $ wc -l *.pdb
 > ~~~
 > {: .language-bash}
 >
-> but don't type `*.pdb` (or anything else) after the command? 
+> but don't type `*.pdb` (or anything else) after the command?
 > Since it doesn't have any filenames, `wc` assumes it is supposed to
 > process standard input, so it just sits there and waits for us to give
 > it some data interactively. From the outside, though, all we see is it
 > sitting there: the command doesn't appear to do anything.
 >
-> If you make this kind of mistake, you can escape out of this state by holding down 
+> If you make this kind of mistake, you can escape out of this state by holding down
 > the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and letting go of the <kbd>Ctrl</kbd> key.
 > <kbd>Ctrl</kbd>+<kbd>C</kbd>
 {: .callout}
@@ -492,43 +492,6 @@ You can *and should* write your programs this way
 so that you and other people can put those programs into pipes to multiply their power.
 
 
-> ## Why Does `uniq` Only Remove Adjacent Duplicates?
->
-> The command `uniq` removes adjacent duplicated lines from its input.
-> For example, the file `data-shell/data/salmon.txt` contains:
->
-> ~~~
-> coho
-> coho
-> steelhead
-> coho
-> steelhead
-> steelhead
-> ~~~
-> {: .source}
->
-> Running the command `uniq salmon.txt` from the `data-shell/data` directory produces:
->
-> ~~~
-> coho
-> steelhead
-> coho
-> steelhead
-> ~~~
-> {: .output}
->
-> Why do you think `uniq` only removes *adjacent* duplicated lines?
-> (Hint: think about very large data sets.) What other command could
-> you combine with it in a pipe to remove all duplicated lines?
->
-> > ## Solution
-> > ```
-> > $ sort salmon.txt | uniq
-> > ```
-> > {: .language-bash}
-> {: .solution}
-{: .challenge}
-
 > ## Pipe Reading Comprehension
 >
 > A file called `animals.txt` (in the `data-shell/data` folder) contains the following data:
@@ -593,7 +556,8 @@ so that you and other people can put those programs into pipes to multiply their
 > ~~~
 > {: .output}
 >
-> What other command(s) could be added to this in a pipeline to find
+> The `uniq` command filters out adjacent matching lines in a file.
+> How could you extend this pipeline (using `uniq` and another command) to find
 > out what animals the file contains (without any duplicates in their
 > names)?
 >
