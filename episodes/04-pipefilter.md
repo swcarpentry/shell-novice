@@ -99,7 +99,7 @@ $ wc -l *.pdb
 >
 > but don't type `*.pdb` (or anything else) after the command?
 > Since it doesn't have any filenames, `wc` assumes it is supposed to
-> process standard input, so it just sits there and waits for us to give
+> process input given at the command prompt, so it just sits there and waits for us to give
 > it some data interactively. From the outside, though, all we see is it
 > sitting there: the command doesn't appear to do anything.
 >
@@ -367,10 +367,6 @@ The vertical bar, `|`, between the two commands is called a **pipe**.
 It tells the shell that we want to use
 the output of the command on the left
 as the input to the command on the right.
-The computer might create a temporary file if it needs to,
-or copy data from one program to the other in memory,
-or something else entirely;
-we don't have to know or care.
 
 Nothing prevents us from chaining pipes consecutively.
 That is, we can for example send the output of `wc` directly to `sort`,
@@ -410,6 +406,11 @@ and saying "the log of three times *x*".
 In our case,
 the calculation is "head of sort of line count of `*.pdb`".
 
+
+The redirection and pipes used in the last few commands are illustrated below:
+
+![Redirects and Pipes](../fig/redirects-and-pipes.png)
+
 > ## Piping Commands Together
 >
 > In our current directory, we want to find the 3 files which have the least number of
@@ -422,56 +423,15 @@ the calculation is "head of sort of line count of `*.pdb`".
 >
 > > ## Solution
 > > Option 4 is the solution.
-> > The pipe character `|` is used to feed the standard output from one process to
-> > the standard input of another.
+> > The pipe character `|` is used to connect the output from one command to
+> > the input of another.
 > > `>` is used to redirect standard output to a file.
 > > Try it in the `data-shell/molecules` directory!
 > {: .solution}
 {: .challenge}
 
-Here's what actually happens behind the scenes when we create a pipe.
-When a computer runs a program --- any program --- it creates a **process**
-in memory to hold the program's software and its current state.
-Every process has an input channel called **standard input**.
-(By this point, you may be surprised that the name is so memorable, but don't worry:
-most Unix programmers call it "stdin").
-Every process also has a default output channel called **standard output**
-(or "stdout"). A second output channel called **standard error** (stderr) also
-exists. This channel is typically used for error or diagnostic messages, and it
-allows a user to pipe the output of one program into another while still receiving
-error messages in the terminal.
 
-The shell is actually just another program.
-Under normal circumstances,
-whatever we type on the keyboard is sent to the shell on its standard input,
-and whatever it produces on standard output is displayed on our screen.
-When we tell the shell to run a program,
-it creates a new process
-and temporarily sends whatever we type on our keyboard to that process's standard input,
-and whatever the process sends to standard output to the screen.
-
-Here's what happens when we run `wc -l *.pdb > lengths.txt`.
-The shell starts by telling the computer to create a new process to run the `wc` program.
-Since we've provided some filenames as arguments,
-`wc` reads from them instead of from standard input.
-And since we've used `>` to redirect output to a file,
-the shell connects the process's standard output to that file.
-
-If we run `wc -l *.pdb | sort -n` instead,
-the shell creates two processes
-(one for each process in the pipe)
-so that `wc` and `sort` run simultaneously.
-The standard output of `wc` is fed directly to the standard input of `sort`;
-since there's no redirection with `>`,
-`sort`'s output goes to the screen.
-And if we run `wc -l *.pdb | sort -n | head -n 1`,
-we get three processes with data flowing from the files,
-through `wc` to `sort`,
-and from `sort` through `head` to the screen.
-
-![Redirects and Pipes](../fig/redirects-and-pipes.png)
-
-This simple idea is why Unix has been so successful.
+This idea of linking programs together is why Unix has been so successful.
 Instead of creating enormous programs that try to do many different things,
 Unix programmers focus on creating lots of simple tools that each do one job well,
 and that work well with each other.
