@@ -30,7 +30,7 @@ $color-testimonial: #fc8dc1 !default;
 
 @mixin cdSetup($color) {
     color: $color;
-    border: solid 0.5px $color;
+    border: solid 1px $color;
     border-left: solid 5px $color;
     margin: 15px 5px 10px 0;
     border-radius: 4px 0 0 4px;
