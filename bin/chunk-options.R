@@ -37,9 +37,12 @@ opts_chunk$set(tidy = FALSE, results = "markup", comment = NA,
 # are properly formatted when the site is built.
 
 hook_in <- function(x, options) {
+  lg <- tolower(options$engine)
+  style <- paste0(".language-", lg)
+
   stringr::str_c("\n\n~~~\n",
-                 paste0(x, collapse="\n"),
-                 "\n~~~\n{: .language-r}\n\n")
+    paste0(x, collapse="\n"),
+    "\n~~~\n{: ", style, "}\n\n")
 }
 
 hook_out <- function(x, options) {
