@@ -51,15 +51,6 @@ Network/              Volumes/
 ~~~
 {: .output}
 
-> ## Default Flags
->
-> Some commands, when run without any flags, will assume one or more by default.
-> A good example of this is the 'wc' command, which has the default flags -c, -l,
-> and -w. This means that running 'wc' is equivalent to running 'wc -clw'. If a
-> command has default flags, they will be listed in the manual, or 'man' page, usually under
-> the 'Description' section. We will cover man pages and how to read them in the
-> next section.
-
 ### Getting help
 
 `ls` has lots of other **options**. There are two common ways to find out how
