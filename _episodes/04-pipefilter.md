@@ -141,8 +141,8 @@ lengths.txt
 {: .output}
 
 We can now send the content of `lengths.txt` to the screen using `cat lengths.txt`.
-`cat` stands for "concatenate":
-it prints the contents of files one after another.
+The `cat` command gets its name from "concatenate" i.e. join together,
+and it prints the contents of files one after another.
 There's only one file in this case,
 so `cat` just shows us what it contains:
 
