@@ -56,6 +56,22 @@ In the lesson, you will find out how to access the data in this folder.
 > See the reference below for information on installing and using PuTTY, 
 > using the Windows 10 command-line tool, or installing and using a Unix/Linux emulator.
 >
+> Before installing any Linux distros for WSL, you must ensure that the "Windows Subsystem for Linux" optional feature is enabled:
+>
+> Open start menu
+> Type in "powershell"
+> Right Click on "Windows PowerShell" 
+> Run Powershell Administrator
+> Input the following command without []:
+> [Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux]
+> Restart your computer when prompted.
+> (Please note installation will take some time, and can hang at 30%, just be patient)
+>
+> After Reboot
+> Open "Windows Store" and search for the terminal you'd like to use (Ubuntu is a nice one).
+> Download the terminal, and configure your environment.
+> Git and other programs work as in linux
+> >
 > #### Reference
 > * [Git for Windows](https://git-for-windows.github.io/) - *Recommended*
 >
