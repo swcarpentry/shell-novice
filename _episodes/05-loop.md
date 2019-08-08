@@ -30,7 +30,7 @@ amount of typing required (and hence reduces the number of typing mistakes).
 
 Suppose we have several hundred genome data files named `basilisk.dat`, `minotaur.dat`, `unicorn.dat`, and so on.
 For this example,
-we'll use the `creatures` directory which only has two example files,
+we'll use the `creatures` directory which only has three example files,
 but the principles can be applied to many many more files at once.
 We would like to print out the classification for each species, which is given on the second line of the file.
 For each file, we would need to execute the command `head -n 2` and pipe this to `tail -n 1`.
