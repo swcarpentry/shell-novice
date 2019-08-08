@@ -28,7 +28,7 @@ As such they are key to productivity improvements through automation.
 Similar to wildcards and tab completion, using loops also reduces the
 amount of typing required (and hence reduces the number of typing mistakes).
 
-Suppose we have several hundred genome data files named `basilisk.dat`, `unicorn.dat`, and so on.
+Suppose we have several hundred genome data files named `basilisk.dat`, `minotaur.dat`, `unicorn.dat`, and so on.
 For this example,
 we'll use the `creatures` directory which only has two example files,
 but the principles can be applied to many many more files at once.
@@ -47,7 +47,7 @@ done
 and we can apply this to our example like this:
 
 ```
-$ for filename in basilisk.dat unicorn.dat
+$ for filename in basilisk.dat minotaur.dat unicorn.dat
 > do
 >    head -n 2 $filename | tail -n 1
 > done
@@ -56,6 +56,7 @@ $ for filename in basilisk.dat unicorn.dat
 
 ```
 CLASSIFICATION: basiliscus vulgaris
+CLASSIFICATION: bos hominus
 CLASSIFICATION: equus monoceros
 ```
 {: .output}
@@ -80,19 +81,22 @@ The `$` tells the shell interpreter to treat
 the variable as a variable name and substitute its value in its place,
 rather than treat it as text or an external command.
 
-In this example, the list is two filenames: `basilisk.dat` and `unicorn.dat`.
+In this example, the list is three filenames: `basilisk.dat`, `minotaur.dat`, and `unicorn.dat`.
 Each time the loop iterates, it will assign a file name to the variable `filename`
 and run the `head` command.
 The first time through the loop,
 `$filename` is `basilisk.dat`.
 The interpreter runs the command `head` on `basilisk.dat`
-and pipes the first two lines to the `tail` command, 
+and pipes the first two lines to the `tail` command,
 which then prints the second line of `basilisk.dat`.
 For the second iteration, `$filename` becomes
-`unicorn.dat`. This time, the shell runs `head` on `unicorn.dat`
-and pipes the first two lines to the `tail` command, 
-which then prints the second line of `unicorn.dat`.
-Since the list was only two items, the shell exits the `for` loop.
+`minotaur.dat`. This time, the shell runs `head` on `monotaur.dat`
+and pipes the first two lines to the `tail` command,
+which then prints the second line of `monotaur.dat`.
+For the third iteration, `$filename` becomes
+`unicorn.dat`, so the shell runs the `head` command on that file,
+and `tail` on the output of that.
+Since the list was only three items, the shell exits the `for` loop.
 
 > ## Same Symbols, Different Meanings
 >
@@ -119,7 +123,7 @@ The shell itself doesn't care what the variable is called;
 if we wrote this loop as:
 
 ~~~
-$ for x in basilisk.dat unicorn.dat
+$ for x in basilisk.dat minotaur.dat unicorn.dat
 > do
 >    head -n 2 $x | tail -n 1
 > done
@@ -129,7 +133,7 @@ $ for x in basilisk.dat unicorn.dat
 or:
 
 ~~~
-$ for temperature in basilisk.dat unicorn.dat
+$ for temperature in basilisk.dat minotaur.dat unicorn.dat
 > do
 >    head -n 2 $temperature | tail -n 1
 > done
@@ -424,7 +428,7 @@ $ cp *.dat original-*.dat
 because that would expand to:
 
 ~~~
-$ cp basilisk.dat unicorn.dat original-*.dat
+$ cp basilisk.dat minotaur.dat unicorn.dat original-*.dat
 ~~~
 {: .language-bash}
 
@@ -460,6 +464,13 @@ cp basilisk.dat original-basilisk.dat
 {: .language-bash}
 
 The second time, the command is:
+
+~~~
+cp minotaur.dat original-minotaur.dat
+~~~
+{: .language-bash}
+
+The third and last time, the command is:
 
 ~~~
 cp unicorn.dat original-unicorn.dat
