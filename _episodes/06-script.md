@@ -267,8 +267,9 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 21 pentane.pdb
 30 octane.pdb
 163 ../creatures/basilisk.dat
+163 ../creatures/minotaur.dat
 163 ../creatures/unicorn.dat
-433 total
+596 total
 ~~~
 {: .output}
 
@@ -289,7 +290,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > {: .source}
 >
 > An example of this type of file is given in `data-shell/data/animal-counts/animals.txt`.
-> 
+>
 > We can use the command `cut -d , -f 2 animals.txt | sort | uniq` to produce the unique species in `animals.txt`. In order to avoid having to type out this series of commands every time, a scientist may choose to write a shell script instead.
 >
 > Write a shell script called `species.sh` that takes any number of
@@ -302,7 +303,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > > # This script accepts any number of file names as command line arguments
 > >
 > > # Loop over all files
-> > for file in $@ 
+> > for file in $@
 > > do
 > > 	echo "Unique species in $file:"
 > > 	# Extract species names
@@ -465,7 +466,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > 4. An error because of the quotes around `*.pdb`
 >
 > > ## Solution
-> > The correct answer is 2. 
+> > The correct answer is 2.
 > >
 > > The special variables $1, $2 and $3 represent the command line arguments given to the
 > > script, such that the commands run are:
@@ -499,12 +500,12 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > ## Solution
 > >
 > > ```
-> > # Shell script which takes two arguments: 
+> > # Shell script which takes two arguments:
 > > #    1. a directory name
 > > #    2. a file extension
 > > # and prints the name of the file in that directory
 > > # with the most lines which matches the file extension.
-> > 
+> >
 > > wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1
 > > ```
 > > {: .source}
@@ -549,7 +550,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > >
 > > Script 2 would print the contents of the first 3 files with a `.pdb` file extension.
 > > `$1`, `$2`, and `$3` refer to the first, second, and third argument respectively.
-> > 
+> >
 > > Script 3 would print all the arguments to the script (i.e. all the `.pdb` files),
 > > followed by `.pdb`.
 > > `$@` refers to *all* the arguments given to a shell script.
