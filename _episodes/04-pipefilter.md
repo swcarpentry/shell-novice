@@ -709,3 +709,10 @@ so this matches all the valid data files she has.
 > > so this command would delete all files
 > {: .solution}
 {: .challenge}
+> ## Reviewing Past commands
+>
+> >  ## Problem
+> > How do I view my previous commands entered?
+> > ## Solution
+> > With a command input of `$history`
+> > The output will show previous commands run in time order. 
