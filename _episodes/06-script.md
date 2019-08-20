@@ -294,7 +294,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > We can use the command `cut -d , -f 2 animals.txt | sort | uniq` to produce the unique species in `animals.txt`. In order to avoid having to type out this series of commands every time, a scientist may choose to write a shell script instead.
 >
 > Write a shell script called `species.sh` that takes any number of
-> filenames as command-line arguments, and uses and uses a variation of the above command to print a list of the unique species appearing in each of those files separately.
+> filenames as command-line arguments, and uses a variation of the above command to print a list of the unique species appearing in each of those files separately.
 >
 > > ## Solution
 > >
