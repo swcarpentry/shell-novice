@@ -28,13 +28,14 @@ As such they are key to productivity improvements through automation.
 Similar to wildcards and tab completion, using loops also reduces the
 amount of typing required (and hence reduces the number of typing mistakes).
 
-Suppose we have several hundred genome data files named `basilisk.dat`, `minotaur.dat`, `unicorn.dat`, and so on.
-For this example,
-we'll use the `creatures` directory which only has three example files,
-but the principles can be applied to many many more files at once.
-We would like to print out the classification for each species, which is given on the second line of the file.
-For each file, we would need to execute the command `head -n 2` and pipe this to `tail -n 1`.
-We'll use a loop to solve this problem, but first let's look at the general form of a loop:
+In the `creatures` directory, we have three genome data files named `basilisk.dat`, `minotaur.dat`, and `unicorn.dat`. The structure of these files is the same: the common name, classification, and updated date are presented on the first three lines, with DNA sequences on the following lines. Let's look at the files:
+
+```
+head -n 5 basilisk.dat minotaur.dat unicorn.dat
+```
+{: .language-bash}
+
+We would like to print out the classification for each species, which is given on the second line of each file. For each file, we would need to execute the command `head -n 2` and pipe this to `tail -n 1`. In this particular example we only have three files, but imagine if we had hundreds of files- we can therefore use a loop to perform the same action on many different files. Firstly, let's look at the general form of a loop:
 
 ```
 for thing in list_of_things
