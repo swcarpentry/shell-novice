@@ -248,7 +248,7 @@ $ nano sorted.sh
 {: .language-bash}
 
 ~~~
-# Sort filenames by their length.
+# Sort files by their length.
 # Usage: bash sorted.sh one_or_more_filenames
 wc -l "$@" | sort -n
 ~~~
