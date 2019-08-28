@@ -42,7 +42,7 @@ octane.pdb    pentane.pdb   propane.pdb
 {: .output}
 
 Let's go into that directory with `cd` and run the command `wc *.pdb`.
-`wc` is the "word count" command:
+`wc` is the 'word count' command:
 it counts the number of lines, words, and characters in files (from left to right, in that order).
 
 The `*` in `*.pdb` matches zero or more characters,
@@ -140,7 +140,7 @@ lengths.txt
 {: .output}
 
 We can now send the content of `lengths.txt` to the screen using `cat lengths.txt`.
-The `cat` command gets its name from "concatenate" i.e. join together,
+The `cat` command gets its name from 'concatenate' i.e. join together,
 and it prints the contents of files one after another.
 There's only one file in this case,
 so `cat` just shows us what it contains:
@@ -309,10 +309,10 @@ the output of `head` must be the file with the fewest lines.
 > Hint: Try executing each command twice in a row and then examining the output files.
 >
 > > ## Solution
-> > In the first example with `>`, the string "hello" is written to `testfile01.txt`,
+> > In the first example with `>`, the string 'hello' is written to `testfile01.txt`,
 > > but the file gets overwritten each time we run the command.
 > >
-> > We see from the second example that the `>>` operator also writes "hello" to a file
+> > We see from the second example that the `>>` operator also writes 'hello' to a file
 > > (in this case`testfile02.txt`),
 > > but appends the string to the file if it already exists (i.e. when we run it for the second time).
 > {: .solution}
@@ -401,9 +401,9 @@ $ wc -l *.pdb | sort -n | head -n 1
 {: .output}
 
 This is exactly like a mathematician nesting functions like *log(3x)*
-and saying "the log of three times *x*".
+and saying 'the log of three times *x*'.
 In our case,
-the calculation is "head of sort of line count of `*.pdb`".
+the calculation is 'head of sort of line count of `*.pdb`'.
 
 
 The redirection and pipes used in the last few commands are illustrated below:
@@ -434,7 +434,7 @@ This idea of linking programs together is why Unix has been so successful.
 Instead of creating enormous programs that try to do many different things,
 Unix programmers focus on creating lots of simple tools that each do one job well,
 and that work well with each other.
-This programming model is called "pipes and filters".
+This programming model is called 'pipes and filters'.
 We've already seen pipes;
 a **filter** is a program like `wc` or `sort`
 that transforms a stream of input into a stream of output.
@@ -499,7 +499,7 @@ so that you and other people can put those programs into pipes to multiply their
 > ~~~
 > {: .language-bash}
 >
-> The `cut` command is used to remove or "cut out" certain sections of each line in the file,
+> The `cut` command is used to remove or 'cut out' certain sections of each line in the file,
 > and `cut` expects the lines to be separated into columns by a <kdb>Tab</kbd> character.
 > A character used in this way is a called a **delimiter**.
 > In the example above we use the `-d` option to specify the comma as our delimiter character.

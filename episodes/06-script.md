@@ -35,7 +35,7 @@ $ nano middle.sh
 ~~~
 {: .language-bash}
 
-The command `nano middle.sh` opens the file `middle.sh` within the text editor "nano"
+The command `nano middle.sh` opens the file `middle.sh` within the text editor 'nano'
 (which runs within the shell).
 If the file does not exist, it will be created.
 We can use the text editor to directly edit the file -- we'll simply insert the following line:
@@ -106,7 +106,7 @@ head -n 15 "$1" | tail -n 5
 {: .output}
 
 Inside a shell script,
-`$1` means "the first filename (or other argument) on the command line".
+`$1` means 'the first filename (or other argument) on the command line'.
 We can now run our script like this:
 
 ~~~
@@ -236,7 +236,7 @@ We can't use `$1`, `$2`, and so on
 because we don't know how many files there are.
 Instead, we use the special variable `$@`,
 which means,
-"All of the command-line arguments to the shell script."
+'All of the command-line arguments to the shell script'.
 We also should put `$@` inside double-quotes
 to handle the case of arguments containing spaces
 (`"$@"` is equivalent to `"$1"` `"$2"` ...)

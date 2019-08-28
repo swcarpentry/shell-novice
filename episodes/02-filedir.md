@@ -29,17 +29,17 @@ The part of the operating system responsible for managing files and directories
 is called the **file system**.
 It organizes our data into files,
 which hold information,
-and directories (also called "folders"),
+and directories (also called 'folders'),
 which hold files or other directories.
 
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
 To start exploring them, we'll go to our open shell window.
 
 First let's find out where we are by running a command called `pwd`
-(which stands for "print working directory"). Directories are like *places* - at any time
+(which stands for 'print working directory'). Directories are like *places* - at any time
 while we are using the shell we are in exactly one place, called
 our **current working directory**. Commands mostly read and write files in the
-current working directory, i.e. "here", so knowing where you are before running
+current working directory, i.e. 'here', so knowing where you are before running
 a command is important. `pwd` shows you where you are:
 
 ~~~
@@ -67,7 +67,7 @@ which is Nelle's **home directory**:
 > output may differ slightly, but should be generally similar.
 {: .callout}
 
-To understand what a "home directory" is,
+To understand what a 'home directory' is,
 let's have a look at how the file system as a whole is organized.  For the
 sake of this example, we'll be
 illustrating the filesystem on our scientist Nelle's computer.  After this
@@ -119,7 +119,7 @@ your home directory to start.
 
 Now let's learn the command that will let us see the contents of our
 own filesystem.  We can see what's in our home directory by running `ls`,
-which stands for "listing":
+which stands for 'listing':
 
 ~~~
 $ ls
@@ -416,7 +416,7 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > > The `-l` option makes `ls` use a **l**ong listing format, showing not only
 > > the file/directory names but also additional information such as the file size
 > > and the time of its last modification. If you use both the `-h` option and the `-l` option,
-> > this makes the file size "**h**uman readable", i.e. displaying something like `5.3K`
+> > this makes the file size '**h**uman readable', i.e. displaying something like `5.3K`
 > > instead of `5369`.
 > {: .solution}
 {: .challenge}
@@ -488,7 +488,7 @@ our home directory.
 
 The command to change locations is `cd` followed by a
 directory name to change our working directory.
-`cd` stands for "change directory",
+`cd` stands for 'change directory',
 which is a bit misleading:
 the command doesn't change the directory,
 it changes the shell's idea of what directory we are in.
@@ -590,12 +590,12 @@ $ ls -F -a
 ~~~
 {: .output}
 
-`-a` stands for "show all";
+`-a` stands for 'show all';
 it forces `ls` to show us file and directory names that begin with `.`,
 such as `..` (which, if we're in `/Users/nelle`, refers to the `/Users` directory)
 As you can see,
 it also displays another special directory that's just called `.`,
-which means "the current working directory".
+which means 'the current working directory'.
 It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
 
@@ -809,7 +809,7 @@ a directory called `revised-revised-results-3`.)
 
 > ## Sorting Output
 >
-> Nelle names her directories "year-month-day",
+> Nelle names her directories 'year-month-day',
 > with leading zeroes for months and days,
 > because the shell displays file and directory names in alphabetical order.
 > If she used month names,
@@ -821,7 +821,7 @@ a directory called `revised-revised-results-3`.)
 
 Each of her physical samples is labelled according to her lab's convention
 with a unique ten-character ID,
-such as "NENE01729A".
+such as 'NENE01729A'.
 This is what she used in her collection log
 to record the location, time, depth, and other characteristics of the sample,
 so she decides to use it as part of each data file's name.
