@@ -156,12 +156,19 @@ blockquote :not(h2) + p {
 // Override Bootstrap settings.
 //----------------------------------------
 
+blockquote { font-size: inherit; }
+
 code {
   white-space: nowrap;
   padding: 2px 5px;
   color: #006cad;
   background-color: #e7e7e7;
 }
+
+samp { hyphens: none; }
+
+dt { margin-top: 20px; }
+dd { margin-left: 2em; }
 
 article img {
     display: block;
