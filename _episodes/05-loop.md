@@ -534,7 +534,7 @@ NENE02043B.txt
 
 Her next step is to decide
 what to call the files that the `goostats` analysis program will create.
-Prefixing each input file's name with "stats" seems simple,
+Prefixing each input file's name with 'stats' seems simple,
 so she modifies her loop to do that:
 
 ~~~
@@ -626,7 +626,7 @@ so she decides to get some coffee and catch up on her reading.
 >
 > Another way to repeat previous work is to use the `history` command to
 > get a list of the last few hundred commands that have been executed, and
-> then to use `!123` (where "123" is replaced by the command number) to
+> then to use `!123` (where '123' is replaced by the command number) to
 > repeat one of those commands. For example, if Nelle types this:
 >
 > ~~~
@@ -650,7 +650,7 @@ so she decides to get some coffee and catch up on her reading.
 >
 > There are a number of other shortcut commands for getting at the history.
 >
-> - `Ctrl-R` enters a history search mode "reverse-i-search" and finds the
+> - `Ctrl-R` enters a history search mode 'reverse-i-search' and finds the
 > most recent command in your history that matches the text you enter next.
 > Press `Ctrl-R` one or more additional times to search for earlier matches.
 > - `!!` retrieves the immediately preceding command
