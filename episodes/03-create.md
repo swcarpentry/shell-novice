@@ -132,17 +132,17 @@ $ nano draft.txt
 >
 > When we say, '`nano` is a text editor'" we really do mean 'text': it can
 > only work with plain character data, not tables, images, or any other
-> human-friendly media. We use it in examples because it is one of the 
-> least complex text editors. However, because of this trait, it may 
+> human-friendly media. We use it in examples because it is one of the
+> least complex text editors. However, because of this trait, it may
 > not be powerful enough or flexible enough for the work you need to do
 > after this workshop. On Unix systems (such as Linux and Mac OS X),
 > many programmers use [Emacs](http://www.gnu.org/software/emacs/) or
-> [Vim](http://www.vim.org/) (both of which require more time to learn), 
+> [Vim](http://www.vim.org/) (both of which require more time to learn),
 > or a graphical editor such as
 > [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
 > use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in
 > editor called `notepad` that can be run from the command line in the same
-> way as `nano` for the purposes of this lesson.  
+> way as `nano` for the purposes of this lesson.
 >
 > No matter what editor you use, you will need to know where it searches
 > for and saves files. If you start it from the shell, it will (probably)
@@ -216,7 +216,7 @@ draft.txt
 > > ## Solution
 > > 1.  The `touch` command generates a new file called `my_file.txt` in
 > >     your current directory.  You
-> >     can observe this newly generated file by typing `ls` at the 
+> >     can observe this newly generated file by typing `ls` at the
 > >     command line prompt.  `my_file.txt` can also be viewed in your
 > >     GUI file explorer.
 > >
@@ -302,7 +302,7 @@ Note that `mv` also works on directories.
 
 Let's move `quotes.txt` into the current working directory.
 We use `mv` once again,
-but this time we'll just use the name of a directory as the second argument
+but this time we'll use just the name of a directory as the second argument
 to tell `mv` that we want to keep the filename,
 but put the file somewhere new.
 (This is why the command is called 'move'.)
@@ -552,7 +552,7 @@ rm: cannot remove `thesis': Is a directory
 
 This happens because `rm` by default only works on files, not directories.
 
-`rm` can remove a directory *and all its contents* if we use the 
+`rm` can remove a directory *and all its contents* if we use the
 recursive option `-r`, and it will do so *without any confirmation prompts*:
 
 ~~~
@@ -565,7 +565,7 @@ Given that there is no way to retrieve files deleted using the shell,
 
 ## Operations with multiple files and directories
 
-Oftentimes one needs to copy or move several files at once. This can be done by providing a list of individual filenames, or specifying a naming pattern using wildcards.  
+Oftentimes one needs to copy or move several files at once. This can be done by providing a list of individual filenames, or specifying a naming pattern using wildcards.
 
 > ## Copy with Multiple Filenames
 >
@@ -590,12 +590,12 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > ~~~
 > {: .output}
 > ~~~
-> $ cp amino-acids.txt animals.txt morse.txt 
+> $ cp amino-acids.txt animals.txt morse.txt
 > ~~~
 > {: .language-bash}
 >
 > > ## Solution
-> > If given more than one file name followed by a directory name (i.e. the destination directory must 
+> > If given more than one file name followed by a directory name (i.e. the destination directory must
 > > be the last argument), `cp` copies the files to the named directory.
 > >
 > > If given three file names, `cp` throws an error such as the one below, because it is expecting a directory
@@ -655,7 +655,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > > ## Solution
 >>  The solution is `3.`
 >>
->> `1.` shows all files whose names contain zero or more characters (`*`) followed by the letter `t`, then zero or more characters (`*`) followed by `ane.pdb`. This gives `ethane.pdb  methane.pdb  octane.pdb  pentane.pdb`. 
+>> `1.` shows all files whose names contain zero or more characters (`*`) followed by the letter `t`, then zero or more characters (`*`) followed by `ane.pdb`. This gives `ethane.pdb  methane.pdb  octane.pdb  pentane.pdb`.
 >>
 >> `2.` shows all files whose names start with zero or more characters (`*`) followed by the letter `t`, then a single character (`?`), then `ne.` followed by zero or more characters (`*`). This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything which ends in `thane.pdb`.
 >>
@@ -824,7 +824,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 >	└── data
 >	    ├── processed
 >	    └── raw
-> 
+>
 > Which of the following set of commands would achieve this objective?
 > What would the other commands do?
 >
@@ -863,7 +863,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > >
 > > The third set of commands will give an error because `mkdir` won't create a subdirectory
 > > of a non-existant directory: the intermediate level folders must be created first.
-> > 
+> >
 > > The final set of commands generates the 'raw' and 'processed' directories at the same level
 > > as the 'data' directory.
 > {: .solution}

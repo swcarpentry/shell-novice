@@ -28,13 +28,13 @@ As such they are key to productivity improvements through automation.
 Similar to wildcards and tab completion, using loops also reduces the
 amount of typing required (and hence reduces the number of typing mistakes).
 
-Suppose we have several hundred genome data files named `basilisk.dat`, `minotaur.dat`, and 
-`unicorn.dat`. 
-For this example, we'll use the `creatures` directory which only has three example files, 
+Suppose we have several hundred genome data files named `basilisk.dat`, `minotaur.dat`, and
+`unicorn.dat`.
+For this example, we'll use the `creatures` directory which only has three example files,
 but the principles can be applied to many many more files at once.
 
-The structure of these files is the same: the common name, classification, and updated date are 
-presented on the first three lines, with DNA sequences on the following lines. 
+The structure of these files is the same: the common name, classification, and updated date are
+presented on the first three lines, with DNA sequences on the following lines.
 Let's look at the files:
 
 ```
@@ -42,9 +42,9 @@ head -n 5 basilisk.dat minotaur.dat unicorn.dat
 ```
 {: .language-bash}
 
-We would like to print out the classification for each species, which is given on the second 
-line of each file. 
-For each file, we would need to execute the command `head -n 2` and pipe this to `tail -n 1`. 
+We would like to print out the classification for each species, which is given on the second
+line of each file.
+For each file, we would need to execute the command `head -n 2` and pipe this to `tail -n 1`.
 We’ll use a loop to solve this problem, but first let’s look at the general form of a loop:
 
 ```
@@ -344,7 +344,7 @@ $ for filename in *.dat
 The shell starts by expanding `*.dat` to create the list of files it will process.
 The **loop body**
 then executes two commands for each of those files.
-The first, `echo`, just prints its command-line arguments to standard output.
+The first command, `echo`, prints its command-line arguments to standard output.
 For example:
 
 ~~~
@@ -361,7 +361,7 @@ hello there
 
 In this case,
 since the shell expands `$filename` to be the name of a file,
-`echo $filename` just prints the name of the file.
+`echo $filename` prints the name of the file.
 Note that we can't write this as:
 
 ~~~
@@ -404,7 +404,7 @@ from whatever file is being processed
 > ~~~
 > {: .language-bash}
 >
-> It is simpler just to avoid using spaces (or other special characters) in filenames.
+> It is simpler to avoid using spaces (or other special characters) in filenames.
 >
 > The files above don't exist, so if we run the above code, the `head` command will be unable
 > to find them, however the error message returned will show the name of the files it is
