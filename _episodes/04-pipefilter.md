@@ -646,9 +646,9 @@ when she checks the log on her laptop,
 there's no depth recorded for either of those samples.
 Since it's too late to get the information any other way,
 she must exclude those two files from her analysis.
-She could just delete them using `rm`,
+She could delete them using `rm`,
 but there are actually some analyses she might do later where depth doesn't matter,
-so instead, she'll just be careful later on to select files using the wildcard expression `*[AB].txt`.
+so instead, she'll have to be careful later on to select files using the wildcard expression `*[AB].txt`.
 As always,
 the `*` matches any number of characters;
 the expression `[AB]` matches either an 'A' or a 'B',
