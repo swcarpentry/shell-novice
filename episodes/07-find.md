@@ -18,10 +18,10 @@ keypoints:
 - "`$(command)` inserts a command's output in place."
 ---
 
-In the same way that many of us now use "Google" as a
-verb meaning "to find", Unix programmers often use the
-word "grep".
-"grep" is a contraction of "global/regular expression/print",
+In the same way that many of us now use 'Google' as a
+verb meaning 'to find', Unix programmers often use the
+word 'grep'.
+'grep' is a contraction of 'global/regular expression/print',
 a common sequence of operations in early Unix text editors.
 It is also the name of a very useful command-line program.
 
@@ -57,11 +57,11 @@ Software is like that.
 >
 > We haven't linked to the original haikus because they don't appear to be on *Salon*'s site any longer.
 > As [Jeff Rothenberg said](https://www.clir.org/wp-content/uploads/sites/6/ensuring.pdf),
-> "Digital information lasts forever --- or five years, whichever comes first."
+> 'Digital information lasts forever --- or five years, whichever comes first.'
 > Luckily, popular content often [has backups](http://wiki.c2.com/?ComputerErrorHaiku).
 {: .callout}
 
-Let's find lines that contain the word "not":
+Let's find lines that contain the word 'not':
 
 ~~~
 $ grep not haiku.txt
@@ -77,11 +77,11 @@ Today it is not working
 
 Here, `not` is the pattern we're searching for. The grep command searches through the file, looking for matches to the pattern specified. To use it type `grep`, then the pattern we're searching for and finally the name of the file (or files) we're searching in.
 
-The output is the three lines in the file that contain the letters "not".
+The output is the three lines in the file that contain the letters 'not'.
 
 By default, grep searches for a pattern in a case-sensitive way. In addition, the search pattern we have selected does not have to form a complete word, as we will see in the next example.
 
-Let's search for the pattern: "The".
+Let's search for the pattern: 'The'.
 
 ~~~
 $ grep The haiku.txt
@@ -94,10 +94,10 @@ The Tao that is seen
 ~~~
 {: .output}
 
-This time, two lines that include the letters "The" are outputted,
-one of which contained our search pattern within a larger word, "Thesis".
+This time, two lines that include the letters 'The' are outputted,
+one of which contained our search pattern within a larger word, 'Thesis'.
 
-To restrict matches to lines containing the word "The" on its own,
+To restrict matches to lines containing the word 'The' on its own,
 we can give `grep` with the `-w` option.
 This will limit matches to word boundaries.
 
@@ -113,7 +113,7 @@ The Tao that is seen
 ~~~
 {: .output}
 
-Note that a "word boundary" includes the start and end of a line, so not
+Note that a 'word boundary' includes the start and end of a line, so not
 just letters surrounded by spaces.
 Sometimes we don't
 want to search for a single word, but a phrase. This is also easy to do with
@@ -149,11 +149,11 @@ $ grep -n "it" haiku.txt
 ~~~
 {: .output}
 
-Here, we can see that lines 5, 9, and 10 contain the letters "it".
+Here, we can see that lines 5, 9, and 10 contain the letters 'it'.
 
 We can combine options (i.e. flags) as we do with other Unix commands.
-For example, let's find the lines that contain the word "the". We can combine
-the option `-w` to find the lines that contain the word "the" and `-n` to number the lines that match:
+For example, let's find the lines that contain the word 'the'. We can combine
+the option `-w` to find the lines that contain the word 'the' and `-n` to number the lines that match:
 
 ~~~
 $ grep -n -w "the" haiku.txt
@@ -181,7 +181,7 @@ $ grep -n -w -i "the" haiku.txt
 {: .output}
 
 Now, we want to use the option `-v` to invert our search, i.e., we want to output
-the lines that do not contain the word "the".
+the lines that do not contain the word 'the'.
 
 ~~~
 $ grep -n -w -v "the" haiku.txt
@@ -247,7 +247,7 @@ Miscellaneous:
 >
 > > ## Solution
 > > The correct answer is 3, because the `-w` option looks only for whole-word matches.
-> > The other options will also match "of" when part of another word.
+> > The other options will also match 'of' when part of another word.
 > {: .solution}
 {: .challenge}
 
@@ -256,7 +256,7 @@ Miscellaneous:
 > `grep`'s real power doesn't come from its options, though; it comes from
 > the fact that patterns can include wildcards. (The technical name for
 > these is **regular expressions**, which
-> is what the "re" in "grep" stands for.) Regular expressions are both complex
+> is what the 're' in 'grep' stands for.) Regular expressions are both complex
 > and powerful; if you want to do complex searches, please look at the lesson
 > on [our website](http://v4.software-carpentry.org/regexp/index.html). As a taster, we can
 > find lines that have an 'o' in the second position like this:
@@ -383,7 +383,7 @@ Miscellaneous:
 > > than one match per line.
 > >
 > > Perceptive observers may have noticed that character names sometimes appear in all-uppercase
-> > in chapter titles (e.g. "MEG GOES TO VANITY FAIR").
+> > in chapter titles (e.g. 'MEG GOES TO VANITY FAIR').
 > > If you wanted to count these as well, you could add the `-i` option for case-insensitivity
 > > (though in this case, it doesn't affect the answer to which sister is mentioned most frequently).
 > {: .solution}
@@ -438,7 +438,7 @@ to filter the output and in this lesson we will discover some
 of them.
 
 The first option in our list is
-`-type d` that means "things that are directories".
+`-type d` that means 'things that are directories'.
 Sure enough,
 `find`'s output is the names of the five directories in our little tree
 (including `.`):
@@ -567,13 +567,13 @@ $ wc -l ./data/one.txt ./data/LittleWomen.txt ./data/two.txt ./haiku.txt
 
 which is what we wanted.
 This expansion is exactly what the shell does when it expands wildcards like `*` and `?`,
-but lets us use any command we want as our own "wildcard".
+but lets us use any command we want as our own 'wildcard'.
 
 It's very common to use `find` and `grep` together.
 The first finds files that match a pattern;
 the second looks for lines inside those files that match another pattern.
 Here, for example, we can find PDB files that contain iron atoms
-by looking for the string "FE" in all the `.pdb` files above the current directory:
+by looking for the string 'FE' in all the `.pdb` files above the current directory:
 
 ~~~
 $ grep "FE" $(find .. -name '*.pdb')
@@ -608,7 +608,7 @@ $ grep "FE" $(find .. -name '*.pdb')
 > > expression to `find`.
 > >
 > > Option 3 is incorrect because it searches the contents of the files for lines which
-> > do not match "temp", rather than searching the file names.
+> > do not match 'temp', rather than searching the file names.
 > {: .solution}
 {: .challenge}
 
@@ -640,9 +640,9 @@ may be cryptic, but people who have mastered it can experiment with
 different commands interactively, then use what they have learned to
 automate their work. Graphical user interfaces may be better at the
 first, but the shell is still unbeaten at the second. And as Alfred
-North Whitehead wrote in 1911, "Civilization advances by extending the
+North Whitehead wrote in 1911, 'Civilization advances by extending the
 number of important operations which we can perform without thinking
-about them."
+about them.'
 
 > ## `find` Pipeline Reading Comprehension
 >

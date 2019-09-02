@@ -60,7 +60,7 @@ $ mkdir thesis
 {: .language-bash}
 
 As you might guess from its name,
-`mkdir` means "make directory".
+`mkdir` means 'make directory'.
 Since `thesis` is a relative path
 (i.e., does not have a leading slash, like `/what/ever/thesis`),
 the new directory is created in the current working directory:
@@ -130,7 +130,7 @@ $ nano draft.txt
 
 > ## Which Editor?
 >
-> When we say, "`nano` is a text editor," we really do mean "text": it can
+> When we say, '`nano` is a text editor'" we really do mean 'text': it can
 > only work with plain character data, not tables, images, or any other
 > human-friendly media. We use it in examples because it is one of the 
 > least complex text editors. However, because of this trait, it may 
@@ -149,7 +149,7 @@ $ nano draft.txt
 > use your current working directory as its default location. If you use
 > your computer's start menu, it may want to save files in your desktop or
 > documents directory instead. You can change this by navigating to
-> another directory the first time you "Save As..."
+> another directory the first time you 'Save As...'
 {: .callout}
 
 Let's type in a few lines of text.
@@ -165,7 +165,7 @@ return to the shell.
 
 > ## Control, Ctrl, or ^ Key
 >
-> The Control key is also called the "Ctrl" key. There are various ways
+> The Control key is also called the 'Ctrl' key. There are various ways
 > in which using the Control key may be described. For example, you may
 > see an instruction to press the Control key and, while holding it down,
 > press the X key, described as any of:
@@ -235,8 +235,8 @@ draft.txt
 
 > ## What's In A Name?
 >
-> You may have noticed that all of Nelle's files are named "something dot
-> something", and in this part of the lesson, we always used the extension
+> You may have noticed that all of Nelle's files are named 'something dot
+> something', and in this part of the lesson, we always used the extension
 > `.txt`.  This is just a convention: we can call a file `mythesis` or
 > almost anything else we want. However, most people use two-part names
 > most of the time to help them (and their programs) tell different kinds
@@ -268,14 +268,14 @@ cd ~/Desktop/data-shell/
 In our `thesis` directory we have a file `draft.txt`
 which isn't a particularly informative name,
 so let's change the file's name using `mv`,
-which is short for "move":
+which is short for 'move':
 
 ~~~
 $ mv thesis/draft.txt thesis/quotes.txt
 ~~~
 {: .language-bash}
 
-The first argument tells `mv` what we're "moving",
+The first argument tells `mv` what we're 'moving',
 while the second is where it's to go.
 In this case,
 we're moving `thesis/draft.txt` to `thesis/quotes.txt`,
@@ -305,7 +305,7 @@ We use `mv` once again,
 but this time we'll just use the name of a directory as the second argument
 to tell `mv` that we want to keep the filename,
 but put the file somewhere new.
-(This is why the command is called "move".)
+(This is why the command is called 'move'.)
 In this case,
 the directory name we use is the special directory name `.` that we mentioned earlier.
 
@@ -473,7 +473,7 @@ quotations.txt
 > > We start in the `/Users/jamie/data` directory, and create a new folder called `recombine`.
 > > The second line moves (`mv`) the file `proteins.dat` to the new folder (`recombine`).
 > > The third line makes a copy of the file we just moved.  The tricky part here is where the file was
-> > copied to.  Recall that `..` means "go up a level", so the copied file is now in `/Users/jamie`.
+> > copied to.  Recall that `..` means 'go up a level', so the copied file is now in `/Users/jamie`.
 > > Notice that `..` is interpreted with respect to the current working
 > > directory, **not** with respect to the location of the file being copied.
 > > So, the only thing that will show using ls (in `/Users/jamie/data`) is the recombine folder.
@@ -805,7 +805,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > > {: .language-bash}
 > > Jamie needs to move her files `fructose.dat` and `sucrose.dat` to the `analyzed` directory.
 > > The shell will expand *.dat to match all .dat files in the current directory.
-> > The `mv` command then moves the list of .dat files to the "analyzed" directory.
+> > The `mv` command then moves the list of .dat files to the 'analyzed' directory.
 > {: .solution}
 {: .challenge}
 
