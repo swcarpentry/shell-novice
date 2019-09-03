@@ -794,7 +794,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 
 ### Nelle's Pipeline: Organizing Files
 
-Knowing just this much about files and directories,
+Knowing this much about files and directories,
 Nelle is ready to organize the files that the protein assay machine will create.
 First,
 she creates a directory called `north-pacific-gyre`
