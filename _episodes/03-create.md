@@ -336,30 +336,30 @@ quotes.txt
 ~~~
 {: .output}
 
-> ## Moving to the Current Folder
+> ## Moving Files to a new folder
 >
 > After running the following commands,
-> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder:
+> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder.  The files should have been placed in the raw folder.
 >
 > ~~~
 > $ ls -F
 >  analyzed/ raw/
 > $ ls -F analyzed
 > fructose.dat glucose.dat maltose.dat sucrose.dat
-> $ cd raw/
+> $ cd analyzed
 > ~~~
 > {: .language-bash}
 >
-> Fill in the blanks to move these files to the current folder
-> (i.e., the one she is currently in):
+> Fill in the blanks to move these files to the raw/ folder
+> (i.e. the one she forgot to put them in) 
 >
 > ~~~
-> $ mv ___/sucrose.dat  ___/maltose.dat ___
+> $ mv sucrose.dat maltose.dat ____/____
 > ~~~
 > {: .language-bash}
 > > ## Solution
 > > ```
-> > $ mv ../analyzed/sucrose.dat ../analyzed/maltose.dat .
+> > $ mv sucrose.dat maltose.dat ../raw
 > > ```
 > > {: .language-bash}
 > > Recall that `..` refers to the parent directory (i.e. one above the current directory)
