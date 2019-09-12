@@ -9,4 +9,4 @@ _site
 .Rproj.user
 .Rhistory
 .RData
-
+Gemfile.lock
