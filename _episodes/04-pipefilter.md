@@ -65,7 +65,7 @@ $ wc *.pdb
 ~~~
 {: .output}
 
-
+Note that `wc *.pdb` also shows the total number of all lines in the last line of the output.
 
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
