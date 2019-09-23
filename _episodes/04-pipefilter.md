@@ -46,7 +46,7 @@ Let's go into that directory with `cd` and run the command `wc *.pdb`.
 it counts the number of lines, words, and characters in files (from left to right, in that order).
 
 The `*` in `*.pdb` matches zero or more characters,
-so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory. Note that `wc *.pdb` also shows the total number of all lines in the last line of the output.
+so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
 
 ~~~
 $ cd molecules
@@ -65,7 +65,7 @@ $ wc *.pdb
 ~~~
 {: .output}
 
-
+Note that `wc *.pdb` also shows the total number of all lines in the last line of the output.
 
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
