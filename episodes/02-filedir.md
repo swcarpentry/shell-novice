@@ -421,13 +421,14 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > {: .solution}
 {: .challenge}
 
-> ## Listing in Reverse and By Time
+> ## Listing in Reverse Chronological Order
 >
-> The command `ls -r` lists the contents of directories in reverse order.
-> By default the contents are listed in alphabetical order by name.
-> The command `ls -t` lists things by time of last change instead of
-> alphabetically. Which file is displayed last when you combine the `-t`
-> and `-r` flags? Hint: You may need to use the `-l` flag to see the 
+> By default `ls` lists the contents of a directory in alphabetical 
+> order by name. The command `ls -t` lists items by time of last 
+> change instead of alphabetically. The command `ls -r` lists the 
+> contents of a directory in reverse order.
+> Which file is displayed last when you combine the `-t` and `-r` flags? 
+> Hint: You may need to use the `-l` flag to see the 
 > last changed dates.
 >
 > > ## Solution
