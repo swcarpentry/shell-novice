@@ -21,52 +21,45 @@ automating repetitive tasks, and its capacity to access networked machines."
 cryptic its commands and operation can be."
 ---
 ### Background
-At a high level, computers do four things:
 
--   run programs
--   store data
--   communicate with each other, and
--   interact with us
+Humans and computers commonly interact in many different ways, such as through a keyboard and mouse, touch screen interfaces, or using speech recognition systems. The most widely used way to interact with personal computers is called a **graphical user interface** (GUI).
+With a GUI, we give instructions by clicking a mouse and using menu-driven interactions.
 
+While the visual aid of a GUI makes it intuitive to learn, this way of delivering instructions to a computer scales very poorly.
+Imagine the following task:
+for a literature search, you have to copy the third line of one thousand text files in one thousand different directories and paste it into a single file.
+Using a GUI, you would not only be clicking at your desk for several hours, but you could potentially also commit an error in the process of completing this repetitive task. This is where we take advange of the Unix shell.
+The Unix shell is both a **command-line interface** (CLI) and a scripting language, allowing such repetitive tasks to be done automatically and fast.
+With the proper commands, the shell can repeat tasks with or without some modification as many times as we want.
+Using the shell, the task in the literature example can be accomplished in seconds.
 
-Computers can interact with us in many different ways,
-such as through a keyboard and mouse, touch screen interfaces, or using speech recognition systems.
-While touch and voice interfaces are becoming more commonplace, most interaction is still
-done using traditional screens, mice, touchpads and keyboards.
-
-The **graphical user interface** (GUI) is the most widely used way to interact with
-personal computers. We give instructions (to run a program, to copy a file, to create
-a new folder/directory) with the convenience of a few mouse clicks. This way of interacting
-with a computer is intuitive and very easy to learn. But this way of giving instructions to
-a computer scales very poorly if we are to give a large stream of instructions even if they
-are similar or identical. For example if we have to copy the third line of each of a thousand
-text files stored in thousand different directories and paste it into a single file
-line by line. Using the traditional GUI approach of clicks will take several hours to do this.
-
-This is where we take advange of the shell - a **command-line interface**
-to make such repetitive tasks automatic and fast. It can take a single instruction and
-repeat it as is or with some modification as many times as we want. The task in
-the example above can be accomplished in a few minutes at most.
-
-The heart of a command-line interface is a **read-evaluate-print loop** (REPL). It is called
-so because when you type a command and press <kbd>Return</kbd> (also known as <kbd>Enter</kbd>) the shell
-reads your command,
-evaluates (or 'executes') it,
-prints the output of your command,
-loops back and waits for you to enter another command.
 
 ### The Shell
 
 
-The Shell is a program which runs other programs rather than doing calculations itself.
-Those programs can be as complicated as climate modeling software and as simple as a
-program that creates a new directory. The simple programs which are used to perform
-stand alone tasks are usually refered to as commands.
-The most popular Unix shell is Bash, (the Bourne Again SHell --- so-called because
-it's derived from a shell written by Stephen Bourne).
-Bash is the default shell on most modern implementations of Unix
-and in most packages that provide Unix-like tools for Windows.
+The shell is a program where users can type commands.
+With the shell, it's possible to invoke complicated programs like climate modeling software or simple commands that create an empty directory with only one line of code.
+The most popular Unix shell is Bash (the Bourne Again SHell --- so-called because it's derived from a shell written by Stephen Bourne).
+Bash is the default shell on most modern implementations of Unix and in most packages that provide Unix-like tools for Windows.
 
+Using the shell will take some effort and some time to learn.
+While a GUI presents you with choices to select, CLI choices are not automatically presented to you, so you must learn a few commands like new vocabulary in a language you're studying.
+However, unlike a spoken language, a small number of "words" (i.e. commands) gets you a long way, and we'll cover those essential few today.
+
+The grammar of a shell allows you to combine existing tools into powerful
+pipelines and handle large volumes of data automatically. Sequences of
+commands can be written into a *script*, improving the reproducibility of
+workflows.
+
+In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
+Familiarity with the shell is near essential to run a variety of specialized tools and resources
+including high-performance computing systems.
+As clusters and cloud computing systems become more popular for scientific data crunching,
+being able to interact with the shell is becoming a necessary skill.
+We can build on the command-line skills covered here
+to tackle a wide range of scientific questions and computational challenges.
+
+Let's get started.
 
 When the shell is first opened, you are presented with a **prompt**,
 indicating that the shell is waiting for input.
@@ -111,30 +104,6 @@ Documents   Library     Music       Public
 > Usually this means that you have mis-typed the command.
 {: .callout}
 
-### Is it difficult?
-
-It is a different model of interacting than a GUI, and that
-will take some effort - and some time - to learn. A GUI
-presents you with choices and you select one. With a **command line interface** (CLI) the choices are combinations
-of commands and parameters, more like words in a language than buttons on a screen. They
-are not presented to you so
-you must learn a few, like learning some vocabulary in a new language. But a small
-number of commands gets you a long way, and we'll cover those essential few today.
-
-### Flexibility and automation
-
-The grammar of a shell allows you to combine existing tools into powerful
-pipelines and handle large volumes of data automatically. Sequences of
-commands can be written into a *script*, improving the reproducibility of
-workflows and allowing you to repeat them easily.
-
-In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
-Familiarity with the shell is near essential to run a variety of specialized tools and resources
-including high-performance computing systems.
-As clusters and cloud computing systems become more popular for scientific data crunching,
-being able to interact with the shell is becoming a necessary skill.
-We can build on the command-line skills covered here
-to tackle a wide range of scientific questions and computational challenges.
 
 ## Nelle's Pipeline: A Typical Problem
 
@@ -143,38 +112,21 @@ has just returned from a six-month survey of the
 [North Pacific Gyre](http://en.wikipedia.org/wiki/North_Pacific_Gyre),
 where she has been sampling gelatinous marine life in the
 [Great Pacific Garbage Patch](http://en.wikipedia.org/wiki/Great_Pacific_Garbage_Patch).
-She has 1520 samples in all and now needs to:
+She has 1520 samples that she's run through an assay machine to measure the relative abundance of 300 proteins.
+She needs to run these 1520 files through an imaginary program called `goostats` she inherited.
+On top of this huge task, she has to write up results by the end of the month so her paper can appear in a special issue of *Aquatic Goo Letters*.
 
-1.  Run each sample through an assay machine
-    that will measure the relative abundance of 300 different proteins.
-    The machine's output for a single sample is
-    a file with one line for each protein.
-2.  Calculate statistics for each of the proteins separately
-    using a program her supervisor wrote called `goostats`.
-3.  Write up results.
-    Her supervisor would really like her to do this by the end of the month
-    so that her paper can appear in an upcoming special issue of *Aquatic Goo Letters*.
-
-It takes her about two weeks to run her samples by the assay machine.
-Now she has the daunting task of analysing her results by running 'goostats'.
 The bad news is that if she has to run `goostats` by hand using a GUI,
-she'll have to select a file using an open file dialog 1520 times.
-At 30 seconds per sample,
-the whole process will take more than 12 hours
-(and that's assuming the best-case scenario where she is ready to select the next file
-as soon as the previous sample analysis has finished).
-This zero-breaks always-ready scenario is only achievable by a machine so it would
-likely take much longer than 12 hours, not to mention that
-the chances of her selecting all of those files correctly are practically zero.
-Missing that paper deadline is looking increasingly likely.
+she'll have to select and open a file 1520 times.
+If `goostats` takes 30 seconds to run each file, the whole process will take more than 12 hours of Nelle's attention.
+With the shell, Nelle can instead assign her computer this mundane task while she focuses her attention on writing her paper.
 
-The next few lessons will explore what she should do instead.
+The next few lessons will explore the ways Nelle can achieve this.
 More specifically,
 they explain how she can use a command shell to run the `goostats` program,
-using loops to automate the repetitive steps e.g. entering file names,
-so that her computer can work 24 hours a day while she writes her paper.
+using loops to automate the repetitive steps of entering file names,
+so that her computer can work while she writes her paper.
 
 As a bonus,
 once she has put a processing pipeline together,
 she will be able to use it again whenever she collects more data.
-
