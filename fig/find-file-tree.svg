@@ -10,9 +10,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="305.42145mm"
-   height="246.51518mm"
-   viewBox="0 0 305.42145 246.51518"
+   width="172.42101mm"
+   height="139.16638mm"
+   viewBox="0 0 172.42101 139.16638"
    version="1.1"
    id="svg3818"
    sodipodi:docname="find-file-tree.svg"
@@ -221,10 +221,10 @@
        only_selected="false" />
     <inkscape:perspective
        sodipodi:type="inkscape:persp3d"
-       inkscape:vp_x="0 : 148.49999 : 1"
-       inkscape:vp_y="0 : 999.99995 : 0"
-       inkscape:vp_z="210 : 148.49999 : 1"
-       inkscape:persp3d-origin="105.00001 : 98.999995 : 1"
+       inkscape:vp_x="0 : 148.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="210.00001 : 148.5 : 1"
+       inkscape:persp3d-origin="105.00001 : 99 : 1"
        id="perspective5417" />
     <inkscape:path-effect
        effect="bspline"
@@ -255,15 +255,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.9052489"
-     inkscape:cx="665.38339"
-     inkscape:cy="381.96129"
+     inkscape:cx="211.3373"
+     inkscape:cy="179.09739"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1508"
      inkscape:window-height="945"
-     inkscape:window-x="1575"
-     inkscape:window-y="137"
+     inkscape:window-x="1527"
+     inkscape:window-y="8"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata3815">
@@ -281,7 +281,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-0.9676882,-13.734765)">
+     transform="translate(-67.467906,-67.409166)">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87777805px;line-height:125%;font-family:'Courier New';-inkscape-font-specification:'Courier New';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
