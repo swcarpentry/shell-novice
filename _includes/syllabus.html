@@ -4,13 +4,21 @@
   Display syllabus in tabular form.
   Days are displayed if at least one episode has 'start = true'.
 {% endcomment %}
+
+{% include manual_episode_order.html %}
+
 <div class="syllabus">
   <h2 id="schedule">Schedule</h2>
 
   {% assign lesson_number = 0 %}
   {% assign day = 0 %}
   {% assign multiday = false %}
-  {% for episode in site.episodes %}
+  {% for lesson_episode in lesson_episodes %}
+    {% if site.episode_order %}
+      {% assign episode = site.episodes | where: "slug", lesson_episode | first %}
+    {% else %}
+      {% assign episode = lesson_episode %}
+    {% endif %}
     {% if episode.start %}{% assign multiday = true %}{% break %}{% endif %}
   {% endfor %}
   {% assign current = site.start_time %}
@@ -22,7 +30,12 @@
     <td class="col-md-3"><a href="{{ relative_root_path }}{% link setup.md %}">Setup</a></td>
     <td class="col-md-7">Download files required for the lesson</td>
   </tr>
-  {% for episode in site.episodes %}
+  {% for lesson_episode in lesson_episodes %}
+    {% if site.episode_order %}
+      {% assign episode = site.episodes | where: "slug", lesson_episode | first %}
+    {% else %}
+      {% assign episode = lesson_episode %}
+    {% endif %}
     {% if episode.start %} {% comment %} Starting a new day? {% endcomment %}
       {% assign day = day | plus: 1 %}
       {% if day > 1 %} {% comment %} If about to start day 2 or later, show finishing time for previous day {% endcomment %}

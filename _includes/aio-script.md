@@ -1,13 +1,20 @@
 {% comment %}
 As a maintainer, you don't need to edit this file.
-If you notice that something doesn't work, please 
+If you notice that something doesn't work, please
 open an issue: https://github.com/carpentries/styles/issues/new
 {% endcomment %}
+
+{% include manual_episode_order.html %}
 
 <script>
   window.onload = function() {
     var lesson_episodes = [
-    {% for episode in site.episodes %}
+    {% for lesson_episode in lesson_episodes %}
+      {% if site.episode_order %}
+        {% assign episode = site.episodes | where: "slug", lesson_episode | first %}
+      {% else %}
+        {% assign episode = lesson_episode %}
+      {% endif %}
     "{{ episode.url}}"{% unless forloop.last %},{% endunless %}
     {% endfor %}
     ];
@@ -30,9 +37,14 @@ open an issue: https://github.com/carpentries/styles/issues/new
     }
   }
 </script>
-{% comment %}
-Create an anchor for every episode.
-{% endcomment %}
-{% for episode in site.episodes %}
-<article id="{{ episode.url }}"></article>
+
+{% comment %} Create an anchor for every episode.  {% endcomment %}
+
+{% for lesson_episode in lesson_episodes %}
+  {% if site.episode_order %}
+    {% assign episode = site.episodes | where: "slug", lesson_episode | first %}
+  {% else %}
+    {% assign episode = lesson_episode %}
+  {% endif %}
+  <article id="{{ episode.url }}"></article>
 {% endfor %}

@@ -3,6 +3,7 @@
 {% endcomment %}
 
 {% include gh_variables.html %}
+{% include manual_episode_order.html %}
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -51,7 +52,12 @@
         <li class="dropdown">
           <a href="{{ relative_root_path }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Episodes <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            {% for episode in site.episodes %}
+            {% for lesson_episode in lesson_episodes %}
+            {% if site.episode_order %}
+              {% assign episode = site.episodes | where: "slug", lesson_episode | first %}
+            {% else %}
+              {% assign episode = lesson_episode %}
+            {% endif %}
             <li><a href="{{ relative_root_path }}{{ episode.url }}">{{ episode.title }}</a></li>
             {% endfor %}
 	    <li role="separator" class="divider"></li>
@@ -66,7 +72,12 @@
           <a href="{{ relative_root_path }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{ relative_root_path }}{% link reference.md %}">Reference</a></li>
-            {% for extra in site.extras %}
+            {% for lesson_extra in lesson_extras %}
+            {% if site.extras_order %}
+              {% assign extra = site.extras | where: "slug", lesson_extra | first %}
+            {% else %}
+              {% assign extra = lesson_extra %}
+            {% endif %}
             <li><a href="{{ relative_root_path }}{{ extra.url }}">{{ extra.title }}</a></li>
             {% endfor %}
           </ul>

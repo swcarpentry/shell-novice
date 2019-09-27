@@ -9,11 +9,17 @@ need to re-assign it here
   Navigation bar for an episode.
 {% endcomment %}
 
+{% include manual_episode_order.html %}
+{% comment %}
+    'previous_episode' and 'next_episodes' are defined in 'manual_episode_order.html'.
+    These replace 'page.previous' and 'page.next' objects, correspondingly.
+{% endcomment %}
+
 <div class="row">
   <div class="col-xs-1">
     <h3 class="text-left">
-      {% if page.previous.url %}
-      <a href="{{ relative_root_path }}{{ page.previous.url }}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+      {% if previous_episode %}
+      <a href="{{ relative_root_path }}{{ previous_episode.url }}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
       {% else %}
       <a href="{{ relative_root_path }}/"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">lesson home</span></a>
       {% endif %}
@@ -26,8 +32,8 @@ need to re-assign it here
   </div>
   <div class="col-xs-1">
     <h3 class="text-right">
-      {% if page.next.url %}
-      <a href="{{ relative_root_path }}{{ page.next.url }}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+      {% if next_episode %}
+      <a href="{{ relative_root_path }}{{ next_episode.url }}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
       {% else %}
       <a href="{{ relative_root_path }}/"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">lesson home</span></a>
       {% endif %}
