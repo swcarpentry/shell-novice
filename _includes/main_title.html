@@ -4,4 +4,11 @@
 
 {% include base_path.html %}
 
+{% if site.kind == "lesson" %}
 <h1 class="maintitle"><a href="{{ relative_root_path }}{% link index.md %}">{{ site.title }}</a>{% if page.title %}: {{ page.title }}{% endif %}</h1>
+
+{% else %}
+
+<h1 class="maintitle">{{ page.title }}</h1>
+
+{% endif %}
