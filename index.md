@@ -23,5 +23,5 @@ These lessons will start you on a path towards using these resources effectively
 >
 > If you're already comfortable manipulating files and directories,
 > searching for files with `grep` and `find`, and writing simple loops
-> and scripts, you probably want to explore the next lesson: [shell-extras](http://swcarpentry.github.io/shell-extras/).
+> and scripts, you probably want to explore the next lesson: [shell-extras](https://carpentries-incubator.github.io/shell-extras/).
 {: .prereq}
