@@ -160,7 +160,7 @@ Desktop/      Downloads/    Movies/       Pictures/
 {: .output}
 
 Here,
-we can see that our home directory contains mostly **sub-directories**.
+we can see that our home directory contains only **sub-directories**.
 Any names in your output that don't have a classification symbol,
 are plain old **files**.
 
