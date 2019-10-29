@@ -27,15 +27,23 @@ In the lesson, you will find out how to access the data in this folder.
 > or [(KDE) Konsole](https://konsole.kde.org/)
 > or [xterm](https://en.wikipedia.org/wiki/Xterm),
 > which can be found via the applications menu or the search bar.
-> If your machine is set up to use something other than bash, you can run it by opening a terminal and typing `bash`.
+> 
+> To check if your machine is set up to use something other than Bash, type `echo $SHELL` in your terminal window.
+>
+> If your machine is set up to use something other than Bash, you can run it by opening a terminal and typing `bash`.
 >
 > ### Mac OS
-> For a Mac computer, the default Unix Shell is Bash,
-> and it is available via the Terminal Utilities program within your Applications folder.
+> For a Mac computer running Mac OS Mojave or earlier releases, the default Unix Shell is Bash.
+> For a Mac computer running Mac OS Catalina or later releases, the default Unix Shell is Zsh.
+> Your default shell is available via the Terminal Utilities program within your Applications folder.
 >
 > To open Terminal, try one or both of the following:
 > * Go to your Applications. Within Applications, open the Utilities folder. Locate Terminal in the Utilities folder and open it.
 > * Use the Mac ‘Spotlight’ computer search function. Search for: `Terminal` and press <kbd>Return</kbd>.
+>
+> To check if your machine is set up to use something other than Bash, type `echo $SHELL` in your terminal window.
+>
+> If your machine is set up to use something other than Bash, you can run it by opening a terminal and typing `bash`.
 >
 > #### Reference 
 > [How to Use Terminal on a Mac](http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/)
