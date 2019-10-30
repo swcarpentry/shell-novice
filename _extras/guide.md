@@ -213,7 +213,7 @@ as long as learners using Windows do not run into roadblocks such as:
 
 *  Stay within POSIX-compliant commands, as all the teaching materials do.
    Your particular shell may have extensions beyond POSIX that are not available
-   on other machines, especially the default OSX bash and Windows bash emulators.
+   on other machines, especially the default macOS bash and Windows bash emulators.
    For example, POSIX `ls` does not have an `--ignore=` or `-I` option, and POSIX
    `head` takes `-n 10` or `-10`, but not the long form of `--lines=10`.
 
