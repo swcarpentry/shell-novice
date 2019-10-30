@@ -29,7 +29,7 @@ In the lesson, you will find out how to access the data in this folder.
 > which can be found via the applications menu or the search bar.
 > If your machine is set up to use something other than bash, you can run it by opening a terminal and typing `bash`.
 >
-> ### Mac OS
+> ### macOS
 > For a Mac computer, the default Unix Shell is Bash,
 > and it is available via the Terminal Utilities program within your Applications folder.
 >
