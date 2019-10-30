@@ -95,7 +95,7 @@ The first encourages contributors to be honest about requirements;
 the second, to think hard about priorities.
 
 We are also not looking for exercises or other material that only run on one platform.
-Our workshops typically contain a mixture of Windows, Mac OS X, and Linux users;
+Our workshops typically contain a mixture of Windows, macOS, and Linux users;
 in order to be usable,
 our lessons must run equally well on all three.
 

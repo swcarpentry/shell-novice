@@ -135,7 +135,7 @@ $ nano draft.txt
 > human-friendly media. We use it in examples because it is one of the
 > least complex text editors. However, because of this trait, it may
 > not be powerful enough or flexible enough for the work you need to do
-> after this workshop. On Unix systems (such as Linux and Mac OS X),
+> after this workshop. On Unix systems (such as Linux and macOS),
 > many programmers use [Emacs](http://www.gnu.org/software/emacs/) or
 > [Vim](http://www.vim.org/) (both of which require more time to learn),
 > or a graphical editor such as

@@ -116,7 +116,7 @@ MIME type
 
 operating system
 :   Software that manages interactions between users, hardware, and software [processes](#process). Common
-    examples are Linux, OS X, and Windows.
+    examples are Linux, macOS, and Windows.
 
 orthogonal
 :   To have meanings or behaviors that are independent of each other.
@@ -180,7 +180,7 @@ relative path
 
 root directory
 :   The top-most directory in a [file system](#file-system).
-    Its name is "/" on Unix (including Linux and Mac OS X) and "\\" on Microsoft Windows.
+    Its name is "/" on Unix (including Linux and macOS) and "\\" on Microsoft Windows.
 
 shell
 :   A [command-line interface](#cli) such as Bash (the Bourne-Again Shell)
