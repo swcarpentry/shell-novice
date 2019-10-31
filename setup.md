@@ -33,8 +33,8 @@ In the lesson, you will find out how to access the data in this folder.
 > If your machine is set up to use something other than Bash, you can run it by opening a terminal and typing `bash`.
 >
 > ### macOS
-> For a Mac computer running Mac OS Mojave or earlier releases, the default Unix Shell is Bash.
-> For a Mac computer running Mac OS Catalina or later releases, the default Unix Shell is Zsh.
+> For a Mac computer running macOS Mojave or earlier releases, the default Unix Shell is Bash.
+> For a Mac computer running macOS Catalina or later releases, the default Unix Shell is Zsh.
 > Your default shell is available via the Terminal program within your Utilities folder.
 >
 > To open Terminal, try one or both of the following:
