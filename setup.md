@@ -38,7 +38,7 @@ In the lesson, you will find out how to access the data in this folder.
 > Your default shell is available via the Terminal program within your Utilities folder.
 >
 > To open Terminal, try one or both of the following:
-> * Go to your Applications. Within Applications, open the Utilities folder. Locate Terminal in the Utilities folder and open it.
+> * In Finder, select the Go menu, then select Utilities. Locate Terminal in the Utilities folder and open it.
 > * Use the Mac ‘Spotlight’ computer search function. Search for: `Terminal` and press <kbd>Return</kbd>.
 >
 > To check if your machine is set up to use something other than Bash, type `echo $SHELL` in your terminal window.
