@@ -1,6 +1,6 @@
 # Contributing
 
-[Software Carpentry][swc-site] and [Data Carpentry][dc-site] are open source projects,
+[The Carpentries][c-site] ([Software Carpentry][swc-site], [Data Carpentry][dc-site], and [Library Carpentry][lc-site]) are open source projects,
 and we welcome contributions of all kinds:
 new lessons,
 fixes to existing material,
@@ -14,7 +14,7 @@ you agree that we may redistribute your work under [our license](LICENSE.md).
 In exchange,
 we will address your issues and/or assess your change proposal as promptly as we can,
 and help you become a member of our community.
-Everyone involved in [Software Carpentry][swc-site] and [Data Carpentry][dc-site]
+Everyone involved in [The Carpentries][c-site]
 agrees to abide by our [code of conduct](CODE_OF_CONDUCT.md).
 
 ## How to Contribute
@@ -73,8 +73,8 @@ and submitting [bug reports][issues]
 about things that don't work, aren't clear, or are missing.
 If you are looking for ideas, please see the 'Issues' tab for
 a list of issues associated with this repository,
-or you may also look at the issues for [Data Carpentry][dc-issues]
-and [Software Carpentry][swc-issues] projects.
+or you may also look at the issues for [Data Carpentry][dc-issues], 
+[Software Carpentry][swc-issues], and [Library Carpentry][lc-issues] projects.
 
 Comments on issues and reviews of pull requests are just as welcome:
 we are smarter together than we are on our own.
@@ -146,3 +146,6 @@ You can also [reach us by email][email].
 [swc-issues]: https://github.com/issues?q=user%3Aswcarpentry
 [swc-lessons]: https://software-carpentry.org/lessons/
 [swc-site]: https://software-carpentry.org/
+[c-site]: https://carpentries.org/
+[lc-site]: https://librarycarpentry.org/
+[lc-issues]: https://github.com/issues?q=user%3Alibrarycarpentry

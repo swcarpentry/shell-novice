@@ -3,6 +3,7 @@
 .DS_Store
 .ipynb_checkpoints
 .sass-cache
+.jekyll-cache/
 __pycache__
 _site
 .Rproj.user

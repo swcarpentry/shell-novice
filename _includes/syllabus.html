@@ -1,14 +1,24 @@
+{% include base_path.html %}
+
 {% comment %}
   Display syllabus in tabular form.
   Days are displayed if at least one episode has 'start = true'.
 {% endcomment %}
+
+{% include manual_episode_order.html %}
+
 <div class="syllabus">
   <h2 id="schedule">Schedule</h2>
 
   {% assign lesson_number = 0 %}
   {% assign day = 0 %}
   {% assign multiday = false %}
-  {% for episode in site.episodes %}
+  {% for lesson_episode in lesson_episodes %}
+    {% if site.episode_order %}
+      {% assign episode = site.episodes | where: "slug", lesson_episode | first %}
+    {% else %}
+      {% assign episode = lesson_episode %}
+    {% endif %}
     {% if episode.start %}{% assign multiday = true %}{% break %}{% endif %}
   {% endfor %}
   {% assign current = site.start_time %}
@@ -17,10 +27,15 @@
   <tr>
     {% if multiday %}<td class="col-md-1"></td>{% endif %}
     <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}"></td>
-    <td class="col-md-3"><a href="{{ page.root }}{% link setup.md %}">Setup</a></td>
+    <td class="col-md-3"><a href="{{ relative_root_path }}{% link setup.md %}">Setup</a></td>
     <td class="col-md-7">Download files required for the lesson</td>
   </tr>
-  {% for episode in site.episodes %}
+  {% for lesson_episode in lesson_episodes %}
+    {% if site.episode_order %}
+      {% assign episode = site.episodes | where: "slug", lesson_episode | first %}
+    {% else %}
+      {% assign episode = lesson_episode %}
+    {% endif %}
     {% if episode.start %} {% comment %} Starting a new day? {% endcomment %}
       {% assign day = day | plus: 1 %}
       {% if day > 1 %} {% comment %} If about to start day 2 or later, show finishing time for previous day {% endcomment %}
@@ -42,7 +57,7 @@
       <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>
       <td class="col-md-3">
         {% assign lesson_number = lesson_number | plus: 1 %}
-	{{ lesson_number }}. <a href="{{ page.root }}{{ episode.url }}">{{ episode.title }}</a>
+	{{ lesson_number }}. <a href="{{ relative_root_path }}{{ episode.url }}">{{ episode.title }}</a>
       </td>
       <td class="col-md-7">
         {% if episode.break %}

@@ -1,0 +1,34 @@
+
+{% if site.life_cycle == "pre-alpha" %}
+
+<div class="panel panel-default life-cycle">
+  <div id="life-cycle" class="panel-body pre-alpha">
+    This lesson is still being designed and assembled (Pre-Alpha version)
+  </div>
+</div>
+
+
+{% elsif site.life_cycle == "alpha" %}
+
+<div class="panel panel-default life-cycle">
+  <div id="life-cycle" class="panel-body alpha">
+    This lesson is in the early stages of development (Alpha version)
+  </div>
+</div>
+
+
+{% elsif site.life_cycle == "beta" %}
+
+<div class="panel panel-default life-cycle">
+  <div id="life-cycle" class="panel-body beta">
+    This lesson is being piloted (Beta version)
+  </div>
+</div>
+
+{% elsif site.life_cycle == "stable" %}
+
+{% comment %}
+We don't do anything special for now
+{% endcomment %}
+
+{% endif %}
