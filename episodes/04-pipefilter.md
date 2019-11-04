@@ -41,11 +41,22 @@ octane.pdb    pentane.pdb   propane.pdb
 ~~~
 {: .output}
 
-Let's go into that directory with `cd` and run the command `wc *.pdb`.
+Let's go into that directory with `cd` and run the command `wc cubane.pdb`:
+
+~~~
+$ wc cubane.pdb 
+~~~
+{: .language-bash}
+
+~~~
+20  156 1158 cubane.pdb
+~~~
+{: .output}
+
 `wc` is the 'word count' command:
 it counts the number of lines, words, and characters in files (from left to right, in that order).
 
-The `*` in `*.pdb` matches zero or more characters,
+If we run the command `wc *.pdb`, the `*` in `*.pdb` matches zero or more characters,
 so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
 
 ~~~
@@ -85,6 +96,9 @@ $ wc -l *.pdb
  107  total
 ~~~
 {: .output}
+
+The `-c` and `-w` options can also be used with the `wc` command, to show 
+only the number of characters or the number of words in the files.
 
 > ## Why Isn't It Doing Anything?
 >
