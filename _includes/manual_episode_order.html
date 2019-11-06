@@ -50,7 +50,9 @@
         {% endif %}
 {% endcomment %}
 
-<!-- Manual ordering of Episodes begins here -->
+{% comment %}
+Manual ordering of Episodes begins here
+{% endcomment %}
 
 {% if site.episode_order %}
     {% assign lesson_episodes = site.episode_order %}
@@ -98,7 +100,10 @@
   {% assign next_episode  = page.next %}
 {% endif %}
 
-<!-- Manual ordering of Extras begins here -->
+
+{% comment %}
+Manual ordering of Extras begins here
+{% endcomment %}
 
 {% if site.extras_order %}
     {% assign lesson_extras = site.extras_order %}
