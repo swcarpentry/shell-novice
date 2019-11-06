@@ -27,9 +27,6 @@ In the lesson, you will find out how to access the data in this folder.
 > or [(KDE) Konsole](https://konsole.kde.org/)
 > or [xterm](https://en.wikipedia.org/wiki/Xterm),
 > which can be found via the applications menu or the search bar.
-> 
-> To check if your machine is set up to use something other than Bash, type `echo $SHELL` in your terminal window.
->
 > If your machine is set up to use something other than Bash, you can run it by opening a terminal and typing `bash`.
 >
 > ### macOS
