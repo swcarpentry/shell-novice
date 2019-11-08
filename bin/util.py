@@ -144,7 +144,7 @@ def split_metadata(path, text):
         metadata_raw = pieces[1]
         text = pieces[2]
         try:
-            metadata_yaml = yaml.load(metadata_raw)
+            metadata_yaml = yaml.load(metadata_raw, Loader=yaml.FullLoader)
         except yaml.YAMLError as e:
             print('Unable to parse YAML header in {0}:\n{1}'.format(
                 path, e), file=sys.stderr)
@@ -161,7 +161,7 @@ def load_yaml(filename):
 
     try:
         with open(filename, 'r') as reader:
-            return yaml.load(reader)
+            return yaml.load(reader, Loader=yaml.FullLoader)
     except (yaml.YAMLError, IOError) as e:
         print('Unable to load YAML file {0}:\n{1}'.format(
             filename, e), file=sys.stderr)

@@ -1,4 +1,4 @@
-{% assign favicon_url = site.baseurl | append: '/assets/favicons/' | append: site.carpentry | prepend: site.url %}
+{% assign favicon_url = relative_root_path | append: '/assets/favicons/' | append: site.carpentry  %}
 
 {% if site.carpentry == 'swc' %}
 {% assign carpentry = 'Software Carpentry' %}

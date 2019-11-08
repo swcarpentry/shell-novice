@@ -1,0 +1,45 @@
+{% comment %}
+When rendering websites locally, `site.github.url` doesn't get resolved properly
+unless a GitHub Personal Access Token is set up and available in the
+environment. This leads to warnings and errors when trying to serve the site
+locally. To work around this, we use the `jekyll.environment` variable which is
+set to `development` when rendering the site locally, and set to `production` on
+GitHub where `site.github.url` is defined.
+{% endcomment %}
+
+{% if jekyll.environment == "production" %}
+
+{% comment %}
+First, get the name of the repository
+{% endcomment %}
+{% assign repo_name = site.github.repository_name %}
+
+{% comment %}
+`site.github.public_repositories` contains comprehensive information for all public repositories for the organization. We use `where` to extract the part
+of the metadata that is relevant to the present repository.
+{% endcomment %}
+{% assign repo_info = site.github.public_repositories | where: "name", repo_name %}
+
+{% comment %}
+Now, we can extract the default branch for the repo
+{% endcomment %}
+{% assign default_branch = repo_info[0].default_branch %}
+
+{% comment %}
+Other variables requested by the template
+{% endcomment %}
+{% assign repo_url = site.github.repository_url %}
+{% assign search_domain_url = site.github.url %}
+{% assign project_title = site.github.project_title %}
+{% assign source_branch = site.github.source.branch %}
+
+{% elsif jekyll.environment == "development" %}
+
+{% assign repo_name = "" %}
+{% assign repo_url = "" %}
+{% assign default_branch = "" %}
+{% assign search_domain_url = "" %}
+{% assign project_title = "" %}
+{% assign source_branch = "" %}
+
+{% endif %}

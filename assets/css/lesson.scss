@@ -11,7 +11,7 @@ $color-brand:       #2b3990 !default;
 // code boxes
 $color-error:       #bd2c00 !default;
 $color-output:      #303030 !default;
-$color-source:      #6e5494 !default;
+$color-source:      #360084 !default;
 
 // blockquotes
 $color-callout:     #f4fd9c !default;
@@ -29,10 +29,11 @@ $color-testimonial: #fc8dc1 !default;
 //----------------------------------------
 
 @mixin cdSetup($color) {
-  color: $color;
-  border-left: solid 5px $color;
-  margin-bottom: 0px;
-  border-radius: 4px 0 0 4px;
+    color: $color;
+    border: solid 1px $color;
+    border-left: solid 5px $color;
+    margin: 15px 5px 10px 0;
+    border-radius: 4px 0 0 4px;
 }
 
 .error  { @include cdSetup($color-error); }
@@ -44,25 +45,33 @@ $color-testimonial: #fc8dc1 !default;
 .matlab, .language-matlab { @include cdSetup($color-source); }
 .python, .language-python { @include cdSetup($color-source); }
 .r, .language-r           { @include cdSetup($color-source); }
-.sql, .langauge-sql       { @include cdSetup($color-source); }
+.sql, .language-sql       { @include cdSetup($color-source); }
 
-.error pre,
-.output pre,
-.source pre,
-.bash pre,
-.language-bash pre,
-.make pre,
-.language-make pre,
-.matlab pre,
-.language-matlab pre,
-.python pre,
-.language-python pre,
-.r pre,
-.language-r pre,
-.sql pre ,
-.language-sql pre {
-  border-radius: 0 4px 4px 0;
+.error::before,
+.output::before,
+.source::before,
+.bash::before, .language-bash::before,
+.make::before, .language-make::before,
+.matlab::before, .language-matlab::before,
+.python::before, .language-python::before,
+.r::before, .language-r::before,
+.sql::before, .language-sql::before {
+  background-color: #f2eff6;
+  display: block;
+  font-weight: bold;
+  padding: 5px 10px;
 }
+
+.error::before  { background-color: #ffebe6; content: "Error"; }
+.output::before { background-color: #efefef; content: "Output"; }
+.source::before { content: "Code"; }
+.bash::before, .language-bash::before { content: "Bash"; }
+.make::before, .language-make::before { content: "Make"; }
+.matlab::before, .language-matlab::before { content: "Matlab"; }
+.python::before, .language-python::before { content: "Python"; }
+.r::before, .language-r::before { content: "R"; }
+.sql::before, .language-sql::before { content: "SQL"; }
+
 
 //----------------------------------------
 // Specialized blockquote environments for learning objectives, callouts, etc.
@@ -75,13 +84,12 @@ $codeblock-padding: 5px !default;
   $gradientcolor1: $color;
   $gradientcolor2: scale-color($color, $lightness: 10%);
 
-  padding-left: $codeblock-padding;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-right: 0;
+  padding: 0 0 $codeblock-padding $codeblock-padding;
   border: 1px solid;
   border-color: $color;
-  padding-bottom: $codeblock-padding;
+  border-radius: 4px;
+
+  margin: 15px 5px 10px 0;
 
   h2 {
     padding-top: $codeblock-padding;
@@ -126,24 +134,67 @@ $codeblock-padding: 5px !default;
 font-size: 18px;
 }
 
+.challenge    { background-color: #eec27520; }
+.callout      { background-color: #f4fd9c20; }
+.challenge    { background-color: #eec27520; }
+.checklist    { background-color: #dfd2a020; }
+.discussion   { background-color: #eec27520; }
+.keypoints    { background-color: #7ae78e20; }
+.objectives   { background-color: #daee8420; }
+.prereq       { background-color: #9cd6dc20; }
+.solution     { background-color: #ded4b94d; }
+.testimonial  { background-color: #fc8dc120; }
+
+blockquote p {
+    margin: 5px;
+}
+blockquote :not(h2) + p {
+    padding-top: 1em;
+}
+
 //----------------------------------------
 // Override Bootstrap settings.
 //----------------------------------------
 
+blockquote { font-size: inherit; }
+
 code {
   white-space: nowrap;
   padding: 2px 5px;
-  color: #3d90d9;
+  color: #006cad;
   background-color: #e7e7e7;
 }
 
-img {
-  max-width: 100%;
+samp { hyphens: none; }
+
+dt { margin-top: 20px; }
+dd { margin-left: 2em; }
+
+article img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+article h2 {
+  margin: 48px 0 16px;
+  border-bottom: solid 1px #eaecef;
+  padding-bottom: 0.3em;
+  line-height: 1.25;
+}
+
+article h3 { margin: 40px 0 16px; }
+
+article pre {
+    margin: 0;
+    border: 0;
 }
 
 //----------------------------------------
 // Miscellaneous.
 //----------------------------------------
+
+.figures h2 { margin-top: 100px; }
 
 .maintitle {
   text-align: center;
@@ -156,7 +207,7 @@ img {
 footer .copyright,
 footer .help-links
 {
-    font-size: 18px;
+    font-size: inherit;
     margin-top: 10px;
     margin-bottom: 10px;
     font-weight: 500;
@@ -181,6 +232,37 @@ ol {
 span.fold-unfold {
   margin-left: 1em;
   opacity: 0.5;
+}
+
+
+//----------------------------------------
+// Life cycle box
+//----------------------------------------
+
+div.life-cycle {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: -1px;
+    border-radius: 0;
+}
+
+.pre-alpha {
+    color: #a94442;
+    background: #f2dede;
+}
+
+.alpha {
+    color: #8a6d3b;
+    background: #fcf8e3;
+}
+
+.beta {
+    color: #31708f;
+    background: #d9edf7;
 }
 
 

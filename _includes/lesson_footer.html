@@ -1,43 +1,46 @@
 {% comment %}
   Footer for lesson pages.
 {% endcomment %}
+
+{% include gh_variables.html %}
+
 <footer>
   <div class="row">
     <div class="col-md-6 copyright" align="left">
 	{% if site.carpentry == "swc" %}
-	Copyright &copy; 2018–{{ 'now' | date: "%Y" }}
-	<a href="{{ site.carpentries_site }}">The Carpentries</a>
+	Licensed under <a href="{{ site.cc_by_human }}">CC-BY 4.0</a> 2018–{{ 'now' | date: "%Y" }}
+	by <a href="{{ site.carpentries_site }}">The Carpentries</a>
         <br>
-        Copyright &copy; 2016–2018
-	<a href="{{ site.swc_site }}">Software Carpentry Foundation</a>
+        Licensed under <a href="{{ site.cc_by_human }}">CC-BY 4.0</a> 2016–2018
+	by <a href="{{ site.swc_site }}">Software Carpentry Foundation</a>
 	{% elsif site.carpentry == "dc" %}
-	Copyright &copy; 2018–{{ 'now' | date: "%Y" }}
-	<a href="{{ site.carpentries_site }}">The Carpentries</a>
+	Licensed under <a href="{{ site.cc_by_human }}">CC-BY 4.0</a> 2018–{{ 'now' | date: "%Y" }}
+	by <a href="{{ site.carpentries_site }}">The Carpentries</a>
         <br>
-        Copyright &copy; 2016–2018
-	<a href="{{ site.dc_site }}">Data Carpentry</a>
+        Licensed under <a href="{{ site.cc_by_human }}">CC-BY 4.0</a> 2016–2018
+	by <a href="{{ site.dc_site }}">Data Carpentry</a>
 	{% elsif site.carpentry == "lc" %}
-	Copyright &copy; 2016–{{ 'now' | date: "%Y" }}
-	<a href="{{ site.lc_site }}">Library Carpentry</a>
+	Licensed under <a href="{{ site.cc_by_human }}">CC-BY 4.0</a> 2016–{{ 'now' | date: "%Y" }}
+	by <a href="{{ site.lc_site }}">Library Carpentry</a>
 	{% elsif site.carpentry == "cp" %}
-	Copyright &copy; 2018–{{ 'now' | date: "%Y" }}
-	<a href="{{ site.carpentries_site }}">The Carpentries</a>
+	Licensed under <a href="{{ site.cc_by_human }}">CC-BY 4.0</a> 2018–{{ 'now' | date: "%Y" }}
+	by <a href="{{ site.carpentries_site }}">The Carpentries</a>
 	{% endif %}
     </div>
     <div class="col-md-6 help-links" align="right">
 	{% if page.source %}
 	{% if page.source == "Rmd" %}
-	<a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}">Edit on GitHub</a>
+	<a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}" data-checker-ignore>Edit on GitHub</a>
 	{% endif %}
 	{% else %}
-	<a href="{{site.github.repository_url}}/edit/gh-pages/{{page.path}}">Edit on GitHub</a>
+	<a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path}}" data-checker-ignore>Edit on GitHub</a>
 	{% endif %}
 	/
-	<a href="{{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md">Contributing</a>
+	<a href="{{ repo_url }}/blob/{{ source_branch }}/CONTRIBUTING.md" data-checker-ignore>Contributing</a>
 	/
-	<a href="{{ site.github.repository_url }}/">Source</a>
+	<a href="{{ repo_url }}/">Source</a>
 	/
-	<a href="{{ site.github.repository_url }}/blob/gh-pages/CITATION">Cite</a>
+	<a href="{{ repo_url }}/blob/{{ source_branch }}/CITATION" data-checker-ignore>Cite</a>
 	/
 	<a href="mailto:{{ site.email }}">Contact</a>
     </div>
@@ -45,7 +48,7 @@
   <div class="row">
     <div class="col-md-12" align="center">
       Using <a href="https://github.com/carpentries/styles/">The Carpentries style</a>
-      version <a href="https://github.com/carpentries/styles/releases/tag/v9.5.2">9.5.2</a>.
+      version <a href="https://github.com/carpentries/styles/releases/tag/v9.5.3">9.5.3</a>.
     </div>
   </div>
 </footer>

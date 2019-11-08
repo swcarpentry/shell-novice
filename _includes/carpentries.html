@@ -1,44 +1,70 @@
 {% comment %}
-  General description of Software and Data Carpentry.
+  General description of Software, Data, and Library Carpentry.
 {% endcomment %}
+
+{% include base_path.html %}
+
 <div class="row">
   <div class="col-md-2" align="center">
-    <a href="{{ site.swc_site }}"><img src="{{ page.root }}/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" /></a>
+    <a href="{{ site.carpentries_site }}"><img src="{{ relative_root_path }}/assets/img/cp-logo-blue.svg" alt="The Carpentries logo" /></a>
   </div>
   <div class="col-md-8">
-    Since 1998,
-    <a href="{{ site.swc_site }}">Software Carpentry</a>
-    has been teaching researchers in science, engineering, medicine, and related disciplines
-    the computing skills they need to get more done in less time and with less pain.
-    Its volunteer instructors have run hundreds of events
-    for thousands of learners in the past two and a half years.
+    <p><a href="{{ site.carpentries_site }}">The Carpentries</a> comprises
+    Software Carpentry, Data Carpentry, and Library Carpentry communities of Instructors, Trainers,
+    Maintainers, helpers, and supporters who share a mission to teach
+    foundational coding and data science skills to researchers and people 
+    working in library- and information-related roles. In January,
+    2018, The Carpentries was formed by the merger of Software Carpentry and
+    Data Carpentry. Library Carpentry became an official Carpentries Lesson Program in November 2018.</p>
+
+    <p>While individual lessons and workshops continue to be run under each
+    lesson project, The Carpentries provide overall staffing and governance, as
+    well as support for assessment, instructor training and mentoring.
+    Memberships are joint, and the Carpentries project maintains a shared Code
+    of Conduct. The Carpentries is a fiscally sponsored project of Community
+    Initiatives, a registered 501(c)3 non-profit based in California, USA.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2" align="center">
+    <a href="{{ site.swc_site }}"><img src="{{ relative_root_path }}/assets/img/swc-icon-blue.svg" alt="Software Carpentry logo" /></a>
+  </div>
+  <div class="col-md-8">
+     <p>Since 1998, <a href="{{ site.swc_site }}">Software Carpentry</a> has
+    been teaching researchers across all disciplines the foundational coding
+    skills they need to get more done in less time and with less pain. Its
+    volunteer instructors have run hundreds of events for thousands of learners
+    around the world. Now that all research involves some degree of
+    computational work, whether with big data, cloud computing, or simple task
+    automation, these skills are needed more than ever.</p>
   </div>
 </div>
 <br/>
 <div class="row">
   <div class="col-md-2" align="center">
-    <a href="{{ site.dc_site }}"><img src="{{ page.root }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" /></a>
+    <a href="{{ site.dc_site }}"><img src="{{ relative_root_path }}/assets/img/dc-icon-black.svg" alt="Data Carpentry logo" /></a>
   </div>
   <div class="col-md-8">
-    <a href="{{ site.dc_site }}">Data Carpentry</a> develops and teaches workshops on the fundamental data skills needed to conduct research.
-    Its target audience is researchers who have little to no prior computational experience,
-    and its lessons are domain specific,
-    building on learners' existing knowledge to enable them to quickly apply skills learned to their own research.
+    <p><a href="{{ site.dc_site }}">Data Carpentry</a> develops and teaches
+    workshops on the fundamental data skills needed to conduct research. Its
+    target audience is researchers who have little to no prior computational
+    experience, and its lessons are domain specific, building on learners'
+    existing knowledge to enable them to quickly apply skills learned to their
+    own research. Data Carpentry workshops take researchers through the entire
+    data life cycle.</p>
   </div>
 </div>
 <br/>
 <div class="row">
   <div class="col-md-2" align="center">
-    <a href="{{ site.lc_site }}"><img src="{{ page.root }}/assets/img/lc-icon-black.png" alt="Library Carpentry logo" /></a>
+    <a href="{{ site.lc_site }}"><img src="{{ relative_root_path }}/assets/img/lc-icon-black.png" alt="Library Carpentry logo" /></a>
   </div>
   <div class="col-md-8">
-    <a href="{{ site.lc_site }}">Library Carpentry</a> is made by librarians to help librarians
-    automate repetitive, boring, error-prone tasks;
-    create, maintain and analyse sustainable and reusable data;
-    work effectively with IT and systems colleagues;
-    better understand the use of software in research;
-    and much more.
-    Library Carpentry was the winner of the 2016
-    <a href="http://labs.bl.uk/British+Library+Labs+Awards">British Library Labs Teaching and Learning Award</a>.
+    <p><a href="{{ site.lc_site }}">Library Carpentry</a> develops lessons and
+    teaches workshops for and with people working in library- and
+    information-related roles. Its goal is to create an on-ramp to empower this
+    community to use software and data in their own work, as well as be
+    advocates for and train others in efficient, effective and reproducible data
+    and software practices.</p>
   </div>
 </div>
