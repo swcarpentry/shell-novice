@@ -339,7 +339,8 @@ quotes.txt
 > ## Moving Files to a new folder
 >
 > After running the following commands,
-> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder.  The files should have been placed in the raw folder.
+> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder. 
+> The files should have been placed in the `raw` folder.
 >
 > ~~~
 > $ ls -F
@@ -350,7 +351,7 @@ quotes.txt
 > ~~~
 > {: .language-bash}
 >
-> Fill in the blanks to move these files to the raw/ folder
+> Fill in the blanks to move these files to the `raw/` folder
 > (i.e. the one she forgot to put them in) 
 >
 > ~~~
