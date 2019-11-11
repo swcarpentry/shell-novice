@@ -590,14 +590,14 @@ $ grep "FE" $(find .. -name '*.pdb')
 > The `-v` option to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
 > the following commands will find all files in `/data` whose names
-> end in `s.txt` (e.g., `animals.txt` or `planets.txt`), but do
-> *not* contain the word `net`?
+> end in `s.txt` but whose names also do *not* contain the string `net`?
+> (For example, `animals.txt` or `amino-acids.txt` but not `planets.txt`.)
 > Once you have thought about your answer, you can test the commands in the `data-shell`
 > directory.
 >
 > 1.  `find data -name '*s.txt' | grep -v net`
 > 2.  `find data -name *s.txt | grep -v net`
-> 3.  `grep -v "temp" $(find data -name '*s.txt')`
+> 3.  `grep -v "net" $(find data -name '*s.txt')`
 > 4.  None of the above.
 >
 > > ## Solution
@@ -608,7 +608,7 @@ $ grep "FE" $(find .. -name '*.pdb')
 > > expression to `find`.
 > >
 > > Option 3 is incorrect because it searches the contents of the files for lines which
-> > do not match 'temp', rather than searching the file names.
+> > do not match 'net', rather than searching the file names.
 > {: .solution}
 {: .challenge}
 
