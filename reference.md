@@ -248,3 +248,4 @@ wildcard
 * [Great Pacific Garbage Patch](http://en.wikipedia.org/wiki/Great_Pacific_Garbage_Patch)
 * ['Ensuring the longevity of digital information' by Jeff Rothenberg](http://www.clir.org/pubs/archives/ensuring.pdf)
 * [Computer error haikus](http://wiki.c2.com/?ComputerErrorHaiku)
+* [How to name files nicely, by Jenny Bryan](https://speakerdeck.com/jennybc/how-to-name-files)
