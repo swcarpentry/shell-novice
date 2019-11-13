@@ -121,9 +121,6 @@ only the number of characters or the number of words in the files.
 > <kbd>Ctrl</kbd>+<kbd>C</kbd>
 {: .callout}
 
-We can also use `-w` to get only the number of words,
-or `-c` to get only the number of characters.
-
 Which of these files contains the fewest lines?
 It's an easy question to answer when there are only six files,
 but what if there were 6000?
