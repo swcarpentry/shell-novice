@@ -100,7 +100,7 @@ because its name begins with `/`.
 >
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
-> it refers to the root directory. When it appears *inside* a name,
+> it refers to the root directory. When it appears *inside* a path,
 > it's just a separator.
 {: .callout}
 
