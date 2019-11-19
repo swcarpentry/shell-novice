@@ -115,8 +115,7 @@ only the number of characters or the number of words in the files.
 > process input given at the command prompt, so it just sits there and waits for us to give
 > it some data interactively. From the outside, though, all we see is it
 > sitting there: the command doesn't appear to do anything.
->
-> If you make this kind of mistake, you can escape out of this state by holding down
+> You can type any thing now and pressing (<kbd>Ctrl</kbd>) and typing the letter <kbd>D</kbd> will output the number of lines. However, if you think you make this by mistake, you can escape out of this state by holding down
 > the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and letting go of the <kbd>Ctrl</kbd> key.
 > <kbd>Ctrl</kbd>+<kbd>C</kbd>
 {: .callout}
