@@ -187,7 +187,18 @@ command doesn't always require an argument or an option.
 
 Each part is separated by spaces: if you omit the space
 between `ls` and `-F` the shell will look for a command called `ls-F`, which
-doesn't exist. Also, capitalization can be important: `ls -r` is different to `ls -R`.
+doesn't exist. Also, capitalization can be important. For example, `ls -s` will display the size of files and directories alongside the names, while `ls -S` will sort the files and directories by size, as shown below:
+
+~~~
+$ ls -s data-shell/data
+total 116
+ 4 amino-acids.txt   4 animals.txt   4 morse.txt  12 planets.txt  76 sunspot.txt
+ 4 animal-counts     4 elements      4 pdb         4 salmon.txt
+$ ls -S data-shell/data
+sunspot.txt  animal-counts  pdb        amino-acids.txt  salmon.txt
+planets.txt  elements       morse.txt  animals.txt
+~~~
+{: .output}
 
 Putting all that together, our command above gives us a listing
 of files and directories in the root directory `/`.
