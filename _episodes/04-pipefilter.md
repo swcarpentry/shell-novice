@@ -44,6 +44,7 @@ octane.pdb    pentane.pdb   propane.pdb
 Let's go into that directory with `cd` and run the command `wc cubane.pdb`:
 
 ~~~
+$ cd molecules
 $ wc cubane.pdb 
 ~~~
 {: .language-bash}
@@ -60,7 +61,6 @@ If we run the command `wc *.pdb`, the `*` in `*.pdb` matches zero or more charac
 so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
 
 ~~~
-$ cd molecules
 $ wc *.pdb
 ~~~
 {: .language-bash}
