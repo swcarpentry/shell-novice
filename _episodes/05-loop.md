@@ -18,7 +18,7 @@ keypoints:
 - "Do not use spaces, quotes, or wildcard characters such as '*' or '?' in filenames, as it complicates variable expansion."
 - "Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping."
 - "Use the up-arrow key to scroll up through previous commands to edit and repeat them."
-- "Use `Ctrl-R` to search through the previously entered commands."
+- "Use `Ctrl-r` to search through the previously entered commands."
 - "Use `history` to display recent commands, and `!number` to repeat a command by number."
 ---
 
@@ -585,7 +585,7 @@ the shell runs the modified command.
 However, nothing appears to happen --- there is no output.
 After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
 she has no idea whether it is running, much less how quickly.
-She kills the running command by typing `Ctrl-C`,
+She kills the running command by typing `Ctrl-c`,
 uses up-arrow to repeat the command,
 and edits it to read:
 
@@ -650,9 +650,15 @@ so she decides to get some coffee and catch up on her reading.
 >
 > There are a number of other shortcut commands for getting at the history.
 >
-> - `Ctrl-R` enters a history search mode 'reverse-i-search' and finds the
+> - `Ctrl-r` enters a history search mode 'reverse-i-search' and finds the
 > most recent command in your history that matches the text you enter next.
-> Press `Ctrl-R` one or more additional times to search for earlier matches.
+> Press `Ctrl-r` one or more additional times to search for earlier matches.
+> You can then use the left and right arrow keys to choose that line and edit
+> it then hit <kbd>return</kbd> to run the command.
+> - `!head:p` will print the last command that starts with 'head' or any other
+> command you want to search for and prints it to the screen.  That command is 
+> also inserted as the last entry in the history list so you can access it with
+> the up arrow key, modify it if needed, then hit <kbd>return</kbd> to run it.
 > - `!!` retrieves the immediately preceding command
 > (you may or may not find this more convenient than using the up-arrow)
 > - `!$` retrieves the last word of the last command.
@@ -716,7 +722,7 @@ so she decides to get some coffee and catch up on her reading.
 
 > ## Nested Loops
 >
-> Suppose we want to set up up a directory structure to organize
+> Suppose we want to set up a directory structure to organize
 > some experiments measuring reaction rate constants with different compounds
 > *and* different temperatures.  What would be the
 > result of the following code:
