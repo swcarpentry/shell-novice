@@ -118,6 +118,7 @@ def read_markdown(parser, path):
     cmd = 'ruby {0}'.format(parser)
     p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE,
               close_fds=True, universal_newlines=True)
+    body = str(body.encode('utf-8'))
     stdout_data, stderr_data = p.communicate(body)
     doc = json.loads(stdout_data)
 
