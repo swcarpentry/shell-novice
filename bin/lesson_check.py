@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 """
 Check lesson files and their contents.
@@ -29,19 +29,19 @@ SOURCE_RMD_DIRS = ['_episodes_rmd']
 # specially. This list must include all the Markdown files listed in the
 # 'bin/initialize' script.
 REQUIRED_FILES = {
-    '%/CODE_OF_CONDUCT.md': True,
-    '%/CONTRIBUTING.md': False,
-    '%/LICENSE.md': True,
-    '%/README.md': False,
-    '%/_extras/discuss.md': True,
-    '%/_extras/guide.md': True,
-    '%/index.md': True,
-    '%/reference.md': True,
-    '%/setup.md': True,
+    'CODE_OF_CONDUCT.md': True,
+    'CONTRIBUTING.md': False,
+    'LICENSE.md': True,
+    'README.md': False,
+    os.path.join('_extras', 'discuss.md'): True,
+    os.path.join('_extras', 'guide.md'): True,
+    'index.md': True,
+    'reference.md': True,
+    'setup.md': True,
 }
 
 # Episode filename pattern.
-P_EPISODE_FILENAME = re.compile(r'/_episodes/(\d\d)-[-\w]+.md$')
+P_EPISODE_FILENAME = re.compile(r'(\d\d)-[-\w]+.md$')
 
 # Pattern to match lines ending with whitespace.
 P_TRAILING_WHITESPACE = re.compile(r'\s+$')
@@ -117,7 +117,6 @@ def main():
     check_config(args.reporter, args.source_dir)
     check_source_rmd(args.reporter, args.source_dir, args.parser)
     args.references = read_references(args.reporter, args.reference_path)
-
     docs = read_all_markdown(args.source_dir, args.parser)
     check_fileset(args.source_dir, args.reporter, list(docs.keys()))
     check_unwanted_files(args.source_dir, args.reporter)
@@ -157,7 +156,7 @@ def parse_args():
                         dest='trailing_whitespace',
                         help='Check for trailing whitespace')
     parser.add_argument('--permissive',
-                        default=False,
+                        default=True,
                         action="store_true",
                         dest='permissive',
                         help='Do not raise an error even if issues are detected')
@@ -257,37 +256,56 @@ def read_all_markdown(source_dir, parser):
     {path : {'metadata':yaml, 'metadata_len':N, 'text':text, 'lines':[(i, line, len)], 'doc':doc}}
     """
 
-    all_dirs = [os.path.join(source_dir, d) for d in SOURCE_DIRS]
-    all_patterns = [os.path.join(d, '*.md') for d in all_dirs]
     result = {}
-    for pat in all_patterns:
-        for filename in glob.glob(pat):
+    for d in SOURCE_DIRS:
+        dpath = os.path.join(source_dir, d)
+
+        pattern = os.path.join(dpath, '*.md')
+        for filename in glob.glob(pattern):
             data = read_markdown(parser, filename)
             if data:
                 result[filename] = data
+
     return result
+
+    all_dirs = [os.path.join(source_dir, d) for d in SOURCE_DIRS]
+    print(all_dirs)
+    all_patterns = [os.path.join(d, '*.md') for d in all_dirs]
+    print(all_patterns)
+    result = {}
+    for pat in all_patterns:
+        print(pat)
+        for filename in glob.glob(pat):
+            data = read_markdown(parser, filename)
+            if data:
+                print(filename)
+                result[filename] = data
+#    return result
 
 
 def check_fileset(source_dir, reporter, filenames_present):
     """Are all required files present? Are extraneous files present?"""
 
     # Check files with predictable names.
-    required = [p.replace('%', source_dir) for p in REQUIRED_FILES]
+    required = [os.path.join(source_dir, p) for p in REQUIRED_FILES]
     missing = set(required) - set(filenames_present)
     for m in missing:
         reporter.add(None, 'Missing required file {0}', m)
 
     # Check episode files' names.
     seen = []
-    for filename in filenames_present:
-        if '_episodes' not in filename:
+    for filepath in filenames_present:
+        if '_episodes' not in filepath:
             continue
-        m = P_EPISODE_FILENAME.search(filename)
+
+        # split path to check episode name
+        fname = os.path.basename(filepath)
+        m = P_EPISODE_FILENAME.search(fname)
         if m and m.group(1):
             seen.append(m.group(1))
         else:
             reporter.add(
-                None, 'Episode {0} has badly-formatted filename', filename)
+                None, 'Episode {0} has badly-formatted filename', filepath)
 
     # Check for duplicate episode numbers.
     reporter.check(len(seen) == len(set(seen)),
