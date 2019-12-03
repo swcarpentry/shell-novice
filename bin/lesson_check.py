@@ -156,7 +156,7 @@ def parse_args():
                         dest='trailing_whitespace',
                         help='Check for trailing whitespace')
     parser.add_argument('--permissive',
-                        default=True,
+                        default=False,
                         action="store_true",
                         dest='permissive',
                         help='Do not raise an error even if issues are detected')
