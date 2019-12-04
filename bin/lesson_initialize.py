@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """Initialize a newly-created repository."""
 
 

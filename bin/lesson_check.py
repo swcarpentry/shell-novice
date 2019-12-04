@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """
 Check lesson files and their contents.
 """
