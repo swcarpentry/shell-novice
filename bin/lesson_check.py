@@ -281,18 +281,18 @@ def check_fileset(source_dir, reporter, filenames_present):
 
     # Check episode files' names.
     seen = []
-    for filepath in filenames_present:
-        if '_episodes' not in filepath:
+    for filename in filenames_present:
+        if '_episodes' not in filename:
             continue
 
         # split path to check episode name
-        fname = os.path.basename(filepath)
-        m = P_EPISODE_FILENAME.search(fname)
+        base_name = os.path.basename(filename)
+        m = P_EPISODE_FILENAME.search(base_name)
         if m and m.group(1):
             seen.append(m.group(1))
         else:
             reporter.add(
-                None, 'Episode {0} has badly-formatted filename', filepath)
+                None, 'Episode {0} has badly-formatted filename', filename)
 
     # Check for duplicate episode numbers.
     reporter.check(len(seen) == len(set(seen)),
