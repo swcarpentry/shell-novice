@@ -7,6 +7,7 @@ JEKYLL=jekyll
 JEKYLL_VERSION=3.8.5
 PARSER=bin/markdown_ast.rb
 DST=_site
+PYTHON=python3
 
 # Controls
 .PHONY : commands clean files
@@ -54,7 +55,7 @@ clean-rmd :
 
 ## workshop-check   : check workshop homepage.
 workshop-check :
-	@bin/workshop_check.py .
+	${PYTHON} bin/workshop_check.py .
 
 ## ----------------------------------------
 ## Commands specific to lesson websites.
@@ -93,15 +94,15 @@ _episodes/%.md: _episodes_rmd/%.Rmd
 
 ## lesson-check     : validate lesson Markdown.
 lesson-check : lesson-fixme
-	@bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md
+	${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md
 
 ## lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace.
 lesson-check-all :
-	@bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md -l -w --permissive
+	${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md -l -w --permissive
 
 ## unittest         : run unit tests on checking tools.
 unittest :
-	@bin/test_lesson_check.py
+	${PYTHON} bin/test_lesson_check.py
 
 ## lesson-files     : show expected names of generated files for debugging.
 lesson-files :
