@@ -117,6 +117,7 @@ def main():
     check_config(args.reporter, args.source_dir)
     check_source_rmd(args.reporter, args.source_dir, args.parser)
     args.references = read_references(args.reporter, args.reference_path)
+
     docs = read_all_markdown(args.source_dir, args.parser)
     check_fileset(args.source_dir, args.reporter, list(docs.keys()))
     check_unwanted_files(args.source_dir, args.reporter)
@@ -267,20 +268,6 @@ def read_all_markdown(source_dir, parser):
                 result[filename] = data
 
     return result
-
-    all_dirs = [os.path.join(source_dir, d) for d in SOURCE_DIRS]
-    print(all_dirs)
-    all_patterns = [os.path.join(d, '*.md') for d in all_dirs]
-    print(all_patterns)
-    result = {}
-    for pat in all_patterns:
-        print(pat)
-        for filename in glob.glob(pat):
-            data = read_markdown(parser, filename)
-            if data:
-                print(filename)
-                result[filename] = data
-#    return result
 
 
 def check_fileset(source_dir, reporter, filenames_present):
