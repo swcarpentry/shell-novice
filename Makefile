@@ -7,7 +7,21 @@ JEKYLL=jekyll
 JEKYLL_VERSION=3.8.5
 PARSER=bin/markdown_ast.rb
 DST=_site
-PYTHON=python3
+
+# Check Python 3 (https://stackoverflow.com/a/4933395)
+ifneq (, $(shell which python3))
+  PYTHON := python3
+else ifneq (, $(shell which python))
+  PYTHON_VERSION_FULL := $(wordlist 2,4,$(subst ., ,$(shell python --version 2>&1)))
+  PYTHON_VERSION_MAJOR := $(word 1,${PYTHON_VERSION_FULL})
+  ifneq (3, ${PYTHON_VERSION_MAJOR})
+    $(error "Your system does not appear to have Python 3 installed.")
+  endif
+  PYTHON := python
+else
+    $(error "Your system does not appear to have any Python installed.")
+endif
+
 
 # Controls
 .PHONY : commands clean files
