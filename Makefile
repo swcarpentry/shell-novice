@@ -55,7 +55,7 @@ clean-rmd :
 
 ## workshop-check   : check workshop homepage.
 workshop-check :
-	${PYTHON} bin/workshop_check.py .
+	@${PYTHON} bin/workshop_check.py .
 
 ## ----------------------------------------
 ## Commands specific to lesson websites.
@@ -94,15 +94,15 @@ _episodes/%.md: _episodes_rmd/%.Rmd
 
 ## lesson-check     : validate lesson Markdown.
 lesson-check : lesson-fixme
-	${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md
+	@${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md
 
 ## lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace.
 lesson-check-all :
-	${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md -l -w --permissive
+	@${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md -l -w --permissive
 
 ## unittest         : run unit tests on checking tools.
 unittest :
-	${PYTHON} bin/test_lesson_check.py
+	@${PYTHON} bin/test_lesson_check.py
 
 ## lesson-files     : show expected names of generated files for debugging.
 lesson-files :
