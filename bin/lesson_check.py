@@ -255,16 +255,14 @@ def read_all_markdown(source_dir, parser):
     {path : {'metadata':yaml, 'metadata_len':N, 'text':text, 'lines':[(i, line, len)], 'doc':doc}}
     """
 
+    all_dirs = [os.path.join(source_dir, d) for d in SOURCE_DIRS]
+    all_patterns = [os.path.join(d, '*.md') for d in all_dirs]
     result = {}
-    for d in SOURCE_DIRS:
-        dpath = os.path.join(source_dir, d)
-
-        pattern = os.path.join(dpath, '*.md')
-        for filename in glob.glob(pattern):
+    for pat in all_patterns:
+        for filename in glob.glob(pat):
             data = read_markdown(parser, filename)
             if data:
                 result[filename] = data
-
     return result
 
 
