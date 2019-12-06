@@ -596,8 +596,8 @@ $ for datafile in NENE*[AB].txt; do echo $datafile; bash goostats $datafile stat
 
 > ## Beginning and End
 >
-> We can move to the beginning of a line in the shell by typing `Ctrl-a`
-> and to the end using `Ctrl-e`.
+> We can move to the beginning of a line in the shell by typing `Ctrl-A`
+> and to the end using `Ctrl-E`.
 {: .callout}
 
 When she runs her program now,
