@@ -10,7 +10,7 @@ DST=_site
 
 # Check Python 3 is installed and determine if it's called via python3 or python
 # (https://stackoverflow.com/a/4933395)
-ifneq (, $(shell which python3))
+ifneq (, $(shell which python3 2>/dev/null))
   PYTHON := python3
 else ifneq (, $(shell which python))
   PYTHON_VERSION_FULL := $(wordlist 2,4,$(subst ., ,$(shell python --version 2>&1)))
