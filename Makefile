@@ -31,7 +31,7 @@ all : commands
 
 ## commands         : show all commands.
 commands :
-	@grep -h -E '^##' ${MAKEFILES} | sed -e 's/## //g'
+	@grep -h -E '^##' ${MAKEFILES} | sed -e "s/## //g"
 
 ## docker-serve     : use docker to build the site
 docker-serve :
