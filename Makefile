@@ -8,7 +8,8 @@ JEKYLL_VERSION=3.8.5
 PARSER=bin/markdown_ast.rb
 DST=_site
 
-# Check Python 3 (https://stackoverflow.com/a/4933395)
+# Check Python 3 is installed and determine if it's called via python3 or python
+# (https://stackoverflow.com/a/4933395)
 ifneq (, $(shell which python3))
   PYTHON := python3
 else ifneq (, $(shell which python))
