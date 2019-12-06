@@ -12,7 +12,7 @@ DST=_site
 # (https://stackoverflow.com/a/4933395)
 ifneq (, $(shell which python3 2>/dev/null))
   PYTHON := python3
-else ifneq (, $(shell which python))
+else ifneq (, $(shell which python 2>/dev/null))
   PYTHON_VERSION_FULL := $(wordlist 2,4,$(subst ., ,$(shell python --version 2>&1)))
   PYTHON_VERSION_MAJOR := $(word 1,${PYTHON_VERSION_FULL})
   ifneq (3, ${PYTHON_VERSION_MAJOR})
