@@ -175,6 +175,7 @@ $ ls -F /
 ~~~
 {: .language-bash}
 
+![General syntax of a shell command](../fig/shell_command_syntax.svg)
 
 `ls` is the **command**, with an **option** `-F` and an
 **argument** `/`.
