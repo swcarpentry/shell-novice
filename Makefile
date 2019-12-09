@@ -12,12 +12,12 @@ DST=_site
 # (https://stackoverflow.com/a/4933395)
 PYTHON3_EXE := $(shell which python3 2>/dev/null)
 ifneq (, $(PYTHON3_EXE))
-  ifeq $(,$(findstring Microsoft/WindowsApps/python3,$(subst \,/,$(PYTHON3_EXE))))
+  ifeq (,$(findstring Microsoft/WindowsApps/python3,$(subst \,/,$(PYTHON3_EXE))))
     PYTHON := python3
   endif
 endif
 
-ifeq $(,$(PYTHON))
+ifeq (,$(PYTHON))
   PYTHON_EXE := $(shell which python 2>/dev/null)
   ifneq (, $(PYTHON_EXE))
     PYTHON_VERSION_FULL := $(wordlist 2,4,$(subst ., ,$(shell python --version 2>&1)))
