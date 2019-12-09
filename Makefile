@@ -10,17 +10,25 @@ DST=_site
 
 # Check Python 3 is installed and determine if it's called via python3 or python
 # (https://stackoverflow.com/a/4933395)
-ifneq (, $(shell which python3 2>/dev/null))
-  PYTHON := python3
-else ifneq (, $(shell which python 2>/dev/null))
-  PYTHON_VERSION_FULL := $(wordlist 2,4,$(subst ., ,$(shell python --version 2>&1)))
-  PYTHON_VERSION_MAJOR := $(word 1,${PYTHON_VERSION_FULL})
-  ifneq (3, ${PYTHON_VERSION_MAJOR})
-    $(error "Your system does not appear to have Python 3 installed.")
+PYTHON3_EXE := $(shell which python3 2>/dev/null)
+ifneq (, $(PYTHON3_EXE))
+  ifeq $(,findstring Microsoft/WindowsApps/python3,$(subst \,/,$(PYTHON3_EXE)))
+    PYTHON := python3
   endif
-  PYTHON := python
-else
-    $(error "Your system does not appear to have any Python installed.")
+endif
+
+ifeq $(,$(PYTHON))
+  PYTHON_EXE := $(shell which python 2>/dev/null)
+  ifneq (, $(PYTHON_EXE))
+    PYTHON_VERSION_FULL := $(wordlist 2,4,$(subst ., ,$(shell python --version 2>&1)))
+    PYTHON_VERSION_MAJOR := $(word 1,${PYTHON_VERSION_FULL})
+    ifneq (3, ${PYTHON_VERSION_MAJOR})
+      $(error "Your system does not appear to have Python 3 installed.")
+    endif
+    PYTHON := python
+  else
+      $(error "Your system does not appear to have any Python installed.")
+  endif
 endif
 
 
