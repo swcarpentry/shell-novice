@@ -12,7 +12,7 @@ DST=_site
 # (https://stackoverflow.com/a/4933395)
 PYTHON3_EXE := $(shell which python3 2>/dev/null)
 ifneq (, $(PYTHON3_EXE))
-  ifeq $(,findstring Microsoft/WindowsApps/python3,$(subst \,/,$(PYTHON3_EXE)))
+  ifeq $(,$(findstring Microsoft/WindowsApps/python3,$(subst \,/,$(PYTHON3_EXE))))
     PYTHON := python3
   endif
 endif
