@@ -10,4 +10,5 @@ _site
 .Rhistory
 .RData
 .vendor/
+.docker-vendor/
 Gemfile.lock

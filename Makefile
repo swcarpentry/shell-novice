@@ -4,7 +4,6 @@
 # Settings
 MAKEFILES=Makefile $(wildcard *.mk)
 JEKYLL_VERSION=3.8.5
-JEKYLL_DOCKER=${JEKYLL} serve --host 0.0.0.0
 JEKYLL=bundle install --path .vendor/bundle && bundle update && bundle exec jekyll
 PARSER=bin/markdown_ast.rb
 DST=_site
@@ -44,7 +43,11 @@ commands :
 
 ## docker-serve     : use docker to build the site
 docker-serve :
-	docker run --rm -it -v ${PWD}:/srv/jekyll -p 4000:4000 jekyll/jekyll:${JEKYLL_VERSION} ${JEKYLL_DOCKER}
+	docker run --rm -it --volume ${PWD}:/srv/jekyll \
+           --volume=${PWD}/.docker-vendor/bundle:/usr/local/bundle \
+           -p 127.0.0.1:4000:4000 \
+           jekyll/jekyll:${JEKYLL_VERSION} \
+           bin/run-make-docker-serve.sh
 
 ## serve            : run a local server.
 serve : lesson-md
