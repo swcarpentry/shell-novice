@@ -9,4 +9,5 @@ _site
 .Rproj.user
 .Rhistory
 .RData
+.vendor/
 Gemfile.lock
