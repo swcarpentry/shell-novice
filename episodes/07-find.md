@@ -262,7 +262,7 @@ Miscellaneous:
 > find lines that have an 'o' in the second position like this:
 >
 > ~~~
-> $ grep -E '^.o' haiku.txt
+> $ grep -E "^.o" haiku.txt
 > ~~~
 > {: .language-bash}
 >
@@ -510,7 +510,7 @@ This way,
 `find` actually gets the pattern `*.txt`, not the expanded filename `haiku.txt`:
 
 ~~~
-$ find . -name '*.txt'
+$ find . -name "*.txt"
 ~~~
 {: .language-bash}
 
@@ -535,13 +535,13 @@ the command line's power lies in combining tools.
 We've seen how to do that with pipes;
 let's look at another technique.
 As we just saw,
-`find . -name '*.txt'` gives us a list of all text files in or below the current directory.
+`find . -name "*.txt"` gives us a list of all text files in or below the current directory.
 How can we combine that with `wc -l` to count the lines in all those files?
 
 The simplest way is to put the `find` command inside `$()`:
 
 ~~~
-$ wc -l $(find . -name '*.txt')
+$ wc -l $(find . -name "*.txt")
 ~~~
 {: .language-bash}
 
@@ -576,7 +576,7 @@ Here, for example, we can find PDB files that contain iron atoms
 by looking for the string 'FE' in all the `.pdb` files above the current directory:
 
 ~~~
-$ grep "FE" $(find .. -name '*.pdb')
+$ grep "FE" $(find .. -name "*.pdb")
 ~~~
 {: .language-bash}
 
@@ -595,9 +595,9 @@ $ grep "FE" $(find .. -name '*.pdb')
 > Once you have thought about your answer, you can test the commands in the `data-shell`
 > directory.
 >
-> 1.  `find data -name '*s.txt' | grep -v net`
+> 1.  `find data -name "*s.txt" | grep -v net`
 > 2.  `find data -name *s.txt | grep -v net`
-> 3.  `grep -v "net" $(find data -name '*s.txt')`
+> 3.  `grep -v "net" $(find data -name "*s.txt")`
 > 4.  None of the above.
 >
 > > ## Solution
@@ -649,7 +649,7 @@ about them.'
 > Write a short explanatory comment for the following shell script:
 >
 > ~~~
-> wc -l $(find . -name '*.dat') | sort -n
+> wc -l $(find . -name "*.dat") | sort -n
 > ~~~
 > {: .language-bash}
 >
