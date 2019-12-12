@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """
 Check lesson files and their contents.
 """
@@ -29,19 +27,19 @@ SOURCE_RMD_DIRS = ['_episodes_rmd']
 # specially. This list must include all the Markdown files listed in the
 # 'bin/initialize' script.
 REQUIRED_FILES = {
-    '%/CODE_OF_CONDUCT.md': True,
-    '%/CONTRIBUTING.md': False,
-    '%/LICENSE.md': True,
-    '%/README.md': False,
-    '%/_extras/discuss.md': True,
-    '%/_extras/guide.md': True,
-    '%/index.md': True,
-    '%/reference.md': True,
-    '%/setup.md': True,
+    'CODE_OF_CONDUCT.md': True,
+    'CONTRIBUTING.md': False,
+    'LICENSE.md': True,
+    'README.md': False,
+    os.path.join('_extras', 'discuss.md'): True,
+    os.path.join('_extras', 'guide.md'): True,
+    'index.md': True,
+    'reference.md': True,
+    'setup.md': True,
 }
 
 # Episode filename pattern.
-P_EPISODE_FILENAME = re.compile(r'/_episodes/(\d\d)-[-\w]+.md$')
+P_EPISODE_FILENAME = re.compile(r'(\d\d)-[-\w]+.md$')
 
 # Pattern to match lines ending with whitespace.
 P_TRAILING_WHITESPACE = re.compile(r'\s+$')
@@ -272,7 +270,7 @@ def check_fileset(source_dir, reporter, filenames_present):
     """Are all required files present? Are extraneous files present?"""
 
     # Check files with predictable names.
-    required = [p.replace('%', source_dir) for p in REQUIRED_FILES]
+    required = [os.path.join(source_dir, p) for p in REQUIRED_FILES]
     missing = set(required) - set(filenames_present)
     for m in missing:
         reporter.add(None, 'Missing required file {0}', m)
@@ -282,7 +280,10 @@ def check_fileset(source_dir, reporter, filenames_present):
     for filename in filenames_present:
         if '_episodes' not in filename:
             continue
-        m = P_EPISODE_FILENAME.search(filename)
+
+        # split path to check episode name
+        base_name = os.path.basename(filename)
+        m = P_EPISODE_FILENAME.search(base_name)
         if m and m.group(1):
             seen.append(m.group(1))
         else:
@@ -556,7 +557,7 @@ CHECKERS = [
     (re.compile(r'README\.md'), CheckNonJekyll),
     (re.compile(r'index\.md'), CheckIndex),
     (re.compile(r'reference\.md'), CheckReference),
-    (re.compile(r'_episodes/.*\.md'), CheckEpisode),
+    (re.compile(os.path.join('_episodes', '*\.md')), CheckEpisode),
     (re.compile(r'.*\.md'), CheckGeneric)
 ]
 

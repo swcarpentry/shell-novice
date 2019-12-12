@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """
 Check repository settings.
 """
@@ -104,7 +102,7 @@ def get_repo_url(repo_url):
     # Guess.
     cmd = 'git remote -v'
     p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE,
-              close_fds=True, universal_newlines=True)
+              close_fds=True, universal_newlines=True, encoding='utf-8')
     stdout_data, stderr_data = p.communicate()
     stdout_data = stdout_data.split('\n')
     matches = [P_GIT_REMOTE.match(line) for line in stdout_data]
