@@ -1,3 +1,6 @@
+# Use /bin/bash instead of /bin/sh
+export SHELL = /bin/bash
+
 ## ========================================
 ## Commands for both workshop and lesson websites.
 
@@ -142,8 +145,3 @@ lesson-files :
 lesson-fixme :
 	@fgrep -i -n FIXME ${MARKDOWN_SRC} || true
 
-#-------------------------------------------------------------------------------
-# Include extra commands if available.
-#-------------------------------------------------------------------------------
-
--include commands.mk
