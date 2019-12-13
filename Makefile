@@ -62,7 +62,7 @@ site : lesson-md
 
 # repo-check        : check repository settings.
 repo-check :
-	@bin/repo_check.py -s .
+	@${PYTHON} bin/repo_check.py -s .
 
 ## clean            : clean up junk files.
 clean :
