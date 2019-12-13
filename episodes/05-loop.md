@@ -101,9 +101,9 @@ The interpreter runs the command `head` on `basilisk.dat`
 and pipes the first two lines to the `tail` command,
 which then prints the second line of `basilisk.dat`.
 For the second iteration, `$filename` becomes
-`minotaur.dat`. This time, the shell runs `head` on `monotaur.dat`
+`minotaur.dat`. This time, the shell runs `head` on `minotaur.dat`
 and pipes the first two lines to the `tail` command,
-which then prints the second line of `monotaur.dat`.
+which then prints the second line of `minotaur.dat`.
 For the third iteration, `$filename` becomes
 `unicorn.dat`, so the shell runs the `head` command on that file,
 and `tail` on the output of that.
