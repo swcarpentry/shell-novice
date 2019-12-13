@@ -37,14 +37,22 @@ endif
 
 # Controls
 .PHONY : commands clean files
-.NOTPARALLEL:
-all : commands
 
-## commands         : show all commands.
-commands :
-	@grep -h -E '^##' ${MAKEFILES} | sed -e "s/## //g"
+# Default target
+.DEFAULT_GOAL := commands
 
-## docker-serve     : use docker to build the site
+## I. Commands for both workshop and lesson websites
+## =================================================
+
+## * serve            : render website and run a local server
+serve : lesson-md
+	${JEKYLL} serve
+
+## * site             : build website but do not run a server
+site : lesson-md
+	${JEKYLL} build
+
+## * docker-serve     : use Docker to serve the site
 docker-serve :
 	docker run --rm -it --volume ${PWD}:/srv/jekyll \
            --volume=${PWD}/.docker-vendor/bundle:/usr/local/bundle \
@@ -52,19 +60,11 @@ docker-serve :
            jekyll/jekyll:${JEKYLL_VERSION} \
            bin/run-make-docker-serve.sh
 
-## serve            : run a local server.
-serve : lesson-md
-	${JEKYLL} serve
-
-## site             : build files but do not run a server.
-site : lesson-md
-	${JEKYLL} build
-
-# repo-check        : check repository settings.
+## * repo-check       : check repository settings
 repo-check :
 	@${PYTHON} bin/repo_check.py -s .
 
-## clean            : clean up junk files.
+## * clean            : clean up junk files
 clean :
 	@rm -rf ${DST}
 	@rm -rf .sass-cache
@@ -73,22 +73,26 @@ clean :
 	@find . -name '*~' -exec rm {} \;
 	@find . -name '*.pyc' -exec rm {} \;
 
-## clean-rmd        : clean intermediate R files (that need to be committed to the repo).
+## * clean-rmd        : clean intermediate R files (that need to be committed to the repo)
 clean-rmd :
 	@rm -rf ${RMD_DST}
 	@rm -rf fig/rmd-*
 
-## ----------------------------------------
-## Commands specific to workshop websites.
+
+##
+## II. Commands specific to workshop websites
+## =================================================
 
 .PHONY : workshop-check
 
-## workshop-check   : check workshop homepage.
+## * workshop-check   : check workshop homepage
 workshop-check :
 	@${PYTHON} bin/workshop_check.py .
 
-## ----------------------------------------
-## Commands specific to lesson websites.
+
+##
+## III. Commands specific to lesson websites
+## =================================================
 
 .PHONY : lesson-check lesson-md lesson-files lesson-fixme
 
@@ -116,32 +120,39 @@ HTML_DST = \
   $(patsubst _extras/%.md,${DST}/%/index.html,$(sort $(wildcard _extras/*.md))) \
   ${DST}/license/index.html
 
-## lesson-md        : convert Rmarkdown files to markdown
+## * lesson-md        : convert Rmarkdown files to markdown
 lesson-md : ${RMD_DST}
 
 _episodes/%.md: _episodes_rmd/%.Rmd
 	@bin/knit_lessons.sh $< $@
 
-## lesson-check     : validate lesson Markdown.
+# * lesson-check     : validate lesson Markdown
 lesson-check : lesson-fixme
 	@${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md
 
-## lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace.
+## * lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace
 lesson-check-all :
 	@${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md -l -w --permissive
 
-## unittest         : run unit tests on checking tools.
+## * unittest         : run unit tests on checking tools
 unittest :
 	@${PYTHON} bin/test_lesson_check.py
 
-## lesson-files     : show expected names of generated files for debugging.
+## * lesson-files     : show expected names of generated files for debugging
 lesson-files :
 	@echo 'RMD_SRC:' ${RMD_SRC}
 	@echo 'RMD_DST:' ${RMD_DST}
 	@echo 'MARKDOWN_SRC:' ${MARKDOWN_SRC}
 	@echo 'HTML_DST:' ${HTML_DST}
 
-## lesson-fixme     : show FIXME markers embedded in source files.
+## * lesson-fixme     : show FIXME markers embedded in source files
 lesson-fixme :
 	@fgrep -i -n FIXME ${MARKDOWN_SRC} || true
 
+##
+## IV. Auxililary (plumbing) commands
+## =================================================
+
+## * commands         : show all commands.
+commands :
+	@sed -n -e '/^##/s|^##[[:space:]]*||p' $(MAKEFILE_LIST)
