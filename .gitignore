@@ -9,6 +9,7 @@ _site
 .Rproj.user
 .Rhistory
 .RData
+.bundle/
 .vendor/
 .docker-vendor/
 Gemfile.lock
