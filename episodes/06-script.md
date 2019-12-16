@@ -240,7 +240,8 @@ which means,
 'All of the command-line arguments to the shell script'.
 We also should put `$@` inside double-quotes
 to handle the case of arguments containing spaces
-(`"$@"` is equivalent to `"$1"` `"$2"` ...)
+(`"$@"` is special syntax and is equivalent to `"$1"` `"$2"` ...).
+
 Here's an example:
 
 ~~~
