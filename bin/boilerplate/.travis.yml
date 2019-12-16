@@ -1,3 +1,4 @@
+# Travis CI is only used to check the lesson and is not involved in its deployment
 dist: xenial  # Ubuntu 16.04 (required for python 3.7)
 language: python
 python: 3.7
@@ -7,7 +8,7 @@ branches:
   - /.*/
 before_install:
   - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-  - echo "deb https://cran.rstudio.com/bin/linux/ubuntu trusty/" | sudo tee -a /etc/apt/sources.list
+  - echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial-cran35/" | sudo tee -a /etc/apt/sources.list
   - sudo apt-get update -y
   - sudo apt-get install -y r-base
   - sudo Rscript -e "install.packages('knitr', repos = 'https://', dependencies = TRUE)"
@@ -15,7 +16,7 @@ before_install:
   - sudo Rscript -e "install.packages('checkpoint', repos = 'https://cran.rstudio.com', dependencies = TRUE)"
   - sudo Rscript -e "install.packages('ggplot2', repos = 'https://cran.rstudio.com', dependencies = TRUE)"
   - rvm default
-  - gem install json kramdown jekyll
+  - gem install json kramdown jekyll bundler
 install:
   - pip install pyyaml
 script:
