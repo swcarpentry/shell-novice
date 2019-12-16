@@ -206,6 +206,10 @@ An example of the output you might get from the above command is given below:
 
 ~~~
 $ ls -F /
+~~~
+{: .bash}
+
+~~~
 Applications/         System/
 Library/              Users/
 Network/              Volumes/
