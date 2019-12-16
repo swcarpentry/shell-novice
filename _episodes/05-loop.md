@@ -655,10 +655,6 @@ so she decides to get some coffee and catch up on her reading.
 > Press <kbd>Ctrl</kbd>+<kbd>R</kbd> one or more additional times to search for earlier matches.
 > You can then use the left and right arrow keys to choose that line and edit
 > it then hit <kbd>Return</kbd> to run the command.
-> - `!head:p` will print the last command that starts with 'head' or any other
-> command you want to search for and prints it to the screen.  That command is 
-> also inserted as the last entry in the history list so you can access it with
-> the <kbd>↑</kbd> key, modify it if needed, then hit <kbd>Return</kbd> to run it.
 > - `!!` retrieves the immediately preceding command
 > (you may or may not find this more convenient than using <kbd>↑</kbd>)
 > - `!$` retrieves the last word of the last command.
