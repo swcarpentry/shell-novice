@@ -207,7 +207,7 @@ An example of the output you might get from the above command is given below:
 ~~~
 $ ls -F /
 ~~~
-{: .bash}
+{: .language-bash}
 
 ~~~
 Applications/         System/
@@ -225,13 +225,13 @@ to use a command and what options it accepts:
     ~~~
     $ ls --help
     ~~~
-    {: .bash}
+    {: .language-bash}
 
 2. We can read its manual with `man`, such as:
     ~~~
     $ man ls
     ~~~
-    {: .bash}
+    {: .language-bash}
 
 **Depending on your environment you might find that only one of these works
 (either `man` or `--help`).**
@@ -391,7 +391,7 @@ The other way to learn about `ls` is to type
 ~~~
 $ man ls
 ~~~
-{: .bash}
+{: .language-bash}
 
 This will turn your terminal into a page with a description
 of the `ls` command and its options and, if you're lucky, some examples
