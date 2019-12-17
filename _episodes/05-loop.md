@@ -18,7 +18,7 @@ keypoints:
 - "Do not use spaces, quotes, or wildcard characters such as '*' or '?' in filenames, as it complicates variable expansion."
 - "Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping."
 - "Use the up-arrow key to scroll up through previous commands to edit and repeat them."
-- "Use `Ctrl-R` to search through the previously entered commands."
+- "Use <kbd>Ctrl</kbd>+<kbd>R</kbd> to search through the previously entered commands."
 - "Use `history` to display recent commands, and `!number` to repeat a command by number."
 ---
 
@@ -562,7 +562,7 @@ Typing in commands over and over again is becoming tedious,
 though,
 and Nelle is worried about making mistakes,
 so instead of re-entering her loop,
-she presses the up arrow.
+she presses <kbd>↑</kbd>.
 In response,
 the shell redisplays the whole loop on one line
 (using semi-colons to separate the pieces):
@@ -585,8 +585,8 @@ the shell runs the modified command.
 However, nothing appears to happen --- there is no output.
 After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
 she has no idea whether it is running, much less how quickly.
-She kills the running command by typing `Ctrl-C`,
-uses up-arrow to repeat the command,
+She kills the running command by typing <kbd>Ctrl</kbd>+<kbd>C</kbd>,
+uses <kbd>↑</kbd> to repeat the command,
 and edits it to read:
 
 ~~~
@@ -650,16 +650,18 @@ so she decides to get some coffee and catch up on her reading.
 >
 > There are a number of other shortcut commands for getting at the history.
 >
-> - `Ctrl-R` enters a history search mode 'reverse-i-search' and finds the
+> - <kbd>Ctrl</kbd>+<kbd>R</kbd> enters a history search mode 'reverse-i-search' and finds the
 > most recent command in your history that matches the text you enter next.
-> Press `Ctrl-R` one or more additional times to search for earlier matches.
+> Press <kbd>Ctrl</kbd>+<kbd>R</kbd> one or more additional times to search for earlier matches.
+> You can then use the left and right arrow keys to choose that line and edit
+> it then hit <kbd>Return</kbd> to run the command.
 > - `!!` retrieves the immediately preceding command
-> (you may or may not find this more convenient than using the up-arrow)
+> (you may or may not find this more convenient than using <kbd>↑</kbd>)
 > - `!$` retrieves the last word of the last command.
 > That's useful more often than you might expect: after
 > `bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
 > `less !$` to look at the file `stats-NENE01729B.txt`, which is
-> quicker than doing up-arrow and editing the command-line.
+> quicker than doing <kbd>↑</kbd> and editing the command-line.
 {: .callout}
 
 > ## Doing a Dry Run
@@ -716,7 +718,7 @@ so she decides to get some coffee and catch up on her reading.
 
 > ## Nested Loops
 >
-> Suppose we want to set up up a directory structure to organize
+> Suppose we want to set up a directory structure to organize
 > some experiments measuring reaction rate constants with different compounds
 > *and* different temperatures.  What would be the
 > result of the following code:
