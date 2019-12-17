@@ -97,7 +97,7 @@ $ wc -l *.pdb
 ~~~
 {: .output}
 
-The `-c` and `-w` options can also be used with the `wc` command, to show 
+The `-m` and `-w` options can also be used with the `wc` command, to show 
 only the number of characters or the number of words in the files.
 
 > ## Why Isn't It Doing Anything?
