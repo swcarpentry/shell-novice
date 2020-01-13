@@ -101,7 +101,7 @@ Documents   Library     Music       Public
 > ~~~
 > {: .output}
 >
-> Usually this means that you have mis-typed the command.
+> Usually this means that you have mis-typed the command. You get the same error, when you type the tool command but the tool has not been installed.
 {: .callout}
 
 
