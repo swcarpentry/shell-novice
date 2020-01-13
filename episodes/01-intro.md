@@ -101,7 +101,7 @@ Documents   Library     Music       Public
 > ~~~
 > {: .output}
 >
-> Usually this means that you have mis-typed the command.
+> This might happen if the command was mis-typed or if the program corresponding to that command is not installed.
 {: .callout}
 
 
