@@ -455,8 +455,9 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > {: .solution}
 {: .challenge}
 
+### Exploring Other Directories
 
-We can also use `ls` to see the contents of a different directory.  Let's take a
+Not only can we use `ls` on the current working directory, but we can use it to list the contents of a different directory.  Let's take a
 look at our `Desktop` directory by running `ls -F Desktop`,
 i.e.,
 the command `ls` with the `-F` **option** and the **argument**  `Desktop`.
