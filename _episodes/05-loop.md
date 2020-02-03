@@ -674,9 +674,9 @@ so she decides to get some coffee and catch up on her reading.
 > without actually running those commands:
 >
 > ~~~
-> $ for file in *.pdb
+> $ for datafile in *.pdb
 > > do
-> >   analyze $file > analyzed-$file
+> >   cat $datafile >> all.pdb
 > > done
 > ~~~
 > {: .language-bash}
@@ -686,18 +686,18 @@ so she decides to get some coffee and catch up on her reading.
 >
 > ~~~
 > # Version 1
-> $ for file in *.pdb
+> $ for datafile in *.pdb
 > > do
-> >   echo analyze $file > analyzed-$file
+> >   echo cat $datafile >> all.pdb
 > > done
 > ~~~
 > {: .language-bash}
 >
 > ~~~
 > # Version 2
-> $ for file in *.pdb
+> $ for datafile in *.pdb
 > > do
-> >   echo "analyze $file > analyzed-$file"
+> >   echo "cat $datafile >> all.pdb"
 > > done
 > ~~~
 > {: .language-bash}
@@ -707,12 +707,12 @@ so she decides to get some coffee and catch up on her reading.
 > > This prints to screen everything enclosed in the quote marks, expanding the
 > > loop variable name because we have prefixed it with a dollar sign.
 > >
-> > The first version redirects the output from the command `echo analyze $file` to
-> > a file, `analyzed-$file`. A series of files is generated: `analyzed-cubane.pdb`,
-> > `analyzed-ethane.pdb` etc.
+> > The first version appends the output from the command `echo cat $datafile` 
+> > to the file, `all.pdb`. This file will just contain the list; 
+> > `cat cubane.pdb`, `cat ethane.pdb`, `cat methane.pdb` etc.
 > >
 > > Try both versions for yourself to see the output! Be sure to open the
-> > `analyzed-*.pdb` files to view their contents.
+> > `all.pdb` file to view its contents.
 > {: .solution}
 {: .challenge}
 
