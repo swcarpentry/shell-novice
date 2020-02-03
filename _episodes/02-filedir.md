@@ -242,9 +242,9 @@ to use a command and what options it accepts:
     {: .language-bash}
 
 **Depending on your environment you might find that only one of these works
-(either `man` or `--help`).**
-We'll describe both ways below.
+(either `man` or `--help`, eg. `man` works for macOS and `--help` typically works for Git Bash).**
 
+We'll describe both ways below.
 
 #### The `--help` option
 
