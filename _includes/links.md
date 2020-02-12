@@ -35,7 +35,7 @@
 [pandoc]: https://pandoc.org/
 [paper-now]: https://github.com/PeerJ/paper-now
 [python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
-[pyyaml]: https://pypi.python.org/pypi/PyYAML
+[pyyaml]: https://pypi.org/project/PyYAML/
 [r-markdown]: https://rmarkdown.rstudio.com/
 [rstudio]: https://www.rstudio.com/
 [ruby-install-guide]: https://www.ruby-lang.org/en/downloads/
