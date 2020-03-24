@@ -505,7 +505,7 @@ $ find . -name haiku.txt
 
 To get what we want,
 let's do what we did with `grep`:
-put `*.txt` in single quotes to prevent the shell from expanding the `*` wildcard.
+put `*.txt` in quotes to prevent the shell from expanding the `*` wildcard.
 This way,
 `find` actually gets the pattern `*.txt`, not the expanded filename `haiku.txt`:
 
