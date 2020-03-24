@@ -577,7 +577,7 @@ so that you and other people can put those programs into pipes to multiply their
 
 Nelle has run her samples through the assay machines
 and created 17 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
-As a quick sanity check, starting from her home directory, Nelle types:
+As a quick check, starting from her home directory, Nelle types:
 
 ~~~
 $ cd north-pacific-gyre/2012-07-03
