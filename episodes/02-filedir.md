@@ -440,12 +440,12 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 
 > ## Listing in Reverse Chronological Order
 >
-> By default `ls` lists the contents of a directory in alphabetical 
-> order by name. The command `ls -t` lists items by time of last 
-> change instead of alphabetically. The command `ls -r` lists the 
+> By default `ls` lists the contents of a directory in alphabetical
+> order by name. The command `ls -t` lists items by time of last
+> change instead of alphabetically. The command `ls -r` lists the
 > contents of a directory in reverse order.
-> Which file is displayed last when you combine the `-t` and `-r` flags? 
-> Hint: You may need to use the `-l` flag to see the 
+> Which file is displayed last when you combine the `-t` and `-r` flags?
+> Hint: You may need to use the `-l` flag to see the
 > last changed dates.
 >
 > > ## Solution
@@ -527,7 +527,7 @@ $ cd data
 These commands will move us from our home directory onto our Desktop, then into
 the `data-shell` directory, then into the `data` directory.  You will notice that `cd` doesn't print anything.  This is normal.  Many shell commands will not output anything to the screen when successfully executed.  But if we run `pwd` after it, we can see that we are now
 in `/Users/nelle/Desktop/data-shell/data`.
-If we run `ls` without arguments now,
+If we run `ls -F` without arguments now,
 it lists the contents of `/Users/nelle/Desktop/data-shell/data`,
 because that's where we now are:
 
