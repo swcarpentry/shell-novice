@@ -598,7 +598,7 @@ $ pwd
 {: .output}
 
 The special directory `..` doesn't usually show up when we run `ls`.  If we want
-to display it, we can give `ls` the `-a` option:
+to display it, we can add the `-a` option to `ls -F`:
 
 ~~~
 $ ls -F -a
