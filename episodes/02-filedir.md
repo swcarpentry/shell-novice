@@ -440,12 +440,12 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 
 > ## Listing in Reverse Chronological Order
 >
-> By default `ls` lists the contents of a directory in alphabetical 
-> order by name. The command `ls -t` lists items by time of last 
-> change instead of alphabetically. The command `ls -r` lists the 
+> By default `ls` lists the contents of a directory in alphabetical
+> order by name. The command `ls -t` lists items by time of last
+> change instead of alphabetically. The command `ls -r` lists the
 > contents of a directory in reverse order.
-> Which file is displayed last when you combine the `-t` and `-r` flags? 
-> Hint: You may need to use the `-l` flag to see the 
+> Which file is displayed last when you combine the `-t` and `-r` flags?
+> Hint: You may need to use the `-l` flag to see the
 > last changed dates.
 >
 > > ## Solution
@@ -476,7 +476,9 @@ data-shell/
 
 Your output should be a list of all the files and sub-directories on your
 Desktop, including the `data-shell` directory you downloaded at
-the [setup for this lesson]({{ page.root }}{% link setup.md %}).  Take a look at your Desktop to confirm that
+the [setup for this lesson]({{ page.root }}{% link setup.md %}).  On many systems,
+the command line Desktop directory is the same as your GUI Desktop.
+Take a look at your Desktop to confirm that
 your output is accurate.
 
 As you may now see, using a bash shell is strongly dependent on the idea that
