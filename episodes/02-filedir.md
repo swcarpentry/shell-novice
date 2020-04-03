@@ -476,8 +476,10 @@ data-shell/
 
 Your output should be a list of all the files and sub-directories in your
 Desktop directory, including the `data-shell` directory you downloaded at
-the [setup for this lesson]({{ page.root }}{% link setup.md %}).  Take a look at your Desktop to confirm that
-your output is accurate.
+the [setup for this lesson]({{ page.root }}{% link setup.md %}).
+On many systems,
+the command line Desktop directory is the same as your GUI Desktop.
+Take a look at your Desktop to confirm that your output is accurate.
 
 As you may now see, using a bash shell is strongly dependent on the idea that
 your files are organized in a hierarchical file system.
@@ -527,7 +529,7 @@ $ cd data
 These commands will move us from our home directory into our Desktop directory, then into
 the `data-shell` directory, then into the `data` directory.  You will notice that `cd` doesn't print anything.  This is normal.  Many shell commands will not output anything to the screen when successfully executed.  But if we run `pwd` after it, we can see that we are now
 in `/Users/nelle/Desktop/data-shell/data`.
-If we run `ls` without arguments now,
+If we run `ls -F` without arguments now,
 it lists the contents of `/Users/nelle/Desktop/data-shell/data`,
 because that's where we now are:
 
@@ -598,7 +600,7 @@ $ pwd
 {: .output}
 
 The special directory `..` doesn't usually show up when we run `ls`.  If we want
-to display it, we can give `ls` the `-a` option:
+to display it, we can add the `-a` option to `ls -F`:
 
 ~~~
 $ ls -F -a
