@@ -120,8 +120,7 @@ Typically, when you open a new command prompt you will be in
 your home directory to start.
 
 Now let's learn the command that will let us see the contents of our
-own filesystem.  We can see what's in our home directory by running `ls`,
-which stands for 'listing':
+own filesystem.  We can see what's in our home directory by running `ls`:
 
 ~~~
 $ ls
