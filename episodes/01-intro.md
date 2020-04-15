@@ -75,7 +75,8 @@ Most importantly:
 when typing commands, either from these lessons or from other sources,
 *do not type the prompt*, only the commands that follow it.
 
-So let's try our first command, which will list the contents of the current directory:
+So let's try our first command, `ls` which is short for listing.
+This command will list the contents of the current directory:
 
 ~~~
 $ ls
