@@ -560,8 +560,9 @@ animals.txt       morse.txt     planets.txt     sunspot.txt
 ~~~
 {: .output}
 
-We now know how to go down the directory tree, but
-how do we go up?  We might try the following:
+We now know how to go down the directory tree (i.e. how to go into a subdirectory)
+but how do we go up (i.e. how do we leave a directory and go into its parent directory)?
+We might try the following:
 
 ~~~
 $ cd data-shell
