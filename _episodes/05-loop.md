@@ -187,7 +187,7 @@ increase the odds that the program won't do what its readers think it does.
 > ~~~
 > {: .language-bash}
 >
-> Why do these two loops give different outputs?
+> Why do these two loops give different outputs? (datafile is a variable, replacing filename)
 >
 > > ## Solution
 > > The first code block gives the same output on each iteration through
