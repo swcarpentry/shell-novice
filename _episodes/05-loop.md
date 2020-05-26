@@ -177,7 +177,7 @@ increase the odds that the program won't do what its readers think it does.
 > ~~~
 > {: .language-bash}
 >
-> Now, what is the output of the following code?
+> Now, what is the output of the following code? (datafile is a variable, replacing filename)
 >
 > ~~~
 > $ for datafile in *.pdb
