@@ -149,8 +149,14 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 
 We still need to edit `middle.sh` each time we want to adjust the range of lines,
 though.
-Let's fix that by using the special variables `$2` and `$3` for the
-number of lines to be passed to `head` and `tail` respectively:
+Let's fix that by configuring our script to use three command-line arguments. 
+After the first command-line argument ($1), each additional argument that you 
+provide will be assigned a special variable name of increasing interger values 
+such that $1, $2, and $3 refer to the first command-line argument, the second 
+command-line argument, and the third command-line argument, etc.
+
+Knowing this, we can use additional arguments to define the range of lines to 
+be passed to `head` and `tail` respectively:
 
 ~~~
 $ nano middle.sh
