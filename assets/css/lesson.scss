@@ -76,6 +76,13 @@ $color-testimonial: #fc8dc1 !default;
 .r::before, .language-r::before { content: "R"; }
 .sql::before, .language-sql::before { content: "SQL"; }
 
+// Tab panels are used on Setup pages to show instructions for different Operating Systems
+.tab-pane {
+  border: solid 1px #ddd; // #ddd == @nav-tabs-active-link-hover-border-color
+  border-top: none;
+  padding: 20px 20px 10px 20px;
+  border-radius: 0 0 4px 4px; // 4px == @border-radius-base
+}
 
 //----------------------------------------
 // Specialized blockquote environments for learning objectives, callouts, etc.
