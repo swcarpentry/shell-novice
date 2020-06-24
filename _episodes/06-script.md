@@ -151,9 +151,8 @@ Currently, we need to edit `middle.sh` each time we want to adjust the range of
 lines that is returned. 
 Let's fix that by configuring our script to instead use three command-line arguments. 
 After the first command-line argument (`$1`), each additional argument that we 
-provide will be assigned a special variable name of increasing values 
-such that `$1`, `$2`, `$3` refer to the first, second, third command-line 
-arguments.
+provide will be accessible via the special variables `$1`, `$2`, `$3`, 
+which refer to the first, second, third command-line arguments, respectively.
 
 Knowing this, we can use additional arguments to define the range of lines to 
 be passed to `head` and `tail` respectively:
