@@ -61,6 +61,10 @@ In the lesson, you will find out how to access the data in this folder.
 > See the reference below for information on installing and using PuTTY, 
 > using the Windows 10 command-line tool, or installing and using a Unix/Linux emulator.
 >
+>
+>
+> ### Chromebook
+> Chromebooks use the Chrome OS operating systems. The command prompt (shell) does exist on a Chromebook. The shell excists in Chromebooks through the Google Chrome Browser. It is called the crosh shell. Press ctrl-alt-T to execute and open a crosh shell on a Chromebook. Once crosh is launched in your Chrome browser, you can type "shell" to get to the root linux shell within your browser.  
 > #### Reference
 > * [Git for Windows](https://git-for-windows.github.io/) - *Recommended*
 >
