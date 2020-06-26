@@ -147,10 +147,15 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 > we surround `$1` with double-quotes.
 {: .callout}
 
-We still need to edit `middle.sh` each time we want to adjust the range of lines,
-though.
-Let's fix that by using the special variables `$2` and `$3` for the
-number of lines to be passed to `head` and `tail` respectively:
+Currently, we need to edit `middle.sh` each time we want to adjust the range of 
+lines that is returned. 
+Let's fix that by configuring our script to instead use three command-line arguments. 
+After the first command-line argument (`$1`), each additional argument that we 
+provide will be accessible via the special variables `$1`, `$2`, `$3`, 
+which refer to the first, second, third command-line arguments, respectively.
+
+Knowing this, we can use additional arguments to define the range of lines to 
+be passed to `head` and `tail` respectively:
 
 ~~~
 $ nano middle.sh
