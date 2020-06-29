@@ -84,6 +84,18 @@ $color-testimonial: #fc8dc1 !default;
   border-radius: 0 0 4px 4px; // 4px == @border-radius-base
 }
 
+// Stripe above tab panels where OS tabs are shown
+ul.nav.nav-tabs {
+  background: #E1E1E1;
+  border-radius: 4px 4px 0 0;  // 4px == @border-radius-base
+}
+
+// This color provides better contrast ratio on most backgrounds used on Carpentries websites
+// 9.24 on FFFFFF: https://webaim.org/resources/contrastchecker/?fcolor=204A6F&bcolor=FFFFFF&api (body)
+// 8.78 on F9F9F9: https://webaim.org/resources/contrastchecker/?fcolor=204A6F&bcolor=F9F9F9&api (tables)
+// 7.07 on E1E1E1: https://webaim.org/resources/contrastchecker/?fcolor=204A6F&bcolor=E1E1E1&api (tab panels)
+a { color: #204A6F; }
+
 //----------------------------------------
 // Specialized blockquote environments for learning objectives, callouts, etc.
 //----------------------------------------
