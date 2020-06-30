@@ -8,7 +8,8 @@ You need to download some files to follow this lesson:
 
 1. Download [data-shell.zip]({{ page.root }}/data/data-shell.zip) and move the file to your Desktop.
 2. Unzip/extract the file (ask your instructor if you need help with this step). You should end up with a new folder called **data-shell** on your Desktop.
-3. Open a terminal and type `cd`, then press the Enter key. That last step will make sure you start with your home folder as your working directory.
+3. Open a terminal. If you're not sure how to open a terminal in your operating system, see the section below.
+4. In the terminal type `cd` then press the Enter key. That last step will make sure you start with your home folder as your working directory.
 
 In the lesson, you will find out how to access the data in this folder.  
 
