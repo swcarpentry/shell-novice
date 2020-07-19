@@ -401,8 +401,8 @@ $ man ls
 {: .language-bash}
 
 This will turn your terminal into a page with a description
-of the `ls` command and its options and, if you're lucky, some examples
-of how to use it.
+of the `ls` command and its options and, depending on your version of
+`ls` and its documentation, some examples of how to use it.
 
 To navigate through the `man` pages,
 you may use <kbd>↑</kbd> and <kbd>↓</kbd> to move line-by-line,
