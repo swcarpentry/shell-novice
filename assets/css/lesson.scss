@@ -16,6 +16,7 @@ $color-source:      #360084 !default;
 
 // blockquotes
 $color-callout:     #f4fd9c !default;
+$color-caution:     #cf000e !default;
 $color-challenge:   #eec275 !default;
 $color-checklist:   #dfd2a0 !default;
 $color-discussion:  #eec275 !default;
@@ -136,6 +137,7 @@ $codeblock-padding: 5px !default;
 }
 
 .callout{ @include bkSetup($color-callout, "\e146"); }
+.caution{ @include bkSetup($color-caution, "\e107"); }
 .challenge{ @include bkSetup($color-challenge, "\270f"); }
 .checklist{ @include bkSetup($color-checklist, "\e067"); }
 .discussion{ @include bkSetup($color-discussion, "\e123"); }
