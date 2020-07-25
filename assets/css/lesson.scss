@@ -183,10 +183,14 @@ blockquote :not(h2) + p {
 
 blockquote { font-size: inherit; }
 
+a code {
+  color: #006cad;
+}
+
 code {
   white-space: nowrap;
   padding: 2px 5px;
-  color: #006cad;
+  color: #24292e;
   background-color: #e7e7e7;
 }
 
