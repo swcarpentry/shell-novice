@@ -128,7 +128,7 @@ lesson-md : ${RMD_DST}
 _episodes/%.md: _episodes_rmd/%.Rmd
 	@bin/knit_lessons.sh $< $@
 
-# * lesson-check     : validate lesson Markdown
+## * lesson-check     : validate lesson Markdown
 lesson-check : lesson-fixme
 	@${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md
 
