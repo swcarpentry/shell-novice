@@ -391,9 +391,19 @@ $ cd ../north-pacific-gyre/2012-07-03/
 ```
 {: .language-bash}
 
+> ## Shebangs
+> Take a look at the first line of Nelle's script and see how it starts with the '#!' pattern?
+> This character sequence is called a shebang and it's used to declare the interpretter for the script to use.
+> It's best practice to declare your interpretter because there are many ways to run a shell script and this will ensure 
+> that the correct interpreter is used regardless of how the script was initiated.
+>
+> Nelle uses the /usr/bin/env bash' path to ensure that it will run using bash on any UNIX environment regardless of where bash is installed on that system. 
+{: .callout}
+
 She runs the editor and writes the following:
 
 ~~~
+#!/usr/bin/env bash
 # Calculate stats for data files.
 for datafile in "$@"
 do
