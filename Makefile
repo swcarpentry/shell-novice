@@ -1,6 +1,3 @@
-# Use /bin/bash instead of /bin/sh
-export SHELL = /bin/bash
-
 ## ========================================
 ## Commands for both workshop and lesson websites.
 
