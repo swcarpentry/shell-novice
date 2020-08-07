@@ -11,6 +11,7 @@ _site
 .RData
 .bundle/
 .vendor/
+vendor/
 .docker-vendor/
 Gemfile.lock
 .*history

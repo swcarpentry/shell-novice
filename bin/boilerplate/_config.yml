@@ -93,6 +93,7 @@ exclude:
   - bin/
   - .Rproj.user/
   - .vendor/
+  - vendor/
   - .docker-vendor/
 
 # Turn on built-in syntax highlighting.
