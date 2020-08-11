@@ -91,6 +91,9 @@ ul.nav.nav-tabs {
   border-radius: 4px 4px 0 0;  // 4px == @border-radius-base
 }
 
+// adjust line height of links so that clickable area (of OS tabs) is 44px high
+ul.nav.nav-tabs li a { line-height: 24px; } // or 1.714285716
+
 // This color provides better contrast ratio on most backgrounds used on Carpentries websites
 // 9.24 on FFFFFF: https://webaim.org/resources/contrastchecker/?fcolor=204A6F&bcolor=FFFFFF&api (body)
 // 8.78 on F9F9F9: https://webaim.org/resources/contrastchecker/?fcolor=204A6F&bcolor=F9F9F9&api (tables)
