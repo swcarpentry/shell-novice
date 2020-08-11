@@ -105,7 +105,7 @@ def read_markdown(parser, path):
     """
 
     # Split and extract YAML (if present).
-    with open(path, 'r') as reader:
+    with open(path, 'r', encoding='utf-8') as reader:
         body = reader.read()
     metadata_raw, metadata_yaml, body = split_metadata(path, body)
 
@@ -160,7 +160,7 @@ def load_yaml(filename):
     """
 
     try:
-        with open(filename, 'r') as reader:
+        with open(filename, 'r', encoding='utf-8') as reader:
             return yaml.load(reader, Loader=yaml.SafeLoader)
     except (yaml.YAMLError, IOError) as e:
         print('Unable to load YAML file {0}:\n{1}'.format(

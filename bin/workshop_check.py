@@ -408,7 +408,7 @@ def main():
     reporter = Reporter()
     check_config(reporter, config_file)
     check_unwanted_files(root_dir, reporter)
-    with open(index_file) as reader:
+    with open(index_file, encoding='utf-8') as reader:
         data = reader.read()
         check_file(reporter, index_file, data)
     reporter.report()

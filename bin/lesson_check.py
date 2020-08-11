@@ -215,7 +215,7 @@ def read_references(reporter, ref_path):
     result = {}
     urls_seen = set()
 
-    with open(ref_path, 'r') as reader:
+    with open(ref_path, 'r', encoding='utf-8') as reader:
         for (num, line) in enumerate(reader, 1):
 
             if P_INTERNAL_INCLUDE_LINK.search(line): continue
