@@ -32,7 +32,7 @@ endif
 
 
 # Controls
-.PHONY : commands clean files
+.PHONY : commands clean files install-rmd-deps
 
 # Default target
 .DEFAULT_GOAL := commands
@@ -119,10 +119,15 @@ HTML_DST = \
   $(patsubst _extras/%.md,${DST}/%/index.html,$(sort $(wildcard _extras/*.md))) \
   ${DST}/license/index.html
 
+## * install-rmd-deps : Install R packages dependencies to build the RMarkdown lesson
+install-rmd-deps:
+	Rscript -e 'source("bin/dependencies.R"); install_dependencies(identify_dependencies())'
+
 ## * lesson-md        : convert Rmarkdown files to markdown
 lesson-md : ${RMD_DST}
 
-_episodes/%.md: _episodes_rmd/%.Rmd
+_episodes/%.md: _episodes_rmd/%.Rmd install-rmd-dependencies
+	@mkdir -p _episodes
 	@bin/knit_lessons.sh $< $@
 
 ## * lesson-check     : validate lesson Markdown

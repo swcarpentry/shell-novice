@@ -1,34 +1,5 @@
 generate_md_episodes <- function() {
 
-  if (!requireNamespace("renv", quietly = TRUE)) {
-    install.packages("renv", repos = c(CRAN = "https://cloud.r-project.org/"))
-  }
-
-  if (!requireNamespace("rprojroot", quietly = TRUE)) {
-    install.packages("rprojroot", repos = c(CRAN = "https://cloud.r-project.org/"))
-  }
-
-  cfg  <- rprojroot::has_file_pattern("^_config.y*ml$")
-  root <- rprojroot::find_root(cfg)
-
-  required_pkgs <- unique(c(
-    ## Packages for episodes
-    renv::dependencies(file.path(root, "_episodes_rmd"), progress = FALSE, error = "ignore")$Package,
-    ## Pacakges for tools
-    renv::dependencies(file.path(root, "bin"), progress = FALSE, error = "ignore")$Package
-  ))
-
-  missing_pkgs <- setdiff(required_pkgs, rownames(installed.packages()))
-
-  if (length(missing_pkgs)) {
-    message("Installing missing required packages: ",
-            paste(missing_pkgs, collapse=", "))
-    install.packages(missing_pkgs)
-  }
-
-  if (require("knitr") && packageVersion("knitr") < '1.9.19')
-    stop("knitr must be version 1.9.20 or higher")
-
   ## get the Rmd file to process from the command line, and generate the path
   ## for their respective outputs
   args  <- commandArgs(trailingOnly = TRUE)
