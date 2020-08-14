@@ -10,7 +10,7 @@ More importantly,
 it helps them combine existing programs in new ways
 and automate repetitive tasks
 so they aren't typing the same things over and over again.
-Use of the shell is fundamental to using a wide range of other powerful tools 
+Use of the shell is fundamental to using a wide range of other powerful tools
 and computing resources (including "high-performance computing" supercomputers).
 These lessons will start you on a path towards using these resources effectively.
 
@@ -18,7 +18,7 @@ These lessons will start you on a path towards using these resources effectively
 >
 > This lesson guides you through the basics of file systems and the
 > shell.  If you have stored files on a computer at all and recognize
-> the word “file” and either “directory” or “folder” (two common words
+> the word "file" and either "directory" or "folder" (two common words
 > for the same thing), you're ready for this lesson.
 >
 > If you're already comfortable manipulating files and directories,

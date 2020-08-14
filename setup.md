@@ -11,14 +11,14 @@ You need to download some files to follow this lesson:
 3. Open a terminal. If you're not sure how to open a terminal in your operating system, see the section below.
 4. In the terminal type `cd` then press the Enter key. That last step will make sure you start with your home folder as your working directory.
 
-In the lesson, you will find out how to access the data in this folder.  
+In the lesson, you will find out how to access the data in this folder.
 
 > ## Where to type commands: How to open a new shell
 > The shell is a program that enables us to send commands to the computer and receive output. It is also referred to as the terminal or command line.
 >
-> Some computers include a default Unix Shell program. 
-> The steps below describe some methods for identifying and opening a Unix Shell program if you already have one installed. 
-> There are also options for identifying and downloading a Unix Shell program, a Linux/UNIX emulator, or a program to access a Unix Shell on a server. 
+> Some computers include a default Unix Shell program.
+> The steps below describe some methods for identifying and opening a Unix Shell program if you already have one installed.
+> There are also options for identifying and downloading a Unix Shell program, a Linux/UNIX emulator, or a program to access a Unix Shell on a server.
 >
 > If none of the options below address your circumstances, try an online search for: Unix shell [your computer model] [your operating system].
 >
@@ -37,36 +37,36 @@ In the lesson, you will find out how to access the data in this folder.
 >
 > To open Terminal, try one or both of the following:
 > * In Finder, select the Go menu, then select Utilities. Locate Terminal in the Utilities folder and open it.
-> * Use the Mac ‘Spotlight’ computer search function. Search for: `Terminal` and press <kbd>Return</kbd>.
+> * Use the Mac 'Spotlight' computer search function. Search for: `Terminal` and press <kbd>Return</kbd>.
 >
 > To check if your machine is set up to use something other than Bash, type `echo $SHELL` in your terminal window.
 >
 > If your machine is set up to use something other than Bash, you can run it by opening a terminal and typing `bash`.
 >
-> #### Reference 
+> #### Reference
 > [How to Use Terminal on a Mac](http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/)
 >
 > ### Windows
 > Computers with Windows operating systems do not automatically have a Unix Shell program installed.
-> In this lesson, we encourage you to use an emulator included in Git for Windows, 
-> which gives you access to both Bash shell commands and Git. 
+> In this lesson, we encourage you to use an emulator included in Git for Windows,
+> which gives you access to both Bash shell commands and Git.
 > If you are attending a Software Carpentry workshop session, it is likely you have already received instructions on how to install Git for Windows.
 >
 > Once installed, you can open a terminal by running the program Git Bash from the Windows start menu.
 >
-> Other solutions are available for running Bash commands on Windows. 
-> There is now a Bash shell command-line tool available for Windows 10. 
-> Additionally, you can run Bash commands on a remote computer or server that already has a Unix Shell, from your Windows machine. 
-> This can usually be done through a Secure Shell (SSH) client. 
-> One such client available for free for Windows computers is PuTTY. 
-> See the reference below for information on installing and using PuTTY, 
+> Other solutions are available for running Bash commands on Windows.
+> There is now a Bash shell command-line tool available for Windows 10.
+> Additionally, you can run Bash commands on a remote computer or server that already has a Unix Shell, from your Windows machine.
+> This can usually be done through a Secure Shell (SSH) client.
+> One such client available for free for Windows computers is PuTTY.
+> See the reference below for information on installing and using PuTTY,
 > using the Windows 10 command-line tool, or installing and using a Unix/Linux emulator.
 >
 > #### Reference
 > * [Git for Windows](https://git-for-windows.github.io/) - *Recommended*
 >
-> ### For advanced users, you may choose one of the following alternatives: 
+> ### For advanced users, you may choose one of the following alternatives:
 > * [Install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 > * [Using a Unix/Linux emulator (Cygwin) or Secure Shell (SSH) client (Putty)](http://faculty.smu.edu/reynolds/unixtut/windows.html)
 {: .callout}
->   *Please note that commands in the Windows Subsystem for Linux (WSL) or Cygwin may differ slightly from those shown in the lesson or presented in the workshop. 
+>   *Please note that commands in the Windows Subsystem for Linux (WSL) or Cygwin may differ slightly from those shown in the lesson or presented in the workshop.
