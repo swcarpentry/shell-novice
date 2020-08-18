@@ -660,24 +660,3 @@ about them.'
 > {: .solution}
 {: .challenge}
 
-> ## Finding Files With Different Properties
->
-> The `find` command can be given several other criteria known as "tests"
-> to locate files with specific attributes, such as creation time, size,
-> permissions, or ownership.  Use `man find` to explore these, and then
-> write a single command to find all files in or below the current directory
-> that are owned by the user `ahmed` and were modified in the last 24 hours.
->
-> Hint 1: you will need to use three tests: `-type`, `-mtime`, and `-user`.
->
-> Hint 2: The value for `-mtime` will need to be negative---why?
->
-> > ## Solution
-> > Assuming that Nelle’s home is our working directory we type:
-> >
-> > ~~~
-> > $ find ./ -type f -mtime -1 -user ahmed
-> > ~~~
-> > {: .language-bash}
-> {: .solution}
-{: .challenge}
