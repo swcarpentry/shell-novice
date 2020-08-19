@@ -44,6 +44,9 @@ div.output  { @include cdSetup($color-output); }
 div.source  { @include cdSetup($color-source); }
 
 div.bash, div.language-bash     { @include cdSetup($color-source); }
+div.c, div.language-c           { @include cdSetup($color-source); }
+div.cmake, div.language-cmake   { @include cdSetup($color-source); }
+div.cpp, div.language-cpp       { @include cdSetup($color-source); }
 div.make, div.language-make     { @include cdSetup($color-source); }
 div.matlab, div.language-matlab { @include cdSetup($color-source); }
 div.python, div.language-python { @include cdSetup($color-source); }
@@ -55,6 +58,9 @@ div.warning:before,
 div.output::before,
 div.source::before,
 div.bash::before, div.language-bash::before,
+div.c::before, div.language-c::before,
+div.cmake::before, div.language-cmake::before,
+div.cpp::before, div.language-cpp::before,
 div.make::before, div.language-make::before,
 div.matlab::before, div.language-matlab::before,
 div.python::before, div.language-python::before,
@@ -71,6 +77,9 @@ div.warning:before { background-color: #f8f4e8; content:" Warning"; }
 div.output::before { background-color: #efefef; content: "Output"; }
 div.source::before { content: "Code"; }
 div.bash::before, div.language-bash::before { content: "Bash"; }
+div.c::before, div.language-c::before { content: "C"; }
+div.cmake::before, div.language-cmake::before { content: "CMake"; }
+div.cpp::before, div.language-cpp::before { content: "C++"; }
 div.make::before, div.language-make::before { content: "Make"; }
 div.matlab::before, div.language-matlab::before { content: "Matlab"; }
 div.python::before, div.language-python::before { content: "Python"; }
