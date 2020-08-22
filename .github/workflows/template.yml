@@ -16,6 +16,8 @@ jobs:
     defaults:
       run:
         shell: bash # forces 'Git for Windows' on Windows
+    env:
+      RSPM: 'https://packagemanager.rstudio.com/cran/__linux__/bionic/latest'
     steps:
       - name: Set up Ruby
         uses: actions/setup-ruby@main
@@ -46,6 +48,26 @@ jobs:
           path: lesson
           fetch-depth: 0
 
+      - name: Determine the proper reference to use
+        id: styles-ref
+        run: |
+          if [[ -n "${{ github.event.pull_request.number }}" ]]; then
+            echo "::set-output name=ref::refs/pull/${{ github.event.pull_request.number }}/head"
+          else
+            echo "::set-output name=ref::gh-pages"
+          fi
+
+      - name: Sync lesson with carpentries/styles
+        working-directory: lesson
+        run: |
+          git config --global user.email "team@carpentries.org"
+          git config --global user.name "The Carpentries Bot"
+          git remote add styles https://github.com/carpentries/styles.git
+          git config --local remote.styles.tagOpt --no-tags
+          git fetch styles ${{ steps.styles-ref.outputs.ref }}:styles-ref
+          git merge -s recursive -Xtheirs --no-commit styles-ref
+          git commit -m "Sync lesson with carpentries/styles"
+
       - name: Look for R-markdown files
         id: check-rmd
         working-directory: lesson
@@ -61,7 +83,7 @@ jobs:
       - name: Install needed packages
         if: steps.check-rmd.outputs.count != 0
         run: |
-          install.packages(c('remotes', 'rprojroot', 'renv', 'desc'))
+          install.packages(c('remotes', 'rprojroot', 'renv', 'desc', 'rmarkdown', 'knitr'))
         shell: Rscript {0}
 
       - name: Query dependencies
@@ -89,36 +111,8 @@ jobs:
         run: |
           while read -r cmd
           do
-            eval $cmd
+            eval sudo $cmd
           done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "18.04"), sep = "\n")')
-
-      - name: Install R lessons package dependencies
-        if: steps.check-rmd.outputs.count != 0
-        working-directory: lesson
-        run: |
-          remotes::install_deps(dependencies = TRUE)
-          file.remove("DESCRIPTION")
-        shell: Rscript {0}
-
-      - name: Determine the proper reference to use
-        id: styles-ref
-        run: |
-          if [[ -n "${{ github.event.pull_request.number }}" ]]; then
-            echo "::set-output name=ref::refs/pull/${{ github.event.pull_request.number }}/head"
-          else
-            echo "::set-output name=ref::gh-pages"
-          fi
-
-      - name: Sync lesson with carpentries/styles
-        working-directory: lesson
-        run: |
-          git config --global user.email "team@carpentries.org"
-          git config --global user.name "The Carpentries Bot"
-          git remote add styles https://github.com/carpentries/styles.git
-          git config --local remote.styles.tagOpt --no-tags
-          git fetch styles ${{ steps.styles-ref.outputs.ref }}:styles-ref
-          git merge -s recursive -Xtheirs --no-commit styles-ref
-          git commit -m "Sync lesson with carpentries/styles"
 
       - run: make site
         working-directory: lesson

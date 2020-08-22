@@ -1,7 +1,20 @@
-find_root <- function() {
-  if (!requireNamespace("rprojroot", quietly = TRUE)) {
-    install.packages("rprojroot", lib = lib, repos = repos)
+install_required_packages <- function(lib = NULL, repos = getOption("repos")) {
+
+  if (is.null(lib)) {
+    lib <- .libPaths()
   }
+
+  message("lib paths: ", paste(lib, collapse = ", "))
+  missing_pkgs <- setdiff(
+    c("rprojroot", "desc", "remotes", "renv"),
+    rownames(installed.packages(lib.loc = lib))
+  )
+
+  install.packages(missing_pkgs, lib = lib, repos = repos)
+
+}
+
+find_root <- function() {
 
   cfg  <- rprojroot::has_file_pattern("^_config.y*ml$")
   root <- rprojroot::find_root(cfg)
@@ -9,15 +22,7 @@ find_root <- function() {
   root
 }
 
-identify_dependencies <- function(lib = NULL, repos = getOption("repos")) {
-
-  if (is.null(lib)) {
-    lib <- .libPaths()
-  }
-
-  if (!requireNamespace("renv", quietly = TRUE)) {
-    install.packages("renv", lib = lib, repos = repos)
-  }
+identify_dependencies <- function() {
 
   root <- find_root()
 
@@ -31,38 +36,20 @@ identify_dependencies <- function(lib = NULL, repos = getOption("repos")) {
   required_pkgs
 }
 
-install_dependencies <- function(required_pkgs,
-                                 lib = NULL, repos = getOption("repos"),
-                                 update = FALSE, ...) {
+create_description <- function(required_pkgs) {
+  d <- desc::description$new("!new")
+  lapply(required_pkgs, function(x) d$set_dep(x))
+  d$write("DESCRIPTION")
+}
 
-  if (missing(lib))  {
-    lib <- .libPaths()
-  }
+install_dependencies <- function(required_pkgs, ...) {
 
-  missing_pkgs <- setdiff(required_pkgs, rownames(installed.packages()))
-
-  if (length(missing_pkgs)) {
-    message("Installing missing required packages: ",
-      paste(missing_pkgs, collapse=", "))
-    install.packages(missing_pkgs, lib = lib, repos = repos)
-  }
-
-  if (update) {
-    update.packages(
-      lib.loc = lib, repos = repos,
-      ask = FALSE, checkBuilt = TRUE, ...
-    )
-  }
+  create_description(required_pkgs)
+  on.exit(file.remove("DESCRIPTION"))
+  remotes::install_deps(dependencies = TRUE, ...)
 
   if (require("knitr") && packageVersion("knitr") < '1.9.19') {
     stop("knitr must be version 1.9.20 or higher")
   }
 
-}
-
-create_description <- function(required_pkgs) {
-  require("desc")
-  d <- description$new("!new")
-  lapply(required_pkgs, function(x) d$set_dep(x))
-  d$write("DESCRIPTION")
 }
