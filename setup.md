@@ -18,7 +18,7 @@ In the lesson, you will find out how to access the data in this folder.
 >
 > Some computers include a default Unix Shell program.
 > The steps below describe some methods for identifying and opening a Unix Shell program if you already have one installed.
-> There are also options for identifying and downloading a Unix Shell program, a Linux/UNIX emulator, or a program to access a Unix Shell on a server.
+> There are also options for identifying and downloading a Unix Shell program, a Linux/Unix emulator, or a program to access a Unix Shell on a server.
 >
 > If none of the options below address your circumstances, try an online search for: Unix shell [your computer model] [your operating system].
 >
@@ -55,18 +55,18 @@ In the lesson, you will find out how to access the data in this folder.
 > Once installed, you can open a terminal by running the program Git Bash from the Windows start menu.
 >
 > Other solutions are available for running Bash commands on Windows.
-> There is now a Bash shell command-line tool available for Windows 10.
-> Additionally, you can run Bash commands on a remote computer or server that already has a Unix Shell, from your Windows machine.
+> There is now a Bash shell command-line tool available for Windows 10 (the Windows Subsystem for Linux).
+> Additionally, you can run Bash commands on a remote computer or server that already has a Unix or Linux Shell.
 > This can usually be done through a Secure Shell (SSH) client.
-> One such client available for free for Windows computers is PuTTY.
-> See the reference below for information on installing and using PuTTY,
-> using the Windows 10 command-line tool, or installing and using a Unix/Linux emulator.
+> Free SSH clients for Windows computers include PuTTY and MobaXterm.
+> See the suggestions below for information about PuTTY, MobaXterm, the Windows Subsystem for Linux, or using a Linux emulator.
 >
 > #### Reference
 > * [Git for Windows](https://git-for-windows.github.io/) - *Recommended*
 >
 > ### For advanced users, you may choose one of the following alternatives:
-> * [Install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-> * [Using a Unix/Linux emulator (Cygwin) or Secure Shell (SSH) client (Putty)](http://faculty.smu.edu/reynolds/unixtut/windows.html)
+> * Install a Secure Shell (SSH) client like [PuTTY](https://www.putty.org/) or [MobaXterm](https://mobaxterm.mobatek.net)
+> * Install the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+> * Install a Linux emulator, such as [Cygwin](https://www.cygwin.com/)
 {: .callout}
 >   *Please note that commands in the Windows Subsystem for Linux (WSL) or Cygwin may differ slightly from those shown in the lesson or presented in the workshop.
