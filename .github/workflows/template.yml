@@ -1,11 +1,11 @@
-name: Template
+name: Test template
 on:
   push:
     branches: gh-pages
   pull_request:
 jobs:
   check-template:
-    name: Test lesson template
+    name: ${{ matrix.lesson-name }} (${{ matrix.os-name }})
     if: github.repository == 'carpentries/styles'
     runs-on: ${{ matrix.os }}
     strategy:
@@ -13,6 +13,19 @@ jobs:
       matrix:
         lesson: [swcarpentry/shell-novice, datacarpentry/r-intro-geospatial, librarycarpentry/lc-git]
         os: [ubuntu-latest, macos-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            os-name: Ubuntu
+          - os: macos-latest
+            os-name: macOS
+          - os: windows-latest
+            os-name: Windows
+          - lesson: swcarpentry/shell-novice
+            lesson-name: (SWC) Shell novice
+          - lesson: datacarpentry/r-intro-geospatial
+            lesson-name: (DC) R Intro Geospatial
+          - lesson: librarycarpentry/lc-git
+            lesson-name: (LC) Intro to Git
     defaults:
       run:
         shell: bash # forces 'Git for Windows' on Windows
