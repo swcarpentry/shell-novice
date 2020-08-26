@@ -11,7 +11,7 @@ objectives:
 - "Create pipelines that include shell scripts you, and others, have written."
 keypoints:
 - "Save commands in files (usually called shell scripts) for re-use."
-- "`bash filename` runs the commands saved in a file."
+- "`bash [filename]` runs the commands saved in a file."
 - "`$@` refers to all of a shell script's command-line arguments."
 - "`$1`, `$2`, etc., refer to the first command-line argument, the second command-line argument, etc."
 - "Place variables in quotes if the values might have spaces in them."
