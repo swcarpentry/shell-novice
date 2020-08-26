@@ -258,18 +258,31 @@ Miscellaneous:
 > these is **regular expressions**, which
 > is what the 're' in 'grep' stands for.) Regular expressions are both complex
 > and powerful; if you want to do complex searches, please look at the lesson
-> on [our website](http://v4.software-carpentry.org/regexp/index.html). As a taster, we can
-> find lines that have an 'o' in the second position like this:
+> on [our website](http://v4.software-carpentry.org/regexp/index.html). 
+> As a taster, we can search for ISO dates in files in the `data-shell` directory:
 >
 > ~~~
-> $ grep -E "^.o" haiku.txt
+> $ grep -rE '[0-9]{4}-[0-9]{2}-[0-9]{2}' *
 > ~~~
 > {: .language-bash}
 >
 > ~~~
-> You bring fresh toner.
-> Today it is not working
-> Software is like that.
+> data/animal-counts/animals.txt:2012-11-05,deer,5
+> data/animal-counts/animals.txt:2012-11-05,rabbit,22
+> data/animal-counts/animals.txt:2012-11-05,raccoon,7
+> data/animal-counts/animals.txt:2012-11-06,rabbit,19
+> data/animal-counts/animals.txt:2012-11-06,deer,2
+> data/animal-counts/animals.txt:2012-11-06,fox,4
+> data/animal-counts/animals.txt:2012-11-07,rabbit,16
+> data/animal-counts/animals.txt:2012-11-07,bear,1
+> data/animals.txt:2012-11-05,deer
+> data/animals.txt:2012-11-05,rabbit
+> data/animals.txt:2012-11-05,raccoon
+> data/animals.txt:2012-11-06,rabbit
+> data/animals.txt:2012-11-06,deer
+> data/animals.txt:2012-11-06,fox
+> data/animals.txt:2012-11-07,rabbit
+> data/animals.txt:2012-11-07,bear
 > ~~~
 > {: .output}
 >
