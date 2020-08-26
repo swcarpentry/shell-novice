@@ -19,7 +19,7 @@ keypoints:
 - "Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping."
 - "Use the up-arrow key to scroll up through previous commands to edit and repeat them."
 - "Use <kbd>Ctrl</kbd>+<kbd>R</kbd> to search through the previously entered commands."
-- "Use `history` to display recent commands, and `!number` to repeat a command by number."
+- "Use `history` to display recent commands, and `![number]` to repeat a command by number."
 ---
 
 **Loops** are a programming construct which allow us to repeat a command or set of commands
