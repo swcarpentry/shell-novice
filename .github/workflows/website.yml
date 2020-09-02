@@ -5,7 +5,7 @@ on:
   pull_request: []
 jobs:
   build-website:
-    if: github.repository != 'carpentries/styles'
+    if: github.repository != 'carpentries/styles' && (github.repository_owner == 'swcarpentry' || github.repository_owner == 'datacarpentry' || github.repository_owner == 'librarycarpentry' || github.repository_owner == 'carpentries')
     runs-on: ubuntu-latest
     defaults:
       run:
