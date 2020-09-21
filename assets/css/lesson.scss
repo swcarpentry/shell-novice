@@ -110,6 +110,28 @@ ul.nav.nav-tabs li a { line-height: 24px; } // or 1.714285716
 // 7.07 on E1E1E1: https://webaim.org/resources/contrastchecker/?fcolor=204A6F&bcolor=E1E1E1&api (tab panels)
 a { color: #204A6F; }
 
+// .yt-wrapper2 can be used for limiting maximum width of YouTube iframes only
+.yt-wrapper2 { max-width: 100%; margin: 0 auto; }
+
+// Use full width on small displays
+@media only screen and (max-width: 600px) { .yt-wrapper2 { max-width: 100%; } }
+
+.yt-wrapper {
+    height: 0;
+    margin-top: 10px;
+    padding-bottom: 56.25%;
+    position: relative;
+    width: 100%;
+}
+
+.yt-frame {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
 //----------------------------------------
 // Specialized blockquote environments for learning objectives, callouts, etc.
 //----------------------------------------
