@@ -1,4 +1,4 @@
-name: Build website
+name: Website
 on:
   push:
     branches: gh-pages
@@ -37,7 +37,6 @@ jobs:
 
       - name: Look for R-markdown files
         id: check-rmd
-        working-directory: lesson
         run: |
           echo "::set-output name=count::$(shopt -s nullglob; files=($(find . -iname '*.Rmd')); echo ${#files[@]})"
 
@@ -55,7 +54,6 @@ jobs:
 
       - name: Query dependencies
         if: steps.check-rmd.outputs.count != 0
-        working-directory: lesson
         run: |
           source('bin/dependencies.R')
           deps <- identify_dependencies()
@@ -74,7 +72,6 @@ jobs:
 
       - name: Install system dependencies for R packages
         if: steps.check-rmd.outputs.count != 0
-        working-directory: lesson
         run: |
           while read -r cmd
           do
