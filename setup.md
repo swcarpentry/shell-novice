@@ -4,18 +4,10 @@ title: Setup
 root: .
 ---
 
-You need to download some files to follow this lesson.
+To follow this lesson you need to have access to the shell and have to download some files.
 
-1. Download [data-shell.zip][zip-file] and move the file to your Desktop.
-2. Unzip/extract the file.
-   **Let your instructor know if you need help with this step**.
-   You should end up with a new folder called **`data-shell`** on your Desktop.
-3. Open a terminal.
-   If you're not sure how to open a terminal in your operating system, see the instructions below.
-4. In the terminal type `cd` then press the <kbd>Return</kbd> key.
-   This step will make sure you start with your home folder as your working directory.
+First you need to install the shell (if you have it not already working):
 
-In the lesson, you will find out how to access the data files in this folder.
 
 > ## Where to type commands: How to open a new shell
 >
@@ -113,3 +105,17 @@ you can run it by opening a terminal and typing `bash`.
 [gnome-terminal]: https://help.gnome.org/users/gnome-terminal/stable/
 [kde-konsole]: https://konsole.kde.org/
 [xterm]: https://en.wikipedia.org/wiki/Xterm
+
+
+>##Download and extract the data-shell.zip-file:
+
+1. Download [data-shell.zip][zip-file] and move the file to your Desktop.
+2. Unzip/extract the file.
+   **Let your instructor know if you need help with this step**.
+   You should end up with a new folder called **`data-shell`** on your Desktop.
+3. Open the previously installed terminal.
+   If you're not sure how to open a terminal in your operating system, see the instructions above.
+4. In the terminal type `cd` then press the <kbd>Return</kbd> key.
+   This step will make sure you start with your home folder as your working directory.
+
+In the lesson, you will find out how to access the data files in this folder.
