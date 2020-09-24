@@ -107,7 +107,7 @@ you can run it by opening a terminal and typing `bash`.
 [xterm]: https://en.wikipedia.org/wiki/Xterm
 
 
->##Download and extract the data-shell.zip-file:
+>## Download and extract the data-shell.zip-file:
 
 1. Download [data-shell.zip][zip-file] and move the file to your Desktop.
 2. Unzip/extract the file.
