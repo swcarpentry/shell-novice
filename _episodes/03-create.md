@@ -459,30 +459,31 @@ quotations.txt
 > ~~~
 > {: .output}
 > ~~~
-> $ mkdir recombine
-> $ mv proteins.dat recombine/
-> $ cp recombine/proteins.dat ../proteins-saved.dat
+> $ mkdir recombined
+> $ mv proteins.dat recombined/
+> $ cp recombined/proteins.dat ../proteins-saved.dat
 > $ ls
 > ~~~
 > {: .language-bash}
 >
-> 1.   `proteins-saved.dat recombine`
-> 2.   `recombine`
-> 3.   `proteins.dat recombine`
+>
+> 1.   `proteins-saved.dat recombined`
+> 2.   `recombined`
+> 3.   `proteins.dat recombined`
 > 4.   `proteins-saved.dat`
 >
 > > ## Solution
-> > We start in the `/Users/jamie/data` directory, and create a new folder called `recombine`.
-> > The second line moves (`mv`) the file `proteins.dat` to the new folder (`recombine`).
+> > We start in the `/Users/jamie/data` directory, and create a new folder called `recombined`.
+> > The second line moves (`mv`) the file `proteins.dat` to the new folder (`recombined`).
 > > The third line makes a copy of the file we just moved.  The tricky part here is where the file was
 > > copied to.  Recall that `..` means 'go up a level', so the copied file is now in `/Users/jamie`.
 > > Notice that `..` is interpreted with respect to the current working
 > > directory, **not** with respect to the location of the file being copied.
-> > So, the only thing that will show using ls (in `/Users/jamie/data`) is the recombine folder.
+> > So, the only thing that will show using ls (in `/Users/jamie/data`) is the recombined folder.
 > >
 > > 1. No, see explanation above.  `proteins-saved.dat` is located at `/Users/jamie`
 > > 2. Yes
-> > 3. No, see explanation above.  `proteins.dat` is located at `/Users/jamie/data/recombine`
+> > 3. No, see explanation above.  `proteins.dat` is located at `/Users/jamie/data/recombined`
 > > 4. No, see explanation above.  `proteins-saved.dat` is located at `/Users/jamie`
 > {: .solution}
 {: .challenge}
