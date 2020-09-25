@@ -75,6 +75,29 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 ~~~
 {: .output}
 
+Note that `mkdir` is not limited to creating single directories one at a time. The `-p` option allows `mkdir` to create a directory with any number of nested subdirectories in a single operation: 
+
+~~~
+$ mkdir -p thesis/chapter_1/section_1/subsection_1
+~~~
+{: .language-bash}
+
+The `-R` option to the `ls` command will list all nested subdirectories wtihin a directory.  Let's use `ls -FR` to recursively list the new directory hierarchy we just created beneath the `thesis` directory:
+
+~~~
+$ ls -FR thesis
+chapter_1/
+
+thesis/chapter_1:
+section_1/
+
+thesis/chapter_1/section_1:
+subsection_1/
+
+thesis/chapter_1/section_1/subsection_1:
+~~~
+{: .language-bash}
+
 > ## Two ways of doing the same thing
 > Using the shell to create a directory is no different than using a file explorer.
 > If you open the current directory using your operating system's graphical file explorer,
@@ -852,6 +875,11 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > ~~~
 > {: .language-bash}
 > ~~~
+> $ mkdir -p 2016-05-20/data/raw
+> $ mkdir -p 2016-05-20/data/processed
+> ~~~
+> {: .language-bash}
+> ~~~
 > $ mkdir 2016-05-20
 > $ cd 2016-05-20
 > $ mkdir data
@@ -864,8 +892,11 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > > The first set uses relative paths to create the top level directory before
 > > the subdirectories.
 > >
-> > The third set of commands will give an error because `mkdir` won't create a subdirectory
+> > The third set of commands will give an error because the default behavior of `mkdir` won't create a subdirectory
 > > of a non-existant directory: the intermediate level folders must be created first.
+> >
+> > The fourth set of commands achieve this objective. Remember, the `-p` option, followed by a path of one or more 
+> > directories, will cause `mkdir` to create any intermediate subdirectories as required.
 > >
 > > The final set of commands generates the 'raw' and 'processed' directories at the same level
 > > as the 'data' directory.
