@@ -201,6 +201,25 @@ $ grep -n -w -v "the" haiku.txt
 ~~~
 {: .output}
 
+
+If we use the `-r` (recursive) option,
+`grep` can search for a pattern recursively through a set of files in subdirectories.
+
+Let's search recursively for `Yesterday` in the `data-shell/writing` directory:
+
+```
+grep -r Yesterday
+```
+{: .language-bash}
+
+```
+data/LittleWomen.txt:"Yesterday, when Aunt was asleep and I was trying to be as still as a
+data/LittleWomen.txt:Yesterday at dinner, when an Austrian officer stared at us and then
+data/LittleWomen.txt:Yesterday was a quiet day spent in teaching, sewing, and writing in my
+haiku.txt:Yesterday it worked
+```
+{: .output}
+
 `grep` has lots of other options. To find out what they are, we can type:
 
 ~~~
