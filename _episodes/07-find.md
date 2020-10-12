@@ -397,6 +397,16 @@ to show how the simplest ones work, we'll use the directory tree shown below.
 
 ![File Tree for Find Example](../fig/find-file-tree.svg)
 
+> ## Another Useful Command
+>
+> You can also type `tree` in order to list and view all the sub-directories 
+> (and even their sub-directories) of the directory we are in.  This is a great way to quickly
+> view the directory tree, but it can get quite long and cumbersome to search through if you are looking
+> for something specific.  
+{: .callout}
+
+
+
 Nelle's `writing` directory contains one file called `haiku.txt` and three subdirectories:
 `thesis` (which contains a sadly empty file, `empty-draft.md`);
 `data` (which contains three files `LittleWomen.txt`, `one.txt` and `two.txt`);
