@@ -75,6 +75,13 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 ~~~
 {: .output}
 
+Since we've just created the `thesis` directory, there's nothing in it yet:
+
+~~~
+$ ls -F thesis
+~~~
+{: .language-bash}
+
 Note that `mkdir` is not limited to creating single directories one at a time. The `-p` option allows `mkdir` to create a directory with any number of nested subdirectories in a single operation: 
 
 ~~~
@@ -133,13 +140,6 @@ thesis/chapter_1/section_1/subsection_1:
 > If you need to refer to names of files or directories that have spaces
 > or other special characters, you should surround the name in quotes (`""`).
 {: .callout}
-
-Since we've just created the `thesis` directory, there's nothing in it yet:
-
-~~~
-$ ls -F thesis
-~~~
-{: .language-bash}
 
 ### Create a text file
 Let's change our working directory to `thesis` using `cd`,
