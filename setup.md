@@ -60,16 +60,10 @@ menu.
 
 **For advanced users:**
 
-**Reference**
+As an alternative to Git for Windows you may wish to [Install the Windows Subsystem for Linux][wsl]
+which gives access to a Bash shell command-line tool in Windows 10.
 
-* [Git for Windows][git4windows] - *Recommended*
-
-**For advanced users, you may choose one of the following alternatives:**
-
-* [Install the Windows Subsystem for Linux][wsl]
-* [Using a Unix/Linux emulator (Cygwin) or Secure Shell (SSH) client (Putty)][cygwin-putty]
-
-Please note that commands in the Windows Subsystem for Linux (WSL) or Cygwin may differ slightly
+Please note that commands in the Windows Subsystem for Linux (WSL) may differ slightly
 from those shown in the lesson or presented in the workshop.
 </article>
 
@@ -105,10 +99,9 @@ you can run it by opening a terminal and typing `bash`.
 </div>
 
 [zip-file]: {{ page.root }}/data/data-shell.zip
-[git4windows]: https://gitforwindows.org/
 [wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
-[cygwin-putty]: http://faculty.smu.edu/reynolds/unixtut/windows.html
 [mac-terminal]: http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/
 [gnome-terminal]: https://help.gnome.org/users/gnome-terminal/stable/
 [kde-konsole]: https://konsole.kde.org/
 [xterm]: https://en.wikipedia.org/wiki/Xterm
+[install_shell]: https://carpentries.github.io/workshop-template/#shell
