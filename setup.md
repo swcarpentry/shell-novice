@@ -13,8 +13,8 @@ You need to download some files to follow this lesson.
    You should end up with a new folder called **`data-shell`** on your Desktop.
 
 ## Install software
-If you do not already have the shell software installed, you will need to download and install it.
-[Instructions here](https://carpentries.github.io/workshop-template/#shell).
+If you do not already have the shell software installed, you will need to
+[download and install][install_shell] it.
 
 ## Open a new shell
 After installing the software
@@ -52,7 +52,7 @@ In the lesson, you will find out how to access the data files in this folder.
 <article role="tabpanel" class="tab-pane active" id="windows">
 Computers with Windows operating systems do not automatically have a Unix Shell program
 installed.
-In this lesson, we encourage you to use an emulator included in Git for Windows,
+In this lesson, we encourage you to use an emulator included in [Git for Windows][install_shell],
 which gives you access to both Bash shell commands and Git.
 
 Once installed, you can open a terminal by running the program Git Bash from the Windows start
