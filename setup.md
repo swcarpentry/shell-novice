@@ -58,14 +58,7 @@ which gives you access to both Bash shell commands and Git.
 Once installed, you can open a terminal by running the program Git Bash from the Windows start
 menu.
 
-Other solutions are available for running Bash commands on Windows.
-There is now a Bash shell command-line tool available for Windows 10.
-Additionally, you can run Bash commands on a remote computer or server that already has
-a Unix Shell, from your Windows machine.
-This can usually be done through a Secure Shell (SSH) client.
-One such client available for free for Windows computers is PuTTY.
-See the reference below for information on installing and using PuTTY,
-using the Windows 10 command-line tool, or installing and using a Unix/Linux emulator.
+**For advanced users:**
 
 **Reference**
 
