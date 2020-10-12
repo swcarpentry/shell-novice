@@ -4,14 +4,22 @@ title: Setup
 root: .
 ---
 
+## Download files
 You need to download some files to follow this lesson.
 
 1. Download [data-shell.zip][zip-file] and move the file to your Desktop.
 2. Unzip/extract the file.
    **Let your instructor know if you need help with this step**.
    You should end up with a new folder called **`data-shell`** on your Desktop.
+
+## Install software
+If you do not already have the shell software installed, you will need to download and install it.
+[Instructions here](https://carpentries.github.io/workshop-template/#shell).
+
+## Open a new shell
+After installing the software
 3. Open a terminal.
-   If you're not sure how to open a terminal in your operating system, see the instructions below.
+   If you're not sure how to open a terminal on your operating system, see the instructions below.
 4. In the terminal type `cd` then press the <kbd>Return</kbd> key.
    This step will make sure you start with your home folder as your working directory.
 
