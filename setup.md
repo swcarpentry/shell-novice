@@ -4,14 +4,22 @@ title: Setup
 root: .
 ---
 
+## Download files
 You need to download some files to follow this lesson.
 
 1. Download [data-shell.zip][zip-file] and move the file to your Desktop.
 2. Unzip/extract the file.
    **Let your instructor know if you need help with this step**.
    You should end up with a new folder called **`data-shell`** on your Desktop.
+
+## Install software
+If you do not already have the shell software installed, you will need to
+[download and install][install_shell] it.
+
+## Open a new shell
+After installing the software
 3. Open a terminal.
-   If you're not sure how to open a terminal in your operating system, see the instructions below.
+   If you're not sure how to open a terminal on your operating system, see the instructions below.
 4. In the terminal type `cd` then press the <kbd>Return</kbd> key.
    This step will make sure you start with your home folder as your working directory.
 
@@ -44,33 +52,18 @@ In the lesson, you will find out how to access the data files in this folder.
 <article role="tabpanel" class="tab-pane active" id="windows">
 Computers with Windows operating systems do not automatically have a Unix Shell program
 installed.
-In this lesson, we encourage you to use an emulator included in Git for Windows,
+In this lesson, we encourage you to use an emulator included in [Git for Windows][install_shell],
 which gives you access to both Bash shell commands and Git.
-If you are attending a Software Carpentry workshop session,
-it is likely you have already received instructions on how to install Git for Windows.
 
 Once installed, you can open a terminal by running the program Git Bash from the Windows start
 menu.
 
-Other solutions are available for running Bash commands on Windows.
-There is now a Bash shell command-line tool available for Windows 10.
-Additionally, you can run Bash commands on a remote computer or server that already has
-a Unix Shell, from your Windows machine.
-This can usually be done through a Secure Shell (SSH) client.
-One such client available for free for Windows computers is PuTTY.
-See the reference below for information on installing and using PuTTY,
-using the Windows 10 command-line tool, or installing and using a Unix/Linux emulator.
+**For advanced users:**
 
-**Reference**
+As an alternative to Git for Windows you may wish to [Install the Windows Subsystem for Linux][wsl]
+which gives access to a Bash shell command-line tool in Windows 10.
 
-* [Git for Windows][git4windows] - *Recommended*
-
-**For advanced users, you may choose one of the following alternatives:**
-
-* [Install the Windows Subsystem for Linux][wsl]
-* [Using a Unix/Linux emulator (Cygwin) or Secure Shell (SSH) client (Putty)][cygwin-putty]
-
-Please note that commands in the Windows Subsystem for Linux (WSL) or Cygwin may differ slightly
+Please note that commands in the Windows Subsystem for Linux (WSL) may differ slightly
 from those shown in the lesson or presented in the workshop.
 </article>
 
@@ -106,10 +99,9 @@ you can run it by opening a terminal and typing `bash`.
 </div>
 
 [zip-file]: {{ page.root }}/data/data-shell.zip
-[git4windows]: https://gitforwindows.org/
 [wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
-[cygwin-putty]: http://faculty.smu.edu/reynolds/unixtut/windows.html
 [mac-terminal]: http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/
 [gnome-terminal]: https://help.gnome.org/users/gnome-terminal/stable/
 [kde-konsole]: https://konsole.kde.org/
 [xterm]: https://en.wikipedia.org/wiki/Xterm
+[install_shell]: https://carpentries.github.io/workshop-template/#shell
