@@ -761,3 +761,60 @@ so she decides to get some coffee and catch up on her reading.
 > > {: .language-bash}
 > {: .solution}
 {: .challenge}
+
+> ## Example of loop and counter for beginners
+>
+> This is an example of how a counter works inside a loop. 
+> In this case we loop through the *.txt files of the folder data. 
+> We observe the value of the my_counter each time the loop finds a file: before and after we increment it.
+> This is an example for a demonstration to students who have not used loops before.
+>
+> ~~~
+> # navigate to the folder data 
+> > my_counter=0 # set up a counter, avoid spaces, the name of the counter can be anything but needs to be consistent across
+> > for file in *.txt
+> > do 
+> > echo I see file: $file # important to use $ before file
+> > echo counter before: $my_counter # important to use $ before my_counter
+> > ((my_counter=my_counter+1)) # here we increment our counter by 1
+> > echo counter after: $my_counter
+> > echo ------------- # this is for aesthetic reasons to help perusing the output
+> > done
+> > 
+> > # Condensed version:
+> > for file in *.txt; do  echo I see file: $file; echo counter before: $my_counter; ((my_counter=my_counter+1)); echo counter after: $my_counter; echo -------------; done
+> >
+> ~~~
+> {: .language-bash}
+>
+> > ## Solution
+> > # This is the the output of the syntax. We can see the counter changing each time we add 1 to it.
+> > I see file: amino-acids.txt
+> > counter before: 14
+> > counter after: 15
+> > -------------
+> > I see file: animals.txt
+> > counter before: 15
+> > counter after: 16
+> > -------------
+> > I see file: morse.txt
+> > counter before: 16
+> > counter after: 17
+> > -------------
+> > I see file: planets.txt
+> > counter before: 17
+> > counter after: 18
+> > -------------
+> > I see file: salmon.txt
+> > counter before: 18
+> > counter after: 19
+> > -------------
+> > I see file: sunspot.txt
+> > counter before: 19
+> > counter after: 20
+> > -------------
+> >
+> > Try experimenting with looping and using counters.
+> {: .solution}
+>
+{: .challenge}
