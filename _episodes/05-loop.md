@@ -771,24 +771,25 @@ so she decides to get some coffee and catch up on her reading.
 >
 > ~~~
 > # navigate to the folder data 
-> > my_counter=0 # set up a counter, avoid spaces, the name of the counter can be anything but needs to be consistent across
-> > for file in *.txt
-> > do 
-> > echo I see file: $file # important to use $ before file
-> > echo counter before: $my_counter # important to use $ before my_counter
-> > ((my_counter=my_counter+1)) # here we increment our counter by 1
-> > echo counter after: $my_counter
-> > echo ------------- # this is for aesthetic reasons to help perusing the output
-> > done
-> > 
-> > # Condensed version:
-> > for file in *.txt; do  echo I see file: $file; echo counter before: $my_counter; ((my_counter=my_counter+1)); echo counter after: $my_counter; echo -------------; done
-> >
+> my_counter=0 # set up a counter, avoid spaces, the name of the counter can be anything but needs to be consistent across
+> for file in *.txt
+> do 
+> echo I see file: $file # important to use $ before file
+> echo counter before: $my_counter # important to use $ before my_counter
+> ((my_counter=my_counter+1)) # here we increment our counter by 1
+> echo counter after: $my_counter
+> echo ------------- # this is for aesthetic reasons to help perusing the output
+> done
+> 
+> # Condensed version:
+> for file in *.txt; do  echo I see file: $file; echo counter before: $my_counter; ((my_counter=my_counter+1)); echo counter after: $my_counter; echo -------------; done
+>
 > ~~~
 > {: .language-bash}
 >
 > > ## Solution
-> > # This is the the output of the syntax. We can see the counter changing each time we add 1 to it.
+> > This is the the output of the syntax. We can see the counter changing each time we add 1 to it.
+> >
 > > I see file: amino-acids.txt
 > > counter before: 14
 > > counter after: 15
