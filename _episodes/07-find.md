@@ -679,3 +679,20 @@ about them.'
 > {: .solution}
 {: .challenge}
 
+
+> ## Add current date to file name
+>
+> Our .sh files will automate a variety of tasks that will run in the background frequently creating potentially files with the same name. We can still customise our filenames that we create by adding the current date to the file name.
+>
+> ~~~
+> date --help # see the options of the command date
+> nano original # CTRL + X and Yes to save
+> TODAY=Log_`date +"%Y-%m-%d"`.txt
+> mv original ${TODAY}
+> ls
+> ~~~
+> {: .language-bash}
+>
+{: .challenge}
+
+
