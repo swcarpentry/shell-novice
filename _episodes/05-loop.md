@@ -788,34 +788,35 @@ so she decides to get some coffee and catch up on her reading.
 > {: .language-bash}
 >
 > > ## Solution
-> > This is the the output of the syntax. We can see the counter changing each time we add 1 to it.
-> >
-> > I see file: amino-acids.txt
-> > counter before: 14
-> > counter after: 15
-> > -------------
-> > I see file: animals.txt
-> > counter before: 15
-> > counter after: 16
-> > -------------
-> > I see file: morse.txt
-> > counter before: 16
-> > counter after: 17
-> > -------------
-> > I see file: planets.txt
-> > counter before: 17
-> > counter after: 18
-> > -------------
-> > I see file: salmon.txt
-> > counter before: 18
-> > counter after: 19
-> > -------------
-> > I see file: sunspot.txt
-> > counter before: 19
-> > counter after: 20
-> > -------------
-> >
-> > Try experimenting with looping and using counters.
+> This is the the output of the syntax. We can see the counter changing each time we add 1 to it.
+>
+> I see file: amino-acids.txt
+> counter before: 14
+> counter after: 15
+> -------------
+> I see file: animals.txt
+> counter before: 15
+> counter after: 16
+> -------------
+> I see file: morse.txt
+> counter before: 16
+> counter after: 17
+> -------------
+> I see file: planets.txt
+> counter before: 17
+> counter after: 18
+> -------------
+> I see file: salmon.txt
+> counter before: 18
+> counter after: 19
+> -------------
+> I see file: sunspot.txt
+> counter before: 19
+> counter after: 20
+> -------------
+>
+> Try experimenting with looping and using counters.
+>
 > {: .solution}
 >
 {: .challenge}
