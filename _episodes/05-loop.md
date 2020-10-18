@@ -742,3 +742,22 @@ so she decides to get some coffee and catch up on her reading.
 > > Try running the code for yourself to see which directories are created!
 > {: .solution}
 {: .challenge}
+
+> ## Looping exercise 
+>
+> Navigate to the folder data
+> Loop through the .txt files in the data folder and count the lines (hint: wc -l file.txt)
+>
+> > ## Solution
+> > ~~~
+> > $ 
+> > cd data
+> > for file in *.txt
+> > do
+> >   wc -l $file
+> > done
+> > 
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
