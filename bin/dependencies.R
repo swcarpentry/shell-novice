@@ -1,4 +1,4 @@
-install_required_packages <- function(lib = NULL, repos = getOption("repos")) {
+install_required_packages <- function(lib = NULL, repos = getOption("repos", default = c(CRAN = "https://cran.rstudio.com/"))) {
 
   if (is.null(lib)) {
     lib <- .libPaths()
