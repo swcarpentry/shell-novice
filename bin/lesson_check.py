@@ -86,7 +86,8 @@ KNOWN_CODEBLOCKS = {
     'language-python',
     'language-r',
     'language-shell',
-    'language-sql'
+    'language-sql',
+    'warning'
 }
 
 # What fields are required in teaching episode metadata?
