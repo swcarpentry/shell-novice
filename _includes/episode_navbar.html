@@ -1,11 +1,13 @@
 {% comment %}
-Barra de navegación para un episodio.
-=======
 For some reason, the relative_root_path seems out of scope in this file, so we
 need to re-assign it here
 {% endcomment %}
 
 {% include base_path.html %}
+
+{% comment %}
+  Navigation bar for an episode.
+{% endcomment %}
 
 {% include manual_episode_order.html %}
 {% comment %}
@@ -31,9 +33,9 @@ need to re-assign it here
   <div class="col-xs-1">
     <h3 class="text-right">
       {% if next_episode %}
-      <a href="{{ relative_root_path }}{{ next_episode.url }}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">siguiente episodio</span></a>
+      <a href="{{ relative_root_path }}{{ next_episode.url }}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
       {% else %}
-      <a href="{{ relative_root_path }}/"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">case de lección</span></a>
+      <a href="{{ relative_root_path }}/"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">lesson home</span></a>
       {% endif %}
     </h3>
   </div>

@@ -1,5 +1,5 @@
 {% comment %}
-  Pie de página para las páginas de lecciones.
+  Footer for lesson pages.
 {% endcomment %}
 
 {% include gh_variables.html %}
@@ -30,19 +30,19 @@
     <div class="col-md-6 help-links" align="right">
 	{% if page.source %}
 	{% if page.source == "Rmd" %}
-	<a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}" data-checker-ignore>Editar en GitHub</a>
+	<a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}" data-checker-ignore>Edit on GitHub</a>
 	{% endif %}
 	{% else %}
-	<a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path}}" data-checker-ignore>Editar en GitHub</a>
+	<a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path}}" data-checker-ignore>Edit on GitHub</a>
 	{% endif %}
 	/
-	<a href="{{ repo_url }}/blob/{{ source_branch }}/CONTRIBUTING.md" data-checker-ignore>Contribuir</a>
+	<a href="{{ repo_url }}/blob/{{ source_branch }}/CONTRIBUTING.md" data-checker-ignore>Contributing</a>
 	/
-	<a href="{{ repo_url }}/">Fuente</a>
+	<a href="{{ repo_url }}/">Source</a>
 	/
-	<a href="{{ repo_url }}/blob/{{ source_branch }}/CITATION" data-checker-ignore>Cita</a>
+	<a href="{{ repo_url }}/blob/{{ source_branch }}/CITATION" data-checker-ignore>Cite</a>
 	/
-	<a href="mailto:{{ site.email }}">Contacto</a>
+	<a href="mailto:{{ site.email }}">Contact</a>
     </div>
   </div>
   <div class="row">

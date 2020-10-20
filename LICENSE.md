@@ -1,79 +1,82 @@
 ---
 layout: page
-title: "Licencias"
+title: "Licenses"
 root: .
 ---
-### Material didáctico
+## Instructional Material
 
-Todo el material de instrucción de Software Carpentry, Data Carpentry y Library Carpentry está
-disponible bajo la licencia [Creative Commons Attribution][cc-por-humano]. El siguiente es un resumen de licencia
-(y no un sustituto) del [texto legal completo de CC BY 4.0
-licencia][cc-by-legal].
+All Software Carpentry, Data Carpentry, and Library Carpentry instructional material is
+made available under the [Creative Commons Attribution
+license][cc-by-human]. The following is a human-readable summary of
+(and not a substitute for) the [full legal text of the CC BY 4.0
+license][cc-by-legal].
 
-Puedes libremente:
+You are free:
 
-* **Compartir** --- copiar y redistribuir el material en cualquier medio o formato
-* **Adaptar** --- remezclar, transformar y construir a partir del material
+* to **Share**---copy and redistribute the material in any medium or format
+* to **Adapt**---remix, transform, and build upon the material
 
-para cualquier propósito, incluso comercialmente.
+for any purpose, even commercially.
 
-El licenciante no puede revocar estas libertades mientras se siga las
-condiciones de la licencia.
+The licensor cannot revoke these freedoms as long as you follow the
+license terms.
 
-Bajo los siguientes términos:
+Under the following terms:
 
-* **Atribución** --- Debes otorgar crédito a éste material de manera adecuada (mencionando que
-  su trabajo se deriva del trabajo que es Copyright de © Software
-  Carpentry y, donde sea práctico, agrega un enlace a
-  http://software-carpentry.org/), proporciona un [enlace a la
-  licencia][cc-por-humano], e indica si se realizaron cambios. Puedes hacerlo en cualquier forma razonable,
-  pero no de forma tal que sugiera que tú o el uso del material derivado tienen el respaldo del licenciante.
+* **Attribution**---You must give appropriate credit (mentioning that
+  your work is derived from work that is Copyright © Software
+  Carpentry and, where practical, linking to
+  http://software-carpentry.org/), provide a [link to the
+  license][cc-by-human], and indicate if changes were made. You may do
+  so in any reasonable manner, but not in any way that suggests the
+  licensor endorses you or your use.
 
-**Sin restricciones adicionales** --- No puedes aplicar términos legales o
-medidas tecnológicas que restrinjan a otros hacer
-todo lo que la licencia permite.
+**No additional restrictions**---You may not apply legal terms or
+technological measures that legally restrict others from doing
+anything the license permits.  With the understanding that:
 
-Avisos:
+Notices:
 
-* No tiene que cumplir con la licencia con los materiales que estén en el dominio público
-  o cuando su uso esté permitido por una excepción o limitación aplicable.
-* No se dan garantías. La licencia puede no darle todos los
-  permisos necesarios para su uso previsto. Por ejemplo, otros
-  derechos como la publicidad, la privacidad, o los derechos morales pueden limitar la forma en que
-  uses el material.
+* You do not have to comply with the license for elements of the
+  material in the public domain or where your use is permitted by an
+  applicable exception or limitation.
+* No warranties are given. The license may not give you all of the
+  permissions necessary for your intended use. For example, other
+  rights such as publicity, privacy, or moral rights may limit how you
+  use the material.
 
 ## Software
 
-Salvo que se indique lo contrario, los programas de ejemplo y otro software
-proporcionado por Software Carpentry y Data Carpentry están disponibles bajo el
-[OSI][osi]-aprobado
-[Licencia de MIT][mit-license].
+Except where otherwise noted, the example programs and other software
+provided by Software Carpentry and Data Carpentry are made available under the
+[OSI][osi]-approved
+[MIT license][mit-license].
 
-Se concede permiso, de forma gratuita, a cualquier persona que obtenga
-una copia de este software y los archivos de documentación asociados (el
-"Software"), para tratar el Software sin restricciones, incluyendo
-sin limitación, los derechos de uso, copia, modificación, fusión, publicación,
-distribuir, sublicenciar y / o vender copias del Software, y
-Permitir a las personas a quienes se les proporciona el Software que lo hagan, sujeto a
-las siguientes condiciones:
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
 
-El aviso de copyright anterior y este aviso de permiso serán
-incluido en todas las copias o porciones sustanciales del software.
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
 
-EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO,
-EXPRESO O IMPLICADO, INCLUIDAS, ENTRE OTRAS, LAS GARANTÍAS DE
-COMERCIABILIDAD, APTITUD PARA UN PROPÓSITO PARTICULAR Y
-NO INFRACCIÓN EN NINGÚN CASO SERÁN LOS AUTORES O LOS TITULARES DE LOS DERECHOS DE AUTOR
-RESPONSABLE POR CUALQUIER RECLAMO, DAÑOS U OTRA RESPONSABILIDAD, YA SEA EN ACCIÓN
-DEL CONTRATO, EXTRACONTRACTUAL O DE OTRO TIPO, DERIVADOS, FUERA DE O EN CONEXIÓN
-CON EL SOFTWARE O EL USO U OTROS TRATOS EN EL SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## Marca registrada
+## Trademark
 
-"Software Carpentry" y "Data Carpentry" y sus respectivos logos
-son marcas registradas de [Community Initiatives][ci].
+"Software Carpentry" and "Data Carpentry" and their respective logos
+are registered trademarks of [Community Initiatives][CI].
 
-[cc-por-humano]: https://creativecommons.org/licenses/by/4.0/
+[cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [mit-license]: https://opensource.org/licenses/mit-license.html
 [ci]: http://communityin.org/

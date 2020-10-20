@@ -1,5 +1,5 @@
 {% comment %}
-Cuadro de publicidad en la parte superior de la página de inicio del sitio web de un taller.
+  Advertising box at the top of a workshop website home page.
 {% endcomment %}
 <div class="jumbotron">
   <div class="row">
@@ -12,7 +12,7 @@ Cuadro de publicidad en la parte superior de la página de inicio del sitio web 
         </div>
         <div class="col-md-6">
           <p>
-          <strong>Instructores:</strong>
+          <strong>Instructors:</strong>
           {% if page.instructor %}
           {{page.instructor | join: ', ' %}}
           {% else %}
@@ -21,7 +21,7 @@ Cuadro de publicidad en la parte superior de la página de inicio del sitio web 
           </p>
           {% if page.helper %}
           <p>
-          <strong>Ayudantes</strong>
+          <strong>Helpers:</strong>
           {{page.helper | join: ', ' %}}
           </p>
           {% endif %}

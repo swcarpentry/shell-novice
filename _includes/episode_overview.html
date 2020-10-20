@@ -1,5 +1,5 @@
 {% comment %}
-Muestre los tiempos y los objetivos de aprendizaje de un episodio.
+    Display episode's timings and learning objectives.
 
     Regarding the `if page.*** == nil` below:
     all-in-one page combines all episodes into one.
@@ -42,16 +42,16 @@ Muestre los tiempos y los objetivos de aprendizaje de un episodio.
 
 
 <blockquote class="objectives">
-  <h2>Hoja de ruta</h2>
+  <h2>Overview</h2>
 
   <div class="row">
     <div class="col-md-3">
-        <strong>Leccion:</strong> {{ teaching_time }} min
+      <strong>Teaching:</strong> {{ teaching_time }} min
       <br/>
-      <strong>Prácticas:</strong> {{ exercise_time }} min
+      <strong>Exercises:</strong> {{ exercise_time }} min
     </div>
     <div class="col-md-9">
-      <strong>Preguntas</strong>
+      <strong>Questions</strong>
       <ul>
 	{% for question in episode_questions %}
 	<li>{{ question|markdownify }}</li>
@@ -64,7 +64,7 @@ Muestre los tiempos y los objetivos de aprendizaje de un episodio.
     <div class="col-md-3">
     </div>
     <div class="col-md-9">
-      <strong>Objetivos</strong>
+      <strong>Objectives</strong>
       <ul>
 	{% for objective in episode_objectives %}
 	<li>{{ objective|markdownify }}</li>
