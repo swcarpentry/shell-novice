@@ -1,0 +1,131 @@
+name: Test template
+on:
+  push:
+    branches: gh-pages
+  pull_request:
+jobs:
+  check-template:
+    name: ${{ matrix.lesson-name }} (${{ matrix.os-name }})
+    if: github.repository == 'carpentries/styles'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [swcarpentry/shell-novice, datacarpentry/r-intro-geospatial, librarycarpentry/lc-git]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            os-name: Ubuntu
+          - os: macos-latest
+            os-name: macOS
+          - os: windows-latest
+            os-name: Windows
+          - lesson: swcarpentry/shell-novice
+            lesson-name: (SWC) Shell novice
+          - lesson: datacarpentry/r-intro-geospatial
+            lesson-name: (DC) R Intro Geospatial
+          - lesson: librarycarpentry/lc-git
+            lesson-name: (LC) Intro to Git
+    defaults:
+      run:
+        shell: bash # forces 'Git for Windows' on Windows
+    env:
+      RSPM: 'https://packagemanager.rstudio.com/cran/__linux__/bionic/latest'
+    steps:
+      - name: Set up Ruby
+        uses: actions/setup-ruby@main
+        with:
+          ruby-version: '2.7.1'
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install GitHub Pages, Bundler, and kramdown gems
+        run: |
+          gem install github-pages bundler kramdown
+
+      - name: Install Python modules
+        run: |
+          if [[ $RUNNER_OS == macOS || $RUNNER_OS == Linux ]]; then
+            python3 -m pip install --upgrade pip setuptools wheel pyyaml==5.3.1 requests
+          elif [[ $RUNNER_OS == Windows ]]; then
+            python -m pip install --upgrade pip setuptools wheel pyyaml==5.3.1 requests
+          fi
+
+      - name: Checkout the ${{ matrix.lesson }} lesson
+        uses: actions/checkout@master
+        with:
+          repository: ${{ matrix.lesson }}
+          path: lesson
+          fetch-depth: 0
+
+      - name: Determine the proper reference to use
+        id: styles-ref
+        run: |
+          if [[ -n "${{ github.event.pull_request.number }}" ]]; then
+            echo "::set-output name=ref::refs/pull/${{ github.event.pull_request.number }}/head"
+          else
+            echo "::set-output name=ref::gh-pages"
+          fi
+
+      - name: Sync lesson with carpentries/styles
+        working-directory: lesson
+        run: |
+          git config --global user.email "team@carpentries.org"
+          git config --global user.name "The Carpentries Bot"
+          git remote add styles https://github.com/carpentries/styles.git
+          git config --local remote.styles.tagOpt --no-tags
+          git fetch styles ${{ steps.styles-ref.outputs.ref }}:styles-ref
+          git merge -s recursive -Xtheirs --no-commit styles-ref
+          git commit -m "Sync lesson with carpentries/styles"
+
+      - name: Look for R-markdown files
+        id: check-rmd
+        working-directory: lesson
+        run: |
+          echo "::set-output name=count::$(shopt -s nullglob; files=($(find . -iname '*.Rmd')); echo ${#files[@]})"
+
+      - name: Set up R
+        if: steps.check-rmd.outputs.count != 0
+        uses: r-lib/actions/setup-r@master
+        with:
+          r-version: 'release'
+
+      - name: Install needed packages
+        if: steps.check-rmd.outputs.count != 0
+        run: |
+          install.packages(c('remotes', 'rprojroot', 'renv', 'desc', 'rmarkdown', 'knitr'))
+        shell: Rscript {0}
+
+      - name: Query dependencies
+        if: steps.check-rmd.outputs.count != 0
+        working-directory: lesson
+        run: |
+          source('bin/dependencies.R')
+          deps <- identify_dependencies()
+          create_description(deps)
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+        shell: Rscript {0}
+
+      - name: Cache R packages
+        if: runner.os != 'Windows' && steps.check-rmd.outputs.count != 0
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+
+      - name: Install system dependencies for R packages
+        if: runner.os == 'Linux' && steps.check-rmd.outputs.count != 0
+        working-directory: lesson
+        run: |
+          while read -r cmd
+          do
+            eval sudo $cmd
+          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "18.04"), sep = "\n")')
+
+      - run: make site
+        working-directory: lesson

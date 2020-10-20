@@ -5,7 +5,7 @@ root: .
 ---
 ### Material didáctico
 
-Todo el material de instrucción de Software Carpentry and Data Carpentry está
+Todo el material de instrucción de Software Carpentry, Data Carpentry y Library Carpentry está
 disponible bajo la licencia [Creative Commons Attribution][cc-por-humano]. El siguiente es un resumen de licencia
 (y no un sustituto) del [texto legal completo de CC BY 4.0
 licencia][cc-by-legal].
@@ -26,17 +26,17 @@ Bajo los siguientes términos:
   su trabajo se deriva del trabajo que es Copyright de © Software
   Carpentry y, donde sea práctico, agrega un enlace a
   http://software-carpentry.org/), proporciona un [enlace a la
-  licencia][cc-por-humano], e indica si se realizaron cambios. Puedes hacerlo en cualquier forma razonable, 
-  pero no de forma tal que sugiera que tú o el uso del material derivado tienen el respaldo del licenciante. 
+  licencia][cc-por-humano], e indica si se realizaron cambios. Puedes hacerlo en cualquier forma razonable,
+  pero no de forma tal que sugiera que tú o el uso del material derivado tienen el respaldo del licenciante.
 
 **Sin restricciones adicionales** --- No puedes aplicar términos legales o
 medidas tecnológicas que restrinjan a otros hacer
-todo lo que la licencia permite. 
+todo lo que la licencia permite.
 
 Avisos:
 
-* No tiene que cumplir con la licencia con los materiales que estén en el dominio público 
-  o cuando su uso esté permitido por una excepción o limitación aplicable. 
+* No tiene que cumplir con la licencia con los materiales que estén en el dominio público
+  o cuando su uso esté permitido por una excepción o limitación aplicable.
 * No se dan garantías. La licencia puede no darle todos los
   permisos necesarios para su uso previsto. Por ejemplo, otros
   derechos como la publicidad, la privacidad, o los derechos morales pueden limitar la forma en que

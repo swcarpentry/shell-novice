@@ -1,0 +1,85 @@
+name: Website
+on:
+  push:
+    branches: gh-pages
+  pull_request: []
+jobs:
+  build-website:
+    if: github.repository != 'carpentries/styles' && (github.repository_owner == 'swcarpentry' || github.repository_owner == 'datacarpentry' || github.repository_owner == 'librarycarpentry' || github.repository_owner == 'carpentries')
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Set up Ruby
+        uses: actions/setup-ruby@main
+        with:
+          ruby-version: '2.7.1'
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install GitHub Pages, Bundler, and kramdown gems
+        run: |
+          gem install github-pages bundler kramdown
+
+      - name: Install Python modules
+        run: |
+          python3 -m pip install --upgrade pip setuptools wheel pyyaml==5.3.1 requests
+
+      - name: Checkout the lesson
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Look for R-markdown files
+        id: check-rmd
+        run: |
+          echo "::set-output name=count::$(shopt -s nullglob; files=($(find . -iname '*.Rmd')); echo ${#files[@]})"
+
+      - name: Set up R
+        if: steps.check-rmd.outputs.count != 0
+        uses: r-lib/actions/setup-r@master
+        with:
+          r-version: 'release'
+
+      - name: Install needed packages
+        if: steps.check-rmd.outputs.count != 0
+        run: |
+          install.packages(c('remotes', 'rprojroot', 'renv', 'desc', 'rmarkdown', 'knitr'))
+        shell: Rscript {0}
+
+      - name: Query dependencies
+        if: steps.check-rmd.outputs.count != 0
+        run: |
+          source('bin/dependencies.R')
+          deps <- identify_dependencies()
+          create_description(deps)
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+        shell: Rscript {0}
+
+      - name: Cache R packages
+        if: steps.check-rmd.outputs.count != 0
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+
+      - name: Install system dependencies for R packages
+        if: steps.check-rmd.outputs.count != 0
+        run: |
+          while read -r cmd
+          do
+            eval sudo $cmd
+          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "18.04"), sep = "\n")')
+
+      - run: make site
+      - run: make lesson-check
+        if: always()
+      - run: make lesson-check-all
+        if: always()

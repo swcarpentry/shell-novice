@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """
 Check lesson files and their contents.
 """
@@ -18,6 +16,9 @@ __version__ = '0.3'
 # Where to look for source Markdown files.
 SOURCE_DIRS = ['', '_episodes', '_extras']
 
+# Where to look for source Rmd files.
+SOURCE_RMD_DIRS = ['_episodes_rmd']
+
 # Required files: each entry is ('path': YAML_required).
 # FIXME: We do not yet validate whether any files have the required
 #   YAML headers, but should in the future.
@@ -26,19 +27,19 @@ SOURCE_DIRS = ['', '_episodes', '_extras']
 # specially. This list must include all the Markdown files listed in the
 # 'bin/initialize' script.
 REQUIRED_FILES = {
-    '%/CODE_OF_CONDUCT.md': True,
-    '%/CONTRIBUTING.md': False,
-    '%/LICENSE.md': True,
-    '%/README.md': False,
-    '%/_extras/discuss.md': True,
-    '%/_extras/guide.md': True,
-    '%/index.md': True,
-    '%/reference.md': True,
-    '%/setup.md': True,
+    'CODE_OF_CONDUCT.md': True,
+    'CONTRIBUTING.md': False,
+    'LICENSE.md': True,
+    'README.md': False,
+    os.path.join('_extras', 'discuss.md'): True,
+    os.path.join('_extras', 'guide.md'): True,
+    'index.md': True,
+    'reference.md': True,
+    'setup.md': True,
 }
 
 # Episode filename pattern.
-P_EPISODE_FILENAME = re.compile(r'/_episodes/(\d\d)-[-\w]+.md$')
+P_EPISODE_FILENAME = re.compile(r'(\d\d)-[-\w]+.md$')
 
 # Pattern to match lines ending with whitespace.
 P_TRAILING_WHITESPACE = re.compile(r'\s+$')
@@ -51,6 +52,9 @@ P_INTERNAL_LINK_REF = re.compile(r'\[([^\]]+)\]\[([^\]]+)\]')
 
 # Pattern to match reference links (to resolve internally-defined references).
 P_INTERNAL_LINK_DEF = re.compile(r'^\[([^\]]+)\]:\s*(.+)')
+
+# Pattern to match {% include ... %} statements
+P_INTERNAL_INCLUDE_LINK = re.compile(r'^{% include ([^ ]*) %}$')
 
 # What kinds of blockquotes are allowed?
 KNOWN_BLOCKQUOTES = {
@@ -73,6 +77,9 @@ KNOWN_CODEBLOCKS = {
     'source',
     'language-bash',
     'html',
+    'language-c',
+    'language-cmake',
+    'language-cpp',
     'language-make',
     'language-matlab',
     'language-python',
@@ -99,6 +106,7 @@ BREAK_METADATA_FIELDS = {
 }
 
 # How long are lines allowed to be?
+# Please keep this in sync with .editorconfig!
 MAX_LINE_LEN = 100
 
 
@@ -108,6 +116,7 @@ def main():
     args = parse_args()
     args.reporter = Reporter()
     check_config(args.reporter, args.source_dir)
+    check_source_rmd(args.reporter, args.source_dir, args.parser)
     args.references = read_references(args.reporter, args.reference_path)
 
     docs = read_all_markdown(args.source_dir, args.parser)
@@ -184,35 +193,63 @@ def check_config(reporter, source_dir):
                    'configuration',
                    '"root" not set to "." in configuration')
 
+def check_source_rmd(reporter, source_dir, parser):
+    """Check that Rmd episode files include `source: Rmd`"""
+
+    episode_rmd_dir = [os.path.join(source_dir, d) for d in SOURCE_RMD_DIRS]
+    episode_rmd_files = [os.path.join(d, '*.Rmd') for d in episode_rmd_dir]
+    results = {}
+    for pat in episode_rmd_files:
+        for f in glob.glob(pat):
+            data = read_markdown(parser, f)
+            dy = data['metadata']
+            if dy:
+                reporter.check_field(f, 'episode_rmd',
+                                     dy, 'source', 'Rmd')
 
 def read_references(reporter, ref_path):
     """Read shared file of reference links, returning dictionary of valid references
     {symbolic_name : URL}
     """
 
+    if not ref_path:
+        raise Warning("No filename has been provided.")
+
     result = {}
     urls_seen = set()
-    if ref_path:
-        with open(ref_path, 'r') as reader:
-            for (num, line) in enumerate(reader):
-                line_num = num + 1
-                m = P_INTERNAL_LINK_DEF.search(line)
-                require(m,
-                        '{0}:{1} not valid reference:\n{2}'.format(ref_path, line_num, line.rstrip()))
-                name = m.group(1)
-                url = m.group(2)
-                require(name,
-                        'Empty reference at {0}:{1}'.format(ref_path, line_num))
-                reporter.check(name not in result,
-                               ref_path,
-                               'Duplicate reference {0} at line {1}',
-                               name, line_num)
-                reporter.check(url not in urls_seen,
-                               ref_path,
-                               'Duplicate definition of URL {0} at line {1}',
-                               url, line_num)
-                result[name] = url
-                urls_seen.add(url)
+
+    with open(ref_path, 'r', encoding='utf-8') as reader:
+        for (num, line) in enumerate(reader, 1):
+
+            if P_INTERNAL_INCLUDE_LINK.search(line): continue
+
+            m = P_INTERNAL_LINK_DEF.search(line)
+
+            message = '{}: {} not a valid reference: {}'
+            require(m, message.format(ref_path, num, line.rstrip()))
+
+            name = m.group(1)
+            url = m.group(2)
+
+            message = 'Empty reference at {0}:{1}'
+            require(name, message.format(ref_path, num))
+
+            unique_name = name not in result
+            unique_url = url not in urls_seen
+
+            reporter.check(unique_name,
+                           ref_path,
+                           'Duplicate reference name {0} at line {1}',
+                           name, num)
+
+            reporter.check(unique_url,
+                           ref_path,
+                           'Duplicate definition of URL {0} at line {1}',
+                           url, num)
+
+            result[name] = url
+            urls_seen.add(url)
+
     return result
 
 
@@ -236,7 +273,7 @@ def check_fileset(source_dir, reporter, filenames_present):
     """Are all required files present? Are extraneous files present?"""
 
     # Check files with predictable names.
-    required = [p.replace('%', source_dir) for p in REQUIRED_FILES]
+    required = [os.path.join(source_dir, p) for p in REQUIRED_FILES]
     missing = set(required) - set(filenames_present)
     for m in missing:
         reporter.add(None, 'Missing required file {0}', m)
@@ -246,7 +283,10 @@ def check_fileset(source_dir, reporter, filenames_present):
     for filename in filenames_present:
         if '_episodes' not in filename:
             continue
-        m = P_EPISODE_FILENAME.search(filename)
+
+        # split path to check episode name
+        base_name = os.path.basename(filename)
+        m = P_EPISODE_FILENAME.search(base_name)
         if m and m.group(1):
             seen.append(m.group(1))
         else:
@@ -324,7 +364,7 @@ class CheckBase:
                 n > MAX_LINE_LEN) and (not l.startswith('!'))]
             self.reporter.check(not over,
                                 self.filename,
-                                'Line(s) are too long: {0}',
+                                'Line(s) too long: {0}',
                                 ', '.join([str(i) for i in over]))
 
     def check_trailing_whitespace(self):
@@ -520,8 +560,7 @@ CHECKERS = [
     (re.compile(r'README\.md'), CheckNonJekyll),
     (re.compile(r'index\.md'), CheckIndex),
     (re.compile(r'reference\.md'), CheckReference),
-    (re.compile(r'_episodes/.*\.md'), CheckEpisode),
-    (re.compile(r'aio\.md'), CheckNonJekyll),
+    (re.compile(os.path.join('_episodes', '*\.md')), CheckEpisode),
     (re.compile(r'.*\.md'), CheckGeneric)
 ]
 

@@ -10,11 +10,13 @@ $color-brand:       #2b3990 !default;
 
 // code boxes
 $color-error:       #bd2c00 !default;
+$color-warning:     #cda01d !default;
 $color-output:      #303030 !default;
-$color-source:      #6e5494 !default;
+$color-source:      #360084 !default;
 
 // blockquotes
 $color-callout:     #f4fd9c !default;
+$color-caution:     #cf000e !default;
 $color-challenge:   #eec275 !default;
 $color-checklist:   #dfd2a0 !default;
 $color-discussion:  #eec275 !default;
@@ -29,39 +31,105 @@ $color-testimonial: #fc8dc1 !default;
 //----------------------------------------
 
 @mixin cdSetup($color) {
-  color: $color;
-  border-left: solid 5px $color;
-  margin-bottom: 0px;
-  border-radius: 4px 0 0 4px;
+    color: $color;
+    border: solid 1px $color;
+    border-left: solid 5px $color;
+    margin: 15px 5px 10px 0;
+    border-radius: 4px 0 0 4px;
 }
 
-.error  { @include cdSetup($color-error); }
-.output { @include cdSetup($color-output); }
-.source { @include cdSetup($color-source); }
+div.error   { @include cdSetup($color-error); }
+div.warning { @include cdSetup($color-warning); }
+div.output  { @include cdSetup($color-output); }
+div.source  { @include cdSetup($color-source); }
 
-.bash, .language-bash     { @include cdSetup($color-source); }
-.make, .language-make     { @include cdSetup($color-source); }
-.matlab, .language-matlab { @include cdSetup($color-source); }
-.python, .language-python { @include cdSetup($color-source); }
-.r, .language-r           { @include cdSetup($color-source); }
-.sql, .langauge-sql       { @include cdSetup($color-source); }
+div.language-bash     { @include cdSetup($color-source); }
+div.language-c        { @include cdSetup($color-source); }
+div.language-cmake    { @include cdSetup($color-source); }
+div.language-cpp      { @include cdSetup($color-source); }
+div.language-make     { @include cdSetup($color-source); }
+div.language-matlab   { @include cdSetup($color-source); }
+div.language-python   { @include cdSetup($color-source); }
+div.language-r        { @include cdSetup($color-source); }
+div.language-sql      { @include cdSetup($color-source); }
 
-.error pre,
-.output pre,
-.source pre,
-.bash pre,
-.language-bash pre,
-.make pre,
-.language-make pre,
-.matlab pre,
-.language-matlab pre,
-.python pre,
-.language-python pre,
-.r pre,
-.language-r pre,
-.sql pre ,
-.language-sql pre {
-  border-radius: 0 4px 4px 0;
+div.error::before,
+div.warning:before,
+div.output::before,
+div.source::before,
+div.language-bash::before,
+div.language-c::before,
+div.language-cmake::before,
+div.language-cpp::before,
+div.language-make::before,
+div.language-matlab::before,
+div.language-python::before,
+div.language-r::before,
+div.language-sql::before {
+    background-color: #f2eff6;
+    display: block;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+div.error::before  { background-color: #ffebe6; content: "Error"; }
+div.warning:before { background-color: #f8f4e8; content:" Warning"; }
+div.output::before { background-color: #efefef; content: "Output"; }
+div.source::before { content: "Code"; }
+
+div.language-bash::before   { content: "Bash"; }
+div.language-c::before      { content: "C"; }
+div.language-cmake::before  { content: "CMake"; }
+div.language-cpp::before    { content: "C++"; }
+div.language-make::before   { content: "Make"; }
+div.language-matlab::before { content: "Matlab"; }
+div.language-python::before { content: "Python"; }
+div.language-r::before      { content: "R"; }
+div.language-sql::before    { content: "SQL"; }
+
+// Tab panels are used on Setup pages to show instructions for different Operating Systems
+.tab-pane {
+  border: solid 1px #ddd; // #ddd == @nav-tabs-active-link-hover-border-color
+  border-top: none;
+  padding: 20px 20px 10px 20px;
+  border-radius: 0 0 4px 4px; // 4px == @border-radius-base
+}
+
+// Stripe above tab panels where OS tabs are shown
+ul.nav.nav-tabs {
+  background: #E1E1E1;
+  border-radius: 4px 4px 0 0;  // 4px == @border-radius-base
+}
+
+// adjust line height of links so that clickable area (of OS tabs) is 44px high
+ul.nav.nav-tabs li a { line-height: 24px; } // or 1.714285716
+
+// This color provides better contrast ratio on most backgrounds used on Carpentries websites
+// 9.24 on FFFFFF: https://webaim.org/resources/contrastchecker/?fcolor=204A6F&bcolor=FFFFFF&api (body)
+// 8.78 on F9F9F9: https://webaim.org/resources/contrastchecker/?fcolor=204A6F&bcolor=F9F9F9&api (tables)
+// 7.07 on E1E1E1: https://webaim.org/resources/contrastchecker/?fcolor=204A6F&bcolor=E1E1E1&api (tab panels)
+a { color: #204A6F; }
+
+// .yt-wrapper2 can be used for limiting maximum width of YouTube iframes only
+.yt-wrapper2 { max-width: 100%; margin: 0 auto; }
+
+// Use full width on small displays
+@media only screen and (max-width: 600px) { .yt-wrapper2 { max-width: 100%; } }
+
+.yt-wrapper {
+    height: 0;
+    margin-top: 10px;
+    padding-bottom: 56.25%;
+    position: relative;
+    width: 100%;
+}
+
+.yt-frame {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 //----------------------------------------
@@ -75,13 +143,12 @@ $codeblock-padding: 5px !default;
   $gradientcolor1: $color;
   $gradientcolor2: scale-color($color, $lightness: 10%);
 
-  padding-left: $codeblock-padding;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-right: 0;
+  padding: 0 0 $codeblock-padding $codeblock-padding;
   border: 1px solid;
   border-color: $color;
-  padding-bottom: $codeblock-padding;
+  border-radius: 4px;
+
+  margin: 15px 5px 10px 0;
 
   h2 {
     padding-top: $codeblock-padding;
@@ -105,6 +172,7 @@ $codeblock-padding: 5px !default;
 }
 
 .callout{ @include bkSetup($color-callout, "\e146"); }
+.caution{ @include bkSetup($color-caution, "\e107"); }
 .challenge{ @include bkSetup($color-challenge, "\270f"); }
 .checklist{ @include bkSetup($color-checklist, "\e067"); }
 .discussion{ @include bkSetup($color-discussion, "\e123"); }
@@ -126,24 +194,71 @@ $codeblock-padding: 5px !default;
 font-size: 18px;
 }
 
+.challenge    { background-color: #eec27520; }
+.callout      { background-color: #f4fd9c20; }
+.challenge    { background-color: #eec27520; }
+.checklist    { background-color: #dfd2a020; }
+.discussion   { background-color: #eec27520; }
+.keypoints    { background-color: #7ae78e20; }
+.objectives   { background-color: #daee8420; }
+.prereq       { background-color: #9cd6dc20; }
+.solution     { background-color: #ded4b94d; }
+.testimonial  { background-color: #fc8dc120; }
+
+blockquote p {
+    margin: 5px;
+}
+blockquote :not(h2) + p {
+    padding-top: 1em;
+}
+
 //----------------------------------------
 // Override Bootstrap settings.
 //----------------------------------------
 
+blockquote { font-size: inherit; }
+
+a code {
+  color: #006cad;
+}
+
 code {
   white-space: nowrap;
   padding: 2px 5px;
-  color: #3d90d9;
+  color: #24292e;
   background-color: #e7e7e7;
 }
 
-img {
-  max-width: 100%;
+samp { hyphens: none; }
+
+dt { margin-top: 20px; }
+dd { margin-left: 2em; }
+
+article img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+article h2 {
+  margin: 48px 0 16px;
+  border-bottom: solid 1px #eaecef;
+  padding-bottom: 0.3em;
+  line-height: 1.25;
+}
+
+article h3 { margin: 40px 0 16px; }
+
+article pre {
+    margin: 0;
+    border: 0;
 }
 
 //----------------------------------------
 // Miscellaneous.
 //----------------------------------------
+
+.figures h2 { margin-top: 100px; }
 
 .maintitle {
   text-align: center;
@@ -153,10 +268,10 @@ img {
   text-align: center;
 }
 
-footer .copyright,
+footer .license,
 footer .help-links
 {
-    font-size: 18px;
+    font-size: inherit;
     margin-top: 10px;
     margin-bottom: 10px;
     font-weight: 500;
@@ -181,6 +296,37 @@ ol {
 span.fold-unfold {
   margin-left: 1em;
   opacity: 0.5;
+}
+
+
+//----------------------------------------
+// Life cycle box
+//----------------------------------------
+
+div.life-cycle {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: -1px;
+    border-radius: 0;
+}
+
+.pre-alpha {
+    color: #a94442;
+    background: #f2dede;
+}
+
+.alpha {
+    color: #8a6d3b;
+    background: #fcf8e3;
+}
+
+.beta {
+    color: #31708f;
+    background: #d9edf7;
 }
 
 

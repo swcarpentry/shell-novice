@@ -1,0 +1,116 @@
+{% comment %}
+    This file enables manual episode ordering until
+    GitHub Pages switches to Jekyll that supports it
+    without any major hackery. Note, some logic will
+    be required even when this transition happens
+    but it won't be as involved as what we have to do
+    in this file.
+
+    To order lesson episodes or extras manually
+    (instead of the default alpha-numerical order),
+    create array variables 'episode_order' and
+    'extras_order' in `_config.yml` like so:
+
+    episode_order:
+      - episodeA
+      - episodeB
+
+    extras_order:
+      - extraA
+      - extraB
+
+    Note that "Reference" page is currently  always
+    added to "Extras" as the first item.
+
+    The main outcomes of the code in this file are:
+     - 'lesson_episodes' variable that replaces
+       'site.episodes' variable when manual episode
+       order is defined.
+     - 'lesson_extras' variable that replaces
+       'site.extras' variable when manual ordering of
+       files in '_extras' is used
+       - 'previous_episode' and 'next_episode' objects
+       that replace 'page.previous' and 'page.next' variables,
+       correspondingly, and that have such properties
+       as 'url' and 'title' and that are used in
+       'episode_navbar.html'.
+
+    When episode order is specified manually, the 'lesson_episodes'
+    variable contains a list of episode names ("slugs", to be precise;
+    "slug" is the episode name without '.md').  Therefore, when we
+    iterate over 'lesson_episodes' (in syllabus.html and navbar.html) ,
+    we have to check whether we use manual episode ordering and, if so,
+    find the corresponding episode object. This is what we do with the
+    following code in every loop over 'lesson_episodes':
+
+        {% if site.episode_order %}
+          {% assign episode = site.episodes | where: "slug", lesson_episode | first %}
+        {% else %}
+          {% assign episode = lesson_episode %}
+        {% endif %}
+{% endcomment %}
+
+{% comment %}
+Manual ordering of Episodes begins here
+{% endcomment %}
+
+{% if site.episode_order %}
+    {% assign lesson_episodes = site.episode_order %}
+{% else %}
+    {% assign lesson_episodes = site.episodes %}
+{% endif %}
+
+
+{% comment %}
+    If 'episode_order' is defined, we need to determine
+    - previous episode object ('previous_episode')
+    - and next episode object ('next_episode')
+{% endcomment %}
+
+
+{% if site.episode_order %}
+  {% for lesson_episode in lesson_episodes %}
+
+    {% comment %}
+        We iterate over the specified lesson episodes using
+        a 'for' loop because we can use
+        'forloop.first', 'forloop.last', and 'forloop.index0'.
+    {% endcomment %}
+
+    {% unless lesson_episode == page.slug %} {% continue %} {% endunless %}
+
+    {% if forloop.first %}
+      {% assign previous_episode = nil %}
+    {% else %}
+      {% assign p_idx = forloop.index0 | minus: 1 %}
+      {% assign p_name = lesson_episodes[p_idx] %}
+      {% assign previous_episode = site.episodes | where: "slug", p_name | first %}
+    {% endif %}
+
+    {% if forloop.last == true %}
+      {% assign next_episode = nil %}
+    {% else %}
+      {% assign n_idx = forloop.index0 | plus: 1 %}
+      {% assign n_name = lesson_episodes[n_idx] %}
+      {% assign next_episode = site.episodes | where: "slug", n_name | first %}
+    {% endif %}
+  {% endfor %}
+{% else %}
+  {% assign previous_episode = page.previous %}
+  {% assign next_episode  = page.next %}
+{% endif %}
+
+
+{% comment %}
+Manual ordering of Extras begins here
+{% endcomment %}
+
+{% if site.extras_order %}
+    {% assign lesson_extras = site.extras_order %}
+{% else %}
+    {% assign lesson_extras = site.extras %}
+{% endif %}
+
+{% comment %}
+    We do not need to determine "previous" or "next" extra.
+{% endcomment %}

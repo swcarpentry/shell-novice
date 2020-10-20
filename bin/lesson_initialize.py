@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """Initialize a newly-created repository."""
 
 
@@ -11,16 +9,14 @@ BOILERPLATE = (
     '.travis.yml',
     'AUTHORS',
     'CITATION',
-    'CODE_OF_CONDUCT.md',
     'CONTRIBUTING.md',
     'README.md',
     '_config.yml',
-    '_episodes/01-introduction.md',
-    '_extras/about.md',
-    '_extras/discuss.md',
-    '_extras/figures.md',
-    '_extras/guide.md',
-    'aio.md',
+    os.path.join('_episodes', '01-introduction.md'),
+    os.path.join('_extras', 'about.md'),
+    os.path.join('_extras', 'discuss.md'),
+    os.path.join('_extras', 'figures.md'),
+    os.path.join('_extras', 'guide.md'),
     'index.md',
     'reference.md',
     'setup.md',
@@ -43,7 +39,7 @@ def main():
     # Create.
     for path in BOILERPLATE:
         shutil.copyfile(
-            "bin/boilerplate/{}".format(path),
+            os.path.join('bin', 'boilerplate', path),
             path
         )
 
