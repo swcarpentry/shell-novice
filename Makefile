@@ -115,7 +115,7 @@ HTML_DST = \
   ${DST}/conduct/index.html \
   ${DST}/setup/index.html \
   $(patsubst _episodes/%.md,${DST}/%/index.html,$(sort $(wildcard _episodes/*.md))) \
-  ${DST}/reference/index.html \
+  ${DST}/reference.html \
   $(patsubst _extras/%.md,${DST}/%/index.html,$(sort $(wildcard _extras/*.md))) \
   ${DST}/license/index.html
 
