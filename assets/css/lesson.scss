@@ -329,6 +329,12 @@ div.life-cycle {
     background: #d9edf7;
 }
 
+// Remove border around spans of text within code blocks
+// that the highlighter (rouge) failed to recognize.
+pre.highlight span.err {
+    border: none;
+}
+
 
 //----------------------------------------
 // keyboard key style, from StackExchange.
