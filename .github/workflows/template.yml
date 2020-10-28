@@ -33,9 +33,9 @@ jobs:
       RSPM: 'https://packagemanager.rstudio.com/cran/__linux__/bionic/latest'
     steps:
       - name: Set up Ruby
-        uses: actions/setup-ruby@main
+        uses: actions/setup-ruby@v1
         with:
-          ruby-version: '2.7.1'
+          ruby-version: '2.7'
 
       - name: Set up Python
         uses: actions/setup-python@v2
