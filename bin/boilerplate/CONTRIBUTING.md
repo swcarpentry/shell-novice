@@ -70,7 +70,7 @@ There are many ways to contribute,
 from writing new exercises and improving existing ones
 to updating or filling in the documentation
 and submitting [bug reports][issues]
-about things that don't work, aren't clear, or are missing.
+about things that do not work, aren not clear, or are missing.
 If you are looking for ideas, please see the 'Issues' tab for
 a list of issues associated with this repository,
 or you may also look at the issues for [Data Carpentry][dc-issues], 
@@ -79,7 +79,7 @@ or you may also look at the issues for [Data Carpentry][dc-issues],
 Comments on issues and reviews of pull requests are just as welcome:
 we are smarter together than we are on our own.
 Reviews from novices and newcomers are particularly valuable:
-it's easy for people who have been using these lessons for a while
+it is easy for people who have been using these lessons for a while
 to forget how impenetrable some of this material can be,
 so fresh eyes are always welcome.
 
