@@ -38,44 +38,31 @@ $color-testimonial: #fc8dc1 !default;
     border-radius: 4px 0 0 4px;
 }
 
+// Generic setup. Has to come before .error, .warning, and .output
+div[class^='language-'] { @include cdSetup($color-source); }
+
+div.source  { @include cdSetup($color-source); }
 div.error   { @include cdSetup($color-error); }
 div.warning { @include cdSetup($color-warning); }
 div.output  { @include cdSetup($color-output); }
-div.source  { @include cdSetup($color-source); }
-
-div.language-bash     { @include cdSetup($color-source); }
-div.language-c        { @include cdSetup($color-source); }
-div.language-cmake    { @include cdSetup($color-source); }
-div.language-cpp      { @include cdSetup($color-source); }
-div.language-make     { @include cdSetup($color-source); }
-div.language-matlab   { @include cdSetup($color-source); }
-div.language-python   { @include cdSetup($color-source); }
-div.language-r        { @include cdSetup($color-source); }
-div.language-sql      { @include cdSetup($color-source); }
 
 div.error::before,
 div.warning:before,
 div.output::before,
 div.source::before,
-div.language-bash::before,
-div.language-c::before,
-div.language-cmake::before,
-div.language-cpp::before,
-div.language-make::before,
-div.language-matlab::before,
-div.language-python::before,
-div.language-r::before,
-div.language-sql::before {
+div[class^='language-']::before {
     background-color: #f2eff6;
     display: block;
     font-weight: bold;
     padding: 5px 10px;
 }
 
+div[class^='language-']::before,
+div.source::before { content: "Code"; }
+
 div.error::before  { background-color: #ffebe6; content: "Error"; }
 div.warning:before { background-color: #f8f4e8; content:" Warning"; }
 div.output::before { background-color: #efefef; content: "Output"; }
-div.source::before { content: "Code"; }
 
 div.language-bash::before   { content: "Bash"; }
 div.language-c::before      { content: "C"; }
