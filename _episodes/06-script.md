@@ -588,7 +588,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > # Calculate stats for data files.
 > for datafile in "$@"
 > do
->     echo $datfile
+>     echo $datafile
 >     bash goostats $datafile stats-$datafile
 > done
 > ~~~
