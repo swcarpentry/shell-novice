@@ -9,6 +9,12 @@ install_required_packages <- function(lib = NULL, repos = getOption("repos", def
     c("rprojroot", "desc", "remotes", "renv"),
     rownames(installed.packages(lib.loc = lib))
   )
+  # The default installation of R will have "@CRAN@" as the default repository, which directs contrib.url() to either
+  # force the user to choose a mirror if interactive or fail if not. Since we are not interactve, we need to force the
+  # mirror here.
+  if ("@CRAN@" %in% repos) {
+    repos <- c(CRAN = "https://cran.rstudio.com/")
+  }
 
   install.packages(missing_pkgs, lib = lib, repos = repos)
 
