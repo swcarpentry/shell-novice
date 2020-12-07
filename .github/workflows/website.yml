@@ -5,7 +5,7 @@ on:
   pull_request: []
 jobs:
   build-website:
-    if: !endsWith(github.repository, '/styles')
+    if: ${{ !endsWith(github.repository, '/styles') }}
     runs-on: ubuntu-latest
     defaults:
       run:
