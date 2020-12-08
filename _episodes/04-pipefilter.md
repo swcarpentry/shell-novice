@@ -41,7 +41,7 @@ octane.pdb    pentane.pdb   propane.pdb
 ~~~
 {: .output}
 
-Let's go into that directory with `cd` and run the command `wc cubane.pdb`:
+Let's go into that directory with `cd` and run an example  command `wc cubane.pdb`:
 
 ~~~
 $ cd molecules
