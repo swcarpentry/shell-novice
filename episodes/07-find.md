@@ -208,7 +208,7 @@ If we use the `-r` (recursive) option,
 Let's search recursively for `Yesterday` in the `data-shell/writing` directory:
 
 ```
-grep -r Yesterday
+grep -r Yesterday .
 ```
 {: .language-bash}
 
