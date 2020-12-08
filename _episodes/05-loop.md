@@ -706,13 +706,16 @@ so she decides to get some coffee and catch up on her reading.
 > > The second version is the one we want to run.
 > > This prints to screen everything enclosed in the quote marks, expanding the
 > > loop variable name because we have prefixed it with a dollar sign.
+> > It also *does not* modify nor create the file `all.pdb`, as the `>>`
+> > is treated literally as part of a string rather than as a
+> > redirection instruction.
 > >
 > > The first version appends the output from the command `echo cat $datafile` 
 > > to the file, `all.pdb`. This file will just contain the list; 
 > > `cat cubane.pdb`, `cat ethane.pdb`, `cat methane.pdb` etc.
 > >
 > > Try both versions for yourself to see the output! Be sure to open the
-> > `all.pdb` file to view its contents.
+> > `all.pdb` file to view its contents. 
 > {: .solution}
 {: .challenge}
 
