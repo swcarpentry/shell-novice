@@ -38,7 +38,7 @@ Using the shell, the task in the literature example can be accomplished in secon
 The shell is a program where users can type commands.
 With the shell, it's possible to invoke complicated programs like climate modeling software or simple commands that create an empty directory with only one line of code.
 The most popular Unix shell is Bash (the Bourne Again SHell --- so-called because it's derived from a shell written by Stephen Bourne).
-Bash is the default shell on most modern implementations of Unix and in most packages that provide Unix-like tools for Windows.
+Bash (written by Brian J. Fox), is the default shell on most modern implementations of Unix and in most packages that provide Unix-like tools for Windows.
 
 Using the shell will take some effort and some time to learn.
 While a GUI presents you with choices to select, CLI choices are not automatically presented to you, so you must learn a few commands like new vocabulary in a language you're studying.
