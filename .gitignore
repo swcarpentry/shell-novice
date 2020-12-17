@@ -4,6 +4,7 @@
 .ipynb_checkpoints
 .sass-cache
 .jekyll-cache/
+.jekyll-metadata
 __pycache__
 _site
 .Rproj.user
