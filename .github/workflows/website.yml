@@ -7,6 +7,9 @@ jobs:
   build-website:
     if: ${{ !endsWith(github.repository, '/styles') }}
     runs-on: ubuntu-latest
+    env:
+      RSPM: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }} 
     defaults:
       run:
         shell: bash
@@ -45,6 +48,7 @@ jobs:
         uses: r-lib/actions/setup-r@master
         with:
           r-version: 'release'
+          http-user-agent: "R/4.0.0 (ubuntu-16.04) R (4.0.0 x86_64-pc-linux-gnu x86_64 linux-gnu) on GitHub Actions"
 
       - name: Install needed packages
         if: steps.check-rmd.outputs.count != 0
