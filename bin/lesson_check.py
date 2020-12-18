@@ -117,7 +117,10 @@ def main():
 
     args = parse_args()
     args.reporter = Reporter()
-    check_config(args.reporter, args.source_dir)
+    life_cycle = check_config(args.reporter, args.source_dir)
+    # pre-alpha lessons should report without error
+    if life_cycle == "pre-alpha":
+        args.permissive = True
     check_source_rmd(args.reporter, args.source_dir, args.parser)
     args.references = read_references(args.reporter, args.reference_path)
 
@@ -194,6 +197,7 @@ def check_config(reporter, source_dir):
         reporter.check(defaults in config.get('defaults', []),
                    'configuration',
                    '"root" not set to "." in configuration')
+    return config['life_cycle']
 
 def check_source_rmd(reporter, source_dir, parser):
     """Check that Rmd episode files include `source: Rmd`"""
