@@ -1,7 +1,9 @@
 name: Website
 on:
   push:
-    branches: gh-pages
+    branches:
+      - gh-pages
+      - main
   pull_request: []
 jobs:
   build-website:
@@ -88,17 +90,15 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git status
+          git checkout --orphan gha-rendering
 
       - name: Push site
-        if: ${{ github.event.push == 'true' && steps.check-rmd.outputs.count != 0 && github.ref == 'refs/head/main' }}
+        if: ${{ github.event.push == 'true' && steps.check-rmd.outputs.count != 0 && github.ref == 'refs/heads/main' }}
         run: |
-          git checkout --orphan gh-pages
-          git add .
+          rm -rf .bundle
+          git add --force .
           git commit -m "[GitHub Actions] render website"
-          git remote -v
-          git status
-          git push origin gh-pages
+          git push --force origin +gha-rendering:gh-pages
 
       - run: make lesson-check
         if: always()
