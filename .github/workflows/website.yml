@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       RSPM: "https://packagemanager.rstudio.com/cran/__linux__/bionic/latest"
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }} 
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     defaults:
       run:
         shell: bash
@@ -82,6 +82,24 @@ jobs:
           done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "18.04"), sep = "\n")')
 
       - run: make site
+
+      - name: Setup Git
+        if: ${{ steps.check-rmd.outputs.count != 0 }}
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git status
+
+      - name: Push site
+        if: ${{ github.event.push == 'true' && steps.check-rmd.outputs.count != 0 && github.ref == 'refs/head/main' }}
+        run: |
+          git checkout --orphan gh-pages
+          git add .
+          git commit -m "[GitHub Actions] render website"
+          git remote -v
+          git status
+          git push origin gh-pages
+
       - run: make lesson-check
         if: always()
       - run: make lesson-check-all
