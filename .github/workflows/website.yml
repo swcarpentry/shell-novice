@@ -83,24 +83,31 @@ jobs:
             eval sudo $cmd
           done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "18.04"), sep = "\n")')
 
-      - run: make site
+      - name: Render the markdown and confirm that the site can be built
+        run: make site
 
-      - name: Setup Git
-        if: ${{ steps.check-rmd.outputs.count != 0 }}
+      - name: Checkout github pages
+        if: ${{ github.event_name == 'push' && steps.check-rmd.outputs.count != 0 && github.ref != 'refs/heads/gh-pages'}}
+        uses: actions/checkout@master
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Commit and Push
+        if: ${{ github.event_name == 'push' && steps.check-rmd.outputs.count != 0 && github.ref != 'refs/heads/gh-pages'}}
         run: |
+          # copy everything into gh-pages site
+          cp -r `ls -A | grep -v 'gh-pages' | grep -v '.git' | grep -v '.bundle/' | grep -v '_site'` gh-pages
+          # move into gh-pages, add, commit, and push
+          cd gh-pages
+          # setup git
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git checkout --orphan gha-rendering
+          git add -A .
+          git commit --allow-empty -m "[Github Actions] render website (via ${{ github.sha }}"
+          git push origin gh-pages
+          # return
+          cd ..
 
-      - name: Push site
-        if: ${{ github.event.push == 'true' && steps.check-rmd.outputs.count != 0 && github.ref == 'refs/heads/main' }}
-        run: |
-          rm -rf .bundle/ _site/
-          git add --force .
-          git commit -m "[GitHub Actions] render website"
-          git push --force origin +gha-rendering:gh-pages
-
-      - run: make lesson-check
-        if: always()
       - run: make lesson-check-all
         if: always()
