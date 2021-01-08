@@ -8,9 +8,9 @@ on:
 jobs:
   build-website:
     if: ${{ !endsWith(github.repository, '/styles') }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
-      RSPM: "https://packagemanager.rstudio.com/cran/__linux__/bionic/latest"
+      RSPM: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     defaults:
       run:
@@ -81,7 +81,7 @@ jobs:
           while read -r cmd
           do
             eval sudo $cmd
-          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "18.04"), sep = "\n")')
+          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "20.04"), sep = "\n")')
 
       - name: Render the markdown and confirm that the site can be built
         run: make site
