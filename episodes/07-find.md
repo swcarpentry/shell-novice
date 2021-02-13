@@ -414,7 +414,12 @@ Again,
 it has a lot of options;
 to show how the simplest ones work, we'll use the directory tree shown below.
 
-![File Tree for Find Example](../fig/find-file-tree.svg)
+![A file tree under the directory "writing" contians several sub-directories and
+files such that "writing" contains directories "data", "thesis", "tools" and a
+file "haiku.txt"; "writing/data" contains the files "Little Women.txt",
+"one.txt" and "two.txt"; "writing/thesis" contains the file "empty-draft.md";
+"writing/tools" contains the directory "old" and the files "format" and "stats";
+and "writing/tools/old" contains a file "oldtool"](../fig/find-file-tree.svg)
 
 Nelle's `writing` directory contains one file called `haiku.txt` and three subdirectories:
 `thesis` (which contains a sadly empty file, `empty-draft.md`);
