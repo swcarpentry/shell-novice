@@ -67,6 +67,12 @@ which is Nelle's **home directory**:
 > In future examples, we've used Mac output as the default - Linux and Windows
 > output may differ slightly, but should be generally similar.
 {: .callout}
+>  
+> We will also assume that your `pwd` command returns your users home directory. 
+> If `pwd` returns something different you may need to navigate there using `cd` 
+> or some commands in this lesson will not work as written. 
+> See [Exploring Other Directories](exploring-other-directories) for more details 
+> on the `cd` command.
 
 To understand what a 'home directory' is,
 let's have a look at how the file system as a whole is organized.  For the
@@ -480,6 +486,10 @@ $ ls -F Desktop
 data-shell/
 ~~~
 {: .output}
+
+Note that if a directory named `Desktop` does not exist in your current working directory
+this command will return an error. Typically a `Desktop` directory exists in your 
+home directory, which we assume is the current working directory of your bash shell.
 
 Your output should be a list of all the files and sub-directories in your
 Desktop directory, including the `data-shell` directory you downloaded at
