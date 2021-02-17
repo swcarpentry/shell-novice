@@ -20,7 +20,7 @@ The following is an overview of a standard Unix filesystem.
 The exact hierarchy depends on the platform,
 so you may not see exactly the same files/directories on your computer:
 
-![Linux filesystem hierarchy](../fig/standard-filesystem-hierarchy.svg)
+![Linux filesystem hierarchy](fig/standard-filesystem-hierarchy.svg)
 
 ## Glossary
 
