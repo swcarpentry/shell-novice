@@ -210,6 +210,20 @@ a code {
   color: #006cad;
 }
 
+a:link {
+  color: #196EBD;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #1AA4DA;
+}
+
 code {
   white-space: nowrap;
   padding: 2px 5px;
