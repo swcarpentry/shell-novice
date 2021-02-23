@@ -71,7 +71,7 @@ which is Nelle's **home directory**:
 > We will also assume that your `pwd` command returns your users home directory. 
 > If `pwd` returns something different you may need to navigate there using `cd` 
 > or some commands in this lesson will not work as written. 
-> See [Exploring Other Directories](exploring-other-directories) for more details 
+> See [Exploring Other Directories](#exploring-other-directories) for more details 
 > on the `cd` command.
 
 To understand what a 'home directory' is,
