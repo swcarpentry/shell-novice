@@ -38,7 +38,7 @@ presented on the first three lines, with DNA sequences on the following lines.
 Let's look at the files:
 
 ```
-head -n 5 basilisk.dat minotaur.dat unicorn.dat
+$ head -n 5 basilisk.dat minotaur.dat unicorn.dat
 ```
 {: .language-bash}
 
