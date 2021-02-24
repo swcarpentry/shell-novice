@@ -12,7 +12,7 @@ keypoints:
 - "Most commands take options (flags) which begin with a `-`."
 - "Identify the actual command, options, and filenames in a command-line call."
 - "Demonstrate the use of tab completion and explain its advantages."
-- "A shell is a program whose primary purpose is to read commands and run other programs."
+- "A shell is a program whose primary purpose is to read the input and executes it; input can be a command, script, or program."
 - "The shell's main advantages are its high action-to-keystroke ratio, its support for
 automating repetitive tasks, and its capacity to access networked machines."
 - "The shell's main disadvantages are its primarily textual nature and how
