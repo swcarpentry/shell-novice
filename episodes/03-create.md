@@ -89,7 +89,7 @@ $ mkdir -p thesis/chapter_1/section_1/subsection_1
 ~~~
 {: .language-bash}
 
-The `-R` option to the `ls` command will list all nested subdirectories wtihin a directory.  Let's use `ls -FR` to recursively list the new directory hierarchy we just created beneath the `thesis` directory:
+The `-R` option to the `ls` command will list all nested subdirectories within a directory.  Let's use `ls -FR` to recursively list the new directory hierarchy we just created beneath the `thesis` directory:
 
 ~~~
 $ ls -FR thesis
