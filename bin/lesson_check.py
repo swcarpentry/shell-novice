@@ -188,7 +188,10 @@ def check_config(reporter, source_dir):
         reporter.check(defaults in config.get('defaults', []),
                    'configuration',
                    '"root" not set to "." in configuration')
-    return config['life_cycle']
+    if 'life_cycle' in config:
+        return config['life_cycle']
+    else
+        return None
 
 def check_source_rmd(reporter, source_dir, parser):
     """Check that Rmd episode files include `source: Rmd`"""
