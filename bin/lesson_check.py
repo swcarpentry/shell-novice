@@ -392,10 +392,14 @@ class CheckBase:
 
         for node in self.find_all(self.doc, {'type': 'codeblock'}):
             cls = self.get_val(node, 'attr', 'class')
-            self.reporter.check(cls in KNOWN_CODEBLOCKS or cls.startswith('language-'),
+            self.reporter.check(cls is not none and (cls in KNOWN_CODEBLOCKS or
+                cls.startswith('language-')),
                                 (self.filename, self.get_loc(node)),
                                 'Unknown or missing code block type {0}',
                                 cls)
+            if not cls is None:
+                print("NOTE: The AST was malformed and needs to be investigated")
+                print(self.filename, self.get_loc(node))
 
     def check_defined_link_references(self):
         """Check that defined links resolve in the file.
