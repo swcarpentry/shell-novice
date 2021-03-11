@@ -392,7 +392,8 @@ class CheckBase:
 
         for node in self.find_all(self.doc, {'type': 'codeblock'}):
             cls = self.get_val(node, 'attr', 'class')
-            self.reporter.check(cls in KNOWN_CODEBLOCKS or cls.startswith('language-'),
+            self.reporter.check(cls is not None and (cls in KNOWN_CODEBLOCKS or
+                cls.startswith('language-')),
                                 (self.filename, self.get_loc(node)),
                                 'Unknown or missing code block type {0}',
                                 cls)
