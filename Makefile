@@ -50,8 +50,8 @@ site : lesson-md
 
 ## * docker-serve     : use Docker to serve the site
 docker-serve :
-	docker pull carpentries/lesson-docker:latest
-	docker run --rm -it \
+	@docker pull carpentries/lesson-docker:latest
+	@docker run --rm -it \
 		-v $${PWD}:/home/rstudio \
 		-p 4000:4000 \
 		-p 8787:8787 \
