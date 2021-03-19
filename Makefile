@@ -31,14 +31,13 @@ ifeq (,$(PYTHON))
 endif
 
 
-# Controls
-.PHONY : commands clean files
-
 # Default target
 .DEFAULT_GOAL := commands
 
 ## I. Commands for both workshop and lesson websites
 ## =================================================
+
+.PHONY: site docker-serve repo-check clean clean-rmd
 
 ## * serve            : render website and run a local server
 serve : lesson-md
@@ -159,6 +158,8 @@ lesson-fixme :
 ##
 ## IV. Auxililary (plumbing) commands
 ## =================================================
+
+.PHONY : commands
 
 ## * commands         : show all commands.
 commands :
