@@ -33,9 +33,10 @@ jobs:
       RSPM: 'https://packagemanager.rstudio.com/cran/__linux__/focal/latest'
     steps:
       - name: Set up Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7'
+          bundler-cache: true
 
       - name: Set up Python
         uses: actions/setup-python@v2
