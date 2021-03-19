@@ -131,7 +131,7 @@ lesson-md : ${RMD_DST}
 
 _episodes/%.md: _episodes_rmd/%.Rmd install-rmd-deps
 	@mkdir -p _episodes
-	@bin/knit_lessons.sh $< $@
+	@$(SHELL) bin/knit_lessons.sh $< $@
 
 ## * lesson-check     : validate lesson Markdown
 lesson-check : lesson-fixme
