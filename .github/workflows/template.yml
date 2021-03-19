@@ -97,7 +97,8 @@ jobs:
       - name: Install needed packages
         if: steps.check-rmd.outputs.count != 0
         run: |
-          install.packages(setdiff(c('remotes', 'rprojroot', 'renv', 'desc', 'rmarkdown', 'knitr'), rownames(installed.packages())))
+          packages = setdiff(c('remotes', 'rprojroot', 'renv', 'desc', 'rmarkdown', 'knitr'), rownames(installed.packages()))
+          install.packages(packages, repo="https://cran.rstudio.com/")
         shell: Rscript {0}
 
       - name: Query dependencies
