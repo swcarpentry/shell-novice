@@ -3,7 +3,7 @@
 
 # Settings
 MAKEFILES=Makefile $(wildcard *.mk)
-JEKYLL=bundle config --local set path .vendor/bundle && bundle install && bundle update && bundle exec jekyll
+JEKYLL=bundle config set --local path .vendor/bundle && bundle install && bundle update && bundle exec jekyll
 PARSER=bin/markdown_ast.rb
 DST=_site
 
@@ -31,14 +31,13 @@ ifeq (,$(PYTHON))
 endif
 
 
-# Controls
-.PHONY : commands clean files
-
 # Default target
 .DEFAULT_GOAL := commands
 
 ## I. Commands for both workshop and lesson websites
 ## =================================================
+
+.PHONY: site docker-serve repo-check clean clean-rmd
 
 ## * serve            : render website and run a local server
 serve : lesson-md
@@ -50,8 +49,8 @@ site : lesson-md
 
 ## * docker-serve     : use Docker to serve the site
 docker-serve :
-	docker pull carpentries/lesson-docker:latest
-	docker run --rm -it \
+	@docker pull carpentries/lesson-docker:latest
+	@docker run --rm -it \
 		-v $${PWD}:/home/rstudio \
 		-p 4000:4000 \
 		-p 8787:8787 \
@@ -68,6 +67,9 @@ clean :
 	@rm -rf ${DST}
 	@rm -rf .sass-cache
 	@rm -rf bin/__pycache__
+	@rm -rf .vendor
+	@rm -rf .bundle
+	@rm -f Gemfile.lock
 	@find . -name .DS_Store -exec rm {} \;
 	@find . -name '*~' -exec rm {} \;
 	@find . -name '*.pyc' -exec rm {} \;
@@ -96,7 +98,7 @@ workshop-check :
 .PHONY : lesson-check lesson-md lesson-files lesson-fixme install-rmd-deps
 
 # RMarkdown files
-RMD_SRC = $(wildcard _episodes_rmd/??-*.Rmd)
+RMD_SRC = $(wildcard _episodes_rmd/*.Rmd)
 RMD_DST = $(patsubst _episodes_rmd/%.Rmd,_episodes/%.md,$(RMD_SRC))
 
 # Lesson source files in the order they appear in the navigation menu.
@@ -128,7 +130,7 @@ lesson-md : ${RMD_DST}
 
 _episodes/%.md: _episodes_rmd/%.Rmd install-rmd-deps
 	@mkdir -p _episodes
-	@bin/knit_lessons.sh $< $@
+	@$(SHELL) bin/knit_lessons.sh $< $@
 
 ## * lesson-check     : validate lesson Markdown
 lesson-check : lesson-fixme
@@ -156,6 +158,8 @@ lesson-fixme :
 ##
 ## IV. Auxililary (plumbing) commands
 ## =================================================
+
+.PHONY : commands
 
 ## * commands         : show all commands.
 commands :

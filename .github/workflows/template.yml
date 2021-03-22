@@ -12,9 +12,9 @@ jobs:
       fail-fast: false
       matrix:
         lesson: [swcarpentry/shell-novice, datacarpentry/r-intro-geospatial, librarycarpentry/lc-git]
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-20.04, macos-latest, windows-latest]
         include:
-          - os: ubuntu-latest
+          - os: ubuntu-20.04
             os-name: Ubuntu
           - os: macos-latest
             os-name: macOS
@@ -30,12 +30,13 @@ jobs:
       run:
         shell: bash # forces 'Git for Windows' on Windows
     env:
-      RSPM: 'https://packagemanager.rstudio.com/cran/__linux__/bionic/latest'
+      RSPM: 'https://packagemanager.rstudio.com/cran/__linux__/focal/latest'
     steps:
       - name: Set up Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7'
+          bundler-cache: true
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -44,7 +45,7 @@ jobs:
 
       - name: Install GitHub Pages, Bundler, and kramdown gems
         run: |
-          gem install github-pages bundler kramdown
+          gem install github-pages bundler kramdown kramdown-parser-gfm
 
       - name: Install Python modules
         run: |
@@ -96,7 +97,8 @@ jobs:
       - name: Install needed packages
         if: steps.check-rmd.outputs.count != 0
         run: |
-          install.packages(c('remotes', 'rprojroot', 'renv', 'desc', 'rmarkdown', 'knitr'))
+          packages = setdiff(c('remotes', 'rprojroot', 'renv', 'desc', 'rmarkdown', 'knitr'), rownames(installed.packages()))
+          install.packages(packages, repo="https://cran.rstudio.com/")
         shell: Rscript {0}
 
       - name: Query dependencies
@@ -118,6 +120,11 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
+      - name: Install stringi from source
+        if: runner.os == 'Linux' && steps.check-rmd.outputs.count != 0
+        run: install.packages('stringi', repos='https://cloud.r-project.org')
+        shell: Rscript {0}
+
       - name: Install system dependencies for R packages
         if: runner.os == 'Linux' && steps.check-rmd.outputs.count != 0
         working-directory: lesson
@@ -125,7 +132,7 @@ jobs:
           while read -r cmd
           do
             eval sudo $cmd
-          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "18.04"), sep = "\n")')
+          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "20.04"), sep = "\n")')
 
       - run: make site
         working-directory: lesson

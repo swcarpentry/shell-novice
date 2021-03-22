@@ -17,7 +17,7 @@ URL_PATTERN = r'https?://.+'
 
 # Defaults.
 CARPENTRIES = ("dc", "swc", "lc", "cp")
-DEFAULT_CONTACT_EMAIL = 'admin@software-carpentry.org'
+DEFAULT_CONTACT_EMAIL = 'team@carpentries.org'
 
 USAGE = 'Usage: "workshop_check.py path/to/root/directory"'
 

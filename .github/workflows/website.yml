@@ -1,20 +1,26 @@
 name: Website
 on:
   push:
-    branches: gh-pages
+    branches:
+      - gh-pages
+      - main
   pull_request: []
 jobs:
   build-website:
-    if: github.repository != 'carpentries/styles' && (github.repository_owner == 'swcarpentry' || github.repository_owner == 'datacarpentry' || github.repository_owner == 'librarycarpentry' || github.repository_owner == 'carpentries')
-    runs-on: ubuntu-latest
+    if: ${{ !endsWith(github.repository, '/styles') }}
+    runs-on: ubuntu-20.04
+    env:
+      RSPM: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     defaults:
       run:
         shell: bash
     steps:
       - name: Set up Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7'
+          bundler-cache: true
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -23,7 +29,7 @@ jobs:
 
       - name: Install GitHub Pages, Bundler, and kramdown gems
         run: |
-          gem install github-pages bundler kramdown
+          gem install github-pages bundler kramdown kramdown-parser-gfm
 
       - name: Install Python modules
         run: |
@@ -46,10 +52,19 @@ jobs:
         with:
           r-version: 'release'
 
+      - name: Cache R packages
+        if: steps.check-rmd.outputs.count != 0
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+
       - name: Install needed packages
         if: steps.check-rmd.outputs.count != 0
         run: |
-          install.packages(c('remotes', 'rprojroot', 'renv', 'desc', 'rmarkdown', 'knitr'))
+          packages = setdiff(c('remotes', 'rprojroot', 'renv', 'desc', 'rmarkdown', 'knitr'), rownames(installed.packages()))
+          install.packages(packages, repo="https://cran.rstudio.com/")
         shell: Rscript {0}
 
       - name: Query dependencies
@@ -62,13 +77,6 @@ jobs:
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
-      - name: Cache R packages
-        if: steps.check-rmd.outputs.count != 0
-        uses: actions/cache@v1
-        with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
       - name: Install system dependencies for R packages
         if: steps.check-rmd.outputs.count != 0
@@ -76,10 +84,38 @@ jobs:
           while read -r cmd
           do
             eval sudo $cmd
-          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "18.04"), sep = "\n")')
+          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "20.04"), sep = "\n")')
 
-      - run: make site
-      - run: make lesson-check
-        if: always()
+      - name: Render the markdown and confirm that the site can be built
+        run: make site
+
+      - name: Checkout github pages
+        if: ${{ github.event_name == 'push' && steps.check-rmd.outputs.count != 0 && github.ref != 'refs/heads/gh-pages'}}
+        uses: actions/checkout@master
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Commit and Push
+        if: ${{ github.event_name == 'push' && steps.check-rmd.outputs.count != 0 && github.ref != 'refs/heads/gh-pages'}}
+        run: |
+          # clean up gh-pages
+          cd gh-pages
+          git rm -rf .           # remove all previous files
+          git restore --staged . # remove things from the stage
+          cd ..
+          # copy everything into gh-pages site
+          cp -r `ls -A | grep -v 'gh-pages' | grep -v '.git' | grep -v '.bundle/' | grep -v '_site'` gh-pages
+          # move into gh-pages, add, commit, and push
+          cd gh-pages
+          # setup git
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add -A .
+          git commit --allow-empty -m "[Github Actions] render website (via ${{ github.sha }})"
+          git push origin gh-pages
+          # return
+          cd ..
+
       - run: make lesson-check-all
         if: always()

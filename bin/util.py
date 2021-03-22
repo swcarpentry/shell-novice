@@ -115,7 +115,7 @@ def read_markdown(parser, path):
              for (i, line) in enumerate(body.split('\n'))]
 
     # Parse Markdown.
-    cmd = 'ruby {0}'.format(parser)
+    cmd = 'bundle exec ruby {0}'.format(parser)
     p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE,
               close_fds=True, universal_newlines=True, encoding='utf-8')
     stdout_data, stderr_data = p.communicate(body)

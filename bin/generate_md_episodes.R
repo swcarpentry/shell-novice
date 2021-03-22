@@ -1,5 +1,9 @@
 generate_md_episodes <- function() {
 
+  # avoid ansi color characters from being printed in the output
+  op <- options()
+  on.exit(options(op), add = TRUE)
+  options(crayon.enabled = FALSE)
   ## get the Rmd file to process from the command line, and generate the path
   ## for their respective outputs
   args  <- commandArgs(trailingOnly = TRUE)
