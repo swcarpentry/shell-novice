@@ -301,6 +301,11 @@ span.fold-unfold {
 }
 
 
+p.image-with-shadow img,
+img.image-with-shadow {
+  box-shadow: 0 6px 24px 0 #888;
+}
+
 //----------------------------------------
 // Life cycle box
 //----------------------------------------
