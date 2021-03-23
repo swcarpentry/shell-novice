@@ -12,7 +12,7 @@ DST=_site
 PYTHON3_EXE := $(shell which python3 2>/dev/null)
 ifneq (, $(PYTHON3_EXE))
   ifeq (,$(findstring Microsoft/WindowsApps/python3,$(subst \,/,$(PYTHON3_EXE))))
-    PYTHON := python3
+    PYTHON := $(PYTHON3_EXE)
   endif
 endif
 
@@ -21,12 +21,13 @@ ifeq (,$(PYTHON))
   ifneq (, $(PYTHON_EXE))
     PYTHON_VERSION_FULL := $(wordlist 2,4,$(subst ., ,$(shell python --version 2>&1)))
     PYTHON_VERSION_MAJOR := $(word 1,${PYTHON_VERSION_FULL})
-    ifneq (3, ${PYTHON_VERSION_MAJOR})
-      $(error "Your system does not appear to have Python 3 installed.")
+    ifeq (3, ${PYTHON_VERSION_MAJOR})
+      PYTHON := $(PYTHON_EXE)
+    else
+      PYTHON_NOTE = "Your system does not appear to have Python 3 installed."
     endif
-    PYTHON := python
   else
-      $(error "Your system does not appear to have any Python installed.")
+      PYTHON_NOTE = "Your system does not appear to have any Python installed."
   endif
 endif
 
@@ -59,7 +60,7 @@ docker-serve :
 		carpentries/lesson-docker:latest
 
 ## * repo-check       : check repository settings
-repo-check :
+repo-check : python
 	@${PYTHON} bin/repo_check.py -s .
 
 ## * clean            : clean up junk files
@@ -87,7 +88,7 @@ clean-rmd :
 .PHONY : workshop-check
 
 ## * workshop-check   : check workshop homepage
-workshop-check :
+workshop-check : python
 	@${PYTHON} bin/workshop_check.py .
 
 
@@ -133,15 +134,15 @@ _episodes/%.md: _episodes_rmd/%.Rmd install-rmd-deps
 	@$(SHELL) bin/knit_lessons.sh $< $@
 
 ## * lesson-check     : validate lesson Markdown
-lesson-check : lesson-fixme
+lesson-check : python lesson-fixme
 	@${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md
 
 ## * lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace
-lesson-check-all :
+lesson-check-all : python
 	@${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md -l -w --permissive
 
 ## * unittest         : run unit tests on checking tools
-unittest :
+unittest : python
 	@${PYTHON} bin/test_lesson_check.py
 
 ## * lesson-files     : show expected names of generated files for debugging
@@ -159,8 +160,15 @@ lesson-fixme :
 ## IV. Auxililary (plumbing) commands
 ## =================================================
 
-.PHONY : commands
+.PHONY : commands python
 
 ## * commands         : show all commands.
 commands :
 	@sed -n -e '/^##/s|^##[[:space:]]*||p' $(MAKEFILE_LIST)
+
+python :
+ifeq (, $(PYTHON))
+	$(error $(PYTHON_NOTE))
+else
+	@:
+endif
