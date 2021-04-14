@@ -113,7 +113,10 @@ def main():
     if life_cycle == "pre-alpha":
         args.permissive = True
     check_source_rmd(args.reporter, args.source_dir, args.parser)
-    args.references = read_references(args.reporter, args.reference_path)
+
+    args.references = {}
+    if not using_remote_theme():
+        args.references = read_references(args.reporter, args.reference_path)
 
     docs = read_all_markdown(args.source_dir, args.parser)
     check_fileset(args.source_dir, args.reporter, list(docs.keys()))
@@ -167,6 +170,10 @@ def parse_args():
 
     return args
 
+def using_remote_theme():
+    config_file = os.path.join(source_dir, '_config.yml')
+    config = load_yaml(config_file)
+    return 'remote_theme' in config
 
 def check_config(reporter, source_dir):
     """Check configuration file."""
@@ -493,7 +500,8 @@ class CheckEpisode(CheckBase):
         """Run extra tests."""
 
         super().check()
-        self.check_reference_inclusion()
+        if not using_remote_theme():
+            self.check_reference_inclusion()
 
     def check_metadata(self):
         super().check_metadata()
