@@ -115,7 +115,7 @@ def main():
     check_source_rmd(args.reporter, args.source_dir, args.parser)
 
     args.references = {}
-    if not using_remote_theme():
+    if not using_remote_theme(args.source_dir):
         args.references = read_references(args.reporter, args.reference_path)
 
     docs = read_all_markdown(args.source_dir, args.parser)
@@ -170,7 +170,7 @@ def parse_args():
 
     return args
 
-def using_remote_theme():
+def using_remote_theme(source_dir):
     config_file = os.path.join(source_dir, '_config.yml')
     config = load_yaml(config_file)
     return 'remote_theme' in config
