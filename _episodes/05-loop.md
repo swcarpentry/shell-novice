@@ -38,7 +38,7 @@ presented on the first three lines, with DNA sequences on the following lines.
 Let's look at the files:
 
 ```
-head -n 5 basilisk.dat minotaur.dat unicorn.dat
+$ head -n 5 basilisk.dat minotaur.dat unicorn.dat
 ```
 {: .language-bash}
 
@@ -60,7 +60,7 @@ and we can apply this to our example like this:
 ```
 $ for filename in basilisk.dat minotaur.dat unicorn.dat
 > do
->    head -n 2 $filename | tail -n 1
+>     head -n 2 $filename | tail -n 1
 > done
 ```
 {: .language-bash}
@@ -136,7 +136,7 @@ if we wrote this loop as:
 ~~~
 $ for x in basilisk.dat minotaur.dat unicorn.dat
 > do
->    head -n 2 $x | tail -n 1
+>     head -n 2 $x | tail -n 1
 > done
 ~~~
 {: .language-bash}
@@ -146,7 +146,7 @@ or:
 ~~~
 $ for temperature in basilisk.dat minotaur.dat unicorn.dat
 > do
->    head -n 2 $temperature | tail -n 1
+>     head -n 2 $temperature | tail -n 1
 > done
 ~~~
 {: .language-bash}
@@ -172,7 +172,7 @@ increase the odds that the program won't do what its readers think it does.
 > ~~~
 > $ for datafile in *.pdb
 > > do
-> >    ls *.pdb
+> >     ls *.pdb
 > > done
 > ~~~
 > {: .language-bash}
@@ -199,7 +199,7 @@ increase the odds that the program won't do what its readers think it does.
 > > ```
 > > $ for datafile in cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
 > > > do
-> > >	ls cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > >     ls cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
 > > > done
 > > ```
 > > {: .language-bash}
@@ -237,7 +237,7 @@ increase the odds that the program won't do what its readers think it does.
 > ~~~
 > $ for filename in c*
 > > do
-> >    ls $filename
+> >     ls $filename
 > > done
 > ~~~
 > {: .language-bash}
@@ -257,7 +257,7 @@ increase the odds that the program won't do what its readers think it does.
 > ~~~
 > $ for filename in *c*
 > > do
-> >    ls $filename
+> >     ls $filename
 > > done
 > ~~~
 > {: .language-bash}
@@ -498,7 +498,14 @@ The following diagram
 shows what happens when the modified loop is executed, and demonstrates how the
 judicious use of `echo` is a good debugging technique.
 
-![For Loop in Action](../fig/shell_script_for_loop_flow_chart.svg)
+![The for loop "for filename in *.dat; do echo cp $filename original-$filename;
+done" will successively assign the names of all "*.dat" files in your current
+directory to the variable "$filename" and then execute the command. With the
+files "basilisk.dat", "minotaur.dat" and "unicorn.dat" in the current directory
+the loop will successively call the echo command three times and print three
+lines: "cp basislisk.dat original-basilisk.dat", then "cp minotaur.dat
+original-minotaur.dat" and finally "cp unicorn.dat 
+original-unicorn.dat"](../fig/shell_script_for_loop_flow_chart.svg)
 
 ## Nelle's Pipeline: Processing Files
 
@@ -676,7 +683,7 @@ so she decides to get some coffee and catch up on her reading.
 > ~~~
 > $ for datafile in *.pdb
 > > do
-> >   cat $datafile >> all.pdb
+> >     cat $datafile >> all.pdb
 > > done
 > ~~~
 > {: .language-bash}
@@ -688,7 +695,7 @@ so she decides to get some coffee and catch up on her reading.
 > # Version 1
 > $ for datafile in *.pdb
 > > do
-> >   echo cat $datafile >> all.pdb
+> >     echo cat $datafile >> all.pdb
 > > done
 > ~~~
 > {: .language-bash}
@@ -697,7 +704,7 @@ so she decides to get some coffee and catch up on her reading.
 > # Version 2
 > $ for datafile in *.pdb
 > > do
-> >   echo "cat $datafile >> all.pdb"
+> >     echo "cat $datafile >> all.pdb"
 > > done
 > ~~~
 > {: .language-bash}

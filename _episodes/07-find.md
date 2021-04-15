@@ -208,7 +208,7 @@ If we use the `-r` (recursive) option,
 Let's search recursively for `Yesterday` in the `data-shell/writing` directory:
 
 ```
-grep -r Yesterday .
+$ grep -r Yesterday .
 ```
 {: .language-bash}
 
@@ -414,7 +414,12 @@ Again,
 it has a lot of options;
 to show how the simplest ones work, we'll use the directory tree shown below.
 
-![File Tree for Find Example](../fig/find-file-tree.svg)
+![A file tree under the directory "writing" contians several sub-directories and
+files such that "writing" contains directories "data", "thesis", "tools" and a
+file "haiku.txt"; "writing/data" contains the files "Little Women.txt",
+"one.txt" and "two.txt"; "writing/thesis" contains the file "empty-draft.md";
+"writing/tools" contains the directory "old" and the files "format" and "stats";
+and "writing/tools/old" contains a file "oldtool"](../fig/find-file-tree.svg)
 
 Nelle's `writing` directory contains one file called `haiku.txt` and three subdirectories:
 `thesis` (which contains a sadly empty file, `empty-draft.md`);
@@ -657,11 +662,11 @@ survived so long because it is one of the most productive programming
 environments ever created --- maybe even *the* most productive. Its syntax
 may be cryptic, but people who have mastered it can experiment with
 different commands interactively, then use what they have learned to
-automate their work. Graphical user interfaces may be better at the
-first, but the shell is still unbeaten at the second. And as Alfred
-North Whitehead wrote in 1911, 'Civilization advances by extending the
-number of important operations which we can perform without thinking
-about them.'
+automate their work. Graphical user interfaces may be easier to use at
+first, but once learned, the productivity in the shell is unbeatable. 
+And as Alfred North Whitehead wrote in 1911, 'Civilization advances by
+extending the number of important operations which we can perform 
+without thinking about them.'
 
 > ## `find` Pipeline Reading Comprehension
 >

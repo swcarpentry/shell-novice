@@ -72,6 +72,11 @@ In the examples for this lesson, we'll show the prompt as `$ `.
 Most importantly:
 when typing commands, either from these lessons or from other sources,
 *do not type the prompt*, only the commands that follow it.
+Also note that after you type a command, you have to press the <kbd>Enter</kbd> key to execute it.
+
+The prompt is followed by a **text cursor**, a character that indicates the position where your typing will appear. 
+The cursor is usually a flashing or solid block, but it can also be an underscore or a pipe. 
+You may have seen it in a text editor program, for example.
 
 So let's try our first command, `ls` which is short for listing.
 This command will list the contents of the current directory:

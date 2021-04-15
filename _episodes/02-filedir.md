@@ -67,6 +67,12 @@ which is Nelle's **home directory**:
 > In future examples, we've used Mac output as the default - Linux and Windows
 > output may differ slightly but should be generally similar.
 {: .callout}
+>  
+> We will also assume that your `pwd` command returns your users home directory. 
+> If `pwd` returns something different you may need to navigate there using `cd` 
+> or some commands in this lesson will not work as written. 
+> See [Exploring Other Directories](#exploring-other-directories) for more details 
+> on the `cd` command.
 
 To understand what a 'home directory' is,
 let's have a look at how the file system as a whole is organized.  For the
@@ -110,7 +116,9 @@ Underneath `/Users`,
 we find one directory for each user with an account on Nelle's machine,
 her colleagues *imhotep* and *larry*.
 
-![Home Directories](../fig/home-directories.svg)
+![Like other directories, home directories are sub-directories underneath 
+"/Users" like "/Users/imhotep", "/Users/larry" or 
+"/Users/nelle"](../fig/home-directories.svg)
 
 The user *imhotep*'s files are stored in `/Users/imhotep`,
 user *larry*'s in `/Users/larry`,
@@ -281,98 +289,7 @@ Mandatory arguments to long options are mandatory for short options too.
   -D, --dired                generate output designed for Emacs' dired mode
   -f                         do not sort, enable -aU, disable -ls --color
   -F, --classify             append indicator (one of */=>@|) to entries
-      --file-type            likewise, except do not append '*'
-      --format=WORD          across -x, commas -m, horizontal -x, long -l,
-                               single-column -1, verbose -l, vertical -C
-      --full-time            like -l --time-style=full-iso
-  -g                         like -l, but do not list owner
-      --group-directories-first
-                             group directories before files;
-                               can be augmented with a --sort option, but any
-                               use of --sort=none (-U) disables grouping
-  -G, --no-group             in a long listing, don't print group names
-  -h, --human-readable       with -l and/or -s, print human readable sizes
-                               (e.g., 1K 234M 2G)
-      --si                   likewise, but use powers of 1000 not 1024
-  -H, --dereference-command-line
-                             follow symbolic links listed on the command line
-      --dereference-command-line-symlink-to-dir
-                             follow each command line symbolic link
-                               that points to a directory
-      --hide=PATTERN         do not list implied entries matching shell PATTERN
-                               (overridden by -a or -A)
-      --indicator-style=WORD  append indicator with style WORD to entry names:
-                               none (default), slash (-p),
-                               file-type (--file-type), classify (-F)
-  -i, --inode                print the index number of each file
-  -I, --ignore=PATTERN       do not list implied entries matching shell PATTERN
-  -k, --kibibytes            default to 1024-byte blocks for disk usage
-  -l                         use a long listing format
-  -L, --dereference          when showing file information for a symbolic
-                               link, show information for the file the link
-                               references rather than for the link itself
-  -m                         fill width with a comma separated list of entries
-  -n, --numeric-uid-gid      like -l, but list numeric user and group IDs
-  -N, --literal              print raw entry names (don't treat e.g. control
-                               characters specially)
-  -o                         like -l, but do not list group information
-  -p, --indicator-style=slash
-                             append / indicator to directories
-  -q, --hide-control-chars   print ? instead of nongraphic characters
-      --show-control-chars   show nongraphic characters as-is (the default,
-                               unless program is 'ls' and output is a terminal)
-  -Q, --quote-name           enclose entry names in double quotes
-      --quoting-style=WORD   use quoting style WORD for entry names:
-                               literal, locale, shell, shell-always,
-                               shell-escape, shell-escape-always, c, escape
-  -r, --reverse              reverse order while sorting
-  -R, --recursive            list subdirectories recursively
-  -s, --size                 print the allocated size of each file, in blocks
-  -S                         sort by file size, largest first
-      --sort=WORD            sort by WORD instead of name: none (-U), size (-S),
-                               time (-t), version (-v), extension (-X)
-      --time=WORD            with -l, show time as WORD instead of default
-                               modification time: atime or access or use (-u);
-                               ctime or status (-c); also use specified time
-                               as sort key if --sort=time (newest first)
-      --time-style=STYLE     with -l, show times using style STYLE:
-                               full-iso, long-iso, iso, locale, or +FORMAT;
-                               FORMAT is interpreted like in 'date'; if FORMAT
-                               is FORMAT1<newline>FORMAT2, then FORMAT1 applies
-                               to non-recent files and FORMAT2 to recent files;
-                               if STYLE is prefixed with 'posix-', STYLE
-                               takes effect only outside the POSIX locale
-  -t                         sort by modification time, newest first
-  -T, --tabsize=COLS         assume tab stops at each COLS instead of 8
-  -u                         with -lt: sort by, and show, access time;
-                               with -l: show access time and sort by name;
-                               otherwise: sort by access time, newest first
-  -U                         do not sort; list entries in directory order
-  -v                         natural sort of (version) numbers within text
-  -w, --width=COLS           set output width to COLS.  0 means no limit
-  -x                         list entries by lines instead of by columns
-  -X                         sort alphabetically by entry extension
-  -Z, --context              print any security context of each file
-  -1                         list one file per line.  Avoid '\n' with -q or -b
-      --help     display this help and exit
-      --version  output version information and exit
-
-The SIZE argument is an integer and optional unit (example: 10K is 10*1024).
-Units are K,M,G,T,P,E,Z,Y (powers of 1024) or KB,MB,... (powers of 1000).
-
-Using color to distinguish file types is disabled both by default and
-with --color=never.  With --color=auto, ls emits color codes only when
-standard output is connected to a terminal.  The LS_COLORS environment
-variable can change the settings.  Use the dircolors command to set it.
-
-Exit status:
- 0  if OK,
- 1  if minor problems (e.g., cannot access subdirectory),
- 2  if serious trouble (e.g., cannot access command-line argument).
-
-GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
-Full documentation at: <http://www.gnu.org/software/coreutils/ls>
-or available locally via: info '(coreutils) ls invocation'
+...        ...        ...
 ~~~
 {: .output}
 
@@ -478,6 +395,10 @@ $ ls -F Desktop
 data-shell/
 ~~~
 {: .output}
+
+Note that if a directory named `Desktop` does not exist in your current working directory
+this command will return an error. Typically a `Desktop` directory exists in your 
+home directory, which we assume is the current working directory of your bash shell.
 
 Your output should be a list of all the files and sub-directories in your
 Desktop directory, including the `data-shell` directory you downloaded at
@@ -785,7 +706,11 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > 3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
 > 4.  `original/ pnas_final/ pnas_sub/`
 >
-> ![File System for Challenge Questions](../fig/filesystem-challenge.svg)
+> ![A directory tree below the Users directory where "/Users" contians the
+directories "backup" and "thing"; "/Users/backup" contains "original",
+"pnas_final" and "pnas_sub"; "/Users/thing" contains "backup"; and
+"/Users/thing/backup" contians "2012-12-01", "2013-01-08" and
+"2013-01-27"](../fig/filesystem-challenge.svg)
 >
 > > ## Solution
 > > 1. No: there *is* a directory `backup` in `/Users`.
@@ -808,7 +733,11 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > ~~~
 > {: .output}
 >
-> ![File System for Challenge Questions](../fig/filesystem-challenge.svg)
+> ![A directory tree below the Users directory where "/Users" contians the
+directories "backup" and "thing"; "/Users/backup" contains "original",
+"pnas_final" and "pnas_sub"; "/Users/thing" contains "backup"; and 
+"/Users/thing/backup" contians "2012-12-01", "2013-01-08" and 
+"2013-01-27"](../fig/filesystem-challenge.svg)
 >
 > 1.  `ls pwd`
 > 2.  `ls -r -F`
