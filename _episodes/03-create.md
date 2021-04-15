@@ -246,7 +246,7 @@ draft.txt
 > >
 > > 2.  When you inspect the file with `ls -l`, note that the size of
 > >     `my_file.txt` is 0 bytes.  In other words, it contains no data.
-> >     If you open `my_file.txt` using your text editor it is blank.
+> >     If you open `my_file.txt` using your text editor, it is blank.
 > >
 > > 3.  Some programs do not generate output files themselves, but
 > >     instead require that empty files have already been generated.
@@ -265,7 +265,7 @@ draft.txt
 > almost anything else we want. However, most people use two-part names
 > most of the time to help them (and their programs) tell different kinds
 > of files apart. The second part of such a name is called the
-> **filename extension**, and indicates
+> **filename extension** and indicates
 > what type of data the file holds: `.txt` signals a plain text file, `.pdf`
 > indicates a PDF document, `.cfg` is a configuration file full of parameters
 > for some program or other, `.png` is a PNG image, and so on.
@@ -276,7 +276,7 @@ draft.txt
 > files, images, and so on.
 >
 > Naming a PNG image of a whale as `whale.mp3` doesn't somehow
-> magically turn it into a recording of whalesong, though it *might*
+> magically turn it into a recording of whale song, though it *might*
 > cause the operating system to try to open it with a music player
 > when someone double-clicks it.
 {: .callout}
@@ -317,7 +317,7 @@ quotes.txt
 ~~~
 {: .output}
 
-One has to be careful when specifying the target file name, since `mv` will
+One must be careful when specifying the target file name, since `mv` will
 silently overwrite any existing file with the same name, which could
 lead to data loss. An additional option, `mv -i` (or `mv --interactive`),
 can be used to make `mv` ask you for confirmation before overwriting.
@@ -327,11 +327,11 @@ Note that `mv` also works on directories.
 Let's move `quotes.txt` into the current working directory.
 We use `mv` once again,
 but this time we'll use just the name of a directory as the second argument
-to tell `mv` that we want to keep the filename,
+to tell `mv` that we want to keep the filename
 but put the file somewhere new.
 (This is why the command is called 'move'.)
 In this case,
-the directory name we use is the special directory name `.` that we mentioned earlier.
+the directory name we use is the special directory name`.` that we mentioned earlier.
 
 ~~~
 $ mv thesis/quotes.txt .
@@ -541,7 +541,7 @@ ls: cannot access 'quotes.txt': No such file or directory
 > when we delete files, they are unlinked from the file system so that
 > their storage space on disk can be recycled. Tools for finding and
 > recovering deleted files do exist, but there's no guarantee they'll
-> work in any particular situation, since the computer may recycle the
+> work in any situation, since the computer may recycle the
 > file's disk space right away.
 {: .callout}
 
@@ -657,7 +657,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > list of matching filenames *before* running the command that was
 > asked for. As an exception, if a wildcard expression does not match
 > any file, Bash will pass the expression as an argument to the command
-> as it is. For example typing `ls *.pdf` in the `molecules` directory
+> as it is. For example, typing `ls *.pdf` in the `molecules` directory
 > (which contains only files with names ending with `.pdb`) results in
 > an error message that there is no file called `*.pdf`.
 > However, generally commands like `wc` and `ls` see the lists of
@@ -837,7 +837,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 
 > ## Reproduce a folder structure
 >
-> You're starting a new experiment, and would like to duplicate the directory
+> You're starting a new experiment and would like to duplicate the directory
 > structure from your previous experiment so you can add new data.
 >
 > Assume that the previous experiment is in a folder called '2016-05-18',
@@ -889,11 +889,11 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > >
 > > ## Solution
 > > The first two sets of commands achieve this objective.
-> > The first set uses relative paths to create the top level directory before
+> > The first set uses relative paths to create the top-level directory before
 > > the subdirectories.
 > >
 > > The third set of commands will give an error because the default behavior of `mkdir` won't create a subdirectory
-> > of a non-existant directory: the intermediate level folders must be created first.
+> > of a non-existent directory: the intermediate level folders must be created first.
 > >
 > > The fourth set of commands achieve this objective. Remember, the `-p` option, followed by a path of one or more 
 > > directories, will cause `mkdir` to create any intermediate subdirectories as required.
