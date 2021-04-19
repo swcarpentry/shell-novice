@@ -81,7 +81,7 @@ our script's output is exactly what we would get if we ran that pipeline directl
 > editors", but we need to be a bit more careful when it comes to
 > programming. By default, Microsoft Word uses `.docx` files to store not
 > only text, but also formatting information about fonts, headings, and so
-> on. This extra information isn't stored as characters, and doesn't mean
+> on. This extra information isn't stored as characters and doesn't mean
 > anything to tools like `head`: they expect input files to contain
 > nothing but the letters, digits, and punctuation on a standard computer
 > keyboard. When editing programs, therefore, you must either use a plain
