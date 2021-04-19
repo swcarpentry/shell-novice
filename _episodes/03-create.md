@@ -82,28 +82,6 @@ $ ls -F thesis
 ~~~
 {: .language-bash}
 
-Note that `mkdir` is not limited to creating single directories one at a time. The `-p` option allows `mkdir` to create a directory with any number of nested subdirectories in a single operation: 
-
-~~~
-$ mkdir -p thesis/chapter_1/section_1/subsection_1
-~~~
-{: .language-bash}
-
-The `-R` option to the `ls` command will list all nested subdirectories within a directory.  Let's use `ls -FR` to recursively list the new directory hierarchy we just created beneath the `thesis` directory:
-
-~~~
-$ ls -FR thesis
-chapter_1/
-
-thesis/chapter_1:
-section_1/
-
-thesis/chapter_1/section_1:
-subsection_1/
-
-thesis/chapter_1/section_1/subsection_1:
-~~~
-{: .language-bash}
 
 > ## Two ways of doing the same thing
 > Using the shell to create a directory is no different than using a file explorer.
@@ -363,7 +341,7 @@ quotes.txt
 > ## Moving Files to a new folder
 >
 > After running the following commands,
-> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder. 
+> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder.
 > The files should have been placed in the `raw` folder.
 >
 > ~~~
@@ -376,7 +354,7 @@ quotes.txt
 > {: .language-bash}
 >
 > Fill in the blanks to move these files to the `raw/` folder
-> (i.e. the one she forgot to put them in) 
+> (i.e. the one she forgot to put them in)
 >
 > ~~~
 > $ mv sucrose.dat maltose.dat ____/____
@@ -895,7 +873,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > > The third set of commands will give an error because the default behavior of `mkdir` won't create a subdirectory
 > > of a non-existant directory: the intermediate level folders must be created first.
 > >
-> > The fourth set of commands achieve this objective. Remember, the `-p` option, followed by a path of one or more 
+> > The fourth set of commands achieve this objective. Remember, the `-p` option, followed by a path of one or more
 > > directories, will cause `mkdir` to create any intermediate subdirectories as required.
 > >
 > > The final set of commands generates the 'raw' and 'processed' directories at the same level
