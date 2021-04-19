@@ -65,7 +65,7 @@ which is Nelle's **home directory**:
 > `C:\Users\nelle`.
 > (Note that it may look slightly different for different versions of Windows.)
 > In future examples, we've used Mac output as the default - Linux and Windows
-> output may differ slightly, but should be generally similar.
+> output may differ slightly but should be generally similar.
 {: .callout}
 >  
 > We will also assume that your `pwd` command returns your users home directory. 
@@ -123,7 +123,7 @@ her colleagues *imhotep* and *larry*.
 The user *imhotep*'s files are stored in `/Users/imhotep`,
 user *larry*'s in `/Users/larry`,
 and Nelle's in `/Users/nelle`.  Because Nelle is the user in our
-examples here, this is why we get `/Users/nelle` as our home directory.
+examples here, therfore we get `/Users/nelle` as our home directory.
 Typically, when you open a new command prompt you will be in
 your home directory to start.
 
@@ -146,7 +146,7 @@ system and how you have customized your filesystem.)
 
 `ls` prints the names of the files and directories in the current directory.
 We can make its output more comprehensible by using the `-F` **option**
-(also known as a **switch** or a **flag**) ,
+(also known as a **switch** or a **flag**),
 which tells `ls` to classify the output
 by adding a marker to file and directory names to indicate what they are:
 - a trailing `/` indicates that this is a directory
@@ -194,7 +194,7 @@ $ ls -F /
 `ls` is the **command**, with an **option** `-F` and an
 **argument** `/`.
 We've already encountered options (also called **switches** or **flags**) which
-either start with a single dash (`-`) or two dashes (`--`), and they change the behaviour of a command.
+either start with a single dash (`-`) or two dashes (`--`), and they change the behavior of a command.
 Arguments tell the command what to operate on (e.g. files and directories).
 Sometimes options and arguments are referred to as **parameters**.
 A command can be called with more than one option and more than one argument: but a
