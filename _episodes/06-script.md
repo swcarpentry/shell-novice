@@ -52,7 +52,7 @@ we are putting the commands in a file.
 
 Then we save the file (`Ctrl-O` in nano),
  and exit the text editor (`Ctrl-X` in nano).
-Check that the directory `molecules` now contain a file called `middle.sh`.
+Check that the directory `molecules` now contains a file called `middle.sh`.
 
 Once we have saved the file,
 we can ask the shell to execute the commands it contains.
@@ -221,7 +221,7 @@ The computer ignores comments,
 but they're invaluable for helping people (including your future self) understand and use scripts.
 The only caveat is that each time you modify the script,
 you should check that the comment is still accurate:
-an explanation that sends the reader in the wrong direction is worse than none.
+an explanation that sends the reader in the wrong direction is worse than none at all.
 
 What if we want to process many files in a single pipeline?
 For example, if we want to sort our `.pdb` files by length, we would type:
@@ -301,7 +301,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > We can use the command `cut -d , -f 2 animals.txt | sort | uniq` to produce the unique species in `animals.txt`. In order to avoid having to type out this series of commands every time, a scientist may choose to write a shell script instead.
 >
 > Write a shell script called `species.sh` that takes any number of
-> filenames as command-line arguments and uses a variation of the above command to print a list of the unique species appearing in each of those files separately.
+> filenames as command-line arguments, and uses a variation of the above command to print a list of the unique species appearing in each of those files separately.
 >
 > > ## Solution
 > >

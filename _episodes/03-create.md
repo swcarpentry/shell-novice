@@ -246,7 +246,7 @@ draft.txt
 > >
 > > 2.  When you inspect the file with `ls -l`, note that the size of
 > >     `my_file.txt` is 0 bytes.  In other words, it contains no data.
-> >     If you open `my_file.txt` using your text editor, it is blank.
+> >     If you open `my_file.txt` using your text editor it is blank.
 > >
 > > 3.  Some programs do not generate output files themselves, but
 > >     instead require that empty files have already been generated.
@@ -541,7 +541,7 @@ ls: cannot access 'quotes.txt': No such file or directory
 > when we delete files, they are unlinked from the file system so that
 > their storage space on disk can be recycled. Tools for finding and
 > recovering deleted files do exist, but there's no guarantee they'll
-> work in any situation, since the computer may recycle the
+> work in any particular situation, since the computer may recycle the
 > file's disk space right away.
 {: .callout}
 

@@ -38,7 +38,7 @@ To start exploring them, we'll go to our open shell window.
 
 First let's find out where we are by running a command called `pwd`
 (which stands for 'print working directory'). Directories are like *places* - at any time
-while we are using the shell, we are in exactly one place, called
+while we are using the shell we are in exactly one place, called
 our **current working directory**. Commands mostly read and write files in the
 current working directory, i.e. 'here', so knowing where you are before running
 a command is important. `pwd` shows you where you are:
@@ -249,7 +249,7 @@ to use a command and what options it accepts:
     {: .language-bash}
 
 **Depending on your environment you might find that only one of these works
-(either `man` or `--help`, e.g. `man` works for macOS and `--help` typically works for Git Bash).**
+(either `man` or `--help`, e.g., `man` works for macOS and `--help` typically works for Git Bash).**
 
 We'll describe both ways below.
 
