@@ -64,16 +64,32 @@ div.error::before  { background-color: #ffebe6; content: "Error"; }
 div.warning:before { background-color: #f8f4e8; content:" Warning"; }
 div.output::before { background-color: #efefef; content: "Output"; }
 
-div.language-bash::before   { content: "Bash"; }
-div.language-c::before      { content: "C"; }
-div.language-cmake::before  { content: "CMake"; }
-div.language-cpp::before    { content: "C++"; }
-div.language-html::before   { content: "HTML"; }
-div.language-make::before   { content: "Make"; }
-div.language-matlab::before { content: "MATLAB"; }
-div.language-python::before { content: "Python"; }
-div.language-r::before      { content: "R"; }
-div.language-sql::before    { content: "SQL"; }
+div.language-basic::before    { content: "Basic"; }
+div.language-bash::before     { content: "Bash"; }
+div.language-c::before        { content: "C"; }
+div.language-chapel::before   { content: "Chapel"; }
+div.language-cmake::before    { content: "CMake"; }
+div.language-cpp::before      { content: "C++"; }
+div.language-cuda::before     { content: "Cuda"; }
+div.language-d::before        { content: "D"; }
+div.language-fortran::before  { content: "Fortran"; }
+div.language-go::before       { content: "Go"; }
+div.language-html::before     { content: "HTML"; }
+div.language-java::before     { content: "Java"; }
+div.language-julia::before    { content: "Julia"; }
+div.language-kotlin::before   { content: "Kotlin"; }
+div.language-lua::before      { content: "Lua"; }
+div.language-make::before     { content: "Make"; }
+div.language-matlab::before   { content: "MATLAB"; }
+div.language-opencl::before   { content: "OpenCL"; }
+div.language-perl::before     { content: "Perl"; }
+div.language-python::before   { content: "Python"; }
+div.language-r::before        { content: "R"; }
+div.language-ruby::before     { content: "Ruby"; }
+div.language-rust::before     { content: "Rust"; }
+div.language-scala::before    { content: "Scala"; }
+div.language-sql::before      { content: "SQL"; }
+div.language-vulkan::before   { content: "Vulkan"; }
 
 // Tab panels are used on Setup pages to show instructions for different Operating Systems
 .tab-pane {
