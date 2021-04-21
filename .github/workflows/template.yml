@@ -8,14 +8,17 @@ jobs:
     name: ${{ matrix.lesson-name }} (${{ matrix.os-name }})
     if: github.repository == 'carpentries/styles'
     runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental }}
     strategy:
       fail-fast: false
       matrix:
         lesson: [swcarpentry/shell-novice, datacarpentry/r-intro-geospatial, librarycarpentry/lc-git]
         os: [ubuntu-20.04, macos-latest, windows-latest]
+        experimental: [false]
+        remote-theme: [false]
         include:
           - os: ubuntu-20.04
-            os-name: Ubuntu
+            os-name: Linux
           - os: macos-latest
             os-name: macOS
           - os: windows-latest
@@ -26,6 +29,17 @@ jobs:
             lesson-name: (DC) R Intro Geospatial
           - lesson: librarycarpentry/lc-git
             lesson-name: (LC) Intro to Git
+          - lesson: datacarpentry/astronomy-python
+            lesson-name: (DC) Foundations of Astronomical Data Science
+            experimental: true
+            os: ubuntu-20.04
+            os-name: Linux
+            remote-theme: true
+          - lesson: carpentries/lesson-example
+            lesson-name: (CP) Lesson Example
+            experimental: false
+            os: ubuntu-20.04
+            os-name: Linux
     defaults:
       run:
         shell: bash # forces 'Git for Windows' on Windows
@@ -72,6 +86,7 @@ jobs:
           fi
 
       - name: Sync lesson with carpentries/styles
+        if: ${{ ! matrix.remote-theme }}
         working-directory: lesson
         run: |
           git config --global user.email "team@carpentries.org"
