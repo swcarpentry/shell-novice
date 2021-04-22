@@ -500,7 +500,7 @@ class CheckEpisode(CheckBase):
         """Run extra tests."""
 
         super().check()
-        if not using_remote_theme():
+        if not using_remote_theme(args.source_dir):
             self.check_reference_inclusion()
 
     def check_metadata(self):
