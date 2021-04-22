@@ -150,5 +150,7 @@ jobs:
           done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "20.04"), sep = "\n")')
 
       - run: make site
+        working-directory: lesson
+
       - run: make lesson-check-all
         working-directory: lesson
