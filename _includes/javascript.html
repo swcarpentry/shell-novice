@@ -12,3 +12,19 @@
   ga('create', 'UA-37305346-2', 'auto');
   ga('send', 'pageview');
 </script>
+{% if page.math %}
+<script src="{{ relative_root_path }}/assets/js/katex.min.js"></script>
+<script>
+options={
+  delimiters: [
+    {left: "$$", right: "$$", display: true},
+    {left: "$", right: "$", display: false},
+    {left: "\\(", right: "\\)", display: false},
+    {left: "\\[", right: "\\]", display: true}
+  ],
+  output: "mathml"
+}
+</script>
+<script src="{{ relative_root_path }}/assets/js/katex-auto-render.min.js" onload="renderMathInElement(document.body, options)"></script>
+{% endif %}
+
