@@ -11,14 +11,6 @@ except ImportError:
     sys.exit(1)
 
 
-# Things an image file's name can end with.
-IMAGE_FILE_SUFFIX = {
-    '.gif',
-    '.jpg',
-    '.png',
-    '.svg'
-}
-
 # Files that shouldn't be present.
 UNWANTED_FILES = [
     '.nojekyll'
