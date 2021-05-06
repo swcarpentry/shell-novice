@@ -56,6 +56,9 @@ P_INTERNAL_LINK_DEF = re.compile(r'^\[([^\]]+)\]:\s*(.+)')
 # Pattern to match {% include ... %} statements
 P_INTERNAL_INCLUDE_LINK = re.compile(r'^{% include ([^ ]*) %}$')
 
+# Pattern to match image-only and link-only lines
+P_LINK_IMAGE_LINE = re.compile("^[> ]*(!?)\[([^]]+)\][([]([^)]+)[])][ ]*$")
+
 # What kinds of blockquotes are allowed?
 KNOWN_BLOCKQUOTES = {
     'callout',
@@ -376,12 +379,19 @@ class CheckBase:
         """Check the raw text of the lesson body."""
 
         if self.args.line_lengths:
-            over = [i for (i, l, n) in self.lines if (
-                n > MAX_LINE_LEN) and (not l.startswith('!'))]
-            self.reporter.check(not over,
+            over_limit = []
+
+            for (i, l, n) in self.lines:
+                # Report lines that are longer than the suggested
+                # line length limit only if they're not
+                # link-only or image-only lines.
+                if n > MAX_LINE_LEN and not P_LINK_IMAGE_LINE.match(l):
+                    over_limit.append(i)
+
+            self.reporter.check(not over_limit,
                                 self.filename,
                                 'Line(s) too long: {0}',
-                                ', '.join([str(i) for i in over]))
+                                ', '.join([str(i) for i in over_limit]))
 
     def check_trailing_whitespace(self):
         """Check for whitespace at the ends of lines."""
