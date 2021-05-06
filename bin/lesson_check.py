@@ -228,7 +228,7 @@ def read_references(reporter, ref_path):
         for (num, line) in enumerate(reader, 1):
 
             # Skip empty lines
-            if length(line.strip()) == 0:
+            if len(line.strip()) == 0:
                 continue
 
             # Skip HTML comments
