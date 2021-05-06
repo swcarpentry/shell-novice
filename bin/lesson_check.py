@@ -227,7 +227,17 @@ def read_references(reporter, ref_path):
     with open(ref_path, 'r', encoding='utf-8') as reader:
         for (num, line) in enumerate(reader, 1):
 
-            if P_INTERNAL_INCLUDE_LINK.search(line): continue
+            # Skip empty lines
+            if length(line.strip()) == 0:
+                continue
+
+            # Skip HTML comments
+            if line.strip().startswith("<!--") and line.strip().endswith("-->"):
+                   continue
+
+            # Skip Liquid's {% include ... %} lines
+            if P_INTERNAL_INCLUDE_LINK.search(line):
+                continue
 
             m = P_INTERNAL_LINK_DEF.search(line)
 
