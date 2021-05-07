@@ -8,8 +8,8 @@ import glob
 import re
 from argparse import ArgumentParser
 
-from util import (Reporter, read_markdown, load_yaml, check_unwanted_files,
-                  require)
+from util import *
+from reporter import Reporter
 
 __version__ = '0.3'
 
