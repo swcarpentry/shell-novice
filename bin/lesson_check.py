@@ -57,7 +57,16 @@ P_INTERNAL_LINK_DEF = re.compile(r'^\[([^\]]+)\]:\s*(.+)')
 P_INTERNAL_INCLUDE_LINK = re.compile(r'^{% include ([^ ]*) %}$')
 
 # Pattern to match image-only and link-only lines
-P_LINK_IMAGE_LINE = re.compile("^[> ]*(!?)\[([^]]+)\][([]([^)]+)[])][ ]*$")
+P_LINK_IMAGE_LINE = re.compile(r'''
+    [> #]*        # any number of '>', '#', and spaces
+    !?            # ! or nothing
+    \[[^]]+\]     # [any text]
+    [([]          # ( or [
+    [^])]+        # 1+ characters that are neither ] nor )
+    [])]          # ] or )
+    (?:{:[^}]+})? # {:any text} or nothing
+    [ ]*          # any number of spaces
+    \\?$          # \ or nothing + end of line''', re.VERBOSE)
 
 # What kinds of blockquotes are allowed?
 KNOWN_BLOCKQUOTES = {
