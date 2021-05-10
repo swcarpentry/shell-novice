@@ -215,7 +215,7 @@ $ ls
 {: .language-bash}
 
 ~~~
-draft.txt
+chapter_1 draft.txt
 ~~~
 {: .output}
 
@@ -305,7 +305,7 @@ In this case,
 we're moving `thesis/draft.txt` to `thesis/quotes.txt`,
 which has the same effect as renaming the file.
 Sure enough,
-`ls` shows us that `thesis` now contains one file called `quotes.txt`:
+`ls` shows us that `thesis` now contains a file called `quotes.txt`:
 
 ~~~
 $ ls thesis
@@ -313,7 +313,7 @@ $ ls thesis
 {: .language-bash}
 
 ~~~
-quotes.txt
+chapter_1 my_file.txt quotes.txt
 ~~~
 {: .output}
 
@@ -339,7 +339,7 @@ $ mv thesis/quotes.txt .
 {: .language-bash}
 
 The effect is to move the file from the directory it was in to the current working directory.
-`ls` now shows us that `thesis` is empty:
+`ls` now shows us that the `quotes.txt` file is no longer in the `thesis` directory:
 
 ~~~
 $ ls thesis
@@ -348,7 +348,7 @@ $ ls thesis
 
 Further,
 `ls` with a filename or directory name as an argument only lists that file or directory.
-We can use this to see that `quotes.txt` is still in our current directory:
+We can use this to see that `quotes.txt` is now in our current directory:
 
 ~~~
 $ ls quotes.txt
@@ -429,10 +429,10 @@ $ ls thesis thesis_backup
 
 ```
 thesis:
-quotations.txt
+chapter_1 my_file.txt quotations.txt
 
 thesis_backup:
-quotations.txt
+chapter_1 my_file.txt quotations.txt
 ```
 {: .output}
 
