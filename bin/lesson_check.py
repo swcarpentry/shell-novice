@@ -59,12 +59,14 @@ P_INTERNAL_INCLUDE_LINK = re.compile(r'^{% include ([^ ]*) %}$')
 # Pattern to match image-only and link-only lines
 P_LINK_IMAGE_LINE = re.compile(r'''
     [> #]*        # any number of '>', '#', and spaces
+    \W{,3}        # up to 3 non-word characters
     !?            # ! or nothing
     \[[^]]+\]     # [any text]
     [([]          # ( or [
     [^])]+        # 1+ characters that are neither ] nor )
     [])]          # ] or )
     (?:{:[^}]+})? # {:any text} or nothing
+    \W{,3}        # up to 3 non-word characters
     [ ]*          # any number of spaces
     \\?$          # \ or nothing + end of line''', re.VERBOSE)
 
