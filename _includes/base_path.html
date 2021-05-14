@@ -7,7 +7,7 @@ When we start a local server using `jekyll serve`,
 'site.url' is set to 'http://localhost:4000' and
 'site.baseurl' is empty.
 
-In both of the above cases we set 'relative_root_path' to 'site.url + site.baseurl'.
+In both of the above cases we set 'relative_root_path' to 'site.baseurl'.
 
 When we build a website locally with `jekyll build`,
 both 'site.url' and 'site.baseurl' are empty.
@@ -25,7 +25,7 @@ The logic there follows the (adapted) instructions found at:
 {%- endcomment -%}
 
 {% if site.url %}
-  {% assign relative_root_path = site.url | append: site.baseurl %}
+  {% assign relative_root_path = site.baseurl %}
 {% else %}
   {% assign last_char = page.url | slice: -1 %}
   {% if last_char == "/" %}
