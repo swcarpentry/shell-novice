@@ -8,8 +8,10 @@ import glob
 import re
 from argparse import ArgumentParser
 
-from util import (Reporter, read_markdown, load_yaml, check_unwanted_files,
-                  require)
+# This uses the `__all__` list in `util.py` to determine what objects to import 
+# see https://docs.python.org/3/tutorial/modules.html#importing-from-a-package
+from util import *
+from reporter import Reporter
 
 __version__ = '0.3'
 
