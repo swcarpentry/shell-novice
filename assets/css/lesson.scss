@@ -258,6 +258,11 @@ article img {
     max-width: 100%;
 }
 
+article img.inline {
+    display: inline-block;
+    margin: auto;
+}
+
 article h2 {
   margin: 48px 0 16px;
   border-bottom: solid 1px #eaecef;
