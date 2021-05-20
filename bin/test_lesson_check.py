@@ -1,12 +1,12 @@
 import unittest
 
 import lesson_check
-import util
+import reporter
 
 
 class TestFileList(unittest.TestCase):
     def setUp(self):
-        self.reporter = util.Reporter()  # TODO: refactor reporter class.
+        self.reporter = reporter.Reporter()  # TODO: refactor reporter class.
 
     def test_file_list_has_expected_entries(self):
         # For first pass, simply assume that all required files are present
