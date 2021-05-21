@@ -52,9 +52,9 @@ jobs:
         with:
           r-version: 'release'
 
-      - name: Cache R packages
+      - name: Restore R Cache
         if: steps.check-rmd.outputs.count != 0
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
@@ -63,8 +63,8 @@ jobs:
       - name: Install needed packages
         if: steps.check-rmd.outputs.count != 0
         run: |
-          packages = setdiff(c('remotes', 'rprojroot', 'renv', 'desc', 'rmarkdown', 'knitr'), rownames(installed.packages()))
-          install.packages(packages, repo="https://cran.rstudio.com/")
+          source('bin/dependencies.R')
+          install_required_packages()
         shell: Rscript {0}
 
       - name: Query dependencies
@@ -73,6 +73,7 @@ jobs:
           source('bin/dependencies.R')
           deps <- identify_dependencies()
           create_description(deps)
+          use_bioc_repos()
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
@@ -83,7 +84,7 @@ jobs:
         run: |
           while read -r cmd
           do
-            eval sudo $cmd
+            eval sudo $cmd || echo "Nothing to update"
           done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "20.04"), sep = "\n")')
 
       - name: Render the markdown and confirm that the site can be built
