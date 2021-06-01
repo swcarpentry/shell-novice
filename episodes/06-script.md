@@ -26,6 +26,11 @@ a bunch of commands saved in a file is usually called a **shell script**,
 but make no mistake:
 these are actually small programs.
 
+Not only will writing shell scripts make your work faster– you won't have to retype the same commands over and over
+again– it will also make it more accurate (fewer chances for typos) and more reproducible. If you
+come back to your work later (or if someone else finds your work and wants to build on it) you will be able
+to reproduce the same results simply by running your script, rather than having to remember or retype a long list of commands. 
+
 Let's start by going back to `molecules/` and creating a new file, `middle.sh` which will
 become our shell script:
 
