@@ -200,6 +200,14 @@ Sometimes options and arguments are referred to as **parameters**.
 A command can be called with more than one option and more than one argument: but a
 command doesn't always require an argument or an option.
 
+> ## Working with arguments
+>
+> In everyday speech, an argument is an exchange of opposing views. However in
+> computer science, argument has a specific technical meaning. In this 
+> technical sense, an argument refers to a value that is provided to a
+> computer program, which changes the program's behavior. We will be working
+> with arguments throughout this course.
+
 Each part is separated by spaces: if you omit the space
 between `ls` and `-F` the shell will look for a command called `ls-F`, which
 doesn't exist. Also, capitalization can be important. For example, `ls -s` will display the size of files and directories alongside the names, while `ls -S` will sort the files and directories by size, as shown below:
