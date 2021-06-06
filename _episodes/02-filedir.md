@@ -202,11 +202,12 @@ command doesn't always require an argument or an option.
 
 > ## Working with arguments
 >
-> In everyday speech, an argument is an exchange of opposing views. However in
-> computer science, argument has a specific technical meaning. In this 
-> technical sense, an argument refers to a value that is provided to a
-> computer program, which changes the program's behavior. We will be working
-> with arguments throughout this course.
+> In everyday speech, an argument is an exchange of opposing viewpoints.
+> However in computer science, argument has a specific technical meaning.
+> In this technical sense, an argument refers to a value that is provided to a
+> computer program that changes the program's behavior. We will be working
+> with arguments throughout this lesson.
+{: .callout}
 
 Each part is separated by spaces: if you omit the space
 between `ls` and `-F` the shell will look for a command called `ls-F`, which
