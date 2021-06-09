@@ -111,7 +111,7 @@ Since the list was only three items, the shell exits the `for` loop.
 
 > ## Same Symbols, Different Meanings
 >
-> Here we see `>` being used a shell prompt, whereas `>` is also
+> Here we see `>` being used as a shell prompt, whereas `>` is also
 > used to redirect output.
 > Similarly, `$` is used as a shell prompt, but, as we saw earlier,
 > it is also used to ask the shell to get the value of a variable.
