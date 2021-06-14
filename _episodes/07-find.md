@@ -33,7 +33,7 @@ we're going to be working in the writing subdirectory:
 
 ~~~
 $ cd
-$ cd Desktop/data-shell/writing
+$ cd Desktop/shell-lesson-data/writing
 $ cat haiku.txt
 ~~~
 {: .language-bash}
@@ -205,7 +205,7 @@ $ grep -n -w -v "the" haiku.txt
 If we use the `-r` (recursive) option,
 `grep` can search for a pattern recursively through a set of files in subdirectories.
 
-Let's search recursively for `Yesterday` in the `data-shell/writing` directory:
+Let's search recursively for `Yesterday` in the `shell-lesson-data/writing` directory:
 
 ```
 $ grep -r Yesterday .
@@ -341,7 +341,7 @@ Miscellaneous:
 > Hint: use `man grep` to look for how to grep text recursively in a directory
 > and `man cut` to select more than one field in a line.
 >
-> An example of such a file is provided in `data-shell/data/animal-counts/animals.txt`
+> An example of such a file is provided in `shell-lesson-data/data/animal-counts/animals.txt`
 >
 > > ## Solution
 > >
@@ -366,7 +366,7 @@ Miscellaneous:
 > book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the
 > most mentioned.  You, however, are certain it was Amy.  Luckily, you
 > have a file `LittleWomen.txt` containing the full text of the novel
-> (`data-shell/writing/data/LittleWomen.txt`).
+> (`shell-lesson-data/writing/data/LittleWomen.txt`).
 > Using a `for` loop, how would you tabulate the number of times each
 > of the four sisters is mentioned?
 >
@@ -428,7 +428,7 @@ and a `tools` directory that contains the programs `format` and `stats`,
 and a subdirectory called `old`, with a file `oldtool`.
 
 For our first command,
-let's run `find .` (remember to run this command from the `data-shell/writing` folder).
+let's run `find .` (remember to run this command from the `shell-lesson-data/writing` folder).
 
 ~~~
 $ find .
@@ -616,7 +616,7 @@ $ grep "FE" $(find .. -name "*.pdb")
 > the following commands will find all files in `/data` whose names
 > end in `s.txt` but whose names also do *not* contain the string `net`?
 > (For example, `animals.txt` or `amino-acids.txt` but not `planets.txt`.)
-> Once you have thought about your answer, you can test the commands in the `data-shell`
+> Once you have thought about your answer, you can test the commands in the `shell-lesson-data`
 > directory.
 >
 > 1.  `find data -name "*s.txt" | grep -v net`
