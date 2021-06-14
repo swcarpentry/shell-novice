@@ -333,7 +333,7 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 Not only can we use `ls` on the current working directory, but we can use it to list the contents of a different directory.  Let's take a
 look at our `Desktop` directory by running `ls -F Desktop`,
 i.e.,
-the command `ls` with the `-F` **option** and the **argument**  `Desktop`.
+the command `ls` with the `-F` **option** and the [**argument**][Arguments]  `Desktop`.
 The argument `Desktop` tells `ls` that
 we want a listing of something other than our current working directory:
 
