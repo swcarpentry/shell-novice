@@ -11,11 +11,11 @@ objectives:
 - "Explain what usually happens if a program or pipeline isn't given any input to process."
 - "Explain Unix's 'small pieces, loosely joined' philosophy."
 keypoints:
+- "`wc` counts lines, words, and characters in its inputs."
 - "`cat` displays the contents of its inputs."
+- "`sort` sorts its inputs."
 - "`head` displays the first 10 lines of its input."
 - "`tail` displays the last 10 lines of its input."
-- "`sort` sorts its inputs."
-- "`wc` counts lines, words, and characters in its inputs."
 - "`command > [file]` redirects a command's output to a file (overwriting any existing content)."
 - "`command >> [file]` appends a command's output to a file."
 - "`[first] | [second]` is a pipeline: the output of the first command is used as the input to the second."
@@ -248,6 +248,8 @@ $ sort -n lengths.txt
 ~~~
 {: .output}
 
+
+## Capturing output from commands
 We can put the sorted list of lines in another temporary file called `sorted-lengths.txt`
 by putting `> sorted-lengths.txt` after the command,
 just as we used `> lengths.txt` to put the output of `wc` into `lengths.txt`.
@@ -357,6 +359,8 @@ the output of `head` must be the file with the fewest lines.
 > {: .solution}
 {: .challenge}
 
+
+## Passing output to another command
 If you think this is confusing,
 you're in good company:
 even once you understand what `wc`, `sort`, and `head` do,
@@ -378,6 +382,8 @@ It tells the shell that we want to use
 the output of the command on the left
 as the input to the command on the right.
 
+
+## Combining multiple commands
 Nothing prevents us from chaining pipes consecutively.
 That is, we can for example send the output of `wc` directly to `sort`,
 and then the resulting output to `head`.
@@ -446,6 +452,7 @@ the "sort" command is the input to the "head" command and the output of the
 {: .challenge}
 
 
+## Filtering output
 This idea of linking programs together is why Unix has been so successful.
 Instead of creating enormous programs that try to do many different things,
 Unix programmers focus on creating lots of simple tools that each do one job well,
