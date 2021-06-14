@@ -509,7 +509,7 @@ original-unicorn.dat"](../fig/shell_script_for_loop_flow_chart.svg)
 
 ## Nelle's Pipeline: Processing Files
 
-Nelle is now ready to process her data files using `goostats` --- a shell script written by her supervisor.
+Nelle is now ready to process her data files using `goostats.sh` --- a shell script written by her supervisor.
 This calculates some statistics from a protein sample file, and takes two arguments:
 
 1. an input file (containing the raw data)
@@ -540,7 +540,7 @@ NENE02043B.txt
 {: .output}
 
 Her next step is to decide
-what to call the files that the `goostats` analysis program will create.
+what to call the files that the `goostats.sh` analysis program will create.
 Prefixing each input file's name with 'stats' seems simple,
 so she modifies her loop to do that:
 
@@ -562,7 +562,7 @@ NENE02043B.txt stats-NENE02043B.txt
 ~~~
 {: .output}
 
-She hasn't actually run `goostats` yet,
+She hasn't actually run `goostats.sh` yet,
 but now she's sure she can select the right files and generate the right output filenames.
 
 Typing in commands over and over again is becoming tedious,
@@ -580,10 +580,10 @@ $ for datafile in NENE*[AB].txt; do echo $datafile stats-$datafile; done
 {: .language-bash}
 
 Using the left arrow key,
-Nelle backs up and changes the command `echo` to `bash goostats`:
+Nelle backs up and changes the command `echo` to `bash goostats.sh`:
 
 ~~~
-$ for datafile in NENE*[AB].txt; do bash goostats $datafile stats-$datafile; done
+$ for datafile in NENE*[AB].txt; do bash goostats.sh $datafile stats-$datafile; done
 ~~~
 {: .language-bash}
 
@@ -597,7 +597,7 @@ uses <kbd>↑</kbd> to repeat the command,
 and edits it to read:
 
 ~~~
-$ for datafile in NENE*[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
+$ for datafile in NENE*[AB].txt; do echo $datafile; bash goostats.sh $datafile stats-$datafile; done
 ~~~
 {: .language-bash}
 
@@ -643,13 +643,13 @@ so she decides to get some coffee and catch up on her reading.
 > ~~~
 >   456  ls -l NENE0*.txt
 >   457  rm stats-NENE01729B.txt.txt
->   458  bash goostats NENE01729B.txt stats-NENE01729B.txt
+>   458  bash goostats.sh NENE01729B.txt stats-NENE01729B.txt
 >   459  ls -l NENE0*.txt
 >   460  history
 > ~~~
 > {: .output}
 >
-> then she can re-run `goostats` on `NENE01729B.txt` simply by typing
+> then she can re-run `goostats.sh` on `NENE01729B.txt` simply by typing
 > `!458`.
 {: .callout}
 
@@ -666,7 +666,7 @@ so she decides to get some coffee and catch up on her reading.
 > (you may or may not find this more convenient than using <kbd>↑</kbd>)
 > - `!$` retrieves the last word of the last command.
 > That's useful more often than you might expect: after
-> `bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
+> `bash goostats.sh NENE01729B.txt stats-NENE01729B.txt`, you can type
 > `less !$` to look at the file `stats-NENE01729B.txt`, which is
 > quicker than doing <kbd>↑</kbd> and editing the command-line.
 {: .callout}
