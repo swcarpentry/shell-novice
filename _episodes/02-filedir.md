@@ -195,7 +195,7 @@ $ ls -F /
 **argument** `/`.
 We've already encountered options (also called **switches** or **flags**) which
 either start with a single dash (`-`) or two dashes (`--`), and they change the behavior of a command.
-Arguments tell the command what to operate on (e.g. files and directories).
+[Arguments] tell the command what to operate on (e.g. files and directories).
 Sometimes options and arguments are referred to as **parameters**.
 A command can be called with more than one option and more than one argument: but a
 command doesn't always require an argument or an option.
@@ -822,3 +822,5 @@ pressing <kbd>Tab</kbd> twice brings up a list of all the files,
 and so on.
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
+
+[Arguments]: https://swcarpentry.github.io/shell-novice/reference.html#argument
