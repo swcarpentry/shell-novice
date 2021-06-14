@@ -20,6 +20,7 @@ keypoints:
 - "`ls [path]` prints a listing of a specific file or directory; `ls` on its own lists the current working directory."
 - "`pwd` prints the user's current working directory."
 - "`/` on its own is the root directory of the whole file system."
+- "Most commands take options (flags) which begin with a `-`."
 - "A relative path specifies a location starting from the current location."
 - "An absolute path specifies a location from the root of the file system."
 - "Directory names in a path are separated with `/` on Unix, but `\\` on Windows."
