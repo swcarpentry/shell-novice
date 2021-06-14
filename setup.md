@@ -7,10 +7,10 @@ root: .
 ## Download files
 You need to download some files to follow this lesson.
 
-1. Download [data-shell.zip][zip-file] and move the file to your Desktop.
+1. Download [shell-lesson-data.zip][zip-file] and move the file to your Desktop.
 2. Unzip/extract the file.
    **Let your instructor know if you need help with this step**.
-   You should end up with a new folder called **`data-shell`** on your Desktop.
+   You should end up with a new folder called **`shell-lesson-data`** on your Desktop.
 
 ## Install software
 If you do not already have the shell software installed, you will need to
@@ -98,7 +98,7 @@ you can run it by opening a terminal and typing `bash`.
 </div>
 </div>
 
-[zip-file]: {{ page.root }}/data/data-shell.zip
+[zip-file]: {{ page.root }}/data/shell-lesson-data.zip
 [wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 [mac-terminal]: http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/
 [gnome-terminal]: https://help.gnome.org/users/gnome-terminal/stable/
