@@ -26,7 +26,7 @@ We now know how to explore files and directories,
 but how do we create them in the first place?
 
 ### Step one: see where we are and what we already have
-Let's go back to our `data-shell` directory on the Desktop
+Let's go back to our `shell-lesson-data` directory on the Desktop
 and use `ls -F` to see what it contains:
 
 ~~~
@@ -35,7 +35,7 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell
+/Users/nelle/Desktop/shell-lesson-data
 ~~~
 {: .output}
 
@@ -285,10 +285,10 @@ draft.txt
 {: .callout}
 
 ## Moving files and directories
-Returning to the `data-shell` directory,
+Returning to the `shell-lesson-data` directory,
 
 ```
-cd ~/Desktop/data-shell/
+cd ~/Desktop/shell-lesson-data/
 ```
 {: .language-bash}
 
@@ -534,7 +534,7 @@ quotations.txt
 
 ## Removing files and directories
 
-Returning to the `data-shell` directory,
+Returning to the `shell-lesson-data` directory,
 let's tidy up this directory by removing the `quotes.txt` file we created.
 The Unix command we'll use for this is `rm` (short for 'remove'):
 
@@ -616,7 +616,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 
 > ## Copy with Multiple Filenames
 >
-> For this exercise, you can test the commands in the `data-shell/data` directory.
+> For this exercise, you can test the commands in the `shell-lesson-data/data` directory.
 >
 > In the example below, what does `cp` do when given several filenames and a directory name?
 >
@@ -660,7 +660,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > ## Wildcards
 >
 > `*` is a **wildcard**, which matches zero or more  characters.
-> Let's consider the `data-shell/molecules` directory:
+> Let's consider the `shell-lesson-data/molecules` directory:
 > `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
 > file that ends with '.pdb'. On the other hand, `p*.pdb` only matches
 > `pentane.pdb` and `propane.pdb`, because the 'p' at the front only
