@@ -45,7 +45,7 @@ Let's go into that directory with `cd` and run an example  command `wc cubane.pd
 
 ~~~
 $ cd molecules
-$ wc cubane.pdb 
+$ wc cubane.pdb
 ~~~
 {: .language-bash}
 
@@ -97,7 +97,7 @@ $ wc -l *.pdb
 ~~~
 {: .output}
 
-The `-m` and `-w` options can also be used with the `wc` command, to show 
+The `-m` and `-w` options can also be used with the `wc` command, to show
 only the number of characters or the number of words in the files.
 
 > ## Why Isn't It Doing Anything?
@@ -120,6 +120,9 @@ only the number of characters or the number of words in the files.
 > the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and letting go of the <kbd>Ctrl</kbd> key.
 > <kbd>Ctrl</kbd>+<kbd>C</kbd>
 {: .callout}
+
+
+## Capturing output from commands
 
 Which of these files contains the fewest lines?
 It's an easy question to answer when there are only six files,
@@ -183,7 +186,11 @@ $ cat lengths.txt
 > or back one by pressing `b`.  Press `q` to quit.
 {: .callout}
 
-Now let's use the `sort` command to sort its contents.
+
+## Filtering output
+
+Next we'll use the `sort` command to sort the contents of the `lengths.txt` file.
+But first we'll use an exercise to learn a little about the sort command:
 
 > ## What Does `sort -n` Do?
 >
@@ -249,7 +256,6 @@ $ sort -n lengths.txt
 {: .output}
 
 
-## Capturing output from commands
 We can put the sorted list of lines in another temporary file called `sorted-lengths.txt`
 by putting `> sorted-lengths.txt` after the command,
 just as we used `> lengths.txt` to put the output of `wc` into `lengths.txt`.
@@ -361,10 +367,11 @@ the output of `head` must be the file with the fewest lines.
 
 
 ## Passing output to another command
-If you think this is confusing,
-you're in good company:
+In our example of finding the file with the fewest lines,
+we are using two intermediate files `lengths.txt` and `sorted-lengths.txt` to store output.
+This is a confusing way to work because
 even once you understand what `wc`, `sort`, and `head` do,
-all those intermediate files make it hard to follow what's going on.
+those intermediate files make it hard to follow what's going on.
 We can make it easier to understand by running `sort` and `head` together:
 
 ~~~
@@ -382,12 +389,15 @@ It tells the shell that we want to use
 the output of the command on the left
 as the input to the command on the right.
 
+This has removed the need for the `sorted-lengths.txt` file.
 
 ## Combining multiple commands
 Nothing prevents us from chaining pipes consecutively.
-That is, we can for example send the output of `wc` directly to `sort`,
+We can for example send the output of `wc` directly to `sort`,
 and then the resulting output to `head`.
-Thus we first use a pipe to send the output of `wc` to `sort`:
+This removes the need for any intermediate files.
+
+We'll start by using a pipe to send the output of `wc` to `sort`:
 
 ~~~
 $ wc -l *.pdb | sort -n
@@ -405,7 +415,7 @@ $ wc -l *.pdb | sort -n
 ~~~
 {: .output}
 
-And now we send the output of this pipe, through another pipe, to `head`, so that the full pipeline becomes:
+We can then send that output through another pipe, to `head`, so that the full pipeline becomes:
 
 ~~~
 $ wc -l *.pdb | sort -n | head -n 1
@@ -425,7 +435,7 @@ the calculation is 'head of sort of line count of `*.pdb`'.
 
 The redirection and pipes used in the last few commands are illustrated below:
 
-![Redirects and Pipes of different commands: "wc -l *.pdb" will direct the 
+![Redirects and Pipes of different commands: "wc -l *.pdb" will direct the
 output to the shell. "wc -l *.pdb > lengths" will direct output to the file
 "lengths". "wc -l *.pdb | sort -n | head -n 1" will build a pipeline where the
 output of the "wc" command is the input to the "sort" command, the output of
@@ -452,7 +462,7 @@ the "sort" command is the input to the "head" command and the output of the
 {: .challenge}
 
 
-## Filtering output
+## Tools designed to work together
 This idea of linking programs together is why Unix has been so successful.
 Instead of creating enormous programs that try to do many different things,
 Unix programmers focus on creating lots of simple tools that each do one job well,
