@@ -349,7 +349,13 @@ $ ls thesis
 ~~~
 {: .language-bash}
 
-Alternatively, we can confirm the file `quotes.txt` is no longer present in the `thesis` directory:
+~~~
+$
+~~~
+{: .output}
+
+Alternatively, we can confirm the file `quotes.txt` is no longer present in the `thesis` directory
+by explicitly trying to list it:
 
 ~~~
 $ ls thesis/quotes.txt
@@ -361,8 +367,9 @@ ls: cannot access 'thesis/quotes.txt': No such file or directory
 ```
 {: .output}
 
-`ls` with a filename as an argument lists that file itself as the output if the file exists in the directory specified in the argument. Otherwise, an error similar as above is printed. 
-We can use this to see that `quotes.txt` has indeed moved to and present in our current directory:
+`ls` with a filename or directory as an argument only lists the requested file or directory.
+If the file given as the argument doesn't exist, the shell returns an error as we saw above.
+We can use this to see that `quotes.txt` is now present in our current directory:
 
 ~~~
 $ ls quotes.txt
