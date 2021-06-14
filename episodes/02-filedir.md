@@ -68,11 +68,11 @@ which is Nelle's **home directory**:
 > In future examples, we've used Mac output as the default - Linux and Windows
 > output may differ slightly but should be generally similar.
 {: .callout}
->  
-> We will also assume that your `pwd` command returns your users home directory. 
-> If `pwd` returns something different you may need to navigate there using `cd` 
-> or some commands in this lesson will not work as written. 
-> See [Exploring Other Directories](#exploring-other-directories) for more details 
+>
+> We will also assume that your `pwd` command returns your users home directory.
+> If `pwd` returns something different you may need to navigate there using `cd`
+> or some commands in this lesson will not work as written.
+> See [Exploring Other Directories](#exploring-other-directories) for more details
 > on the `cd` command.
 
 To understand what a 'home directory' is,
@@ -117,8 +117,8 @@ Underneath `/Users`,
 we find one directory for each user with an account on Nelle's machine,
 her colleagues *imhotep* and *larry*.
 
-![Like other directories, home directories are sub-directories underneath 
-"/Users" like "/Users/imhotep", "/Users/larry" or 
+![Like other directories, home directories are sub-directories underneath
+"/Users" like "/Users/imhotep", "/Users/larry" or
 "/Users/nelle"](../fig/home-directories.svg)
 
 The user *imhotep*'s files are stored in `/Users/imhotep`,
@@ -181,56 +181,6 @@ we can see that our home directory contains only **sub-directories**.
 Any names in your output that don't have a classification symbol,
 are plain old **files**.
 
-
-## General syntax of a shell command
-Consider the command below as a general example of a command,
-which we will dissect into its component parts:
-
-~~~
-$ ls -F /
-~~~
-{: .language-bash}
-
-
-`ls` is the **command**, with an **option** `-F` and an
-**argument** `/`.
-We've already encountered options (also called **switches** or **flags**) which
-either start with a single dash (`-`) or two dashes (`--`), and they change the behavior of a command.
-[Arguments] tell the command what to operate on (e.g. files and directories).
-Sometimes options and arguments are referred to as **parameters**.
-A command can be called with more than one option and more than one argument: but a
-command doesn't always require an argument or an option.
-
-Each part is separated by spaces: if you omit the space
-between `ls` and `-F` the shell will look for a command called `ls-F`, which
-doesn't exist. Also, capitalization can be important. For example, `ls -s` will display the size of files and directories alongside the names, while `ls -S` will sort the files and directories by size, as shown below:
-
-~~~
-$ ls -s Desktop/data-shell/data
-total 116
- 4 amino-acids.txt   4 animals.txt   4 morse.txt  12 planets.txt  76 sunspot.txt
- 4 animal-counts     4 elements      4 pdb         4 salmon.txt
-$ ls -S Desktop/data-shell/data
-sunspot.txt  animal-counts  pdb        amino-acids.txt  salmon.txt
-planets.txt  elements       morse.txt  animals.txt
-~~~
-{: .output}
-
-Putting all that together, our command above gives us a listing
-of files and directories in the root directory `/`.
-An example of the output you might get from the above command is given below:
-
-~~~
-$ ls -F /
-~~~
-{: .language-bash}
-
-~~~
-Applications/         System/
-Library/              Users/
-Network/              Volumes/
-~~~
-{: .output}
 
 ### Getting help
 
@@ -398,7 +348,7 @@ data-shell/
 {: .output}
 
 Note that if a directory named `Desktop` does not exist in your current working directory
-this command will return an error. Typically a `Desktop` directory exists in your 
+this command will return an error. Typically a `Desktop` directory exists in your
 home directory, which we assume is the current working directory of your bash shell.
 
 Your output should be a list of all the files and sub-directories in your
@@ -441,7 +391,7 @@ directory name to change our working directory.
 `cd` stands for 'change directory',
 which is a bit misleading:
 the command doesn't change the directory,
-it changes the shell's idea of what directory we are in. 
+it changes the shell's idea of what directory we are in.
 The `cd` command is akin to double clicking a folder in a graphical interface to get into a folder.
 
 Let's say we want to move to the `data` directory we saw above.  We can
@@ -736,8 +686,8 @@ directories "backup" and "thing"; "/Users/backup" contains "original",
 >
 > ![A directory tree below the Users directory where "/Users" contians the
 directories "backup" and "thing"; "/Users/backup" contains "original",
-"pnas_final" and "pnas_sub"; "/Users/thing" contains "backup"; and 
-"/Users/thing/backup" contians "2012-12-01", "2013-01-08" and 
+"pnas_final" and "pnas_sub"; "/Users/thing" contains "backup"; and
+"/Users/thing/backup" contians "2012-12-01", "2013-01-08" and
 "2013-01-27"](../fig/filesystem-challenge.svg)
 >
 > 1.  `ls pwd`
@@ -751,6 +701,63 @@ directories "backup" and "thing"; "/Users/backup" contains "original",
 > >  3. Yes: uses the absolute path explicitly.
 > {: .solution}
 {: .challenge}
+
+
+## General syntax of a shell command
+We have now encountered commands, options and arguments,
+but it is perhaps useful to formalise some terminology.
+
+Consider the command below as a general example of a command,
+which we will dissect into its component parts:
+
+~~~
+$ ls -F /
+~~~
+{: .language-bash}
+
+
+`ls` is the **command**, with an **option** `-F` and an
+**argument** `/`.
+We've already encountered options (also called **switches** or **flags**) which
+either start with a single dash (`-`) or two dashes (`--`), and they change the behavior of a command.
+[Arguments] tell the command what to operate on (e.g. files and directories).
+Sometimes options and arguments are referred to as **parameters**.
+A command can be called with more than one option and more than one argument: but a
+command doesn't always require an argument or an option.
+
+Each part is separated by spaces: if you omit the space
+between `ls` and `-F` the shell will look for a command called `ls-F`, which
+doesn't exist. Also, capitalization can be important.
+For example, `ls -s` will display the size of files and directories alongside the names,
+while `ls -S` will sort the files and directories by size, as shown below:
+
+~~~
+$ ls -s Desktop/data-shell/data
+total 116
+ 4 amino-acids.txt   4 animals.txt   4 morse.txt  12 planets.txt  76 sunspot.txt
+ 4 animal-counts     4 elements      4 pdb         4 salmon.txt
+$ ls -S Desktop/data-shell/data
+sunspot.txt  animal-counts  pdb        amino-acids.txt  salmon.txt
+planets.txt  elements       morse.txt  animals.txt
+~~~
+{: .output}
+
+Putting all that together, our command above gives us a listing
+of files and directories in the root directory `/`.
+An example of the output you might get from the above command is given below:
+
+~~~
+$ ls -F /
+~~~
+{: .language-bash}
+
+~~~
+Applications/         System/
+Library/              Users/
+Network/              Volumes/
+~~~
+{: .output}
+
 
 ### Nelle's Pipeline: Organizing Files
 
