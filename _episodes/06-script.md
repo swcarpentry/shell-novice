@@ -301,7 +301,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > ~~~
 > {: .source}
 >
-> An example of this type of file is given in `data-shell/data/animal-counts/animals.txt`.
+> An example of this type of file is given in `shell-lesson-data/data/animal-counts/animals.txt`.
 >
 > We can use the command `cut -d , -f 2 animals.txt | sort | uniq` to produce the unique species in `animals.txt`. In order to avoid having to type out this series of commands every time, a scientist may choose to write a shell script instead.
 >
@@ -537,7 +537,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Script Reading Comprehension
 >
-> For this question, consider the `data-shell/molecules` directory once again.
+> For this question, consider the `shell-lesson-data/molecules` directory once again.
 > This contains a number of `.pdb` files in addition to any other files you
 > may have created.
 > Explain what each of the following three scripts would do when run as

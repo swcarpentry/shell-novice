@@ -159,7 +159,7 @@ increase the odds that the program won't do what its readers think it does.
 
 > ## Variables in Loops
 >
-> This exercise refers to the `data-shell/molecules` directory.
+> This exercise refers to the `shell-lesson-data/molecules` directory.
 > `ls` gives the following output:
 >
 > ~~~
@@ -232,7 +232,7 @@ increase the odds that the program won't do what its readers think it does.
 
 > ## Limiting Sets of Files
 >
-> What would be the output of running the following loop in the `data-shell/molecules` directory?
+> What would be the output of running the following loop in the `shell-lesson-data/molecules` directory?
 >
 > ~~~
 > $ for filename in c*
@@ -276,7 +276,7 @@ increase the odds that the program won't do what its readers think it does.
 
 > ## Saving to a File in a Loop - Part One
 >
-> In the `data-shell/molecules` directory, what is the effect of this loop?
+> In the `shell-lesson-data/molecules` directory, what is the effect of this loop?
 >
 > ~~~
 > for alkanes in *.pdb
@@ -304,7 +304,7 @@ increase the odds that the program won't do what its readers think it does.
 
 > ## Saving to a File in a Loop - Part Two
 >
-> Also in the `data-shell/molecules` directory, what would be the output of the following loop?
+> Also in the `shell-lesson-data/molecules` directory, what would be the output of the following loop?
 >
 > ~~~
 > for datafile in *.pdb
@@ -329,7 +329,7 @@ increase the odds that the program won't do what its readers think it does.
 > {: .solution}
 {: .challenge}
 
-Let's continue with our example in the `data-shell/creatures` directory.
+Let's continue with our example in the `shell-lesson-data/creatures` directory.
 Here's a slightly more complicated loop:
 
 ~~~
@@ -427,7 +427,7 @@ from whatever file is being processed
 > {: . output}
 {: .callout}
 
-We would like to modify each of the files in `data-shell/creatures`, but also save a version
+We would like to modify each of the files in `shell-lesson-data/creatures`, but also save a version
 of the original files, naming the copies `original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
