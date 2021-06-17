@@ -25,7 +25,7 @@ keypoints:
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
-We'll start with the directory called `data-shell/molecules`
+We'll start with the directory called `shell-lesson-data/molecules`
 that contains six files describing some simple organic molecules.
 The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
@@ -342,7 +342,7 @@ the output of `head` must be the file with the fewest lines.
 > We have already met the `head` command, which prints lines from the start of a file.
 > `tail` is similar, but prints lines from the end of a file instead.
 >
-> Consider the file `data-shell/data/animals.txt`.
+> Consider the file `shell-lesson-data/data/animals.txt`.
 > After these commands, select the answer that
 > corresponds to the file `animals-subset.txt`:
 >
@@ -457,7 +457,7 @@ the "sort" command is the input to the "head" command and the output of the
 > > The pipe character `|` is used to connect the output from one command to
 > > the input of another.
 > > `>` is used to redirect standard output to a file.
-> > Try it in the `data-shell/molecules` directory!
+> > Try it in the `shell-lesson-data/molecules` directory!
 > {: .solution}
 {: .challenge}
 
@@ -486,7 +486,7 @@ so that you and other people can put those programs into pipes to multiply their
 
 > ## Pipe Reading Comprehension
 >
-> A file called `animals.txt` (in the `data-shell/data` folder) contains the following data:
+> A file called `animals.txt` (in the `shell-lesson-data/data` folder) contains the following data:
 >
 > ~~~
 > 2012-11-05,deer
@@ -579,7 +579,7 @@ so that you and other people can put those programs into pipes to multiply their
 >
 > The `uniq` command has a `-c` option which gives a count of the
 > number of times a line occurs in its input.  Assuming your current
-> directory is `data-shell/data/`, what command would you use to produce
+> directory is `shell-lesson-data/data/`, what command would you use to produce
 > a table that shows the total count of each type of animal in the file?
 >
 > 1.  `sort animals.txt | uniq -c`
@@ -591,7 +591,7 @@ so that you and other people can put those programs into pipes to multiply their
 > > ## Solution
 > > Option 4. is the correct answer.
 > > If you have difficulty understanding why, try running the commands, or sub-sections of
-> > the pipelines (make sure you are in the `data-shell/data` directory).
+> > the pipelines (make sure you are in the `shell-lesson-data/data` directory).
 > {: .solution}
 {: .challenge}
 
@@ -692,7 +692,7 @@ so this matches all the valid data files she has.
 > Wildcard expressions can be very complex, but you can sometimes write
 > them in ways that only use simple syntax, at the expense of being a bit
 > more verbose.
-> Consider the directory `data-shell/north-pacific-gyre/2012-07-03` :
+> Consider the directory `shell-lesson-data/north-pacific-gyre/2012-07-03` :
 > the wildcard expression `*[AB].txt`
 > matches all files ending in `A.txt` or `B.txt`. Imagine you forgot about
 > this.

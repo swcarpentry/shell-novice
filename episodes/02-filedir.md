@@ -343,7 +343,7 @@ $ ls -F Desktop
 {: .language-bash}
 
 ~~~
-data-shell/
+shell-lesson-data/
 ~~~
 {: .output}
 
@@ -352,7 +352,7 @@ this command will return an error. Typically a `Desktop` directory exists in you
 home directory, which we assume is the current working directory of your bash shell.
 
 Your output should be a list of all the files and sub-directories in your
-Desktop directory, including the `data-shell` directory you downloaded at
+Desktop directory, including the `shell-lesson-data` directory you downloaded at
 the [setup for this lesson]({{ page.root }}{% link setup.md %}).
 On many systems,
 the command line Desktop directory is the same as your GUI Desktop.
@@ -365,14 +365,14 @@ it's possible to put hundreds of files in our home directory,
 just as it's possible to pile hundreds of printed papers on our desk,
 but it's a self-defeating strategy.
 
-Now that we know the `data-shell` directory is located in our Desktop directory, we
+Now that we know the `shell-lesson-data` directory is located in our Desktop directory, we
 can do two things.
 
 First, we can look at its contents, using the same strategy as before, passing
 a directory name to `ls`:
 
 ~~~
-$ ls -F Desktop/data-shell
+$ ls -F Desktop/shell-lesson-data
 ~~~
 {: .language-bash}
 
@@ -399,16 +399,16 @@ use the following series of commands to get there:
 
 ~~~
 $ cd Desktop
-$ cd data-shell
+$ cd shell-lesson-data
 $ cd data
 ~~~
 {: .language-bash}
 
 These commands will move us from our home directory into our Desktop directory, then into
-the `data-shell` directory, then into the `data` directory.  You will notice that `cd` doesn't print anything.  This is normal.  Many shell commands will not output anything to the screen when successfully executed.  But if we run `pwd` after it, we can see that we are now
-in `/Users/nelle/Desktop/data-shell/data`.
+the `shell-lesson-data` directory, then into the `data` directory.  You will notice that `cd` doesn't print anything.  This is normal.  Many shell commands will not output anything to the screen when successfully executed.  But if we run `pwd` after it, we can see that we are now
+in `/Users/nelle/Desktop/shell-lesson-data/data`.
 If we run `ls -F` without arguments now,
-it lists the contents of `/Users/nelle/Desktop/data-shell/data`,
+it lists the contents of `/Users/nelle/Desktop/shell-lesson-data/data`,
 because that's where we now are:
 
 ~~~
@@ -417,7 +417,7 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell/data
+/Users/nelle/Desktop/shell-lesson-data/data
 ~~~
 {: .output}
 
@@ -437,12 +437,12 @@ but how do we go up (i.e. how do we leave a directory and go into its parent dir
 We might try the following:
 
 ~~~
-$ cd data-shell
+$ cd shell-lesson-data
 ~~~
 {: .language-bash}
 
 ~~~
--bash: cd: data-shell: No such file or directory
+-bash: cd: shell-lesson-data: No such file or directory
 ~~~
 {: .error}
 
@@ -466,7 +466,7 @@ $ cd ..
 or more succinctly,
 the **parent** of the current directory.
 Sure enough,
-if we run `pwd` after running `cd ..`, we're back in `/Users/nelle/Desktop/data-shell`:
+if we run `pwd` after running `cd ..`, we're back in `/Users/nelle/Desktop/shell-lesson-data`:
 
 ~~~
 $ pwd
@@ -474,7 +474,7 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell
+/Users/nelle/Desktop/shell-lesson-data
 ~~~
 {: .output}
 
@@ -559,7 +559,7 @@ three commands, but we can actually string together the list of directories
 to move to `data` in one step:
 
 ~~~
-$ cd Desktop/data-shell/data
+$ cd Desktop/shell-lesson-data/data
 ~~~
 {: .language-bash}
 
@@ -580,10 +580,10 @@ leading slash.  The leading `/` tells the computer to follow the path from
 the root of the file system, so it always refers to exactly one directory,
 no matter where we are when we run the command.
 
-This allows us to move to our `data-shell` directory from anywhere on
+This allows us to move to our `shell-lesson-data` directory from anywhere on
 the filesystem (including from inside `data`).  To find the absolute path
 we're looking for, we can use `pwd` and then extract the piece we need
-to move to `data-shell`.
+to move to `shell-lesson-data`.
 
 ~~~
 $ pwd
@@ -591,12 +591,12 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell/data
+/Users/nelle/Desktop/shell-lesson-data/data
 ~~~
 {: .output}
 
 ~~~
-$ cd /Users/nelle/Desktop/data-shell
+$ cd /Users/nelle/Desktop/shell-lesson-data
 ~~~
 {: .language-bash}
 
@@ -732,11 +732,11 @@ For example, `ls -s` will display the size of files and directories alongside th
 while `ls -S` will sort the files and directories by size, as shown below:
 
 ~~~
-$ ls -s Desktop/data-shell/data
+$ ls -s Desktop/shell-lesson-data/data
 total 116
  4 amino-acids.txt   4 animals.txt   4 morse.txt  12 planets.txt  76 sunspot.txt
  4 animal-counts     4 elements      4 pdb         4 salmon.txt
-$ ls -S Desktop/data-shell/data
+$ ls -S Desktop/shell-lesson-data/data
 sunspot.txt  animal-counts  pdb        amino-acids.txt  salmon.txt
 planets.txt  elements       morse.txt  animals.txt
 ~~~
@@ -796,7 +796,7 @@ Since the assay machine's output is plain text,
 she will call her files `NENE01729A.txt`, `NENE01812A.txt`, and so on.
 All 1520 files will go into the same directory.
 
-Now in her current directory `data-shell`,
+Now in her current directory `shell-lesson-data`,
 Nelle can see what files she has using the command:
 
 ~~~
