@@ -519,7 +519,7 @@ equivalent to `ls -Fa`.
 > ## Returning to previous directory
 >
 > There is also a possibilty to directly return to the previous directory you were in using `cd -`.
-> For example if are in `/Users` and use the command `cd nelle/data` and then use the command `cd -` you will be back in `/Users`.
+> For example if are in `/Users` and use the command `cd nelle/data` and then use the command `cd -` you will be back in `/Users`. Using the command `cd -` a second time will navigate you back to `/Users/nelle/data`.
 {: .callout}
 
 > ## Orthogonality
