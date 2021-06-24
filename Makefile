@@ -41,11 +41,11 @@ endif
 .PHONY: site docker-serve repo-check clean clean-rmd
 
 ## * serve            : render website and run a local server
-serve : lesson-md
+serve : lesson-md index.md
 	${JEKYLL} serve
 
 ## * site             : build website but do not run a server
-site : lesson-md
+site : lesson-md index.md
 	${JEKYLL} build
 
 ## * docker-serve     : use Docker to serve the site
@@ -169,6 +169,13 @@ commands :
 python :
 ifeq (, $(PYTHON))
 	$(error $(PYTHON_NOTE))
+else
+	@:
+endif
+
+index.md :
+ifeq (, $(wildcard index.md))
+	$(error index.md not found)
 else
 	@:
 endif
