@@ -7,6 +7,9 @@ JEKYLL=bundle config set --local path .vendor/bundle && bundle install && bundle
 PARSER=bin/markdown_ast.rb
 DST=_site
 
+# Find Docker
+DOCKER := $(shell which docker 2>/dev/null)
+
 # Check Python 3 is installed and determine if it's called via python3 or python
 # (https://stackoverflow.com/a/4933395)
 PYTHON3_EXE := $(shell which python3 2>/dev/null)
@@ -50,14 +53,18 @@ site : lesson-md index.md
 
 ## * docker-serve     : use Docker to serve the site
 docker-serve :
-	@docker pull carpentries/lesson-docker:latest
-	@docker run --rm -it \
+ifeq (, $(DOCKER))
+	$(error Your system does not appear to have Docker installed)
+else
+	@$(DOCKER) pull carpentries/lesson-docker:latest
+	@$(DOCKER) run --rm -it \
 		-v $${PWD}:/home/rstudio \
 		-p 4000:4000 \
 		-p 8787:8787 \
 		-e USERID=$$(id -u) \
 		-e GROUPID=$$(id -g) \
 		carpentries/lesson-docker:latest
+endif
 
 ## * repo-check       : check repository settings
 repo-check : python
