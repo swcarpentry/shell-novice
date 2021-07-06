@@ -306,7 +306,7 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > > The `-l` option makes `ls` use a **l**ong listing format, showing not only
 > > the file/directory names but also additional information, such as the file size
 > > and the time of its last modification. If you use both the `-h` option and the `-l` option,
-> > this command makes the file size '**h**uman readable', i.e. displaying something like `5.3K`
+> > this makes the file size '**h**uman readable', i.e. displaying something like `5.3K`
 > > instead of `5369`.
 > {: .solution}
 {: .challenge}
@@ -322,7 +322,7 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > last changed dates.
 >
 > > ## Solution
-> > The most recently changed file is listed last when using `-rt`. This order
+> > The most recently changed file is listed last when using `-rt`. This
 > > can be very useful for finding your most recent edits or checking to
 > > see if a new output file was written.
 > {: .solution}
@@ -529,7 +529,7 @@ equivalent to `ls -Fa`.
 > because there are fewer special cases and exceptions to keep track of.
 {: .callout}
 
-These three commands, then, are the basic commands for navigating the filesystem on your computer:
+These three commands are the basic commands for navigating the filesystem on your computer:
 `pwd`, `ls`, and `cd`. Let's explore some variations on those commands. What happens
 if you type `cd` on its own, without giving
 a directory?
@@ -580,7 +580,7 @@ leading slash. The leading `/` tells the computer to follow the path from
 the root of the file system, so it always refers to exactly one directory,
 no matter where we are when we run the command.
 
-This command allows us to move to our `shell-lesson-data` directory from anywhere on
+This allows us to move to our `shell-lesson-data` directory from anywhere on
 the filesystem (including from inside `data`). To find the absolute path
 we're looking for, we can use `pwd` and then extract the piece we need
 to move to `shell-lesson-data`.
@@ -604,10 +604,10 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 
 > ## Two More Shortcuts
 >
-> The shell interprets the character `~` (tilde) at the start of a path to
+> The shell interprets a tilde (`~`) character at the start of a path to
 > mean "the current user's home directory". For example, if Nelle's home
 > directory is `/Users/nelle`, then `~/data` is equivalent to
-> `/Users/nelle/data`. The tilde only works if it is the first character in the
+> `/Users/nelle/data`. This only works if it is the first character in the
 > path: `here/there/~/elsewhere` is *not* `here/there/Users/nelle/elsewhere`.
 >
 > Another shortcut is the `-` (dash) character. `cd` will translate `-` into
@@ -618,7 +618,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > think of it as the *Last Channel* button on a TV remote.
 {: .callout}
 
-> ## Absolute vs. Relative Paths
+> ## Absolute vs Relative Paths
 >
 > Starting from `/Users/amanda/data`,
 > which of the following commands could Amanda use to navigate to her home directory,
