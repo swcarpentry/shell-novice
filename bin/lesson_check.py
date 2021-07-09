@@ -6,6 +6,7 @@ Check lesson files and their contents.
 import os
 import glob
 import re
+import sys
 from argparse import ArgumentParser
 
 # This uses the `__all__` list in `util.py` to determine what objects to import 
@@ -142,8 +143,16 @@ def main():
         checker.check()
 
     args.reporter.report()
-    if args.reporter.messages and not args.permissive:
-        exit(1)
+    if args.reporter.messages:
+        if args.permissive:
+            print("Problems detected but ignored (permissive mode).")
+        else:
+            print("Problems detected.")
+            sys.exit(1)
+    else:
+        print("No problems found.")
+
+    return
 
 
 def parse_args():
