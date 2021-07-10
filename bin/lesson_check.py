@@ -533,7 +533,7 @@ class CheckEpisode(CheckBase):
         """Run extra tests."""
 
         super().check()
-        if not using_remote_theme(args.source_dir):
+        if not using_remote_theme(self.args.source_dir):
             self.check_reference_inclusion()
 
     def check_metadata(self):
@@ -601,7 +601,8 @@ CHECKERS = [
     (re.compile(r'README\.md'), CheckNonJekyll),
     (re.compile(r'index\.md'), CheckIndex),
     (re.compile(r'reference\.md'), CheckReference),
-    (re.compile(os.path.join('_episodes', '*\.md')), CheckEpisode),
+    # '.' below is what's passed on the command line via '-s' flag
+    (re.compile(os.path.join('.','_episodes', '[^/]*\.md')), CheckEpisode),
     (re.compile(r'.*\.md'), CheckGeneric)
 ]
 
