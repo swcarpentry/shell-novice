@@ -612,10 +612,34 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 >
 > Another shortcut is the `-` (dash) character.  `cd` will translate `-` into
 > *the previous directory I was in*, which is faster than having to remember,
-> then type, the full path.  This is a *very* efficient way of moving back
-> and forth between directories. The difference between `cd ..` and `cd -` is
-> that the former brings you *up*, while the latter brings you *back*. You can
-> think of it as the *Last Channel* button on a TV remote.
+> then type, the full path.  This is a *very* efficient way of moving
+> *back and forth between two directories* -- i.e. if you execute `cd -` twice,
+> you end up back in the starting directory.
+>
+> The difference between `cd ..` and `cd -` is
+> that the former brings you *up*, while the latter brings you *back*.
+>
+> ----
+> Try it!
+> First navigate to `~/Desktop/shell-lesson-data` (you should already be there).
+> ~~~
+> $ cd ~/Desktop/shell-lesson-data
+> ~~~
+> {: .language-bash}
+>
+> Then `cd` into the `creatures` directory
+> ~~~
+> $ cd creatures
+> ~~~
+> {: .language-bash}
+>
+> Now if you run
+> ~~~
+> $ cd -
+> ~~~
+> {: .language-bash}
+> you'll see you're back in `~/Desktop/shell-lesson-data`.
+> Run `cd -` again and you're back in `~/Desktop/shell-lesson-data/creatures`
 {: .callout}
 
 > ## Absolute vs Relative Paths
