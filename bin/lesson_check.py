@@ -189,7 +189,8 @@ def parse_args():
 
     args, extras = parser.parse_known_args()
     require(args.parser is not None,
-            'Path to Markdown parser not provided')
+            'Path to Markdown parser not provided',
+            True)
     require(not extras,
             'Unexpected trailing command-line arguments "{0}"'.format(extras))
 

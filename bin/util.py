@@ -65,9 +65,8 @@ def split_metadata(path, text):
         try:
             metadata_yaml = yaml.load(metadata_raw, Loader=yaml.SafeLoader)
         except yaml.YAMLError as e:
-            print('Unable to parse YAML header in {0}:\n{1}'.format(
-                path, e), file=sys.stderr)
-            sys.exit(1)
+            message = 'Unable to parse YAML header in {0}:\n{1}'
+            print(message.format(path, e), file=sys.stderr)
 
     return metadata_raw, metadata_yaml, text
 
@@ -81,11 +80,14 @@ def load_yaml(filename):
     try:
         with open(filename, 'r', encoding='utf-8') as reader:
             return yaml.load(reader, Loader=yaml.SafeLoader)
-    except (yaml.YAMLError, IOError) as e:
-        print('Unable to load YAML file {0}:\n{1}'.format(
-            filename, e), file=sys.stderr)
-        sys.exit(1)
+    except yaml.YAMLError as e:
+        message = 'ERROR: Unable to load YAML file {0}:\n{1}'
+        print(message.format(filename, e), file=sys.stderr)
+    except (FileNotFoundError, IOError):
+        message = 'ERROR: File {} not found'
+        print(message.format(filename), file=sys.stderr)
 
+    return {}
 
 def check_unwanted_files(dir_path, reporter):
     """
@@ -99,9 +101,11 @@ def check_unwanted_files(dir_path, reporter):
                        "Unwanted file found")
 
 
-def require(condition, message):
+def require(condition, message, fatal=False):
     """Fail if condition not met."""
 
     if not condition:
         print(message, file=sys.stderr)
-        sys.exit(1)
+
+        if fatal:
+            sys.exit(1)
