@@ -218,9 +218,14 @@ def check_config(reporter, source_dir):
             {'values': {'root': '..', 'layout': 'episode'}, 'scope': {'type': 'episodes', 'path': ''}},
             {'values': {'root': '..', 'layout': 'page'}, 'scope': {'type': 'extras', 'path': ''}}
             ]:
-        reporter.check(defaults in config.get('defaults', []),
-                   'configuration',
-                   '"root" not set to "." in configuration')
+        error_text = 'incorrect settings for: root "{0}" layout "{1}"'
+        root = defaults["values"]["root"]
+        layout = defaults["values"]["layout"]
+        error_message = error_text.format(root, layout)
+
+        defaults_test = defaults in config.get('defaults', [])
+        reporter.check(defaults_test, 'configuration', error_message)
+
     if 'life_cycle' not in config:
         config['life_cycle'] = None
     return config['life_cycle']
