@@ -17,7 +17,7 @@ keypoints:
 - "`*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`."
 - "`?` matches any single character in a filename, so `?.txt` matches `a.txt` but not `any.txt`."
 - "Use of the Control key may be described in many ways, including `Ctrl-X`, `Control-X`, and `^X`."
-- "The shell does not have a trash bin: once something is deleted, it's really gone."
+- "The shell does not have a trash bin: once something is deleted, it's really gone. Use option `i` with `rm` command to safely delete content"
 - "Most files' names are `something.extension`. The extension isn't required, and doesn't guarantee anything, but is normally used to indicate the type of data in the file."
 - "Depending on the type of work you do, you may need a more powerful text editor than Nano."
 ---
@@ -279,7 +279,7 @@ draft.txt
 > files, images, and so on.
 >
 > Naming a PNG image of a whale as `whale.mp3` doesn't somehow
-> magically turn it into a recording of whale song, though it *might*
+> magically turn it into a recording of whale song, though it *might*rm 
 > cause the operating system to try to open it with a music player
 > when someone double-clicks it.
 {: .callout}
