@@ -13,7 +13,7 @@ keypoints:
 - "`cp [old] [new]` copies a file."
 - "`mkdir [path]` creates a new directory."
 - "`mv [old] [new]` moves (renames) a file or directory."
-- "`rm [path]` removes (deletes) a file."
+- "`rm [path]` removes (deletes) a file permanently."
 - "`*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`."
 - "`?` matches any single character in a filename, so `?.txt` matches `a.txt` but not `any.txt`."
 - "Use of the Control key may be described in many ways, including `Ctrl-X`, `Control-X`, and `^X`."
