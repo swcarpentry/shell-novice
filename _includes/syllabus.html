@@ -30,6 +30,14 @@
     <td class="col-md-3"><a href="{{ relative_root_path }}{% link setup.md %}">Setup</a></td>
     <td class="col-md-7">Download files required for the lesson</td>
   </tr>
+  {% if site.instructor_training %}
+  <tr>
+    {% if multiday %}<td class="col-md-1"></td>{% endif %}
+  <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}"></td>
+  <td class="col-md-3"><a href="{{ site.instructor_pre_survey }}{{ site.github.project_title }}">Pre-training survey</a></td>
+  <td class="col-md-7">Please fill out our pre-training survey before the start of the course.</td>
+  </tr>
+  {% endif %}
   {% for lesson_episode in lesson_episodes %}
     {% if site.episode_order %}
       {% assign episode = site.episodes | where: "slug", lesson_episode | first %}
@@ -78,6 +86,17 @@
   {% endfor %}
   {% assign hours = current | divided_by: 60 %}
   {% assign minutes = current | modulo: 60 %}
+  {% if site.instructor_training %}
+  <tr>
+    {% if multiday %}<td class="col-md-1"></td>{% endif %}
+    <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif +++ %}{{ minutes }}</td>
+    <td class="col-md-3"><a href="{{ site.instructor_post_survey }}{{ site.github.project_title }}">Post-training survey</a></td>
+    <td class="col-md-7">Please fill out our post-training survey after the course.</td>
+  </tr>
+  {% assign current = current | plus: 15 %}
+  {% assign hours = current | divided_by: 60 %}
+  {% assign minutes = current | modulo: 60 %}
+  {% endif %}
   <tr>
     {% if multiday %}<td class="col-md-1"></td>{% endif %}
     <td class="{% if multiday %}col-md-1{% else %}col-md-2{% endif %}">{% if hours < 10 %}0{% endif %}{{ hours }}:{% if minutes < 10 %}0{% endif %}{{ minutes }}</td>

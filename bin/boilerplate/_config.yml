@@ -57,6 +57,8 @@ post_survey: "https://carpentries.typeform.com/to/UgVdRQ?slug="
 instructor_pre_survey: "https://www.surveymonkey.com/r/instructor_training_pre_survey?workshop_id="
 instructor_post_survey: "https://www.surveymonkey.com/r/instructor_training_post_survey?workshop_id="
 
+# Set to 'true' for instructor training websites only.
+instructor_training: false
 
 # Start time in minutes (0 to be clock-independent, 540 to show a start at 09:00 am).
 start_time: 0
