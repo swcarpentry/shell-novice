@@ -297,7 +297,7 @@ increase the odds that the program won't do what its readers think it does.
 >
 > > ## Solution
 > > 1. The text from each file in turn gets written to the `alkanes.pdb` file.
-> > However, the file gets overwritten on each loop interation, so the final content of `alkanes.pdb`
+> > However, the file gets overwritten on each loop iteration, so the final content of `alkanes.pdb`
 > > is the text from the `propane.pdb` file.
 > {: .solution}
 {: .challenge}
