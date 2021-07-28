@@ -12,7 +12,7 @@ objectives:
 - "Construct absolute and relative paths that identify specific files and directories."
 - "Use options and arguments to change the behaviour of a shell command."
 - "Demonstrate the use of tab completion and explain its advantages."
-key points:
+keypoints:
 - "The file system is responsible for managing information on the disk."
 - "Information is stored in files, which are stored in directories (folders)."
 - "Directories can also store other directories, which then form a directory tree."
@@ -718,7 +718,7 @@ directories "backup" and "thing"; "/Users/backup" contains "original",
 > 2.  `ls -r -F`
 > 3.  `ls -r -F /Users/backup`
 >
-> > ## Solution>>>>>>> gh-pages
+> > ## Solution
 > >  1. No: `pwd` is not the name of a directory.
 > >  2. Yes: `ls` without directory argument lists files and directories
 > >     in the current directory.
