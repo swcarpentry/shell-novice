@@ -731,7 +731,7 @@ so she decides to get some coffee and catch up on her reading.
 > result of the following code:
 >
 > ~~~
-> $ for species in cubane ethane methane
+> $ for alkanes in cubane ethane methane
 > > do
 > >     for temperature in 25 30 37 40
 > >     do
