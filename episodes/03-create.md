@@ -120,7 +120,7 @@ project/results:
 >
 > Complicated names of files and directories can make your life painful
 > when working on the command line. Here we provide a few useful
-> tips for the names of your files.
+> tips for the names of your files and directories.
 >
 > 1. Don't use spaces.
 >
@@ -128,6 +128,8 @@ project/results:
 >    but since spaces are used to separate arguments on the command line
 >    it is better to avoid them in names of files and directories.
 >    You can use `-` or `_` instead (e.g. `north-pacific-gyre/` rather than `north pacific gyre/`).
+>    To test this out, try typing `mkdir north pacific gyre`and see what directory (or directories!)
+>    are made when you check with `ls -F`.
 >
 > 2. Don't begin the name with `-` (dash).
 >
