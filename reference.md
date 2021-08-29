@@ -17,8 +17,7 @@ layout: reference
 ## Filesystem hierarchy
 
 The following is an overview of a standard Unix filesystem.
-The exact hierarchy depends on the platform,
-so you may not see exactly the same files/directories on your computer:
+The exact hierarchy depends on the platform. Your file/directory structure may differ slightly:
 
 ![Linux filesystem hierarchy](fig/standard-filesystem-hierarchy.svg)
 
