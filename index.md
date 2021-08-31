@@ -11,7 +11,7 @@ allows users to perform complex and powerful tasks, often with just
 
 Use of the shell is fundamental to to a wide range of advanced computing
 tasks, including high-performance computing. These lessons will introduce
-you to this poweful new tool.
+you to this powerful new tool.
 
 > ## Prerequisites
 >
