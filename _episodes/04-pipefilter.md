@@ -194,7 +194,8 @@ But first we'll use an exercise to learn a little about the sort command:
 
 > ## What Does `sort -n` Do?
 >
-> If we run `sort` on a file containing the following lines:
+> The file [`shell-lesson-data/numbers.txt`](../shell-lesson-data/numbers.txt)
+> contains the following lines:
 >
 > ~~~
 > 10
@@ -205,7 +206,7 @@ But first we'll use an exercise to learn a little about the sort command:
 > ~~~
 > {: .source}
 >
-> the output is:
+> If we run `sort` on this file, the output is:
 >
 > ~~~
 > 10
@@ -216,7 +217,7 @@ But first we'll use an exercise to learn a little about the sort command:
 > ~~~
 > {: .output}
 >
-> If we run `sort -n` on the same input, we get this instead:
+> If we run `sort -n` on the same file, we get this instead:
 >
 > ~~~
 > 2
