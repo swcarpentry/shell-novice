@@ -17,9 +17,11 @@ Maintainers:
 * [Colin Morris][colin_morris]
 * [Will Pitchers][will_pitchers]
 * [Gerard Capes][gerard_capes]
+* [Jacob Deppen][jacob_deppen]
 
 [devenyi_gabriel]: http://software-carpentry.org/team/#devenyi_gabriel
 [colin_morris]: https://github.com/colinmorris
 [will_pitchers]: https://software-carpentry.org/team/#pitchers_w
 [gerard_capes]: https://carpentries.org/instructors/#capes_gerard
+[jacob_deppen]: https://deppen8.github.io/
 [lesson-example]: https://carpentries.github.io/lesson-example/
