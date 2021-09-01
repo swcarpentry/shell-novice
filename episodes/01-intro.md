@@ -72,8 +72,8 @@ when typing commands, either from these lessons or from other sources,
 *do not type the prompt*, only the commands that follow it.
 Also note that after you type a command, you have to press the <kbd>Enter</kbd> key to execute it.
 
-The prompt is followed by a **text cursor**, a character that indicates the position where your typing will appear. 
-The cursor is usually a flashing or solid block, but it can also be an underscore or a pipe. 
+The prompt is followed by a **text cursor**, a character that indicates the position where your typing will appear.
+The cursor is usually a flashing or solid block, but it can also be an underscore or a pipe.
 You may have seen it in a text editor program, for example.
 
 So let's try our first command, `ls` which is short for listing.
@@ -132,3 +132,12 @@ so that her computer can work while she writes her paper.
 As a bonus,
 once she has put a processing pipeline together,
 she will be able to use it again whenever she collects more data.
+
+In order to achieve her task, Nelle needs to know how to:
+- navigate to a file/directory
+- create a file/directory
+- check the length of a file
+- chain processes together
+- retrieve a set of files
+- iterate over files
+- run a shell script containing her pipeline
