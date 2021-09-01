@@ -1,8 +1,0 @@
-COMPND      Ammonia
-AUTHOR      DAVE WOODCOCK  97 10 31
-ATOM      1  N           1       0.257  -0.363   0.000
-ATOM      2  H           1       0.257   0.727   0.000
-ATOM      3  H           1       0.771  -0.727   0.890
-ATOM      4  H           1       0.771  -0.727  -0.890
-TER       5              1
-END
