@@ -137,7 +137,7 @@ In order to achieve her task, Nelle needs to know how to:
 - navigate to a file/directory
 - create a file/directory
 - check the length of a file
-- chain processes together
+- chain commands together
 - retrieve a set of files
 - iterate over files
 - run a shell script containing her pipeline
