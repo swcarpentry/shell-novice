@@ -303,7 +303,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > ~~~
 > {: .source}
 >
-> An example of this type of file is given in `shell-lesson-data/data/animal-counts/animals.txt`.
+> An example of this type of file is given in `shell-lesson-data/exercise-data/animal-counts/animals.csv`.
 >
 > We can use the command `cut -d , -f 2 animals.txt | sort | uniq` to produce
 > the unique species in `animals.txt`.
@@ -397,13 +397,20 @@ and save it as a shell script.
 Nelle's supervisor insisted that all her analytics must be reproducible.
 The easiest way to capture all the steps is in a script.
 
-First we return to Nelle's data directory:
+First we return to Nelle's project directory:
 ```
-$ cd ../north-pacific-gyre/2012-07-03/
+$ cd ../../north-pacific-gyre/
 ```
 {: .language-bash}
 
-She runs the editor and writes the following:
+She creates a file using `nano` ...
+
+~~~
+$ nano do-stats.sh
+~~~
+{: .language-bash}
+
+...which contains the following:
 
 ~~~
 # Calculate stats for data files.
@@ -550,7 +557,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Script Reading Comprehension
 >
-> For this question, consider the `shell-lesson-data/molecules` directory once again.
+> For this question, consider the `shell-lesson-data/exercise-data/proteins` directory once again.
 > This contains a number of `.pdb` files in addition to any other files you
 > may have created.
 > Explain what each of the following three scripts would do when run as
@@ -600,7 +607,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ## Debugging Scripts
 >
 > Suppose you have saved the following script in a file called `do-errors.sh`
-> in Nelle's `north-pacific-gyre/2012-07-03` directory:
+> in Nelle's `north-pacific-gyre/scripts` directory:
 >
 > ~~~
 > # Calculate stats for data files.
@@ -612,7 +619,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ~~~
 > {: .language-bash}
 >
-> When you run it:
+> When you run it from the `north-pacific-gyre` directory:
 >
 > ~~~
 > $ bash do-errors.sh NENE*A.txt NENE*B.txt

@@ -30,7 +30,7 @@ amount of typing required (and hence reduces the number of typing mistakes).
 
 Suppose we have several hundred genome data files named `basilisk.dat`, `minotaur.dat`, and
 `unicorn.dat`.
-For this example, we'll use the `creatures` directory which only has three example files,
+For this example, we'll use the `exercise-data/creatures` directory which only has three example files,
 but the principles can be applied to many many more files at once.
 
 The structure of these files is the same: the common name, classification, and updated date are
@@ -169,7 +169,7 @@ or a subset of data.
 > How would you write a loop that echoes all 10 numbers from 0 to 9?
 >
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > $ for loop_variable in 0 1 2 3 4 5 6 7 8 9
 > > > do
@@ -196,7 +196,7 @@ or a subset of data.
 
 > ## Variables in Loops
 >
-> This exercise refers to the `shell-lesson-data/molecules` directory.
+> This exercise refers to the `shell-lesson-data/exercise-data/proteins` directory.
 > `ls` gives the following output:
 >
 > ~~~
@@ -270,7 +270,7 @@ or a subset of data.
 > ## Limiting Sets of Files
 >
 > What would be the output of running the following loop in the
-> `shell-lesson-data/molecules` directory?
+> `shell-lesson-data/exercise-data/proteins` directory?
 >
 > ~~~
 > $ for filename in c*
@@ -314,7 +314,7 @@ or a subset of data.
 
 > ## Saving to a File in a Loop - Part One
 >
-> In the `shell-lesson-data/molecules` directory, what is the effect of this loop?
+> In the `shell-lesson-data/exercise-data/proteins` directory, what is the effect of this loop?
 >
 > ~~~
 > for alkanes in *.pdb
@@ -342,7 +342,7 @@ or a subset of data.
 
 > ## Saving to a File in a Loop - Part Two
 >
-> Also in the `shell-lesson-data/molecules` directory,
+> Also in the `shell-lesson-data/exercise-data/proteins` directory,
 > what would be the output of the following loop?
 >
 > ~~~
@@ -368,7 +368,7 @@ or a subset of data.
 > {: .solution}
 {: .challenge}
 
-Let's continue with our example in the `shell-lesson-data/creatures` directory.
+Let's continue with our example in the `shell-lesson-data/exercise-data/creatures` directory.
 Here's a slightly more complicated loop:
 
 ~~~
@@ -471,7 +471,7 @@ from whatever file is being processed
 > {: .output}
 {: .callout}
 
-We would like to modify each of the files in `shell-lesson-data/creatures`, but also save a version
+We would like to modify each of the files in `shell-lesson-data/exercise-data/creatures`, but also save a version
 of the original files, naming the copies `original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
@@ -567,7 +567,7 @@ these are ones whose names end in 'A' or 'B', rather than 'Z'.
 Starting from her home directory, Nelle types:
 
 ~~~
-$ cd north-pacific-gyre/2012-07-03
+$ cd north-pacific-gyre
 $ for datafile in NENE*A.txt NENE*B.txt
 > do
 >     echo $datafile
@@ -670,7 +670,7 @@ divided by 60,
 tells her that her script will take about two hours to run.
 As a final check,
 she opens another terminal window,
-goes into `north-pacific-gyre/2012-07-03`,
+goes into `north-pacific-gyre`,
 and uses `cat stats-NENE01729B.txt`
 to examine one of the output files.
 It looks good,

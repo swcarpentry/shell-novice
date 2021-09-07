@@ -25,9 +25,12 @@ keypoints:
 We now know how to explore files and directories,
 but how do we create them in the first place?
 
+In this episode we will learn about creating and moving files and directories,
+using the `exercise-data/writing` directory as an example.
+
 ### Step one: see where we are and what we already have
-Let's go back to our `shell-lesson-data` directory on the Desktop
-and use `ls -F` to see what it contains:
+We should still be in the `shell-lesson-data` directory on the Desktop,
+which we can checking using:
 
 ~~~
 $ pwd
@@ -39,14 +42,19 @@ $ pwd
 ~~~
 {: .output}
 
+Next we'll move to the `exercise-data/writing` directory and see what it contains:
+~~~
+$ cd `exercise-data/writing`
+~~~
+{:  .language-bash}
+
 ~~~
 $ ls -F
 ~~~
 {: .language-bash}
 
 ~~~
-creatures/  molecules/           notes.txt    pizza.cfg  writing/
-data/       north-pacific-gyre/  numbers.txt  solar.pdf
+haiku.txt  LittleWomen.txt
 ~~~
 {: .output}
 
@@ -72,8 +80,7 @@ $ ls -F
 {: .language-bash}
 
 ~~~
-creatures/  molecules/           notes.txt    pizza.cfg  thesis/
-data/       north-pacific-gyre/  numbers.txt  solar.pdf  writing/
+haiku.txt  LittleWomen.txt  thesis/
 ~~~
 {: .output}
 
@@ -89,7 +96,7 @@ The `-p` option allows `mkdir` to create a directory with nested subdirectories
 in a single operation:
 
 ~~~
-$ mkdir -p project/data project/results
+$ mkdir -p ../project/data ../project/results
 ~~~
 {: .language-bash}
 
@@ -98,17 +105,17 @@ Let's use `ls -FR` to recursively list the new directory hierarchy we just creat
 `project` directory:
 
 ~~~
-$ ls -FR project
+$ ls -FR ../project
 ~~~
 {: .language-bash}
 
 ~~~
-project/:
+../project/:
 data/  results/
 
-project/data:
+../project/data:
 
-project/results:
+../project/results:
 ~~~
 {: .output}
 
@@ -292,10 +299,10 @@ draft.txt
 {: .callout}
 
 ## Moving files and directories
-Returning to the `shell-lesson-data` directory,
+Returning to the `shell-lesson-data/writing` directory,
 
 ```
-$ cd ~/Desktop/shell-lesson-data/
+$ cd ~/Desktop/shell-lesson-data/writing
 ```
 {: .language-bash}
 
@@ -544,7 +551,7 @@ quotations.txt
 
 ## Removing files and directories
 
-Returning to the `shell-lesson-data` directory,
+Returning to the `shell-lesson-data/writing` directory,
 let's tidy up this directory by removing the `quotes.txt` file we created.
 The Unix command we'll use for this is `rm` (short for 'remove'):
 
@@ -631,29 +638,29 @@ or specifying a naming pattern using wildcards.
 
 > ## Copy with Multiple Filenames
 >
-> For this exercise, you can test the commands in the `shell-lesson-data/data` directory.
+> For this exercise, you can test the commands in the `shell-lesson-data/exercise-data` directory.
 >
 > In the example below, what does `cp` do when given several filenames and a directory name?
 >
 > ~~~
 > $ mkdir backup
-> $ cp amino-acids.txt animals.txt backup/
+> $ cp creatures/minotaur.dat creatures/unicorn.dat backup/
 > ~~~
 > {: .language-bash}
 >
 > In the example below, what does `cp` do when given three or more file names?
 >
 > ~~~
+> $ cd creatures
 > $ ls -F
 > ~~~
 > {: .language-bash}
 > ~~~
-> amino-acids.txt  animals.txt  elements/  pdb/         salmon.txt
-> animal-counts/   backup/      morse.txt  planets.txt  sunspot.txt
+> basilisk.dat  minotaur.dat  unicorn.dat
 > ~~~
 > {: .output}
 > ~~~
-> $ cp amino-acids.txt animals.txt morse.txt
+> $ $ cp minotaur.dat unicorn.dat basilisk.dat
 > ~~~
 > {: .language-bash}
 >
@@ -666,7 +673,7 @@ or specifying a naming pattern using wildcards.
 > > because it is expecting a directory name as the last argument.
 > >
 > > ```
-> > cp: target 'morse.txt' is not a directory
+> > cp: target 'basilisk.dat' is not a directory
 > > ```
 > > {: .error}
 > {: .solution}
@@ -677,7 +684,7 @@ or specifying a naming pattern using wildcards.
 > ## Wildcards
 >
 > `*` is a **wildcard**, which matches zero or more  characters.
-> Let's consider the `shell-lesson-data/molecules` directory:
+> Let's consider the `shell-lesson-data/exercise-data/proteins` directory:
 > `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
 > file that ends with '.pdb'. On the other hand, `p*.pdb` only matches
 > `pentane.pdb` and `propane.pdb`, because the 'p' at the front only
@@ -706,7 +713,7 @@ or specifying a naming pattern using wildcards.
 
 > ## List filenames matching a pattern
 >
-> When run in the `molecules` directory, which `ls` command(s) will
+> When run in the `proteins` directory, which `ls` command(s) will
 > produce this output?
 >
 > `ethane.pdb   methane.pdb`
