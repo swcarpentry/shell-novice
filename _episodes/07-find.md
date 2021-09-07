@@ -349,7 +349,7 @@ Miscellaneous:
 > Hint: use `man grep` to look for how to grep text recursively in a directory
 > and `man cut` to select more than one field in a line.
 >
-> An example of such a file is provided in `shell-lesson-data/data/animal-counts/animals.txt`
+> An example of such a file is provided in `shell-lesson-data/exercise-data/animal-counts/animals.csv`
 >
 > > ## Solution
 > >
@@ -628,7 +628,7 @@ $ grep "FE" $(find .. -name "*.pdb")
 > which do *not* match the pattern are printed. Given that, which of
 > the following commands will find all files in `/data` whose names
 > end in `s.txt` but whose names also do *not* contain the string `net`?
-> (For example, `animals.txt` or `amino-acids.txt` but not `planets.txt`.)
+> (For example, `animals.csv` or `amino-acids.txt` but not `planets.txt`.)
 > Once you have thought about your answer, you can test the commands in the `shell-lesson-data`
 > directory.
 >
