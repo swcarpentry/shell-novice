@@ -29,7 +29,7 @@ these are actually small programs.
 Not only will writing shell scripts make your work faster– you won't have to retype the same commands over and over
 again– it will also make it more accurate (fewer chances for typos) and more reproducible. If you
 come back to your work later (or if someone else finds your work and wants to build on it) you will be able
-to reproduce the same results simply by running your script, rather than having to remember or retype a long list of commands. 
+to reproduce the same results simply by running your script, rather than having to remember or retype a long list of commands.
 
 Let's start by going back to `molecules/` and creating a new file, `middle.sh` which will
 become our shell script:
@@ -152,14 +152,14 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 > we surround `$1` with double-quotes.
 {: .callout}
 
-Currently, we need to edit `middle.sh` each time we want to adjust the range of 
-lines that is returned. 
-Let's fix that by configuring our script to instead use three command-line arguments. 
-After the first command-line argument (`$1`), each additional argument that we 
-provide will be accessible via the special variables `$1`, `$2`, `$3`, 
+Currently, we need to edit `middle.sh` each time we want to adjust the range of
+lines that is returned.
+Let's fix that by configuring our script to instead use three command-line arguments.
+After the first command-line argument (`$1`), each additional argument that we
+provide will be accessible via the special variables `$1`, `$2`, `$3`,
 which refer to the first, second, third command-line arguments, respectively.
 
-Knowing this, we can use additional arguments to define the range of lines to 
+Knowing this, we can use additional arguments to define the range of lines to
 be passed to `head` and `tail` respectively:
 
 ~~~
@@ -412,14 +412,14 @@ She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
 
 ~~~
-$ bash do-stats.sh NENE*[AB].txt
+$ bash do-stats.sh NENE*A.txt NENE*B.txt
 ~~~
 {: .language-bash}
 
 She can also do this:
 
 ~~~
-$ bash do-stats.sh NENE*[AB].txt | wc -l
+$ bash do-stats.sh NENE*A.txt NENE*B.txt | wc -l
 ~~~
 {: .language-bash}
 
@@ -432,7 +432,7 @@ She could have written it as:
 
 ~~~
 # Calculate stats for Site A and Site B data files.
-for datafile in NENE*[AB].txt
+for datafile in NENE*A.txt NENE*B.txt
 do
     echo $datafile
     bash goostats.sh $datafile stats-$datafile
@@ -448,7 +448,7 @@ or on the 'G' or 'H' files her colleagues in Antarctica are producing,
 without editing the script.
 If she wanted to be more adventurous,
 she could modify her script to check for command-line arguments,
-and use `NENE*[AB].txt` if none were provided.
+and use `NENE*A.txt NENE*B.txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Variables in Shell Scripts
@@ -602,7 +602,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > When you run it:
 >
 > ~~~
-> $ bash do-errors.sh NENE*[AB].txt
+> $ bash do-errors.sh NENE*A.txt NENE*B.txt
 > ~~~
 > {: .language-bash}
 >
@@ -610,7 +610,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > To figure out why, re-run the script using the `-x` option:
 >
 > ~~~
-> bash -x do-errors.sh NENE*[AB].txt
+> bash -x do-errors.sh NENE*A.txt NENE*B.txt
 > ~~~
 > {: .language-bash}
 >
