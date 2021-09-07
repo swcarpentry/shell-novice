@@ -682,49 +682,9 @@ Since it's too late to get the information any other way,
 she must exclude those two files from her analysis.
 She could delete them using `rm`,
 but there are actually some analyses she might do later where depth doesn't matter,
-so instead, she'll have to be careful later on to select files using the wildcard expression `*[AB].txt`.
-As always,
-the `*` matches any number of characters;
-the expression `[AB]` matches either an 'A' or a 'B',
-so this matches all the valid data files she has.
+so instead, she'll have to be careful later on to select files using the wildcard expressions
+`NENE*A.txt NENE*B.txt`.
 
-> ## Wildcard Expressions
->
-> Wildcard expressions can be very complex, but you can sometimes write
-> them in ways that only use simple syntax, at the expense of being a bit
-> more verbose.
-> Consider the directory `shell-lesson-data/north-pacific-gyre/2012-07-03` :
-> the wildcard expression `*[AB].txt`
-> matches all files ending in `A.txt` or `B.txt`. Imagine you forgot about
-> this.
->
-> 1.  Can you match the same set of files with basic wildcard expressions
->     that do not use the `[]` syntax? *Hint*: You may need more than one
->     command, or two arguments to the `ls` command.
->
-> 2.  If you used two commands, the files in your output will match the
->     same set of files in this example. What is the small difference between the
->     outputs?
->
-> 3.  If you used two commands, under what circumstances would your new
->     expression produce an error message where the original one would not?
->
-> > ## Solution
-> > 1. A solution using two wildcard commands:
-> >     ~~~
-> >     $ ls *A.txt
-> >     $ ls *B.txt
-> >     ~~~
-> >     A solution using one command but with two arguments:
-> >     ~~~
-> >     $ ls *A.txt *B.txt
-> >     ~~~
-> >     {: .language-bash}
-> > 2. The output from the two new commands is separated because there are two commands.
-> > 3. When there are no files ending in `A.txt`, or there are no files ending in
-> > `B.txt`, then one of the two commands will fail.
-> {: .solution}
-{: .challenge}
 
 > ## Removing Unneeded Files
 >
