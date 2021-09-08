@@ -504,7 +504,7 @@ directory to the variable "$filename" and then execute the command. With the
 files "basilisk.dat", "minotaur.dat" and "unicorn.dat" in the current directory
 the loop will successively call the echo command three times and print three
 lines: "cp basislisk.dat original-basilisk.dat", then "cp minotaur.dat
-original-minotaur.dat" and finally "cp unicorn.dat 
+original-minotaur.dat" and finally "cp unicorn.dat
 original-unicorn.dat"](../fig/shell_script_for_loop_flow_chart.svg)
 
 ## Nelle's Pipeline: Processing Files
@@ -522,7 +522,7 @@ these are ones whose names end in 'A' or 'B', rather than 'Z'. Starting from her
 
 ~~~
 $ cd north-pacific-gyre/2012-07-03
-$ for datafile in NENE*[AB].txt
+$ for datafile in NENE*A.txt NENE*B.txt
 > do
 >     echo $datafile
 > done
@@ -545,7 +545,7 @@ Prefixing each input file's name with 'stats' seems simple,
 so she modifies her loop to do that:
 
 ~~~
-$ for datafile in NENE*[AB].txt
+$ for datafile in NENE*A.txt NENE*B.txt
 > do
 >     echo $datafile stats-$datafile
 > done
@@ -575,7 +575,7 @@ the shell redisplays the whole loop on one line
 (using semi-colons to separate the pieces):
 
 ~~~
-$ for datafile in NENE*[AB].txt; do echo $datafile stats-$datafile; done
+$ for datafile in NENE*A.txt NENE*B.txt; do echo $datafile stats-$datafile; done
 ~~~
 {: .language-bash}
 
@@ -583,7 +583,7 @@ Using the left arrow key,
 Nelle backs up and changes the command `echo` to `bash goostats.sh`:
 
 ~~~
-$ for datafile in NENE*[AB].txt; do bash goostats.sh $datafile stats-$datafile; done
+$ for datafile in NENE*A.txt NENE*B.txt; do bash goostats.sh $datafile stats-$datafile; done
 ~~~
 {: .language-bash}
 
@@ -597,7 +597,7 @@ uses <kbd>↑</kbd> to repeat the command,
 and edits it to read:
 
 ~~~
-$ for datafile in NENE*[AB].txt; do echo $datafile; bash goostats.sh $datafile stats-$datafile; done
+$ for datafile in NENE*A.txt NENE*B.txt; do echo $datafile; bash goostats.sh $datafile stats-$datafile; done
 ~~~
 {: .language-bash}
 
@@ -714,8 +714,8 @@ so she decides to get some coffee and catch up on her reading.
 > > This prints to screen everything enclosed in the quote marks, expanding the
 > > loop variable name because we have prefixed it with a dollar sign.
 > >
-> > The first version appends the output from the command `echo cat $datafile` 
-> > to the file, `all.pdb`. This file will just contain the list; 
+> > The first version appends the output from the command `echo cat $datafile`
+> > to the file, `all.pdb`. This file will just contain the list;
 > > `cat cubane.pdb`, `cat ethane.pdb`, `cat methane.pdb` etc.
 > >
 > > Try both versions for yourself to see the output! Be sure to open the
