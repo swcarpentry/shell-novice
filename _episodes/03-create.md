@@ -686,7 +686,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > However, generally commands like `wc` and `ls` see the lists of
 > file names matching these expressions, but not the wildcards
 > themselves. It is the shell, not the other programs, that deals with
-> expanding wildcards, and this is another example of orthogonal design.
+> expanding wildcards.
 {: .callout}
 
 > ## List filenames matching a pattern
