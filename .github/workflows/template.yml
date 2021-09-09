@@ -1,0 +1,184 @@
+name: Test template
+on:
+  push:
+    branches: gh-pages
+  pull_request:
+jobs:
+  check-template:
+    name: ${{ matrix.lesson-name }} (${{ matrix.os-name }})
+    if: github.repository == 'carpentries/styles'
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [swcarpentry/shell-novice, datacarpentry/r-intro-geospatial, librarycarpentry/lc-git]
+        os: [ubuntu-20.04, macos-latest, windows-latest]
+        experimental: [false]
+        include:
+          - os: ubuntu-20.04
+            os-name: Linux
+          - os: macos-latest
+            os-name: macOS
+          - os: windows-latest
+            os-name: Windows
+          - lesson: swcarpentry/shell-novice
+            lesson-name: (SWC) Shell novice
+          - lesson: datacarpentry/r-intro-geospatial
+            lesson-name: (DC) R Intro Geospatial
+          - lesson: librarycarpentry/lc-git
+            lesson-name: (LC) Intro to Git
+          - lesson: datacarpentry/astronomy-python
+            lesson-name: (DC) Foundations of Astronomical Data Science
+            experimental: true
+            os: ubuntu-20.04
+            os-name: Linux
+          - lesson: carpentries/lesson-example
+            lesson-name: (CP) Lesson Example
+            experimental: false
+            os: ubuntu-20.04
+            os-name: Linux
+    defaults:
+      run:
+        shell: bash # forces 'Git for Windows' on Windows
+    env:
+      RSPM: 'https://packagemanager.rstudio.com/cran/__linux__/focal/latest'
+    steps:
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+          bundler-cache: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install GitHub Pages, Bundler, and kramdown gems
+        run: |
+          gem install github-pages bundler kramdown kramdown-parser-gfm
+
+      - name: Install Python modules
+        run: |
+          if [[ $RUNNER_OS == macOS || $RUNNER_OS == Linux ]]; then
+            python3 -m pip install --upgrade pip setuptools wheel pyyaml==5.3.1 requests
+          elif [[ $RUNNER_OS == Windows ]]; then
+            python -m pip install --upgrade pip setuptools wheel pyyaml==5.3.1 requests
+          fi
+
+      - name: Checkout the ${{ matrix.lesson }} lesson
+        uses: actions/checkout@master
+        with:
+          repository: ${{ matrix.lesson }}
+          path: lesson
+          fetch-depth: 0
+
+      - name: Sync lesson with carpentries/styles
+        working-directory: lesson
+        run: |
+          echo "::group::Fetch Styles"
+          if [[ -n "${{ github.event.pull_request.number }}" ]]
+          then
+            ref="refs/pull/${{ github.event.pull_request.number }}/head"
+          else
+            ref="gh-pages"
+          fi
+
+          git config --global user.email "team@carpentries.org"
+          git config --global user.name "The Carpentries Bot"
+
+          git remote add styles https://github.com/carpentries/styles.git
+          git fetch styles $ref:styles-ref
+          echo "::endgroup::"
+          echo "::group::Synchronize Styles"
+          # Sync up only if necessary
+          if [[ $(git rev-list --count HEAD..styles-ref) != 0 ]]
+          then
+
+            # The merge command below might fail for lessons that use remote theme
+            # https://github.com/carpentries/carpentries-theme
+            echo "Testing merge using recursive strategy, accepting upstream changes without committing"
+            if ! git merge -s recursive -Xtheirs --no-commit styles-ref
+            then
+
+              # Remove "deleted by us, unmerged" files from the staging area.
+              # these are the files that were removed from the lesson
+              # but are still present in the carpentries/styles repo
+              echo "Removing previously deleted files"
+              git rm $(git diff --name-only --diff-filter=DU)
+
+              # If there are still "unmerged" files,
+              # let's raise an error and look into this more closely
+              if [[ -n $(git diff --name-only --diff-filter=U) ]]
+              then
+                echo "There were unmerged files in ${{ matrix.lesson-name }}:"
+                echo "$(git diff --compact-summary --diff-filter=U)"
+                exit 1
+              fi
+            fi
+
+            echo "Committing changes"
+            git commit -m "Sync lesson with carpentries/styles"
+          fi
+          echo "::endgroup::"
+
+      - name: Look for R-markdown files
+        id: check-rmd
+        working-directory: lesson
+        run: |
+          echo "::set-output name=count::$(shopt -s nullglob; files=($(find . -iname '*.Rmd')); echo ${#files[@]})"
+
+      - name: Set up R
+        if: steps.check-rmd.outputs.count != 0
+        uses: r-lib/actions/setup-r@master
+        with:
+          r-version: 'release'
+
+      - name: Install needed packages
+        if: steps.check-rmd.outputs.count != 0
+        working-directory: lesson
+        run: |
+          source('bin/dependencies.R')
+          install_required_packages(.libPaths()[1])
+        shell: Rscript {0}
+
+      - name: Query dependencies
+        if: steps.check-rmd.outputs.count != 0
+        working-directory: lesson
+        run: |
+          source('bin/dependencies.R')
+          deps <- identify_dependencies()
+          create_description(deps)
+          use_bioc_repos()
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+        shell: Rscript {0}
+
+      - name: Restore Package Cache
+        if: runner.os != 'Windows' && steps.check-rmd.outputs.count != 0
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+
+      - name: Install stringi from source
+        if: runner.os == 'Linux' && steps.check-rmd.outputs.count != 0
+        run: install.packages('stringi', repos='https://cloud.r-project.org')
+        shell: Rscript {0}
+
+      - name: Install system dependencies for R packages
+        if: runner.os == 'Linux' && steps.check-rmd.outputs.count != 0
+        working-directory: lesson
+        run: |
+          while read -r cmd
+          do
+            eval sudo $cmd || echo "Nothing to update"
+          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "20.04"), sep = "\n")')
+
+      - run: make site
+        working-directory: lesson
+
+      - run: make lesson-check-all
+        working-directory: lesson

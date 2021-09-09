@@ -7,13 +7,15 @@
 # dc: Data Carpentry
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor traning for instance)
+# incubator: Carpentries Incubator
 carpentry: "swc"
 
 # Overall title for pages.
 title: "Lesson Title"
 
 # Life cycle stage of the lesson
-# possible values: "pre-alpha", "alpha", "beta", "stable"
+# See this page for more details: https://cdh.carpentries.org/the-lesson-life-cycle.html
+# Possible values: "pre-alpha", "alpha", "beta", "stable"
 life_cycle: "pre-alpha"
 
 #------------------------------------------------------------
@@ -32,11 +34,11 @@ repository: <USERNAME>/<PROJECT>
 email: "team@carpentries.org"
 
 # Sites.
-amy_site: "https://amy.software-carpentry.org/workshops"
+amy_site: "https://amy.carpentries.org/"
 carpentries_github: "https://github.com/carpentries"
 carpentries_pages: "https://carpentries.github.io"
 carpentries_site: "https://carpentries.org/"
-dc_site: "http://datacarpentry.org"
+dc_site: "https://datacarpentry.org"
 example_repo: "https://github.com/carpentries/lesson-example"
 example_site: "https://carpentries.github.io/lesson-example"
 lc_site: "https://librarycarpentry.org/"
@@ -55,6 +57,8 @@ post_survey: "https://carpentries.typeform.com/to/UgVdRQ?slug="
 instructor_pre_survey: "https://www.surveymonkey.com/r/instructor_training_pre_survey?workshop_id="
 instructor_post_survey: "https://www.surveymonkey.com/r/instructor_training_post_survey?workshop_id="
 
+# Set to 'true' for instructor training websites only.
+instructor_training: false
 
 # Start time in minutes (0 to be clock-independent, 540 to show a start at 09:00 am).
 start_time: 0
@@ -91,6 +95,9 @@ exclude:
   - Makefile
   - bin/
   - .Rproj.user/
+  - .vendor/
+  - vendor/
+  - .docker-vendor/
 
 # Turn on built-in syntax highlighting.
 highlighter: rouge

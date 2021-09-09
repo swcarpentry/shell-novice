@@ -10,11 +10,13 @@ $color-brand:       #2b3990 !default;
 
 // code boxes
 $color-error:       #bd2c00 !default;
+$color-warning:     #cda01d !default;
 $color-output:      #303030 !default;
 $color-source:      #360084 !default;
 
 // blockquotes
 $color-callout:     #f4fd9c !default;
+$color-caution:     #cf000e !default;
 $color-challenge:   #eec275 !default;
 $color-checklist:   #dfd2a0 !default;
 $color-discussion:  #eec275 !default;
@@ -36,42 +38,103 @@ $color-testimonial: #fc8dc1 !default;
     border-radius: 4px 0 0 4px;
 }
 
-.error  { @include cdSetup($color-error); }
-.output { @include cdSetup($color-output); }
-.source { @include cdSetup($color-source); }
+// Generic setup. Has to come before .error, .warning, and .output
+div[class^='language-'] { @include cdSetup($color-source); }
 
-.bash, .language-bash     { @include cdSetup($color-source); }
-.make, .language-make     { @include cdSetup($color-source); }
-.matlab, .language-matlab { @include cdSetup($color-source); }
-.python, .language-python { @include cdSetup($color-source); }
-.r, .language-r           { @include cdSetup($color-source); }
-.sql, .language-sql       { @include cdSetup($color-source); }
+div.source  { @include cdSetup($color-source); }
+div.error   { @include cdSetup($color-error); }
+div.warning { @include cdSetup($color-warning); }
+div.output  { @include cdSetup($color-output); }
 
-.error::before,
-.output::before,
-.source::before,
-.bash::before, .language-bash::before,
-.make::before, .language-make::before,
-.matlab::before, .language-matlab::before,
-.python::before, .language-python::before,
-.r::before, .language-r::before,
-.sql::before, .language-sql::before {
-  background-color: #f2eff6;
-  display: block;
-  font-weight: bold;
-  padding: 5px 10px;
+div.error::before,
+div.warning:before,
+div.output::before,
+div.source::before,
+div[class^='language-']::before {
+    background-color: #f2eff6;
+    display: block;
+    font-weight: bold;
+    padding: 5px 10px;
 }
 
-.error::before  { background-color: #ffebe6; content: "Error"; }
-.output::before { background-color: #efefef; content: "Output"; }
-.source::before { content: "Code"; }
-.bash::before, .language-bash::before { content: "Bash"; }
-.make::before, .language-make::before { content: "Make"; }
-.matlab::before, .language-matlab::before { content: "Matlab"; }
-.python::before, .language-python::before { content: "Python"; }
-.r::before, .language-r::before { content: "R"; }
-.sql::before, .language-sql::before { content: "SQL"; }
+div[class^='language-']::before,
+div.source::before { content: "Code"; }
 
+div.error::before  { background-color: #ffebe6; content: "Error"; }
+div.warning:before { background-color: #f8f4e8; content:" Warning"; }
+div.output::before { background-color: #efefef; content: "Output"; }
+
+div.language-basic::before    { content: "Basic"; }
+div.language-bash::before     { content: "Bash"; }
+div.language-c::before        { content: "C"; }
+div.language-chapel::before   { content: "Chapel"; }
+div.language-cmake::before    { content: "CMake"; }
+div.language-cpp::before      { content: "C++"; }
+div.language-cuda::before     { content: "Cuda"; }
+div.language-d::before        { content: "D"; }
+div.language-fortran::before  { content: "Fortran"; }
+div.language-go::before       { content: "Go"; }
+div.language-html::before     { content: "HTML"; }
+div.language-java::before     { content: "Java"; }
+div.language-julia::before    { content: "Julia"; }
+div.language-kotlin::before   { content: "Kotlin"; }
+div.language-lua::before      { content: "Lua"; }
+div.language-make::before     { content: "Make"; }
+div.language-matlab::before   { content: "MATLAB"; }
+div.language-opencl::before   { content: "OpenCL"; }
+div.language-perl::before     { content: "Perl"; }
+div.language-python::before   { content: "Python"; }
+div.language-r::before        { content: "R"; }
+div.language-ruby::before     { content: "Ruby"; }
+div.language-rust::before     { content: "Rust"; }
+div.language-scala::before    { content: "Scala"; }
+div.language-sql::before      { content: "SQL"; }
+div.language-vulkan::before   { content: "Vulkan"; }
+
+// Tab panels are used on Setup pages to show instructions for different Operating Systems
+.tab-pane {
+  border: solid 1px #ddd; // #ddd == @nav-tabs-active-link-hover-border-color
+  border-top: none;
+  padding: 20px 20px 10px 20px;
+  border-radius: 0 0 4px 4px; // 4px == @border-radius-base
+}
+
+// Stripe above tab panels where OS tabs are shown
+ul.nav.nav-tabs {
+  background: #E1E1E1;
+  border-radius: 4px 4px 0 0;  // 4px == @border-radius-base
+}
+
+// adjust line height of links so that clickable area (of OS tabs) is 44px high
+ul.nav.nav-tabs li a { line-height: 24px; } // or 1.714285716
+
+// This color provides better contrast ratio on most backgrounds used on Carpentries websites
+// 9.24 on FFFFFF: https://webaim.org/resources/contrastchecker/?fcolor=204A6F&bcolor=FFFFFF&api (body)
+// 8.78 on F9F9F9: https://webaim.org/resources/contrastchecker/?fcolor=204A6F&bcolor=F9F9F9&api (tables)
+// 7.07 on E1E1E1: https://webaim.org/resources/contrastchecker/?fcolor=204A6F&bcolor=E1E1E1&api (tab panels)
+a { color: #204A6F; }
+
+// .yt-wrapper2 can be used for limiting maximum width of YouTube iframes only
+.yt-wrapper2 { max-width: 100%; margin: 0 auto; }
+
+// Use full width on small displays
+@media only screen and (max-width: 600px) { .yt-wrapper2 { max-width: 100%; } }
+
+.yt-wrapper {
+    height: 0;
+    margin-top: 10px;
+    padding-bottom: 56.25%;
+    position: relative;
+    width: 100%;
+}
+
+.yt-frame {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
 
 //----------------------------------------
 // Specialized blockquote environments for learning objectives, callouts, etc.
@@ -113,6 +176,7 @@ $codeblock-padding: 5px !default;
 }
 
 .callout{ @include bkSetup($color-callout, "\e146"); }
+.caution{ @include bkSetup($color-caution, "\e107"); }
 .challenge{ @include bkSetup($color-challenge, "\270f"); }
 .checklist{ @include bkSetup($color-checklist, "\e067"); }
 .discussion{ @include bkSetup($color-discussion, "\e123"); }
@@ -158,10 +222,28 @@ blockquote :not(h2) + p {
 
 blockquote { font-size: inherit; }
 
+a code {
+  color: #006cad;
+}
+
+a:link {
+  color: #196EBD;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #1AA4DA;
+}
+
 code {
   white-space: nowrap;
   padding: 2px 5px;
-  color: #006cad;
+  color: #24292e;
   background-color: #e7e7e7;
 }
 
@@ -174,6 +256,11 @@ article img {
     display: block;
     margin: 20px auto;
     max-width: 100%;
+}
+
+article img.inline {
+    display: inline-block;
+    margin: auto;
 }
 
 article h2 {
@@ -204,7 +291,7 @@ article pre {
   text-align: center;
 }
 
-footer .copyright,
+footer .license,
 footer .help-links
 {
     font-size: inherit;
@@ -235,6 +322,11 @@ span.fold-unfold {
 }
 
 
+p.image-with-shadow img,
+img.image-with-shadow {
+  box-shadow: 0 6px 24px 0 #888;
+}
+
 //----------------------------------------
 // Life cycle box
 //----------------------------------------
@@ -263,6 +355,17 @@ div.life-cycle {
 .beta {
     color: #31708f;
     background: #d9edf7;
+}
+
+.published {
+    color: #354711;
+    background: #effbd7;
+}
+
+// Remove border around spans of text within code blocks
+// that the highlighter (rouge) failed to recognize.
+pre.highlight span.err {
+    border: none;
 }
 
 

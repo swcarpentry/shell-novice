@@ -1,0 +1,122 @@
+name: Website
+on:
+  push:
+    branches:
+      - gh-pages
+      - main
+  pull_request: []
+jobs:
+  build-website:
+    if: ${{ !endsWith(github.repository, '/styles') }}
+    runs-on: ubuntu-20.04
+    env:
+      RSPM: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+          bundler-cache: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install GitHub Pages, Bundler, and kramdown gems
+        run: |
+          gem install github-pages bundler kramdown kramdown-parser-gfm
+
+      - name: Install Python modules
+        run: |
+          python3 -m pip install --upgrade pip setuptools wheel pyyaml==5.3.1 requests
+
+      - name: Checkout the lesson
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Look for R-markdown files
+        id: check-rmd
+        run: |
+          echo "::set-output name=count::$(shopt -s nullglob; files=($(find . -iname '*.Rmd')); echo ${#files[@]})"
+
+      - name: Set up R
+        if: steps.check-rmd.outputs.count != 0
+        uses: r-lib/actions/setup-r@master
+        with:
+          r-version: 'release'
+
+      - name: Restore R Cache
+        if: steps.check-rmd.outputs.count != 0
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+
+      - name: Install needed packages
+        if: steps.check-rmd.outputs.count != 0
+        run: |
+          source('bin/dependencies.R')
+          install_required_packages()
+        shell: Rscript {0}
+
+      - name: Query dependencies
+        if: steps.check-rmd.outputs.count != 0
+        run: |
+          source('bin/dependencies.R')
+          deps <- identify_dependencies()
+          create_description(deps)
+          use_bioc_repos()
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+        shell: Rscript {0}
+
+
+      - name: Install system dependencies for R packages
+        if: steps.check-rmd.outputs.count != 0
+        run: |
+          while read -r cmd
+          do
+            eval sudo $cmd || echo "Nothing to update"
+          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "20.04"), sep = "\n")')
+
+      - name: Render the markdown and confirm that the site can be built
+        run: make site
+
+      - name: Checkout github pages
+        if: ${{ github.event_name == 'push' && steps.check-rmd.outputs.count != 0 && github.ref != 'refs/heads/gh-pages'}}
+        uses: actions/checkout@master
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Commit and Push
+        if: ${{ github.event_name == 'push' && steps.check-rmd.outputs.count != 0 && github.ref != 'refs/heads/gh-pages'}}
+        run: |
+          # clean up gh-pages
+          cd gh-pages
+          git rm -rf .           # remove all previous files
+          git restore --staged . # remove things from the stage
+          cd ..
+          # copy everything into gh-pages site
+          cp -r `ls -A | grep -v 'gh-pages' | grep -v '.git' | grep -v '.bundle/' | grep -v '_site'` gh-pages
+          # move into gh-pages, add, commit, and push
+          cd gh-pages
+          # setup git
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add -A .
+          git commit --allow-empty -m "[Github Actions] render website (via ${{ github.sha }})"
+          git push origin gh-pages
+          # return
+          cd ..
+
+      - run: make lesson-check-all
+        if: always()
