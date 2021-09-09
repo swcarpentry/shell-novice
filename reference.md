@@ -115,11 +115,6 @@ operating system
 :   Software that manages interactions between users, hardware, and software [processes](#process). Common
     examples are Linux, macOS, and Windows.
 
-orthogonal
-:   To have meanings or behaviors that are independent of each other.
-    If a set of concepts or tools are orthogonal,
-    they can be combined in any way.
-
 parameter
 :   A variable named in a function's declaration that is used to hold a value passed into the call.
     The term is often used interchangeably (and inconsistently) with [argument](#argument).
