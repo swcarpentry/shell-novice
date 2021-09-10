@@ -423,6 +423,7 @@ from whatever file is being processed
 > CGGTACCGAA
 > AAGGGTCGCG
 > CAAGTGTTCC
+> ...
 > ```
 > {: . output}
 {: .callout}
