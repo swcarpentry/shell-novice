@@ -346,14 +346,14 @@ Miscellaneous:
 > > ## Solution
 > >
 > > ```
-> > grep -w $1 -r $2 | cut -d : -f 2 | cut -d , -f 1,3  > $1.txt
+> > grep -w $1 -r $2 | cut -d : -f 2 | cut -d , -f 1,3 > $1.txt
 > > ```
 > > {: .source}
-> > 
+> >
 > > Actually, you can swap the order of the two cut commands and it still works. At the
 > > command line, try changing the order of the cut commands, and have a look at the output
 > > from each step to see why this is the case.
-> > 
+> >
 > > You would call the script above like this:
 > >
 > > ```
