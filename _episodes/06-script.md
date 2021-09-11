@@ -502,12 +502,18 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > with that extension. For example:
 >
 > ~~~
-> $ bash longest.sh /tmp/data pdb
+> $ bash longest.sh shell-lesson-data/exercise-data/proteins pdb
 > ~~~
 > {: .language-bash}
 >
-> would print the name of the `.pdb` file in `/tmp/data` that has
+> would print the name of the `.pdb` file in `shell-lesson-data/exercise-data/proteins` that has
 > the most lines.
+>
+> Feel free to test your script on another directory e.g.
+> ~~~
+> $ bash longest.sh shell-lesson-data/exercise-data/writing txt
+> ~~~
+> {: .language-bash}
 >
 > > ## Solution
 > >
