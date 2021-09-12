@@ -60,6 +60,8 @@ menu.
 
 **For advanced users:**
 
+Another good emulator that run in a Windows environment is [Cygwin][https://cygwin.com/install.html], which is free to install, relatively easy to maintain, flexible, and extendable.
+
 As an alternative to Git for Windows you may wish to [Install the Windows Subsystem for Linux][wsl]
 which gives access to a Bash shell command-line tool in Windows 10.
 
@@ -92,6 +94,7 @@ The default Unix Shell for Linux operating systems is usually Bash.
 On most versions of Linux, it is accessible by running the
 [Gnome Terminal][gnome-terminal] or [KDE Konsole][kde-konsole] or [xterm][xterm],
 which can be found via the applications menu or the search bar.
+The Terminal shortcut key in Ubuntu is Ctrl+Alt+T.
 If your machine is set up to use something other than Bash,
 you can run it by opening a terminal and typing `bash`.
 </article>
