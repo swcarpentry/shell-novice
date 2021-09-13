@@ -28,7 +28,19 @@
 {% elsif site.life_cycle == "stable" %}
 
 {% comment %}
-We don't do anything special for now
+We do not do anything special unless this is a Carpentries Lab lesson
 {% endcomment %}
 
+{% if site.carpentry == "lab" %}
+{% if site.doi contains "zenodo" %}{% assign listing=" on Zenodo" %}
+{% elsif site.doi contains "jose" %}{% assign listing=" in JOSE" %}
+{% else %}{% assign listing="none" %}
+{% endif %}
+
+<div class="panel panel-default life-cycle">
+  <div id="life-cycle" class="panel-body published">
+    This lesson has passed peer-review! {% if site.doi != "" %}<a href="{{ site.doi }}">See the publication{{ listing }}.</a>{% endif %}
+  </div>
+</div>
+{% endif %}
 {% endif %}
