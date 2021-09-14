@@ -851,3 +851,5 @@ This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
 [Arguments]: https://swcarpentry.github.io/shell-novice/reference.html#argument
+
+{% include links.md %}

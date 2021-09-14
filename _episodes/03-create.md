@@ -952,3 +952,5 @@ or specifying a naming pattern using wildcards.
 > > as the 'data' directory.
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}
