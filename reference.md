@@ -46,7 +46,8 @@ command-line interface
 comment
 :   A remark in a program that is intended to help human readers understand what is going on,
     but is ignored by the computer.
-    Comments in Python, R, and the Unix shell start with a `#` character and run to the end of the line;
+    Comments in Python, R, and the Unix shell start with a `#` character
+    and run to the end of the line;
     comments in SQL start with `--`,
     and other languages have other conventions.
 
@@ -56,7 +57,8 @@ current working directory
     equivalently,
     the place where files referenced by name only are searched for.
     Every [process](#process) has a current working directory.
-    The current working directory is usually referred to using the shorthand notation `.` (pronounced "dot").
+    The current working directory is usually referred to using the shorthand notation `.`
+    (pronounced "dot").
 
 file system
 :   A set of files, directories, and I/O devices (such as keyboards and screens).
@@ -70,7 +72,8 @@ filename extension
     `.txt` means "text file", `.png` means "Portable Network Graphics file",
     and so on. These conventions are not enforced by most operating systems:
     it is perfectly possible (but confusing!) to name an MP3 sound file `homepage.html`.
-    Since many applications use filename extensions to identify the [MIME type](#mime-type) of the file,
+    Since many applications use filename extensions to identify the
+    [MIME type](#mime-type) of the file,
     misnaming files may cause those applications to fail.
 
 filter
@@ -84,7 +87,8 @@ flag
     By convention Unix applications use a dash followed by a single letter,
     such as `-v`, or two dashes followed by a word, such as `--verbose`,
     while DOS applications use a slash, such as `/V`.
-    Depending on the application, a flag may be followed by a single argument, as in `-o /tmp/output.txt`.
+    Depending on the application, a flag may be followed by a single argument,
+    as in `-o /tmp/output.txt`.
 
 for loop
 :   A loop that is executed once for each value in some kind of set, list, or range.
@@ -100,7 +104,8 @@ home directory
     By convention, all of a user's files are stored in or below her home directory.
 
 loop
-:   A set of instructions to be executed multiple times. Consists of a [loop body](#loop-body) and (usually) a
+:   A set of instructions to be executed multiple times.
+    Consists of a [loop body](#loop-body) and (usually) a
     condition for exiting the loop. See also [for loop](#for-loop) and [while loop](#while-loop).
 
 loop body
@@ -108,12 +113,12 @@ loop body
     or [while loop](#while-loop).
 
 MIME type
-:   MIME (Multi-Purpose Internet Mail Extensions) types describe different file types for exchange on the Internet,
-    for example, images, audio, and documents.
+:   MIME (Multi-Purpose Internet Mail Extensions) types describe different file types for exchange
+    on the Internet, for example, images, audio, and documents.
 
 operating system
-:   Software that manages interactions between users, hardware, and software [processes](#process). Common
-    examples are Linux, macOS, and Windows.
+:   Software that manages interactions between users, hardware, and software [processes](#process).
+    Common examples are Linux, macOS, and Windows.
 
 parameter
 :   A variable named in a function's declaration that is used to hold a value passed into the call.
@@ -122,10 +127,12 @@ parameter
 parent directory
 :   The directory that "contains" the one in question.
     Every directory in a file system except the [root directory](#root-directory) has a parent.
-    A directory's parent is usually referred to using the shorthand notation `..` (pronounced "dot dot").
+    A directory's parent is usually referred to using the shorthand notation `..`
+    (pronounced "dot dot").
 
 path
-:   A description that specifies the location of a file or directory within a [file system](#file-system).
+:   A description that specifies the location of a file or directory within a
+    [file system](#file-system).
     See also: [absolute path](#absolute-path), [relative path](#relative-path).
 
 
@@ -147,7 +154,8 @@ prompt
 
 quoting
 :   (in the shell):
-    Using quotation marks of various kinds to prevent the shell from interpreting special characters.
+    Using quotation marks of various kinds to prevent the shell from interpreting special
+    characters.
     For example, to pass the string `*.txt` to a program,
     it is usually necessary to write it as `'*.txt'` (with single quotes)
     so that the shell will not try to expand the `*` wildcard.

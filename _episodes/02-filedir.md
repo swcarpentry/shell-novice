@@ -67,13 +67,13 @@ which is Nelle's **home directory**:
 > (Note that it may look slightly different for different versions of Windows.)
 > In future examples, we've used Mac output as the default - Linux and Windows
 > output may differ slightly but should be generally similar.
-{: .callout}
 >
 > We will also assume that your `pwd` command returns your user's home directory.
 > If `pwd` returns something different, you may need to navigate there using `cd`
 > or some commands in this lesson will not work as written.
 > See [Exploring Other Directories](#exploring-other-directories) for more details
 > on the `cd` command.
+{: .callout}
 
 To understand what a 'home directory' is,
 let's have a look at how the file system as a whole is organized.  For the
@@ -276,7 +276,9 @@ you may use <kbd>↑</kbd> and <kbd>↓</kbd> to move line-by-line,
 or try <kbd>B</kbd> and <kbd>Spacebar</kbd> to skip up and down by a full page.
 To search for a character or word in the `man` pages,
 use <kbd>/</kbd> followed by the character or word you are searching for.
-Sometimes a search will result in multiple hits. If so, you can move between hits using <kbd>N</kbd> (for moving forward) and <kbd>Shift</kbd>+<kbd>N</kbd> (for moving backward).
+Sometimes a search will result in multiple hits. 
+If so, you can move between hits using <kbd>N</kbd> (for moving forward) and 
+<kbd>Shift</kbd>+<kbd>N</kbd> (for moving backward).
 
 To **quit** the `man` pages, press <kbd>Q</kbd>.
 
@@ -330,8 +332,9 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 
 ### Exploring Other Directories
 
-Not only can we use `ls` on the current working directory, but we can use it to list the contents of a different directory.  Let's take a
-look at our `Desktop` directory by running `ls -F Desktop`,
+Not only can we use `ls` on the current working directory, 
+but we can use it to list the contents of a different directory.
+Let's take a look at our `Desktop` directory by running `ls -F Desktop`,
 i.e.,
 the command `ls` with the `-F` **option** and the [**argument**][Arguments]  `Desktop`.
 The argument `Desktop` tells `ls` that
@@ -405,7 +408,10 @@ $ cd data
 {: .language-bash}
 
 These commands will move us from our home directory into our Desktop directory, then into
-the `shell-lesson-data` directory, then into the `data` directory. You will notice that `cd` doesn't print anything. This is normal. Many shell commands will not output anything to the screen when successfully executed. But if we run `pwd` after it, we can see that we are now
+the `shell-lesson-data` directory, then into the `data` directory. 
+You will notice that `cd` doesn't print anything. This is normal. 
+Many shell commands will not output anything to the screen when successfully executed. 
+But if we run `pwd` after it, we can see that we are now
 in `/Users/nelle/Desktop/shell-lesson-data/data`.
 If we run `ls -F` without arguments now,
 it lists the contents of `/Users/nelle/Desktop/shell-lesson-data/data`,
@@ -651,7 +657,8 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > > 3. No: Amanda's home directory is `/Users/amanda`.
 > > 4. No: this command goes up two levels, i.e. ends in `/Users`.
 > > 5. Yes: `~` stands for the user's home directory, in this case `/Users/amanda`.
-> > 6. No: this command would navigate into a directory `home` in the current directory if it exists.
+> > 6. No: this command would navigate into a directory `home` in the current directory 
+> >     if it exists.
 > > 7. Yes: unnecessarily complicated, but correct.
 > > 8. Yes: shortcut to go back to the user's home directory.
 > > 9. Yes: goes up one level.
@@ -730,7 +737,8 @@ $ ls -F /
 `ls` is the **command**, with an **option** `-F` and an
 **argument** `/`.
 We've already encountered options (also called **switches** or **flags**) which
-either start with a single dash (`-`) or two dashes (`--`), and they change the behavior of a command.
+either start with a single dash (`-`) or two dashes (`--`), 
+and they change the behavior of a command.
 [Arguments] tell the command what to operate on (e.g. files and directories).
 Sometimes options and arguments are referred to as **parameters**.
 A command can be called with more than one option and more than one argument, but a

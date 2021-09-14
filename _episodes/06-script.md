@@ -26,10 +26,12 @@ a bunch of commands saved in a file is usually called a **shell script**,
 but make no mistake:
 these are actually small programs.
 
-Not only will writing shell scripts make your work faster– you won't have to retype the same commands over and over
-again– it will also make it more accurate (fewer chances for typos) and more reproducible. If you
-come back to your work later (or if someone else finds your work and wants to build on it) you will be able
-to reproduce the same results simply by running your script, rather than having to remember or retype a long list of commands.
+Not only will writing shell scripts make your work faster ---
+you won't have to retype the same commands over and over again ---
+it will also make it more accurate (fewer chances for typos) and more reproducible.
+If you come back to your work later (or if someone else finds your work and wants to build on it)
+you will be able to reproduce the same results simply by running your script,
+rather than having to remember or retype a long list of commands.
 
 Let's start by going back to `molecules/` and creating a new file, `middle.sh` which will
 become our shell script:
@@ -303,10 +305,14 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 >
 > An example of this type of file is given in `shell-lesson-data/data/animal-counts/animals.txt`.
 >
-> We can use the command `cut -d , -f 2 animals.txt | sort | uniq` to produce the unique species in `animals.txt`. In order to avoid having to type out this series of commands every time, a scientist may choose to write a shell script instead.
+> We can use the command `cut -d , -f 2 animals.txt | sort | uniq` to produce
+> the unique species in `animals.txt`.
+> In order to avoid having to type out this series of commands every time,
+> a scientist may choose to write a shell script instead.
 >
 > Write a shell script called `species.sh` that takes any number of
-> filenames as command-line arguments, and uses a variation of the above command to print a list of the unique species appearing in each of those files separately.
+> filenames as command-line arguments, and uses a variation of the above command
+> to print a list of the unique species appearing in each of those files separately.
 >
 > > ## Solution
 > >
@@ -388,7 +394,8 @@ and save it as a shell script.
 ## Nelle's Pipeline: Creating a Script
 
 
-Nelle's supervisor insisted that all her analytics must be reproducible. The easiest way to capture all the steps is in a script.
+Nelle's supervisor insisted that all her analytics must be reproducible.
+The easiest way to capture all the steps is in a script.
 
 First we return to Nelle's data directory:
 ```

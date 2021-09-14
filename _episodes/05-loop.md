@@ -232,7 +232,8 @@ increase the odds that the program won't do what its readers think it does.
 
 > ## Limiting Sets of Files
 >
-> What would be the output of running the following loop in the `shell-lesson-data/molecules` directory?
+> What would be the output of running the following loop in thei
+> `shell-lesson-data/molecules` directory?
 >
 > ~~~
 > $ for filename in c*
@@ -287,12 +288,12 @@ increase the odds that the program won't do what its readers think it does.
 > ~~~
 > {: .language-bash}
 >
-> 1.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb` and `propane.pdb`,
+> 1.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb` and
+>    `propane.pdb`, and the text from `propane.pdb` will be saved to a file called `alkanes.pdb`.
+> 2.  Prints `cubane.pdb`, `ethane.pdb`, and `methane.pdb`, and the text from all three files
+>     would be concatenated and saved to a file called `alkanes.pdb`.
+> 3.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and `pentane.pdb`,
 >     and the text from `propane.pdb` will be saved to a file called `alkanes.pdb`.
-> 2.  Prints `cubane.pdb`, `ethane.pdb`, and `methane.pdb`, and the text from all three files would be
->     concatenated and saved to a file called `alkanes.pdb`.
-> 3.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and `pentane.pdb`, and the text
->     from `propane.pdb` will be saved to a file called `alkanes.pdb`.
 > 4.  None of the above.
 >
 > > ## Solution
@@ -304,7 +305,8 @@ increase the odds that the program won't do what its readers think it does.
 
 > ## Saving to a File in a Loop - Part Two
 >
-> Also in the `shell-lesson-data/molecules` directory, what would be the output of the following loop?
+> Also in the `shell-lesson-data/molecules` directory,
+> what would be the output of the following loop?
 >
 > ~~~
 > for datafile in *.pdb
@@ -409,14 +411,18 @@ from whatever file is being processed
 > The files above don't exist, so if we run the above code, the `head` command will be unable
 > to find them, however the error message returned will show the name of the files it is
 > expecting:
-> ```
+>
+> ~~~
 > head: cannot open ‘red dragon.dat’ for reading: No such file or directory
 > head: cannot open ‘purple unicorn.dat’ for reading: No such file or directory
-> ```
+> ~~~
 > {: .output}
+>
 > Try removing the quotes around `$filename` in the loop above to see the effect of the quote
-> marks on spaces. Note that we get a result from the loop command for unicorn.dat when we run this code in the `creatures` directory:
-> ```
+> marks on spaces. Note that we get a result from the loop command for unicorn.dat
+> when we run this code in the `creatures` directory:
+>
+> ~~~
 > head: cannot open ‘red’ for reading: No such file or directory
 > head: cannot open ‘dragon.dat’ for reading: No such file or directory
 > head: cannot open ‘purple’ for reading: No such file or directory
@@ -424,8 +430,8 @@ from whatever file is being processed
 > AAGGGTCGCG
 > CAAGTGTTCC
 > ...
-> ```
-> {: . output}
+> ~~~
+> {: .output}
 {: .callout}
 
 We would like to modify each of the files in `shell-lesson-data/creatures`, but also save a version
@@ -510,7 +516,8 @@ original-unicorn.dat"](../fig/shell_script_for_loop_flow_chart.svg)
 
 ## Nelle's Pipeline: Processing Files
 
-Nelle is now ready to process her data files using `goostats.sh` --- a shell script written by her supervisor.
+Nelle is now ready to process her data files using `goostats.sh` ---
+a shell script written by her supervisor.
 This calculates some statistics from a protein sample file, and takes two arguments:
 
 1. an input file (containing the raw data)
@@ -519,7 +526,8 @@ This calculates some statistics from a protein sample file, and takes two argume
 Since she's still learning how to use the shell,
 she decides to build up the required commands in stages.
 Her first step is to make sure that she can select the right input files --- remember,
-these are ones whose names end in 'A' or 'B', rather than 'Z'. Starting from her home directory, Nelle types:
+these are ones whose names end in 'A' or 'B', rather than 'Z'.
+Starting from her home directory, Nelle types:
 
 ~~~
 $ cd north-pacific-gyre/2012-07-03
@@ -591,14 +599,15 @@ $ for datafile in NENE*A.txt NENE*B.txt; do bash goostats.sh $datafile stats-$da
 When she presses <kbd>Enter</kbd>,
 the shell runs the modified command.
 However, nothing appears to happen --- there is no output.
-After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
-she has no idea whether it is running, much less how quickly.
+After a moment, Nelle realizes that since her script doesn't print anything to the screen
+any longer, she has no idea whether it is running, much less how quickly.
 She kills the running command by typing <kbd>Ctrl</kbd>+<kbd>C</kbd>,
 uses <kbd>↑</kbd> to repeat the command,
 and edits it to read:
 
 ~~~
-$ for datafile in NENE*A.txt NENE*B.txt; do echo $datafile; bash goostats.sh $datafile stats-$datafile; done
+$ for datafile in NENE*A.txt NENE*B.txt; do echo $datafile;
+bash goostats.sh $datafile stats-$datafile; done
 ~~~
 {: .language-bash}
 

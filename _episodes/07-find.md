@@ -55,7 +55,8 @@ Software is like that.
 
 > ## Forever, or Five Years
 >
-> We haven't linked to the original haiku because they don't appear to be on *Salon*'s site any longer.
+> We haven't linked to the original haiku because
+> they don't appear to be on *Salon*'s site any longer.
 > As [Jeff Rothenberg said](https://www.clir.org/wp-content/uploads/sites/6/ensuring.pdf),
 > 'Digital information lasts forever --- or five years, whichever comes first.'
 > Luckily, popular content often [has backups](http://wiki.c2.com/?ComputerErrorHaiku).
@@ -75,11 +76,16 @@ Today it is not working
 ~~~
 {: .output}
 
-Here, `not` is the pattern we're searching for. The grep command searches through the file, looking for matches to the pattern specified. To use it type `grep`, then the pattern we're searching for and finally the name of the file (or files) we're searching in.
+Here, `not` is the pattern we're searching for.
+The grep command searches through the file, looking for matches to the pattern specified.
+To use it type `grep`, then the pattern we're searching for and finally
+the name of the file (or files) we're searching in.
 
 The output is the three lines in the file that contain the letters 'not'.
 
-By default, grep searches for a pattern in a case-sensitive way. In addition, the search pattern we have selected does not have to form a complete word, as we will see in the next example.
+By default, grep searches for a pattern in a case-sensitive way.
+In addition, the search pattern we have selected does not have to form a complete word,
+as we will see in the next example.
 
 Let's search for the pattern: 'The'.
 
@@ -101,7 +107,8 @@ To restrict matches to lines containing the word 'The' on its own,
 we can give `grep` with the `-w` option.
 This will limit matches to word boundaries.
 
-Later in this lesson, we will also see how we can change the search behavior of grep with respect to its case sensitivity.
+Later in this lesson, we will also see how we can change the search behavior of grep
+with respect to its case sensitivity.
 
 ~~~
 $ grep -w The haiku.txt
@@ -152,8 +159,9 @@ $ grep -n "it" haiku.txt
 Here, we can see that lines 5, 9, and 10 contain the letters 'it'.
 
 We can combine options (i.e. flags) as we do with other Unix commands.
-For example, let's find the lines that contain the word 'the'. We can combine
-the option `-w` to find the lines that contain the word 'the' and `-n` to number the lines that match:
+For example, let's find the lines that contain the word 'the'.
+We can combine the option `-w` to find the lines that contain the word 'the'
+and `-n` to number the lines that match:
 
 ~~~
 $ grep -n -w "the" haiku.txt
@@ -408,7 +416,8 @@ Miscellaneous:
 > > Perceptive observers may have noticed that character names sometimes appear in all-uppercase
 > > in chapter titles (e.g. 'MEG GOES TO VANITY FAIR').
 > > If you wanted to count these as well, you could add the `-i` option for case-insensitivity
-> > (though in this case, it doesn't affect the answer to which sister is mentioned most frequently).
+> > (though in this case, it doesn't affect the answer to which sister is mentioned
+> > most frequently).
 > {: .solution}
 {: .challenge}
 
@@ -585,8 +594,8 @@ $ wc -l $(find . -name "*.txt")
 When the shell executes this command,
 the first thing it does is run whatever is inside the `$()`.
 It then replaces the `$()` expression with that command's output.
-Since the output of `find` is the four filenames `./data/one.txt`, `./data/LittleWomen.txt`, `./data/two.txt`, and `./haiku.txt`,
-the shell constructs the command:
+Since the output of `find` is the four filenames `./data/one.txt`, `./data/LittleWomen.txt`,
+`./data/two.txt`, and `./haiku.txt`, the shell constructs the command:
 
 ~~~
 $ wc -l ./data/one.txt ./data/LittleWomen.txt ./data/two.txt ./haiku.txt
@@ -667,9 +676,9 @@ environments ever created --- maybe even *the* most productive. Its syntax
 may be cryptic, but people who have mastered it can experiment with
 different commands interactively, then use what they have learned to
 automate their work. Graphical user interfaces may be easier to use at
-first, but once learned, the productivity in the shell is unbeatable. 
+first, but once learned, the productivity in the shell is unbeatable.
 And as Alfred North Whitehead wrote in 1911, 'Civilization advances by
-extending the number of important operations which we can perform 
+extending the number of important operations which we can perform
 without thinking about them.'
 
 > ## `find` Pipeline Reading Comprehension
