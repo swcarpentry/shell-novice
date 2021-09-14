@@ -50,7 +50,7 @@ We can use the text editor to directly edit the file -- we'll simply insert the 
 ~~~
 head -n 15 octane.pdb | tail -n 5
 ~~~
-{: .source}
+{: .language-bash}
 
 This is a variation on the pipe we constructed earlier:
 it selects lines 11-15 of the file `octane.pdb`.
@@ -328,7 +328,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > > 	cut -d , -f 2 $file | sort | uniq
 > > done
 > > ```
-> > {: .source}
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
@@ -533,7 +533,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > >
 > > wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1
 > > ```
-> > {: .source}
+> > {: .language-bash}
 > >
 > > The first part of the pipeline, `wc -l $1/*.$2 | sort -n`, counts
 > > the lines in each file and sorts them numerically (largest last). When
