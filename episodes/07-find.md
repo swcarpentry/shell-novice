@@ -697,3 +697,5 @@ without thinking about them.'
 > {: .solution}
 {: .challenge}
 
+
+{% include links.md %}

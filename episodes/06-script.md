@@ -638,3 +638,5 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > an empty string.
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

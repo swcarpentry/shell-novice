@@ -162,3 +162,5 @@ In order to achieve her task, Nelle needs to know how to:
 - retrieve a set of files
 - iterate over files
 - run a shell script containing her pipeline
+
+{% include links.md %}

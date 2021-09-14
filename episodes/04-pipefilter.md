@@ -713,3 +713,5 @@ so instead, she'll have to be careful later on to select files using the wildcar
 > > so this command would delete all files
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}
