@@ -162,7 +162,7 @@ directory.
 $ ls -F
 ~~~
 {: .language-bash}
-
+**Depending on your environment, with Git Bash there is no difference between ls and ls -F**
 ~~~
 Applications/ Documents/    Library/      Music/        Public/
 Desktop/      Downloads/    Movies/       Pictures/
