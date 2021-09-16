@@ -349,7 +349,8 @@ Miscellaneous:
 > Hint: use `man grep` to look for how to grep text recursively in a directory
 > and `man cut` to select more than one field in a line.
 >
-> An example of such a file is provided in `shell-lesson-data/exercise-data/animal-counts/animals.csv`
+> An example of such a file is provided in
+> `shell-lesson-data/exercise-data/animal-counts/animals.csv`
 >
 > > ## Solution
 > >

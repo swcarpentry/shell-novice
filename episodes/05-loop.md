@@ -30,7 +30,8 @@ amount of typing required (and hence reduces the number of typing mistakes).
 
 Suppose we have several hundred genome data files named `basilisk.dat`, `minotaur.dat`, and
 `unicorn.dat`.
-For this example, we'll use the `exercise-data/creatures` directory which only has three example files,
+For this example, we'll use the `exercise-data/creatures` directory which only has three
+example files,
 but the principles can be applied to many many more files at once.
 
 The structure of these files is the same: the common name, classification, and updated date are
@@ -335,7 +336,8 @@ or a subset of data.
 >
 > > ## Solution
 > > 1. The text from each file in turn gets written to the `alkanes.pdb` file.
-> > However, the file gets overwritten on each loop iteration, so the final content of `alkanes.pdb`
+> > However, the file gets overwritten on each loop iteration, so the final content of
+> > `alkanes.pdb`
 > > is the text from the `propane.pdb` file.
 > {: .solution}
 {: .challenge}
@@ -413,7 +415,8 @@ $ for filename in *.dat
 {: .language-bash}
 
 because then the first time through the loop,
-when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as a program.
+when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as
+a program.
 Finally,
 the `head` and `tail` combination selects lines 81-100
 from whatever file is being processed
@@ -471,7 +474,8 @@ from whatever file is being processed
 > {: .output}
 {: .callout}
 
-We would like to modify each of the files in `shell-lesson-data/exercise-data/creatures`, but also save a version
+We would like to modify each of the files in `shell-lesson-data/exercise-data/creatures`,
+but also save a version
 of the original files, naming the copies `original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
