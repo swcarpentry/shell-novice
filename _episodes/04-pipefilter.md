@@ -194,7 +194,8 @@ But first we'll use an exercise to learn a little about the sort command:
 
 > ## What Does `sort -n` Do?
 >
-> The file [`shell-lesson-data/exercise-data/numbers.txt`](../shell-lesson-data/exericse-data/numbers.txt)
+> The file
+> [`shell-lesson-data/exercise-data/numbers.txt`](../shell-lesson-data/exericse-data/numbers.txt)
 > contains the following lines:
 >
 > ~~~
@@ -490,7 +491,8 @@ so that you and other people can put those programs into pipes to multiply their
 
 > ## Pipe Reading Comprehension
 >
-> A file called `animals.csv` (in the `shell-lesson-data/exercise-data/animal-counts` folder) contains the following data:
+> A file called `animals.csv` (in the `shell-lesson-data/exercise-data/animal-counts` folder)
+> contains the following data:
 >
 > ~~~
 > 2012-11-05,deer

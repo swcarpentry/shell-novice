@@ -303,7 +303,8 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > ~~~
 > {: .source}
 >
-> An example of this type of file is given in `shell-lesson-data/exercise-data/animal-counts/animals.csv`.
+> An example of this type of file is given in
+> `shell-lesson-data/exercise-data/animal-counts/animals.csv`.
 >
 > We can use the command `cut -d , -f 2 animals.txt | sort | uniq` to produce
 > the unique species in `animals.txt`.
