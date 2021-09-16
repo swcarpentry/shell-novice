@@ -15,7 +15,8 @@ title: "Instructor Notes"
 *   The Shell
     *   Workflows can be automated through the use of shell scripts
     *   Built-in commands allow for easy data manipulation (e.g. sort, grep, etc.)
-    *   Every step can be captured in the shell script and allow reproducibility and easy troubleshooting
+    *   Every step can be captured in the shell script and allow reproducibility and
+        easy troubleshooting
 
 ## Overall
 
@@ -53,7 +54,8 @@ and to write a little bit of documentation
 to make their future selves' lives better.
 
 The third answer is,
-"Because it enables use of many domain-specific tools and compute resources researchers cannot access otherwise."
+"Because it enables use of many domain-specific tools and compute resources researchers
+cannot access otherwise."
 Familiarity with the shell is very useful for remote accessing machines,
 using high-performance computing infrastructure,
 and running new specialist tools in many disciplines.
@@ -84,7 +86,8 @@ as long as learners using Windows do not run into roadblocks such as:
 
 *   Use the `data` directory for in-workshop exercises and live coding examples.
     You can clone the shell-novice directory or use the *Download ZIP*
-    button on the right to get the entire [Git repository](https://github.com/swcarpentry/shell-novice). We also now provide
+    button on the right to get the entire
+    [Git repository](https://github.com/swcarpentry/shell-novice). We also now provide
     a zip file of the `data` directory
     at the [Setup page]({{ page.root }}{% link setup.md %}).
 
@@ -92,13 +95,16 @@ as long as learners using Windows do not run into roadblocks such as:
     *   Option 1: Can give links to learners before the lesson so they can follow along,
         catch up,
 	and see exercises (particularly if you're following the lesson content without many changes).
-    *   Option 2: Don't show the website to the learners during the lesson, as it can be distracting:
-        students may read instead of listen, and having another window open is an additional cognitive load.
+    *   Option 2: Don't show the website to the learners during the lesson,
+        as it can be distracting:
+        students may read instead of listen, and having another window open is an additional
+        cognitive load.
 	*   In any case, make sure to point to website as a post-workshop reference.
 
 *   Content:
     Unless you have a truly generous amount of time (4+ hours),
-    it is likely that you will not cover ALL the material in this lesson in a single half-day session.
+    it is likely that you will not cover ALL the material in this lesson in a single half-day
+    session.
     Plan ahead on what you might skip, what you really want to emphasize, etc.
 
 *   Exercises:
@@ -108,7 +114,8 @@ as long as learners using Windows do not run into roadblocks such as:
     Have a learner show the solution?
     Have groups each do a different exercise and present their solutions?
 
-*   The [Reference page]({{ page.root }}{% link reference.md %}) can be printed out and given to students as a reference, your choice.
+*   The [Reference page]({{ page.root }}{% link reference.md %}) can be printed out
+    and given to students as a reference, your choice.
 
 *   Other preparation:
     Feel free to add your own examples or side comments,
@@ -121,7 +128,10 @@ as long as learners using Windows do not run into roadblocks such as:
 
 *   Super cool online resource!
     <http://explainshell.com/> will dissect any shell command you type in
-    and display help text for each piece. Additional nice manual tool could be <http://tldr-pages.github.io/> with short very descriptive manuals for shell commands, useful especially on Windows while using Git BASH where `man` could not work.
+    and display help text for each piece.
+    Additional nice manual tool could be <http://tldr-pages.github.io/>
+    with short very descriptive manuals for shell commands,
+    useful especially on Windows while using Git BASH where `man` could not work.
 
 *   Another super cool online resource is <http://www.shellcheck.net>,
     which will check shell scripts (both uploaded and typed in) for common errors.
@@ -137,7 +147,10 @@ as long as learners using Windows do not run into roadblocks such as:
     the same text editor as the learners during workshops (in most cases Nano).
 
 *   Introducing and navigating the filesystem in the shell (covered in
-    [Navigating Files and Directories]({{ page.root }}{% link _episodes/02-filedir.md %}) section) can be confusing. You may have both terminal and GUI file explorer open side by side so learners can see the content and file structure while they're using terminal to navigate the system.
+    [Navigating Files and Directories]({{ page.root }}{% link _episodes/02-filedir.md %}) section)
+    can be confusing.
+    You may have both terminal and GUI file explorer open side by side so learners can see the
+    content and file structure while they're using terminal to navigate the system.
 
 *   Tab completion sounds like a small thing: it isn't.
     Re-running old commands using `!123` or `!wc`
@@ -167,9 +180,11 @@ as long as learners using Windows do not run into roadblocks such as:
 *   If everything is going well, you can drive home the point that file
     extensions are essentially there to help computers (and human
     readers) understand file content and are not a requirement of files
-    (covered briefly in [Navigating Files and Directories]({{ page.root }}{% link _episodes/02-filedir.md %})).
-    This can be done in the [Pipes and Filters]({{ page.root }}{% link _episodes/04-pipefilter.md %}) section by showing that you
-    can redirect standard output to a file without the .txt extension
+    (covered briefly in
+    [Navigating Files and Directories]({{ page.root }}{% link _episodes/02-filedir.md %})).
+    This can be done in the
+    [Pipes and Filters]({{ page.root }}{% link _episodes/04-pipefilter.md %}) section by showing
+    that you can redirect standard output to a file without the .txt extension
     (e.g., lengths), and that the resulting file is still a perfectly usable text file.
     Make the point that if double-clicked in the GUI, the computer will
     probably ask you what you want to do.
@@ -203,7 +218,7 @@ as long as learners using Windows do not run into roadblocks such as:
     $ cd
     $ cd Desktop
     ~~~
-    {: .bash}
+    {: .language-bash}
 
     will always put someone on their desktop.
     Have them create the example directory for the shell exercises there
@@ -238,8 +253,10 @@ but:
 
 1.  they don't work well on underpowered machines,
 2.  they're confusing for novices (because simple things like copy and paste work differently),
-3.  learners leave the workshop without a working environment on their operating system of choice, and
-4.  learners may show up without having downloaded the VM or the wireless will go down (or become congested) during the lesson.
+3.  learners leave the workshop without a working environment on their operating system of choice,
+    and
+4.  learners may show up without having downloaded the VM or the wireless will go down
+    (or become congested) during the lesson.
 
 Whatever you use,
 please *test it yourself* on a Windows machine *before* your workshop:
