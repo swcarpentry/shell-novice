@@ -117,7 +117,8 @@ only the number of characters or the number of words in the files.
 > sitting there: the command doesn't appear to do anything.
 >
 > If you make this kind of mistake, you can escape out of this state by holding down
-> the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and letting go of the <kbd>Ctrl</kbd> key.
+> the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and 
+> letting go of the <kbd>Ctrl</kbd> key.
 > <kbd>Ctrl</kbd>+<kbd>C</kbd>
 {: .callout}
 
@@ -299,7 +300,8 @@ the output of `head` must be the file with the fewest lines.
 
 > ## What Does `>>` Mean?
 >
-> We have seen the use of `>`, but there is a similar operator `>>` which works slightly differently.
+> We have seen the use of `>`, but there is a similar operator `>>` 
+> which works slightly differently.
 > We'll learn about the differences between these two operators by printing some strings.
 > We can use the `echo` command to print strings e.g.
 >
@@ -334,7 +336,8 @@ the output of `head` must be the file with the fewest lines.
 > >
 > > We see from the second example that the `>>` operator also writes 'hello' to a file
 > > (in this case`testfile02.txt`),
-> > but appends the string to the file if it already exists (i.e. when we run it for the second time).
+> > but appends the string to the file if it already exists 
+> > (i.e. when we run it for the second time).
 > {: .solution}
 {: .challenge}
 
@@ -362,7 +365,8 @@ the output of `head` must be the file with the fewest lines.
 > > Option 3 is correct.
 > > For option 1 to be correct we would only run the `head` command.
 > > For option 2 to be correct we would only run the `tail` command.
-> > For option 4 to be correct we would have to pipe the output of `head` into `tail -n 2` by doing `head -n 3 animals.txt | tail -n 2 > animals-subset.txt`
+> > For option 4 to be correct we would have to pipe the output of `head` into `tail -n 2`
+> > by doing `head -n 3 animals.txt | tail -n 2 > animals-subset.txt`
 > {: .solution}
 {: .challenge}
 
@@ -709,3 +713,5 @@ so instead, she'll have to be careful later on to select files using the wildcar
 > > so this command would delete all files
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}
