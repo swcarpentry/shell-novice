@@ -11,7 +11,7 @@ objectives:
 - "Create pipelines that include shell scripts you, and others, have written."
 keypoints:
 - "Save commands in files (usually called shell scripts) for re-use."
-- "`bash filename` runs the commands saved in a file."
+- "`bash [filename]` runs the commands saved in a file."
 - "`$@` refers to all of a shell script's command-line arguments."
 - "`$1`, `$2`, etc., refer to the first command-line argument, the second command-line argument, etc."
 - "Place variables in quotes if the values might have spaces in them."
@@ -25,6 +25,13 @@ For historical reasons,
 a bunch of commands saved in a file is usually called a **shell script**,
 but make no mistake:
 these are actually small programs.
+
+Not only will writing shell scripts make your work faster ---
+you won't have to retype the same commands over and over again ---
+it will also make it more accurate (fewer chances for typos) and more reproducible.
+If you come back to your work later (or if someone else finds your work and wants to build on it)
+you will be able to reproduce the same results simply by running your script,
+rather than having to remember or retype a long list of commands.
 
 Let's start by going back to `molecules/` and creating a new file, `middle.sh` which will
 become our shell script:
@@ -43,7 +50,7 @@ We can use the text editor to directly edit the file -- we'll simply insert the 
 ~~~
 head -n 15 octane.pdb | tail -n 5
 ~~~
-{: .source}
+{: .language-bash}
 
 This is a variation on the pipe we constructed earlier:
 it selects lines 11-15 of the file `octane.pdb`.
@@ -81,7 +88,7 @@ our script's output is exactly what we would get if we ran that pipeline directl
 > editors", but we need to be a bit more careful when it comes to
 > programming. By default, Microsoft Word uses `.docx` files to store not
 > only text, but also formatting information about fonts, headings, and so
-> on. This extra information isn't stored as characters, and doesn't mean
+> on. This extra information isn't stored as characters and doesn't mean
 > anything to tools like `head`: they expect input files to contain
 > nothing but the letters, digits, and punctuation on a standard computer
 > keyboard. When editing programs, therefore, you must either use a plain
@@ -147,10 +154,15 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 > we surround `$1` with double-quotes.
 {: .callout}
 
-We still need to edit `middle.sh` each time we want to adjust the range of lines,
-though.
-Let's fix that by using the special variables `$2` and `$3` for the
-number of lines to be passed to `head` and `tail` respectively:
+Currently, we need to edit `middle.sh` each time we want to adjust the range of
+lines that is returned.
+Let's fix that by configuring our script to instead use three command-line arguments.
+After the first command-line argument (`$1`), each additional argument that we
+provide will be accessible via the special variables `$1`, `$2`, `$3`,
+which refer to the first, second, third command-line arguments, respectively.
+
+Knowing this, we can use additional arguments to define the range of lines to
+be passed to `head` and `tail` respectively:
 
 ~~~
 $ nano middle.sh
@@ -240,7 +252,8 @@ which means,
 'All of the command-line arguments to the shell script'.
 We also should put `$@` inside double-quotes
 to handle the case of arguments containing spaces
-(`"$@"` is equivalent to `"$1"` `"$2"` ...)
+(`"$@"` is special syntax and is equivalent to `"$1"` `"$2"` ...).
+
 Here's an example:
 
 ~~~
@@ -290,12 +303,16 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > ~~~
 > {: .source}
 >
-> An example of this type of file is given in `data-shell/data/animal-counts/animals.txt`.
+> An example of this type of file is given in `shell-lesson-data/data/animal-counts/animals.txt`.
 >
-> We can use the command `cut -d , -f 2 animals.txt | sort | uniq` to produce the unique species in `animals.txt`. In order to avoid having to type out this series of commands every time, a scientist may choose to write a shell script instead.
+> We can use the command `cut -d , -f 2 animals.txt | sort | uniq` to produce
+> the unique species in `animals.txt`.
+> In order to avoid having to type out this series of commands every time,
+> a scientist may choose to write a shell script instead.
 >
 > Write a shell script called `species.sh` that takes any number of
-> filenames as command-line arguments, and uses a variation of the above command to print a list of the unique species appearing in each of those files separately.
+> filenames as command-line arguments, and uses a variation of the above command
+> to print a list of the unique species appearing in each of those files separately.
 >
 > > ## Solution
 > >
@@ -311,7 +328,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > > 	cut -d , -f 2 $file | sort | uniq
 > > done
 > > ```
-> > {: .source}
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
@@ -332,8 +349,8 @@ $ history | tail -n 5 > redo-figure-3.sh
 The file `redo-figure-3.sh` now contains:
 
 ~~~
-297 bash goostats NENE01729B.txt stats-NENE01729B.txt
-298 bash goodiff stats-NENE01729B.txt /data/validated/01729.txt > 01729-differences.txt
+297 bash goostats.sh NENE01729B.txt stats-NENE01729B.txt
+298 bash goodiff.sh stats-NENE01729B.txt /data/validated/01729.txt > 01729-differences.txt
 299 cut -d ',' -f 2-3 01729-differences.txt > 01729-time-series.txt
 300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png
 301 history | tail -n 5 > redo-figure-3.sh
@@ -377,7 +394,8 @@ and save it as a shell script.
 ## Nelle's Pipeline: Creating a Script
 
 
-Nelle's supervisor insisted that all her analytics must be reproducible. The easiest way to capture all the steps is in a script.
+Nelle's supervisor insisted that all her analytics must be reproducible.
+The easiest way to capture all the steps is in a script.
 
 First we return to Nelle's data directory:
 ```
@@ -392,7 +410,7 @@ She runs the editor and writes the following:
 for datafile in "$@"
 do
     echo $datafile
-    bash goostats $datafile stats-$datafile
+    bash goostats.sh $datafile stats-$datafile
 done
 ~~~
 {: .language-bash}
@@ -401,14 +419,14 @@ She saves this in a file called `do-stats.sh`
 so that she can now re-do the first stage of her analysis by typing:
 
 ~~~
-$ bash do-stats.sh NENE*[AB].txt
+$ bash do-stats.sh NENE*A.txt NENE*B.txt
 ~~~
 {: .language-bash}
 
 She can also do this:
 
 ~~~
-$ bash do-stats.sh NENE*[AB].txt | wc -l
+$ bash do-stats.sh NENE*A.txt NENE*B.txt | wc -l
 ~~~
 {: .language-bash}
 
@@ -421,10 +439,10 @@ She could have written it as:
 
 ~~~
 # Calculate stats for Site A and Site B data files.
-for datafile in NENE*[AB].txt
+for datafile in NENE*A.txt NENE*B.txt
 do
     echo $datafile
-    bash goostats $datafile stats-$datafile
+    bash goostats.sh $datafile stats-$datafile
 done
 ~~~
 {: .language-bash}
@@ -437,7 +455,7 @@ or on the 'G' or 'H' files her colleagues in Antarctica are producing,
 without editing the script.
 If she wanted to be more adventurous,
 she could modify her script to check for command-line arguments,
-and use `NENE*[AB].txt` if none were provided.
+and use `NENE*A.txt NENE*B.txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Variables in Shell Scripts
@@ -491,12 +509,18 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > with that extension. For example:
 >
 > ~~~
-> $ bash longest.sh /tmp/data pdb
+> $ bash longest.sh shell-lesson-data/exercise-data/proteins pdb
 > ~~~
 > {: .language-bash}
 >
-> would print the name of the `.pdb` file in `/tmp/data` that has
+> would print the name of the `.pdb` file in `shell-lesson-data/exercise-data/proteins` that has
 > the most lines.
+>
+> Feel free to test your script on another directory e.g.
+> ~~~
+> $ bash longest.sh shell-lesson-data/exercise-data/writing txt
+> ~~~
+> {: .language-bash}
 >
 > > ## Solution
 > >
@@ -509,13 +533,24 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > >
 > > wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1
 > > ```
-> > {: .source}
+> > {: .language-bash}
+> >
+> > The first part of the pipeline, `wc -l $1/*.$2 | sort -n`, counts
+> > the lines in each file and sorts them numerically (largest last). When
+> > there's more than one file, `wc` also outputs a final summary line,
+> > giving the total number of lines across _all_ files.  We use `tail
+> > -n 2 | head -n 1` to throw away this last line.
+> >
+> > With `wc -l $1/*.$2 | sort -n | tail -n 1` we'll see the final summary
+> > line: we can build our pipeline up in pieces to be sure we understand
+> > the output.
+> >
 > {: .solution}
 {: .challenge}
 
 > ## Script Reading Comprehension
 >
-> For this question, consider the `data-shell/molecules` directory once again.
+> For this question, consider the `shell-lesson-data/molecules` directory once again.
 > This contains a number of `.pdb` files in addition to any other files you
 > may have created.
 > Explain what each of the following three scripts would do when run as
@@ -572,7 +607,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > for datafile in "$@"
 > do
 >     echo $datfile
->     bash goostats $datafile stats-$datafile
+>     bash goostats.sh $datafile stats-$datafile
 > done
 > ~~~
 > {: .language-bash}
@@ -580,7 +615,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > When you run it:
 >
 > ~~~
-> $ bash do-errors.sh NENE*[AB].txt
+> $ bash do-errors.sh NENE*A.txt NENE*B.txt
 > ~~~
 > {: .language-bash}
 >
@@ -588,7 +623,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > To figure out why, re-run the script using the `-x` option:
 >
 > ~~~
-> bash -x do-errors.sh NENE*[AB].txt
+> bash -x do-errors.sh NENE*A.txt NENE*B.txt
 > ~~~
 > {: .language-bash}
 >
@@ -603,3 +638,5 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > an empty string.
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

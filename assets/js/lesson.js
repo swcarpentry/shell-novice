@@ -4,8 +4,8 @@ $("table").addClass("table table-striped");
 
 // Handle foldable challenges and solutions (on click and at start).
 $(".solution").click(function(event) {
-    var trigger = $(event.target).has(".fold-unfold").size() > 0
-               || $(event.target).filter(".fold-unfold").size() > 0;
+    var trigger = $(event.target).has(".fold-unfold").length > 0
+               || $(event.target).filter(".fold-unfold").length > 0;
     if (trigger) {
         $(">*:not(h2)", this).toggle(400);
         $(">h2>span.fold-unfold", this).toggleClass("glyphicon-collapse-down glyphicon-collapse-up");

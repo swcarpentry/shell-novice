@@ -1,27 +1,41 @@
-{% comment %}
-This is adapted from: https://ricostacruz.com/til/relative-paths-in-jekyll
+{%- comment -%}
+When the website is built by GitHub Pages,
+'site.url' is set to 'https://username.github.io'
+'site.baseurl' is set to '/lesson-name'
 
-`page.url` gives the URL of the current page with a leading /:
+When we start a local server using `jekyll serve`,
+'site.url' is set to 'http://localhost:4000' and
+'site.baseurl' is empty.
 
-- when the URL ends with the extension (e.g., /foo/bar.html) then we can get
-  the depth by counting the number of / and remove - 1
-- when the URL ends with a / (e.g. /foo/bar/) then the number / gives the depth
-  directly
-{% endcomment %}
+In both of the above cases we set 'relative_root_path' to 'site.baseurl'.
 
-{% assign relative_root_path = '' %}
+When we build a website locally with `jekyll build`,
+both 'site.url' and 'site.baseurl' are empty.
+This case is handled by the last 'else' in the code below.
+The logic there follows the (adapted) instructions found at:
+    https://ricostacruz.com/til/relative-paths-in-jekyll
 
-{% assign last_char = page.url | slice: -1 %}
+    `page.url` gives the URL of the current page with a leading /:
 
-{% if last_char == "/"}
-{% assign offset = 0 %}
+    - when the URL ends with an extension (e.g., /foo/bar.html),
+      we can get the 'depth' of the page by counting the number of
+      forward slashes ('/') and subtracting 1
+    - when the URL ends with a forward slash (e.g. /foo/bar/),
+      we can get the depth of the page by counting the number of /
+{%- endcomment -%}
+
+{% if site.url %}
+  {% assign relative_root_path = site.baseurl %}
 {% else %}
-{% assign offset = 1 %}
-{% endif %}
-
-{% assign depth = page.url | split: '/' | size | minus: offset %}
-{% if    depth <= 1 %}{% assign relative_root_path = '.' %}
-{% elsif depth == 2 %}{% assign relative_root_path = '..' %}
-{% elsif depth == 3 %}{% assign relative_root_path = '../..' %}
-{% elsif depth == 4 %}{% assign relative_root_path = '../../..' %}
+  {% assign last_char = page.url | slice: -1 %}
+  {% if last_char == "/" %}
+    {% assign offset = 0 %}
+  {% else %}
+    {% assign offset = 1 %}
+  {% endif %}
+  {% assign depth = page.url | split: '/' | size | minus: offset %}
+  {% if    depth <= 1 %}{% assign relative_root_path = '.' %}
+  {% elsif depth == 2 %}{% assign relative_root_path = '..' %}
+  {% else %}{% capture relative_root_path %}..{% for i in (3..depth) %}/..{% endfor %}{% endcapture %}
+  {% endif %}
 {% endif %}

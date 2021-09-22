@@ -3,7 +3,7 @@
     GitHub Pages switches to Jekyll that supports it
     without any major hackery. Note, some logic will
     be required even when this transition happens
-    but it won't be as involved as what we have to do
+    but it will not be as involved as what we have to do
     in this file.
 
     To order lesson episodes or extras manually
@@ -35,7 +35,7 @@
        as 'url' and 'title' and that are used in
        'episode_navbar.html'.
 
-    When episode order is specified manualy, the 'lesson_episodes'
+    When episode order is specified manually, the 'lesson_episodes'
     variable contains a list of episode names ("slugs", to be precise;
     "slug" is the episode name without '.md').  Therefore, when we
     iterate over 'lesson_episodes' (in syllabus.html and navbar.html) ,
@@ -50,7 +50,9 @@
         {% endif %}
 {% endcomment %}
 
-<!-- Manual ordering of Episodes begins here -->
+{% comment %}
+Manual ordering of Episodes begins here
+{% endcomment %}
 
 {% if site.episode_order %}
     {% assign lesson_episodes = site.episode_order %}
@@ -98,7 +100,10 @@
   {% assign next_episode  = page.next %}
 {% endif %}
 
-<!-- Manual ordering of Extras begins here -->
+
+{% comment %}
+Manual ordering of Extras begins here
+{% endcomment %}
 
 {% if site.extras_order %}
     {% assign lesson_extras = site.extras_order %}

@@ -11,21 +11,21 @@ objectives:
 - "Explain what usually happens if a program or pipeline isn't given any input to process."
 - "Explain Unix's 'small pieces, loosely joined' philosophy."
 keypoints:
+- "`wc` counts lines, words, and characters in its inputs."
 - "`cat` displays the contents of its inputs."
+- "`sort` sorts its inputs."
 - "`head` displays the first 10 lines of its input."
 - "`tail` displays the last 10 lines of its input."
-- "`sort` sorts its inputs."
-- "`wc` counts lines, words, and characters in its inputs."
-- "`command > file` redirects a command's output to a file (overwriting any existing content)."
-- "`command >> file` appends a command's output to a file."
-- "`first | second` is a pipeline: the output of the first command is used as the input to the second."
+- "`command > [file]` redirects a command's output to a file (overwriting any existing content)."
+- "`command >> [file]` appends a command's output to a file."
+- "`[first] | [second]` is a pipeline: the output of the first command is used as the input to the second."
 - "The best way to use the shell is to use pipes to combine simple single-purpose programs (filters)."
 ---
 
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
-We'll start with a directory called `molecules`
+We'll start with the directory called `shell-lesson-data/molecules`
 that contains six files describing some simple organic molecules.
 The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
@@ -41,11 +41,11 @@ octane.pdb    pentane.pdb   propane.pdb
 ~~~
 {: .output}
 
-Let's go into that directory with `cd` and run the command `wc cubane.pdb`:
+Let's go into that directory with `cd` and run an example  command `wc cubane.pdb`:
 
 ~~~
 $ cd molecules
-$ wc cubane.pdb 
+$ wc cubane.pdb
 ~~~
 {: .language-bash}
 
@@ -97,7 +97,7 @@ $ wc -l *.pdb
 ~~~
 {: .output}
 
-The `-c` and `-w` options can also be used with the `wc` command, to show 
+The `-m` and `-w` options can also be used with the `wc` command, to show
 only the number of characters or the number of words in the files.
 
 > ## Why Isn't It Doing Anything?
@@ -117,9 +117,13 @@ only the number of characters or the number of words in the files.
 > sitting there: the command doesn't appear to do anything.
 >
 > If you make this kind of mistake, you can escape out of this state by holding down
-> the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and letting go of the <kbd>Ctrl</kbd> key.
+> the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and 
+> letting go of the <kbd>Ctrl</kbd> key.
 > <kbd>Ctrl</kbd>+<kbd>C</kbd>
 {: .callout}
+
+
+## Capturing output from commands
 
 Which of these files contains the fewest lines?
 It's an easy question to answer when there are only six files,
@@ -183,11 +187,16 @@ $ cat lengths.txt
 > or back one by pressing `b`.  Press `q` to quit.
 {: .callout}
 
-Now let's use the `sort` command to sort its contents.
+
+## Filtering output
+
+Next we'll use the `sort` command to sort the contents of the `lengths.txt` file.
+But first we'll use an exercise to learn a little about the sort command:
 
 > ## What Does `sort -n` Do?
 >
-> If we run `sort` on a file containing the following lines:
+> The file [`shell-lesson-data/numbers.txt`](../shell-lesson-data/numbers.txt)
+> contains the following lines:
 >
 > ~~~
 > 10
@@ -198,7 +207,7 @@ Now let's use the `sort` command to sort its contents.
 > ~~~
 > {: .source}
 >
-> the output is:
+> If we run `sort` on this file, the output is:
 >
 > ~~~
 > 10
@@ -209,7 +218,7 @@ Now let's use the `sort` command to sort its contents.
 > ~~~
 > {: .output}
 >
-> If we run `sort -n` on the same input, we get this instead:
+> If we run `sort -n` on the same file, we get this instead:
 >
 > ~~~
 > 2
@@ -247,6 +256,7 @@ $ sort -n lengths.txt
 107  total
 ~~~
 {: .output}
+
 
 We can put the sorted list of lines in another temporary file called `sorted-lengths.txt`
 by putting `> sorted-lengths.txt` after the command,
@@ -290,7 +300,8 @@ the output of `head` must be the file with the fewest lines.
 
 > ## What Does `>>` Mean?
 >
-> We have seen the use of `>`, but there is a similar operator `>>` which works slightly differently.
+> We have seen the use of `>`, but there is a similar operator `>>` 
+> which works slightly differently.
 > We'll learn about the differences between these two operators by printing some strings.
 > We can use the `echo` command to print strings e.g.
 >
@@ -325,7 +336,8 @@ the output of `head` must be the file with the fewest lines.
 > >
 > > We see from the second example that the `>>` operator also writes 'hello' to a file
 > > (in this case`testfile02.txt`),
-> > but appends the string to the file if it already exists (i.e. when we run it for the second time).
+> > but appends the string to the file if it already exists 
+> > (i.e. when we run it for the second time).
 > {: .solution}
 {: .challenge}
 
@@ -334,7 +346,7 @@ the output of `head` must be the file with the fewest lines.
 > We have already met the `head` command, which prints lines from the start of a file.
 > `tail` is similar, but prints lines from the end of a file instead.
 >
-> Consider the file `data-shell/data/animals.txt`.
+> Consider the file `shell-lesson-data/data/animals.txt`.
 > After these commands, select the answer that
 > corresponds to the file `animals-subset.txt`:
 >
@@ -353,14 +365,18 @@ the output of `head` must be the file with the fewest lines.
 > > Option 3 is correct.
 > > For option 1 to be correct we would only run the `head` command.
 > > For option 2 to be correct we would only run the `tail` command.
-> > For option 4 to be correct we would have to pipe the output of `head` into `tail -n 2` by doing `head -n 3 animals.txt | tail -n 2 > animals-subset.txt`
+> > For option 4 to be correct we would have to pipe the output of `head` into `tail -n 2`
+> > by doing `head -n 3 animals.txt | tail -n 2 > animals-subset.txt`
 > {: .solution}
 {: .challenge}
 
-If you think this is confusing,
-you're in good company:
+
+## Passing output to another command
+In our example of finding the file with the fewest lines,
+we are using two intermediate files `lengths.txt` and `sorted-lengths.txt` to store output.
+This is a confusing way to work because
 even once you understand what `wc`, `sort`, and `head` do,
-all those intermediate files make it hard to follow what's going on.
+those intermediate files make it hard to follow what's going on.
 We can make it easier to understand by running `sort` and `head` together:
 
 ~~~
@@ -378,10 +394,15 @@ It tells the shell that we want to use
 the output of the command on the left
 as the input to the command on the right.
 
+This has removed the need for the `sorted-lengths.txt` file.
+
+## Combining multiple commands
 Nothing prevents us from chaining pipes consecutively.
-That is, we can for example send the output of `wc` directly to `sort`,
+We can for example send the output of `wc` directly to `sort`,
 and then the resulting output to `head`.
-Thus we first use a pipe to send the output of `wc` to `sort`:
+This removes the need for any intermediate files.
+
+We'll start by using a pipe to send the output of `wc` to `sort`:
 
 ~~~
 $ wc -l *.pdb | sort -n
@@ -399,7 +420,7 @@ $ wc -l *.pdb | sort -n
 ~~~
 {: .output}
 
-And now we send the output of this pipe, through another pipe, to `head`, so that the full pipeline becomes:
+We can then send that output through another pipe, to `head`, so that the full pipeline becomes:
 
 ~~~
 $ wc -l *.pdb | sort -n | head -n 1
@@ -419,7 +440,12 @@ the calculation is 'head of sort of line count of `*.pdb`'.
 
 The redirection and pipes used in the last few commands are illustrated below:
 
-![Redirects and Pipes](../fig/redirects-and-pipes.png)
+![Redirects and Pipes of different commands: "wc -l *.pdb" will direct the
+output to the shell. "wc -l *.pdb > lengths" will direct output to the file
+"lengths". "wc -l *.pdb | sort -n | head -n 1" will build a pipeline where the
+output of the "wc" command is the input to the "sort" command, the output of
+the "sort" command is the input to the "head" command and the output of the
+"head" command is directed to the shell](../fig/redirects-and-pipes.svg)
 
 > ## Piping Commands Together
 >
@@ -436,11 +462,12 @@ The redirection and pipes used in the last few commands are illustrated below:
 > > The pipe character `|` is used to connect the output from one command to
 > > the input of another.
 > > `>` is used to redirect standard output to a file.
-> > Try it in the `data-shell/molecules` directory!
+> > Try it in the `shell-lesson-data/molecules` directory!
 > {: .solution}
 {: .challenge}
 
 
+## Tools designed to work together
 This idea of linking programs together is why Unix has been so successful.
 Instead of creating enormous programs that try to do many different things,
 Unix programmers focus on creating lots of simple tools that each do one job well,
@@ -464,7 +491,7 @@ so that you and other people can put those programs into pipes to multiply their
 
 > ## Pipe Reading Comprehension
 >
-> A file called `animals.txt` (in the `data-shell/data` folder) contains the following data:
+> A file called `animals.txt` (in the `shell-lesson-data/data` folder) contains the following data:
 >
 > ~~~
 > 2012-11-05,deer
@@ -557,7 +584,7 @@ so that you and other people can put those programs into pipes to multiply their
 >
 > The `uniq` command has a `-c` option which gives a count of the
 > number of times a line occurs in its input.  Assuming your current
-> directory is `data-shell/data/`, what command would you use to produce
+> directory is `shell-lesson-data/data/`, what command would you use to produce
 > a table that shows the total count of each type of animal in the file?
 >
 > 1.  `sort animals.txt | uniq -c`
@@ -569,7 +596,7 @@ so that you and other people can put those programs into pipes to multiply their
 > > ## Solution
 > > Option 4. is the correct answer.
 > > If you have difficulty understanding why, try running the commands, or sub-sections of
-> > the pipelines (make sure you are in the `data-shell/data` directory).
+> > the pipelines (make sure you are in the `shell-lesson-data/data` directory).
 > {: .solution}
 {: .challenge}
 
@@ -577,7 +604,7 @@ so that you and other people can put those programs into pipes to multiply their
 
 Nelle has run her samples through the assay machines
 and created 17 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
-As a quick sanity check, starting from her home directory, Nelle types:
+As a quick check, starting from her home directory, Nelle types:
 
 ~~~
 $ cd north-pacific-gyre/2012-07-03
@@ -659,45 +686,9 @@ Since it's too late to get the information any other way,
 she must exclude those two files from her analysis.
 She could delete them using `rm`,
 but there are actually some analyses she might do later where depth doesn't matter,
-so instead, she'll have to be careful later on to select files using the wildcard expression `*[AB].txt`.
-As always,
-the `*` matches any number of characters;
-the expression `[AB]` matches either an 'A' or a 'B',
-so this matches all the valid data files she has.
+so instead, she'll have to be careful later on to select files using the wildcard expressions
+`NENE*A.txt NENE*B.txt`.
 
-> ## Wildcard Expressions
->
-> Wildcard expressions can be very complex, but you can sometimes write
-> them in ways that only use simple syntax, at the expense of being a bit
-> more verbose.
-> Consider the directory `data-shell/north-pacific-gyre/2012-07-03` :
-> the wildcard expression `*[AB].txt`
-> matches all files ending in `A.txt` or `B.txt`. Imagine you forgot about
-> this.
->
-> 1.  Can you match the same set of files with basic wildcard expressions
->     that do not use the `[]` syntax? *Hint*: You may need more than one
->     expression.
->
-> 2.  The expression that you found and the expression from the lesson match the
->     same set of files in this example. What is the small difference between the
->     outputs?
->
-> 3.  Under what circumstances would your new expression produce an error message
->     where the original one would not?
->
-> > ## Solution
-> > 1. A solution using two wildcard expressions:
-> >     ~~~
-> >     $ ls *A.txt
-> >     $ ls *B.txt
-> >     ~~~
-> >     {: .language-bash}
-> > 2. The output from the new commands is separated because there are two commands.
-> > 3. When there are no files ending in `A.txt`, or there are no files ending in
-> > `B.txt`.
-> {: .solution}
-{: .challenge}
 
 > ## Removing Unneeded Files
 >
@@ -722,3 +713,5 @@ so this matches all the valid data files she has.
 > > so this command would delete all files
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

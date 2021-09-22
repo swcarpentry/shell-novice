@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Discussion"
-permalink: /discuss/
 ---
 ## Alphabet Soup
 
@@ -35,7 +34,8 @@ following are all equivalent `Ctrl-C`, `Ctrl+C`, `Control-C`, `Control+C`, `^C`)
     If we just type `wc` and hit the Enter key without providing a file name,
     then `wc` will assume we want it to analyze all the stuff we type next.
     After typing our magnum opus directly into the shell prompt,
-    we can then type Ctrl-D to tell `wc` that we're done and we'd like to see the results of the word count.
+    we can then type Ctrl-D to tell `wc` that we're done
+    and we'd like to see the results of the word count.
 
 *   `Ctrl-Z`:
     Suspends a process but does not terminate it.
@@ -68,4 +68,4 @@ This excellent blog post "[Bash Configurations Demystified][bash-demystified]"
 from Dalton Hubble
 covers tips, tricks, and how to avoid dangers.
 
-[bash-demystified]: https://blog.dghubble.io/post/.bashprofile-.profile-and-.bashrc-conventions/
+[bash-demystified]: https://blog.dghubble.io/posts/.bashprofile-.profile-and-.bashrc-conventions/

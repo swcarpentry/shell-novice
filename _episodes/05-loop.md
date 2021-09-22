@@ -18,8 +18,8 @@ keypoints:
 - "Do not use spaces, quotes, or wildcard characters such as '*' or '?' in filenames, as it complicates variable expansion."
 - "Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping."
 - "Use the up-arrow key to scroll up through previous commands to edit and repeat them."
-- "Use `Ctrl-R` to search through the previously entered commands."
-- "Use `history` to display recent commands, and `!number` to repeat a command by number."
+- "Use <kbd>Ctrl</kbd>+<kbd>R</kbd> to search through the previously entered commands."
+- "Use `history` to display recent commands, and `![number]` to repeat a command by number."
 ---
 
 **Loops** are a programming construct which allow us to repeat a command or set of commands
@@ -38,7 +38,7 @@ presented on the first three lines, with DNA sequences on the following lines.
 Let's look at the files:
 
 ```
-head -n 5 basilisk.dat minotaur.dat unicorn.dat
+$ head -n 5 basilisk.dat minotaur.dat unicorn.dat
 ```
 {: .language-bash}
 
@@ -60,7 +60,7 @@ and we can apply this to our example like this:
 ```
 $ for filename in basilisk.dat minotaur.dat unicorn.dat
 > do
->    head -n 2 $filename | tail -n 1
+>     head -n 2 $filename | tail -n 1
 > done
 ```
 {: .language-bash}
@@ -101,9 +101,9 @@ The interpreter runs the command `head` on `basilisk.dat`
 and pipes the first two lines to the `tail` command,
 which then prints the second line of `basilisk.dat`.
 For the second iteration, `$filename` becomes
-`minotaur.dat`. This time, the shell runs `head` on `monotaur.dat`
+`minotaur.dat`. This time, the shell runs `head` on `minotaur.dat`
 and pipes the first two lines to the `tail` command,
-which then prints the second line of `monotaur.dat`.
+which then prints the second line of `minotaur.dat`.
 For the third iteration, `$filename` becomes
 `unicorn.dat`, so the shell runs the `head` command on that file,
 and `tail` on the output of that.
@@ -111,7 +111,7 @@ Since the list was only three items, the shell exits the `for` loop.
 
 > ## Same Symbols, Different Meanings
 >
-> Here we see `>` being used a shell prompt, whereas `>` is also
+> Here we see `>` being used as a shell prompt, whereas `>` is also
 > used to redirect output.
 > Similarly, `$` is used as a shell prompt, but, as we saw earlier,
 > it is also used to ask the shell to get the value of a variable.
@@ -136,7 +136,7 @@ if we wrote this loop as:
 ~~~
 $ for x in basilisk.dat minotaur.dat unicorn.dat
 > do
->    head -n 2 $x | tail -n 1
+>     head -n 2 $x | tail -n 1
 > done
 ~~~
 {: .language-bash}
@@ -146,7 +146,7 @@ or:
 ~~~
 $ for temperature in basilisk.dat minotaur.dat unicorn.dat
 > do
->    head -n 2 $temperature | tail -n 1
+>     head -n 2 $temperature | tail -n 1
 > done
 ~~~
 {: .language-bash}
@@ -159,7 +159,7 @@ increase the odds that the program won't do what its readers think it does.
 
 > ## Variables in Loops
 >
-> This exercise refers to the `data-shell/molecules` directory.
+> This exercise refers to the `shell-lesson-data/molecules` directory.
 > `ls` gives the following output:
 >
 > ~~~
@@ -172,7 +172,7 @@ increase the odds that the program won't do what its readers think it does.
 > ~~~
 > $ for datafile in *.pdb
 > > do
-> >    ls *.pdb
+> >     ls *.pdb
 > > done
 > ~~~
 > {: .language-bash}
@@ -199,7 +199,7 @@ increase the odds that the program won't do what its readers think it does.
 > > ```
 > > $ for datafile in cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
 > > > do
-> > >	ls cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > >     ls cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
 > > > done
 > > ```
 > > {: .language-bash}
@@ -232,12 +232,13 @@ increase the odds that the program won't do what its readers think it does.
 
 > ## Limiting Sets of Files
 >
-> What would be the output of running the following loop in the `data-shell/molecules` directory?
+> What would be the output of running the following loop in thei
+> `shell-lesson-data/molecules` directory?
 >
 > ~~~
 > $ for filename in c*
 > > do
-> >    ls $filename
+> >     ls $filename
 > > done
 > ~~~
 > {: .language-bash}
@@ -257,7 +258,7 @@ increase the odds that the program won't do what its readers think it does.
 > ~~~
 > $ for filename in *c*
 > > do
-> >    ls $filename
+> >     ls $filename
 > > done
 > ~~~
 > {: .language-bash}
@@ -276,7 +277,7 @@ increase the odds that the program won't do what its readers think it does.
 
 > ## Saving to a File in a Loop - Part One
 >
-> In the `data-shell/molecules` directory, what is the effect of this loop?
+> In the `shell-lesson-data/molecules` directory, what is the effect of this loop?
 >
 > ~~~
 > for alkanes in *.pdb
@@ -287,24 +288,25 @@ increase the odds that the program won't do what its readers think it does.
 > ~~~
 > {: .language-bash}
 >
-> 1.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb` and `propane.pdb`,
+> 1.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb` and
+>    `propane.pdb`, and the text from `propane.pdb` will be saved to a file called `alkanes.pdb`.
+> 2.  Prints `cubane.pdb`, `ethane.pdb`, and `methane.pdb`, and the text from all three files
+>     would be concatenated and saved to a file called `alkanes.pdb`.
+> 3.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and `pentane.pdb`,
 >     and the text from `propane.pdb` will be saved to a file called `alkanes.pdb`.
-> 2.  Prints `cubane.pdb`, `ethane.pdb`, and `methane.pdb`, and the text from all three files would be
->     concatenated and saved to a file called `alkanes.pdb`.
-> 3.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and `pentane.pdb`, and the text
->     from `propane.pdb` will be saved to a file called `alkanes.pdb`.
 > 4.  None of the above.
 >
 > > ## Solution
 > > 1. The text from each file in turn gets written to the `alkanes.pdb` file.
-> > However, the file gets overwritten on each loop interation, so the final content of `alkanes.pdb`
+> > However, the file gets overwritten on each loop iteration, so the final content of `alkanes.pdb`
 > > is the text from the `propane.pdb` file.
 > {: .solution}
 {: .challenge}
 
 > ## Saving to a File in a Loop - Part Two
 >
-> Also in the `data-shell/molecules` directory, what would be the output of the following loop?
+> Also in the `shell-lesson-data/molecules` directory,
+> what would be the output of the following loop?
 >
 > ~~~
 > for datafile in *.pdb
@@ -329,7 +331,7 @@ increase the odds that the program won't do what its readers think it does.
 > {: .solution}
 {: .challenge}
 
-Let's continue with our example in the `data-shell/creatures` directory.
+Let's continue with our example in the `shell-lesson-data/creatures` directory.
 Here's a slightly more complicated loop:
 
 ~~~
@@ -409,25 +411,30 @@ from whatever file is being processed
 > The files above don't exist, so if we run the above code, the `head` command will be unable
 > to find them, however the error message returned will show the name of the files it is
 > expecting:
-> ```
+>
+> ~~~
 > head: cannot open ‘red dragon.dat’ for reading: No such file or directory
 > head: cannot open ‘purple unicorn.dat’ for reading: No such file or directory
-> ```
+> ~~~
 > {: .output}
+>
 > Try removing the quotes around `$filename` in the loop above to see the effect of the quote
-> marks on spaces. Note that we get a result from the loop command for unicorn.dat when we run this code in the `creatures` directory:
-> ```
+> marks on spaces. Note that we get a result from the loop command for unicorn.dat
+> when we run this code in the `creatures` directory:
+>
+> ~~~
 > head: cannot open ‘red’ for reading: No such file or directory
 > head: cannot open ‘dragon.dat’ for reading: No such file or directory
 > head: cannot open ‘purple’ for reading: No such file or directory
 > CGGTACCGAA
 > AAGGGTCGCG
 > CAAGTGTTCC
-> ```
-> {: . output}
+> ...
+> ~~~
+> {: .output}
 {: .callout}
 
-We would like to modify each of the files in `data-shell/creatures`, but also save a version
+We would like to modify each of the files in `shell-lesson-data/creatures`, but also save a version
 of the original files, naming the copies `original-basilisk.dat` and `original-unicorn.dat`.
 We can't use:
 
@@ -498,11 +505,19 @@ The following diagram
 shows what happens when the modified loop is executed, and demonstrates how the
 judicious use of `echo` is a good debugging technique.
 
-![For Loop in Action](../fig/shell_script_for_loop_flow_chart.svg)
+![The for loop "for filename in *.dat; do echo cp $filename original-$filename;
+done" will successively assign the names of all "*.dat" files in your current
+directory to the variable "$filename" and then execute the command. With the
+files "basilisk.dat", "minotaur.dat" and "unicorn.dat" in the current directory
+the loop will successively call the echo command three times and print three
+lines: "cp basislisk.dat original-basilisk.dat", then "cp minotaur.dat
+original-minotaur.dat" and finally "cp unicorn.dat
+original-unicorn.dat"](../fig/shell_script_for_loop_flow_chart.svg)
 
 ## Nelle's Pipeline: Processing Files
 
-Nelle is now ready to process her data files using `goostats` --- a shell script written by her supervisor.
+Nelle is now ready to process her data files using `goostats.sh` ---
+a shell script written by her supervisor.
 This calculates some statistics from a protein sample file, and takes two arguments:
 
 1. an input file (containing the raw data)
@@ -511,11 +526,12 @@ This calculates some statistics from a protein sample file, and takes two argume
 Since she's still learning how to use the shell,
 she decides to build up the required commands in stages.
 Her first step is to make sure that she can select the right input files --- remember,
-these are ones whose names end in 'A' or 'B', rather than 'Z'. Starting from her home directory, Nelle types:
+these are ones whose names end in 'A' or 'B', rather than 'Z'.
+Starting from her home directory, Nelle types:
 
 ~~~
 $ cd north-pacific-gyre/2012-07-03
-$ for datafile in NENE*[AB].txt
+$ for datafile in NENE*A.txt NENE*B.txt
 > do
 >     echo $datafile
 > done
@@ -533,12 +549,12 @@ NENE02043B.txt
 {: .output}
 
 Her next step is to decide
-what to call the files that the `goostats` analysis program will create.
+what to call the files that the `goostats.sh` analysis program will create.
 Prefixing each input file's name with 'stats' seems simple,
 so she modifies her loop to do that:
 
 ~~~
-$ for datafile in NENE*[AB].txt
+$ for datafile in NENE*A.txt NENE*B.txt
 > do
 >     echo $datafile stats-$datafile
 > done
@@ -555,49 +571,50 @@ NENE02043B.txt stats-NENE02043B.txt
 ~~~
 {: .output}
 
-She hasn't actually run `goostats` yet,
+She hasn't actually run `goostats.sh` yet,
 but now she's sure she can select the right files and generate the right output filenames.
 
 Typing in commands over and over again is becoming tedious,
 though,
 and Nelle is worried about making mistakes,
 so instead of re-entering her loop,
-she presses the up arrow.
+she presses <kbd>↑</kbd>.
 In response,
 the shell redisplays the whole loop on one line
 (using semi-colons to separate the pieces):
 
 ~~~
-$ for datafile in NENE*[AB].txt; do echo $datafile stats-$datafile; done
+$ for datafile in NENE*A.txt NENE*B.txt; do echo $datafile stats-$datafile; done
 ~~~
 {: .language-bash}
 
 Using the left arrow key,
-Nelle backs up and changes the command `echo` to `bash goostats`:
+Nelle backs up and changes the command `echo` to `bash goostats.sh`:
 
 ~~~
-$ for datafile in NENE*[AB].txt; do bash goostats $datafile stats-$datafile; done
+$ for datafile in NENE*A.txt NENE*B.txt; do bash goostats.sh $datafile stats-$datafile; done
 ~~~
 {: .language-bash}
 
 When she presses <kbd>Enter</kbd>,
 the shell runs the modified command.
 However, nothing appears to happen --- there is no output.
-After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
-she has no idea whether it is running, much less how quickly.
-She kills the running command by typing `Ctrl-C`,
-uses up-arrow to repeat the command,
+After a moment, Nelle realizes that since her script doesn't print anything to the screen
+any longer, she has no idea whether it is running, much less how quickly.
+She kills the running command by typing <kbd>Ctrl</kbd>+<kbd>C</kbd>,
+uses <kbd>↑</kbd> to repeat the command,
 and edits it to read:
 
 ~~~
-$ for datafile in NENE*[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
+$ for datafile in NENE*A.txt NENE*B.txt; do echo $datafile;
+bash goostats.sh $datafile stats-$datafile; done
 ~~~
 {: .language-bash}
 
 > ## Beginning and End
 >
-> We can move to the beginning of a line in the shell by typing `Ctrl-a`
-> and to the end using `Ctrl-e`.
+> We can move to the beginning of a line in the shell by typing <kbd>Ctrl</kbd>+<kbd>A</kbd>
+> and to the end using <kbd>Ctrl</kbd>+<kbd>E</kbd>.
 {: .callout}
 
 When she runs her program now,
@@ -636,13 +653,13 @@ so she decides to get some coffee and catch up on her reading.
 > ~~~
 >   456  ls -l NENE0*.txt
 >   457  rm stats-NENE01729B.txt.txt
->   458  bash goostats NENE01729B.txt stats-NENE01729B.txt
+>   458  bash goostats.sh NENE01729B.txt stats-NENE01729B.txt
 >   459  ls -l NENE0*.txt
 >   460  history
 > ~~~
 > {: .output}
 >
-> then she can re-run `goostats` on `NENE01729B.txt` simply by typing
+> then she can re-run `goostats.sh` on `NENE01729B.txt` simply by typing
 > `!458`.
 {: .callout}
 
@@ -650,16 +667,18 @@ so she decides to get some coffee and catch up on her reading.
 >
 > There are a number of other shortcut commands for getting at the history.
 >
-> - `Ctrl-R` enters a history search mode 'reverse-i-search' and finds the
+> - <kbd>Ctrl</kbd>+<kbd>R</kbd> enters a history search mode 'reverse-i-search' and finds the
 > most recent command in your history that matches the text you enter next.
-> Press `Ctrl-R` one or more additional times to search for earlier matches.
+> Press <kbd>Ctrl</kbd>+<kbd>R</kbd> one or more additional times to search for earlier matches.
+> You can then use the left and right arrow keys to choose that line and edit
+> it then hit <kbd>Return</kbd> to run the command.
 > - `!!` retrieves the immediately preceding command
-> (you may or may not find this more convenient than using the up-arrow)
+> (you may or may not find this more convenient than using <kbd>↑</kbd>)
 > - `!$` retrieves the last word of the last command.
 > That's useful more often than you might expect: after
-> `bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
+> `bash goostats.sh NENE01729B.txt stats-NENE01729B.txt`, you can type
 > `less !$` to look at the file `stats-NENE01729B.txt`, which is
-> quicker than doing up-arrow and editing the command-line.
+> quicker than doing <kbd>↑</kbd> and editing the command-line.
 {: .callout}
 
 > ## Doing a Dry Run
@@ -672,9 +691,9 @@ so she decides to get some coffee and catch up on her reading.
 > without actually running those commands:
 >
 > ~~~
-> $ for file in *.pdb
+> $ for datafile in *.pdb
 > > do
-> >   analyze $file > analyzed-$file
+> >     cat $datafile >> all.pdb
 > > done
 > ~~~
 > {: .language-bash}
@@ -684,18 +703,18 @@ so she decides to get some coffee and catch up on her reading.
 >
 > ~~~
 > # Version 1
-> $ for file in *.pdb
+> $ for datafile in *.pdb
 > > do
-> >   echo analyze $file > analyzed-$file
+> >     echo cat $datafile >> all.pdb
 > > done
 > ~~~
 > {: .language-bash}
 >
 > ~~~
 > # Version 2
-> $ for file in *.pdb
+> $ for datafile in *.pdb
 > > do
-> >   echo "analyze $file > analyzed-$file"
+> >     echo "cat $datafile >> all.pdb"
 > > done
 > ~~~
 > {: .language-bash}
@@ -705,18 +724,18 @@ so she decides to get some coffee and catch up on her reading.
 > > This prints to screen everything enclosed in the quote marks, expanding the
 > > loop variable name because we have prefixed it with a dollar sign.
 > >
-> > The first version redirects the output from the command `echo analyze $file` to
-> > a file, `analyzed-$file`. A series of files is generated: `analyzed-cubane.pdb`,
-> > `analyzed-ethane.pdb` etc.
+> > The first version appends the output from the command `echo cat $datafile`
+> > to the file, `all.pdb`. This file will just contain the list;
+> > `cat cubane.pdb`, `cat ethane.pdb`, `cat methane.pdb` etc.
 > >
 > > Try both versions for yourself to see the output! Be sure to open the
-> > `analyzed-*.pdb` files to view their contents.
+> > `all.pdb` file to view its contents.
 > {: .solution}
 {: .challenge}
 
 > ## Nested Loops
 >
-> Suppose we want to set up up a directory structure to organize
+> Suppose we want to set up a directory structure to organize
 > some experiments measuring reaction rate constants with different compounds
 > *and* different temperatures.  What would be the
 > result of the following code:
@@ -740,3 +759,5 @@ so she decides to get some coffee and catch up on her reading.
 > > Try running the code for yourself to see which directories are created!
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}
