@@ -43,9 +43,12 @@ In the lesson, you will find out how to access the data files in this folder.
 {::options parse_block_html="true" /}
 <div>
 <ul class="nav nav-tabs nav-justified" role="tablist">
-<li role="presentation" class="active"><a data-os="windows" href="#windows" aria-controls="Windows" role="tab" data-toggle="tab">Windows</a></li>
-<li role="presentation"><a data-os="macos" href="#macos" aria-controls="macOS" role="tab" data-toggle="tab">macOS</a></li>
-<li role="presentation"><a data-os="linux" href="#linux" aria-controls="Linux" role="tab" data-toggle="tab">Linux</a></li>
+<li role="presentation" class="active"><a data-os="windows" href="#windows" aria-controls="Windows"
+role="tab" data-toggle="tab">Windows</a></li>
+<li role="presentation"><a data-os="macos" href="#macos" aria-controls="macOS" role="tab"
+data-toggle="tab">macOS</a></li>
+<li role="presentation"><a data-os="linux" href="#linux" aria-controls="Linux" role="tab"
+data-toggle="tab">Linux</a></li>
 </ul>
 
 <div class="tab-content">

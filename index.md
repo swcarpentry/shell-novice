@@ -22,5 +22,6 @@ you to this powerful new tool.
 >
 > If you're already comfortable manipulating files and directories,
 > searching for files with `grep` and `find`, and writing simple loops
-> and scripts, you probably want to explore the next lesson: [shell-extras](https://carpentries-incubator.github.io/shell-extras/).
+> and scripts, you probably want to explore the next lesson:
+> [shell-extras](https://carpentries-incubator.github.io/shell-extras/).
 {: .prereq}
