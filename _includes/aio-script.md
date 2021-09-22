@@ -6,45 +6,20 @@ open an issue: https://github.com/carpentries/styles/issues/new
 
 {% include manual_episode_order.html %}
 
-<script>
-  window.onload = function() {
-    var lesson_episodes = [
-    {% for lesson_episode in lesson_episodes %}
-      {% if site.episode_order %}
-        {% assign episode = site.episodes | where: "slug", lesson_episode | first %}
-      {% else %}
-        {% assign episode = lesson_episode %}
-      {% endif %}
-    "{{ episode.url}}"{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-    ];
-    var xmlHttp = [];  /* Required since we are going to query every episode. */
-    for (i=0; i < lesson_episodes.length; i++) {
-      xmlHttp[i] = new XMLHttpRequest();
-      xmlHttp[i].episode = lesson_episodes[i];  /* To enable use this later. */
-      xmlHttp[i].onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          var article_here = document.getElementById(this.episode);
-          var parser = new DOMParser();
-          var htmlDoc = parser.parseFromString(this.responseText,"text/html");
-          var htmlDocArticle = htmlDoc.getElementsByTagName("article")[0];
-          article_here.innerHTML = htmlDocArticle.innerHTML;
-        }
-      }
-      var episode_url = "{{ relative_root_path }}" + lesson_episodes[i];
-      xmlHttp[i].open("GET", episode_url);
-      xmlHttp[i].send(null);
-    }
-  }
-</script>
-
-{% comment %} Create an anchor for every episode.  {% endcomment %}
-
 {% for lesson_episode in lesson_episodes %}
-  {% if site.episode_order %}
-    {% assign episode = site.episodes | where: "slug", lesson_episode | first %}
-  {% else %}
-    {% assign episode = lesson_episode %}
-  {% endif %}
-  <article id="{{ episode.url }}"></article>
+
+{% if site.episode_order %}
+  {% assign e = site.episodes | where: "slug", lesson_episode | first %}
+{% else %}
+  {% assign e = lesson_episode %}
+{% endif %}
+
+<h1 id="{{ e.title | slugify }}" class="maintitle">{{ e.title }}</h1>
+
+{% include episode_overview.html teaching_time=e.teaching exercise_time=e.exercises episode_questions=e.questions episode_objectives=e.objectives %}
+
+{{ e.content }}
+
+{% include episode_keypoints.html episode_keypoints=e.keypoints %}
+<hr />
 {% endfor %}

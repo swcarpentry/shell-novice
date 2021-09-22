@@ -1,19 +1,59 @@
 {% comment %}
-    Display an episode's timings and learning objectives.
+    Display episode's timings and learning objectives.
+
+    Regarding the `if page.*** == nil` below:
+    all-in-one page combines all episodes into one.
+    It, therefore, does not define its own objectives, exercises,
+    and questions, which 'normal' episodes define in the front matter.
+
+    To display episodes' teaching and exercise times, as well as episode
+    questions and objectives, we pass them as parameters to the Liquid's
+    `include` statement when we generate the page:
+
+	 include episode_overview.html teaching_time=e.teaching ...
+
+    Here we obtain the information we need either from the episode itself or
+    from the parameters passed in.
 {% endcomment %}
+
+{% if page.teaching == nil %}
+{% assign teaching_time = include.teaching_time %}
+{% else %}
+{% assign teaching_time = page.teaching %}
+{% endif %}
+
+{% if page.exercises == nil %}
+{% assign exercise_time = include.exercise_time %}
+{% else %}
+{% assign exercise_time = page.exercises %}
+{% endif %}
+
+{% if page.questions == nil %}
+{% assign episode_questions = include.episode_questions %}
+{% else %}
+{% assign episode_questions = page.questions %}
+{% endif %}
+
+{% if page.objectives == nil %}
+{% assign episode_objectives = include.episode_objectives %}
+{% else %}
+{% assign episode_objectives = page.objectives %}
+{% endif %}
+
+
 <blockquote class="objectives">
   <h2>Overview</h2>
 
   <div class="row">
     <div class="col-md-3">
-      <strong>Teaching:</strong> {{ page.teaching }} min
+      <strong>Teaching:</strong> {{ teaching_time }} min
       <br/>
-      <strong>Exercises:</strong> {{ page.exercises }} min
+      <strong>Exercises:</strong> {{ exercise_time }} min
     </div>
     <div class="col-md-9">
       <strong>Questions</strong>
       <ul>
-	{% for question in page.questions %}
+	{% for question in episode_questions %}
 	<li>{{ question|markdownify }}</li>
 	{% endfor %}
       </ul>
@@ -26,7 +66,7 @@
     <div class="col-md-9">
       <strong>Objectives</strong>
       <ul>
-	{% for objective in page.objectives %}
+	{% for objective in episode_objectives %}
 	<li>{{ objective|markdownify }}</li>
 	{% endfor %}
       </ul>

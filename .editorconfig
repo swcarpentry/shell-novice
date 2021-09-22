@@ -9,6 +9,7 @@ trim_trailing_whitespace = true
 indent_size = 2
 indent_style = space
 max_line_length = 100  # Please keep this in sync with bin/lesson_check.py!
+trim_trailing_whitespace = false  # keep trailing spaces in markdown - 2+ spaces are translated to a hard break (<br/>)
 
 [*.r]
 max_line_length = 80

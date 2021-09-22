@@ -10,10 +10,10 @@ objectives:
 - "Create files in that hierarchy using an editor or by copying and renaming existing files."
 - "Delete, copy and move specified files and/or directories."
 keypoints:
-- "`cp old new` copies a file."
-- "`mkdir path` creates a new directory."
-- "`mv old new` moves (renames) a file or directory."
-- "`rm path` removes (deletes) a file."
+- "`cp [old] [new]` copies a file."
+- "`mkdir [path]` creates a new directory."
+- "`mv [old] [new]` moves (renames) a file or directory."
+- "`rm [path]` removes (deletes) a file."
 - "`*` matches zero or more characters in a filename, so `*.txt` matches all files ending in `.txt`."
 - "`?` matches any single character in a filename, so `?.txt` matches `a.txt` but not `any.txt`."
 - "Use of the Control key may be described in many ways, including `Ctrl-X`, `Control-X`, and `^X`."
@@ -26,7 +26,7 @@ We now know how to explore files and directories,
 but how do we create them in the first place?
 
 ### Step one: see where we are and what we already have
-Let's go back to our `data-shell` directory on the Desktop
+Let's go back to our `shell-lesson-data` directory on the Desktop
 and use `ls -F` to see what it contains:
 
 ~~~
@@ -35,7 +35,7 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle/Desktop/data-shell
+/Users/nelle/Desktop/shell-lesson-data
 ~~~
 {: .output}
 
@@ -71,7 +71,43 @@ $ ls -F
 {: .language-bash}
 
 ~~~
-creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  thesis/  writing/
+creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg
+solar.pdf  thesis/  writing/
+~~~
+{: .output}
+
+Since we've just created the `thesis` directory, there's nothing in it yet:
+
+~~~
+$ ls -F thesis
+~~~
+{: .language-bash}
+
+Note that `mkdir` is not limited to creating single directories one at a time.
+The `-p` option allows `mkdir` to create a directory with nested subdirectories
+in a single operation:
+
+~~~
+$ mkdir -p project/data project/results
+~~~
+{: .language-bash}
+
+The `-R` option to the `ls` command will list all nested subdirectories within a directory.
+Let's use `ls -FR` to recursively list the new directory hierarchy we just created in the
+`project` directory:
+
+~~~
+$ ls -FR project
+~~~
+{: .language-bash}
+
+~~~
+project/:
+data/  results/
+
+project/data:
+
+project/results:
 ~~~
 {: .output}
 
@@ -87,7 +123,7 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 >
 > Complicated names of files and directories can make your life painful
 > when working on the command line. Here we provide a few useful
-> tips for the names of your files.
+> tips for the names of your files and directories.
 >
 > 1. Don't use spaces.
 >
@@ -95,6 +131,8 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 >    but since spaces are used to separate arguments on the command line
 >    it is better to avoid them in names of files and directories.
 >    You can use `-` or `_` instead (e.g. `north-pacific-gyre/` rather than `north pacific gyre/`).
+>    To test this out, try typing `mkdir north pacific gyre`and see what directory (or directories!)
+>    are made when you check with `ls -F`.
 >
 > 2. Don't begin the name with `-` (dash).
 >
@@ -111,13 +149,6 @@ creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.
 > or other special characters, you should surround the name in quotes (`""`).
 {: .callout}
 
-Since we've just created the `thesis` directory, there's nothing in it yet:
-
-~~~
-$ ls -F thesis
-~~~
-{: .language-bash}
-
 ### Create a text file
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
@@ -130,7 +161,7 @@ $ nano draft.txt
 
 > ## Which Editor?
 >
-> When we say, '`nano` is a text editor'" we really do mean 'text': it can
+> When we say, '`nano` is a text editor' we really do mean 'text': it can
 > only work with plain character data, not tables, images, or any other
 > human-friendly media. We use it in examples because it is one of the
 > least complex text editors. However, because of this trait, it may
@@ -153,22 +184,24 @@ $ nano draft.txt
 {: .callout}
 
 Let's type in a few lines of text.
-Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd> (press the Ctrl or Control key and, while
-holding it down, press the O key) to write our data to disk
+Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd>
+(press the <kbd>Ctrl</kbd> or <kbd>Control</kbd> key and, while
+holding it down, press the <kbd>O</kbd> key) to write our data to disk
 (we'll be asked what file we want to save this to:
 press <kbd>Return</kbd> to accept the suggested default of `draft.txt`).
 
-<div style="width:80%; margin: auto;"><img alt="Nano in Action" src="../fig/nano-screenshot.png"></div>
+<div style="width:80%; margin: auto;"><img alt="screenshot of nano text editor in action"
+src="../fig/nano-screenshot.png"></div>
 
-Once our file is saved, we can use `Ctrl-X` to quit the editor and
+Once our file is saved, we can use <kbd>Ctrl</kbd>+<kbd>X</kbd> to quit the editor and
 return to the shell.
 
 > ## Control, Ctrl, or ^ Key
 >
 > The Control key is also called the 'Ctrl' key. There are various ways
 > in which using the Control key may be described. For example, you may
-> see an instruction to press the Control key and, while holding it down,
-> press the X key, described as any of:
+> see an instruction to press the <kbd>Control</kbd> key and, while holding it down,
+> press the <kbd>X</kbd> key, described as any of:
 >
 > * `Control-X`
 > * `Control+X`
@@ -241,7 +274,7 @@ draft.txt
 > almost anything else we want. However, most people use two-part names
 > most of the time to help them (and their programs) tell different kinds
 > of files apart. The second part of such a name is called the
-> **filename extension**, and indicates
+> **filename extension** and indicates
 > what type of data the file holds: `.txt` signals a plain text file, `.pdf`
 > indicates a PDF document, `.cfg` is a configuration file full of parameters
 > for some program or other, `.png` is a PNG image, and so on.
@@ -252,16 +285,16 @@ draft.txt
 > files, images, and so on.
 >
 > Naming a PNG image of a whale as `whale.mp3` doesn't somehow
-> magically turn it into a recording of whalesong, though it *might*
+> magically turn it into a recording of whale song, though it *might*
 > cause the operating system to try to open it with a music player
 > when someone double-clicks it.
 {: .callout}
 
 ## Moving files and directories
-Returning to the `data-shell` directory,
+Returning to the `shell-lesson-data` directory,
 
 ```
-cd ~/Desktop/data-shell/
+cd ~/Desktop/shell-lesson-data/
 ```
 {: .language-bash}
 
@@ -293,7 +326,7 @@ quotes.txt
 ~~~
 {: .output}
 
-One has to be careful when specifying the target file name, since `mv` will
+One must be careful when specifying the target file name, since `mv` will
 silently overwrite any existing file with the same name, which could
 lead to data loss. An additional option, `mv -i` (or `mv --interactive`),
 can be used to make `mv` ask you for confirmation before overwriting.
@@ -303,11 +336,11 @@ Note that `mv` also works on directories.
 Let's move `quotes.txt` into the current working directory.
 We use `mv` once again,
 but this time we'll use just the name of a directory as the second argument
-to tell `mv` that we want to keep the filename,
+to tell `mv` that we want to keep the filename
 but put the file somewhere new.
 (This is why the command is called 'move'.)
 In this case,
-the directory name we use is the special directory name `.` that we mentioned earlier.
+the directory name we use is the special directory name`.` that we mentioned earlier.
 
 ~~~
 $ mv thesis/quotes.txt .
@@ -322,9 +355,27 @@ $ ls thesis
 ~~~
 {: .language-bash}
 
-Further,
-`ls` with a filename or directory name as an argument only lists that file or directory.
-We can use this to see that `quotes.txt` is still in our current directory:
+~~~
+$
+~~~
+{: .output}
+
+Alternatively, we can confirm the file `quotes.txt` is no longer present in the `thesis` directory
+by explicitly trying to list it:
+
+~~~
+$ ls thesis/quotes.txt
+~~~
+{: .language-bash}
+
+```
+ls: cannot access 'thesis/quotes.txt': No such file or directory
+```
+{: .output}
+
+`ls` with a filename or directory as an argument only lists the requested file or directory.
+If the file given as the argument doesn't exist, the shell returns an error as we saw above.
+We can use this to see that `quotes.txt` is now present in our current directory:
 
 ~~~
 $ ls quotes.txt
@@ -339,7 +390,7 @@ quotes.txt
 > ## Moving Files to a new folder
 >
 > After running the following commands,
-> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder. 
+> Jamie realizes that she put the files `sucrose.dat` and `maltose.dat` into the wrong folder.
 > The files should have been placed in the `raw` folder.
 >
 > ~~~
@@ -352,7 +403,7 @@ quotes.txt
 > {: .language-bash}
 >
 > Fill in the blanks to move these files to the `raw/` folder
-> (i.e. the one she forgot to put them in) 
+> (i.e. the one she forgot to put them in)
 >
 > ~~~
 > $ mv sucrose.dat maltose.dat ____/____
@@ -427,13 +478,15 @@ quotations.txt
 > 4. `cp statstics.txt .`
 >
 > > ## Solution
-> > 1. No.  While this would create a file with the correct name, the incorrectly named file still exists in the directory
+> > 1. No.  While this would create a file with the correct name,
+> > the incorrectly named file still exists in the directory
 > > and would need to be deleted.
 > > 2. Yes, this would work to rename the file.
-> > 3. No, the period(.) indicates where to move the file, but does not provide a new file name; identical file names
+> > 3. No, the period(.) indicates where to move the file, but does not provide a new file name;
+> > identical file names
 > > cannot be created.
-> > 4. No, the period(.) indicates where to copy the file, but does not provide a new file name; identical file names
-> > cannot be created.
+> > 4. No, the period(.) indicates where to copy the file, but does not provide a new file name;
+> > identical file names cannot be created.
 > {: .solution}
 {: .challenge}
 
@@ -458,37 +511,39 @@ quotations.txt
 > ~~~
 > {: .output}
 > ~~~
-> $ mkdir recombine
-> $ mv proteins.dat recombine/
-> $ cp recombine/proteins.dat ../proteins-saved.dat
+> $ mkdir recombined
+> $ mv proteins.dat recombined/
+> $ cp recombined/proteins.dat ../proteins-saved.dat
 > $ ls
 > ~~~
 > {: .language-bash}
 >
-> 1.   `proteins-saved.dat recombine`
-> 2.   `recombine`
-> 3.   `proteins.dat recombine`
+>
+> 1.   `proteins-saved.dat recombined`
+> 2.   `recombined`
+> 3.   `proteins.dat recombined`
 > 4.   `proteins-saved.dat`
 >
 > > ## Solution
-> > We start in the `/Users/jamie/data` directory, and create a new folder called `recombine`.
-> > The second line moves (`mv`) the file `proteins.dat` to the new folder (`recombine`).
-> > The third line makes a copy of the file we just moved.  The tricky part here is where the file was
-> > copied to.  Recall that `..` means 'go up a level', so the copied file is now in `/Users/jamie`.
+> > We start in the `/Users/jamie/data` directory, and create a new folder called `recombined`.
+> > The second line moves (`mv`) the file `proteins.dat` to the new folder (`recombined`).
+> > The third line makes a copy of the file we just moved.
+> > The tricky part here is where the file was copied to.
+> > Recall that `..` means 'go up a level', so the copied file is now in `/Users/jamie`.
 > > Notice that `..` is interpreted with respect to the current working
 > > directory, **not** with respect to the location of the file being copied.
-> > So, the only thing that will show using ls (in `/Users/jamie/data`) is the recombine folder.
+> > So, the only thing that will show using ls (in `/Users/jamie/data`) is the recombined folder.
 > >
 > > 1. No, see explanation above.  `proteins-saved.dat` is located at `/Users/jamie`
 > > 2. Yes
-> > 3. No, see explanation above.  `proteins.dat` is located at `/Users/jamie/data/recombine`
+> > 3. No, see explanation above.  `proteins.dat` is located at `/Users/jamie/data/recombined`
 > > 4. No, see explanation above.  `proteins-saved.dat` is located at `/Users/jamie`
 > {: .solution}
 {: .challenge}
 
 ## Removing files and directories
 
-Returning to the `data-shell` directory,
+Returning to the `shell-lesson-data` directory,
 let's tidy up this directory by removing the `quotes.txt` file we created.
 The Unix command we'll use for this is `rm` (short for 'remove'):
 
@@ -531,9 +586,11 @@ ls: cannot access 'quotes.txt': No such file or directory
 > > $ rm: remove regular file 'thesis_backup/quotations.txt'? y
 > > ```
 > > {: .language-bash}
-> > The `-i` option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion or <kbd>N</kbd> to keep the file).
+> > The `-i` option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion
+> > or <kbd>N</kbd> to keep the file).
 > > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
-> > By using the `-i` option, we have the chance to check that we are deleting only the files that we want to remove.
+> > By using the `-i` option, we have the chance to check that we are deleting only the files
+> > that we want to remove.
 > {: .solution}
 {: .challenge}
 
@@ -562,15 +619,18 @@ $ rm -r thesis
 {: .language-bash}
 
 Given that there is no way to retrieve files deleted using the shell,
-`rm -r` *should be used with great caution* (you might consider adding the interactive option `rm -r -i`).
+`rm -r` *should be used with great caution*
+(you might consider adding the interactive option `rm -r -i`).
 
 ## Operations with multiple files and directories
 
-Oftentimes one needs to copy or move several files at once. This can be done by providing a list of individual filenames, or specifying a naming pattern using wildcards.
+Oftentimes one needs to copy or move several files at once.
+This can be done by providing a list of individual filenames,
+or specifying a naming pattern using wildcards.
 
 > ## Copy with Multiple Filenames
 >
-> For this exercise, you can test the commands in the `data-shell/data` directory.
+> For this exercise, you can test the commands in the `shell-lesson-data/data` directory.
 >
 > In the example below, what does `cp` do when given several filenames and a directory name?
 >
@@ -587,7 +647,8 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > ~~~
 > {: .language-bash}
 > ~~~
-> amino-acids.txt  animals.txt  backup/  elements/  morse.txt  pdb/  planets.txt  salmon.txt  sunspot.txt
+> amino-acids.txt  animals.txt  backup/  elements/  morse.txt  pdb/
+> planets.txt  salmon.txt  sunspot.txt
 > ~~~
 > {: .output}
 > ~~~
@@ -596,11 +657,12 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > {: .language-bash}
 >
 > > ## Solution
-> > If given more than one file name followed by a directory name (i.e. the destination directory must
-> > be the last argument), `cp` copies the files to the named directory.
+> > If given more than one file name followed by a directory name
+> > (i.e. the destination directory must be the last argument),
+> > `cp` copies the files to the named directory.
 > >
-> > If given three file names, `cp` throws an error such as the one below, because it is expecting a directory
-> > name as the last argument.
+> > If given three file names, `cp` throws an error such as the one below,
+> > because it is expecting a directory name as the last argument.
 > >
 > > ```
 > > cp: target ‘morse.txt’ is not a directory
@@ -614,7 +676,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > ## Wildcards
 >
 > `*` is a **wildcard**, which matches zero or more  characters.
-> Let's consider the `data-shell/molecules` directory:
+> Let's consider the `shell-lesson-data/molecules` directory:
 > `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
 > file that ends with '.pdb'. On the other hand, `p*.pdb` only matches
 > `pentane.pdb` and `propane.pdb`, because the 'p' at the front only
@@ -632,13 +694,13 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > list of matching filenames *before* running the command that was
 > asked for. As an exception, if a wildcard expression does not match
 > any file, Bash will pass the expression as an argument to the command
-> as it is. For example typing `ls *.pdf` in the `molecules` directory
+> as it is. For example, typing `ls *.pdf` in the `molecules` directory
 > (which contains only files with names ending with `.pdb`) results in
 > an error message that there is no file called `*.pdf`.
 > However, generally commands like `wc` and `ls` see the lists of
 > file names matching these expressions, but not the wildcards
 > themselves. It is the shell, not the other programs, that deals with
-> expanding wildcards, and this is another example of orthogonal design.
+> expanding wildcards.
 {: .callout}
 
 > ## List filenames matching a pattern
@@ -656,11 +718,19 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > > ## Solution
 >>  The solution is `3.`
 >>
->> `1.` shows all files whose names contain zero or more characters (`*`) followed by the letter `t`, then zero or more characters (`*`) followed by `ane.pdb`. This gives `ethane.pdb  methane.pdb  octane.pdb  pentane.pdb`.
+>> `1.` shows all files whose names contain zero or more characters (`*`)
+>> followed by the letter `t`,
+>> then zero or more characters (`*`) followed by `ane.pdb`.
+>> This gives `ethane.pdb  methane.pdb  octane.pdb  pentane.pdb`.
 >>
->> `2.` shows all files whose names start with zero or more characters (`*`) followed by the letter `t`, then a single character (`?`), then `ne.` followed by zero or more characters (`*`). This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything which ends in `thane.pdb`.
+>> `2.` shows all files whose names start with zero or more characters (`*`) followed by
+>> the letter `t`,
+>> then a single character (`?`), then `ne.` followed by zero or more characters (`*`).
+>> This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything
+>> which ends in `thane.pdb`.
 >>
->> `3.` fixes the problems of option 2 by matching two characters (`??`) between `t` and `ne`. This is the solution.
+>> `3.` fixes the problems of option 2 by matching two characters (`??`) between `t` and `ne`.
+>> This is the solution.
 >>
 >> `4.` only shows files starting with `ethane.`.
 > {: .solution}
@@ -779,8 +849,8 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > {: .output}
 >
 > The `fructose.dat` and `sucrose.dat` files contain output from her data
-> analysis. What command(s) covered in this lesson does she need to run so that the commands below will
-> produce the output shown?
+> analysis. What command(s) covered in this lesson does she need to run
+> so that the commands below will produce the output shown?
 >
 > ~~~
 > $ ls -F
@@ -812,7 +882,7 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 
 > ## Reproduce a folder structure
 >
-> You're starting a new experiment, and would like to duplicate the directory
+> You're starting a new experiment and would like to duplicate the directory
 > structure from your previous experiment so you can add new data.
 >
 > Assume that the previous experiment is in a folder called '2016-05-18',
@@ -821,10 +891,13 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > of the `2016-05-18-data` folder into a folder called `2016-05-20`
 > so that your final directory structure looks like this:
 >
->	2016-05-20/
->	└── data
->	    ├── processed
->	    └── raw
+> ~~~
+> 2016-05-20/
+> └── data
+>    ├── processed
+>    └── raw
+> ~~~
+> {: .output}
 >
 > Which of the following set of commands would achieve this objective?
 > What would the other commands do?
@@ -850,6 +923,11 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > ~~~
 > {: .language-bash}
 > ~~~
+> $ mkdir -p 2016-05-20/data/raw
+> $ mkdir -p 2016-05-20/data/processed
+> ~~~
+> {: .language-bash}
+> ~~~
 > $ mkdir 2016-05-20
 > $ cd 2016-05-20
 > $ mkdir data
@@ -859,13 +937,20 @@ Oftentimes one needs to copy or move several files at once. This can be done by 
 > >
 > > ## Solution
 > > The first two sets of commands achieve this objective.
-> > The first set uses relative paths to create the top level directory before
+> > The first set uses relative paths to create the top-level directory before
 > > the subdirectories.
 > >
-> > The third set of commands will give an error because `mkdir` won't create a subdirectory
-> > of a non-existant directory: the intermediate level folders must be created first.
+> > The third set of commands will give an error because the default behavior of `mkdir`
+> > won't create a subdirectory of a non-existent directory:
+> > the intermediate level folders must be created first.
+> >
+> > The fourth set of commands achieve this objective. Remember, the `-p` option,
+> > followed by a path of one or more
+> > directories, will cause `mkdir` to create any intermediate subdirectories as required.
 > >
 > > The final set of commands generates the 'raw' and 'processed' directories at the same level
 > > as the 'data' directory.
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}
