@@ -836,9 +836,25 @@ $ ls north-pacific-gyre/
 {: .language-bash}
 
 Pressing <kbd>Tab</kbd> again does nothing,
-since there are 2 possibilities;
-pressing <kbd>Tab</kbd> twice brings up a list of all the directories.
-Nelle can select the `data` directory by typing <kbd>D</kbd> and pressing <kbd>Tab</kbd> again.
+since there are multiple possibilities;
+pressing <kbd>Tab</kbd> twice brings up a list of all the files.
+
+If Nelle adds <kbd>G</kbd> and presses <kbd>Tab</kbd> again,
+the shell will append 'goo' since all files that start with 'g' share
+the first three characters 'goo'.
+
+~~~
+$ ls north-pacific-gyre/goo
+~~~
+{: .language-bash}
+
+To see all of those files, she can press <kbd>Tab</kbd> twice more.
+~~~
+ls north-pacific-gyre/goo
+goodiff.sh   goostats.sh
+~~~
+{: .language-bash}
+
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
