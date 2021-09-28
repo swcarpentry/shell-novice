@@ -33,7 +33,7 @@ we're going to be working in the writing subdirectory:
 
 ~~~
 $ cd
-$ cd Desktop/shell-lesson-data/writing
+$ cd Desktop/shell-lesson-data/exercise-data/writing
 $ cat haiku.txt
 ~~~
 {: .language-bash}
@@ -213,7 +213,7 @@ $ grep -n -w -v "the" haiku.txt
 If we use the `-r` (recursive) option,
 `grep` can search for a pattern recursively through a set of files in subdirectories.
 
-Let's search recursively for `Yesterday` in the `shell-lesson-data/writing` directory:
+Let's search recursively for `Yesterday` in the `shell-lesson-data/exercise-data/writing` directory:
 
 ```
 $ grep -r Yesterday .
@@ -221,10 +221,10 @@ $ grep -r Yesterday .
 {: .language-bash}
 
 ```
-data/LittleWomen.txt:"Yesterday, when Aunt was asleep and I was trying to be as still as a
-data/LittleWomen.txt:Yesterday at dinner, when an Austrian officer stared at us and then
-data/LittleWomen.txt:Yesterday was a quiet day spent in teaching, sewing, and writing in my
-haiku.txt:Yesterday it worked
+./LittleWomen.txt:"Yesterday, when Aunt was asleep and I was trying to be as still as a
+./LittleWomen.txt:Yesterday at dinner, when an Austrian officer stared at us and then
+./LittleWomen.txt:Yesterday was a quiet day spent in teaching, sewing, and writing in my
+./haiku.txt:Yesterday it worked
 ```
 {: .output}
 
@@ -379,7 +379,7 @@ Miscellaneous:
 > book, Jo, Meg, Beth, and Amy, your friend thinks that Jo was the
 > most mentioned.  You, however, are certain it was Amy.  Luckily, you
 > have a file `LittleWomen.txt` containing the full text of the novel
-> (`shell-lesson-data/writing/data/LittleWomen.txt`).
+> (`shell-lesson-data/exercise-data/writing/LittleWomen.txt`).
 > Using a `for` loop, how would you tabulate the number of times each
 > of the four sisters is mentioned?
 >
