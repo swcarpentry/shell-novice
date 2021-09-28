@@ -429,7 +429,7 @@ $ ls -F
 {: .language-bash}
 
 ~~~
-animal-counts/  backup/  creatures/  numbers.txt  project/  proteins/  writing/
+animal-counts/  creatures/  numbers.txt  proteins/  writing/
 ~~~
 {: .output}
 
