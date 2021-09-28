@@ -198,7 +198,7 @@ or a subset of data.
 > ## Variables in Loops
 >
 > This exercise refers to the `shell-lesson-data/exercise-data/proteins` directory.
-> `ls` gives the following output:
+> `ls *.pdb` gives the following output:
 >
 > ~~~
 > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
