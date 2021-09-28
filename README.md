@@ -11,12 +11,19 @@ Please see <https://swcarpentry.github.io/shell-novice/> for a rendered version 
 for instructions on formatting, building, and submitting material,
 or run `make` in this directory for a list of helpful commands.
 
-Maintainers:
+## Maintainers
 
 * [Gabriel A. Devenyi][devenyi_gabriel]
 * [Colin Morris][colin_morris]
 * [Gerard Capes][gerard_capes]
 * [Jacob Deppen][jacob_deppen]
+
+## Contributing
+
+If you would like to contribute to the development of the lesson, you can find details in our
+[CONTRIBUTING guide](https://github.com/swcarpentry/shell-novice/blob/gh-pages/CONTRIBUTING.md).
+Contributions can come in many different forms: typo and formatting fixes, additions or subtractions
+of content, suggestions, clarifications, and more.
 
 [devenyi_gabriel]: http://software-carpentry.org/team/#devenyi_gabriel
 [colin_morris]: https://github.com/colinmorris
