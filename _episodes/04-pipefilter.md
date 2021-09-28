@@ -194,9 +194,7 @@ But first we'll use an exercise to learn a little about the sort command:
 
 > ## What Does `sort -n` Do?
 >
-> The file
-> [`shell-lesson-data/exercise-data/numbers.txt`](../shell-lesson-data/exericse-data/numbers.txt)
-> contains the following lines:
+> The file `shell-lesson-data/exercise-data/numbers.txt` contains the following lines:
 >
 > ~~~
 > 10
