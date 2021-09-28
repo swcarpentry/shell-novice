@@ -585,7 +585,7 @@ so that you and other people can put those programs into pipes to multiply their
 >
 > The `uniq` command has a `-c` option which gives a count of the
 > number of times a line occurs in its input.  Assuming your current
-> directory is `shell-lesson-data/data/`, what command would you use to produce
+> directory is `shell-lesson-data/exercise-data/`, what command would you use to produce
 > a table that shows the total count of each type of animal in the file?
 >
 > 1.  `sort animals.csv | uniq -c`
@@ -605,7 +605,7 @@ so that you and other people can put those programs into pipes to multiply their
 
 Nelle has run her samples through the assay machines
 and created 17 files in the `north-pacific-gyre` directory described earlier.
-As a quick check, starting from her home directory, Nelle types:
+As a quick check, starting from the `shell-lesson-data` directory, Nelle types:
 
 ~~~
 $ cd north-pacific-gyre
