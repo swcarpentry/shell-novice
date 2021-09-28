@@ -792,12 +792,11 @@ Network/              Volumes/
 
 Knowing this much about files and directories,
 Nelle is ready to organize the files that the protein assay machine will create.
-First,
-she creates a directory called `north-pacific-gyre`
-(to remind herself where the data came from).
-Inside that,
-she creates a directory called `data`,
-which will contains the data files from the assay machine.
+
+She creates a directory called `north-pacific-gyre`
+(to remind herself where the data came from),
+which will contain the data files from the assay machine,
+and her data processing scripts.
 
 
 Each of her physical samples is labelled according to her lab's convention
@@ -810,8 +809,6 @@ Since the assay machine's output is plain text,
 she will call her files `NENE01729A.txt`, `NENE01812A.txt`, and so on.
 All 1520 files will go into the same directory.
 
-She also creates a `scripts` directory to contain the processing script `goostats.sh`
-written by her supervisor, and any new scripts she will write for this project.
 
 Now in her current directory `shell-lesson-data`,
 Nelle can see what files she has using the command:
