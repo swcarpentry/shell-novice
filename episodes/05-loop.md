@@ -232,7 +232,7 @@ increase the odds that the program won't do what its readers think it does.
 
 > ## Limiting Sets of Files
 >
-> What would be the output of running the following loop in thei
+> What would be the output of running the following loop in the
 > `shell-lesson-data/molecules` directory?
 >
 > ~~~
