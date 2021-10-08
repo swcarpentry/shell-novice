@@ -389,3 +389,13 @@ kbd {
     white-space: nowrap;
     font-style: normal;
 }
+
+//------------------------------------------
+// Show solution while printing (Ctrl + P)
+// -----------------------------------------
+
+@media print {
+  blockquote.solution > * {
+    display: unset !important;
+  }
+}
