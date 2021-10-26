@@ -426,23 +426,40 @@ While `grep` finds lines in files,
 the `find` command finds files themselves.
 Again,
 it has a lot of options;
-to show how the simplest ones work, we'll use the directory tree shown below.
+to show how the simplest ones work, we'll use the `shell-lesson-data/exercise-data` 
+directory tree shown below.
 
-![A file tree under the directory "writing" contians several sub-directories and
-files such that "writing" contains directories "data", "thesis", "tools" and a
-file "haiku.txt"; "writing/data" contains the files "Little Women.txt",
-"one.txt" and "two.txt"; "writing/thesis" contains the file "empty-draft.md";
-"writing/tools" contains the directory "old" and the files "format" and "stats";
-and "writing/tools/old" contains a file "oldtool"](../fig/find-file-tree.svg)
+~~~
+$ cd ..
+$ ls -RF .
+~~~
+{: .language-bash}
 
-Nelle's `writing` directory contains one file called `haiku.txt` and three subdirectories:
-`thesis` (which contains a sadly empty file, `empty-draft.md`);
-`data` (which contains three files `LittleWomen.txt`, `one.txt` and `two.txt`);
-and a `tools` directory that contains the programs `format` and `stats`,
-and a subdirectory called `old`, with a file `oldtool`.
+~~~
+.:
+animal-counts/  creatures/  numbers.txt  proteins/  writing/
+
+./animal-counts:
+animals.csv
+
+./creatures:
+basilisk.dat  minotaur.dat  unicorn.dat
+
+./proteins:
+cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+
+./writing:
+haiku.txt  LittleWomen.txt
+~~~
+{: .output}
+
+
+The `exercise-data` directory contains one file, `numbers.txt` and four directories: 
+`animal-counts`, `creatures`, `proteins` and `writing` containing various files.
+
 
 For our first command,
-let's run `find .` (remember to run this command from the `shell-lesson-data/writing` folder).
+let's run `find .` (remember to run this command from the `shell-lesson-data/exercise-data` folder).
 
 ~~~
 $ find .
@@ -451,23 +468,28 @@ $ find .
 
 ~~~
 .
-./data
-./data/one.txt
-./data/LittleWomen.txt
-./data/two.txt
-./tools
-./tools/format
-./tools/old
-./tools/old/oldtool
-./tools/stats
-./haiku.txt
-./thesis
-./thesis/empty-draft.md
+./writing
+./writing/LittleWomen.txt
+./writing/haiku.txt
+./creatures
+./creatures/basilisk.dat
+./creatures/unicorn.dat
+./creatures/minotaur.dat
+./animal-counts
+./animal-counts/animals.csv
+./numbers.txt
+./proteins
+./proteins/ethane.pdb
+./proteins/propane.pdb
+./proteins/octane.pdb
+./proteins/pentane.pdb
+./proteins/methane.pdb
+./proteins/cubane.pdb
 ~~~
 {: .output}
 
-As always,
-the `.` on its own means the current working directory,
+
+As always, the `.` on its own means the current working directory,
 which is where we want our search to start.
 `find`'s output is the names of every file **and** directory
 under the current working directory.
@@ -477,9 +499,7 @@ of them.
 
 The first option in our list is
 `-type d` that means 'things that are directories'.
-Sure enough,
-`find`'s output is the names of the five directories in our little tree
-(including `.`):
+Sure enough, `find`'s output is the names of the five directories (including `.`):
 
 ~~~
 $ find . -type d
@@ -487,11 +507,11 @@ $ find . -type d
 {: .language-bash}
 
 ~~~
-./
-./data
-./thesis
-./tools
-./tools/old
+.
+./writing
+./creatures
+./animal-counts
+./proteins
 ~~~
 {: .output}
 
@@ -505,14 +525,19 @@ $ find . -type f
 {: .language-bash}
 
 ~~~
-./haiku.txt
-./tools/stats
-./tools/old/oldtool
-./tools/format
-./thesis/empty-draft.md
-./data/one.txt
-./data/LittleWomen.txt
-./data/two.txt
+./writing/LittleWomen.txt
+./writing/haiku.txt
+./creatures/basilisk.dat
+./creatures/unicorn.dat
+./creatures/minotaur.dat
+./animal-counts/animals.csv
+./numbers.txt
+./proteins/ethane.pdb
+./proteins/propane.pdb
+./proteins/octane.pdb
+./proteins/pentane.pdb
+./proteins/methane.pdb
+./proteins/cubane.pdb
 ~~~
 {: .output}
 
@@ -524,18 +549,18 @@ $ find . -name *.txt
 {: .language-bash}
 
 ~~~
-./haiku.txt
+./numbers.txt
 ~~~
 {: .output}
 
 We expected it to find all the text files,
-but it only prints out `./haiku.txt`.
+but it only prints out `./numbers.txt`.
 The problem is that the shell expands wildcard characters like `*` *before* commands run.
-Since `*.txt` in the current directory expands to `haiku.txt`,
+Since `*.txt` in the current directory expands to `./numbers.txt`,
 the command we actually ran was:
 
 ~~~
-$ find . -name haiku.txt
+$ find . -name numbers.txt
 ~~~
 {: .language-bash}
 
@@ -545,7 +570,7 @@ To get what we want,
 let's do what we did with `grep`:
 put `*.txt` in quotes to prevent the shell from expanding the `*` wildcard.
 This way,
-`find` actually gets the pattern `*.txt`, not the expanded filename `haiku.txt`:
+`find` actually gets the pattern `*.txt`, not the expanded filename `numbers.txt`:
 
 ~~~
 $ find . -name "*.txt"
@@ -553,10 +578,9 @@ $ find . -name "*.txt"
 {: .language-bash}
 
 ~~~
-./data/one.txt
-./data/LittleWomen.txt
-./data/two.txt
-./haiku.txt
+./writing/LittleWomen.txt
+./writing/haiku.txt
+./numbers.txt
 ~~~
 {: .output}
 
@@ -584,22 +608,21 @@ $ wc -l $(find . -name "*.txt")
 {: .language-bash}
 
 ~~~
-11 ./haiku.txt
-300 ./data/two.txt
-21022 ./data/LittleWomen.txt
-70 ./data/one.txt
-21403 total
+  21022 ./writing/LittleWomen.txt
+     11 ./writing/haiku.txt
+      5 ./numbers.txt
+  21038 total
 ~~~
 {: .output}
 
 When the shell executes this command,
 the first thing it does is run whatever is inside the `$()`.
 It then replaces the `$()` expression with that command's output.
-Since the output of `find` is the four filenames `./data/one.txt`, `./data/LittleWomen.txt`,
-`./data/two.txt`, and `./haiku.txt`, the shell constructs the command:
+Since the output of `find` is the three filenames `./writing/LittleWomen.txt`, 
+`./writing/haiku.txt`, and `./numbers.txt`, the shell constructs the command:
 
 ~~~
-$ wc -l ./data/one.txt ./data/LittleWomen.txt ./data/two.txt ./haiku.txt
+$ wc -l ./writing/LittleWomen.txt ./writing/haiku.txt ./numbers.txt
 ~~~
 {: .language-bash}
 
@@ -610,16 +633,17 @@ but lets us use any command we want as our own 'wildcard'.
 It's very common to use `find` and `grep` together.
 The first finds files that match a pattern;
 the second looks for lines inside those files that match another pattern.
-Here, for example, we can find PDB files that contain iron atoms
-by looking for the string 'FE' in all the `.pdb` files above the current directory:
+Here, for example, we can find txt files that contain the word "searching"
+by looking for the string 'searching' in all the `.txt` files in the current directory:
 
 ~~~
-$ grep "FE" $(find .. -name "*.pdb")
+$ grep "searching" $(find . -name "*.txt")
 ~~~
 {: .language-bash}
 
 ~~~
-../data/pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518
+./writing/LittleWomen.txt:sitting on the top step, affected to be searching for her book, but was
+./writing/haiku.txt:With searching comes loss	
 ~~~
 {: .output}
 
@@ -627,26 +651,28 @@ $ grep "FE" $(find .. -name "*.pdb")
 >
 > The `-v` option to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
-> the following commands will find all files in `/data` whose names
-> end in `s.txt` but whose names also do *not* contain the string `net`?
-> (For example, `animals.csv` or `amino-acids.txt` but not `planets.txt`.)
-> Once you have thought about your answer, you can test the commands in the `shell-lesson-data`
-> directory.
+> the following commands will find all .dat files in `creatures` 
+> except `unicorn.dat`?
+> Once you have thought about your answer, you can test the commands in the 
+> `shell-lesson-data/exercise-data` directory.
 >
-> 1.  `find data -name "*s.txt" | grep -v net`
-> 2.  `find data -name *s.txt | grep -v net`
-> 3.  `grep -v "net" $(find data -name "*s.txt")`
+> 1.  `find creatures -name "*.dat" | grep -v unicorn`
+> 2.  `find creatures -name *.dat | grep -v unicorn`
+> 3.  `grep -v "unicorn" $(find creatures -name "*.dat"))`
 > 4.  None of the above.
 >
 > > ## Solution
-> > The correct answer is 1. Putting the match expression in quotes prevents the shell
+> > Option 1. is correct. Putting the match expression in quotes prevents the shell
 > > expanding it, so it gets passed to the `find` command.
 > >
-> > Option 2 is incorrect because the shell expands `*s.txt` instead of passing the wildcard
-> > expression to `find`.
+> > Option 2 is also works in this instance because the shell tries to expand `*.dat`
+> > but there are no `*.dat` files in the current directory, 
+> > so the wildcard expression gets passed to `find`.
+> > We first encountered this in 
+> > [episode 3]({{ page.root }}{% link _episodes/03-create.md %}/#wildcards).
 > >
 > > Option 3 is incorrect because it searches the contents of the files for lines which
-> > do not match 'net', rather than searching the file names.
+> > do not match 'unicorn', rather than searching the file names.
 > {: .solution}
 {: .challenge}
 
@@ -683,7 +709,7 @@ extending the number of important operations which we can perform
 without thinking about them.'
 
 > ## `find` Pipeline Reading Comprehension
->
+>358242
 > Write a short explanatory comment for the following shell script:
 >
 > ~~~
