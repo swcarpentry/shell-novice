@@ -181,7 +181,6 @@ are plain old **files**.
 > and <kbd>↓</kbd> to move line-by-line, or by scrolling in your terminal.
 {: .callout}
 
-
 ### Getting help
 
 `ls` has lots of other **options**. There are two common ways to find out how
@@ -733,6 +732,7 @@ $ ls -F /
 ~~~
 {: .language-bash}
 
+![General syntax of a shell command](../fig/shell_command_syntax.svg)
 
 `ls` is the **command**, with an **option** `-F` and an
 **argument** `/`.
