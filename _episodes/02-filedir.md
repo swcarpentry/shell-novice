@@ -184,29 +184,27 @@ are plain old **files**.
 ### Getting help
 
 `ls` has lots of other **options**. There are two common ways to find out how
-to use a command and what options it accepts:
+to use a command and what options it accepts. **Depending on your environment, you might find that only one of these ways works**:
+(e.g., in macOS, only `man` works; `--help` typically works for Git Bash):**
 
-1. We can pass a `--help` option to the command, such as:
+1. Passing the `--help` option to a command typically works for Git Bash and not formacOS, such as:
     ~~~
     $ ls --help
     ~~~
     {: .language-bash}
 
-2. We can read its manual with `man`, such as:
+2. Alternatively, we can read a command's manual with `man`. This is the only option that works for macOS:
     ~~~
     $ man ls
     ~~~
     {: .language-bash}
 
-**Depending on your environment, you might find that only one of these commands works
-(either `man` or `--help`, e.g., `man` works for macOS and `--help` typically works for Git Bash).**
-
-We'll describe both ways below.
+We'll describe both ways next.
 
 #### The `--help` option
 
-Many bash commands, and programs that people have written that can be
-run from within bash, support a `--help` option to display more
+Most bash commands and programs that people have written to be
+run from within bash, support a `--help` option that displays more
 information on how to use the command or program.
 
 ~~~
