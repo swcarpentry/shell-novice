@@ -184,29 +184,27 @@ are plain old **files**.
 ### Getting help
 
 `ls` has lots of other **options**. There are two common ways to find out how
-to use a command and what options it accepts:
+to use a command and what options it accepts ---
+**depending on your environment, you might find that only one of these ways works:**
 
-1. We can pass a `--help` option to the command, such as:
+1. We can pass a `--help` option to the command (not available on macOS), such as:
     ~~~
     $ ls --help
     ~~~
     {: .language-bash}
 
-2. We can read its manual with `man`, such as:
+2. We can read its manual with `man` (not available in Git Bash), such as:
     ~~~
     $ man ls
     ~~~
     {: .language-bash}
 
-**Depending on your environment, you might find that only one of these commands works
-(either `man` or `--help`, e.g., `man` works for macOS and `--help` typically works for Git Bash).**
-
-We'll describe both ways below.
+We'll describe both ways next.
 
 #### The `--help` option
 
-Many bash commands, and programs that people have written that can be
-run from within bash, support a `--help` option to display more
+Most bash commands and programs that people have written to be
+run from within bash, support a `--help` option that displays more
 information on how to use the command or program.
 
 ~~~
@@ -275,8 +273,8 @@ you may use <kbd>↑</kbd> and <kbd>↓</kbd> to move line-by-line,
 or try <kbd>B</kbd> and <kbd>Spacebar</kbd> to skip up and down by a full page.
 To search for a character or word in the `man` pages,
 use <kbd>/</kbd> followed by the character or word you are searching for.
-Sometimes a search will result in multiple hits. 
-If so, you can move between hits using <kbd>N</kbd> (for moving forward) and 
+Sometimes a search will result in multiple hits.
+If so, you can move between hits using <kbd>N</kbd> (for moving forward) and
 <kbd>Shift</kbd>+<kbd>N</kbd> (for moving backward).
 
 To **quit** the `man` pages, press <kbd>Q</kbd>.
@@ -331,7 +329,7 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 
 ### Exploring Other Directories
 
-Not only can we use `ls` on the current working directory, 
+Not only can we use `ls` on the current working directory,
 but we can use it to list the contents of a different directory.
 Let's take a look at our `Desktop` directory by running `ls -F Desktop`,
 i.e.,
@@ -407,9 +405,9 @@ $ cd data
 {: .language-bash}
 
 These commands will move us from our home directory into our Desktop directory, then into
-the `shell-lesson-data` directory, then into the `data` directory. 
-You will notice that `cd` doesn't print anything. This is normal. 
-Many shell commands will not output anything to the screen when successfully executed. 
+the `shell-lesson-data` directory, then into the `data` directory.
+You will notice that `cd` doesn't print anything. This is normal.
+Many shell commands will not output anything to the screen when successfully executed.
 But if we run `pwd` after it, we can see that we are now
 in `/Users/nelle/Desktop/shell-lesson-data/data`.
 If we run `ls -F` without arguments now,
@@ -656,7 +654,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > > 3. No: Amanda's home directory is `/Users/amanda`.
 > > 4. No: this command goes up two levels, i.e. ends in `/Users`.
 > > 5. Yes: `~` stands for the user's home directory, in this case `/Users/amanda`.
-> > 6. No: this command would navigate into a directory `home` in the current directory 
+> > 6. No: this command would navigate into a directory `home` in the current directory
 > >     if it exists.
 > > 7. Yes: unnecessarily complicated, but correct.
 > > 8. Yes: shortcut to go back to the user's home directory.
@@ -737,7 +735,7 @@ $ ls -F /
 `ls` is the **command**, with an **option** `-F` and an
 **argument** `/`.
 We've already encountered options (also called **switches** or **flags**) which
-either start with a single dash (`-`) or two dashes (`--`), 
+either start with a single dash (`-`) or two dashes (`--`),
 and they change the behavior of a command.
 [Arguments] tell the command what to operate on (e.g. files and directories).
 Sometimes options and arguments are referred to as **parameters**.
