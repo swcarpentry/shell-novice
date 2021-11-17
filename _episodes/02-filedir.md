@@ -187,13 +187,13 @@ are plain old **files**.
 to use a command and what options it accepts ---
 **depending on your environment, you might find that only one of these ways works:**
 
-1. We can pass a `--help` option to the command (not available on macOS), such as:
+1. We can pass a `--help` option to the command **(not available on macOS)**, such as:
     ~~~
     $ ls --help
     ~~~
     {: .language-bash}
 
-2. We can read its manual with `man` (not available in Git Bash), such as:
+2. We can read its manual with `man` **(not available in Git Bash)**, such as:
     ~~~
     $ man ls
     ~~~
