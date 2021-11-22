@@ -92,6 +92,16 @@ typing will appear.
 The cursor is usually a flashing or solid block, but it can also be an underscore or a pipe.
 You may have seen it in a text editor program, for example.
 
+>## Noise reduction
+>By default, you may have a long string of information attached to your command prompt in Git Bash. 
+>To reduce the "noise" and proceed with a tidier prompt, enter the command:
+>> {: .language-bash}
+> ~~~
+> PS1='$ '
+> ~~~
+
+
+
 So let's try our first command, `ls` which is short for listing.
 This command will list the contents of the current directory:
 
