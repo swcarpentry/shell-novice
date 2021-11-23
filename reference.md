@@ -82,14 +82,6 @@ filter
     they read data from [standard input](#standard-input),
     process it, and write the result to [standard output](#standard-output).
 
-flag
-:   A terse way to specify an option or setting to a command-line program.
-    By convention Unix applications use a dash followed by a single letter,
-    such as `-v`, or two dashes followed by a word, such as `--verbose`,
-    while DOS applications use a slash, such as `/V`.
-    Depending on the application, a flag may be followed by a single argument,
-    as in `-o /tmp/output.txt`.
-
 for loop
 :   A loop that is executed once for each value in some kind of set, list, or range.
     See also: [while loop](#while-loop).
@@ -119,6 +111,14 @@ MIME type
 operating system
 :   Software that manages interactions between users, hardware, and software [processes](#process).
     Common examples are Linux, macOS, and Windows.
+
+option
+:   A way to specify an argument or setting to a command-line program.
+    By convention Unix applications use a dash followed by a single letter,
+    such as `-v`, or two dashes followed by a word, such as `--verbose`,
+    while DOS applications use a slash, such as `/V`.
+    Depending on the application, an option may be followed by a single argument,
+    as in `-o /tmp/output.txt`.
 
 parameter
 :   A variable named in a function's declaration that is used to hold a value passed into the call.

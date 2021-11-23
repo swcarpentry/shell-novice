@@ -20,7 +20,7 @@ keypoints:
 - "`ls [path]` prints a listing of a specific file or directory; `ls` on its own lists the current working directory."
 - "`pwd` prints the user's current working directory."
 - "`/` on its own is the root directory of the whole file system."
-- "Most commands take options (flags) that begin with a `-`."
+- "Most commands take options that begin with a `-`."
 - "A relative path specifies a location starting from the current location."
 - "An absolute path specifies a location from the root of the file system."
 - "Directory names in a path are separated with `/` on Unix, but `\\` on Windows."
@@ -147,14 +147,13 @@ system and how you have customized your filesystem.)
 
 `ls` prints the names of the files and directories in the current directory.
 We can make its output more comprehensible by using the `-F` **option**
-(also known as a **switch** or a **flag**),
 which tells `ls` to classify the output
 by adding a marker to file and directory names to indicate what they are:
 - a trailing `/` indicates that this is a directory
 - `@` indicates a link
 - `*` indicates an executable
 
-Depending on your default options,
+Depending on your shell's default settings,
 the shell might also use colors to indicate whether each entry is a file or
 directory.
 
@@ -242,7 +241,7 @@ Mandatory arguments to long options are mandatory for short options, too.
 {: .output}
 
 > ## Unsupported command-line options
-> If you try to use an option (flag) that is not supported, `ls` and other commands
+> If you try to use an option that is not supported, `ls` and other commands
 > will usually print an error message similar to:
 >
 > ~~~
@@ -316,8 +315,8 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > order by name. The command `ls -t` lists items by time of last
 > change instead of alphabetically. The command `ls -r` lists the
 > contents of a directory in reverse order.
-> Which file is displayed last when you combine the `-t` and `-r` flags?
-> Hint: You may need to use the `-l` flag to see the
+> Which file is displayed last when you combine the `-t` and `-r` options?
+> Hint: You may need to use the `-l` option to see the
 > last changed dates.
 >
 > > ## Solution
@@ -734,13 +733,17 @@ $ ls -F /
 
 `ls` is the **command**, with an **option** `-F` and an
 **argument** `/`.
-We've already encountered options (also called **switches** or **flags**) which
+We've already encountered options  which
 either start with a single dash (`-`) or two dashes (`--`),
 and they change the behavior of a command.
 [Arguments] tell the command what to operate on (e.g. files and directories).
 Sometimes options and arguments are referred to as **parameters**.
 A command can be called with more than one option and more than one argument, but a
 command doesn't always require an argument or an option.
+
+Note that options are also called **switches** or **flags**, especially for options
+that take no argument; this lesson uses the word **option** throughout, but don't
+be surprised if you hear one or the other used instead.
 
 Each part is separated by spaces: if you omit the space
 between `ls` and `-F` the shell will look for a command called `ls-F`, which
