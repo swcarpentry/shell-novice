@@ -741,9 +741,9 @@ Sometimes options and arguments are referred to as **parameters**.
 A command can be called with more than one option and more than one argument, but a
 command doesn't always require an argument or an option.
 
-Note that options are also called **switches** or **flags**, especially for options
-that take no argument; this lesson uses the word **option** throughout, but don't
-be surprised if you hear one or the other used instead.
+You might sometimes see options being referred to as **switches** or **flags**,
+especially for options that take no argument. In this lesson we will stick with
+using the term option.
 
 Each part is separated by spaces: if you omit the space
 between `ls` and `-F` the shell will look for a command called `ls-F`, which
