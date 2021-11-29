@@ -743,7 +743,7 @@ command doesn't always require an argument or an option.
 
 You might sometimes see options being referred to as **switches** or **flags**,
 especially for options that take no argument. In this lesson we will stick with
-using the term option.
+using the term **option**.
 
 Each part is separated by spaces: if you omit the space
 between `ls` and `-F` the shell will look for a command called `ls-F`, which
