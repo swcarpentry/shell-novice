@@ -9,7 +9,7 @@ objectives:
 - "Process a file instead of keyboard input using redirection."
 - "Construct command pipelines with two or more stages."
 - "Explain what usually happens if a program or pipeline isn't given any input to process."
-- "Explain Unix's 'small pieces, loosely joined' philosophy."
+- "Explain the advantage of linking commands with pipes and filters."
 keypoints:
 - "`wc` counts lines, words, and characters in its inputs."
 - "`cat` displays the contents of its inputs."
