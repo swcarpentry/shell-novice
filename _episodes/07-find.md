@@ -625,13 +625,13 @@ $ grep "FE" $(find .. -name "*.pdb")
 Packaging multiple commands inside a `$()` can also be used in loops.
 This might be useful if you have to perform many searches and want to automate the process.
 
-```
+~~~
 $ for filename in $(find .. -name "*.pdb")
 > do
 >     grep "FE" $filename
 >     grep "B6" $filename
 > done
-```
+~~~
 {: .language-bash}
 
 ~~~
