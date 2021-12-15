@@ -622,6 +622,24 @@ $ grep "FE" $(find .. -name "*.pdb")
 ~~~
 {: .output}
 
+Packaging multiple commands inside a `$()` can also be used in loops.
+This might be useful if you have to perform many searches and want to automate the process.
+
+```
+$ for filename in $(find .. -name "*.pdb")
+> do
+>     grep "FE" $filename
+>     grep "B6" $filename
+> done
+```
+{: .language-bash}
+
+~~~
+ATOM     25 FE           1      -0.924   0.535  -0.518
+COMPND      PYRIDOXAL, VITAMIN B6
+~~~
+{: .output}
+
 > ## Matching and Subtracting
 >
 > The `-v` option to `grep` inverts pattern matching, so that only lines
