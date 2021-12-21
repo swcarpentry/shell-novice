@@ -55,6 +55,36 @@ done
 ```
 {: .language-bash}
 
+> ## Write your own loop
+>
+> How would you write a loop that echoes all 10 numbers from 0 to 9?
+>
+> > ## Solution
+> > 
+> > ~~~
+> > $ for my_temporary_variable in 0 1 2 3 4 5 6 7 8 9
+> > > do
+> > >     echo $my_temporary_variable
+> > > done
+> > ~~~
+> > {: .language-bash}
+> >
+> > ```
+> > 0
+> > 1
+> > 2
+> > 3
+> > 4
+> > 5
+> > 6
+> > 7
+> > 8
+> > 9
+> > ```
+> > {: .output}
+> {: .solution}
+{: .challenge}
+
 and we can apply this to our example like this:
 
 ```
