@@ -55,36 +55,6 @@ done
 ```
 {: .language-bash}
 
-> ## Write your own loop
->
-> How would you write a loop that echoes all 10 numbers from 0 to 9?
->
-> > ## Solution
-> > 
-> > ~~~
-> > $ for my_temporary_variable in 0 1 2 3 4 5 6 7 8 9
-> > > do
-> > >     echo $my_temporary_variable
-> > > done
-> > ~~~
-> > {: .language-bash}
-> >
-> > ```
-> > 0
-> > 1
-> > 2
-> > 3
-> > 4
-> > 5
-> > 6
-> > 7
-> > 8
-> > 9
-> > ```
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
 and we can apply this to our example like this:
 
 ```
@@ -186,6 +156,43 @@ it would work exactly the same way.
 Programs are only useful if people can understand them,
 so meaningless names (like `x`) or misleading names (like `temperature`)
 increase the odds that the program won't do what its readers think it does.
+
+In the above examples, the variables (`thing`, `filename`, `x` and `temperature`)
+could have been given any other name, as long as it is meaningful to both the person
+writing the code and the person reading it.
+
+Note also that loops can be used for other things than filenames, like a list of numbers
+or subset of a range of data.
+
+> ## Write your own loop
+>
+> How would you write a loop that echoes all 10 numbers from 0 to 9?
+>
+> > ## Solution
+> > 
+> > ~~~
+> > $ for loop_variable in 0 1 2 3 4 5 6 7 8 9
+> > > do
+> > >     echo $loop_variable
+> > > done
+> > ~~~
+> > {: .language-bash}
+> >
+> > ```
+> > 0
+> > 1
+> > 2
+> > 3
+> > 4
+> > 5
+> > 6
+> > 7
+> > 8
+> > 9
+> > ```
+> > {: .output}
+> {: .solution}
+{: .challenge}
 
 > ## Variables in Loops
 >
