@@ -162,7 +162,7 @@ could have been given any other name, as long as it is meaningful to both the pe
 writing the code and the person reading it.
 
 Note also that loops can be used for other things than filenames, like a list of numbers
-or subset of a range of data.
+or a subset of data.
 
 > ## Write your own loop
 >
