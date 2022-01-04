@@ -60,14 +60,18 @@ and we can apply this to our example like this:
 ```
 $ for filename in basilisk.dat minotaur.dat unicorn.dat
 > do
+>     echo $filename
 >     head -n 2 $filename | tail -n 1
 > done
 ```
 {: .language-bash}
 
 ```
+basilisk.dat
 CLASSIFICATION: basiliscus vulgaris
+minotaur.dat
 CLASSIFICATION: bos hominus
+unicorn.dat
 CLASSIFICATION: equus monoceros
 ```
 {: .output}
