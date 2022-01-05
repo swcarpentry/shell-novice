@@ -376,8 +376,9 @@ $ ls -F Desktop/shell-lesson-data
 {: .language-bash}
 
 ~~~
-creatures/          molecules/          notes.txt           solar.pdf
-data/               north-pacific-gyre/ pizza.cfg           writing/
+creatures/  molecules/           notes.txt    pizza.cfg  writing/
+data/       north-pacific-gyre/  numbers.txt  solar.pdf
+
 ~~~
 {: .output}
 
@@ -429,8 +430,8 @@ $ ls -F
 {: .language-bash}
 
 ~~~
-amino-acids.txt   elements/     pdb/	        salmon.txt
-animals.txt       morse.txt     planets.txt     sunspot.txt
+amino-acids.txt  animals.txt  morse.txt  planets.txt  sunspot.txt
+animal-counts/   elements/    pdb/       salmon.txt
 ~~~
 {: .output}
 
@@ -489,8 +490,8 @@ $ ls -F -a
 {: .language-bash}
 
 ~~~
-./   .bash_profile  data/       north-pacific-gyre/  pizza.cfg  thesis/
-../  creatures/     molecules/  notes.txt            solar.pdf  writing/
+./   .bash_profile  data/       north-pacific-gyre/  numbers.txt  solar.pdf
+../  creatures/     molecules/  notes.txt            pizza.cfg    writing/
 ~~~
 {: .output}
 
@@ -752,11 +753,11 @@ For example, `ls -s` will display the size of files and directories alongside th
 while `ls -S` will sort the files and directories by size, as shown below:
 
 ~~~
-$ ls -s Desktop/shell-lesson-data/data
+$ ls -s ~/Desktop/shell-lesson-data/data
 total 116
  4 amino-acids.txt   4 animals.txt   4 morse.txt  12 planets.txt  76 sunspot.txt
  4 animal-counts     4 elements      4 pdb         4 salmon.txt
-$ ls -S Desktop/shell-lesson-data/data
+$ ls -S ~/Desktop/shell-lesson-data/data
 sunspot.txt  animal-counts  pdb        amino-acids.txt  salmon.txt
 planets.txt  elements       morse.txt  animals.txt
 ~~~
