@@ -219,7 +219,7 @@ or a subset of data.
 > ~~~
 > $ for datafile in *.pdb
 > > do
-> >	ls $datafile
+> >     ls $datafile
 > > done
 > ~~~
 > {: .language-bash}
