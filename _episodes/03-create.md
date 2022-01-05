@@ -295,7 +295,7 @@ draft.txt
 Returning to the `shell-lesson-data` directory,
 
 ```
-cd ~/Desktop/shell-lesson-data/
+$ cd ~/Desktop/shell-lesson-data/
 ```
 {: .language-bash}
 
@@ -341,7 +341,7 @@ to tell `mv` that we want to keep the filename
 but put the file somewhere new.
 (This is why the command is called 'move'.)
 In this case,
-the directory name we use is the special directory name`.` that we mentioned earlier.
+the directory name we use is the special directory name `.` that we mentioned earlier.
 
 ~~~
 $ mv thesis/quotes.txt .
@@ -372,7 +372,7 @@ $ ls thesis/quotes.txt
 ```
 ls: cannot access 'thesis/quotes.txt': No such file or directory
 ```
-{: .output}
+{: .error}
 
 `ls` with a filename or directory as an argument only lists the requested file or directory.
 If the file given as the argument doesn't exist, the shell returns an error as we saw above.
@@ -563,7 +563,7 @@ $ ls quotes.txt
 ```
 ls: cannot access 'quotes.txt': No such file or directory
 ```
-{: .output}
+{: .error}
 
 > ## Deleting Is Forever
 >
@@ -584,9 +584,9 @@ ls: cannot access 'quotes.txt': No such file or directory
 >
 > > ## Solution
 > > ```
-> > $ rm: remove regular file 'thesis_backup/quotations.txt'? y
+> > rm: remove regular file 'thesis_backup/quotations.txt'? y
 > > ```
-> > {: .language-bash}
+> > {: .output}
 > > The `-i` option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion
 > > or <kbd>N</kbd> to keep the file).
 > > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
@@ -666,9 +666,9 @@ or specifying a naming pattern using wildcards.
 > > because it is expecting a directory name as the last argument.
 > >
 > > ```
-> > cp: target ‘morse.txt’ is not a directory
+> > cp: target 'morse.txt' is not a directory
 > > ```
-> > {: .output}
+> > {: .error}
 > {: .solution}
 {: .challenge}
 
