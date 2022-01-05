@@ -6,10 +6,9 @@ questions:
 - "How can I combine existing commands to do new things?"
 objectives:
 - "Redirect a command's output to a file."
-- "Process a file instead of keyboard input using redirection."
 - "Construct command pipelines with two or more stages."
 - "Explain what usually happens if a program or pipeline isn't given any input to process."
-- "Explain Unix's 'small pieces, loosely joined' philosophy."
+- "Explain the advantage of linking commands with pipes and filters."
 keypoints:
 - "`wc` counts lines, words, and characters in its inputs."
 - "`cat` displays the contents of its inputs."
@@ -117,7 +116,7 @@ only the number of characters or the number of words in the files.
 > sitting there: the command doesn't appear to do anything.
 >
 > If you make this kind of mistake, you can escape out of this state by holding down
-> the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and 
+> the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and
 > letting go of the <kbd>Ctrl</kbd> key.
 > <kbd>Ctrl</kbd>+<kbd>C</kbd>
 {: .callout}
@@ -300,7 +299,7 @@ the output of `head` must be the file with the fewest lines.
 
 > ## What Does `>>` Mean?
 >
-> We have seen the use of `>`, but there is a similar operator `>>` 
+> We have seen the use of `>`, but there is a similar operator `>>`
 > which works slightly differently.
 > We'll learn about the differences between these two operators by printing some strings.
 > We can use the `echo` command to print strings e.g.
@@ -336,7 +335,7 @@ the output of `head` must be the file with the fewest lines.
 > >
 > > We see from the second example that the `>>` operator also writes 'hello' to a file
 > > (in this case`testfile02.txt`),
-> > but appends the string to the file if it already exists 
+> > but appends the string to the file if it already exists
 > > (i.e. when we run it for the second time).
 > {: .solution}
 {: .challenge}
