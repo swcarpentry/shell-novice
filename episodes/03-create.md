@@ -886,10 +886,10 @@ or specifying a naming pattern using wildcards.
 > You're starting a new experiment and would like to duplicate the directory
 > structure from your previous experiment so you can add new data.
 >
-> Assume that the previous experiment is in a folder called '2016-05-18',
+> Assume that the previous experiment is in a folder called `2016-05-18`,
 > which contains a `data` folder that in turn contains folders named `raw` and
 > `processed` that contain data files.  The goal is to copy the folder structure
-> of the `2016-05-18-data` folder into a folder called `2016-05-20`
+> of the `2016-05-18` folder into a folder called `2016-05-20`
 > so that your final directory structure looks like this:
 >
 > ~~~
