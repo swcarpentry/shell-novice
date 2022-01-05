@@ -453,7 +453,7 @@ from whatever file is being processed
 > head: cannot open ‘red dragon.dat’ for reading: No such file or directory
 > head: cannot open ‘purple unicorn.dat’ for reading: No such file or directory
 > ~~~
-> {: .output}
+> {: .error}
 >
 > Try removing the quotes around `$filename` in the loop above to see the effect of the quote
 > marks on spaces. Note that we get a result from the loop command for unicorn.dat
