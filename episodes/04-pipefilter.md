@@ -36,8 +36,8 @@ $ ls molecules
 {: .language-bash}
 
 ~~~
-cubane.pdb    ethane.pdb    methane.pdb
-octane.pdb    pentane.pdb   propane.pdb
+cubane.pdb    methane.pdb    pentane.pdb
+ethane.pdb    octane.pdb     propane.pdb
 ~~~
 {: .output}
 
