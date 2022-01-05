@@ -45,7 +45,8 @@ $ ls -F
 {: .language-bash}
 
 ~~~
-creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/
+creatures/  molecules/           notes.txt    pizza.cfg  writing/
+data/       north-pacific-gyre/  numbers.txt  solar.pdf
 ~~~
 {: .output}
 
@@ -71,8 +72,8 @@ $ ls -F
 {: .language-bash}
 
 ~~~
-creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg
-solar.pdf  thesis/  writing/
+creatures/  molecules/           notes.txt    pizza.cfg  thesis/
+data/       north-pacific-gyre/  numbers.txt  solar.pdf  writing/
 ~~~
 {: .output}
 
@@ -647,8 +648,8 @@ or specifying a naming pattern using wildcards.
 > ~~~
 > {: .language-bash}
 > ~~~
-> amino-acids.txt  animals.txt  backup/  elements/  morse.txt  pdb/
-> planets.txt  salmon.txt  sunspot.txt
+> amino-acids.txt  animals.txt  elements/  pdb/         salmon.txt
+> animal-counts/   backup/      morse.txt  planets.txt  sunspot.txt
 > ~~~
 > {: .output}
 > ~~~
