@@ -509,16 +509,16 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > with that extension. For example:
 >
 > ~~~
-> $ bash longest.sh shell-lesson-data/exercise-data/proteins pdb
+> $ bash longest.sh shell-lesson-data/data/pdb pdb
 > ~~~
 > {: .language-bash}
 >
-> would print the name of the `.pdb` file in `shell-lesson-data/exercise-data/proteins` that has
+> would print the name of the `.pdb` file in `shell-lesson-data/data/pdb` that has
 > the most lines.
 >
 > Feel free to test your script on another directory e.g.
 > ~~~
-> $ bash longest.sh shell-lesson-data/exercise-data/writing txt
+> $ bash longest.sh shell-lesson-data/writing/data txt
 > ~~~
 > {: .language-bash}
 >
