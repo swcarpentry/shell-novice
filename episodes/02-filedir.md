@@ -753,7 +753,8 @@ For example, `ls -s` will display the size of files and directories alongside th
 while `ls -S` will sort the files and directories by size, as shown below:
 
 ~~~
-$ ls -s Desktop/shell-lesson-data/data
+$ cd ~/Desktop/shell-lesson-data
+$ ls -s data
 ~~~
 {: .language-bash}
 ~~~
@@ -763,7 +764,7 @@ total 116
 ~~~
 {: .output}
 ~~~
-$ ls -S Desktop/shell-lesson-data/data
+$ ls -S data
 ~~~
 {: .language-bash}
 ~~~
