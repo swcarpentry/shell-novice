@@ -393,8 +393,8 @@ Miscellaneous:
 > > ```
 > > for sis in Jo Meg Beth Amy
 > > do
-> > 	echo $sis:
-> >	grep -ow $sis LittleWomen.txt | wc -l
+> >     echo $sis:
+> >     grep -ow $sis LittleWomen.txt | wc -l
 > > done
 > > ```
 > > {: .source}
@@ -403,8 +403,8 @@ Miscellaneous:
 > > ```
 > > for sis in Jo Meg Beth Amy
 > > do
-> > 	echo $sis:
-> >	grep -ocw $sis LittleWomen.txt
+> >     echo $sis:
+> >     grep -ocw $sis LittleWomen.txt
 > > done
 > > ```
 > > {: .source}
