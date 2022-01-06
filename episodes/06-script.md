@@ -323,9 +323,9 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > > # Loop over all files
 > > for file in $@
 > > do
-> > 	echo "Unique species in $file:"
-> > 	# Extract species names
-> > 	cut -d , -f 2 $file | sort | uniq
+> >     echo "Unique species in $file:"
+> >     # Extract species names
+> >     cut -d , -f 2 $file | sort | uniq
 > > done
 > > ```
 > > {: .language-bash}
