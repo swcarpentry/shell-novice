@@ -754,10 +754,19 @@ while `ls -S` will sort the files and directories by size, as shown below:
 
 ~~~
 $ ls -s Desktop/shell-lesson-data/data
+~~~
+{: .language-bash}
+~~~
 total 116
  4 amino-acids.txt   4 animals.txt   4 morse.txt  12 planets.txt  76 sunspot.txt
  4 animal-counts     4 elements      4 pdb         4 salmon.txt
+~~~
+{: .output}
+~~~
 $ ls -S Desktop/shell-lesson-data/data
+~~~
+{: .language-bash}
+~~~
 sunspot.txt  animal-counts  pdb        amino-acids.txt  salmon.txt
 planets.txt  elements       morse.txt  animals.txt
 ~~~
