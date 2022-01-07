@@ -45,7 +45,8 @@ $ ls -F
 {: .language-bash}
 
 ~~~
-creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg  solar.pdf  writing/
+creatures/  molecules/           notes.txt    pizza.cfg  writing/
+data/       north-pacific-gyre/  numbers.txt  solar.pdf
 ~~~
 {: .output}
 
@@ -71,8 +72,8 @@ $ ls -F
 {: .language-bash}
 
 ~~~
-creatures/  data/  molecules/  north-pacific-gyre/  notes.txt  pizza.cfg
-solar.pdf  thesis/  writing/
+creatures/  molecules/           notes.txt    pizza.cfg  thesis/
+data/       north-pacific-gyre/  numbers.txt  solar.pdf  writing/
 ~~~
 {: .output}
 
@@ -294,7 +295,7 @@ draft.txt
 Returning to the `shell-lesson-data` directory,
 
 ```
-cd ~/Desktop/shell-lesson-data/
+$ cd ~/Desktop/shell-lesson-data/
 ```
 {: .language-bash}
 
@@ -340,7 +341,7 @@ to tell `mv` that we want to keep the filename
 but put the file somewhere new.
 (This is why the command is called 'move'.)
 In this case,
-the directory name we use is the special directory name`.` that we mentioned earlier.
+the directory name we use is the special directory name `.` that we mentioned earlier.
 
 ~~~
 $ mv thesis/quotes.txt .
@@ -371,7 +372,7 @@ $ ls thesis/quotes.txt
 ```
 ls: cannot access 'thesis/quotes.txt': No such file or directory
 ```
-{: .output}
+{: .error}
 
 `ls` with a filename or directory as an argument only lists the requested file or directory.
 If the file given as the argument doesn't exist, the shell returns an error as we saw above.
@@ -562,7 +563,7 @@ $ ls quotes.txt
 ```
 ls: cannot access 'quotes.txt': No such file or directory
 ```
-{: .output}
+{: .error}
 
 > ## Deleting Is Forever
 >
@@ -583,9 +584,9 @@ ls: cannot access 'quotes.txt': No such file or directory
 >
 > > ## Solution
 > > ```
-> > $ rm: remove regular file 'thesis_backup/quotations.txt'? y
+> > rm: remove regular file 'thesis_backup/quotations.txt'? y
 > > ```
-> > {: .language-bash}
+> > {: .output}
 > > The `-i` option will prompt before (every) removal (use <kbd>Y</kbd> to confirm deletion
 > > or <kbd>N</kbd> to keep the file).
 > > The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
@@ -647,8 +648,8 @@ or specifying a naming pattern using wildcards.
 > ~~~
 > {: .language-bash}
 > ~~~
-> amino-acids.txt  animals.txt  backup/  elements/  morse.txt  pdb/
-> planets.txt  salmon.txt  sunspot.txt
+> amino-acids.txt  animals.txt  elements/  pdb/         salmon.txt
+> animal-counts/   backup/      morse.txt  planets.txt  sunspot.txt
 > ~~~
 > {: .output}
 > ~~~
@@ -665,9 +666,9 @@ or specifying a naming pattern using wildcards.
 > > because it is expecting a directory name as the last argument.
 > >
 > > ```
-> > cp: target ‘morse.txt’ is not a directory
+> > cp: target 'morse.txt' is not a directory
 > > ```
-> > {: .output}
+> > {: .error}
 > {: .solution}
 {: .challenge}
 
@@ -885,10 +886,10 @@ or specifying a naming pattern using wildcards.
 > You're starting a new experiment and would like to duplicate the directory
 > structure from your previous experiment so you can add new data.
 >
-> Assume that the previous experiment is in a folder called '2016-05-18',
+> Assume that the previous experiment is in a folder called `2016-05-18`,
 > which contains a `data` folder that in turn contains folders named `raw` and
 > `processed` that contain data files.  The goal is to copy the folder structure
-> of the `2016-05-18-data` folder into a folder called `2016-05-20`
+> of the `2016-05-18` folder into a folder called `2016-05-20`
 > so that your final directory structure looks like this:
 >
 > ~~~

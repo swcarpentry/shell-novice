@@ -50,7 +50,7 @@ We can use the text editor to directly edit the file -- we'll simply insert the 
 ~~~
 head -n 15 octane.pdb | tail -n 5
 ~~~
-{: .language-bash}
+{: .source}
 
 This is a variation on the pipe we constructed earlier:
 it selects lines 11-15 of the file `octane.pdb`.
@@ -111,7 +111,7 @@ Now, within "nano", replace the text `octane.pdb` with the special variable call
 ~~~
 head -n 15 "$1" | tail -n 5
 ~~~
-{: .output}
+{: .source}
 
 Inside a shell script,
 `$1` means 'the first filename (or other argument) on the command line'.
@@ -172,7 +172,7 @@ $ nano middle.sh
 ~~~
 head -n "$2" "$1" | tail -n "$3"
 ~~~
-{: .output}
+{: .source}
 
 We can now run:
 
@@ -221,7 +221,7 @@ $ nano middle.sh
 # Usage: bash middle.sh filename end_line num_lines
 head -n "$2" "$1" | tail -n "$3"
 ~~~
-{: .output}
+{: .source}
 
 A comment starts with a `#` character and runs to the end of the line.
 The computer ignores comments,
@@ -266,7 +266,7 @@ $ nano sorted.sh
 # Usage: bash sorted.sh one_or_more_filenames
 wc -l "$@" | sort -n
 ~~~
-{: .output}
+{: .source}
 
 ~~~
 $ bash sorted.sh *.pdb ../creatures/*.dat
@@ -323,9 +323,9 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > > # Loop over all files
 > > for file in $@
 > > do
-> > 	echo "Unique species in $file:"
-> > 	# Extract species names
-> > 	cut -d , -f 2 $file | sort | uniq
+> >     echo "Unique species in $file:"
+> >     # Extract species names
+> >     cut -d , -f 2 $file | sort | uniq
 > > done
 > > ```
 > > {: .language-bash}
@@ -472,7 +472,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > While you are in the `molecules` directory, you type the following command:
 >
 > ~~~
-> bash script.sh '*.pdb' 1 1
+> $ bash script.sh '*.pdb' 1 1
 > ~~~
 > {: .language-bash}
 >
@@ -509,16 +509,16 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > with that extension. For example:
 >
 > ~~~
-> $ bash longest.sh shell-lesson-data/exercise-data/proteins pdb
+> $ bash longest.sh shell-lesson-data/data/pdb pdb
 > ~~~
 > {: .language-bash}
 >
-> would print the name of the `.pdb` file in `shell-lesson-data/exercise-data/proteins` that has
+> would print the name of the `.pdb` file in `shell-lesson-data/data/pdb` that has
 > the most lines.
 >
 > Feel free to test your script on another directory e.g.
 > ~~~
-> $ bash longest.sh shell-lesson-data/exercise-data/writing txt
+> $ bash longest.sh shell-lesson-data/writing/data txt
 > ~~~
 > {: .language-bash}
 >
@@ -623,7 +623,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > To figure out why, re-run the script using the `-x` option:
 >
 > ~~~
-> bash -x do-errors.sh NENE*A.txt NENE*B.txt
+> $ bash -x do-errors.sh NENE*A.txt NENE*B.txt
 > ~~~
 > {: .language-bash}
 >
