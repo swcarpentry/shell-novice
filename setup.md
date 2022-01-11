@@ -61,6 +61,10 @@ which gives you access to both Bash shell commands and Git.
 Once installed, you can open a terminal by running the program Git Bash from the Windows start
 menu.
 
+To avoid that the name 'Git Bash' results in confusion during the Software Carpentries, 
+recall that Bash is a much older piece of software than Git; Git makes it only possible to use the Unix Shell Bash inside Windows. 
+So, Bash is a flavor of the command shell, and Git Bash is no special flavor of Bash.
+
 **For advanced users:**
 
 As an alternative to Git for Windows you may wish to [Install the Windows Subsystem for Linux][wsl]
