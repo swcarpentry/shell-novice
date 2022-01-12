@@ -49,6 +49,9 @@ The most popular Unix shell is Bash (the Bourne Again SHell ---
 so-called because it's derived from a shell written by Stephen Bourne).
 Bash is the default shell on most modern implementations of Unix and in most packages that provide
 Unix-like tools for Windows.
+To avoid that the name 'Git Bash' results in confusion during the Software Carpentries, 
+recall that Bash is a much older piece of software than Git; Git makes it only possible to use the Unix-based shell Bash inside Windows. 
+So, Bash is a flavor of the command shell, and Git Bash is no special flavor of Bash.
 
 Using the shell will take some effort and some time to learn.
 While a GUI presents you with choices to select, CLI choices are not automatically presented to you,
