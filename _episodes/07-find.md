@@ -472,7 +472,7 @@ which is where we want our search to start.
 under the current working directory.
 This can seem useless at first but `find` has many options
 to filter the output and in this lesson we will discover some
-of them.
+of them. In Linux, `find` by default searches within the current directory.  
 
 The first option in our list is
 `-type d` that means 'things that are directories'.
