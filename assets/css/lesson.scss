@@ -321,6 +321,9 @@ span.fold-unfold {
   opacity: 0.5;
 }
 
+img {
+  image-rendering: pixelated;
+}
 
 p.image-with-shadow img,
 img.image-with-shadow {
