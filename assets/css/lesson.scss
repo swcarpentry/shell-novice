@@ -321,6 +321,12 @@ span.fold-unfold {
   opacity: 0.5;
 }
 
+/*
+  Force a pixelated rendering of images when original resolution is bigger than
+  the <img> viewport to avoid a blurring effect that makes it difficult to read the image.
+  This issue affects primarily Chrome based browsers (as of 2021).
+  See https://github.com/carpentries/styles/pull/636 for the original report and related links 
+*/
 img {
   image-rendering: pixelated;
 }
