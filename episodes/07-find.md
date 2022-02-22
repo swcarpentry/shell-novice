@@ -426,35 +426,31 @@ While `grep` finds lines in files,
 the `find` command finds files themselves.
 Again,
 it has a lot of options;
-to show how the simplest ones work, we'll use the `shell-lesson-data/exercise-data` 
+to show how the simplest ones work, we'll use the `shell-lesson-data/exercise-data`
 directory tree shown below.
 
 ~~~
-$ cd ..
-$ ls -RF .
+.
+├── animal-counts/
+│   └── animals.csv
+├── creatures/
+│   ├── basilisk.dat
+│   ├── minotaur.dat
+│   └── unicorn.dat
+├── numbers.txt
+├── proteins/
+│   ├── cubane.pdb
+│   ├── ethane.pdb
+│   ├── methane.pdb
+│   ├── octane.pdb
+│   ├── pentane.pdb
+│   └── propane.pdb
+└── writing/
+    ├── haiku.txt
+    └── LittleWomen.txt
 ~~~
-{: .language-bash}
 
-~~~
-.:
-animal-counts/  creatures/  numbers.txt  proteins/  writing/
-
-./animal-counts:
-animals.csv
-
-./creatures:
-basilisk.dat  minotaur.dat  unicorn.dat
-
-./proteins:
-cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-
-./writing:
-haiku.txt  LittleWomen.txt
-~~~
-{: .output}
-
-
-The `exercise-data` directory contains one file, `numbers.txt` and four directories: 
+The `exercise-data` directory contains one file, `numbers.txt` and four directories:
 `animal-counts`, `creatures`, `proteins` and `writing` containing various files.
 
 
@@ -618,7 +614,7 @@ $ wc -l $(find . -name "*.txt")
 When the shell executes this command,
 the first thing it does is run whatever is inside the `$()`.
 It then replaces the `$()` expression with that command's output.
-Since the output of `find` is the three filenames `./writing/LittleWomen.txt`, 
+Since the output of `find` is the three filenames `./writing/LittleWomen.txt`,
 `./writing/haiku.txt`, and `./numbers.txt`, the shell constructs the command:
 
 ~~~
@@ -643,7 +639,7 @@ $ grep "searching" $(find . -name "*.txt")
 
 ~~~
 ./writing/LittleWomen.txt:sitting on the top step, affected to be searching for her book, but was
-./writing/haiku.txt:With searching comes loss	
+./writing/haiku.txt:With searching comes loss
 ~~~
 {: .output}
 
@@ -651,9 +647,9 @@ $ grep "searching" $(find . -name "*.txt")
 >
 > The `-v` option to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
-> the following commands will find all .dat files in `creatures` 
+> the following commands will find all .dat files in `creatures`
 > except `unicorn.dat`?
-> Once you have thought about your answer, you can test the commands in the 
+> Once you have thought about your answer, you can test the commands in the
 > `shell-lesson-data/exercise-data` directory.
 >
 > 1.  `find creatures -name "*.dat" | grep -v unicorn`
@@ -666,9 +662,9 @@ $ grep "searching" $(find . -name "*.txt")
 > > expanding it, so it gets passed to the `find` command.
 > >
 > > Option 2 is also works in this instance because the shell tries to expand `*.dat`
-> > but there are no `*.dat` files in the current directory, 
+> > but there are no `*.dat` files in the current directory,
 > > so the wildcard expression gets passed to `find`.
-> > We first encountered this in 
+> > We first encountered this in
 > > [episode 3]({{ page.root }}{% link _episodes/03-create.md %}/#wildcards).
 > >
 > > Option 3 is incorrect because it searches the contents of the files for lines which
