@@ -449,6 +449,7 @@ directory tree shown below.
     ├── haiku.txt
     └── LittleWomen.txt
 ~~~
+{: .output}
 
 The `exercise-data` directory contains one file, `numbers.txt` and four directories:
 `animal-counts`, `creatures`, `proteins` and `writing` containing various files.
