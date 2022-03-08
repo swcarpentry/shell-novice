@@ -376,9 +376,7 @@ $ ls -F Desktop/shell-lesson-data
 {: .language-bash}
 
 ~~~
-creatures/  molecules/           notes.txt    pizza.cfg  writing/
-data/       north-pacific-gyre/  numbers.txt  solar.pdf
-
+exercise-data/  north-pacific-gyre/
 ~~~
 {: .output}
 
@@ -400,18 +398,19 @@ use the following series of commands to get there:
 ~~~
 $ cd Desktop
 $ cd shell-lesson-data
-$ cd data
+$ cd exercise-data
 ~~~
 {: .language-bash}
 
 These commands will move us from our home directory into our Desktop directory, then into
-the `shell-lesson-data` directory, then into the `data` directory.
+the `shell-lesson-data` directory, then into the `exercise-data` directory.
 You will notice that `cd` doesn't print anything. This is normal.
 Many shell commands will not output anything to the screen when successfully executed.
 But if we run `pwd` after it, we can see that we are now
-in `/Users/nelle/Desktop/shell-lesson-data/data`.
+in `/Users/nelle/Desktop/shell-lesson-data/exercise-data`.
+
 If we run `ls -F` without arguments now,
-it lists the contents of `/Users/nelle/Desktop/shell-lesson-data/data`,
+it lists the contents of `/Users/nelle/Desktop/shell-lesson-data/exercise-data`,
 because that's where we now are:
 
 ~~~
@@ -420,7 +419,7 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle/Desktop/shell-lesson-data/data
+/Users/nelle/Desktop/shell-lesson-data/exercise-data
 ~~~
 {: .output}
 
@@ -430,8 +429,7 @@ $ ls -F
 {: .language-bash}
 
 ~~~
-amino-acids.txt  animals.txt  morse.txt  planets.txt  sunspot.txt
-animal-counts/   elements/    pdb/       salmon.txt
+animal-counts/  creatures/  numbers.txt  proteins/  writing/
 ~~~
 {: .output}
 
@@ -490,8 +488,7 @@ $ ls -F -a
 {: .language-bash}
 
 ~~~
-./   .bash_profile  data/       north-pacific-gyre/  numbers.txt  solar.pdf
-../  creatures/     molecules/  notes.txt            pizza.cfg    writing/
+./  ../  exercise-data/  north-pacific-gyre/
 ~~~
 {: .output}
 
@@ -542,14 +539,14 @@ $ pwd
 {: .output}
 
 It turns out that `cd` without an argument will return you to your home directory,
-which is great if you've gotten lost in your own filesystem.
+which is great if you've got lost in your own filesystem.
 
-Let's try returning to the `data` directory from before. Last time, we used
+Let's try returning to the `exercise-data` directory from before. Last time, we used
 three commands, but we can actually string together the list of directories
-to move to `data` in one step:
+to move to `exercise-data` in one step:
 
 ~~~
-$ cd Desktop/shell-lesson-data/data
+$ cd Desktop/shell-lesson-data/exercise-data
 ~~~
 {: .language-bash}
 
@@ -571,7 +568,7 @@ the root of the file system, so it always refers to exactly one directory,
 no matter where we are when we run the command.
 
 This allows us to move to our `shell-lesson-data` directory from anywhere on
-the filesystem (including from inside `data`). To find the absolute path
+the filesystem (including from inside `exercise-data`). To find the absolute path
 we're looking for, we can use `pwd` and then extract the piece we need
 to move to `shell-lesson-data`.
 
@@ -581,7 +578,7 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle/Desktop/shell-lesson-data/data
+/Users/nelle/Desktop/shell-lesson-data/exercise-data
 ~~~
 {: .output}
 
@@ -617,9 +614,9 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > ~~~
 > {: .language-bash}
 >
-> Then `cd` into the `creatures` directory
+> Then `cd` into the `exercise-data/creatures` directory
 > ~~~
-> $ cd creatures
+> $ cd exercise-data/creatures
 > ~~~
 > {: .language-bash}
 >
@@ -629,7 +626,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > ~~~
 > {: .language-bash}
 > you'll see you're back in `~/Desktop/shell-lesson-data`.
-> Run `cd -` again and you're back in `~/Desktop/shell-lesson-data/creatures`
+> Run `cd -` again and you're back in `~/Desktop/shell-lesson-data/exercise-data/creatures`
 {: .callout}
 
 > ## Absolute vs Relative Paths
@@ -754,22 +751,23 @@ while `ls -S` will sort the files and directories by size, as shown below:
 
 ~~~
 $ cd ~/Desktop/shell-lesson-data
-$ ls -s data
+$ ls -s exercise-data
 ~~~
 {: .language-bash}
+
 ~~~
-total 116
- 4 amino-acids.txt   4 animals.txt   4 morse.txt  12 planets.txt  76 sunspot.txt
- 4 animal-counts     4 elements      4 pdb         4 salmon.txt
+total 28
+ 4 animal-counts   4 creatures  12 numbers.txt   4 proteins   4 writing
 ~~~
 {: .output}
+
 ~~~
-$ ls -S data
+$ ls -S exercise-data
 ~~~
 {: .language-bash}
+
 ~~~
-sunspot.txt  animal-counts  pdb        amino-acids.txt  salmon.txt
-planets.txt  elements       morse.txt  animals.txt
+animal-counts  creatures  proteins  writing  numbers.txt
 ~~~
 {: .output}
 
@@ -794,28 +792,12 @@ Network/              Volumes/
 
 Knowing this much about files and directories,
 Nelle is ready to organize the files that the protein assay machine will create.
-First,
-she creates a directory called `north-pacific-gyre`
-(to remind herself where the data came from).
-Inside that,
-she creates a directory called `2012-07-03`,
-which is the date she started processing the samples.
-She used to use names like `conference-paper` and `revised-results`,
-but she found them hard to understand after a couple of years.
-(The final straw was when she found herself creating
-a directory called `revised-revised-results-3`.)
 
-> ## Sorting Output
->
-> Nelle names her directories 'year-month-day',
-> with leading zeroes for months and days,
-> because the shell displays file and directory names in alphabetical order.
-> If she used month names,
-> December would come before July;
-> if she didn't use leading zeroes,
-> November ('11') would come before July ('7'). Similarly, putting the year first
-> means that June 2012 will come before June 2013.
-{: .callout}
+She creates a directory called `north-pacific-gyre`
+(to remind herself where the data came from),
+which will contain the data files from the assay machine,
+and her data processing scripts.
+
 
 Each of her physical samples is labelled according to her lab's convention
 with a unique ten-character ID,
@@ -827,11 +809,12 @@ Since the assay machine's output is plain text,
 she will call her files `NENE01729A.txt`, `NENE01812A.txt`, and so on.
 All 1520 files will go into the same directory.
 
+
 Now in her current directory `shell-lesson-data`,
 Nelle can see what files she has using the command:
 
 ~~~
-$ ls north-pacific-gyre/2012-07-03/
+$ ls north-pacific-gyre/
 ~~~
 {: .language-bash}
 
@@ -852,13 +835,26 @@ $ ls north-pacific-gyre/
 ~~~
 {: .language-bash}
 
-If she presses <kbd>Tab</kbd> again,
-Bash will add `2012-07-03/` to the command,
-since it's the only possible completion.
 Pressing <kbd>Tab</kbd> again does nothing,
-since there are 19 possibilities;
-pressing <kbd>Tab</kbd> twice brings up a list of all the files,
-and so on.
+since there are multiple possibilities;
+pressing <kbd>Tab</kbd> twice brings up a list of all the files.
+
+If Nelle adds <kbd>G</kbd> and presses <kbd>Tab</kbd> again,
+the shell will append 'goo' since all files that start with 'g' share
+the first three characters 'goo'.
+
+~~~
+$ ls north-pacific-gyre/goo
+~~~
+{: .language-bash}
+
+To see all of those files, she can press <kbd>Tab</kbd> twice more.
+~~~
+ls north-pacific-gyre/goo
+goodiff.sh   goostats.sh
+~~~
+{: .language-bash}
+
 This is called **tab completion**,
 and we will see it in many other tools as we go on.
 
