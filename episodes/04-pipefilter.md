@@ -24,13 +24,13 @@ keypoints:
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
-We'll start with the directory called `shell-lesson-data/molecules`
+We'll start with the directory `shell-lesson-data/exercise-data/proteins`
 that contains six files describing some simple organic molecules.
 The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
 
 ~~~
-$ ls molecules
+$ ls proteins
 ~~~
 {: .language-bash}
 
@@ -43,7 +43,7 @@ ethane.pdb    octane.pdb     propane.pdb
 Let's go into that directory with `cd` and run an example  command `wc cubane.pdb`:
 
 ~~~
-$ cd molecules
+$ cd proteins
 $ wc cubane.pdb
 ~~~
 {: .language-bash}
@@ -194,8 +194,7 @@ But first we'll use an exercise to learn a little about the sort command:
 
 > ## What Does `sort -n` Do?
 >
-> The file [`shell-lesson-data/numbers.txt`](../shell-lesson-data/numbers.txt)
-> contains the following lines:
+> The file `shell-lesson-data/exercise-data/numbers.txt` contains the following lines:
 >
 > ~~~
 > 10
@@ -345,27 +344,27 @@ the output of `head` must be the file with the fewest lines.
 > We have already met the `head` command, which prints lines from the start of a file.
 > `tail` is similar, but prints lines from the end of a file instead.
 >
-> Consider the file `shell-lesson-data/data/animals.txt`.
+> Consider the file `shell-lesson-data/exercise-data/animal-counts/animals.csv`.
 > After these commands, select the answer that
-> corresponds to the file `animals-subset.txt`:
+> corresponds to the file `animals-subset.csv`:
 >
 > ~~~
-> $ head -n 3 animals.txt > animals-subset.txt
-> $ tail -n 2 animals.txt >> animals-subset.txt
+> $ head -n 3 animals.csv > animals-subset.csv
+> $ tail -n 2 animals.csv >> animals-subset.csv
 > ~~~
 > {: .language-bash}
 >
-> 1. The first three lines of `animals.txt`
-> 2. The last two lines of `animals.txt`
-> 3. The first three lines and the last two lines of `animals.txt`
-> 4. The second and third lines of `animals.txt`
+> 1. The first three lines of `animals.csv`
+> 2. The last two lines of `animals.csv`
+> 3. The first three lines and the last two lines of `animals.csv`
+> 4. The second and third lines of `animals.csv`
 >
 > > ## Solution
 > > Option 3 is correct.
 > > For option 1 to be correct we would only run the `head` command.
 > > For option 2 to be correct we would only run the `tail` command.
 > > For option 4 to be correct we would have to pipe the output of `head` into `tail -n 2`
-> > by doing `head -n 3 animals.txt | tail -n 2 > animals-subset.txt`
+> >  by doing `head -n 3 animals.csv | tail -n 2 > animals-subset.csv`
 > {: .solution}
 {: .challenge}
 
@@ -461,7 +460,7 @@ the "sort" command is the input to the "head" command and the output of the
 > > The pipe character `|` is used to connect the output from one command to
 > > the input of another.
 > > `>` is used to redirect standard output to a file.
-> > Try it in the `shell-lesson-data/molecules` directory!
+> > Try it in the `shell-lesson-data/exercise-data/proteins` directory!
 > {: .solution}
 {: .challenge}
 
@@ -490,38 +489,40 @@ so that you and other people can put those programs into pipes to multiply their
 
 > ## Pipe Reading Comprehension
 >
-> A file called `animals.txt` (in the `shell-lesson-data/data` folder) contains the following data:
+> A file called `animals.csv` (in the `shell-lesson-data/exercise-data/animal-counts` folder)
+> contains the following data:
 >
 > ~~~
+> 2012-11-05,deer,5
+> 2012-11-05,rabbit,22
+> 2012-11-05,raccoon,7
+> 2012-11-06,rabbit,19
+> 2012-11-06,deer,2
+> 2012-11-06,fox,4
+> 2012-11-07,rabbit,16
+> 2012-11-07,bear,1
 > 2012-11-05,deer
-> 2012-11-05,rabbit
-> 2012-11-05,raccoon
-> 2012-11-06,rabbit
-> 2012-11-06,deer
-> 2012-11-06,fox
-> 2012-11-07,rabbit
-> 2012-11-07,bear
 > ~~~
 > {: .source}
 >
 > What text passes through each of the pipes and the final redirect in the pipeline below?
 >
 > ~~~
-> $ cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt
+> $ cat animals.csv | head -n 5 | tail -n 3 | sort -r > final.txt
 > ~~~
 > {: .language-bash}
 > Hint: build the pipeline up one command at a time to test your understanding
 > > ## Solution
-> > The `head` command extracts the first 5 lines from `animals.txt`.
+> > The `head` command extracts the first 5 lines from `animals.csv`.
 > > Then, the last 3 lines are extracted from the previous 5 by using the `tail` command.
 > > With the `sort -r` command those 3 lines are sorted in reverse order and finally,
 > > the output is redirected to a file `final.txt`.
 > > The content of this file can be checked by executing `cat final.txt`.
 > > The file should contain the following lines:
 > > ```
-> > 2012-11-06,rabbit
-> > 2012-11-06,deer
-> > 2012-11-05,raccoon
+> > 2012-11-06,rabbit,19
+> > 2012-11-06,deer,2
+> > 2012-11-05,raccoon,7
 > > ```
 > > {: .source}
 > {: .solution}
@@ -529,10 +530,10 @@ so that you and other people can put those programs into pipes to multiply their
 
 > ## Pipe Construction
 >
-> For the file `animals.txt` from the previous exercise, consider the following command:
+> For the file `animals.csv` from the previous exercise, consider the following command:
 >
 > ~~~
-> $ cut -d , -f 2 animals.txt
+> $ cut -d , -f 2 animals.csv
 > ~~~
 > {: .language-bash}
 >
@@ -562,7 +563,7 @@ so that you and other people can put those programs into pipes to multiply their
 >
 > > ## Solution
 > > ```
-> > $ cut -d , -f 2 animals.txt | sort | uniq
+> > $ cut -d , -f 2 animals.csv | sort | uniq
 > > ```
 > > {: .language-bash}
 > {: .solution}
@@ -570,27 +571,27 @@ so that you and other people can put those programs into pipes to multiply their
 
 > ## Which Pipe?
 >
-> The file `animals.txt` contains 8 lines of data formatted as follows:
+> The file `animals.csv` contains 8 lines of data formatted as follows:
 >
 > ~~~
-> 2012-11-05,deer
-> 2012-11-05,rabbit
-> 2012-11-05,raccoon
-> 2012-11-06,rabbit
+> 2012-11-05,deer,5
+> 2012-11-05,rabbit,22
+> 2012-11-05,raccoon,7
+> 2012-11-06,rabbit,19
 > ...
 > ~~~
 > {: .output}
 >
 > The `uniq` command has a `-c` option which gives a count of the
 > number of times a line occurs in its input.  Assuming your current
-> directory is `shell-lesson-data/data/`, what command would you use to produce
+> directory is `shell-lesson-data/exercise-data/`, what command would you use to produce
 > a table that shows the total count of each type of animal in the file?
 >
-> 1.  `sort animals.txt | uniq -c`
-> 2.  `sort -t, -k2,2 animals.txt | uniq -c`
-> 3.  `cut -d, -f 2 animals.txt | uniq -c`
-> 4.  `cut -d, -f 2 animals.txt | sort | uniq -c`
-> 5.  `cut -d, -f 2 animals.txt | sort | uniq -c | wc -l`
+> 1.  `sort animals.csv | uniq -c`
+> 2.  `sort -t, -k2,2 animals.csv | uniq -c`
+> 3.  `cut -d, -f 2 animals.csv | uniq -c`
+> 4.  `cut -d, -f 2 animals.csv | sort | uniq -c`
+> 5.  `cut -d, -f 2 animals.csv | sort | uniq -c | wc -l`
 >
 > > ## Solution
 > > Option 4. is the correct answer.
@@ -602,11 +603,11 @@ so that you and other people can put those programs into pipes to multiply their
 ## Nelle's Pipeline: Checking Files
 
 Nelle has run her samples through the assay machines
-and created 17 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
-As a quick check, starting from her home directory, Nelle types:
+and created 17 files in the `north-pacific-gyre` directory described earlier.
+As a quick check, starting from the `shell-lesson-data` directory, Nelle types:
 
 ~~~
-$ cd north-pacific-gyre/2012-07-03
+$ cd north-pacific-gyre
 $ wc -l *.txt
 ~~~
 {: .language-bash}
