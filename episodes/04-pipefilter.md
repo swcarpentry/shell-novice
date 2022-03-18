@@ -506,6 +506,7 @@ so that you and other people can put those programs into pipes to multiply their
 > {: .source}
 >
 > What text passes through each of the pipes and the final redirect in the pipeline below?
+> Note, the `sort -r` command sorts in reverse order.
 >
 > ~~~
 > $ cat animals.csv | head -n 5 | tail -n 3 | sort -r > final.txt
