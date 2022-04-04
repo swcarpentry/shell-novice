@@ -28,7 +28,48 @@
 {% elsif site.life_cycle == "stable" %}
 
 {% comment %}
-We do not do anything special unless this is a Carpentries Lab lesson
+We do not do anything special for lessons in stable
+{% endcomment %}
+
+
+{% comment %}
+Below we cover the 3 phases of lesson transition towards the Carpentries Workbench:
+- transition_step_1 (`transition_url` variable needed): we indicate that there
+is a new version of the lesson that is available for testing, and that it will be deprecated in the future.
+- transition_step_2 (`transition_url` and `transition_date` variables needed): we indicate that a new version of the lesson is avaiable with a deprecation date.
+- transition_step_3 (`transition_url` variable needed): the lesson if fully deprecated, and a redirect is set up to the new URL
+{% endcomment %}
+
+{% elsif site.life_cycle == "transition_step_1" %}
+{% include check_transition_variables.html need_transition_date = 'false' %}
+
+<div class="alert alert-warning life-cycle">
+  A newer version of this lesson is being tested:
+  <a href="{{ site.transition_url }}">{{ site.transition_url }}</a>.
+  This lesson will become deprecated in the near future.
+</div>
+
+{% elsif site.life_cycle == "transition_step_2" %}
+{% include check_transition_variables.html need_transition_date = 'true' %}
+
+<div class="alert alert-danger life-cycle">
+  A newer version of this lesson is available from: <a href="{{ site.transition_url }}">{{ site.transition_url }}</a>.
+  This lesson will become deprecated on {{ site.transition_date }}.
+</div>
+
+{% elsif site.life_cycle == "transition_step_3" %}
+{% include check_transition_variables.html need_transition_date = 'false' %}
+
+<div class="alert alert-danger life-cycle">
+    This lesson is deprecated. A newer version is available from: <a href="{{ site.transition_url }}">{{ site.transition_url }}</a>.
+</div>
+
+{% endif %}
+
+
+
+{% comment %}
+For Carpentries Lab lessons we add a banner about the review status
 {% endcomment %}
 
 {% if site.carpentry == "lab" %}
@@ -42,5 +83,4 @@ We do not do anything special unless this is a Carpentries Lab lesson
     This lesson has passed peer-review! {% if site.doi != "" %}<a href="{{ site.doi }}">See the publication{{ listing }}.</a>{% endif %}
   </div>
 </div>
-{% endif %}
 {% endif %}
