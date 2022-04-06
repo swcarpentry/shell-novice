@@ -249,3 +249,5 @@ wildcard
 * ['Ensuring the longevity of digital information' by Jeff Rothenberg](http://www.clir.org/pubs/archives/ensuring.pdf)
 * [Computer error haikus](http://wiki.c2.com/?ComputerErrorHaiku)
 * [How to name files nicely, by Jenny Bryan](https://speakerdeck.com/jennybc/how-to-name-files)
+* [Further practice through the Unix Game](https://unixgame.io/unix50)
+* [UNIX for Poets by K,W. Church, updated by F. Tyers](https://ftyers.github.io/079-osnov-programm/classes/01.html)
