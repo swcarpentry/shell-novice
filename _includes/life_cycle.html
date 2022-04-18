@@ -34,13 +34,13 @@ We do not do anything special for lessons in stable
 
 {% comment %}
 Below we cover the 3 phases of lesson transition towards the Carpentries Workbench:
-- transition_step_1 (`transition_url` variable needed): we indicate that there
+- transition-step-1 (`transition_url` variable needed): we indicate that there
 is a new version of the lesson that is available for testing, and that it will be deprecated in the future.
-- transition_step_2 (`transition_url` and `transition_date` variables needed): we indicate that a new version of the lesson is avaiable with a deprecation date.
-- transition_step_3 (`transition_url` variable needed): the lesson if fully deprecated, and a redirect is set up to the new URL
+- transition-step-2 (`transition_url` and `transition_date` variables needed): we indicate that a new version of the lesson is avaiable with a deprecation date.
+- transition-step-3 (`transition_url` variable needed): the lesson if fully deprecated, and a redirect is set up to the new URL
 {% endcomment %}
 
-{% elsif site.life_cycle == "transition_step_1" %}
+{% elsif site.life_cycle == "transition-step-1" %}
 {% include check_transition_variables.html need_transition_date = 'false' %}
 
 <div class="alert alert-warning life-cycle">
@@ -49,7 +49,7 @@ is a new version of the lesson that is available for testing, and that it will b
   This lesson will become deprecated in the near future.
 </div>
 
-{% elsif site.life_cycle == "transition_step_2" %}
+{% elsif site.life_cycle == "transition-step-2" %}
 {% include check_transition_variables.html need_transition_date = 'true' %}
 
 <div class="alert alert-danger life-cycle">
@@ -57,7 +57,7 @@ is a new version of the lesson that is available for testing, and that it will b
   This lesson will become deprecated on {{ site.transition_date }}.
 </div>
 
-{% elsif site.life_cycle == "transition_step_3" %}
+{% elsif site.life_cycle == "transition-step-3" %}
 {% include check_transition_variables.html need_transition_date = 'false' %}
 
 <div class="alert alert-danger life-cycle">

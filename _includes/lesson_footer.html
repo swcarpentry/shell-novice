@@ -28,7 +28,7 @@
 	{% endif %}
     </div>
     <div class="col-md-6 help-links" align="right">
-        {% if site.life_cycle contains 'transition_step' %}
+        {% if site.life_cycle contains 'transition-step' %}
         <a href="{{repo_url}}">Edit on GitHub</a>
         {% elsif page.source == "Rmd" %}
 	<a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}" data-checker-ignore>Edit on GitHub</a>
