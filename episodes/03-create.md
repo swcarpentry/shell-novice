@@ -299,10 +299,10 @@ draft.txt
 {: .callout}
 
 ## Moving files and directories
-Returning to the `shell-lesson-data/writing` directory,
+Returning to the `shell-lesson-data/exercise-data/writing` directory,
 
 ```
-$ cd ~/Desktop/shell-lesson-data/writing
+$ cd ~/Desktop/shell-lesson-data/exercise-data/writing
 ```
 {: .language-bash}
 
@@ -551,7 +551,7 @@ quotations.txt
 
 ## Removing files and directories
 
-Returning to the `shell-lesson-data/writing` directory,
+Returning to the `shell-lesson-data/exercise-data/writing` directory,
 let's tidy up this directory by removing the `quotes.txt` file we created.
 The Unix command we'll use for this is `rm` (short for 'remove'):
 
