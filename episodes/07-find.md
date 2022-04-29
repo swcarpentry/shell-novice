@@ -706,7 +706,7 @@ extending the number of important operations which we can perform
 without thinking about them.'
 
 > ## `find` Pipeline Reading Comprehension
->358242
+> 
 > Write a short explanatory comment for the following shell script:
 >
 > ~~~
