@@ -220,10 +220,29 @@ as long as learners using Windows do not run into roadblocks such as:
     ~~~
     {: .language-bash}
 
-    will always put someone on their desktop.
+    will always put someone on their desktop
+    (unless their machine is backed up using enterprise OneDrive, see next point).
     Have them create the example directory for the shell exercises there
     so that they can find it easily
     and watch it evolve.
+
+*   If a Windows machine is backed up with enterprise OneDrive, their GUI desktop may
+    be rendered from a folder within OneDrive, which will not match the contents of `~/Desktop`.
+    The OneDrive desktop should be accessible using one of the following commands
+    (if the name of the enterprise isn't clear, look through the output of `ls` to find
+    the right folder):
+
+    ~~~
+    $ cd "~/OneDrive - Name Of Enterprise/Desktop"
+    $ cd "C:/Users/Username/OneDrive - Name Of Enterprise/Desktop"
+    ~~~
+    {: .language-bash}
+
+    One way to spot if the computer is using this kind of configuration is to look at files,
+    folders or links on the desktop. Usually the icon contains a shortcut/arrow symbol if it
+    is a link, or just the plain icon if the file is just saved in the `Desktop` folder.
+    Files synced with OneDrive contain an additional symbol indicating the sync status
+    (typically blue arrows for 'sync pending' or a green tick for 'synced').
 
 *  Stay within POSIX-compliant commands, as all the teaching materials do.
    Your particular shell may have extensions beyond POSIX that are not available
