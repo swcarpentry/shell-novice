@@ -231,13 +231,13 @@ as long as learners using Windows do not run into roadblocks such as:
     The OneDrive desktop should be accessible using one of the following commands
     (if the name of the enterprise isn't clear, look through the output of `ls` to find
     the right folder):
-    
+
     ~~~
     $ cd "~/OneDrive - Name Of Enterprise/Desktop"
     $ cd "C:/Users/Username/OneDrive - Name Of Enterprise/Desktop"
     ~~~
     {: .language-bash}
-    
+
     One way to spot if the computer is using this kind of configuration is to look at files,
     folders or links on the desktop. Usually the icon contains a shortcut/arrow symbol if it
     is a link, or just the plain icon if the file is just saved in the `Desktop` folder.
