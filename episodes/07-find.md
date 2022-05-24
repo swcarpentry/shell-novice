@@ -655,7 +655,7 @@ $ grep "searching" $(find . -name "*.txt")
 >
 > 1.  `find creatures -name "*.dat" | grep -v unicorn`
 > 2.  `find creatures -name *.dat | grep -v unicorn`
-> 3.  `grep -v "unicorn" $(find creatures -name "*.dat"))`
+> 3.  `grep -v "unicorn" $(find creatures -name "*.dat")`
 > 4.  None of the above.
 >
 > > ## Solution
