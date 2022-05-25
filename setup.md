@@ -95,6 +95,7 @@ The default Unix Shell for Linux operating systems is usually Bash.
 On most versions of Linux, it is accessible by running the
 [Gnome Terminal][gnome-terminal] or [KDE Konsole][kde-konsole] or [xterm][xterm],
 which can be found via the applications menu or the search bar.
+By default, to quickly open a Terminal in Ubuntu and Linux Mint, press Ctrl+Alt+T
 If your machine is set up to use something other than Bash,
 you can run it by opening a terminal and typing `bash`.
 </article>
