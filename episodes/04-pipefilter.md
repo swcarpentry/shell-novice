@@ -585,8 +585,9 @@ so that you and other people can put those programs into pipes to multiply their
 >
 > The `uniq` command has a `-c` option which gives a count of the
 > number of times a line occurs in its input.  Assuming your current
-> directory is `shell-lesson-data/exercise-data/`, what command would you use to produce
-> a table that shows the total count of each type of animal in the file?
+> directory is `shell-lesson-data/exercise-data/animal-counts`, 
+> what command would you use to produce a table that shows
+> the total count of each type of animal in the file?
 >
 > 1.  `sort animals.csv | uniq -c`
 > 2.  `sort -t, -k2,2 animals.csv | uniq -c`
@@ -597,7 +598,8 @@ so that you and other people can put those programs into pipes to multiply their
 > > ## Solution
 > > Option 4. is the correct answer.
 > > If you have difficulty understanding why, try running the commands, or sub-sections of
-> > the pipelines (make sure you are in the `shell-lesson-data/data` directory).
+> > the pipelines (make sure you are in the `shell-lesson-data/exercise-data/animal-counts` 
+> > directory).
 > {: .solution}
 {: .challenge}
 
