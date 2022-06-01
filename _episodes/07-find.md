@@ -336,7 +336,8 @@ Miscellaneous:
 > ~~~
 > {: .source}
 >
-> Put these commands and pipes in the right order to achieve this:
+> Below, each line contains an individual command, or pipe.  Arrange their
+> sequence in one command in order to achieve Leah's goal:
 >
 > ~~~
 > cut -d : -f 2
