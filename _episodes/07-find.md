@@ -314,11 +314,14 @@ Miscellaneous:
 > data files saved in one directory, each of which is formatted like this:
 >
 > ~~~
-> 2013-11-05,deer,5
-> 2013-11-05,rabbit,22
-> 2013-11-05,raccoon,7
-> 2013-11-06,rabbit,19
-> 2013-11-06,deer,2
+> 2012-11-05,deer,5
+> 2012-11-05,rabbit,22
+> 2012-11-05,raccoon,7
+> 2012-11-06,rabbit,19
+> 2012-11-06,deer,2
+> 2012-11-06,fox,4
+> 2012-11-07,rabbit,16
+> 2012-11-07,bear,1
 > ~~~
 > {: .source}
 >
@@ -328,8 +331,8 @@ Miscellaneous:
 > For example using the data shown above, `rabbit.txt` would contain:
 >
 > ~~~
-> 2013-11-05,22
-> 2013-11-06,19
+> 2012-11-05,22
+> 2012-11-06,19
 > ~~~
 > {: .source}
 >
