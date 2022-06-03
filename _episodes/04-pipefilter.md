@@ -521,8 +521,8 @@ so that you and other people can put those programs into pipes to multiply their
 > > The content of this file can be checked by executing `cat final.txt`.
 > > The file should contain the following lines:
 > > ```
-> > 2012-11-06,rabbit,19
 > > 2012-11-06,deer,2
+> > 2012-11-06,rabbit,19
 > > 2012-11-05,raccoon,7
 > > ```
 > > {: .source}
