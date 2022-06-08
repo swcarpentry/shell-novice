@@ -501,7 +501,6 @@ so that you and other people can put those programs into pipes to multiply their
 > 2012-11-06,fox,4
 > 2012-11-07,rabbit,16
 > 2012-11-07,bear,1
-> 2012-11-05,deer
 > ~~~
 > {: .source}
 >
