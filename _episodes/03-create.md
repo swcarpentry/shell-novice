@@ -660,7 +660,7 @@ or specifying a naming pattern using wildcards.
 > ~~~
 > {: .output}
 > ~~~
-> $ $ cp minotaur.dat unicorn.dat basilisk.dat
+> $ cp minotaur.dat unicorn.dat basilisk.dat
 > ~~~
 > {: .language-bash}
 >
