@@ -314,26 +314,31 @@ Miscellaneous:
 > data files saved in one directory, each of which is formatted like this:
 >
 > ~~~
-> 2013-11-05,deer,5
-> 2013-11-05,rabbit,22
-> 2013-11-05,raccoon,7
-> 2013-11-06,rabbit,19
-> 2013-11-06,deer,2
+> 2012-11-05,deer,5
+> 2012-11-05,rabbit,22
+> 2012-11-05,raccoon,7
+> 2012-11-06,rabbit,19
+> 2012-11-06,deer,2
+> 2012-11-06,fox,4
+> 2012-11-07,rabbit,16
+> 2012-11-07,bear,1
 > ~~~
 > {: .source}
 >
 > She wants to write a shell script that takes a species as the first command-line argument
-> and a directory as the second argument. The script should return one file called `species.txt`
+> and a directory as the second argument. The script should return one file called `<species>.txt`
 > containing a list of dates and the number of that species seen on each date.
 > For example using the data shown above, `rabbit.txt` would contain:
 >
 > ~~~
-> 2013-11-05,22
-> 2013-11-06,19
+> 2012-11-05,22
+> 2012-11-06,19
+> 2012-11-07,16
 > ~~~
 > {: .source}
 >
-> Put these commands and pipes in the right order to achieve this:
+> Below, each line contains an individual command, or pipe.  Arrange their
+> sequence in one command in order to achieve Leah's goal:
 >
 > ~~~
 > cut -d : -f 2
