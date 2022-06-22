@@ -242,6 +242,7 @@ wildcard
 ### Manuals
 * [GNU manuals](http://www.gnu.org/manual/manual.html)
 * [Core GNU utilities](http://www.gnu.org/software/coreutils/manual/coreutils.html)
+* [BASH Programming - Introduction HOW-TO](https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html)
 
 ### Miscellaneous
 * [North Pacific Gyre](http://en.wikipedia.org/wiki/North_Pacific_Gyre)
