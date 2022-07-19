@@ -761,8 +761,9 @@ total 28
 ~~~
 {: .output}
 
-Note that the sizes returned by `ls -s` are in *blocks*. As these are defined differently for different operating systems, you may
-not obtain the same figures as in the example.
+Note that the sizes returned by `ls -s` are in *blocks*. 
+As these are defined differently for different operating systems,
+you may not obtain the same figures as in the example.
 
 ~~~
 $ ls -S exercise-data
