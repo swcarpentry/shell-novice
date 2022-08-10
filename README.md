@@ -11,12 +11,11 @@ Please see <https://swcarpentry.github.io/shell-novice/> for a rendered version 
 for instructions on formatting, building, and submitting material,
 or run `make` in this directory for a list of helpful commands.
 
-## Maintainers
+## Current Maintainers
 
-* [Gabriel A. Devenyi][devenyi_gabriel]
-* [Colin Morris][colin_morris]
 * [Gerard Capes][gerard_capes]
 * [Jacob Deppen][jacob_deppen]
+* [Benson Muite][benson_muite]
 
 ## Contributing
 
@@ -25,10 +24,9 @@ If you would like to contribute to the development of the lesson, you can find d
 Contributions can come in many different forms: typo and formatting fixes, additions or subtractions
 of content, suggestions, clarifications, and more.
 
-[devenyi_gabriel]: http://software-carpentry.org/team/#devenyi_gabriel
-[colin_morris]: https://github.com/colinmorris
 [gerard_capes]: https://carpentries.org/instructors/#capes_gerard
 [jacob_deppen]: https://deppen8.github.io/
+[benson_muite]: https://carpentries.org/instructors/#benson_muite
 [lesson-example]: https://carpentries.github.io/lesson-example/
 [create_slack_svg]: https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg
 [slack_invite]: https://swc-slack-invite.herokuapp.com/
