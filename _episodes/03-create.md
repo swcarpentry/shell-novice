@@ -156,6 +156,13 @@ data/  results/
 > If you need to refer to names of files or directories that have spaces
 > or other special characters, you should surround the name in quotes (`""`).
 {: .callout}
+>
+> 4. Use only lowercase letters.
+>
+>    Depending on your operating system and file system, upper- and lowercase letters can be
+>    distinguished or treated as the same (Linux in general is case-sensitive, but macOS and
+>    Windows are not). The easiest way to avoid confusion is to stick to lowercase letters.
+
 
 ### Create a text file
 Let's change our working directory to `thesis` using `cd`,
