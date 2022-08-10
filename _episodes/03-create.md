@@ -162,6 +162,9 @@ data/  results/
 >    Depending on your operating system and file system, upper- and lowercase letters can be
 >    distinguished or treated as the same (Linux in general is case-sensitive, but macOS and
 >    Windows are not). The easiest way to avoid confusion is to stick to lowercase letters.
+>    You may notice a few directories starting with capital letters, such as `Desktop`, `Downloads`,
+>    `Documents`, `Pictures`, which were created by your system. Don't change their names or
+>    some programs will break.
 
 
 ### Create a text file
