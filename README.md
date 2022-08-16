@@ -11,7 +11,7 @@ Please see <https://swcarpentry.github.io/shell-novice/> for a rendered version 
 for instructions on formatting, building, and submitting material,
 or run `make` in this directory for a list of helpful commands.
 
-## Current Maintainers
+## Maintainers
 
 * [Gerard Capes][gerard_capes]
 * [Jacob Deppen][jacob_deppen]
