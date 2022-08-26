@@ -707,7 +707,7 @@ so instead, she'll have to be careful later on to select files using the wildcar
 >
 > > ## Solution
 > > 1. This would remove `.txt` files with one-character names
-> > 2. This is correct answer
+> > 2. This is the correct answer
 > > 3. The shell would expand `*` to match everything in the current directory,
 > > so the command would try to remove all matched files and an additional
 > > file called `.txt`
