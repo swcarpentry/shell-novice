@@ -389,7 +389,7 @@ directory name to change our working directory.
 `cd` stands for 'change directory',
 which is a bit misleading:
 the command doesn't change the directory;
-it changes the shell's idea of what directory we are in.
+it changes the shell's current working directory.
 The `cd` command is akin to double-clicking a folder in a graphical interface to get into a folder.
 
 Let's say we want to move to the `data` directory we saw above. We can
