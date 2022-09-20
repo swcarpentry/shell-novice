@@ -272,8 +272,11 @@ draft.txt
 > >     efficiently generate a blank text file to be used by such
 > >     programs.
 > {: .solution}
-> 
-> To avoid confusion later on, we suggest removing the file you've just created before proceding with the rest of the episode, otherwise future outputs may vary from those given in the lesson. To do this, use the following command:
+>
+> To avoid confusion later on,
+> we suggest removing the file you've just created before proceding with the rest
+> of the episode, otherwise future outputs may vary from those given in the lesson.
+> To do this, use the following command:
 >
 > ~~~
 > $ rm my_file.txt
