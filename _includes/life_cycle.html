@@ -44,8 +44,8 @@ is a new version of the lesson that is available for testing, and that it will b
 {% include check_transition_variables.html need_transition_date = 'true' %}
 
 <div class="alert alert-warning life-cycle">
-  A snapshot of this lesson from {{ site.transition_date_prebeta }} is being tested on The Carpentries Workbench:
-  <a href="{{ site.transition_url }}">{{ site.transition_url }}</a>.
+  A snapshot of this lesson from {{ site.transition_date_prebeta }} is being tested on
+  <a href='https://carpentries.github.io/workbench'>The Carpentries Workbench</a>: <a href="{{ site.transition_url }}">{{ site.transition_url }}</a>.
   <br>
   <b>The Workbench version of this lesson will become default on {{ site.transition_date_prerelease }}</b>.
   <button type="button" style="border: true; position: absolute; top: 10px; right: 27px; color: #383838;" class="close" data-dismiss="alert" aria-label="Close">
@@ -58,10 +58,10 @@ is a new version of the lesson that is available for testing, and that it will b
 
 <div class="alert alert-danger alert-dismissible life-cycle" role="alert">
   This lesson is a <b>snapshot from {{ site.transition_date_beta }}</b>.
-  A newer version is being tested on The Carpentries Workbench:
+  A newer version is being tested on <a href='https://carpentries.github.io/workbench'>The Carpentries Workbench</a>:
   <a href="{{ site.transition_url }}">{{ site.transition_url }}</a>.
   <br>
-  The Workbench version of this lesson will become default on <b>{{ site.transition_date_prerelease }}</b>.
+  <b>The Workbench version of this lesson will become default on {{ site.transition_date_prerelease }}</b>.
   <button type="button" style="border: true; position: absolute; top: 10px; right: 27px; color: #383838;" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true" style='font-size:34pt'>&times;</span>
   </button>
