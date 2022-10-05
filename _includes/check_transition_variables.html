@@ -1,0 +1,17 @@
+{% assign date = include.need_transition_date %}
+
+{% unless site.transition_url %}
+<div class="alert alert-danger">
+  you need to specify the variable <code>transition_url</code>
+  in <code>_config.yml</code>.
+</div>
+{% endunless %}
+
+{% if date == "true" %}
+{% unless site.transition_date %}
+<div class="alert alert-danger">
+  you need to specify the variable <code>transition_date</code>
+  in <code>_config.yml</code>.
+</div>
+{% endunless %}
+{% endif %}

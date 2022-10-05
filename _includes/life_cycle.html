@@ -28,7 +28,52 @@
 {% elsif site.life_cycle == "stable" %}
 
 {% comment %}
-We do not do anything special unless this is a Carpentries Lab lesson
+We do not do anything special for lessons in stable
+{% endcomment %}
+
+
+{% comment %}
+Below we cover the 3 phases of lesson transition towards the Carpentries Workbench:
+- transition-step-1 (`transition_url` variable needed): we indicate that there
+is a new version of the lesson that is available for testing, and that it will be deprecated in the future.
+- transition-step-2 (`transition_url` and `transition_date` variables needed): we indicate that a new version of the lesson is avaiable with a deprecation date.
+- transition-step-3 (`transition_url` variable needed): the lesson is fully deprecated, and a redirect is set up to the new URL
+{% endcomment %}
+
+{% elsif site.life_cycle == "transition-step-1" %}
+{% include check_transition_variables.html need_transition_date = 'false' %}
+
+<div class="alert alert-warning life-cycle">
+  A newer version of this lesson is being tested on The Carpentries Workbench:
+  <a href="{{ site.transition_url }}">{{ site.transition_url }}</a>.
+  The Jekyll version of this lesson will become deprecated in the near future.
+</div>
+
+{% elsif site.life_cycle == "transition-step-2" %}
+{% include check_transition_variables.html need_transition_date = 'true' %}
+
+<div class="alert alert-danger life-cycle">
+  A newer version of this lesson is available from:
+  <a href="{{ site.transition_url }}">{{ site.transition_url }}</a>.
+  The Jekyll version of this lesson will become deprecated on
+  {{ site.transition_date }}.
+</div>
+
+{% elsif site.life_cycle == "transition-step-3" %}
+{% include check_transition_variables.html need_transition_date = 'false' %}
+
+<div class="alert alert-danger life-cycle">
+  You are veiwing a deprecated version of this lesson. An updated version is
+  available from:
+  <a href="{{ site.transition_url }}">{{ site.transition_url }}</a>.
+</div>
+
+{% endif %}
+
+
+
+{% comment %}
+For Carpentries Lab lessons we add a banner about the review status
 {% endcomment %}
 
 {% if site.carpentry == "lab" %}
@@ -42,5 +87,4 @@ We do not do anything special unless this is a Carpentries Lab lesson
     This lesson has passed peer-review! {% if site.doi != "" %}<a href="{{ site.doi }}">See the publication{{ listing }}.</a>{% endif %}
   </div>
 </div>
-{% endif %}
 {% endif %}

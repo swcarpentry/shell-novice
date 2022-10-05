@@ -16,7 +16,23 @@ title: "Lesson Title"
 # Life cycle stage of the lesson
 # See this page for more details: https://cdh.carpentries.org/the-lesson-life-cycle.html
 # Possible values: "pre-alpha", "alpha", "beta", "stable"
+#
+# Lessons that are going through the transition to the
+# Carpentries Workbench will go through 3 steps:
+# 'transition-step-1': notice indicating a new version
+# 'transition-step-2': notice encouraging to use new version
+# 'transition-step-3': notice indicating the lesson is deprecated,
+#                      with automated redirect
 life_cycle: "pre-alpha"
+
+# For lessons in the life stages in 'transition-step-1' or later:
+# - 'transition_url' holds the URL for the version of the lesson that
+#    uses the Workbench (needed for all 3 steps)
+# - 'transition_date' (in yyyy-mm-dd format) is the date when the lesson
+#    will transition to being deprecated. The date only needs to be decided
+#    when the lesson is in 'transition-step-2'.
+transition_url:
+transition_date:
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
