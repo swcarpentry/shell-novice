@@ -44,7 +44,7 @@ jobs:
       - name: Look for R-markdown files
         id: check-rmd
         run: |
-          echo "::set-output name=count::$(shopt -s nullglob; files=($(find . -iname '*.Rmd')); echo ${#files[@]})"
+          echo "count=$(shopt -s nullglob; files=($(find . -iname '*.Rmd')); echo ${#files[@]})" >> $GITHUB_OUTPUT
 
       - name: Set up R
         if: steps.check-rmd.outputs.count != 0
