@@ -44,13 +44,14 @@ jobs:
       - name: Look for R-markdown files
         id: check-rmd
         run: |
-          echo "::set-output name=count::$(shopt -s nullglob; files=($(find . -iname '*.Rmd')); echo ${#files[@]})"
+          echo "count=$(shopt -s nullglob; files=($(find . -iname '*.Rmd')); echo ${#files[@]})" >> $GITHUB_OUTPUT
 
       - name: Set up R
         if: steps.check-rmd.outputs.count != 0
-        uses: r-lib/actions/setup-r@master
+        uses: r-lib/actions/setup-r@v2
         with:
-          r-version: 'release'
+          use-public-rspm: true
+          install-r: false
 
       - name: Restore R Cache
         if: steps.check-rmd.outputs.count != 0
