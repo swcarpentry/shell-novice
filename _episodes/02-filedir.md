@@ -123,7 +123,7 @@ her colleagues *imhotep* and *larry*.
 
 The user *imhotep*'s files are stored in `/Users/imhotep`,
 user *larry*'s in `/Users/larry`,
-and Nelle's in `/Users/nelle`.  Because Nelle is the user in our
+and Nelle's in `/Users/nelle`. Nelle is the user in our
 examples here, therefore we get `/Users/nelle` as our home directory.
 Typically, when you open a new command prompt, you will be in
 your home directory to start.
