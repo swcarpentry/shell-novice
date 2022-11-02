@@ -186,7 +186,7 @@ are **files** in the current working directory.
 to use a command and what options it accepts ---
 **depending on your environment, you might find that only one of these ways works:**
 
-1. We can pass a `--help` option to the `ls` command (available on Linux and Git Bash):
+1. We can pass a `--help` option to the a command (available on Linux and Git Bash), for example:
     ~~~
     $ ls --help
     ~~~

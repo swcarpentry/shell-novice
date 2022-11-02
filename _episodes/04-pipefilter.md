@@ -54,7 +54,8 @@ $ wc cubane.pdb
 {: .output}
 
 `wc` is the 'word count' command:
-it counts the number of lines, words, and characters in files (returning the values in that order from left to right).
+it counts the number of lines, words, and characters in files (returning the values
+in that order from left to right).
 
 If we run the command `wc *.pdb`, the `*` in `*.pdb` matches zero or more characters,
 so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
@@ -133,9 +134,13 @@ $ wc -l *.pdb > lengths.txt
 ~~~
 {: .language-bash}
 
-The greater than symbol, `>`, tells the shell to **redirect** the command's output to a file instead of printing it to the screen. This command prints no screen output, because everything that `wc` would have printed has gone into the
-file `lengths.txt` instead. If the file doesn't exist prior to issuing the command, the shell will create the file. If the file exists already, it will be
-silently overwritten, which may lead to data loss. Thus, **redirect** commands require caution.
+The greater than symbol, `>`, tells the shell to **redirect** the command's output to a
+file instead of printing it to the screen. This command prints no screen output, because
+everything that `wc` would have printed has gone into the file `lengths.txt` instead.
+If the file doesn't exist prior to issuing the command, the shell will create the file.
+If the file exists already, it will be silently overwritten, which may lead to data loss.
+Thus, **redirect** commands require caution.
+
 `ls lengths.txt` confirms that the file exists:
 
 ~~~

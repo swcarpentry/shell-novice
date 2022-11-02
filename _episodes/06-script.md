@@ -25,7 +25,11 @@ For historical reasons,
 a bunch of commands saved in a file is usually called a **shell script**,
 but make no mistake --- these are actually small programs.
 
-Not only will writing shell scripts make your work faster, but also you won't have to retype the same commands over and over again. It will also make it more accurate (fewer chances for typos) and more reproducible. If you come back to your work later (or if someone else finds your work and wants to build on it), you will be able to reproduce the same results simply by running your script, rather than having to remember or retype a long list of commands.
+Not only will writing shell scripts make your work faster, but also you won't have to retype
+the same commands over and over again. It will also make it more accurate (fewer chances for
+typos) and more reproducible. If you come back to your work later (or if someone else finds
+your work and wants to build on it), you will be able to reproduce the same results simply
+by running your script, rather than having to remember or retype a long list of commands.
 
 Let's start by going back to `proteins/` and creating a new file, `middle.sh` which will
 become our shell script:
@@ -46,10 +50,12 @@ head -n 15 octane.pdb | tail -n 5
 ~~~
 {: .source}
 
-This is a variation on the pipe we constructed earlier, which selects lines 11-15 of the file `octane.pdb`. Remember, we are *not* running it as a command just yet;
+This is a variation on the pipe we constructed earlier, which selects lines 11-15 of
+the file `octane.pdb`. Remember, we are *not* running it as a command just yet;
 we are only incorporating the commands in a file.
 
-Then we save the file (`Ctrl-O` in nano) and exit the text editor (`Ctrl-X` in nano). Check that the directory `proteins` now contains a file called `middle.sh`.
+Then we save the file (`Ctrl-O` in nano) and exit the text editor (`Ctrl-X` in nano).
+Check that the directory `proteins` now contains a file called `middle.sh`.
 
 Once we have saved the file,
 we can ask the shell to execute the commands it contains.
@@ -217,7 +223,8 @@ A comment starts with a `#` character and runs to the end of the line.
 The computer ignores comments,
 but they're invaluable for helping people (including your future self) understand and use scripts.
 The only caveat is that each time you modify the script,
-you should check that the comment is still accurate. An explanation that sends the reader in the wrong direction is worse than none at all.
+you should check that the comment is still accurate. An explanation that sends
+the reader in the wrong direction is worse than none at all.
 
 What if we want to process many files in a single pipeline?
 For example, if we want to sort our `.pdb` files by length, we would type:
@@ -373,7 +380,8 @@ we have a completely accurate record of how we created that figure.
 > {: .solution}
 {: .challenge}
 
-In practice, most people develop shell scripts by running commands at the shell prompt a few times
+In practice, most people develop shell scripts by running commands
+at the shell prompt a few times
 to make sure they're doing the right thing,
 then saving them in a file for re-use.
 This style of work allows people to recycle
