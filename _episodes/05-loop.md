@@ -450,7 +450,7 @@ from whatever file is being processed
 > It is simpler to avoid using spaces (or other special characters) in filenames.
 >
 > The files above don't exist, so if we run the above code, the `head` command will be unable
-> to find them, however the error message returned will show the name of the files it is
+> to find them; however, the error message returned will show the name of the files it is
 > expecting:
 >
 > ~~~
@@ -475,10 +475,7 @@ from whatever file is being processed
 > {: .output}
 {: .callout}
 
-We would like to modify each of the files in `shell-lesson-data/exercise-data/creatures`,
-but also save a version
-of the original files, naming the copies `original-basilisk.dat` and `original-unicorn.dat`.
-We can't use:
+We would like to modify each of the files in `shell-lesson-data/exercise-data/creatures`, but also save a version of the original files. We want to copy the original files to new files named `original-basilisk.dat` and `original-unicorn.dat`, for example. We can't use:
 
 ~~~
 $ cp *.dat original-*.dat
@@ -499,10 +496,7 @@ cp: target `original-*.dat' is not a directory
 ~~~
 {: .error}
 
-This problem arises when `cp` receives more than two inputs. When this happens, it
-expects the last input to be a directory where it can copy all the files it was passed.
-Since there is no directory named `original-*.dat` in the `creatures` directory we get an
-error.
+This problem arises when `cp` receives more than two inputs. When this happens, it expects the last input to be a directory where it can copy all the files it was passed. Since there is no directory named `original-*.dat` in the `creatures` directory, we get an error.
 
 Instead, we can use a loop:
 ~~~
@@ -538,13 +532,10 @@ cp unicorn.dat original-unicorn.dat
 {: .language-bash}
 
 Since the `cp` command does not normally produce any output, it's hard to check
-that the loop is doing the correct thing.
-However, we learned earlier how to print strings using `echo`, and we can modify the loop
-to use `echo` to print our commands without actually executing them.
-As such we can check what commands *would be* run in the unmodified loop.
+that the loop is working correctly. However, we learned earlier how to print strings using `echo`, and we can modify the loop to use `echo` to print our commands without actually executing them. As such we can check what commands *would be* run in the unmodified loop.
 
 The following diagram
-shows what happens when the modified loop is executed, and demonstrates how the
+shows what happens when the modified loop is executed and demonstrates how the
 judicious use of `echo` is a good debugging technique.
 
 ![The for loop "for filename in *.dat; do echo cp $filename original-$filename;
@@ -559,8 +550,7 @@ original-unicorn.dat"](../fig/shell_script_for_loop_flow_chart.svg)
 ## Nelle's Pipeline: Processing Files
 
 Nelle is now ready to process her data files using `goostats.sh` ---
-a shell script written by her supervisor.
-This calculates some statistics from a protein sample file, and takes two arguments:
+a shell script written by her supervisor. This calculates some statistics from a protein sample file and takes two arguments:
 
 1. an input file (containing the raw data)
 2. an output file (to store the calculated statistics)
