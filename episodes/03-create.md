@@ -194,7 +194,9 @@ $ nano draft.txt
 Let's type a few lines of text.
 Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd>
 (press the <kbd>Ctrl</kbd> or <kbd>Control</kbd> key and, while
-holding it down, press the <kbd>O</kbd> key) to write our data to disk. We will be asked to provide a name for the file that will contain our text. Press <kbd>Return</kbd> to accept the suggested default of `draft.txt`.
+holding it down, press the <kbd>O</kbd> key) to write our data to disk. We will be asked
+to provide a name for the file that will contain our text. Press <kbd>Return</kbd> to accept
+the suggested default of `draft.txt`.
 
 <div style="width:80%; margin: auto;"><img alt="screenshot of nano text editor in action"
 src="../fig/nano-screenshot.png"></div>
@@ -346,7 +348,9 @@ quotes.txt
 
 One must be careful when specifying the target file name, since `mv` will
 silently overwrite any existing file with the same name, which could
-lead to data loss. By default, `mv` will not ask for confirmation before overwriting files. However, an additional option, `mv -i` (or `mv --interactive`), will cause `mv` to request such confirmation.
+lead to data loss. By default, `mv` will not ask for confirmation before overwriting files.
+However, an additional option, `mv -i` (or `mv --interactive`), will cause `mv` to request
+such confirmation.
 
 Note that `mv` also works on directories.
 
@@ -643,7 +647,9 @@ Given that there is no way to retrieve files deleted using the shell,
 
 Oftentimes one needs to copy or move several files at once.
 This can be done by providing a list of individual filenames,
-or specifying a naming pattern using wildcards. Wildcards are special characters that can be used to represent unknown characters or sets of characters when navigating the Unix file system.
+or specifying a naming pattern using wildcards. Wildcards are
+special characters that can be used to represent unknown characters
+or sets of characters when navigating the Unix file system.
 
 > ## Copy with Multiple Filenames
 >
