@@ -46,7 +46,7 @@ Variables needed:
 {% elsif site.life_cycle == "transition-step-1" %}
 {% include check_transition_variables.html need_transition_date = 'true' %}
 
-<div class="alert alert-warning life-cycle">
+<div id="life-cycle" class="alert alert-warning life-cycle panel-body">
   A snapshot of this lesson from {{ site.transition_date_prebeta }} is being tested on
   <a href='https://carpentries.github.io/workbench'>The Carpentries Workbench</a>:
   <a href="https://preview.carpentries.org/{{ repo_name }}">https://preview.carpentries.org/{{ repo_name }}</a>.
@@ -60,7 +60,7 @@ Variables needed:
 {% elsif site.life_cycle == "transition-step-2" %}
 {% include check_transition_variables.html need_transition_date = 'true' %}
 
-<div class="alert alert-danger alert-dismissible life-cycle" role="alert">
+<div id="life-cycle" class="alert alert-danger alert-dismissible life-cycle panel-body" role="alert">
   This lesson is a <b>snapshot from {{ site.transition_date_beta }}</b>.
   A newer version is being tested on <a href='https://carpentries.github.io/workbench'>The Carpentries Workbench</a>:
   <a href="https://preview.carpentries.org/{{ repo_name }}">https://preview.carpentries.org/{{ repo_name }}</a>.
