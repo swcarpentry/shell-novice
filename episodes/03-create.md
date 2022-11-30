@@ -274,7 +274,7 @@ draft.txt
 > {: .solution}
 >
 > To avoid confusion later on,
-> we suggest removing the file you've just created before proceding with the rest
+> we suggest removing the file you've just created before proceeding with the rest
 > of the episode, otherwise future outputs may vary from those given in the lesson.
 > To do this, use the following command:
 >
