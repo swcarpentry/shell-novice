@@ -493,7 +493,7 @@ $ ls -F -a
 ~~~
 {: .output}
 
-`-a` stands for 'show all';
+`-a` stands for 'show all' (including hidden files);
 it forces `ls` to show us file and directory names that begin with `.`,
 such as `..` (which, if we're in `/Users/nelle`, refers to the `/Users` directory).
 As you can see,

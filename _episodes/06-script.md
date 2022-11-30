@@ -464,7 +464,7 @@ without editing the script.
 If she wanted to be more adventurous,
 she could modify her script to check for command-line arguments,
 and use `NENE*A.txt NENE*B.txt` if none were provided.
-Of course, this introduces another tradeoff between flexibility and complexity.
+Of course, this introduces another trade off between flexibility and complexity.
 
 > ## Variables in Shell Scripts
 >
