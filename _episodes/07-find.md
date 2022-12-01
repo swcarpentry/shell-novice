@@ -28,7 +28,14 @@ It is also the name of a very useful command-line program.
 `grep` finds and prints lines in files that match a pattern.
 For our examples,
 we will use a file that contains three haiku taken from a
-1998 competition in *Salon* magazine. For this set of examples,
+[1998 competition](https://web.archive.org/web/19991201042211/http://salon.com/21st/chal/1998/01/26chal.html)
+in *Salon* magazine (Credit to authors Bill Torcaso, Howard Korder, and 
+Margaret Segall, respectively. See 
+Haiku Error Messsages archived
+[Page 1](https://web.archive.org/web/20000310061355/http://www.salon.com/21st/chal/1998/02/10chal2.html)
+and
+[Page 2](https://web.archive.org/web/20000229135138/http://www.salon.com/21st/chal/1998/02/10chal3.html)
+.). For this set of examples,
 we're going to be working in the writing subdirectory:
 
 ~~~
@@ -52,15 +59,6 @@ Today it is not working
 Software is like that.
 ~~~
 {: .output}
-
-> ## Forever, or Five Years
->
-> We haven't linked to the original haiku because
-> they don't appear to be on *Salon*'s site any longer.
-> As [Jeff Rothenberg said](https://www.clir.org/wp-content/uploads/sites/6/ensuring.pdf),
-> 'Digital information lasts forever --- or five years, whichever comes first.'
-> Luckily, popular content often [has backups](http://wiki.c2.com/?ComputerErrorHaiku).
-{: .callout}
 
 Let's find lines that contain the word 'not':
 
