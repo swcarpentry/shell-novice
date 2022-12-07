@@ -90,20 +90,25 @@ Also note that after you type a command, you have to press the <kbd>Enter</kbd> 
 The prompt is followed by a **text cursor**, a character that indicates the position where your
 typing will appear.
 The cursor is usually a flashing or solid block, but it can also be an underscore or a pipe.
-You may have seen it in a text editor program, for example.
 
-So let's try our first command, `ls` which is short for listing.
-This command will list the contents of the current directory:
+In order to clear up any confusion, let's define the one major terms that you will use differently from your GUI in shell. "Folders" and places where your files are located are called "directories". Assume you have a text file named **"Data.txt"** inside a folder **X**, which is within a folder **Y**. Accessing the word file requires entering folders **Y** and **X**. 
+
+Visually, your text file is in the last box, but to access it, you need to open the other boxes first. 
+
+![81MROYPRGXL](https://user-images.githubusercontent.com/59741732/206088542-bb144e91-d3e9-402a-8643-b3f6a5a8979f.jpg)
+
+So let's try our first command, `pwd` which is short for print working directory.
+You can use this command to print the directory where you are at that moment. From which you can navigate forwards or backwards
 
 ~~~
-$ ls
+$ pwd
 ~~~
 {: .language-bash}
 
 ~~~
-Desktop     Downloads   Movies      Pictures
-Documents   Library     Music       Public
+/Users/Desktop/Bash/
 ~~~
+
 {: .output}
 
 > ## Command not found
@@ -111,7 +116,7 @@ Documents   Library     Music       Public
 > will print an error message such as:
 >
 > ~~~
-> $ ks
+> $ PWD
 > ~~~
 > {: .language-bash}
 > ~~~
