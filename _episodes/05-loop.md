@@ -97,7 +97,10 @@ the variable as a variable name and substitute its value in its place,
 rather than treat it as text or an external command.
 
 In this example, the list is three filenames: `basilisk.dat`, `minotaur.dat`, and `unicorn.dat`.
-Each time the loop iterates, it will assign a file name to the variable `filename`
+Each time the loop iterates, we first use `echo` to print the value that the variable
+`$filename` currently holds. This is not necessary for the result, but beneficial for us here to
+have an easier time to follow along.
+Next, we will assign a file name to the variable `filename`
 and run the `head` command.
 The first time through the loop,
 `$filename` is `basilisk.dat`.
