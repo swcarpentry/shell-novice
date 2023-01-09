@@ -48,7 +48,7 @@ $ wc wildcat.txt
 {: .language-bash}
 
 ~~~
-   4  409 4147 wildcat.txt
+   4  408 4142 wildcat.txt
 ~~~
 {: .output}
 
@@ -64,13 +64,13 @@ $ wc *.txt
 {: .language-bash}
 
 ~~~
-    3   306  2811 bowerbird.txt
-   11  1131  9851 dunnock.txt
-    1   102   799 python.txt
-   18  1409 14372 shark.txt
-   20  2049 19043 toad.txt
-    4   409  4147 wildcat.txt
-   57  5406 51023 total
+    3   303  2808 bowerbird.txt
+   11  1122  9840 dunnock.txt
+    1   101   798 python.txt
+   18  1404 14367 shark.txt
+   20  2040 19034 toad.txt
+    4   408  4142 wildcat.txt
+   57  5378 50989 total
 ~~~
 {: .output}
 
@@ -191,7 +191,7 @@ $ cat lengths.txt
 Next we'll use the `sort` command to sort the contents of the `lengths.txt` file.
 But first we'll use an exercise to learn a little about the sort command:
 
-> ## What Does `sort -n` Do?
+> ## What Does `sort -g` Do?
 >
 > The file `shell-lesson-data/exercise-data/numbers.txt` contains the following lines:
 >
@@ -443,7 +443,7 @@ In our case,
 the calculation is 'head of sort of line count of `*.txt`'.
 
 
-The redirection and pipes used in the last few commands are illustrated below:
+Redirection and pipes, as used in the last few commands, are illustrated below:
 
 ![Redirects and Pipes of different commands: "wc -l *.txt" will direct the
 output to the shell. "wc -l *.txt > lengths" will direct output to the file
@@ -457,17 +457,17 @@ the "sort" command is the input to the "head" command and the output of the
 > In our current directory, we want to find the 3 files which have the least number of
 > lines. Which command listed below would work?
 >
-> 1. `wc -l * > sort -n > head -n 3`
-> 2. `wc -l * | sort -n | head -n 1-3`
-> 3. `wc -l * | head -n 3 | sort -n`
-> 4. `wc -l * | sort -n | head -n 3`
+> 1. `wc -l * > sort -g > head -n 3`
+> 2. `wc -l * | sort -g | head -n 1-3`
+> 3. `wc -l * | head -n 3 | sort -g`
+> 4. `wc -l * | sort -g | head -n 3`
 >
 > > ## Solution
 > > Option 4 is the solution.
 > > The pipe character `|` is used to connect the output from one command to
 > > the input of another.
 > > `>` is used to redirect standard output to a file.
-> > Try it in the `shell-lesson-data/exercise-data/proteins` directory!
+> > Try it in the `shell-lesson-data/exercise-data/populations` directory!
 > {: .solution}
 {: .challenge}
 
@@ -496,7 +496,7 @@ so that you and other people can put those programs into pipes to multiply their
 
 > ## Pipe Reading Comprehension
 >
-> A file called `animals.csv` (in the `shell-lesson-data/exercise-data/animal-counts` folder)
+> A file called `six-species.csv` (in the `shell-lesson-data/exercise-data/populations` folder)
 > contains the following data:
 >
 > ~~~
