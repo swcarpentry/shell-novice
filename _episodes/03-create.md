@@ -726,31 +726,33 @@ or specifying a naming pattern using wildcards.
 > When run in the `proteins` directory, which `ls` command(s) will
 > produce this output?
 >
-> `ethane.pdb   methane.pdb`
+> `final.txt  wildcat.txt`
 >
-> 1. `ls *t*ane.pdb`
-> 2. `ls *t?ne.*`
-> 3. `ls *t??ne.pdb`
-> 4. `ls ethane.*`
+> 1. `ls *.*`
+> 2. `ls *a*`
+> 3. `ls ?i*l*.txt`
+> 4. `ls final?wildcat.*`
 >
 > > ## Solution
 >>  The solution is `3.`
 >>
 >> `1.` shows all files whose names contain zero or more characters (`*`)
->> followed by the letter `t`,
->> then zero or more characters (`*`) followed by `ane.pdb`.
->> This gives `ethane.pdb  methane.pdb  octane.pdb  pentane.pdb`.
+>> followed by the full stop `.`,
+>> then zero or more characters (`*`).
+>> This gives
+>> `bowerbird.txt  dunnock.txt  final.txt  python.txt  shark.txt  six-species.csv  toad.txt  wildcat.txt`.
 >>
 >> `2.` shows all files whose names start with zero or more characters (`*`) followed by
 >> the letter `t`,
->> then a single character (`?`), then `ne.` followed by zero or more characters (`*`).
->> This will give us `octane.pdb` and `pentane.pdb` but doesn't match anything
->> which ends in `thane.pdb`.
+>> followed by zero or more characters (`*`).
+>> This will give us `final.txt  shark.txt  toad.txt  wildcat.txt`.
 >>
->> `3.` fixes the problems of option 2 by matching two characters (`??`) between `t` and `ne`.
+>> `3.` is more specific than option 2 by matching any single character (`?`), followed by `i`, then zero or more
+>> characters `*`, followed by `l`, followed by zero or more characters `*`.
 >> This is the solution.
 >>
->> `4.` only shows files starting with `ethane.`.
+>> `4.` only shows files starting with `final`, followed by any single character `?`, followed by `wildcat.`, followed by
+>> zero or more characters `*`. No files in the directory match these criteria.
 > {: .solution}
 {: .challenge}
 
