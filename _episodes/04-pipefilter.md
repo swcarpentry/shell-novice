@@ -31,7 +31,7 @@ the basis of the [Living Planet Report 2022](https://www.wwf.org.uk/our-reports/
 
 The full LPD contains population time series data for 5268 species and 38427 populations. We have extracted a subset of data for six species and processed it for easier use in this exercise. (The full, original dataset [may be downloaded here](https://www.livingplanetindex.org/data_portal).)
 
-Following an optional convention, the `.txt` extension indicates that files are in text format. Each line of text gives a time series, showing variation in population size over a range of years, plus associated data such as the species name. Each of the six files contains all population time series in the LPD for a particular species of animal.
+Following an optional convention, the `.txt` extension indicates that files are in text format. In the LPD, each line of text gives a time series, showing variation in population size over a range of years, plus associated data such as the species name and literature source. Each of these six files contains all population time series in the LPD for a particular species of animal. (There is one additional file, which we will return to later in this episode.)
 
 ~~~
 $ ls populations
@@ -39,7 +39,7 @@ $ ls populations
 {: .language-bash}
 
 ~~~
-dunnock.txt  python.txt  shark.txt  sturgeon.txt  toad.txt  wildcat.txt
+bowerbird.txt  dunnock.txt  final.txt  lengths.txt  python.txt  shark.txt  six-species.csv  toad.txt  wildcat.txt
 ~~~
 {: .output}
 
@@ -240,7 +240,7 @@ But first we'll use an exercise to learn a little about the sort command:
 We will also use the `-g` option to specify that the sort is
 numerical instead of alphanumerical.
 This does *not* change the file;
-instead, it sends the sorted result to the screen:
+instead, it sends the sorted result to the screen. Make sure you are in the `shell-lesson-data/exercise-data/populations` directory, and then:
 
 ~~~
 $ sort -g lengths.txt
