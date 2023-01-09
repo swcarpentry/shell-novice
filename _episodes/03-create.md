@@ -723,7 +723,7 @@ or specifying a naming pattern using wildcards.
 
 > ## List filenames matching a pattern
 >
-> When run in the `proteins` directory, which `ls` command(s) will
+> When run in the `populations` directory, which `ls` command(s) will
 > produce this output?
 >
 > `dunnock.txt  toad.txt`
