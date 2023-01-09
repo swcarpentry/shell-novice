@@ -24,7 +24,7 @@ keypoints:
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
-We'll start with the directory `shell-lesson-data/exercise-data/proteins`
+We'll start with the directory `shell-lesson-data/exercise-data/time-series`
 that contains six files from the 2022 version of the Living Planet Database, containing population time series data for 5268 species and 38427 populations, kindly provided by the [Living Planet Index](https://www.livingplanetindex.org/). The data have been processed for easier use in this exercise. (The original dataset [may be downloaded here](https://www.livingplanetindex.org/data_portal).)
 Following convention, the `.txt` extension indicates that files are in text format.
 
