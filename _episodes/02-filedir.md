@@ -430,7 +430,7 @@ $ ls -F
 {: .language-bash}
 
 ~~~
-animal-counts/  creatures/  numbers.txt  proteins/  writing/
+animal-counts/  creatures/  numbers.txt  populations/  proteins/  writing/
 ~~~
 {: .output}
 
@@ -757,12 +757,12 @@ $ ls -s exercise-data
 {: .language-bash}
 
 ~~~
-total 28
- 4 animal-counts   4 creatures  12 numbers.txt   4 proteins   4 writing
+total 0
+0 animal-counts  0 creatures  0 numbers.txt  0 populations  0 proteins  0 writing
 ~~~
 {: .output}
 
-Note that the sizes returned by `ls -s` are in *blocks*. 
+Note that the sizes returned by `ls -s` are in *blocks*, and clearly include some rounding.
 As these are defined differently for different operating systems,
 you may not obtain the same figures as in the example.
 
@@ -772,7 +772,7 @@ $ ls -S exercise-data
 {: .language-bash}
 
 ~~~
-animal-counts  creatures  proteins  writing  numbers.txt
+animal-counts  creatures  populations  proteins  writing  numbers.txt
 ~~~
 {: .output}
 
