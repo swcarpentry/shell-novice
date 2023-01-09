@@ -497,7 +497,11 @@ so that you and other people can put those programs into pipes to multiply their
 > ## Pipe Reading Comprehension
 >
 > A file called `six-species.csv` (in the `shell-lesson-data/exercise-data/populations` folder)
-> contains the following data:
+> contains the combined data for the six species. Take a look at the file using `cat`. There is a lot of information. Lines have been wrapped to fit, and the 
+> top of the output scrolls off the top of the terminal.
+> Now look at the first line only, using `head -n 1 six-species.csv`. Thi
+> gives column headings. Confirm that the first heading is "ID". This gives the
+> LPD database ID for the population time series.
 >
 > ~~~
 > 2012-11-05,deer,5
