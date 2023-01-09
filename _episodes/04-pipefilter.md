@@ -26,11 +26,10 @@ we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
 
 We'll start with the directory `shell-lesson-data/exercise-data/populations`
-that contains data extracted from the 2022 version of the Living Planet Database (LPD). The
-LPD is
-the basis of the [Living Planet Report 2022](https://www.wwf.org.uk/our-reports/living-planet-report-2022), reported extensively in the media, [for examnple here](https://www.bbc.co.uk/news/science-environment-46028862).
+that contains data extracted from the 2022 version of the Living Planet Database (LPD). The LPD is kindly provided by [Living Planet Index](https://www.livingplanetindex.org/) and is
+the basis of the [Living Planet Report 2022](https://www.wwf.org.uk/our-reports/living-planet-report-2022), which has been covered extensively in the media, [for example here](https://www.bbc.co.uk/news/science-environment-46028862).
 
-The full LPD contains population time series data for 5268 species and 38427 populations, kindly provided by [Living Planet Index](https://www.livingplanetindex.org/). We have extracted a subset of data for six species and processed it for easier use in this exercise. (The full, original dataset [may be downloaded here](https://www.livingplanetindex.org/data_portal).)
+The full LPD contains population time series data for 5268 species and 38427 populations. We have extracted a subset of data for six species and processed it for easier use in this exercise. (The full, original dataset [may be downloaded here](https://www.livingplanetindex.org/data_portal).)
 
 Following an optional convention, the `.txt` extension indicates that files are in text format. Each line of text gives a time series, showing variation in population size over a range of years, plus associated data such as the species name. Each of the six files contains all population time series in the LPD for a particular species of animal.
 
