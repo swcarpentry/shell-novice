@@ -24,13 +24,13 @@ keypoints:
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
-We'll start with the directory `shell-lesson-data/exercise-data/animal-populations`
+We'll start with the directory `shell-lesson-data/exercise-data/populations`
 that contains six files from the 2022 version of the Living Planet Database (LPD), which contains population time series data for 5268 species and 38427 populations, kindly provided by the [Living Planet Index](https://www.livingplanetindex.org/). The data have been processed for easier use in this exercise. (The original dataset [may be downloaded here](https://www.livingplanetindex.org/data_portal).)
 
 Following convention, the `.txt` extension indicates that files are in text format. Each line of text gives a time series, showing variation in population size over a range of years, plus associated data such as the species name. Each of the six files contains all population time series in the LPD for a particular species of animal.
 
 ~~~
-$ ls animal-populations
+$ ls populations
 ~~~
 {: .language-bash}
 
@@ -42,7 +42,7 @@ dunnock.txt  python.txt  shark.txt  sturgeon.txt  toad.txt  wildcat.txt
 Let's go into that directory with `cd` and run an example  command `wc wildcat.txt`:
 
 ~~~
-$ cd animal-populations
+$ cd populations
 $ wc wildcat.txt
 ~~~
 {: .language-bash}
@@ -64,13 +64,13 @@ $ wc *.txt
 {: .language-bash}
 
 ~~~
+    3   306  2811 bowerbird.txt
    11  1131  9851 dunnock.txt
     1   102   799 python.txt
    18  1409 14372 shark.txt
-    1   102   952 sturgeon.txt
    20  2049 19043 toad.txt
     4   409  4147 wildcat.txt
-   55  5202 49164 total
+   57  5406 51023 total
 ~~~
 {: .output}
 
@@ -85,13 +85,13 @@ $ wc -l *.txt
 {: .language-bash}
 
 ~~~
+    3 bowerbird.txt
    11 dunnock.txt
     1 python.txt
    18 shark.txt
-    1 sturgeon.txt
    20 toad.txt
     4 wildcat.txt
-   55 total
+   57 total
 ~~~
 {: .output}
 
@@ -164,13 +164,13 @@ $ cat lengths.txt
 {: .language-bash}
 
 ~~~
+    3 bowerbird.txt
    11 dunnock.txt
     1 python.txt
    18 shark.txt
-    1 sturgeon.txt
    20 toad.txt
     4 wildcat.txt
-   55 total
+   57 total
 ~~~
 {: .output}
 
@@ -179,7 +179,7 @@ $ cat lengths.txt
 > We'll continue to use `cat` in this lesson, for convenience and consistency,
 > but it has the disadvantage that it always dumps the whole file onto your screen.
 > More useful in practice is the command `less`,
-> which you use with `less lengths.txt`.
+> which you can use with `less lengths.txt`.
 > This displays a screenful of the file, and then stops.
 > You can go forward one screenful by pressing the spacebar,
 > or back one by pressing `b`.  Press `q` to quit.
@@ -226,14 +226,14 @@ But first we'll use an exercise to learn a little about the sort command:
 > ~~~
 > {: .output}
 >
-> Explain why `-n` has this effect.
+> Explain why `-g` has this effect.
 >
 > > ## Solution
-> > The `-g` option specifies a sort on numberical value, rather than an alphanumerical sort.
+> > The `-g` option specifies a sort on numerical value, rather than an alphanumerical sort.
 > {: .solution}
 {: .challenge}
 
-We will also use the `-n` option to specify that the sort is
+We will also use the `-g` option to specify that the sort is
 numerical instead of alphanumerical.
 This does *not* change the file;
 instead, it sends the sorted result to the screen:
@@ -245,16 +245,16 @@ $ sort -g lengths.txt
 
 ~~~
     1 python.txt
-    1 sturgeon.txt
+    3 bowerbird.txt
     4 wildcat.txt
    11 dunnock.txt
    18 shark.txt
    20 toad.txt
-   55 total
+   57 total
 ~~~
 {: .output}
 
-Remember that there is one population time series per line. So this output tells us that the python and sturgeon files contain one population time series each, whereas the wildcat file contains 4, and so on.
+Remember that there is one population time series per line. So this output tells us that the python file contains one population time series each, the bowerbird file contains four, and so on.
 
 We can put the sorted list of lines in another temporary file called `sorted-lengths.txt`
 by putting `> sorted-lengths.txt` after the command,
@@ -263,13 +263,13 @@ Once we've done that,
 we can run another command called `head` to get the first few lines in `sorted-lengths.txt`:
 
 ~~~
-$ sort -n lengths.txt > sorted-lengths.txt
+$ sort -g lengths.txt > sorted-lengths.txt
 $ head -n 1 sorted-lengths.txt
 ~~~
 {: .language-bash}
 
 ~~~
-  9  methane.pdb
+    1 python.txt
 ~~~
 {: .output}
 
@@ -344,33 +344,33 @@ the output of `head` must be the file with the fewest lines.
 > We have already met the `head` command, which prints lines from the start of a file.
 > `tail` is similar, but prints lines from the end of a file instead.
 >
-> Consider the file `shell-lesson-data/exercise-data/animal-counts/animals.csv`.
+> Consider the file `sorted-lengths.txt`.
 > After these commands, select the answer that
-> corresponds to the file `animals-subset.csv`:
+> corresponds to the file `sorted-lengths-subset.txt`:
 >
 > ~~~
-> $ head -n 3 animals.csv > animals-subset.csv
-> $ tail -n 2 animals.csv >> animals-subset.csv
+> $ head -n 3 sorted-lengths.txt > sorted-lengths-subset.txt
+> $ tail -n 2 sorted-lengths.txt >> sorted-lengths-subset.txt
 > ~~~
 > {: .language-bash}
 >
-> 1. The first three lines of `animals.csv`
-> 2. The last two lines of `animals.csv`
-> 3. The first three lines and the last two lines of `animals.csv`
-> 4. The second and third lines of `animals.csv`
+> 1. The first three lines of `sorted-lengths.txt`
+> 2. The last two lines of `sorted-lengths.txt`
+> 3. The first three lines and the last two lines of `sorted-lengths.txt`
+> 4. The second and third lines of `sorted-lengths.txt`
 >
 > > ## Solution
 > > Option 3 is correct.
 > > For option 1 to be correct we would only run the `head` command.
 > > For option 2 to be correct we would only run the `tail` command.
 > > For option 4 to be correct we would have to pipe the output of `head` into `tail -n 2`
-> >  by doing `head -n 3 animals.csv | tail -n 2 > animals-subset.csv`
+> >  by doing `head -n 3 sorted-lengths.txt | tail -n 2 > sorted-lengths-subset.txt`
 > {: .solution}
 {: .challenge}
 
 
 ## Passing output to another command
-In our example of finding the file with the fewest lines,
+In our example of finding a file with the fewest lines,
 we are using two intermediate files `lengths.txt` and `sorted-lengths.txt` to store output.
 This is a confusing way to work because
 even once you understand what `wc`, `sort`, and `head` do,
@@ -383,7 +383,7 @@ $ sort -n lengths.txt | head -n 1
 {: .language-bash}
 
 ~~~
-  9  methane.pdb
+    1 python.txt
 ~~~
 {: .output}
 
@@ -400,47 +400,54 @@ We can for example send the output of `wc` directly to `sort`,
 and then the resulting output to `head`.
 This removes the need for any intermediate files.
 
+In fact, let's delete the files we created, containing lengths of other files:
+
+~~~
+$ rm lengths.txt sorted-lengths.txt sorted-lengths-subset.txt
+~~~
+{: .language-bash}
+
 We'll start by using a pipe to send the output of `wc` to `sort`:
 
 ~~~
-$ wc -l *.pdb | sort -n
+$ wc -l *.txt | sort -g
 ~~~
 {: .language-bash}
 
 ~~~
-   9 methane.pdb
-  12 ethane.pdb
-  15 propane.pdb
-  20 cubane.pdb
-  21 pentane.pdb
-  30 octane.pdb
- 107 total
+    1 python.txt
+    3 bowerbird.txt
+    4 wildcat.txt
+   11 dunnock.txt
+   18 shark.txt
+   20 toad.txt
+   57 total
 ~~~
 {: .output}
 
 We can then send that output through another pipe, to `head`, so that the full pipeline becomes:
 
 ~~~
-$ wc -l *.pdb | sort -n | head -n 1
+$ wc -l *.txt | sort -g | head -n 1
 ~~~
 {: .language-bash}
 
 ~~~
-   9  methane.pdb
+    1 python.txt
 ~~~
 {: .output}
 
 This is exactly like a mathematician nesting functions like *log(3x)*
 and saying 'the log of three times *x*'.
 In our case,
-the calculation is 'head of sort of line count of `*.pdb`'.
+the calculation is 'head of sort of line count of `*.txt`'.
 
 
 The redirection and pipes used in the last few commands are illustrated below:
 
-![Redirects and Pipes of different commands: "wc -l *.pdb" will direct the
-output to the shell. "wc -l *.pdb > lengths" will direct output to the file
-"lengths". "wc -l *.pdb | sort -n | head -n 1" will build a pipeline where the
+![Redirects and Pipes of different commands: "wc -l *.txt" will direct the
+output to the shell. "wc -l *.txt > lengths" will direct output to the file
+"lengths". "wc -l *.txt | sort -n | head -n 1" will build a pipeline where the
 output of the "wc" command is the input to the "sort" command, the output of
 the "sort" command is the input to the "head" command and the output of the
 "head" command is directed to the shell](../fig/redirects-and-pipes.svg)
