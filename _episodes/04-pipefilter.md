@@ -27,7 +27,7 @@ the ease with which it lets us combine existing programs in new ways.
 We'll start with the directory `shell-lesson-data/exercise-data/populations`
 that contains six files from the 2022 version of the Living Planet Database (LPD), which contains population time series data for 5268 species and 38427 populations, kindly provided by the [Living Planet Index](https://www.livingplanetindex.org/). The data have been processed for easier use in this exercise. (The original dataset [may be downloaded here](https://www.livingplanetindex.org/data_portal).)
 
-Following convention, the `.txt` extension indicates that files are in text format. Each line of text gives a time series, showing variation in population size over a range of years, plus associated data such as the species name. Each of the six files contains all population time series in the LPD for a particular species of animal.
+Following an optional convention, the `.txt` extension indicates that files are in text format. Each line of text gives a time series, showing variation in population size over a range of years, plus associated data such as the species name. Each of the six files contains all population time series in the LPD for a particular species of animal.
 
 ~~~
 $ ls populations
@@ -407,7 +407,7 @@ $ rm lengths.txt sorted-lengths.txt sorted-lengths-subset.txt
 ~~~
 {: .language-bash}
 
-We'll start by using a pipe to send the output of `wc` to `sort`:
+Now we'll start by using a pipe to send the output of `wc` to `sort`:
 
 ~~~
 $ wc -l *.txt | sort -g
