@@ -748,12 +748,12 @@ or specifying a naming pattern using wildcards.
 >> This gives us `bowerbird.txt  dunnock.txt  python.txt  toad.txt`.
 >>
 >> `3.` is more specific than option 2 by matching zero or more
->> characters `*`,, followed by the letter `o`, followed by any two characters `??`, followed by a full stop `.`,
->> followed by zero or more characters `*`.
+>> characters (`*`), followed by the letter `o`, followed by any two characters (`??`), followed by a full stop `.`,
+>> followed by zero or more characters (`*`).
 >> This is the solution.
 >>
->> `4.` only shows files starting with `dunnock`, followed by any single character `?`, followed by `toad.`, followed by
->> zero or more characters `*`. No files in the directory match these criteria.
+>> `4.` only shows files starting with `dunnock`, followed by any single character (`?`), followed by `toad.`, followed by
+>> zero or more characters (`*`). No files in the directory match these criteria.
 > {: .solution}
 {: .challenge}
 
