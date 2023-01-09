@@ -24,74 +24,74 @@ keypoints:
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
-We'll start with the directory `shell-lesson-data/exercise-data/time-series`
-that contains six files from the 2022 version of the Living Planet Database, containing population time series data for 5268 species and 38427 populations, kindly provided by the [Living Planet Index](https://www.livingplanetindex.org/). The data have been processed for easier use in this exercise. (The original dataset [may be downloaded here](https://www.livingplanetindex.org/data_portal).)
-Following convention, the `.txt` extension indicates that files are in text format.
+We'll start with the directory `shell-lesson-data/exercise-data/animal-populations`
+that contains six files from the 2022 version of the Living Planet Database (LPD), which contains population time series data for 5268 species and 38427 populations, kindly provided by the [Living Planet Index](https://www.livingplanetindex.org/). The data have been processed for easier use in this exercise. (The original dataset [may be downloaded here](https://www.livingplanetindex.org/data_portal).)
+
+Following convention, the `.txt` extension indicates that files are in text format. Each line of text gives a time series, showing variation in population size over a range of years, plus associated data such as the species name. Each of the six files contains all population time series in the LPD for a particular species of animal.
 
 ~~~
-$ ls living-planet-index
+$ ls animal-populations
 ~~~
 {: .language-bash}
 
 ~~~
-cubane.pdb    methane.pdb    pentane.pdb
-ethane.pdb    octane.pdb     propane.pdb
+dunnock.txt  python.txt  shark.txt  sturgeon.txt  toad.txt  wildcat.txt
 ~~~
 {: .output}
 
-Let's go into that directory with `cd` and run an example  command `wc cubane.pdb`:
+Let's go into that directory with `cd` and run an example  command `wc wildcat.txt`:
 
 ~~~
-$ cd proteins
-$ wc cubane.pdb
+$ cd animal-populations
+$ wc wildcat.txt
 ~~~
 {: .language-bash}
 
 ~~~
-20  156 1158 cubane.pdb
+   4  409 4147 wildcat.txt
 ~~~
 {: .output}
 
 `wc` is the 'word count' command:
 it counts the number of lines, words, and characters in files (from left to right, in that order).
 
-If we run the command `wc *.pdb`, the `*` in `*.pdb` matches zero or more characters,
-so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
+If we run the command `wc *.txt`, the `*` in `*.txt` matches zero or more characters,
+so the shell turns `*.txt` into a list of all `.txt` files in the current directory:
 
 ~~~
-$ wc *.pdb
+$ wc *.txt
 ~~~
 {: .language-bash}
 
 ~~~
-  20  156  1158  cubane.pdb
-  12  84   622   ethane.pdb
-   9  57   422   methane.pdb
-  30  246  1828  octane.pdb
-  21  165  1226  pentane.pdb
-  15  111  825   propane.pdb
- 107  819  6081  total
+   11  1131  9851 dunnock.txt
+    1   102   799 python.txt
+   18  1409 14372 shark.txt
+    1   102   952 sturgeon.txt
+   20  2049 19043 toad.txt
+    4   409  4147 wildcat.txt
+   55  5202 49164 total
 ~~~
 {: .output}
 
-Note that `wc *.pdb` also shows the total number of all lines in the last line of the output.
+Note that `wc *.txt` also shows the total number of all lines in the last line of the output.
 
 If we run `wc -l` instead of just `wc`,
 the output shows only the number of lines per file:
 
 ~~~
-$ wc -l *.pdb
+$ wc -l *.txt
 ~~~
 {: .language-bash}
 
 ~~~
-  20  cubane.pdb
-  12  ethane.pdb
-   9  methane.pdb
-  30  octane.pdb
-  21  pentane.pdb
-  15  propane.pdb
- 107  total
+   11 dunnock.txt
+    1 python.txt
+   18 shark.txt
+    1 sturgeon.txt
+   20 toad.txt
+    4 wildcat.txt
+   55 total
 ~~~
 {: .output}
 
