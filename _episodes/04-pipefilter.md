@@ -521,16 +521,16 @@ so that you and other people can put those programs into pipes to multiply their
 > > The file should contain three long lines, the first beginning with 2826, the second
 > > beginning with 2825 and the third beginning with 2824. I.e. the three population
 > > time series extracted by `head` and `tail` have been sorted in reverse numerical order
-> > of their ID.
+> > of their IDs in the Living Planet Database (LPD).
 > {: .solution}
 {: .challenge}
 
 > ## Pipe Construction
 >
-> For the file `animals.csv` from the previous exercise, consider the following command:
+> For the file `six-species.csv` from the previous exercise, consider the following command:
 >
 > ~~~
-> $ cut -d , -f 2 animals.csv
+> $ cut -d , -f 2 six-species.csv
 > ~~~
 > {: .language-bash}
 >
@@ -542,17 +542,70 @@ so that you and other people can put those programs into pipes to multiply their
 > This gives the following output:
 >
 > ~~~
-> deer
-> rabbit
-> raccoon
-> rabbit
-> deer
-> fox
-> rabbit
-> bear
+> Binomial
+> Prunella_modularis
+> Prunella_modularis
+> Prunella_modularis
+> Prunella_modularis
+> Prunella_modularis
+> Prunella_modularis
+> Prunella_modularis
+> Prunella_modularis
+> Prunella_modularis
+> Prunella_modularis
+> Prunella_modularis
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Bufo_bufo
+> Ailuroedus_melanotis
+> Ailuroedus_melanotis
+> Ailuroedus_melanotis
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Carcharodon_carcharias
+> Python_regius
+> Felis_silvestris
+> Felis_silvestris
+> Felis_silvestris
+> Felis_silvestris
 > ~~~
 > {: .output}
 >
+> The first line contains the column heading, "Binomial". The rows then give the binomial name
+> of the exact species, for example *Prunella modularis* (the dunnock).
+> 
 > The `uniq` command filters out adjacent matching lines in a file.
 > How could you extend this pipeline (using `uniq` and another command) to find
 > out what animals the file contains (without any duplicates in their
@@ -560,7 +613,7 @@ so that you and other people can put those programs into pipes to multiply their
 >
 > > ## Solution
 > > ```
-> > $ cut -d , -f 2 animals.csv | sort | uniq
+> > $ cut -d , -f 2 six-species.csv | sort | uniq
 > > ```
 > > {: .language-bash}
 > {: .solution}
@@ -568,33 +621,24 @@ so that you and other people can put those programs into pipes to multiply their
 
 > ## Which Pipe?
 >
-> The file `animals.csv` contains 8 lines of data formatted as follows:
->
-> ~~~
-> 2012-11-05,deer,5
-> 2012-11-05,rabbit,22
-> 2012-11-05,raccoon,7
-> 2012-11-06,rabbit,19
-> ...
-> ~~~
-> {: .output}
->
 > The `uniq` command has a `-c` option which gives a count of the
 > number of times a line occurs in its input.  Assuming your current
-> directory is `shell-lesson-data/exercise-data/animal-counts`, 
-> what command would you use to produce a table that shows
+> directory is `shell-lesson-data/exercise-data/populations`, 
+> which of the following commands would be best to produce a table that shows
 > the total count of each type of animal in the file?
 >
-> 1.  `sort animals.csv | uniq -c`
-> 2.  `sort -t, -k2,2 animals.csv | uniq -c`
-> 3.  `cut -d, -f 2 animals.csv | uniq -c`
-> 4.  `cut -d, -f 2 animals.csv | sort | uniq -c`
-> 5.  `cut -d, -f 2 animals.csv | sort | uniq -c | wc -l`
+> 1.  `sort six-species.csv | uniq -c`
+> 2.  `sort -t , -k2,2 six-species.csv | uniq -c`
+> 3.  `cut -d , -f 2 six-species.csv | uniq -c`
+> 4.  `cut -d , -f 2 six-species.csv | sort | uniq -c`
+> 5.  `cut -d , -f 2 six-species.csv | sort | uniq -c | wc -l`
 >
 > > ## Solution
-> > Option 4. is the correct answer.
+> > Option 4. is the correct answer. (Note, it could be improved further -- its output also
+> > includes an entry for the column
+> > heading, "Binomial").
 > > If you have difficulty understanding why, try running the commands, or sub-sections of
-> > the pipelines (make sure you are in the `shell-lesson-data/exercise-data/animal-counts` 
+> > the pipelines (make sure you are in the `shell-lesson-data/exercise-data/populations` 
 > > directory).
 > {: .solution}
 {: .challenge}
