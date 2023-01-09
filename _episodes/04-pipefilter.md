@@ -499,43 +499,29 @@ so that you and other people can put those programs into pipes to multiply their
 > A file called `six-species.csv` (in the `shell-lesson-data/exercise-data/populations` folder)
 > contains the combined data for the six species. Take a look at the file using `cat`. There is a lot of information. Lines have been wrapped to fit, and the 
 > top of the output scrolls off the top of the terminal.
-> Now look at the first line only, using `head -n 1 six-species.csv`. Thi
+> Now look at the first line only, using `head -n 1 six-species.csv`. This
 > gives column headings. Confirm that the first heading is "ID". This gives the
-> LPD database ID for the population time series.
->
-> ~~~
-> 2012-11-05,deer,5
-> 2012-11-05,rabbit,22
-> 2012-11-05,raccoon,7
-> 2012-11-06,rabbit,19
-> 2012-11-06,deer,2
-> 2012-11-06,fox,4
-> 2012-11-07,rabbit,16
-> 2012-11-07,bear,1
-> ~~~
-> {: .source}
+> LPD database ID for the population time series, an arbitrary number which uniquely identifies
+> the time series. (The final column headings, from 1950 to 2020, give the date.)
 >
 > What text passes through each of the pipes and the final redirect in the pipeline below?
 > Note, the `sort -r` command sorts in reverse order.
 >
 > ~~~
-> $ cat animals.csv | head -n 5 | tail -n 3 | sort -r > final.txt
+> $ cat six-species.csv | head -n 5 | tail -n 3 | sort -g -r > final.txt
 > ~~~
 > {: .language-bash}
 > Hint: build the pipeline up one command at a time to test your understanding
 > > ## Solution
-> > The `head` command extracts the first 5 lines from `animals.csv`.
+> > The `head` command extracts the first 5 lines from `six-species.csv`.
 > > Then, the last 3 lines are extracted from the previous 5 by using the `tail` command.
-> > With the `sort -r` command those 3 lines are sorted in reverse order and finally,
-> > the output is redirected to a file `final.txt`.
+> > With the `sort -g -r` command those 3 lines are sorted in reverse numerical order
+> > and finally, the output is redirected to a file `final.txt`.
 > > The content of this file can be checked by executing `cat final.txt`.
-> > The file should contain the following lines:
-> > ```
-> > 2012-11-06,rabbit,19
-> > 2012-11-06,deer,2
-> > 2012-11-05,raccoon,7
-> > ```
-> > {: .source}
+> > The file should contain three long lines, the first beginning with 2826, the second
+> > beginning with 2825 and the third beginning with 2824. I.e. the three population
+> > time series extracted by `head` and `tail` have been sorted in reverse numerical order
+> > of their ID.
 > {: .solution}
 {: .challenge}
 
