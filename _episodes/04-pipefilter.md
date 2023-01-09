@@ -24,8 +24,13 @@ keypoints:
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
+
 We'll start with the directory `shell-lesson-data/exercise-data/populations`
-that contains six files from the 2022 version of the Living Planet Database (LPD), which contains population time series data for 5268 species and 38427 populations, kindly provided by the [Living Planet Index](https://www.livingplanetindex.org/). The data have been processed for easier use in this exercise. (The original dataset [may be downloaded here](https://www.livingplanetindex.org/data_portal).)
+that contains data extracted from the 2022 version of the Living Planet Database (LPD). The
+LPD is
+the basis of the [Living Planet Report 2022](https://www.wwf.org.uk/our-reports/living-planet-report-2022), reported extensively in the media, [for examnple here](https://www.bbc.co.uk/news/science-environment-46028862).
+
+The full LPD contains population time series data for 5268 species and 38427 populations, kindly provided by [Living Planet Index](https://www.livingplanetindex.org/). We have extracted a subset of data for six species and processed it for easier use in this exercise. (The full, original dataset [may be downloaded here](https://www.livingplanetindex.org/data_portal).)
 
 Following an optional convention, the `.txt` extension indicates that files are in text format. Each line of text gives a time series, showing variation in population size over a range of years, plus associated data such as the species name. Each of the six files contains all population time series in the LPD for a particular species of animal.
 
@@ -287,7 +292,7 @@ the output of `head` must be the file with the fewest lines.
 > to the same file. For example:
 >
 > ~~~
-> $ sort -n lengths.txt > lengths.txt
+> $ sort -g lengths.txt > lengths.txt
 > ~~~
 > {: .language-bash}
 >
@@ -608,7 +613,7 @@ so that you and other people can put those programs into pipes to multiply their
 > 
 > The `uniq` command filters out adjacent matching lines in a file.
 > How could you extend this pipeline (using `uniq` and another command) to find
-> out what animals the file contains (without any duplicates in their
+> out which species the file contains (without any duplicates in their
 > names)?
 >
 > > ## Solution
@@ -634,10 +639,11 @@ so that you and other people can put those programs into pipes to multiply their
 > 5.  `cut -d , -f 2 six-species.csv | sort | uniq -c | wc -l`
 >
 > > ## Solution
-> > Option 4. is the correct answer. (Note, it could be improved further -- its output also
+> > Option 4. is the correct answer. (Note, it could be improved further --- its output also
 > > includes an entry for the column
 > > heading, "Binomial").
-> > If you have difficulty understanding why, try running the commands, or sub-sections of
+> > If you have difficulty understanding why this is the best, try
+> > running the commands, or sub-sections of
 > > the pipelines (make sure you are in the `shell-lesson-data/exercise-data/populations` 
 > > directory).
 > {: .solution}
