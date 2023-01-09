@@ -25,9 +25,8 @@ Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
 We'll start with the directory `shell-lesson-data/exercise-data/proteins`
-that contains six files describing some simple organic molecules.
-The `.pdb` extension indicates that these files are in Protein Data Bank format,
-a simple text format that specifies the type and position of each atom in the molecule.
+that contains six files from the 2022 version of the [Living Planet Database](https://www.livingplanetindex.org/data_portal), kindly provided by the [Living Planet Index](https://www.livingplanetindex.org/).
+The `.txt` extension indicates that these files are in text format.
 
 ~~~
 $ ls proteins
