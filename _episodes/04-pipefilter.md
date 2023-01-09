@@ -108,7 +108,7 @@ only the number of characters or the number of words in the files.
 > ~~~
 > {: .language-bash}
 >
-> but don't type `*.pdb` (or anything else) after the command?
+> but don't type `*.txt` (or anything else) after the command?
 > Since it doesn't have any filenames, `wc` assumes it is supposed to
 > process input given at the command prompt, so it just sits there and waits for us to give
 > it some data interactively. From the outside, though, all we see is it
@@ -129,7 +129,7 @@ but what if there were 6000?
 Our first step toward a solution is to run the command:
 
 ~~~
-$ wc -l *.pdb > lengths.txt
+$ wc -l *.txt > lengths.txt
 ~~~
 {: .language-bash}
 
@@ -164,13 +164,13 @@ $ cat lengths.txt
 {: .language-bash}
 
 ~~~
-  20  cubane.pdb
-  12  ethane.pdb
-   9  methane.pdb
-  30  octane.pdb
-  21  pentane.pdb
-  15  propane.pdb
- 107  total
+   11 dunnock.txt
+    1 python.txt
+   18 shark.txt
+    1 sturgeon.txt
+   20 toad.txt
+    4 wildcat.txt
+   55 total
 ~~~
 {: .output}
 
@@ -215,7 +215,7 @@ But first we'll use an exercise to learn a little about the sort command:
 > ~~~
 > {: .output}
 >
-> If we run `sort -n` on the same file, we get this instead:
+> If we run `sort -g` on the same file, we get this instead:
 >
 > ~~~
 > 2
@@ -229,7 +229,7 @@ But first we'll use an exercise to learn a little about the sort command:
 > Explain why `-n` has this effect.
 >
 > > ## Solution
-> > The `-n` option specifies a numerical rather than an alphanumerical sort.
+> > The `-g` option specifies a sort on numberical value, rather than an alphanumerical sort.
 > {: .solution}
 {: .challenge}
 
@@ -239,21 +239,22 @@ This does *not* change the file;
 instead, it sends the sorted result to the screen:
 
 ~~~
-$ sort -n lengths.txt
+$ sort -g lengths.txt
 ~~~
 {: .language-bash}
 
 ~~~
-  9  methane.pdb
- 12  ethane.pdb
- 15  propane.pdb
- 20  cubane.pdb
- 21  pentane.pdb
- 30  octane.pdb
-107  total
+    1 python.txt
+    1 sturgeon.txt
+    4 wildcat.txt
+   11 dunnock.txt
+   18 shark.txt
+   20 toad.txt
+   55 total
 ~~~
 {: .output}
 
+Remember that there is one population time series per line. So this output tells us that the python and sturgeon files contain one population time series each, whereas the wildcat file contains 4, and so on.
 
 We can put the sorted list of lines in another temporary file called `sorted-lengths.txt`
 by putting `> sorted-lengths.txt` after the command,
