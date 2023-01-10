@@ -392,25 +392,19 @@ $ find .
 {: .language-bash}
 
 ~~~
-XXX
 .
-./writing
-./writing/LittleWomen.txt
-./writing/haiku.txt
-./creatures
-./creatures/basilisk.dat
-./creatures/unicorn.dat
-./creatures/minotaur.dat
-./animal-counts
-./animal-counts/animals.csv
 ./numbers.txt
-./proteins
-./proteins/ethane.pdb
-./proteins/propane.pdb
-./proteins/octane.pdb
-./proteins/pentane.pdb
-./proteins/methane.pdb
-./proteins/cubane.pdb
+./populations
+./populations/bowerbird.txt
+./populations/dunnock.txt
+./populations/python.txt
+./populations/shark.txt
+./populations/six-species.csv
+./populations/toad.txt
+./populations/wildcat.txt
+./writing
+./writing/haiku.txt
+./writing/LittleWomen.txt
 ~~~
 {: .output}
 
@@ -433,12 +427,9 @@ $ find . -type d
 {: .language-bash}
 
 ~~~
-XXX
 .
+./populations
 ./writing
-./creatures
-./animal-counts
-./proteins
 ~~~
 {: .output}
 
@@ -452,19 +443,16 @@ $ find . -type f
 {: .language-bash}
 
 ~~~
-XXX./writing/LittleWomen.txt
-./writing/haiku.txt
-./creatures/basilisk.dat
-./creatures/unicorn.dat
-./creatures/minotaur.dat
-./animal-counts/animals.csv
 ./numbers.txt
-./proteins/ethane.pdb
-./proteins/propane.pdb
-./proteins/octane.pdb
-./proteins/pentane.pdb
-./proteins/methane.pdb
-./proteins/cubane.pdb
+./populations/bowerbird.txt
+./populations/dunnock.txt
+./populations/python.txt
+./populations/shark.txt
+./populations/six-species.csv
+./populations/toad.txt
+./populations/wildcat.txt
+./writing/haiku.txt
+./writing/LittleWomen.txt
 ~~~
 {: .output}
 
@@ -505,9 +493,15 @@ $ find . -name "*.txt"
 {: .language-bash}
 
 ~~~
-./writing/LittleWomen.txt
-./writing/haiku.txt
 ./numbers.txt
+./populations/bowerbird.txt
+./populations/dunnock.txt
+./populations/python.txt
+./populations/shark.txt
+./populations/toad.txt
+./populations/wildcat.txt
+./writing/haiku.txt
+./writing/LittleWomen.txt
 ~~~
 {: .output}
 
@@ -535,21 +529,27 @@ $ wc -l $(find . -name "*.txt")
 {: .language-bash}
 
 ~~~
-  21022 ./writing/LittleWomen.txt
-     11 ./writing/haiku.txt
       5 ./numbers.txt
-  21038 total
+      3 ./populations/bowerbird.txt
+     11 ./populations/dunnock.txt
+      1 ./populations/python.txt
+     18 ./populations/shark.txt
+     20 ./populations/toad.txt
+      4 ./populations/wildcat.txt
+     11 ./writing/haiku.txt
+  21022 ./writing/LittleWomen.txt
+  21095 total
 ~~~
 {: .output}
 
 When the shell executes this command,
 the first thing it does is run whatever is inside the `$()`.
 It then replaces the `$()` expression with that command's output.
-Since the output of `find` is the three filenames `./writing/LittleWomen.txt`,
-`./writing/haiku.txt`, and `./numbers.txt`, the shell constructs the command:
+Since the output of `find` is the nine filenames ending in `.txt` -- `./numbers.txt`, `./populations/bowerbird.txt`,
+`./populations/dunnock.txt`,  and so on -- the shell constructs the command:
 
 ~~~
-$ wc -l ./writing/LittleWomen.txt ./writing/haiku.txt ./numbers.txt
+$ wc -l ./numbers.txt ./populations/bowerbird.txt ./populations/dunnock.txt ./populations/python.txt ./populations/shark.txt ./populations/toad.txt ./populations/wildcat.txt ./writing/haiku.txt ./writing/LittleWomen.txt
 ~~~
 {: .language-bash}
 
@@ -569,8 +569,8 @@ $ grep "searching" $(find . -name "*.txt")
 {: .language-bash}
 
 ~~~
-./writing/LittleWomen.txt:sitting on the top step, affected to be searching for her book, but was
 ./writing/haiku.txt:With searching comes loss
+./writing/LittleWomen.txt:sitting on the top step, affected to be searching for her book, but was
 ~~~
 {: .output}
 
@@ -578,22 +578,23 @@ $ grep "searching" $(find . -name "*.txt")
 >
 > The `-v` option to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
-> the following commands will find all .dat files in `creatures` XXX
-> except `unicorn.dat`?
+> the following commands will find all .txt files in `populations` 
+> except `toad.txt`?
 > Once you have thought about your answer, you can test the commands in the
 > `shell-lesson-data/exercise-data` directory.
-> XXX
-> 1.  `find creatures -name "*.dat" | grep -v unicorn`
-> 2.  `find creatures -name *.dat | grep -v unicorn`
-> 3.  `grep -v "unicorn" $(find creatures -name "*.dat")`
+> 
+> 1.  `find populations -name "*.txt" | grep -v toad`
+> 2.  `find populations -name *.txt | grep -v toad`
+> 3.  `grep -v "toad" $(find populations -name "*.txt")`
 > 4.  None of the above.
 >
 > > ## Solution
 > > Option 1. is correct. Putting the match expression in quotes prevents the shell
 > > expanding it, so it gets passed to the `find` command.
 > >
-> > Option 2 is also works in this instance because the shell tries to expand `*.dat`
-> > but there are no `*.dat` files in the current directory,
+> > Option 2 would also works in this instance if there were no `*.txt` files in the current directory.
+> > In this case, the shell tries to expand `*.txt`
+> > but  finds no match,
 > > so the wildcard expression gets passed to `find`.
 > > We first encountered this in
 > > [episode 3]({{ page.root }}{% link _episodes/03-create.md %}/#wildcards).
