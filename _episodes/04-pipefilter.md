@@ -68,13 +68,13 @@ $ wc *.txt
 {: .language-bash}
 
 ~~~
-    3   303  2808 bowerbird.txt
-   11  1122  9840 dunnock.txt
-    1   101   798 python.txt
-   18  1404 14367 shark.txt
-   20  2040 19034 toad.txt
-    4   408  4142 wildcat.txt
-   57  5378 50989 total
+    3   306  2808 bowerbird.txt
+   11  1131  9838 dunnock.txt
+    1   102   798 python.txt
+   18  1841 16908 shark.txt
+   20  2049 19034 toad.txt
+    4   409  4142 wildcat.txt
+   57  5838 53528 total
 ~~~
 {: .output}
 

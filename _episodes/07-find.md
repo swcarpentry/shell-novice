@@ -638,14 +638,14 @@ first, but once learned, the productivity in the shell is unbeatable.
 > Write a short explanatory comment for the following shell script:
 >
 > ~~~
-> wc -l $(find . -name "*.txt") | sort -n
+> wc -l $(find . -name "*.csv") | sort -n
 > ~~~
 > {: .language-bash}
 >
 > > ## Solution
-> > 1. Find all files with a `.txt` extension recursively from the current directory
+> > 1. Find all files with a `.csv` extension recursively from the current directory
 > > 2. Count the number of lines each of these files contains
-> > 3. Sort the output from step 2. numerically
+> > 3. Sort the output from step 2 numerically
 > {: .solution}
 {: .challenge}
 
