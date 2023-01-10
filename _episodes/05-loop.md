@@ -585,137 +585,19 @@ then "cp dunnock.txt original-dunnock.txt",
 "cp toad.txt original-toad.txt",
 and finally "cp wildcat.txt original-wildcat.txt"](../fig/shell_script_for_loop_flow_chart.svg)
 
-## Nelle's Pipeline: Processing Files
-
-Nelle is now ready to process her data files using `goostats.sh` ---
-a shell script written by her supervisor.
-This calculates some statistics from a protein sample file, and takes two arguments:
-
-1. an input file (containing the raw data)
-2. an output file (to store the calculated statistics)
-
-Since she's still learning how to use the shell,
-she decides to build up the required commands in stages.
-Her first step is to make sure that she can select the right input files --- remember,
-these are ones whose names end in 'A' or 'B', rather than 'Z'.
-Starting from her home directory, Nelle types:
-
-~~~
-$ cd north-pacific-gyre
-$ for datafile in NENE*A.txt NENE*B.txt
-> do
->     echo $datafile
-> done
-~~~
-{: .language-bash}
-
-~~~
-NENE01729A.txt
-NENE01729B.txt
-NENE01736A.txt
-...
-NENE02043A.txt
-NENE02043B.txt
-~~~
-{: .output}
-
-Her next step is to decide
-what to call the files that the `goostats.sh` analysis program will create.
-Prefixing each input file's name with 'stats' seems simple,
-so she modifies her loop to do that:
-
-~~~
-$ for datafile in NENE*A.txt NENE*B.txt
-> do
->     echo $datafile stats-$datafile
-> done
-~~~
-{: .language-bash}
-
-~~~
-NENE01729A.txt stats-NENE01729A.txt
-NENE01729B.txt stats-NENE01729B.txt
-NENE01736A.txt stats-NENE01736A.txt
-...
-NENE02043A.txt stats-NENE02043A.txt
-NENE02043B.txt stats-NENE02043B.txt
-~~~
-{: .output}
-
-She hasn't actually run `goostats.sh` yet,
-but now she's sure she can select the right files and generate the right output filenames.
-
-Typing in commands over and over again is becoming tedious,
-though,
-and Nelle is worried about making mistakes,
-so instead of re-entering her loop,
-she presses <kbd>↑</kbd>.
-In response,
-the shell redisplays the whole loop on one line
-(using semi-colons to separate the pieces):
-
-~~~
-$ for datafile in NENE*A.txt NENE*B.txt; do echo $datafile stats-$datafile; done
-~~~
-{: .language-bash}
-
-Using the left arrow key,
-Nelle backs up and changes the command `echo` to `bash goostats.sh`:
-
-~~~
-$ for datafile in NENE*A.txt NENE*B.txt; do bash goostats.sh $datafile stats-$datafile; done
-~~~
-{: .language-bash}
-
-When she presses <kbd>Enter</kbd>,
-the shell runs the modified command.
-However, nothing appears to happen --- there is no output.
-After a moment, Nelle realizes that since her script doesn't print anything to the screen
-any longer, she has no idea whether it is running, much less how quickly.
-She kills the running command by typing <kbd>Ctrl</kbd>+<kbd>C</kbd>,
-uses <kbd>↑</kbd> to repeat the command,
-and edits it to read:
-
-~~~
-$ for datafile in NENE*A.txt NENE*B.txt; do echo $datafile;
-bash goostats.sh $datafile stats-$datafile; done
-~~~
-{: .language-bash}
-
 > ## Beginning and End
 >
 > We can move to the beginning of a line in the shell by typing <kbd>Ctrl</kbd>+<kbd>A</kbd>
 > and to the end using <kbd>Ctrl</kbd>+<kbd>E</kbd>.
 {: .callout}
 
-When she runs her program now,
-it produces one line of output every five seconds or so:
-
-~~~
-NENE01729A.txt
-NENE01729B.txt
-NENE01736A.txt
-...
-~~~
-{: .output}
-
-1518 times 5 seconds,
-divided by 60,
-tells her that her script will take about two hours to run.
-As a final check,
-she opens another terminal window,
-goes into `north-pacific-gyre`,
-and uses `cat stats-NENE01729B.txt`
-to examine one of the output files.
-It looks good,
-so she decides to get some coffee and catch up on her reading.
 
 > ## Those Who Know History Can Choose to Repeat It
 >
 > Another way to repeat previous work is to use the `history` command to
 > get a list of the last few hundred commands that have been executed, and
 > then to use `!123` (where '123' is replaced by the command number) to
-> repeat one of those commands. For example, if Nelle types this:
+> repeat one of those commands. For example, if a user types this:
 >
 > ~~~
 > $ history | tail -n 5
