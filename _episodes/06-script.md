@@ -33,11 +33,11 @@ If you come back to your work later (or if someone else finds your work and want
 you will be able to reproduce the same results simply by running your script,
 rather than having to remember or retype a long list of commands.
 
-Let's start by going back to `proteins/` and creating a new file, `middle.sh` which will
+Let's start by going back to `populations/` and creating a new file, `middle.sh` which will
 become our shell script:
 
 ~~~
-$ cd proteins
+$ cd populations
 $ nano middle.sh
 ~~~
 {: .language-bash}
@@ -48,18 +48,18 @@ If the file does not exist, it will be created.
 We can use the text editor to directly edit the file -- we'll simply insert the following line:
 
 ~~~
-head -n 15 octane.pdb | tail -n 5
+head -n 10 shark.txt | tail -n 2
 ~~~
 {: .source}
 
 This is a variation on the pipe we constructed earlier:
-it selects lines 11-15 of the file `octane.pdb`.
+it selects lines 9-10 of the file `shark.txt`.
 Remember, we are *not* running it as a command just yet:
 we are putting the commands in a file.
 
 Then we save the file (`Ctrl-O` in nano),
  and exit the text editor (`Ctrl-X` in nano).
-Check that the directory `proteins` now contains a file called `middle.sh`.
+Check that the directory `populations` now contains a file called `middle.sh`.
 
 Once we have saved the file,
 we can ask the shell to execute the commands it contains.
@@ -71,11 +71,8 @@ $ bash middle.sh
 {: .language-bash}
 
 ~~~
-ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
-ATOM     10  H           1      -5.254  -0.243  -0.537  1.00  0.00
-ATOM     11  H           1      -4.357   1.252  -0.895  1.00  0.00
-ATOM     12  H           1      -3.009  -0.741  -1.467  1.00  0.00
-ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
+19586   Carcharodon_carcharias  0       Dicken_M._L._M._J._Smale_et_al._(2013)._White_sharks_Carcharodon_carcharias_at_Bird_Island_Algoa_Bay_South_Africa._African_Journal_of_Marine_Science_35(2):_175-182     Elasmobranchii  Lamniformes    Lamnidae Carcharodon     carcharias              (Linnaeus_1758) Great_white_shark       Bird_Island_Algoa_Bay_Eastern_Cape      South_Africa    South_Africa    Africa  NULL    NULL    -33.5   25.775554       1       Marine  NULL    NULL   NULL     NULL    Tropical_and_subtropical_Indo-Pacific   Indian_Ocean    Unknown 0       Sightings_per_unit_effort_SPUE_(**hr)
+19587   Carcharodon_carcharias  0       Ryklief_R._P._A._Pistorius_et_al._(2014)._Spatial_and_seasonal_patterns_in_sighting_rate_and_life-history_composition_of_the_white_shark_Carcharodon_carcharias_at_Mossel_Bay_South_Africa._African_Journal_of_Marine_Science_36(4):_449-453    Elasmobranchii  Lamniformes     Lamnidae        Carcharodon     carcharias     (Linnaeus_1758)  Great_white_shark       Seal_Island_Mossel_Bay_Western_Cape     South_Africa    South_Africa    Africa NULL     NULL    -34.151089      22.119689       1       Marine  NULL    NULL    NULL    NULL    Tropical_and_subtropical_Indo-Pacific   Indian_Ocean    Unknown 0       Sightings_per_unit_effort_SPUE_(**hr)   Visual_census_Feb-Dec   NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    1.6809  1.0745  2.1702 NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL
 ~~~
 {: .output}
 
