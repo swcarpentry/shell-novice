@@ -68,7 +68,7 @@ and we can apply this to our example like this:
 ```
 $ for filename in bowerbird.txt dunnock.txt python.txt shark.txt toad.txt wildcat.txt
 > do
->     cut 5 $filename | sort | uniq
+>     cut -f 5 $filename | sort | uniq
 > done
 ```
 {: .language-bash}
