@@ -138,8 +138,8 @@ data/  results/
 >    Spaces can make a name more meaningful,
 >    but since spaces are used to separate arguments on the command line
 >    it is better to avoid them in names of files and directories.
->    You can use `-` or `_` instead (e.g. `lpi-data/` rather than `lpi data/`).
->    To test this out, try typing `mkdir lpi data`and see what directory (or directories!)
+>    You can use `-` or `_` instead (e.g. you might use `population-data/` rather than `population data/`).
+>    To test this out, try typing `mkdir population data`and see what directory (or directories!)
 >    are made when you check with `ls -F`.
 >
 > 2. Don't begin the name with `-` (dash).

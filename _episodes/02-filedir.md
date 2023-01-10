@@ -376,7 +376,7 @@ $ ls -F Desktop/shell-lesson-data
 {: .language-bash}
 
 ~~~
-exercise-data/  lpi-data/
+exercise-data/  population/
 ~~~
 {: .output}
 
@@ -489,7 +489,7 @@ $ ls -F -a
 {: .language-bash}
 
 ~~~
-./  ../  exercise-data/  lpi-data/
+./  ../  exercise-data/  population/
 ~~~
 {: .output}
 
@@ -795,9 +795,9 @@ Network/              Volumes/
 ### Phillipa's Pipeline: Organizing Files
 
 Knowing this much about files and directories,
-Phillipa is ready to organize the files that the protein assay machine will create.
+Phillipa is ready to organize the files the files for her research.
 
-She creates a directory called `lpi-data`
+She creates a directory called `population`
 (to remind herself where the data came from),
 which will contain the data files from the downloaded dataset,
 and her data processing scripts.
@@ -818,7 +818,7 @@ Now in her current directory `shell-lesson-data`,
 Phillipa can see what files she has using the command:
 
 ~~~
-$ ls lpi-data
+$ ls population
 ~~~
 {: .language-bash}
 
@@ -827,7 +827,7 @@ but she can let the shell do most of the work through what is called **tab compl
 If she types:
 
 ~~~
-$ ls lp
+$ ls po
 ~~~
 {: .language-bash}
 
@@ -835,7 +835,7 @@ and then presses <kbd>Tab</kbd> (the tab key on her keyboard),
 the shell automatically completes the directory name for her:
 
 ~~~
-$ ls lpi-data/
+$ ls population/
 ~~~
 {: .language-bash}
 
@@ -843,19 +843,18 @@ Pressing <kbd>Tab</kbd> again does nothing,
 since there are multiple possibilities;
 pressing <kbd>Tab</kbd> twice brings up a list of all the files.
 
-If Phillipa adds <kbd>G</kbd> and presses <kbd>Tab</kbd> again,
-the shell will append 'goo' since all files that start with 'g' share
-the first three characters 'goo'.
+If Phillipa adds <kbd>s</kbd> and presses <kbd>Tab</kbd> again,
+the shell will list all the matches:
 
 ~~~
-$ ls lpi-data/goo
+$ ls population/s
 ~~~
 {: .language-bash}
 
-To see all of those files, she can press <kbd>Tab</kbd> twice more.
+To see all of those files, she can press <kbd>Tab</kbd> once more.
 ~~~
-ls lpi-data/goo
-goodiff.sh   goostats.sh
+ls population/s
+shark.txt   six-species.csv
 ~~~
 {: .language-bash}
 

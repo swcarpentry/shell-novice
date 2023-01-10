@@ -370,7 +370,7 @@ or a subset of data.
 > ~~~
 > bowerbird.txt  dunnock.txt  python.txt  shark.txt  six-species.csv  toad.txt  wildcat.txt
 > ~~~
-{: .output}
+> {: .output}
 >
 > Now, what would be the output of the following loop?
 >
