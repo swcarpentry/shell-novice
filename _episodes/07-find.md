@@ -596,8 +596,8 @@ $ grep "searching" $(find . -name "*.txt")
 > > In this case, the shell tries to expand `*.txt`
 > > but  finds no match,
 > > so the wildcard expression gets passed to `find`.
-> > We first encountered this in
-> > [episode 3]({{ page.root }}{% link _episodes/03-create.md %}/#wildcards).
+> > (We first encountered this in
+> > Episode 3.)
 > >
 > > Option 3 is incorrect because it searches the contents of the files for lines which
 > > do not match 'unicorn', rather than searching the file names.
