@@ -363,30 +363,24 @@ to show how the simplest ones work, we'll use the `shell-lesson-data/exercise-da
 directory tree shown below.
 
 ~~~
-XXX
 .
-├── animal-counts/
-│   └── animals.csv
-├── creatures/
-│   ├── basilisk.dat
-│   ├── minotaur.dat
-│   └── unicorn.dat
 ├── numbers.txt
-├── proteins/
-│   ├── cubane.pdb
-│   ├── ethane.pdb
-│   ├── methane.pdb
-│   ├── octane.pdb
-│   ├── pentane.pdb
-│   └── propane.pdb
+├── populations/
+│   ├── bowerbird.txt
+│   ├── dunnock.txt
+│   ├── python.txt
+│   ├── shark.txt
+│   ├── six-species.csv
+│   └── wildcat.txt 
+|
 └── writing/
     ├── haiku.txt
     └── LittleWomen.txt
 ~~~
 {: .output}
 
-The `exercise-data` directory contains one file, `numbers.txt` and four directories:
-`animal-counts`, XXX `creatures`, `proteins` and `writing` containing various files.
+The `exercise-data` directory contains one file, `numbers.txt`, and two directories:
+`populations` and `writing` containing various files.
 
 
 For our first command,
