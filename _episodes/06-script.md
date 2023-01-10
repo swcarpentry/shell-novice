@@ -106,7 +106,7 @@ $ nano middle.sh
 Now, within "nano", replace the text `octane.pdb` with the special variable called `$1`:
 
 ~~~
-head -n 15 "$1" | tail -n 5
+head -n 10 "$1" | tail -n 2
 ~~~
 {: .source}
 
@@ -115,32 +115,26 @@ Inside a shell script,
 We can now run our script like this:
 
 ~~~
-$ bash middle.sh octane.pdb
+$ bash middle.sh shark.txt
 ~~~
 {: .language-bash}
 
 ~~~
-ATOM      9  H           1      -4.502   0.681   0.785  1.00  0.00
-ATOM     10  H           1      -5.254  -0.243  -0.537  1.00  0.00
-ATOM     11  H           1      -4.357   1.252  -0.895  1.00  0.00
-ATOM     12  H           1      -3.009  -0.741  -1.467  1.00  0.00
-ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00
+19586   Carcharodon_carcharias  0       Dicken_M._L._M._J._Smale_et_al._(2013)._White_sharks_Carcharodon_carcharias_at_Bird_Island_Algoa_Bay_South_Africa._African_Journal_of_Marine_Science_35(2):_175-182     Elasmobranchii  Lamniformes    Lamnidae Carcharodon     carcharias              (Linnaeus_1758) Great_white_shark       Bird_Island_Algoa_Bay_Eastern_Cape      South_Africa    South_Africa    Africa  NULL    NULL    -33.5   25.775554       1       Marine  NULL    NULL   NULL     NULL    Tropical_and_subtropical_Indo-Pacific   Indian_Ocean    Unknown 0       Sightings_per_unit_effort_SPUE_(**hr)
+19587   Carcharodon_carcharias  0       Ryklief_R._P._A._Pistorius_et_al._(2014)._Spatial_and_seasonal_patterns_in_sighting_rate_and_life-history_composition_of_the_white_shark_Carcharodon_carcharias_at_Mossel_Bay_South_Africa._African_Journal_of_Marine_Science_36(4):_449-453    Elasmobranchii  Lamniformes     Lamnidae        Carcharodon     carcharias     (Linnaeus_1758)  Great_white_shark       Seal_Island_Mossel_Bay_Western_Cape     South_Africa    South_Africa    Africa NULL     NULL    -34.151089      22.119689       1       Marine  NULL    NULL    NULL    NULL    Tropical_and_subtropical_Indo-Pacific   Indian_Ocean    Unknown 0       Sightings_per_unit_effort_SPUE_(**hr)   Visual_census_Feb-Dec   NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    1.6809  1.0745  2.1702 NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL
 ~~~
 {: .output}
 
 or on a different file like this:
 
 ~~~
-$ bash middle.sh pentane.pdb
+$ bash middle.sh toad.txt
 ~~~
 {: .language-bash}
 
 ~~~
-ATOM      9  H           1       1.324   0.350  -1.332  1.00  0.00
-ATOM     10  H           1       1.271   1.378   0.122  1.00  0.00
-ATOM     11  H           1      -0.074  -0.384   1.288  1.00  0.00
-ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
-ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
+9084    Bufo_bufo       0       Cooke_A._S._and_R._S._Oldham_(1995)._Establishment_of_populations_of_the_common_frog_Rana_temporaria_and_common_toad_Bufo_bufo_in_a_newly_created_reserve_following_translocation._Herpetological_Journal_5(1):_173-180.        Amphibia        Anura   Bufonidae       Bufo    bufo    NULL    (Linnaeus_1758) Common_toad     The_Boardwalks_Reserve_north_bank_of_the_River_Nene_near_the_western_edge_of_Peterborough       United_Kingdom  United_Kingdom Europe   Europe_and_Central_Asia Central_and_Western_Europe      52.55444        -0.26444        0       Freshwater     NULL     NULL    Palearctic      Temperate_floodplain_rivers_and_wetlands        NULL    NULL    NULL    0       Peak_total_toad_count   Counts_during_breeding_season   NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    0       NULL    127    311      181     328     306     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL
+18832   Bufo_bufo       0       Jedrzejewska_B._et_al._(2002)._Seasonal_dynamics_and_breeding_of_amphibians_in_pristine_forests_(Bialowieza_National_Park_E_Poland)_in_dry_years._Folia_Zoologica_52(1):_77-86. Amphibia        Anura   Bufonidae       Bufo    bufo            (Linnaeus_1758) Common_toad     Oak-hornbeam-lime_forests_Bia?�owie??a_National_Park_East_Poland        Poland  Poland  Europe  Europe_and_Central_Asia Central_and_Western_Europe      52.75   23.916667      Terrestrial      Palearctic      Temperate_broadleaf_and_mixed_forests   NULL    NULL    NULL    NULL    NULL    0      Number_of_individuals*ha Live_trapping_on_8_30x30m_grids NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    71.5953 45.1319 NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL
 ~~~
 {: .output}
 
@@ -154,7 +148,7 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 Currently, we need to edit `middle.sh` each time we want to adjust the range of
 lines that is returned.
 Let's fix that by configuring our script to instead use three command-line arguments.
-After the first command-line argument (`$1`), each additional argument that we
+Each additional argument that we
 provide will be accessible via the special variables `$1`, `$2`, `$3`,
 which refer to the first, second, third command-line arguments, respectively.
 
@@ -174,16 +168,13 @@ head -n "$2" "$1" | tail -n "$3"
 We can now run:
 
 ~~~
-$ bash middle.sh pentane.pdb 15 5
+$ bash middle.sh shark.txt 10 2
 ~~~
 {: .language-bash}
 
 ~~~
-ATOM      9  H           1       1.324   0.350  -1.332  1.00  0.00
-ATOM     10  H           1       1.271   1.378   0.122  1.00  0.00
-ATOM     11  H           1      -0.074  -0.384   1.288  1.00  0.00
-ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
-ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
+19586   Carcharodon_carcharias  0       Dicken_M._L._M._J._Smale_et_al._(2013)._White_sharks_Carcharodon_carcharias_at_Bird_Island_Algoa_Bay_South_Africa._African_Journal_of_Marine_Science_35(2):_175-182     Elasmobranchii  Lamniformes    Lamnidae Carcharodon     carcharias              (Linnaeus_1758) Great_white_shark       Bird_Island_Algoa_Bay_Eastern_Cape      South_Africa    South_Africa    Africa  NULL    NULL    -33.5   25.775554       1       Marine  NULL    NULL   NULL     NULL    Tropical_and_subtropical_Indo-Pacific   Indian_Ocean    Unknown 0       Sightings_per_unit_effort_SPUE_(**hr)
+19587   Carcharodon_carcharias  0       Ryklief_R._P._A._Pistorius_et_al._(2014)._Spatial_and_seasonal_patterns_in_sighting_rate_and_life-history_composition_of_the_white_shark_Carcharodon_carcharias_at_Mossel_Bay_South_Africa._African_Journal_of_Marine_Science_36(4):_449-453    Elasmobranchii  Lamniformes     Lamnidae        Carcharodon     carcharias     (Linnaeus_1758)  Great_white_shark       Seal_Island_Mossel_Bay_Western_Cape     South_Africa    South_Africa    Africa NULL     NULL    -34.151089      22.119689       1       Marine  NULL    NULL    NULL    NULL    Tropical_and_subtropical_Indo-Pacific   Indian_Ocean    Unknown 0       Sightings_per_unit_effort_SPUE_(**hr)   Visual_census_Feb-Dec   NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    1.6809  1.0745  2.1702 NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL
 ~~~
 {: .output}
 
@@ -191,16 +182,13 @@ By changing the arguments to our command we can change our script's
 behaviour:
 
 ~~~
-$ bash middle.sh pentane.pdb 20 5
+$ bash middle.sh shark.txt 4 3
 ~~~
 {: .language-bash}
 
 ~~~
-ATOM     14  H           1      -1.259   1.420   0.112  1.00  0.00
-ATOM     15  H           1      -2.608  -0.407   1.130  1.00  0.00
-ATOM     16  H           1      -2.540  -1.303  -0.404  1.00  0.00
-ATOM     17  H           1      -3.393   0.254  -0.321  1.00  0.00
-TER      18              1
+19586   Carcharodon_carcharias  0       Dicken_M._L._M._J._Smale_et_al._(2013)._White_sharks_Carcharodon_carcharias_at_Bird_Island_Algoa_Bay_South_Africa._African_Journal_of_Marine_Science_35(2):_175-182     Elasmobranchii  Lamniformes    Lamnidae Carcharodon     carcharias              (Linnaeus_1758) Great_white_shark       Bird_Island_Algoa_Bay_Eastern_Cape      South_Africa    South_Africa    Africa  NULL    NULL    -33.5   25.775554       1       Marine  NULL    NULL   NULL     NULL    Tropical_and_subtropical_Indo-Pacific   Indian_Ocean    Unknown 0       Sightings_per_unit_effort_SPUE_(**hr)
+19587   Carcharodon_carcharias  0       Ryklief_R._P._A._Pistorius_et_al._(2014)._Spatial_and_seasonal_patterns_in_sighting_rate_and_life-history_composition_of_the_white_shark_Carcharodon_carcharias_at_Mossel_Bay_South_Africa._African_Journal_of_Marine_Science_36(4):_449-453    Elasmobranchii  Lamniformes     Lamnidae        Carcharodon     carcharias     (Linnaeus_1758)  Great_white_shark       Seal_Island_Mossel_Bay_Western_Cape     South_Africa    South_Africa    Africa NULL     NULL    -34.151089      22.119689       1       Marine  NULL    NULL    NULL    NULL    Tropical_and_subtropical_Indo-Pacific   Indian_Ocean    Unknown 0       Sightings_per_unit_effort_SPUE_(**hr)   Visual_census_Feb-Dec   NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL   NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    1.6809  1.0745  2.1702 NULL     NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL    NULL
 ~~~
 {: .output}
 
