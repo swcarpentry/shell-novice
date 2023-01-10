@@ -694,26 +694,26 @@ or specifying a naming pattern using wildcards.
 > ## Wildcards
 >
 > `*` is a **wildcard**, which matches zero or more  characters.
-> Let's consider the `shell-lesson-data/exercise-data/proteins` directory:
-> `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
-> file that ends with '.pdb'. On the other hand, `p*.pdb` only matches
-> `pentane.pdb` and `propane.pdb`, because the 'p' at the front only
-> matches filenames that begin with the letter 'p'.
+> Let's consider the `shell-lesson-data/exercise-data/populations` directory:
+> `*.txt` matches `bowerbird.txt`, `dunnock.txt`, and every
+> file that ends with '.txt'. On the other hand, `b*.txt` only matches
+> `bowerbird.txt`, because the 'b' at the front only
+> matches filenames that begin with the letter 'b'.
 >
 > `?` is also a wildcard, but it matches exactly one character.
-> So `?ethane.pdb` would match `methane.pdb` whereas
-> `*ethane.pdb` matches both `ethane.pdb`, and `methane.pdb`.
+> So `?unnock.txt` would match `dunnock.txt` whereas
+> `*k.txt` matches both `dunnock.txt` and `shark.txt`.
 >
 > Wildcards can be used in combination with each other
-> e.g. `???ane.pdb` matches three characters followed by `ane.pdb`,
-> giving `cubane.pdb  ethane.pdb  octane.pdb`.
+> e.g. `????k.txt` matches three characters followed by `k.txt`,
+> giving `shark.txt`.
 >
 > When the shell sees a wildcard, it expands the wildcard to create a
 > list of matching filenames *before* running the command that was
 > asked for. As an exception, if a wildcard expression does not match
 > any file, Bash will pass the expression as an argument to the command
-> as it is. For example, typing `ls *.pdf` in the `proteins` directory
-> (which contains only files with names ending with `.pdb`) results in
+> as it is. For example, typing `ls *.pdf` in the `populations` directory
+> (which contains only files with names ending with `.txt` or `.csv`) results in
 > an error message that there is no file called `*.pdf`.
 > However, generally commands like `wc` and `ls` see the lists of
 > file names matching these expressions, but not the wildcards
