@@ -306,7 +306,7 @@ $ bash sorted.sh *.txt ../numbers.txt
 > > # Loop over all files
 > > for file in $@
 > > do
-> >    echo "Unique combinations of species, country and system in $file:"
+> >    echo "Unique combinations of species, country and system within $file:"
 > >    # Extract binomial species names, countries and systems
 > >    cut -f 2,14,22 $file | sort | uniq
 done
@@ -490,7 +490,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > As such, the first argument to the script is `'*.txt'` which gets expanded within the
 > > script by `head` and `tail`.
 > >
-> > Note, `python.txt` only contains a single line, and for this the line is output twice (being both
+> > Note, `python.txt` only contains a single line, so for this file the line is output twice (being both
 > > the first line *and* the last line.)
 > {: .solution}
 {: .challenge}
