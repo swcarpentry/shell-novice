@@ -114,7 +114,7 @@ because its name begins with `/`.
 {: .callout}
 
 Underneath `/Users`,
-we find one directory for each user with an account on Nelle's machine,
+we find one directory for each user with an account on Phillipa's machine,
 her colleagues *imhotep* and *larry*.
 
 ![Like other directories, home directories are sub-directories underneath
@@ -535,7 +535,7 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle
+/Users/phillipa
 ~~~
 {: .output}
 
@@ -593,10 +593,10 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > ## Two More Shortcuts
 >
 > The shell interprets a tilde (`~`) character at the start of a path to
-> mean "the current user's home directory". For example, if Nelle's home
+> mean "the current user's home directory". For example, if Phillipa's home
 > directory is `/Users/phillipa`, then `~/data` is equivalent to
 > `/Users/phillipa/data`. This only works if it is the first character in the
-> path: `here/there/~/elsewhere` is *not* `here/there/Users/nelle/elsewhere`.
+> path: `here/there/~/elsewhere` is *not* `here/there/Users/phillipa/elsewhere`.
 >
 > Another shortcut is the `-` (dash) character. `cd` will translate `-` into
 > *the previous directory I was in*, which is faster than having to remember,
