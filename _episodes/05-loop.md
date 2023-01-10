@@ -50,8 +50,8 @@ $ head -n 5 bowerbird.txt dunnock.txt python.txt shark.txt toad.txt wildcat.txt
 
 Due to the amount of data in each line, the output is visually confusing.
 
-We would like to print out the class (high-level classification) for the species in each file. Class is given in the second column.
-For each file, we would need to execute the command `cut -f 6` and pipe this to `sort` and `uniq`.
+We would like to print out the class (high-level classification) for the species in each file. Class is given in the fifth column.
+For each file, we would need to execute the command `cut -f 5` and pipe this to `sort` and `uniq`.
 We’ll use a loop to solve this problem, but first let’s look at the general form of a loop,
 using the pseudo-code below:
 
@@ -68,7 +68,7 @@ and we can apply this to our example like this:
 ```
 $ for filename in bowerbird.txt dunnock.txt python.txt shark.txt toad.txt wildcat.txt
 > do
->     cut -f 6 $filename | sort | uniq
+>     cut 5 $filename | sort | uniq
 > done
 ```
 {: .language-bash}
@@ -109,12 +109,12 @@ Each time the loop iterates, it will assign a file name to the variable `filenam
 and run the `cut` command.
 The first time through the loop,
 `$filename` is `bowerbird.txt`.
-The interpreter runs the command `cut -f 6` on `bowerbird.txt`
+The interpreter runs the command `cut -f 5` on `bowerbird.txt`
 and pipes the output to the `sort` command. Then it pipes the output of the `sort` command to the `uniq` command, which
 prints its output to the terminal.
 For the second iteration, `$filename` becomes
 `dunnock.txt`. 
-The interpreter runs the command `cut -f 6` on `dunnock.txt`
+The interpreter runs the command `cut -f 5` on `dunnock.txt`
 and pipes the output to the `sort` command. Then it pipes the output of the `sort` command to the `uniq` command, which
 prints its output to the terminal.
 This continues until each of the filenames in turn has been assigned to the variable `$filename`.
@@ -147,7 +147,7 @@ if we wrote this loop as:
 ~~~
 $ for x in bowerbird.txt dunnock.txt python.txt shark.txt toad.txt wildcat.txt
 > do
->     cut -f 6 $filename | sort | uniq
+>     cut -f 5 $filename | sort | uniq
 > done
 ~~~
 {: .language-bash}
@@ -157,7 +157,7 @@ or:
 ~~~
 $ for temperature in bowerbird.txt dunnock.txt python.txt shark.txt toad.txt wildcat.txt
 > do
->     cut -f 6 $filename | sort | uniq
+>     cut -f 5 $filename | sort | uniq
 > done
 ~~~
 {: .language-bash}
