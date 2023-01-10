@@ -33,7 +33,9 @@ If you come back to your work later (or if someone else finds your work and want
 you will be able to reproduce the same results simply by running your script,
 rather than having to remember or retype a long list of commands.
 
-Let's start by going back to `populations/` and creating a new file, `middle.sh` which will
+For this example, we'll agin use the `exercise-data/populations` directory containing population time series for six species, from the Living Planet Database of the [Living Planet Index](https://www.livingplanetindex.org/data_portal).
+
+Let's start by going back to `populations/` and creating a new file, `middle.sh`, which will
 become our shell script:
 
 ~~~
@@ -103,7 +105,7 @@ $ nano middle.sh
 ~~~
 {: .language-bash}
 
-Now, within "nano", replace the text `octane.pdb` with the special variable called `$1`:
+Now, within "nano", replace the text `shark.txt` with the special variable called `$1`:
 
 ~~~
 head -n 10 "$1" | tail -n 2
@@ -217,10 +219,10 @@ you should check that the comment is still accurate:
 an explanation that sends the reader in the wrong direction is worse than none at all.
 
 What if we want to process many files in a single pipeline?
-For example, if we want to sort our `.pdb` files by length, we would type:
+For example, if we want to sort our `.txt` files by length, we would type:
 
 ~~~
-$ wc -l *.pdb | sort -n
+$ wc -l *.txt | sort -n
 ~~~
 {: .language-bash}
 
@@ -228,7 +230,7 @@ because `wc -l` lists the number of lines in the files
 (recall that `wc` stands for 'word count', adding the `-l` option means 'count lines' instead)
 and `sort -n` sorts things numerically.
 We could put this in a file,
-but then it would only ever sort a list of `.pdb` files in the current directory.
+but then it would only ever sort a list of `.txt` files in the current directory.
 If we want to be able to get a sorted list of other kinds of files,
 we need a way to get all those names into the script.
 We can't use `$1`, `$2`, and so on
@@ -255,45 +257,37 @@ wc -l "$@" | sort -n
 {: .source}
 
 ~~~
-$ bash sorted.sh *.pdb ../creatures/*.dat
+$ bash sorted.sh *.txt ../numbers.txt
 ~~~
 {: .language-bash}
 
 ~~~
-9 methane.pdb
-12 ethane.pdb
-15 propane.pdb
-20 cubane.pdb
-21 pentane.pdb
-30 octane.pdb
-163 ../creatures/basilisk.dat
-163 ../creatures/minotaur.dat
-163 ../creatures/unicorn.dat
-596 total
+    1 python.txt
+    3 bowerbird.txt
+    4 wildcat.txt
+    5 ../numbers.txt
+   11 dunnock.txt
+   18 shark.txt
+   20 toad.txt
+   62 total
 ~~~
 {: .output}
 
 > ## List Unique Species
 >
-> Leah has several hundred data files, each of which is formatted like this:
+> Remember, you can see the column headings for our population time series files as follows:
 >
 > ~~~
-> 2013-11-05,deer,5
-> 2013-11-05,rabbit,22
-> 2013-11-05,raccoon,7
-> 2013-11-06,rabbit,19
-> 2013-11-06,deer,2
-> 2013-11-06,fox,1
-> 2013-11-07,rabbit,18
-> 2013-11-07,bear,1
+> $ head -n 1 six-species.csv
 > ~~~
-> {: .source}
+> {: .language-bash}
 >
-> An example of this type of file is given in
-> `shell-lesson-data/exercise-data/animal-counts/animals.csv`.
+> Count manually to confirm that "Binomial" (the binomial species name) is the second column, and "Country" 
+> is the 15th column and "System" is the 22nd column.
 >
-> We can use the command `cut -d , -f 2 animals.csv | sort | uniq` to produce
-> the unique species in `animals.csv`.
+> We can use the command `cut -f 2,14,22 shark.txt | sort | uniq` to display
+> the unique combinations of species, country and system in `shark.txt`. (Note, the columns appear ragged due to 
+> the positioning of tab stops. But all the data are there.)
 > In order to avoid having to type out this series of commands every time,
 > a scientist may choose to write a shell script instead.
 >
@@ -304,16 +298,18 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > > ## Solution
 > >
 > > ```
-> > # Script to find unique species in csv files where species is the second data field
-> > # This script accepts any number of file names as command line arguments
+> > # Script to find unique combinations of species, country and
+> > # system in tab-delimited text files where the data are in
+> > # columns 2, 14 and 22.
+> > # This script accepts any number of file names as command line arguments.
 > >
 > > # Loop over all files
 > > for file in $@
 > > do
-> >     echo "Unique species in $file:"
-> >     # Extract species names
-> >     cut -d , -f 2 $file | sort | uniq
-> > done
+> >    echo "Unique combinations of species, country and system in $file:"
+> >    # Extract binomial species names, countries and systems
+> >    cut -f 2,14,22 $file | sort | uniq
+done
 > > ```
 > > {: .language-bash}
 > {: .solution}
@@ -333,7 +329,7 @@ $ history | tail -n 5 > redo-figure-3.sh
 ~~~
 {: .language-bash}
 
-The file `redo-figure-3.sh` now contains:
+Depending on which commands we have typed recently, the file `redo-figure-3.sh` might now contain:
 
 ~~~
 297 bash goostats.sh NENE01729B.txt stats-NENE01729B.txt
@@ -454,7 +450,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Variables in Shell Scripts
 >
-> In the `proteins` directory, imagine you have a shell script called `script.sh` containing the
+> In the `populations` directory, imagine you have a shell script called `script.sh` containing the
 > following commands:
 >
 > ~~~
@@ -463,20 +459,21 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ~~~
 > {: .language-bash}
 >
-> While you are in the `proteins` directory, you type the following command:
+> While you are in the `populations` directory, you type the following command:
 >
 > ~~~
-> $ bash script.sh '*.pdb' 1 1
+> $ bash script.sh '*.txt' 1 1
 > ~~~
 > {: .language-bash}
 >
 > Which of the following outputs would you expect to see?
 >
-> 1. All of the lines between the first and the last lines of each file ending in `.pdb`
->    in the `proteins` directory
-> 2. The first and the last line of each file ending in `.pdb` in the `proteins` directory
-> 3. The first and the last line of each file in the `proteins` directory
-> 4. An error because of the quotes around `*.pdb`
+> 1. All of the lines between the first and the last lines of each file ending in `.txt`
+>    in the `populations` directory
+> 2. The first of each file ending in `.txt` in the `populations` directory, followed by
+>    the last line of each such file
+> 3. The first and the last line of each file in the `populations` directory
+> 4. An error because of the quotes around `*.txt`
 >
 > > ## Solution
 > > The correct answer is 2.
@@ -485,13 +482,16 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > script, such that the commands run are:
 > >
 > > ```
-> > $ head -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
-> > $ tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
+> > $ head -n 1 bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt
+> > $ tail -n 1 bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt
 > > ```
 > > {: .language-bash}
 > > The shell does not expand `'*.pdb'` because it is enclosed by quote marks.
-> > As such, the first argument to the script is `'*.pdb'` which gets expanded within the
+> > As such, the first argument to the script is `'*.txt'` which gets expanded within the
 > > script by `head` and `tail`.
+> >
+> > Note, `python.txt` only contains a single line, and for this the line is output twice (being both
+> > the first line *and* the last line.)
 > {: .solution}
 {: .challenge}
 
