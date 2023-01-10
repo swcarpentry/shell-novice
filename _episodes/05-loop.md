@@ -28,24 +28,30 @@ As such they are key to productivity improvements through automation.
 Similar to wildcards and tab completion, using loops also reduces the
 amount of typing required (and hence reduces the number of typing mistakes).
 
-Suppose we have several hundred genome data files named `basilisk.dat`, `minotaur.dat`, and
-`unicorn.dat`.
-For this example, we'll use the `exercise-data/creatures` directory which only has three
-example files,
-but the principles can be applied to many many more files at once.
+Suppose we have several hundred files containing population time series data.
+For this example, we'll use the `exercise-data/populations` directory which only has six such files,
+but the principles can be applied to many many more files at once. Each file contains population time series for one species, from the Living Planet Database of the [Living Planet Index](https://www.livingplanetindex.org/data_portal).
 
-The structure of these files is the same: the common name, classification, and updated date are
-presented on the first three lines, with DNA sequences on the following lines.
-Let's look at the files:
+The structure of these files is the same: each line gives data for one population time series, as tab-delimited text.
+
+Column headings are given on the first line of the combined-data file `six_species.csv`, which can be displayed as follows:
 
 ```
-$ head -n 5 basilisk.dat minotaur.dat unicorn.dat
+$ head -n 1 six-species.csv
 ```
 {: .language-bash}
 
-We would like to print out the classification for each species, which is given on the second
-line of each file.
-For each file, we would need to execute the command `head -n 2` and pipe this to `tail -n 1`.
+Let's look at the files:
+
+```
+$ head -n 5 bowerbird.txt dunnock.txt python.txt shark.txt toad.txt wildcat.txt
+```
+{: .language-bash}
+
+Due to the amount of data in each line, the output is visually confusing.
+
+We would like to print out the class (high-level classification) for the species in each file. Class is given in the second column.
+For each file, we would need to execute the command `cut -f 6` and pipe this to `sort` and `uniq`.
 We’ll use a loop to solve this problem, but first let’s look at the general form of a loop,
 using the pseudo-code below:
 
@@ -60,20 +66,24 @@ done
 and we can apply this to our example like this:
 
 ```
-$ for filename in basilisk.dat minotaur.dat unicorn.dat
+$ for filename in bowerbird.txt dunnock.txt python.txt shark.txt toad.txt wildcat.txt
 > do
->     head -n 2 $filename | tail -n 1
+>     cut -f 6 $filename | sort | uniq
 > done
 ```
 {: .language-bash}
 
 ```
-CLASSIFICATION: basiliscus vulgaris
-CLASSIFICATION: bos hominus
-CLASSIFICATION: equus monoceros
+Aves
+Aves
+Reptilia
+Elasmobranchii
+Amphibia
+Mammalia
 ```
 {: .output}
 
+This shows us the first two files contain data on a species in the class Aves, the third contains data on a species in Reptilia, and so on.
 
 > ## Follow the Prompt
 >
@@ -94,22 +104,21 @@ The `$` tells the shell interpreter to treat
 the variable as a variable name and substitute its value in its place,
 rather than treat it as text or an external command.
 
-In this example, the list is three filenames: `basilisk.dat`, `minotaur.dat`, and `unicorn.dat`.
+In this example, the list is six filenames: `bowerbird.txt`, `dunnock.txt`, `python.txt`, `shark.txt`, `toad.txt` and  `wildcat.txt`.
 Each time the loop iterates, it will assign a file name to the variable `filename`
-and run the `head` command.
+and run the `cut` command.
 The first time through the loop,
-`$filename` is `basilisk.dat`.
-The interpreter runs the command `head` on `basilisk.dat`
-and pipes the first two lines to the `tail` command,
-which then prints the second line of `basilisk.dat`.
+`$filename` is `bowerbird.txt`.
+The interpreter runs the command `cut -f 6` on `bowerbird.txt`
+and pipes the output to the `sort` command. Then it pipes the output of the `sort` command to the `uniq` command, which
+prints its output to the terminal.
 For the second iteration, `$filename` becomes
-`minotaur.dat`. This time, the shell runs `head` on `minotaur.dat`
-and pipes the first two lines to the `tail` command,
-which then prints the second line of `minotaur.dat`.
-For the third iteration, `$filename` becomes
-`unicorn.dat`, so the shell runs the `head` command on that file,
-and `tail` on the output of that.
-Since the list was only three items, the shell exits the `for` loop.
+`dunnock.txt`. 
+The interpreter runs the command `cut -f 6` on `dunnock.txt`
+and pipes the output to the `sort` command. Then it pipes the output of the `sort` command to the `uniq` command, which
+prints its output to the terminal.
+This continues until each of the filenames in turn has been assigned to the variable `$filename`.
+After the final item, `wildcat.txt`, the shell exits the `for` loop.
 
 > ## Same Symbols, Different Meanings
 >
