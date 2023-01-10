@@ -50,20 +50,20 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle
+/Users/phillipa
 ~~~
 {: .output}
 
 Here,
-the computer's response is `/Users/nelle`,
-which is Nelle's **home directory**:
+the computer's response is `/Users/phillipa`,
+which is Phillipa's **home directory**:
 
 > ## Home Directory Variation
 >
 > The home directory path will look different on different operating systems.
-> On Linux, it may look like `/home/nelle`,
-> and on Windows, it will be similar to `C:\Documents and Settings\nelle` or
-> `C:\Users\nelle`.
+> On Linux, it may look like `/home/phillipa`,
+> and on Windows, it will be similar to `C:\Documents and Settings\phillipa` or
+> `C:\Users\phillipa`.
 > (Note that it may look slightly different for different versions of Windows.)
 > In future examples, we've used Mac output as the default - Linux and Windows
 > output may differ slightly but should be generally similar.
@@ -78,11 +78,11 @@ which is Nelle's **home directory**:
 To understand what a 'home directory' is,
 let's have a look at how the file system as a whole is organized.  For the
 sake of this example, we'll be
-illustrating the filesystem on our scientist Nelle's computer.  After this
+illustrating the filesystem on our scientist Phillipa's computer.  After this
 illustration, you'll be learning commands to explore your own filesystem,
 which will be constructed in a similar way, but not be exactly identical.
 
-On Nelle's computer, the filesystem looks like this:
+On Phillipa's computer, the filesystem looks like this:
 
 ![The file system is made up of a root directory that contains sub-directories
 titled bin, data, users, and tmp](../fig/filesystem.svg)
@@ -90,7 +90,7 @@ titled bin, data, users, and tmp](../fig/filesystem.svg)
 At the top is the **root directory**
 that holds everything else.
 We refer to it using a slash character, `/`, on its own;
-this character is the leading slash in `/Users/nelle`.
+this character is the leading slash in `/Users/phillipa`.
 
 Inside that directory are several other directories:
 `bin` (which is where some built-in programs are stored),
@@ -99,7 +99,7 @@ Inside that directory are several other directories:
 `tmp` (for temporary files that don't need to be stored long-term),
 and so on.
 
-We know that our current working directory `/Users/nelle` is stored inside `/Users`
+We know that our current working directory `/Users/phillipa` is stored inside `/Users`
 because `/Users` is the first part of its name.
 Similarly,
 we know that `/Users` is stored inside the root directory `/`
@@ -119,12 +119,12 @@ her colleagues *imhotep* and *larry*.
 
 ![Like other directories, home directories are sub-directories underneath
 "/Users" like "/Users/imhotep", "/Users/larry" or
-"/Users/nelle"](../fig/home-directories.svg)
+"/Users/phillipa"](../fig/home-directories.svg)
 
 The user *imhotep*'s files are stored in `/Users/imhotep`,
 user *larry*'s in `/Users/larry`,
-and Nelle's in `/Users/nelle`. Nelle is the user in our
-examples here, therefore we get `/Users/nelle` as our home directory.
+and Phillipa's in `/Users/phillipa`. Phillipa is the user in our
+examples here, therefore we get `/Users/phillipa` as our home directory.
 Typically, when you open a new command prompt, you will be in
 your home directory to start.
 
@@ -376,7 +376,7 @@ $ ls -F Desktop/shell-lesson-data
 {: .language-bash}
 
 ~~~
-exercise-data/  north-pacific-gyre/
+exercise-data/  lpi-data/
 ~~~
 {: .output}
 
@@ -408,10 +408,10 @@ the `shell-lesson-data` directory, then into the `exercise-data` directory.
 You will notice that `cd` doesn't print anything. This is normal.
 Many shell commands will not output anything to the screen when successfully executed.
 But if we run `pwd` after it, we can see that we are now
-in `/Users/nelle/Desktop/shell-lesson-data/exercise-data`.
+in `/Users/phillipa/Desktop/shell-lesson-data/exercise-data`.
 
 If we run `ls -F` without arguments now,
-it lists the contents of `/Users/nelle/Desktop/shell-lesson-data/exercise-data`,
+it lists the contents of `/Users/phillipa/Desktop/shell-lesson-data/exercise-data`,
 because that's where we now are:
 
 ~~~
@@ -420,7 +420,7 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle/Desktop/shell-lesson-data/exercise-data
+/Users/phillipa/Desktop/shell-lesson-data/exercise-data
 ~~~
 {: .output}
 
@@ -468,7 +468,7 @@ $ cd ..
 or more succinctly,
 the **parent** of the current directory.
 Sure enough,
-if we run `pwd` after running `cd ..`, we're back in `/Users/nelle/Desktop/shell-lesson-data`:
+if we run `pwd` after running `cd ..`, we're back in `/Users/phillipa/Desktop/shell-lesson-data`:
 
 ~~~
 $ pwd
@@ -476,7 +476,7 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle/Desktop/shell-lesson-data
+/Users/phillipa/Desktop/shell-lesson-data
 ~~~
 {: .output}
 
@@ -489,13 +489,13 @@ $ ls -F -a
 {: .language-bash}
 
 ~~~
-./  ../  exercise-data/  north-pacific-gyre/
+./  ../  exercise-data/  lpi-data/
 ~~~
 {: .output}
 
 `-a` stands for 'show all' (including hidden files);
 it forces `ls` to show us file and directory names that begin with `.`,
-such as `..` (which, if we're in `/Users/nelle`, refers to the `/Users` directory).
+such as `..` (which, if we're in `/Users/phillipa`, refers to the `/Users` directory).
 As you can see,
 it also displays another special directory that's just called `.`,
 which means 'the current working directory'.
@@ -579,12 +579,12 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle/Desktop/shell-lesson-data/exercise-data
+/Users/phillipa/Desktop/shell-lesson-data/exercise-data
 ~~~
 {: .output}
 
 ~~~
-$ cd /Users/nelle/Desktop/shell-lesson-data
+$ cd /Users/phillipa/Desktop/shell-lesson-data
 ~~~
 {: .language-bash}
 
@@ -594,8 +594,8 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 >
 > The shell interprets a tilde (`~`) character at the start of a path to
 > mean "the current user's home directory". For example, if Nelle's home
-> directory is `/Users/nelle`, then `~/data` is equivalent to
-> `/Users/nelle/data`. This only works if it is the first character in the
+> directory is `/Users/phillipa`, then `~/data` is equivalent to
+> `/Users/phillipa/data`. This only works if it is the first character in the
 > path: `here/there/~/elsewhere` is *not* `here/there/Users/nelle/elsewhere`.
 >
 > Another shortcut is the `-` (dash) character. `cd` will translate `-` into
@@ -793,18 +793,18 @@ Network/              Volumes/
 {: .output}
 
 
-### Nelle's Pipeline: Organizing Files
+### Phillipa's Pipeline: Organizing Files
 
 Knowing this much about files and directories,
 Nelle is ready to organize the files that the protein assay machine will create.
 
-She creates a directory called `north-pacific-gyre`
+She creates a directory called `lpi-data`
 (to remind herself where the data came from),
-which will contain the data files from the assay machine,
+which will contain the data files from the downloaded dataset,
 and her data processing scripts.
 
 
-Each of her physical samples is labelled according to her lab's convention
+<!-- Each of her physical samples is labelled according to her lab's convention
 with a unique ten-character ID,
 such as 'NENE01729A'.
 This ID is what she used in her collection log
@@ -812,14 +812,14 @@ to record the location, time, depth, and other characteristics of the sample,
 so she decides to use it as part of each data file's name.
 Since the assay machine's output is plain text,
 she will call her files `NENE01729A.txt`, `NENE01812A.txt`, and so on.
-All 1520 files will go into the same directory.
+All 1520 files will go into the same directory. -->
 
 
 Now in her current directory `shell-lesson-data`,
-Nelle can see what files she has using the command:
+Phillipa can see what files she has using the command:
 
 ~~~
-$ ls north-pacific-gyre/
+$ ls lpi-data
 ~~~
 {: .language-bash}
 
@@ -828,7 +828,7 @@ but she can let the shell do most of the work through what is called **tab compl
 If she types:
 
 ~~~
-$ ls nor
+$ ls lp
 ~~~
 {: .language-bash}
 
@@ -836,7 +836,7 @@ and then presses <kbd>Tab</kbd> (the tab key on her keyboard),
 the shell automatically completes the directory name for her:
 
 ~~~
-$ ls north-pacific-gyre/
+$ ls lpi-data/
 ~~~
 {: .language-bash}
 
@@ -844,18 +844,18 @@ Pressing <kbd>Tab</kbd> again does nothing,
 since there are multiple possibilities;
 pressing <kbd>Tab</kbd> twice brings up a list of all the files.
 
-If Nelle adds <kbd>G</kbd> and presses <kbd>Tab</kbd> again,
+If Phillipa adds <kbd>G</kbd> and presses <kbd>Tab</kbd> again,
 the shell will append 'goo' since all files that start with 'g' share
 the first three characters 'goo'.
 
 ~~~
-$ ls north-pacific-gyre/goo
+$ ls lpi-data/goo
 ~~~
 {: .language-bash}
 
 To see all of those files, she can press <kbd>Tab</kbd> twice more.
 ~~~
-ls north-pacific-gyre/goo
+ls lpi-data/goo
 goodiff.sh   goostats.sh
 ~~~
 {: .language-bash}
