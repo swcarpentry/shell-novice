@@ -38,7 +38,7 @@ $ pwd
 {: .language-bash}
 
 ~~~
-/Users/nelle/Desktop/shell-lesson-data
+/Users/phillipa/Desktop/shell-lesson-data
 ~~~
 {: .output}
 
@@ -138,8 +138,8 @@ data/  results/
 >    Spaces can make a name more meaningful,
 >    but since spaces are used to separate arguments on the command line
 >    it is better to avoid them in names of files and directories.
->    You can use `-` or `_` instead (e.g. `north-pacific-gyre/` rather than `north pacific gyre/`).
->    To test this out, try typing `mkdir north pacific gyre`and see what directory (or directories!)
+>    You can use `-` or `_` instead (e.g. `lpi-data/` rather than `lpi data/`).
+>    To test this out, try typing `mkdir lpi data`and see what directory (or directories!)
 >    are made when you check with `ls -F`.
 >
 > 2. Don't begin the name with `-` (dash).
@@ -286,7 +286,7 @@ draft.txt
 
 > ## What's In A Name?
 >
-> You may have noticed that all of Nelle's files are named 'something dot
+> You may have noticed that all of Phillipa's files are named 'something dot
 > something', and in this part of the lesson, we always used the extension
 > `.txt`.  This is just a convention: we can call a file `mythesis` or
 > almost anything else we want. However, most people use two-part names
