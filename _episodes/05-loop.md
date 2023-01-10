@@ -228,7 +228,7 @@ or a subset of data.
 > Now, what is the output of the following code?
 >
 > ~~~
-> $ for datafile in *.pdb
+> $ for datafile in *.txt
 > > do
 > >     ls $datafile
 > > done
