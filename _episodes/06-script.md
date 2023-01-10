@@ -503,11 +503,11 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > with that extension. For example:
 >
 > ~~~
-> $ bash longest.sh shell-lesson-data/exercise-data/proteins pdb
+> $ bash longest.sh shell-lesson-data/exercise-data/populations txt
 > ~~~
 > {: .language-bash}
 >
-> would print the name of the `.pdb` file in `shell-lesson-data/exercise-data/proteins` that has
+> would print the name of the `.txt` file in `shell-lesson-data/exercise-data/populations` that has
 > the most lines.
 >
 > Feel free to test your script on another directory e.g.
@@ -525,11 +525,11 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > # and prints the name of the file in that directory
 > > # with the most lines which matches the file extension.
 > >
-> > wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1
+> > wc -l $1/*.$2 | sort -g | tail -n 2 | head -n 1
 > > ```
 > > {: .language-bash}
 > >
-> > The first part of the pipeline, `wc -l $1/*.$2 | sort -n`, counts
+> > The first part of the pipeline, `wc -l $1/*.$2 | sort -g`, counts
 > > the lines in each file and sorts them numerically (largest last). When
 > > there's more than one file, `wc` also outputs a final summary line,
 > > giving the total number of lines across _all_ files.  We use `tail
@@ -544,11 +544,11 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Script Reading Comprehension
 >
-> For this question, consider the `shell-lesson-data/exercise-data/proteins` directory once again.
-> This contains a number of `.pdb` files in addition to any other files you
+> For this question, consider the `shell-lesson-data/exercise-data/populations` directory once again.
+> This contains a number of files containing population time series data, in addition to any other files you
 > may have created.
 > Explain what each of the following three scripts would do when run as
-> `bash script1.sh *.pdb`, `bash script2.sh *.pdb`, and `bash script3.sh *.pdb` respectively.
+> `bash script1.sh *.txt`, `bash script2.sh *.txt`, and `bash script3.sh *.txt` respectively.
 >
 > ~~~
 > # Script 1
@@ -567,25 +567,25 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 >
 > ~~~
 > # Script 3
-> echo $@.pdb
+> echo $@.txt
 > ~~~
 > {: .language-bash}
 >
 > > ## Solutions
-> > In each case, the shell expands the wildcard in `*.pdb` before passing the resulting
+> > In each case, the shell expands the wildcard in `*.txt` before passing the resulting
 > > list of file names as arguments to the script.
 > >
 > > Script 1 would print out a list of all files containing a dot in their name.
 > > The arguments passed to the script are not actually used anywhere in the script.
 > >
-> > Script 2 would print the contents of the first 3 files with a `.pdb` file extension.
+> > Script 2 would print the contents of the first 3 files with a `.txt` file extension.
 > > `$1`, `$2`, and `$3` refer to the first, second, and third argument respectively.
 > >
-> > Script 3 would print all the arguments to the script (i.e. all the `.pdb` files),
-> > followed by `.pdb`.
+> > Script 3 would print all the arguments to the script (i.e. all the `.txt` files),
+> > followed by `.txt`.
 > > `$@` refers to *all* the arguments given to a shell script.
 > > ```
-> > cubane.pdb ethane.pdb methane.pdb octane.pdb pentane.pdb propane.pdb.pdb
+> > bowerbird.txt dunnock.txt python.txt script.txt shark.txt toad.txt wildcat.txt.txt
 > > ```
 > > {: .output}
 > {: .solution}
