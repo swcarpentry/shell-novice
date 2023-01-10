@@ -432,7 +432,7 @@ since the shell expands `$filename` to be the name of a file,
 Note that we can't write this as:
 
 ~~~
-$ for filename in *.dat
+$ for filename in *.txt
 > do
 >     $filename
 >     head -n 10 $filename | tail -n 1
@@ -511,20 +511,20 @@ $ cp *.txt original-*.txt
 because that would expand to:
 
 ~~~
-$ cp bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt original-*.dat
+$ cp bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt original-*.txt
 ~~~
 {: .language-bash}
 
 This wouldn't back up our files, instead we get an error:
 
 ~~~
-cp: target `original-*.dat' is not a directory
+cp: target `original-*.txt' is not a directory
 ~~~
 {: .error}
 
 This problem arises when `cp` receives more than two inputs. When this happens, it
 expects the last input to be a directory where it can copy all the files it was passed.
-Since there is no directory named `original-*.dat` in the `populations` directory we get an
+Since there is no directory named `original-*.txt` in the `populations` directory we get an
 error.
 
 Instead, we can use a loop:
