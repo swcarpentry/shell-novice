@@ -29,7 +29,7 @@ It is also the name of a very useful command-line program.
 For our examples,
 we will use a file that contains three haiku taken from a
 [1998 competition](https://web.archive.org/web/19991201042211/http://salon.com/21st/chal/1998/01/26chal.html)
-in *Salon* magazine (Credit to authors Bill Torcaso, Howard Korder, and 
+in *Salon* magazine (Credit to authors Joy Rothke, Howard Korder, and 
 Margaret Segall, respectively. See 
 Haiku Error Messsages archived
 [Page 1](https://web.archive.org/web/20000310061355/http://www.salon.com/21st/chal/1998/02/10chal2.html)
@@ -46,9 +46,9 @@ $ cat haiku.txt
 {: .language-bash}
 
 ~~~
-The Tao that is seen
-Is not the true Tao, until
-You bring fresh toner.
+The Web site you seek
+cannot be located but
+endless others exist.
 
 With searching comes loss
 and the presence of absence:
@@ -68,8 +68,8 @@ $ grep not haiku.txt
 {: .language-bash}
 
 ~~~
-Is not the true Tao, until
-"My Thesis" not found
+cannot be located but
+"My Thesis" not found.
 Today it is not working
 ~~~
 {: .output}
@@ -93,7 +93,7 @@ $ grep The haiku.txt
 {: .language-bash}
 
 ~~~
-The Tao that is seen
+The Web site you seek
 "My Thesis" not found.
 ~~~
 {: .output}
@@ -114,7 +114,7 @@ $ grep -w The haiku.txt
 {: .language-bash}
 
 ~~~
-The Tao that is seen
+The Web site you seek
 ~~~
 {: .output}
 
