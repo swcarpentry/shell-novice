@@ -145,9 +145,9 @@ The shell itself doesn't care what the variable is called;
 if we wrote this loop as:
 
 ~~~
-$ for x in basilisk.dat minotaur.dat unicorn.dat
+$ for x in bowerbird.txt dunnock.txt python.txt shark.txt toad.txt wildcat.txt
 > do
->     head -n 2 $x | tail -n 1
+>     cut -f 6 $filename | sort | uniq
 > done
 ~~~
 {: .language-bash}
@@ -155,9 +155,9 @@ $ for x in basilisk.dat minotaur.dat unicorn.dat
 or:
 
 ~~~
-$ for temperature in basilisk.dat minotaur.dat unicorn.dat
+$ for temperature in bowerbird.txt dunnock.txt python.txt shark.txt toad.txt wildcat.txt
 > do
->     head -n 2 $temperature | tail -n 1
+>     cut -f 6 $filename | sort | uniq
 > done
 ~~~
 {: .language-bash}
@@ -207,20 +207,20 @@ or a subset of data.
 
 > ## Variables in Loops
 >
-> This exercise refers to the `shell-lesson-data/exercise-data/proteins` directory.
-> `ls *.pdb` gives the following output:
+> This exercise refers to the `shell-lesson-data/exercise-data/populations` directory.
+> `ls *.txt` gives the following output:
 >
 > ~~~
-> cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt
 > ~~~
 > {: .output}
 >
 > What is the output of the following code?
 >
 > ~~~
-> $ for datafile in *.pdb
+> $ for datafile in *.txt
 > > do
-> >     ls *.pdb
+> >     ls *.txt
 > > done
 > ~~~
 > {: .language-bash}
@@ -240,25 +240,25 @@ or a subset of data.
 > > ## Solution
 > > The first code block gives the same output on each iteration through
 > > the loop.
-> > Bash expands the wildcard `*.pdb` within the loop body (as well as
-> > before the loop starts) to match all files ending in `.pdb`
+> > Bash expands the wildcard `*.txt` within the loop body (as well as
+> > before the loop starts) to match all files ending in `.txt`
 > > and then lists them using `ls`.
 > > The expanded loop would look like this:
 > > ```
-> > $ for datafile in cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > $ for datafile in bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt
 > > > do
-> > >     ls cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > >     ls bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt
 > > > done
 > > ```
 > > {: .language-bash}
 > >
 > > ```
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
-> > cubane.pdb  ethane.pdb  methane.pdb  octane.pdb  pentane.pdb  propane.pdb
+> > bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt
+> > bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt
+> > bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt
+> > bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt
+> > bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt
+> > bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt
 > > ```
 > > {: .output}
 > >
@@ -267,12 +267,12 @@ or a subset of data.
 > > and then listed using `ls`.
 > >
 > > ```
-> > cubane.pdb
-> > ethane.pdb
-> > methane.pdb
-> > octane.pdb
-> > pentane.pdb
-> > propane.pdb
+> > bowerbird.txt
+> > dunnock.txt
+> > python.txt
+> > shark.txt
+> > toad.txt
+> > wildcat.txt
 > > ```
 > > {: .output}
 > {: .solution}
@@ -281,10 +281,10 @@ or a subset of data.
 > ## Limiting Sets of Files
 >
 > What would be the output of running the following loop in the
-> `shell-lesson-data/exercise-data/proteins` directory?
+> `shell-lesson-data/exercise-data/populations` directory?
 >
 > ~~~
-> $ for filename in c*
+> $ for filename in t*
 > > do
 > >     ls $filename
 > > done
@@ -293,85 +293,102 @@ or a subset of data.
 >
 > 1.  No files are listed.
 > 2.  All files are listed.
-> 3.  Only `cubane.pdb`, `octane.pdb` and `pentane.pdb` are listed.
-> 4.  Only `cubane.pdb` is listed.
+> 3.  Only `python.txt` `toad.txt` and `wildcat.txt` are listed.
+> 4.  Only `toad.txt` is listed.
 >
 > > ## Solution
 > > 4 is the correct answer. `*` matches zero or more characters, so any file name starting with
-> > the letter c, followed by zero or more other characters will be matched.
+> > the letter `t`, followed by zero or more other characters will be matched.
 > {: .solution}
 >
 > How would the output differ from using this command instead?
 >
 > ~~~
-> $ for filename in *c*
+> $ for filename in *t*
 > > do
 > >     ls $filename
 > > done
 > ~~~
 > {: .language-bash}
 >
-> 1.  The same files would be listed.
-> 2.  All the files are listed this time.
+> 1.  The same files will be listed.
+> 2.  The files `bowerbird.txt`, `dunnock.txt`, `python.txt`, `shark.txt`, `toad.txt` and
+> `wildcat.txt` will be listed.
 > 3.  No files are listed this time.
-> 4.  The files `cubane.pdb` and `octane.pdb` will be listed.
-> 5.  Only the file `octane.pdb` will be listed.
+> 4.  The files `python.txt` and `toad.txt` will be listed.
+> 5.  Only the file `six-species.csv` will be listed.
 >
 > > ## Solution
-> > 4 is the correct answer. `*` matches zero or more characters, so a file name with zero or more
-> > characters before a letter c and zero or more characters after the letter c will be matched.
+> > 2 is the correct answer. `*` matches zero or more characters, so a file name with zero or more
+> > characters before a letter `t` and zero or more characters after the letter `t` will be matched.
+> > In other words, and file name containing at least one `t` will be listed.
 > {: .solution}
 {: .challenge}
 
 > ## Saving to a File in a Loop - Part One
 >
-> In the `shell-lesson-data/exercise-data/proteins` directory, what is the effect of this loop?
+> In the `shell-lesson-data/exercise-data/populations` directory, what is the effect of this loop?
 >
 > ~~~
-> for alkanes in *.pdb
+> for species in *.txt
 > do
->     echo $alkanes
->     cat $alkanes > alkanes.pdb
+>     echo $species
+>     cat $species > species.txt
 > done
 > ~~~
 > {: .language-bash}
 >
-> 1.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb` and
->    `propane.pdb`, and the text from `propane.pdb` will be saved to a file called `alkanes.pdb`.
-> 2.  Prints `cubane.pdb`, `ethane.pdb`, and `methane.pdb`, and the text from all three files
->     would be concatenated and saved to a file called `alkanes.pdb`.
-> 3.  Prints `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and `pentane.pdb`,
->     and the text from `propane.pdb` will be saved to a file called `alkanes.pdb`.
+> 1.  Prints `bowerbird.txt`, `dunnock.txt`, `python.txt`, `shark.txt`, `toad.txt`
+> and `wildcat.txt`, and the text from `wildcat.txt` will be saved to a file called `species.txt`.
+> 2.  Prints `bowerbird.txt`, `dunnock.txt`, `python.txt`, `shark.txt`, , `toad.txt`
+> and `wildcat.txt`, and the text from all six files would be concatenated and saved to a file
+> called `species.txt`.
+> 3.  Prints `bowerbird.txt`, `dunnock.txt`, `python.txt`, `shark.txt`, `toad.txt`
+> and `wildcat.txt`, and the text from `bowerbird.txt` will be saved to a file called `species.txt`.
 > 4.  None of the above.
 >
 > > ## Solution
-> > 1. The text from each file in turn gets written to the `alkanes.pdb` file.
+> > 1. The text from each file in turn gets written to the `species.txt` file.
 > > However, the file gets overwritten on each loop iteration, so the final content of
-> > `alkanes.pdb`
-> > is the text from the `propane.pdb` file.
+> > `species.txt`
+> > is the text from the `wildcat.txt` file.
 > {: .solution}
 {: .challenge}
 
 > ## Saving to a File in a Loop - Part Two
 >
-> Also in the `shell-lesson-data/exercise-data/proteins` directory,
-> what would be the output of the following loop?
+> Also in the `shell-lesson-data/exercise-data/populations` directory, remove the file you created
+> above:
 >
 > ~~~
-> for datafile in *.pdb
+> rm species.txt
+> ~~~
+> {: .language-bash}
+>
+> Use `ls` to check you only have the files we provided, i.e.
+>
+> ~~~
+> bowerbird.txt  dunnock.txt  python.txt  shark.txt  six-species.csv  toad.txt  wildcat.txt
+> ~~~
+{: .output}
+>
+> Now, what would be the output of the following loop?
+>
+> ~~~
+> for datafile in *.txt
 > do
->     cat $datafile >> all.pdb
+>     cat $datafile >> all.txt
 > done
 > ~~~
 > {: .language-bash}
 >
-> 1.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, and
->     `pentane.pdb` would be concatenated and saved to a file called `all.pdb`.
-> 2.  The text from `ethane.pdb` will be saved to a file called `all.pdb`.
-> 3.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb`
->     and `propane.pdb` would be concatenated and saved to a file called `all.pdb`.
-> 4.  All of the text from `cubane.pdb`, `ethane.pdb`, `methane.pdb`, `octane.pdb`, `pentane.pdb`
->     and `propane.pdb` would be printed to the screen and saved to a file called `all.pdb`.
+> 1.  All of the text from `bowerbird.txt`, `dunnock.txt`, `python.txt`, `shark.txt` and
+>  `toad.txt` would be concatenated and saved to a file called `all.txt`.
+> 2.  The text from `bowerbird.txt` will be saved to a file called `all.txt`.
+> 3.  All of the text from `bowerbird.txt`, `dunnock.txt`, `python.txt`, `shark.txt`,
+>  `toad.txt` and `wildcat.txt` would be concatenated and saved to a file called `all.txt`.
+> 4.  All of the text from `bowerbird.txt`, `dunnock.txt`, `python.txt`, `shark.txt`,
+>  `toad.txt` and `wildcat.txt` would be printed to the screen and saved to a file called `all.txt`.
 >
 > > ## Solution
 > > 3 is the correct answer. `>>` appends to a file, rather than overwriting it with the redirected
@@ -380,19 +397,18 @@ or a subset of data.
 > {: .solution}
 {: .challenge}
 
-Let's continue with our example in the `shell-lesson-data/exercise-data/creatures` directory.
 Here's a slightly more complicated loop:
 
 ~~~
-$ for filename in *.dat
+$ for filename in *.txt
 > do
 >     echo $filename
->     head -n 100 $filename | tail -n 20
+>     head -n 10 $filename | tail -n 1
 > done
 ~~~
 {: .language-bash}
 
-The shell starts by expanding `*.dat` to create the list of files it will process.
+The shell starts by expanding `*.txt` to create the list of files it will process.
 The **loop body**
 then executes two commands for each of those files.
 The first command, `echo`, prints its command-line arguments to standard output.
@@ -419,18 +435,18 @@ Note that we can't write this as:
 $ for filename in *.dat
 > do
 >     $filename
->     head -n 100 $filename | tail -n 20
+>     head -n 10 $filename | tail -n 1
 > done
 ~~~
 {: .language-bash}
 
 because then the first time through the loop,
-when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as
+when `$filename` expanded to `bowerbird.txt`, the shell would try to run `bowerbird.txt` as
 a program.
 Finally,
-the `head` and `tail` combination selects lines 81-100
+the `head` and `tail` combination selects line 10
 from whatever file is being processed
-(assuming the file has at least 100 lines).
+(assuming the file has at least 10 lines; otherwise it selects the last line of the file).
 
 > ## Spaces in Names
 >
@@ -441,17 +457,17 @@ from whatever file is being processed
 > Suppose our data files are named:
 >
 > ~~~
-> red dragon.dat
-> purple unicorn.dat
+> red dragon.txt
+> purple unicorn.txt
 > ~~~
 > {: .source}
 >
 > To loop over these files, we would need to add double quotes like so:
 >
 > ~~~
-> $ for filename in "red dragon.dat" "purple unicorn.dat"
+> $ for filename in "red dragon.txt" "purple unicorn.txt"
 > > do
-> >     head -n 100 "$filename" | tail -n 20
+> >     head -n 10 "$filename" | tail -n 1
 > > done
 > ~~~
 > {: .language-bash}
@@ -463,41 +479,39 @@ from whatever file is being processed
 > expecting:
 >
 > ~~~
-> head: cannot open ‘red dragon.dat’ for reading: No such file or directory
-> head: cannot open ‘purple unicorn.dat’ for reading: No such file or directory
+> head: cannot open 'red dragon.txt' for reading: No such file or directory
+> head: cannot open 'purple unicorn.txt' for reading: No such file or directory
 > ~~~
 > {: .error}
 >
 > Try removing the quotes around `$filename` in the loop above to see the effect of the quote
-> marks on spaces. Note that we get a result from the loop command for unicorn.dat
-> when we run this code in the `creatures` directory:
+> marks on spaces.
 >
 > ~~~
-> head: cannot open ‘red’ for reading: No such file or directory
-> head: cannot open ‘dragon.dat’ for reading: No such file or directory
-> head: cannot open ‘purple’ for reading: No such file or directory
-> CGGTACCGAA
-> AAGGGTCGCG
-> CAAGTGTTCC
-> ...
+> head: cannot open 'red' for reading: No such file or directory
+> head: cannot open 'dragon.txt' for reading: No such file or directory
+> head: cannot open 'purple' for reading: No such file or directory
+> head: cannot open 'unicorn.txt' for reading: No such file or directory
 > ~~~
 > {: .output}
 {: .callout}
 
-We would like to modify each of the files in `shell-lesson-data/exercise-data/creatures`,
+We would like to modify each of the six files for individual species in
+`shell-lesson-data/exercise-data/populations`,
 but also save a version
-of the original files, naming the copies `original-basilisk.dat` and `original-unicorn.dat`.
+of the original files, naming the copies `original-bowerbird.txt`, `original-dunnock.txt`,
+`original-python.txt`, and so on.
 We can't use:
 
 ~~~
-$ cp *.dat original-*.dat
+$ cp *.txt original-*.txt
 ~~~
 {: .language-bash}
 
 because that would expand to:
 
 ~~~
-$ cp basilisk.dat minotaur.dat unicorn.dat original-*.dat
+$ cp bowerbird.txt  dunnock.txt  python.txt  shark.txt  toad.txt  wildcat.txt original-*.dat
 ~~~
 {: .language-bash}
 
@@ -510,12 +524,12 @@ cp: target `original-*.dat' is not a directory
 
 This problem arises when `cp` receives more than two inputs. When this happens, it
 expects the last input to be a directory where it can copy all the files it was passed.
-Since there is no directory named `original-*.dat` in the `creatures` directory we get an
+Since there is no directory named `original-*.dat` in the `populations` directory we get an
 error.
 
 Instead, we can use a loop:
 ~~~
-$ for filename in *.dat
+$ for filename in *.txt
 > do
 >     cp $filename original-$filename
 > done
@@ -524,27 +538,29 @@ $ for filename in *.dat
 
 This loop runs the `cp` command once for each filename.
 The first time,
-when `$filename` expands to `basilisk.dat`,
+when `$filename` expands to `bowerbird.txt`,
 the shell executes:
 
 ~~~
-cp basilisk.dat original-basilisk.dat
+cp bowerbird.txt original-bowerbird.txt
 ~~~
 {: .language-bash}
 
 The second time, the command is:
 
 ~~~
-cp minotaur.dat original-minotaur.dat
+cp dunnock.txt original-dunnock.txt
 ~~~
 {: .language-bash}
 
-The third and last time, the command is:
+The third time, the command is:
 
 ~~~
-cp unicorn.dat original-unicorn.dat
+cp python.txt original-python.txt
 ~~~
 {: .language-bash}
+
+and so on, until a copy of each of the six files has been made.
 
 Since the `cp` command does not normally produce any output, it's hard to check
 that the loop is doing the correct thing.
@@ -556,14 +572,18 @@ The following diagram
 shows what happens when the modified loop is executed, and demonstrates how the
 judicious use of `echo` is a good debugging technique.
 
-![The for loop "for filename in *.dat; do echo cp $filename original-$filename;
-done" will successively assign the names of all "*.dat" files in your current
+![The for loop "for filename in *.txt; do echo cp $filename original-$filename;
+done" will successively assign the names of all "*.txt" files in your current
 directory to the variable "$filename" and then execute the command. With the
-files "basilisk.dat", "minotaur.dat" and "unicorn.dat" in the current directory
-the loop will successively call the echo command three times and print three
-lines: "cp basislisk.dat original-basilisk.dat", then "cp minotaur.dat
-original-minotaur.dat" and finally "cp unicorn.dat
-original-unicorn.dat"](../fig/shell_script_for_loop_flow_chart.svg)
+files "bowerbird.txt", "dunnock.txt", "python.txt", "shark.txt",
+"toad.txt" and "wildcat.txt" in the current directory
+the loop will successively call the echo command six times and print six
+lines: "cp bowerbird.txt original-bowerbird.txt",
+then "cp dunnock.txt original-dunnock.txt",
+"cp python.txt original-python.txt",
+"cp shark.txt original-shark.txt",
+"cp toad.txt original-toad.txt",
+and finally "cp wildcat.txt original-wildcat.txt"](../fig/shell_script_for_loop_flow_chart.svg)
 
 ## Nelle's Pipeline: Processing Files
 
