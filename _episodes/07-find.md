@@ -148,13 +148,14 @@ $ grep -n "it" haiku.txt
 {: .language-bash}
 
 ~~~
+1:The Web site you seek
 5:With searching comes loss
 9:Yesterday it worked
 10:Today it is not working
 ~~~
 {: .output}
 
-Here, we can see that lines 5, 9, and 10 contain the letters 'it'.
+Here, we can see that lines 1, 5, 9, and 10 contain the letters 'it'.
 
 We can combine options (i.e. flags) as we do with other Unix commands.
 For example, let's find the lines that contain the word 'the'.
@@ -167,7 +168,6 @@ $ grep -n -w "the" haiku.txt
 {: .language-bash}
 
 ~~~
-2:Is not the true Tao, until
 6:and the presence of absence:
 ~~~
 {: .output}
@@ -180,8 +180,7 @@ $ grep -n -w -i "the" haiku.txt
 {: .language-bash}
 
 ~~~
-1:The Tao that is seen
-2:Is not the true Tao, until
+1:The Web site you seek
 6:and the presence of absence:
 ~~~
 {: .output}
@@ -195,8 +194,9 @@ $ grep -n -w -v "the" haiku.txt
 {: .language-bash}
 
 ~~~
-1:The Tao that is seen
-3:You bring fresh toner.
+1:The Web site you seek
+2:cannot be located but
+3:endless others exist.
 4:
 5:With searching comes loss
 7:"My Thesis" not found.
@@ -219,10 +219,10 @@ $ grep -r Yesterday .
 {: .language-bash}
 
 ```
+./haiku.txt:Yesterday it worked
 ./LittleWomen.txt:"Yesterday, when Aunt was asleep and I was trying to be as still as a
 ./LittleWomen.txt:Yesterday at dinner, when an Austrian officer stared at us and then
 ./LittleWomen.txt:Yesterday was a quiet day spent in teaching, sewing, and writing in my
-./haiku.txt:Yesterday it worked
 ```
 {: .output}
 
@@ -272,7 +272,7 @@ Miscellaneous:
 >
 > > ## Solution
 > > The correct answer is 3, because the `-w` option looks only for whole-word matches.
-> > The other options will also match 'of' when part of another word.
+> > The other options will also match 'of' when part of another word (in this case, the word `Software`).
 > {: .solution}
 {: .challenge}
 
@@ -292,7 +292,6 @@ Miscellaneous:
 > {: .language-bash}
 >
 > ~~~
-> You bring fresh toner.
 > Today it is not working
 > Software is like that.
 > ~~~
@@ -305,75 +304,6 @@ Miscellaneous:
 > matches a single character (just like `?` in the shell), while the `o`
 > matches an actual 'o'.
 {: .callout}
-
-> ## Tracking a Species
->
-> Leah has several hundred
-> data files saved in one directory, each of which is formatted like this:
->
-> ~~~
-> 2012-11-05,deer,5
-> 2012-11-05,rabbit,22
-> 2012-11-05,raccoon,7
-> 2012-11-06,rabbit,19
-> 2012-11-06,deer,2
-> 2012-11-06,fox,4
-> 2012-11-07,rabbit,16
-> 2012-11-07,bear,1
-> ~~~
-> {: .source}
->
-> She wants to write a shell script that takes a species as the first command-line argument
-> and a directory as the second argument. The script should return one file called `<species>.txt`
-> containing a list of dates and the number of that species seen on each date.
-> For example using the data shown above, `rabbit.txt` would contain:
->
-> ~~~
-> 2012-11-05,22
-> 2012-11-06,19
-> 2012-11-07,16
-> ~~~
-> {: .source}
->
-> Below, each line contains an individual command, or pipe.  Arrange their
-> sequence in one command in order to achieve Leah's goal:
->
-> ~~~
-> cut -d : -f 2
-> >
-> |
-> grep -w $1 -r $2
-> |
-> $1.txt
-> cut -d , -f 1,3
-> ~~~
-> {: .language-bash}
->
-> Hint: use `man grep` to look for how to grep text recursively in a directory
-> and `man cut` to select more than one field in a line.
->
-> An example of such a file is provided in
-> `shell-lesson-data/exercise-data/animal-counts/animals.csv`
->
-> > ## Solution
-> >
-> > ```
-> > grep -w $1 -r $2 | cut -d : -f 2 | cut -d , -f 1,3 > $1.txt
-> > ```
-> > {: .source}
-> >
-> > Actually, you can swap the order of the two cut commands and it still works. At the
-> > command line, try changing the order of the cut commands, and have a look at the output
-> > from each step to see why this is the case.
-> >
-> > You would call the script above like this:
-> >
-> > ```
-> > $ bash count-species.sh bear .
-> > ```
-> > {: .language-bash}
-> {: .solution}
-{: .challenge}
 
 > ## Little Women
 >
