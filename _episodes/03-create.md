@@ -654,23 +654,23 @@ or specifying a naming pattern using wildcards.
 >
 > ~~~
 > $ mkdir backup
-> $ cp creatures/minotaur.dat creatures/unicorn.dat backup/
+> $ cp populations/six-species.csv populations/dunnock.txt backup/
 > ~~~
 > {: .language-bash}
 >
 > In the example below, what does `cp` do when given three or more file names?
 >
 > ~~~
-> $ cd creatures
+> $ cd populations
 > $ ls -F
 > ~~~
 > {: .language-bash}
 > ~~~
-> basilisk.dat  minotaur.dat  unicorn.dat
+> bowerbird.txt  dunnock.txt  python.txt  script.txt  shark.txt  six-species.csv  toad.txt  wildcat.txt
 > ~~~
 > {: .output}
 > ~~~
-> $ cp minotaur.dat unicorn.dat basilisk.dat
+> $ cp bowerbird.txt  dunnock.txt  python.txt
 > ~~~
 > {: .language-bash}
 >
@@ -683,7 +683,7 @@ or specifying a naming pattern using wildcards.
 > > because it is expecting a directory name as the last argument.
 > >
 > > ```
-> > cp: target 'basilisk.dat' is not a directory
+> > cp: target 'python.txt' is not a directory
 > > ```
 > > {: .error}
 > {: .solution}

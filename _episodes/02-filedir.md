@@ -616,9 +616,9 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > ~~~
 > {: .language-bash}
 >
-> Then `cd` into the `exercise-data/creatures` directory
+> Then `cd` into the `exercise-data/populations` directory
 > ~~~
-> $ cd exercise-data/creatures
+> $ cd exercise-data/populations
 > ~~~
 > {: .language-bash}
 >
@@ -628,7 +628,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > ~~~
 > {: .language-bash}
 > you'll see you're back in `~/Desktop/shell-lesson-data`.
-> Run `cd -` again and you're back in `~/Desktop/shell-lesson-data/exercise-data/creatures`
+> Run `cd -` again and you're back in `~/Desktop/shell-lesson-data/exercise-data/populations`
 {: .callout}
 
 > ## Absolute vs Relative Paths
