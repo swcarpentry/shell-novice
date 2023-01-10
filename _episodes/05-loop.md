@@ -762,9 +762,9 @@ so she decides to get some coffee and catch up on her reading.
 > without actually running those commands:
 >
 > ~~~
-> $ for datafile in *.pdb
+> $ for datafile in *.txt
 > > do
-> >     cat $datafile >> all.pdb
+> >     cat $datafile >> all.txt
 > > done
 > ~~~
 > {: .language-bash}
@@ -774,18 +774,18 @@ so she decides to get some coffee and catch up on her reading.
 >
 > ~~~
 > # Version 1
-> $ for datafile in *.pdb
+> $ for datafile in *.txt
 > > do
-> >     echo cat $datafile >> all.pdb
+> >     echo cat $datafile >> all.txt
 > > done
 > ~~~
 > {: .language-bash}
 >
 > ~~~
 > # Version 2
-> $ for datafile in *.pdb
+> $ for datafile in *.txt
 > > do
-> >     echo "cat $datafile >> all.pdb"
+> >     echo "cat $datafile >> all.txt"
 > > done
 > ~~~
 > {: .language-bash}
@@ -794,16 +794,16 @@ so she decides to get some coffee and catch up on her reading.
 > > The second version is the one we want to run.
 > > This prints to screen everything enclosed in the quote marks, expanding the
 > > loop variable name because we have prefixed it with a dollar sign.
-> > It also *does not* modify nor create the file `all.pdb`, as the `>>`
+> > It also *does not* modify nor create the file `all.txt`, as the `>>`
 > > is treated literally as part of a string rather than as a
 > > redirection instruction.
 > >
 > > The first version appends the output from the command `echo cat $datafile`
-> > to the file, `all.pdb`. This file will just contain the list;
-> > `cat cubane.pdb`, `cat ethane.pdb`, `cat methane.pdb` etc.
+> > to the file, `all.txt`. This file will just contain the list;
+> > `cat bowerbird.txt`, `cat dunnock.txt`, `cat python.txt` etc.
 > >
 > > Try both versions for yourself to see the output! Be sure to open the
-> > `all.pdb` file to view its contents.
+> > `all.txt` file to view its contents.
 > {: .solution}
 {: .challenge}
 
@@ -815,11 +815,11 @@ so she decides to get some coffee and catch up on her reading.
 > result of the following code:
 >
 > ~~~
-> $ for species in cubane ethane methane
+> $ for species in bowerbird dunnock python
 > > do
-> >     for temperature in 25 30 37 40
+> >     for continent in Africa Asia Europe
 > >     do
-> >         mkdir $species-$temperature
+> >         mkdir $species-$continent
 > >     done
 > > done
 > ~~~
@@ -828,7 +828,7 @@ so she decides to get some coffee and catch up on her reading.
 > > ## Solution
 > > We have a nested loop, i.e. contained within another loop, so for each species
 > > in the outer loop, the inner loop (the nested loop) iterates over the list of
-> > temperatures, and creates a new directory for each combination.
+> > three continents, and creates a new directory for each combination.
 > >
 > > Try running the code for yourself to see which directories are created!
 > {: .solution}
