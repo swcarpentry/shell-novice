@@ -430,6 +430,7 @@ $ ls -F
 {: .language-bash}
 
 ~~~
+XXX
 animal-counts/  creatures/  numbers.txt  populations/  proteins/  writing/
 ~~~
 {: .output}
@@ -757,6 +758,7 @@ $ ls -s exercise-data
 {: .language-bash}
 
 ~~~
+XXX
 total 0
 0 animal-counts  0 creatures  0 numbers.txt  0 populations  0 proteins  0 writing
 ~~~
@@ -772,6 +774,7 @@ $ ls -S exercise-data
 {: .language-bash}
 
 ~~~
+XXX
 animal-counts  creatures  populations  proteins  writing  numbers.txt
 ~~~
 {: .output}

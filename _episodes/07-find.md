@@ -363,6 +363,7 @@ to show how the simplest ones work, we'll use the `shell-lesson-data/exercise-da
 directory tree shown below.
 
 ~~~
+XXX
 .
 ├── animal-counts/
 │   └── animals.csv
