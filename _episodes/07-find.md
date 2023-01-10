@@ -600,7 +600,7 @@ $ grep "searching" $(find . -name "*.txt")
 > > Episode 3.)
 > >
 > > Option 3 is incorrect because it searches the contents of the files for lines which
-> > do not match 'unicorn', rather than searching the file names.
+> > do not match 'toad', rather than searching the file names.
 > {: .solution}
 {: .challenge}
 
@@ -632,21 +632,18 @@ may be cryptic, but people who have mastered it can experiment with
 different commands interactively, then use what they have learned to
 automate their work. Graphical user interfaces may be easier to use at
 first, but once learned, the productivity in the shell is unbeatable.
-And as Alfred North Whitehead wrote in 1911, 'Civilization advances by
-extending the number of important operations which we can perform
-without thinking about them.'
 
 > ## `find` Pipeline Reading Comprehension
 > 
 > Write a short explanatory comment for the following shell script:
 >
 > ~~~
-> wc -l $(find . -name "*.dat") | sort -n
+> wc -l $(find . -name "*.txt") | sort -n
 > ~~~
 > {: .language-bash}
 >
 > > ## Solution
-> > 1. Find all files with a `.dat` extension recursively from the current directory
+> > 1. Find all files with a `.txt` extension recursively from the current directory
 > > 2. Count the number of lines each of these files contains
 > > 3. Sort the output from step 2. numerically
 > {: .solution}
