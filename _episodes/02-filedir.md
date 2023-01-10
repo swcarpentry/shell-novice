@@ -795,7 +795,7 @@ Network/              Volumes/
 ### Phillipa's Pipeline: Organizing Files
 
 Knowing this much about files and directories,
-Nelle is ready to organize the files that the protein assay machine will create.
+Phillipa is ready to organize the files that the protein assay machine will create.
 
 She creates a directory called `lpi-data`
 (to remind herself where the data came from),

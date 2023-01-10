@@ -521,7 +521,7 @@ and save it as a shell script.
 > ## Debugging Scripts
 >
 > Suppose you have saved the following script in a file called `do-errors.sh`
-> in Nelle's `north-pacific-gyre/scripts` directory:
+> in Phillipa's `north-pacific-gyre/scripts` directory:
 >
 > ~~~
 > # Calculate stats for data files.
