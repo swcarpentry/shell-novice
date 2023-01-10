@@ -386,7 +386,7 @@ XXX
 {: .output}
 
 The `exercise-data` directory contains one file, `numbers.txt` and four directories:
-`animal-counts`, `creatures`, `proteins` and `writing` containing various files.
+`animal-counts`, XXX `creatures`, `proteins` and `writing` containing various files.
 
 
 For our first command,
@@ -398,6 +398,7 @@ $ find .
 {: .language-bash}
 
 ~~~
+XXX
 .
 ./writing
 ./writing/LittleWomen.txt
@@ -438,6 +439,7 @@ $ find . -type d
 {: .language-bash}
 
 ~~~
+XXX
 .
 ./writing
 ./creatures
@@ -456,7 +458,7 @@ $ find . -type f
 {: .language-bash}
 
 ~~~
-./writing/LittleWomen.txt
+XXX./writing/LittleWomen.txt
 ./writing/haiku.txt
 ./creatures/basilisk.dat
 ./creatures/unicorn.dat
@@ -582,11 +584,11 @@ $ grep "searching" $(find . -name "*.txt")
 >
 > The `-v` option to `grep` inverts pattern matching, so that only lines
 > which do *not* match the pattern are printed. Given that, which of
-> the following commands will find all .dat files in `creatures`
+> the following commands will find all .dat files in `creatures` XXX
 > except `unicorn.dat`?
 > Once you have thought about your answer, you can test the commands in the
 > `shell-lesson-data/exercise-data` directory.
->
+> XXX
 > 1.  `find creatures -name "*.dat" | grep -v unicorn`
 > 2.  `find creatures -name *.dat | grep -v unicorn`
 > 3.  `grep -v "unicorn" $(find creatures -name "*.dat")`
