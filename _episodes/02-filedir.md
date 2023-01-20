@@ -200,11 +200,19 @@ to use a command and what options it accepts ---
 
 We'll describe both ways next.
 
+> ## Help for built-in commands
+>
+> Some commands are built in to the Bash shell, rather than existing as separate
+> programs on the filesystem. One example is the `cd` (change directory) command.
+> If you get a message like `No manual entry for cd`, try `help cd` instead. The
+> `help` command is how you get usage information for
+> [Bash built-ins](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html).
+{: .callout}
+
 #### The `--help` option
 
-Most bash commands and programs that people have written to be
-run from within bash, support a `--help` option that displays more
-information on how to use the command or program.
+Many terminal-based programs recognize a `--help` option that displays more detailed
+information about how to use it.
 
 ~~~
 $ ls --help
@@ -236,7 +244,7 @@ Mandatory arguments to long options are mandatory for short options, too.
   -D, --dired                generate output designed for Emacs' dired mode
   -f                         do not sort, enable -aU, disable -ls --color
   -F, --classify             append indicator (one of */=>@|) to entries
-...        ...        ...
+...        ...        ...
 ~~~
 {: .output}
 
@@ -348,21 +356,18 @@ shell-lesson-data/
 
 Note that if a directory named `Desktop` does not exist in your current working directory,
 this command will return an error. Typically, a `Desktop` directory exists in your
-home directory, which we assume is the current working directory of your bash shell.
+home directory, which we assume is the current working directory of your shell.
 
 Your output should be a list of all the files and sub-directories in your
 Desktop directory, including the `shell-lesson-data` directory you downloaded at
-the [setup for this lesson]({{ page.root }}{% link setup.md %}).
-On many systems,
-the command line Desktop directory is the same as your GUI Desktop.
-Take a look at your Desktop to confirm that your output is accurate.
+the [setup for this lesson]({{ page.root }}{% link setup.md %}). (On most systems, the
+contents of the `Desktop` directory in the shell will show up as icons on the
+workspace behind all the open windows. See if this is the case for you.)
 
-As you may now see, using a bash shell is strongly dependent on the idea that
-your files are organized in a hierarchical file system.
-Organizing things hierarchically in this way helps us keep track of our work:
-it's possible to put hundreds of files in our home directory,
-just as it's possible to pile hundreds of printed papers on our desk,
-but it's a self-defeating strategy.
+Organizing things hierarchically in this way helps us keep track of our work. While it's
+it's possible to put hundreds of files in our home directory just as it's possible to
+pile hundreds of printed papers on our desk, it's much easier to find things when
+they've been organized into sensibly-named subdirectories.
 
 Now that we know the `shell-lesson-data` directory is located in our Desktop directory, we
 can do two things.
