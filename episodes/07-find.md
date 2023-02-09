@@ -102,7 +102,7 @@ This time, two lines that include the letters 'The' are outputted,
 one of which contained our search pattern within a larger word, 'Thesis'.
 
 To restrict matches to lines containing the word 'The' on its own,
-we can give `grep` with the `-w` option.
+we can give `grep` the `-w` option.
 This will limit matches to word boundaries.
 
 Later in this lesson, we will also see how we can change the search behavior of grep
