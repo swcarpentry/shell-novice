@@ -30,7 +30,7 @@ The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
 
 ~~~
-$ ls proteins
+$ ls
 ~~~
 {: .language-bash}
 
@@ -40,10 +40,9 @@ ethane.pdb    octane.pdb     propane.pdb
 ~~~
 {: .output}
 
-Let's go into that directory with `cd` and run an example  command `wc cubane.pdb`:
+Let's run an example command:
 
 ~~~
-$ cd proteins
 $ wc cubane.pdb
 ~~~
 {: .language-bash}
@@ -584,7 +583,7 @@ so that you and other people can put those programs into pipes to multiply their
 >
 > The `uniq` command has a `-c` option which gives a count of the
 > number of times a line occurs in its input.  Assuming your current
-> directory is `shell-lesson-data/exercise-data/animal-counts`, 
+> directory is `shell-lesson-data/exercise-data/animal-counts`,
 > what command would you use to produce a table that shows
 > the total count of each type of animal in the file?
 >
@@ -597,7 +596,7 @@ so that you and other people can put those programs into pipes to multiply their
 > > ## Solution
 > > Option 4. is the correct answer.
 > > If you have difficulty understanding why, try running the commands, or sub-sections of
-> > the pipelines (make sure you are in the `shell-lesson-data/exercise-data/animal-counts` 
+> > the pipelines (make sure you are in the `shell-lesson-data/exercise-data/animal-counts`
 > > directory).
 > {: .solution}
 {: .challenge}
