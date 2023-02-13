@@ -630,7 +630,7 @@ $ for datafile in NENE*A.txt NENE*B.txt; do echo $datafile stats-$datafile; done
 ~~~
 {: .language-bash}
 
-Using the left arrow key,
+Using the up arrow key,
 Nelle backs up and changes the command `echo` to `bash goostats.sh`:
 
 ~~~
@@ -693,16 +693,16 @@ so she decides to get some coffee and catch up on her reading.
 > ~~~
 > {: .language-bash}
 > ~~~
->   456  ls -l NENE0*.txt
->   457  rm stats-NENE01729B.txt.txt
->   458  bash goostats.sh NENE01729B.txt stats-NENE01729B.txt
->   459  ls -l NENE0*.txt
->   460  history
+> 456  for datafile in NENE*A.txt NENE*B.txt; do   echo $datafile stats-$datafile; done
+> 457  for datafile in NENE*A.txt NENE*B.txt; do echo $datafile stats-$datafile; done
+> 458  for datafile in NENE*A.txt NENE*B.txt; do bash goostats.sh $datafile stats-$datafile; done
+> 459  for datafile in NENE*A.txt NENE*B.txt; do echo $datafile; bash goostats.sh $datafile stats-$datafile; done
+> 460  history | tail -n 5
 > ~~~
 > {: .output}
 >
-> then she can re-run `goostats.sh` on `NENE01729B.txt` simply by typing
-> `!458`.
+> then she can re-run `goostats.sh` on the files simply by typing
+> `!459`.
 {: .callout}
 
 > ## Other History Commands
