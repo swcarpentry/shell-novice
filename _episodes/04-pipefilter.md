@@ -286,7 +286,8 @@ the output of `head` must be the file with the fewest lines.
 > to the same file. For example:
 >
 > ~~~
-> $ sort -n lengths.txt > lengths.txt
+> $ cp lengths.txt lengths-copy.txt
+> $ sort -n lengths-copy.txt > lengths-copy.txt
 > ~~~
 > {: .language-bash}
 >
