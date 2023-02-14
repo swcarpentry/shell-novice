@@ -631,7 +631,7 @@ $ for datafile in NENE*A.txt NENE*B.txt; do echo $datafile stats-$datafile; done
 {: .language-bash}
 
 Using the <kbd>←</kbd>,
-Nelle navigates to and changes the command `echo` to `bash goostats.sh`:
+Nelle navigates to the `echo` command and changes it to `bash goostats.sh`:
 
 ~~~
 $ for datafile in NENE*A.txt NENE*B.txt; do bash goostats.sh $datafile stats-$datafile; done
