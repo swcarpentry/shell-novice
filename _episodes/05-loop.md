@@ -630,8 +630,8 @@ $ for datafile in NENE*A.txt NENE*B.txt; do echo $datafile stats-$datafile; done
 ~~~
 {: .language-bash}
 
-Using the up arrow key,
-Nelle backs up and changes the command `echo` to `bash goostats.sh`:
+Using the <kbd>←</kbd>,
+Nelle navigates to and changes the command `echo` to `bash goostats.sh`:
 
 ~~~
 $ for datafile in NENE*A.txt NENE*B.txt; do bash goostats.sh $datafile stats-$datafile; done
@@ -696,7 +696,8 @@ so she decides to get some coffee and catch up on her reading.
 > 456  for datafile in NENE*A.txt NENE*B.txt; do   echo $datafile stats-$datafile; done
 > 457  for datafile in NENE*A.txt NENE*B.txt; do echo $datafile stats-$datafile; done
 > 458  for datafile in NENE*A.txt NENE*B.txt; do bash goostats.sh $datafile stats-$datafile; done
-> 459  for datafile in NENE*A.txt NENE*B.txt; do echo $datafile; bash goostats.sh $datafile stats-$datafile; done
+> 459  for datafile in NENE*A.txt NENE*B.txt; do echo $datafile; bash goostats.sh $datafile
+> stats-$datafile; done
 > 460  history | tail -n 5
 > ~~~
 > {: .output}
