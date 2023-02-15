@@ -177,8 +177,8 @@ $ nano draft.txt
 > after this workshop. On Unix systems (such as Linux and macOS),
 > many programmers use [Emacs](http://www.gnu.org/software/emacs/) or
 > [Vim](http://www.vim.org/) (both of which require more time to learn),
-> or a graphical editor such as
-> [Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
+> or a graphical editor such as [Gedit](http://projects.gnome.org/gedit/)
+> or [VScode](https://code.visualstudio.com/). On Windows, you may wish to
 > use [Notepad++](http://notepad-plus-plus.org/).  Windows also has a built-in
 > editor called `notepad` that can be run from the command line in the same
 > way as `nano` for the purposes of this lesson.
@@ -191,15 +191,18 @@ $ nano draft.txt
 > another directory the first time you 'Save As...'
 {: .callout}
 
-Let's type a few lines of text.
+
+Let's type in a few lines of text.
+
+<div style="width:80%; margin: auto;"><img alt="screenshot of nano text editor in
+  action with the text `It's not publish or perish any more, it's share and thrive`"
+src="../fig/nano-screenshot.png"></div>
+
 Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd>
 (press the <kbd>Ctrl</kbd> or <kbd>Control</kbd> key and, while
 holding it down, press the <kbd>O</kbd> key) to write our data to disk. We will be asked
 to provide a name for the file that will contain our text. Press <kbd>Return</kbd> to accept
 the suggested default of `draft.txt`.
-
-<div style="width:80%; margin: auto;"><img alt="screenshot of nano text editor in action"
-src="../fig/nano-screenshot.png"></div>
 
 Once our file is saved, we can use <kbd>Ctrl</kbd>+<kbd>X</kbd> to quit the editor and
 return to the shell.
@@ -274,7 +277,7 @@ draft.txt
 > {: .solution}
 >
 > To avoid confusion later on,
-> we suggest removing the file you've just created before proceding with the rest
+> we suggest removing the file you've just created before proceeding with the rest
 > of the episode, otherwise future outputs may vary from those given in the lesson.
 > To do this, use the following command:
 >

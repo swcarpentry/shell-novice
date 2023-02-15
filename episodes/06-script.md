@@ -302,9 +302,9 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > An example of this type of file is given in
 > `shell-lesson-data/exercise-data/animal-counts/animals.csv`.
 >
-> We can use the command `cut -d , -f 2 animals.txt | sort | uniq` to produce
-> the unique species in `animals.txt`.
-> To avoid having to type out this series of commands every time,
+> We can use the command `cut -d , -f 2 animals.csv | sort | uniq` to produce
+> the unique species in `animals.csv`.
+> In order to avoid having to type out this series of commands every time,
 > a scientist may choose to write a shell script instead.
 >
 > Write a shell script called `species.sh` that takes any number of
