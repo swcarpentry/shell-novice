@@ -393,8 +393,9 @@ it changes the shell's current working directory.
 In other words it changes the shell's settings for what directory we are in.
 The `cd` command is akin to double-clicking a folder in a graphical interface to get into that folder.
 
-Let's say we want to change into the `data` directory we saw above. We can
-use the following series of commands to do that:
+
+Let's say we want to move into the `exercise-data` directory we saw above. We can
+use the following series of commands to get there:
 
 ~~~
 $ cd Desktop
@@ -492,7 +493,7 @@ $ ls -F -a
 ~~~
 {: .output}
 
-`-a` stands for 'show all';
+`-a` stands for 'show all' (including hidden files);
 it forces `ls` to show us file and directory names that begin with `.`,
 such as `..` (which, if we're in `/Users/nelle`, refers to the `/Users` directory).
 As you can see,
