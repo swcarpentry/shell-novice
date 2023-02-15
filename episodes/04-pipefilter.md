@@ -53,7 +53,8 @@ $ wc cubane.pdb
 {: .output}
 
 `wc` is the 'word count' command:
-it counts the number of lines, words, and characters in files (from left to right, in that order).
+it counts the number of lines, words, and characters in files (returning the values
+in that order from left to right).
 
 If we run the command `wc *.pdb`, the `*` in `*.pdb` matches zero or more characters,
 so the shell turns `*.pdb` into a list of all `.pdb` files in the current directory:
@@ -95,8 +96,8 @@ $ wc -l *.pdb
 ~~~
 {: .output}
 
-The `-m` and `-w` options can also be used with the `wc` command, to show
-only the number of characters or the number of words in the files.
+The `-m` and `-w` options can also be used with the `wc` command to show
+only the number of characters or the number of words, respectively.
 
 > ## Why Isn't It Doing Anything?
 >
@@ -110,14 +111,13 @@ only the number of characters or the number of words in the files.
 >
 > but don't type `*.pdb` (or anything else) after the command?
 > Since it doesn't have any filenames, `wc` assumes it is supposed to
-> process input given at the command prompt, so it just sits there and waits for us to give
-> it some data interactively. From the outside, though, all we see is it
-> sitting there: the command doesn't appear to do anything.
+> process input given at the command prompt, so it just sits there and waits
+> for us to give it some data interactively. From the outside, though, all we
+> see is it sitting there, and the command doesn't appear to do anything.
 >
-> If you make this kind of mistake, you can escape out of this state by holding down
-> the control key (<kbd>Ctrl</kbd>) and typing the letter <kbd>C</kbd> once and
-> letting go of the <kbd>Ctrl</kbd> key.
-> <kbd>Ctrl</kbd>+<kbd>C</kbd>
+> If you make this kind of mistake, you can escape out of this state by
+> holding down the control key (<kbd>Ctrl</kbd>) and pressing the letter
+> <kbd>C</kbd> once: <kbd>Ctrl</kbd>+<kbd>C</kbd>. Then release both keys.
 {: .callout}
 
 
@@ -133,13 +133,13 @@ $ wc -l *.pdb > lengths.txt
 ~~~
 {: .language-bash}
 
-The greater than symbol, `>`, tells the shell to **redirect** the command's output
-to a file instead of printing it to the screen. (This is why there is no screen output:
-everything that `wc` would have printed has gone into the
-file `lengths.txt` instead.)  The shell will create
-the file if it doesn't exist. If the file exists, it will be
-silently overwritten, which may lead to data loss and thus requires
-some caution.
+The greater than symbol, `>`, tells the shell to **redirect** the command's output to a
+file instead of printing it to the screen. This command prints no screen output, because
+everything that `wc` would have printed has gone into the file `lengths.txt` instead.
+If the file doesn't exist prior to issuing the command, the shell will create the file.
+If the file exists already, it will be silently overwritten, which may lead to data loss.
+Thus, **redirect** commands require caution.
+
 `ls lengths.txt` confirms that the file exists:
 
 ~~~
@@ -178,8 +178,7 @@ $ cat lengths.txt
 >
 > We'll continue to use `cat` in this lesson, for convenience and consistency,
 > but it has the disadvantage that it always dumps the whole file onto your screen.
-> More useful in practice is the command `less`,
-> which you use with `less lengths.txt`.
+> More useful in practice is the command `less` (e.g. `less lengths.txt`).
 > This displays a screenful of the file, and then stops.
 > You can go forward one screenful by pressing the spacebar,
 > or back one by pressing `b`.  Press `q` to quit.
@@ -189,7 +188,7 @@ $ cat lengths.txt
 ## Filtering output
 
 Next we'll use the `sort` command to sort the contents of the `lengths.txt` file.
-But first we'll use an exercise to learn a little about the sort command:
+But first we'll do an exercise to learn a little about the sort command:
 
 > ## What Does `sort -n` Do?
 >
@@ -396,7 +395,7 @@ This has removed the need for the `sorted-lengths.txt` file.
 ## Combining multiple commands
 Nothing prevents us from chaining pipes consecutively.
 We can for example send the output of `wc` directly to `sort`,
-and then the resulting output to `head`.
+and then send the resulting output to `head`.
 This removes the need for any intermediate files.
 
 We'll start by using a pipe to send the output of `wc` to `sort`:
@@ -432,7 +431,7 @@ $ wc -l *.pdb | sort -n | head -n 1
 This is exactly like a mathematician nesting functions like *log(3x)*
 and saying 'the log of three times *x*'.
 In our case,
-the calculation is 'head of sort of line count of `*.pdb`'.
+the algorithm is 'head of sort of line count of `*.pdb`'.
 
 
 The redirection and pipes used in the last few commands are illustrated below:
@@ -473,8 +472,8 @@ This programming model is called 'pipes and filters'.
 We've already seen pipes;
 a **filter** is a program like `wc` or `sort`
 that transforms a stream of input into a stream of output.
-Almost all of the standard Unix tools can work this way:
-unless told to do otherwise,
+Almost all of the standard Unix tools can work this way.
+Unless told to do otherwise,
 they read from standard input,
 do something with what they've read,
 and write to standard output.
@@ -514,8 +513,8 @@ so that you and other people can put those programs into pipes to multiply their
 > > ## Solution
 > > The `head` command extracts the first 5 lines from `animals.csv`.
 > > Then, the last 3 lines are extracted from the previous 5 by using the `tail` command.
-> > With the `sort -r` command those 3 lines are sorted in reverse order and finally,
-> > the output is redirected to a file `final.txt`.
+> > With the `sort -r` command those 3 lines are sorted in reverse order.
+> > Finally, the output is redirected to a file: `final.txt`.
 > > The content of this file can be checked by executing `cat final.txt`.
 > > The file should contain the following lines:
 > > ```

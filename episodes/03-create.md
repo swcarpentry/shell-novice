@@ -169,7 +169,7 @@ $ nano draft.txt
 
 > ## Which Editor?
 >
-> When we say, '`nano` is a text editor' we really do mean 'text': it can
+> When we say, '`nano` is a text editor' we really do mean 'text'. It can
 > only work with plain character data, not tables, images, or any other
 > human-friendly media. We use it in examples because it is one of the
 > least complex text editors. However, because of this trait, it may
@@ -186,10 +186,11 @@ $ nano draft.txt
 > No matter what editor you use, you will need to know where it searches
 > for and saves files. If you start it from the shell, it will (probably)
 > use your current working directory as its default location. If you use
-> your computer's start menu, it may want to save files in your desktop or
-> documents directory instead. You can change this by navigating to
+> your computer's start menu, it may want to save files in your Desktop or
+> Documents directory instead. You can change this by navigating to
 > another directory the first time you 'Save As...'
 {: .callout}
+
 
 Let's type in a few lines of text.
 
@@ -199,9 +200,9 @@ src="../fig/nano-screenshot.png"></div>
 
 Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd>
 (press the <kbd>Ctrl</kbd> or <kbd>Control</kbd> key and, while
-holding it down, press the <kbd>O</kbd> key) to write our data to disk
-(we'll be asked what file we want to save this to:
-press <kbd>Return</kbd> to accept the suggested default of `draft.txt`).
+holding it down, press the <kbd>O</kbd> key) to write our data to disk. We will be asked
+to provide a name for the file that will contain our text. Press <kbd>Return</kbd> to accept
+the suggested default of `draft.txt`.
 
 Once our file is saved, we can use <kbd>Ctrl</kbd>+<kbd>X</kbd> to quit the editor and
 return to the shell.
@@ -290,7 +291,7 @@ draft.txt
 >
 > You may have noticed that all of Nelle's files are named 'something dot
 > something', and in this part of the lesson, we always used the extension
-> `.txt`.  This is just a convention: we can call a file `mythesis` or
+> `.txt`.  This is just a convention; we can call a file `mythesis` or
 > almost anything else we want. However, most people use two-part names
 > most of the time to help them (and their programs) tell different kinds
 > of files apart. The second part of such a name is called the
@@ -299,15 +300,17 @@ draft.txt
 > indicates a PDF document, `.cfg` is a configuration file full of parameters
 > for some program or other, `.png` is a PNG image, and so on.
 >
-> This is just a convention, albeit an important one. Files contain
-> bytes: it's up to us and our programs to interpret those bytes
+> This is just a convention, albeit an important one. Files merely contain
+> bytes; it's up to us and our programs to interpret those bytes
 > according to the rules for plain text files, PDF documents, configuration
 > files, images, and so on.
 >
 > Naming a PNG image of a whale as `whale.mp3` doesn't somehow
 > magically turn it into a recording of whale song, though it *might*
-> cause the operating system to try to open it with a music player
-> when someone double-clicks it.
+> cause the operating system to associate the file with a music player
+> program. In this case, if someone double-clicked `whale.mp3` in a file
+> explorer program,the music player will automatically (and erroneously)
+> attempt to open the `whale.mp3` file.
 {: .callout}
 
 ## Moving files and directories
@@ -348,8 +351,9 @@ quotes.txt
 
 One must be careful when specifying the target file name, since `mv` will
 silently overwrite any existing file with the same name, which could
-lead to data loss. An additional option, `mv -i` (or `mv --interactive`),
-can be used to make `mv` ask you for confirmation before overwriting.
+lead to data loss. By default, `mv` will not ask for confirmation before overwriting files.
+However, an additional option, `mv -i` (or `mv --interactive`), will cause `mv` to request
+such confirmation.
 
 Note that `mv` also works on directories.
 
@@ -487,7 +491,7 @@ quotations.txt
 > ## Renaming Files
 >
 > Suppose that you created a plain-text file in your current directory to contain a list of the
-> statistical tests you will need to do to analyze your data, and named it: `statstics.txt`
+> statistical tests you will need to do to analyze your data, and named it `statstics.txt`
 >
 > After creating and saving this file you realize you misspelled the filename! You want to
 > correct the mistake, which of the following commands could you use to do so?
@@ -646,7 +650,9 @@ Given that there is no way to retrieve files deleted using the shell,
 
 Oftentimes one needs to copy or move several files at once.
 This can be done by providing a list of individual filenames,
-or specifying a naming pattern using wildcards.
+or specifying a naming pattern using wildcards. Wildcards are
+special characters that can be used to represent unknown characters
+or sets of characters when navigating the Unix file system.
 
 > ## Copy with Multiple Filenames
 >
@@ -695,32 +701,32 @@ or specifying a naming pattern using wildcards.
 
 > ## Wildcards
 >
-> `*` is a **wildcard**, which matches zero or more  characters.
+> `*` is a **wildcard**, which represents zero or more other characters.
 > Let's consider the `shell-lesson-data/exercise-data/proteins` directory:
-> `*.pdb` matches `ethane.pdb`, `propane.pdb`, and every
-> file that ends with '.pdb'. On the other hand, `p*.pdb` only matches
-> `pentane.pdb` and `propane.pdb`, because the 'p' at the front only
-> matches filenames that begin with the letter 'p'.
+> `*.pdb` represents `ethane.pdb`, `propane.pdb`, and every
+> file that ends with '.pdb'. On the other hand, `p*.pdb` only represents
+> `pentane.pdb` and `propane.pdb`, because the 'p' at the front can only
+> represent filenames that begin with the letter 'p'.
 >
-> `?` is also a wildcard, but it matches exactly one character.
-> So `?ethane.pdb` would match `methane.pdb` whereas
-> `*ethane.pdb` matches both `ethane.pdb`, and `methane.pdb`.
+> `?` is also a wildcard, but it represents exactly one character.
+> So `?ethane.pdb` could represent `methane.pdb` whereas
+> `*ethane.pdb` represents both `ethane.pdb` and `methane.pdb`.
 >
-> Wildcards can be used in combination with each other
-> e.g. `???ane.pdb` matches three characters followed by `ane.pdb`,
+> Wildcards can be used in combination with each other. For example,
+> `???ane.pdb` indicates three characters followed by `ane.pdb`,
 > giving `cubane.pdb  ethane.pdb  octane.pdb`.
 >
 > When the shell sees a wildcard, it expands the wildcard to create a
-> list of matching filenames *before* running the command that was
-> asked for. As an exception, if a wildcard expression does not match
+> list of matching filenames *before* running the preceding command.
+> As an exception, if a wildcard expression does not match
 > any file, Bash will pass the expression as an argument to the command
 > as it is. For example, typing `ls *.pdf` in the `proteins` directory
 > (which contains only files with names ending with `.pdb`) results in
 > an error message that there is no file called `*.pdf`.
 > However, generally commands like `wc` and `ls` see the lists of
 > file names matching these expressions, but not the wildcards
-> themselves. It is the shell, not the other programs, that deals with
-> expanding wildcards.
+> themselves. It is the shell, not the other programs, that expands
+> the wildcards.
 {: .callout}
 
 > ## List filenames matching a pattern
@@ -856,7 +862,7 @@ or specifying a naming pattern using wildcards.
 
 > ## Organizing Directories and Files
 >
-> Jamie is working on a project and she sees that her files aren't very well
+> Jamie is working on a project, and she sees that her files aren't very well
 > organized:
 >
 > ~~~

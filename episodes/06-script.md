@@ -23,15 +23,13 @@ We are going to take the commands we repeat frequently and save them in files
 so that we can re-run all those operations again later by typing a single command.
 For historical reasons,
 a bunch of commands saved in a file is usually called a **shell script**,
-but make no mistake:
-these are actually small programs.
+but make no mistake --- these are actually small programs.
 
-Not only will writing shell scripts make your work faster ---
-you won't have to retype the same commands over and over again ---
-it will also make it more accurate (fewer chances for typos) and more reproducible.
-If you come back to your work later (or if someone else finds your work and wants to build on it)
-you will be able to reproduce the same results simply by running your script,
-rather than having to remember or retype a long list of commands.
+Not only will writing shell scripts make your work faster, but also you won't have to retype
+the same commands over and over again. It will also make it more accurate (fewer chances for
+typos) and more reproducible. If you come back to your work later (or if someone else finds
+your work and wants to build on it), you will be able to reproduce the same results simply
+by running your script, rather than having to remember or retype a long list of commands.
 
 Let's start by going back to `proteins/` and creating a new file, `middle.sh` which will
 become our shell script:
@@ -45,20 +43,18 @@ $ nano middle.sh
 The command `nano middle.sh` opens the file `middle.sh` within the text editor 'nano'
 (which runs within the shell).
 If the file does not exist, it will be created.
-We can use the text editor to directly edit the file -- we'll simply insert the following line:
+We can use the text editor to directly edit the file --- we'll simply insert the following line:
 
 ~~~
 head -n 15 octane.pdb | tail -n 5
 ~~~
 {: .source}
 
-This is a variation on the pipe we constructed earlier:
-it selects lines 11-15 of the file `octane.pdb`.
-Remember, we are *not* running it as a command just yet:
-we are putting the commands in a file.
+This is a variation on the pipe we constructed earlier, which selects lines 11-15 of
+the file `octane.pdb`. Remember, we are *not* running it as a command just yet;
+we are only incorporating the commands in a file.
 
-Then we save the file (`Ctrl-O` in nano),
- and exit the text editor (`Ctrl-X` in nano).
+Then we save the file (`Ctrl-O` in nano) and exit the text editor (`Ctrl-X` in nano).
 Check that the directory `proteins` now contains a file called `middle.sh`.
 
 Once we have saved the file,
@@ -89,10 +85,10 @@ our script's output is exactly what we would get if we ran that pipeline directl
 > programming. By default, Microsoft Word uses `.docx` files to store not
 > only text, but also formatting information about fonts, headings, and so
 > on. This extra information isn't stored as characters and doesn't mean
-> anything to tools like `head`: they expect input files to contain
+> anything to tools like `head`, which expects input files to contain
 > nothing but the letters, digits, and punctuation on a standard computer
 > keyboard. When editing programs, therefore, you must either use a plain
-> text editor, or be careful to save files as plain text.
+> text editor or be careful to save files as plain text.
 {: .callout}
 
 What if we want to select lines from an arbitrary file?
@@ -190,7 +186,7 @@ ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00
 ~~~
 {: .output}
 
-By changing the arguments to our command we can change our script's
+By changing the arguments to our command, we can change our script's
 behaviour:
 
 ~~~
@@ -227,8 +223,8 @@ A comment starts with a `#` character and runs to the end of the line.
 The computer ignores comments,
 but they're invaluable for helping people (including your future self) understand and use scripts.
 The only caveat is that each time you modify the script,
-you should check that the comment is still accurate:
-an explanation that sends the reader in the wrong direction is worse than none at all.
+you should check that the comment is still accurate. An explanation that sends
+the reader in the wrong direction is worse than none at all.
 
 What if we want to process many files in a single pipeline?
 For example, if we want to sort our `.pdb` files by length, we would type:
@@ -312,7 +308,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 > a scientist may choose to write a shell script instead.
 >
 > Write a shell script called `species.sh` that takes any number of
-> filenames as command-line arguments, and uses a variation of the above command
+> filenames as command-line arguments and uses a variation of the above command
 > to print a list of the unique species appearing in each of those files separately.
 >
 > > ## Solution
@@ -335,7 +331,7 @@ $ bash sorted.sh *.pdb ../creatures/*.dat
 
 
 Suppose we have just run a series of commands that did something useful --- for example,
-that created a graph we'd like to use in a paper.
+creating a graph we'd like to use in a paper.
 We'd like to be able to re-create the graph later if we need to,
 so we want to save the commands in a file.
 Instead of typing them in again
@@ -384,7 +380,8 @@ we have a completely accurate record of how we created that figure.
 > {: .solution}
 {: .challenge}
 
-In practice, most people develop shell scripts by running commands at the shell prompt a few times
+In practice, most people develop shell scripts by running commands
+at the shell prompt a few times
 to make sure they're doing the right thing,
 then saving them in a file for re-use.
 This style of work allows people to recycle
