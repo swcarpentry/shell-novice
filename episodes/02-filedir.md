@@ -391,7 +391,8 @@ which is a bit misleading.
 The command doesn't change the directory;
 it changes the shell's current working directory.
 In other words it changes the shell's settings for what directory we are in.
-The `cd` command is akin to double-clicking a folder in a graphical interface to get into that folder.
+The `cd` command is akin to double-clicking a folder in a graphical interface
+to get into that folder.
 
 
 Let's say we want to move into the `exercise-data` directory we saw above. We can
