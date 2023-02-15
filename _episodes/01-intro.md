@@ -82,9 +82,9 @@ $
 
 The shell typically uses `$ ` as the prompt, but may use a different symbol.
 In the examples for this lesson, we'll show the prompt as `$ `.
-Most importantly:
-when typing commands, either from these lessons or from other sources,
-*do not type the prompt*, only the commands that follow it.
+Most importantly, *do not type the prompt* when typing commands.
+Only type the command that follows the prompt.
+This rule applies both in these lessons and in lessons from other sources.
 Also note that after you type a command, you have to press the <kbd>Enter</kbd> key to execute it.
 
 The prompt is followed by a **text cursor**, a character that indicates the position where your
@@ -92,7 +92,7 @@ typing will appear.
 The cursor is usually a flashing or solid block, but it can also be an underscore or a pipe.
 You may have seen it in a text editor program, for example.
 
-So let's try our first command, `ls` which is short for listing.
+So let's try our first command, `ls`, which is short for listing.
 This command will list the contents of the current directory:
 
 ~~~
@@ -133,11 +133,11 @@ where she has been sampling gelatinous marine life in the
 [Great Pacific Garbage Patch](http://en.wikipedia.org/wiki/Great_Pacific_Garbage_Patch).
 She has 1520 samples that she's run through an assay machine to measure the relative abundance
 of 300 proteins.
-She needs to run these 1520 files through an imaginary program called `goostats.sh` she inherited.
-On top of this huge task, she has to write up results by the end of the month so her paper
+She needs to run these 1520 files through an imaginary program called `goostats.sh`.
+In addition to this huge task, she has to write up results by the end of the month, so her paper
 can appear in a special issue of *Aquatic Goo Letters*.
 
-The bad news is that if she has to run `goostats.sh` by hand using a GUI,
+If Nelle chooses to run `goostats.sh` by hand using a GUI,
 she'll have to select and open a file 1520 times.
 If `goostats.sh` takes 30 seconds to run each file, the whole process will take more than 12 hours
 of Nelle's attention.
@@ -146,7 +146,7 @@ her attention on writing her paper.
 
 The next few lessons will explore the ways Nelle can achieve this.
 More specifically,
-they explain how she can use a command shell to run the `goostats.sh` program,
+the lessons explain how she can use a command shell to run the `goostats.sh` program,
 using loops to automate the repetitive steps of entering file names,
 so that her computer can work while she writes her paper.
 
