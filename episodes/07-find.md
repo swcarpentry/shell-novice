@@ -441,7 +441,7 @@ directory tree shown below.
 │   ├── minotaur.dat
 │   └── unicorn.dat
 ├── numbers.txt
-├── proteins/
+├── alkanes/
 │   ├── cubane.pdb
 │   ├── ethane.pdb
 │   ├── methane.pdb
@@ -455,7 +455,7 @@ directory tree shown below.
 {: .output}
 
 The `exercise-data` directory contains one file, `numbers.txt` and four directories:
-`animal-counts`, `creatures`, `proteins` and `writing` containing various files.
+`animal-counts`, `creatures`, `alkanes` and `writing` containing various files.
 
 
 For our first command,
@@ -478,13 +478,13 @@ $ find .
 ./animal-counts
 ./animal-counts/animals.csv
 ./numbers.txt
-./proteins
-./proteins/ethane.pdb
-./proteins/propane.pdb
-./proteins/octane.pdb
-./proteins/pentane.pdb
-./proteins/methane.pdb
-./proteins/cubane.pdb
+./alkanes
+./alkanes/ethane.pdb
+./alkanes/propane.pdb
+./alkanes/octane.pdb
+./alkanes/pentane.pdb
+./alkanes/methane.pdb
+./alkanes/cubane.pdb
 ~~~
 {: .output}
 
@@ -511,7 +511,7 @@ $ find . -type d
 ./writing
 ./creatures
 ./animal-counts
-./proteins
+./alkanes
 ~~~
 {: .output}
 
@@ -532,12 +532,12 @@ $ find . -type f
 ./creatures/minotaur.dat
 ./animal-counts/animals.csv
 ./numbers.txt
-./proteins/ethane.pdb
-./proteins/propane.pdb
-./proteins/octane.pdb
-./proteins/pentane.pdb
-./proteins/methane.pdb
-./proteins/cubane.pdb
+./alkanes/ethane.pdb
+./alkanes/propane.pdb
+./alkanes/octane.pdb
+./alkanes/pentane.pdb
+./alkanes/methane.pdb
+./alkanes/cubane.pdb
 ~~~
 {: .output}
 

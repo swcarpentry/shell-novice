@@ -205,7 +205,7 @@ or a subset of data.
 
 > ## Variables in Loops
 >
-> This exercise refers to the `shell-lesson-data/exercise-data/proteins` directory.
+> This exercise refers to the `shell-lesson-data/exercise-data/alkanes` directory.
 > `ls *.pdb` gives the following output:
 >
 > ~~~
@@ -279,7 +279,7 @@ or a subset of data.
 > ## Limiting Sets of Files
 >
 > What would be the output of running the following loop in the
-> `shell-lesson-data/exercise-data/proteins` directory?
+> `shell-lesson-data/exercise-data/alkanes` directory?
 >
 > ~~~
 > $ for filename in c*
@@ -323,7 +323,7 @@ or a subset of data.
 
 > ## Saving to a File in a Loop - Part One
 >
-> In the `shell-lesson-data/exercise-data/proteins` directory, what is the effect of this loop?
+> In the `shell-lesson-data/exercise-data/alkanes` directory, what is the effect of this loop?
 >
 > ~~~
 > for alkanes in *.pdb
@@ -352,7 +352,7 @@ or a subset of data.
 
 > ## Saving to a File in a Loop - Part Two
 >
-> Also in the `shell-lesson-data/exercise-data/proteins` directory,
+> Also in the `shell-lesson-data/exercise-data/alkanes` directory,
 > what would be the output of the following loop?
 >
 > ~~~

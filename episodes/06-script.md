@@ -31,11 +31,11 @@ typos) and more reproducible. If you come back to your work later (or if someone
 your work and wants to build on it), you will be able to reproduce the same results simply
 by running your script, rather than having to remember or retype a long list of commands.
 
-Let's start by going back to `proteins/` and creating a new file, `middle.sh` which will
+Let's start by going back to `alkanes/` and creating a new file, `middle.sh` which will
 become our shell script:
 
 ~~~
-$ cd proteins
+$ cd alkanes
 $ nano middle.sh
 ~~~
 {: .language-bash}
@@ -55,7 +55,7 @@ the file `octane.pdb`. Remember, we are *not* running it as a command just yet;
 we are only incorporating the commands in a file.
 
 Then we save the file (`Ctrl-O` in nano) and exit the text editor (`Ctrl-X` in nano).
-Check that the directory `proteins` now contains a file called `middle.sh`.
+Check that the directory `alkanes` now contains a file called `middle.sh`.
 
 Once we have saved the file,
 we can ask the shell to execute the commands it contains.
@@ -465,7 +465,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Variables in Shell Scripts
 >
-> In the `proteins` directory, imagine you have a shell script called `script.sh` containing the
+> In the `alkanes` directory, imagine you have a shell script called `script.sh` containing the
 > following commands:
 >
 > ~~~
@@ -474,7 +474,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > ~~~
 > {: .language-bash}
 >
-> While you are in the `proteins` directory, you type the following command:
+> While you are in the `alkanes` directory, you type the following command:
 >
 > ~~~
 > $ bash script.sh '*.pdb' 1 1
@@ -484,9 +484,9 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > Which of the following outputs would you expect to see?
 >
 > 1. All of the lines between the first and the last lines of each file ending in `.pdb`
->    in the `proteins` directory
-> 2. The first and the last line of each file ending in `.pdb` in the `proteins` directory
-> 3. The first and the last line of each file in the `proteins` directory
+>    in the `alkanes` directory
+> 2. The first and the last line of each file ending in `.pdb` in the `alkanes` directory
+> 3. The first and the last line of each file in the `alkanes` directory
 > 4. An error because of the quotes around `*.pdb`
 >
 > > ## Solution
@@ -514,11 +514,11 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > with that extension. For example:
 >
 > ~~~
-> $ bash longest.sh shell-lesson-data/exercise-data/proteins pdb
+> $ bash longest.sh shell-lesson-data/exercise-data/alkanes pdb
 > ~~~
 > {: .language-bash}
 >
-> would print the name of the `.pdb` file in `shell-lesson-data/exercise-data/proteins` that has
+> would print the name of the `.pdb` file in `shell-lesson-data/exercise-data/alkanes` that has
 > the most lines.
 >
 > Feel free to test your script on another directory e.g.
@@ -555,7 +555,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 
 > ## Script Reading Comprehension
 >
-> For this question, consider the `shell-lesson-data/exercise-data/proteins` directory once again.
+> For this question, consider the `shell-lesson-data/exercise-data/alkanes` directory once again.
 > This contains a number of `.pdb` files in addition to any other files you
 > may have created.
 > Explain what each of the following three scripts would do when run as
