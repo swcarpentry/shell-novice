@@ -702,7 +702,7 @@ or sets of characters when navigating the Unix file system.
 > ## Wildcards
 >
 > `*` is a **wildcard**, which represents zero or more other characters.
-> Let's consider the `shell-lesson-data/exercise-data/proteins` directory:
+> Let's consider the `shell-lesson-data/exercise-data/alkanes` directory:
 > `*.pdb` represents `ethane.pdb`, `propane.pdb`, and every
 > file that ends with '.pdb'. On the other hand, `p*.pdb` only represents
 > `pentane.pdb` and `propane.pdb`, because the 'p' at the front can only
@@ -720,7 +720,7 @@ or sets of characters when navigating the Unix file system.
 > list of matching filenames *before* running the preceding command.
 > As an exception, if a wildcard expression does not match
 > any file, Bash will pass the expression as an argument to the command
-> as it is. For example, typing `ls *.pdf` in the `proteins` directory
+> as it is. For example, typing `ls *.pdf` in the `alkanes` directory
 > (which contains only files with names ending with `.pdb`) results in
 > an error message that there is no file called `*.pdf`.
 > However, generally commands like `wc` and `ls` see the lists of
@@ -731,7 +731,7 @@ or sets of characters when navigating the Unix file system.
 
 > ## List filenames matching a pattern
 >
-> When run in the `proteins` directory, which `ls` command(s) will
+> When run in the `alkanes` directory, which `ls` command(s) will
 > produce this output?
 >
 > `ethane.pdb   methane.pdb`
