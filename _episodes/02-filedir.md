@@ -291,7 +291,7 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > which covers many commands introduced within this lesson.
 {: .callout}
 
-> ## Exploring More `ls` Flags
+> ## Exploring More `ls` Options
 >
 > You can also use two options at the same time. What does the command `ls` do when used
 > with the `-l` option? What about if you use both the `-l` and the `-h` option?
