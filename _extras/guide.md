@@ -129,7 +129,7 @@ as long as learners using Windows do not run into roadblocks such as:
 *   Super cool online resource!
     <http://explainshell.com/> will dissect any shell command you type in
     and display help text for each piece.
-    Additional nice manual tool could be <http://tldr-pages.github.io/>
+    Additional nice manual tool could be <http://tldr.sh/>
     with short very descriptive manuals for shell commands,
     useful especially on Windows while using Git BASH where `man` could not work.
 
