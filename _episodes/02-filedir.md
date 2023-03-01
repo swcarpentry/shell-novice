@@ -777,7 +777,7 @@ animal-counts  creatures  proteins  writing  numbers.txt
 ~~~
 {: .output}
 
-Putting all that together, our command above gives us a listing
+Putting all that together, our command `ls -F /` above gives us a listing
 of files and directories in the root directory `/`.
 An example of the output you might get from the above command is given below:
 
