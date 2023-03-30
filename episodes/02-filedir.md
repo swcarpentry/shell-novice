@@ -432,7 +432,7 @@ $ ls -F
 {: .language-bash}
 
 ~~~
-animal-counts/  creatures/  numbers.txt  proteins/  writing/
+animal-counts/  creatures/  numbers.txt  alkanes/  writing/
 ~~~
 {: .output}
 
@@ -759,7 +759,7 @@ $ ls -s exercise-data
 
 ~~~
 total 28
- 4 animal-counts   4 creatures  12 numbers.txt   4 proteins   4 writing
+ 4 animal-counts   4 creatures  12 numbers.txt   4 alkanes   4 writing
 ~~~
 {: .output}
 
@@ -773,7 +773,7 @@ $ ls -S exercise-data
 {: .language-bash}
 
 ~~~
-animal-counts  creatures  proteins  writing  numbers.txt
+animal-counts  creatures  alkanes  writing  numbers.txt
 ~~~
 {: .output}
 

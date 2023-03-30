@@ -24,7 +24,7 @@ keypoints:
 Now that we know a few basic commands,
 we can finally look at the shell's most powerful feature:
 the ease with which it lets us combine existing programs in new ways.
-We'll start with the directory `shell-lesson-data/exercise-data/proteins`
+We'll start with the directory `shell-lesson-data/exercise-data/alkanes`
 that contains six files describing some simple organic molecules.
 The `.pdb` extension indicates that these files are in Protein Data Bank format,
 a simple text format that specifies the type and position of each atom in the molecule.
@@ -458,7 +458,7 @@ the "sort" command is the input to the "head" command and the output of the
 > > The pipe character `|` is used to connect the output from one command to
 > > the input of another.
 > > `>` is used to redirect standard output to a file.
-> > Try it in the `shell-lesson-data/exercise-data/proteins` directory!
+> > Try it in the `shell-lesson-data/exercise-data/alkanes` directory!
 > {: .solution}
 {: .challenge}
 
