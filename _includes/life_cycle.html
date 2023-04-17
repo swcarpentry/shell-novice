@@ -28,7 +28,55 @@
 {% elsif site.life_cycle == "stable" %}
 
 {% comment %}
-We do not do anything special unless this is a Carpentries Lab lesson
+We do not do anything special for lessons in stable
+{% endcomment %}
+
+
+{% comment %}
+Below we cover the 2 phases of lesson transition towards the Carpentries Workbench:
+Variables needed:
+  - transition_date_prebeta: the date of the prebeta stage
+  - transition_date_beta: the date of the beta stage
+  - transition_date_prerelease: the date of the prerelease stage
+
+- transition-step-1: We notify that there is a snapshot of the lesson available for testing, and that it will supersede this version.
+- transition-step-2 We indicate that this version of the lesson is a snapshot and a new version of the lesson is avaiable and will supersede this version at a given date.
+{% endcomment %}
+
+{% elsif site.life_cycle == "transition-step-1" %}
+{% include check_transition_variables.html need_transition_date = 'true' %}
+
+<div id="life-cycle" class="alert alert-warning life-cycle panel-body">
+  A snapshot of this lesson from {{ site.transition_date_prebeta }} is being tested on
+  <a href='https://carpentries.github.io/workbench'>The Carpentries Workbench</a>:
+  <a href="https://preview.carpentries.org/{{ repo_name }}">https://preview.carpentries.org/{{ repo_name }}</a>.
+  <br>
+  <b>The Workbench version of this lesson will become default on {{ site.transition_date_prerelease }}</b>.
+  <button type="button" style="border: true; position: absolute; top: 10px; right: 27px; color: #383838;" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true" style='font-size:34pt'>&times;</span>
+  </button>
+</div>
+
+{% elsif site.life_cycle == "transition-step-2" %}
+{% include check_transition_variables.html need_transition_date = 'true' %}
+
+<div id="life-cycle" class="alert alert-danger alert-dismissible life-cycle panel-body" role="alert">
+  This lesson is a <b>snapshot from {{ site.transition_date_beta }}</b>.
+  A newer version is being tested on <a href='https://carpentries.github.io/workbench'>The Carpentries Workbench</a>:
+  <a href="https://preview.carpentries.org/{{ repo_name }}">https://preview.carpentries.org/{{ repo_name }}</a>.
+  <br>
+  <b>The Workbench version of this lesson will become default on {{ site.transition_date_prerelease }}</b>.
+  <button type="button" style="border: true; position: absolute; top: 10px; right: 27px; color: #383838;" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true" style='font-size:34pt'>&times;</span>
+  </button>
+</div>
+
+{% endif %}
+
+
+
+{% comment %}
+For Carpentries Lab lessons we add a banner about the review status
 {% endcomment %}
 
 {% if site.carpentry == "lab" %}
@@ -42,5 +90,4 @@ We do not do anything special unless this is a Carpentries Lab lesson
     This lesson has passed peer-review! {% if site.doi != "" %}<a href="{{ site.doi }}">See the publication{{ listing }}.</a>{% endif %}
   </div>
 </div>
-{% endif %}
 {% endif %}
