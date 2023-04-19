@@ -92,14 +92,19 @@ typing will appear.
 The cursor is usually a flashing or solid block, but it can also be an underscore or a pipe.
 You may have seen it in a text editor program, for example.
 
-Note that your prompt might look a little different. In particular, most popular shell environments by default put your user name and the host name before the `$`. Such a prompt might look like, e.g.:
+Note that your prompt might look a little different. In particular, most popular shell
+environments by default put your user name and the host name before the `$`. Such
+a prompt might look like, e.g.:
 
 ~~~
 nelle@localhost $
 ~~~
 {: .language-bash}
 
-The prompt might even include more than this. Do not worry if your prompt is not just a short `$ `. This lesson does not depend on this additional information and it should also not get in your way. The only important item to focus on is the `$ ` character itself and we will see later why.
+The prompt might even include more than this. Do not worry if your prompt is not
+just a short `$ `. This lesson does not depend on this additional information and it
+should also not get in your way. The only important item to focus on is the `$ `
+character itself and we will see later why.
 
 So let's try our first command, `ls` which is short for listing.
 This command will list the contents of the current directory:
