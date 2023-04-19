@@ -124,7 +124,7 @@ her colleagues *imhotep* and *larry*.
 The user *imhotep*'s files are stored in `/Users/imhotep`,
 user *larry*'s in `/Users/larry`,
 and Nelle's in `/Users/nelle`. Nelle is the user in our
-examples here, therefore we get `/Users/nelle` as our home directory.
+examples here; therefore, we get `/Users/nelle` as our home directory.
 Typically, when you open a new command prompt, you will be in
 your home directory to start.
 
@@ -169,9 +169,9 @@ Desktop/      Downloads/    Movies/       Pictures/
 {: .output}
 
 Here,
-we can see that our home directory contains only **sub-directories**.
-Any names in our output that don't have a classification symbol
-are plain old **files**.
+we can see that the home directory contains only **sub-directories**.
+Any names in the output that don't have a classification symbol
+are **files** in the current working directory.
 
 > ## Clearing your terminal
 >
@@ -186,13 +186,13 @@ are plain old **files**.
 to use a command and what options it accepts ---
 **depending on your environment, you might find that only one of these ways works:**
 
-1. We can pass a `--help` option to the command (available on Linux and Git Bash), such as:
+1. We can pass a `--help` option to any command (available on Linux and Git Bash), for example:
     ~~~
     $ ls --help
     ~~~
     {: .language-bash}
 
-2. We can read its manual with `man` (available on Linux and macOS), such as:
+2. We can read its manual with `man` (available on Linux and macOS):
     ~~~
     $ man ls
     ~~~
@@ -291,7 +291,7 @@ To **quit** the `man` pages, press <kbd>Q</kbd>.
 > which covers many commands introduced within this lesson.
 {: .callout}
 
-> ## Exploring More `ls` Flags
+> ## Exploring More `ls` Options
 >
 > You can also use two options at the same time. What does the command `ls` do when used
 > with the `-l` option? What about if you use both the `-l` and the `-h` option?
@@ -357,8 +357,8 @@ On many systems,
 the command line Desktop directory is the same as your GUI Desktop.
 Take a look at your Desktop to confirm that your output is accurate.
 
-As you may now see, using a bash shell is strongly dependent on the idea that
-your files are organized in a hierarchical file system.
+As you may now see, the bash shell strongly depends on
+your files being organized in a hierarchical file system.
 Organizing things hierarchically in this way helps us keep track of our work:
 it's possible to put hundreds of files in our home directory,
 just as it's possible to pile hundreds of printed papers on our desk,
@@ -367,7 +367,7 @@ but it's a self-defeating strategy.
 Now that we know the `shell-lesson-data` directory is located in our Desktop directory, we
 can do two things.
 
-First, we can look at its contents, using the same strategy as before, passing
+First, using the same strategy as before, we can look at its contents by passing
 a directory name to `ls`:
 
 ~~~
@@ -387,13 +387,15 @@ our home directory.
 The command to change locations is `cd` followed by a
 directory name to change our working directory.
 `cd` stands for 'change directory',
-which is a bit misleading:
-the command doesn't change the directory;
+which is a bit misleading.
+The command doesn't change the directory;
 it changes the shell's current working directory.
-In other words it changes the shell's idea of what directory we are in.
-The `cd` command is akin to double-clicking a folder in a graphical interface to get into a folder.
+In other words it changes the shell's settings for what directory we are in.
+The `cd` command is akin to double-clicking a folder in a graphical interface
+to get into that folder.
 
-Let's say we want to move to the `data` directory we saw above. We can
+
+Let's say we want to move into the `exercise-data` directory we saw above. We can
 use the following series of commands to get there:
 
 ~~~
@@ -430,7 +432,7 @@ $ ls -F
 {: .language-bash}
 
 ~~~
-animal-counts/  creatures/  numbers.txt  proteins/  writing/
+animal-counts/  creatures/  numbers.txt  alkanes/  writing/
 ~~~
 {: .output}
 
@@ -455,8 +457,7 @@ With our methods so far,
 different ways to see directories above your current location; we'll start
 with the simplest.
 
-There is a shortcut in the shell to move up one directory level
-that looks like this:
+There is a shortcut in the shell to move up one directory level. It works as follows:
 
 ~~~
 $ cd ..
@@ -503,7 +504,7 @@ It may seem redundant to have a name for it,
 but we'll see some uses for it soon.
 
 Note that in most command line tools, multiple options can be combined
-with a single `-` and no spaces between the options: `ls -F -a` is
+with a single `-` and no spaces between the options; `ls -F -a` is
 equivalent to `ls -Fa`.
 
 > ## Other Hidden Files
@@ -596,7 +597,7 @@ Run `pwd` and `ls -F` to ensure that we're in the directory we expect.
 > mean "the current user's home directory". For example, if Nelle's home
 > directory is `/Users/nelle`, then `~/data` is equivalent to
 > `/Users/nelle/data`. This only works if it is the first character in the
-> path: `here/there/~/elsewhere` is *not* `here/there/Users/nelle/elsewhere`.
+> path; `here/there/~/elsewhere` is *not* `here/there/Users/nelle/elsewhere`.
 >
 > Another shortcut is the `-` (dash) character. `cd` will translate `-` into
 > *the previous directory I was in*, which is faster than having to remember,
@@ -744,7 +745,7 @@ You might sometimes see options being referred to as **switches** or **flags**,
 especially for options that take no argument. In this lesson we will stick with
 using the term *option*.
 
-Each part is separated by spaces: if you omit the space
+Each part is separated by spaces. If you omit the space
 between `ls` and `-F` the shell will look for a command called `ls-F`, which
 doesn't exist. Also, capitalization can be important.
 For example, `ls -s` will display the size of files and directories alongside the names,
@@ -758,7 +759,7 @@ $ ls -s exercise-data
 
 ~~~
 total 28
- 4 animal-counts   4 creatures  12 numbers.txt   4 proteins   4 writing
+ 4 animal-counts   4 creatures  12 numbers.txt   4 alkanes   4 writing
 ~~~
 {: .output}
 
@@ -772,11 +773,11 @@ $ ls -S exercise-data
 {: .language-bash}
 
 ~~~
-animal-counts  creatures  proteins  writing  numbers.txt
+animal-counts  creatures  alkanes  writing  numbers.txt
 ~~~
 {: .output}
 
-Putting all that together, our command above gives us a listing
+Putting all that together, our command `ls -F /` above gives us a listing
 of files and directories in the root directory `/`.
 An example of the output you might get from the above command is given below:
 
@@ -800,7 +801,7 @@ Nelle is ready to organize the files that the protein assay machine will create.
 
 She creates a directory called `north-pacific-gyre`
 (to remind herself where the data came from),
-which will contain the data files from the assay machine,
+which will contain the data files from the assay machine
 and her data processing scripts.
 
 
@@ -809,8 +810,8 @@ with a unique ten-character ID,
 such as 'NENE01729A'.
 This ID is what she used in her collection log
 to record the location, time, depth, and other characteristics of the sample,
-so she decides to use it as part of each data file's name.
-Since the assay machine's output is plain text,
+so she decides to use it within the filename of each data file.
+Since the output of the assay machine is plain text,
 she will call her files `NENE01729A.txt`, `NENE01812A.txt`, and so on.
 All 1520 files will go into the same directory.
 
@@ -844,7 +845,7 @@ Pressing <kbd>Tab</kbd> again does nothing,
 since there are multiple possibilities;
 pressing <kbd>Tab</kbd> twice brings up a list of all the files.
 
-If Nelle adds <kbd>G</kbd> and presses <kbd>Tab</kbd> again,
+If Nelle then presses <kbd>G</kbd> and then presses <kbd>Tab</kbd> again,
 the shell will append 'goo' since all files that start with 'g' share
 the first three characters 'goo'.
 
