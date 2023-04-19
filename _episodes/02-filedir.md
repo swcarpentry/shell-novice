@@ -200,6 +200,15 @@ to use a command and what options it accepts ---
 
 We'll describe both ways next.
 
+> ## Help for built-in commands
+>
+> Some commands are built in to the Bash shell, rather than existing as separate
+> programs on the filesystem. One example is the `cd` (change directory) command.
+> If you get a message like `No manual entry for cd`, try `help cd` instead. The
+> `help` command is how you get usage information for
+> [Bash built-ins](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html).
+{: .callout}
+
 #### The `--help` option
 
 Most bash commands and programs that people have written to be
@@ -236,7 +245,7 @@ Mandatory arguments to long options are mandatory for short options, too.
   -D, --dired                generate output designed for Emacs' dired mode
   -f                         do not sort, enable -aU, disable -ls --color
   -F, --classify             append indicator (one of */=>@|) to entries
-...        ...        ...
+...        ...        ...
 ~~~
 {: .output}
 
@@ -352,17 +361,14 @@ home directory, which we assume is the current working directory of your bash sh
 
 Your output should be a list of all the files and sub-directories in your
 Desktop directory, including the `shell-lesson-data` directory you downloaded at
-the [setup for this lesson]({{ page.root }}{% link setup.md %}).
-On many systems,
-the command line Desktop directory is the same as your GUI Desktop.
-Take a look at your Desktop to confirm that your output is accurate.
+the [setup for this lesson]({{ page.root }}{% link setup.md %}). (On most systems, the
+contents of the `Desktop` directory in the shell will show up as icons in a graphical
+user interface behind all the open windows. See if this is the case for you.)
 
-As you may now see, the bash shell strongly depends on
-your files being organized in a hierarchical file system.
-Organizing things hierarchically in this way helps us keep track of our work:
-it's possible to put hundreds of files in our home directory,
-just as it's possible to pile hundreds of printed papers on our desk,
-but it's a self-defeating strategy.
+Organizing things hierarchically helps us keep track of our work. While it's
+possible to put hundreds of files in our home directory just as it's possible to
+pile hundreds of printed papers on our desk, it's much easier to find things when
+they've been organized into sensibly-named subdirectories.
 
 Now that we know the `shell-lesson-data` directory is located in our Desktop directory, we
 can do two things.
