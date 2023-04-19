@@ -211,8 +211,9 @@ We'll describe both ways next.
 
 #### The `--help` option
 
-Many terminal-based programs recognize a `--help` option that displays more detailed
-information about how to use it.
+Most bash commands and programs that people have written to be
+run from within bash, support a `--help` option that displays more
+information on how to use the command or program.
 
 ~~~
 $ ls --help
@@ -356,13 +357,13 @@ shell-lesson-data/
 
 Note that if a directory named `Desktop` does not exist in your current working directory,
 this command will return an error. Typically, a `Desktop` directory exists in your
-home directory, which we assume is the current working directory of your shell.
+home directory, which we assume is the current working directory of your bash shell.
 
 Your output should be a list of all the files and sub-directories in your
 Desktop directory, including the `shell-lesson-data` directory you downloaded at
 the [setup for this lesson]({{ page.root }}{% link setup.md %}). (On most systems, the
-contents of the `Desktop` directory in the shell will show up as icons on the
-workspace behind all the open windows. See if this is the case for you.)
+contents of the `Desktop` directory in the shell will show up as icons in a graphical
+user interface behind all the open windows. See if this is the case for you.)
 
 Organizing things hierarchically in this way helps us keep track of our work. While it's
 it's possible to put hundreds of files in our home directory just as it's possible to
