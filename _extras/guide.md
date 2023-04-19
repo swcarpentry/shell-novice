@@ -205,6 +205,16 @@ as long as learners using Windows do not run into roadblocks such as:
     Please see the latest set of installation guidelines for advice,
     and try it out yourself *before* teaching a class.
 
+*  By default, you may have a long string of information attached to
+   your command prompt in Git Bash. To reduce the "noise" and proceed
+   with a tidier prompt, enter the command:
+
+   ~~~
+   PS1='$ '
+   ~~~
+   {: .language-bash}
+
+
 *   On Windows machines
     if `nano` hasn't been properly installed with the
     [Software Carpentry Windows Installer][windows-installer]
