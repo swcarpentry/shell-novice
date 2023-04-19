@@ -102,7 +102,7 @@ This time, two lines that include the letters 'The' are outputted,
 one of which contained our search pattern within a larger word, 'Thesis'.
 
 To restrict matches to lines containing the word 'The' on its own,
-we can give `grep` with the `-w` option.
+we can give `grep` the `-w` option.
 This will limit matches to word boundaries.
 
 Later in this lesson, we will also see how we can change the search behavior of grep
@@ -441,7 +441,7 @@ directory tree shown below.
 │   ├── minotaur.dat
 │   └── unicorn.dat
 ├── numbers.txt
-├── proteins/
+├── alkanes/
 │   ├── cubane.pdb
 │   ├── ethane.pdb
 │   ├── methane.pdb
@@ -455,7 +455,7 @@ directory tree shown below.
 {: .output}
 
 The `exercise-data` directory contains one file, `numbers.txt` and four directories:
-`animal-counts`, `creatures`, `proteins` and `writing` containing various files.
+`animal-counts`, `creatures`, `alkanes` and `writing` containing various files.
 
 
 For our first command,
@@ -478,13 +478,13 @@ $ find .
 ./animal-counts
 ./animal-counts/animals.csv
 ./numbers.txt
-./proteins
-./proteins/ethane.pdb
-./proteins/propane.pdb
-./proteins/octane.pdb
-./proteins/pentane.pdb
-./proteins/methane.pdb
-./proteins/cubane.pdb
+./alkanes
+./alkanes/ethane.pdb
+./alkanes/propane.pdb
+./alkanes/octane.pdb
+./alkanes/pentane.pdb
+./alkanes/methane.pdb
+./alkanes/cubane.pdb
 ~~~
 {: .output}
 
@@ -511,7 +511,7 @@ $ find . -type d
 ./writing
 ./creatures
 ./animal-counts
-./proteins
+./alkanes
 ~~~
 {: .output}
 
@@ -532,12 +532,12 @@ $ find . -type f
 ./creatures/minotaur.dat
 ./animal-counts/animals.csv
 ./numbers.txt
-./proteins/ethane.pdb
-./proteins/propane.pdb
-./proteins/octane.pdb
-./proteins/pentane.pdb
-./proteins/methane.pdb
-./proteins/cubane.pdb
+./alkanes/ethane.pdb
+./alkanes/propane.pdb
+./alkanes/octane.pdb
+./alkanes/pentane.pdb
+./alkanes/methane.pdb
+./alkanes/cubane.pdb
 ~~~
 {: .output}
 
@@ -692,7 +692,7 @@ $ grep "searching" $(find . -name "*.txt")
 >
 > A last option is to recognize that the shell and text processing have
 > their limits, and to use another programming language.
-> When the time comes to do this, don't be too hard on the shell: many
+> When the time comes to do this, don't be too hard on the shell. Many
 > modern programming languages have borrowed a lot of
 > ideas from it, and imitation is also the sincerest form of praise.
 {: .callout}
