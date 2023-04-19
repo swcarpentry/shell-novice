@@ -62,14 +62,18 @@ and we can apply this to our example like this:
 ```
 $ for filename in basilisk.dat minotaur.dat unicorn.dat
 > do
+>     echo $filename
 >     head -n 2 $filename | tail -n 1
 > done
 ```
 {: .language-bash}
 
 ```
+basilisk.dat
 CLASSIFICATION: basiliscus vulgaris
+minotaur.dat
 CLASSIFICATION: bos hominus
+unicorn.dat
 CLASSIFICATION: equus monoceros
 ```
 {: .output}
@@ -95,7 +99,10 @@ the variable as a variable name and substitute its value in its place,
 rather than treat it as text or an external command.
 
 In this example, the list is three filenames: `basilisk.dat`, `minotaur.dat`, and `unicorn.dat`.
-Each time the loop iterates, it will assign a file name to the variable `filename`
+Each time the loop iterates, we first use `echo` to print the value that the variable
+`$filename` currently holds. This is not necessary for the result, but beneficial for us here to
+have an easier time to follow along.
+Next, we will assign a file name to the variable `filename`
 and run the `head` command.
 The first time through the loop,
 `$filename` is `basilisk.dat`.
@@ -198,7 +205,7 @@ or a subset of data.
 
 > ## Variables in Loops
 >
-> This exercise refers to the `shell-lesson-data/exercise-data/proteins` directory.
+> This exercise refers to the `shell-lesson-data/exercise-data/alkanes` directory.
 > `ls *.pdb` gives the following output:
 >
 > ~~~
@@ -272,7 +279,7 @@ or a subset of data.
 > ## Limiting Sets of Files
 >
 > What would be the output of running the following loop in the
-> `shell-lesson-data/exercise-data/proteins` directory?
+> `shell-lesson-data/exercise-data/alkanes` directory?
 >
 > ~~~
 > $ for filename in c*
@@ -316,7 +323,7 @@ or a subset of data.
 
 > ## Saving to a File in a Loop - Part One
 >
-> In the `shell-lesson-data/exercise-data/proteins` directory, what is the effect of this loop?
+> In the `shell-lesson-data/exercise-data/alkanes` directory, what is the effect of this loop?
 >
 > ~~~
 > for alkanes in *.pdb
@@ -345,7 +352,7 @@ or a subset of data.
 
 > ## Saving to a File in a Loop - Part Two
 >
-> Also in the `shell-lesson-data/exercise-data/proteins` directory,
+> Also in the `shell-lesson-data/exercise-data/alkanes` directory,
 > what would be the output of the following loop?
 >
 > ~~~
@@ -450,7 +457,7 @@ from whatever file is being processed
 > It is simpler to avoid using spaces (or other special characters) in filenames.
 >
 > The files above don't exist, so if we run the above code, the `head` command will be unable
-> to find them, however the error message returned will show the name of the files it is
+> to find them; however, the error message returned will show the name of the files it is
 > expecting:
 >
 > ~~~
@@ -475,10 +482,9 @@ from whatever file is being processed
 > {: .output}
 {: .callout}
 
-We would like to modify each of the files in `shell-lesson-data/exercise-data/creatures`,
-but also save a version
-of the original files, naming the copies `original-basilisk.dat` and `original-unicorn.dat`.
-We can't use:
+We would like to modify each of the files in `shell-lesson-data/exercise-data/creatures`, 
+but also save a version of the original files. We want to copy the original files to new
+files named `original-basilisk.dat` and `original-unicorn.dat`, for example. We can't use:
 
 ~~~
 $ cp *.dat original-*.dat
@@ -499,10 +505,9 @@ cp: target `original-*.dat' is not a directory
 ~~~
 {: .error}
 
-This problem arises when `cp` receives more than two inputs. When this happens, it
-expects the last input to be a directory where it can copy all the files it was passed.
-Since there is no directory named `original-*.dat` in the `creatures` directory we get an
-error.
+This problem arises when `cp` receives more than two inputs. When this happens, it expects the
+last input to be a directory where it can copy all the files it was passed. Since there is
+no directory named `original-*.dat` in the `creatures` directory, we get an error.
 
 Instead, we can use a loop:
 ~~~
@@ -538,13 +543,13 @@ cp unicorn.dat original-unicorn.dat
 {: .language-bash}
 
 Since the `cp` command does not normally produce any output, it's hard to check
-that the loop is doing the correct thing.
-However, we learned earlier how to print strings using `echo`, and we can modify the loop
-to use `echo` to print our commands without actually executing them.
-As such we can check what commands *would be* run in the unmodified loop.
+that the loop is working correctly. However, we learned earlier how to print strings
+using `echo`, and we can modify the loop to use `echo` to print our commands without 
+actually executing them. As such we can check what commands *would be* run in the
+unmodified loop.
 
 The following diagram
-shows what happens when the modified loop is executed, and demonstrates how the
+shows what happens when the modified loop is executed and demonstrates how the
 judicious use of `echo` is a good debugging technique.
 
 ![The for loop "for filename in *.dat; do echo cp $filename original-$filename;
@@ -559,8 +564,8 @@ original-unicorn.dat"](../fig/shell_script_for_loop_flow_chart.svg)
 ## Nelle's Pipeline: Processing Files
 
 Nelle is now ready to process her data files using `goostats.sh` ---
-a shell script written by her supervisor.
-This calculates some statistics from a protein sample file, and takes two arguments:
+a shell script written by her supervisor. This calculates some statistics from a
+protein sample file and takes two arguments:
 
 1. an input file (containing the raw data)
 2. an output file (to store the calculated statistics)
@@ -630,8 +635,8 @@ $ for datafile in NENE*A.txt NENE*B.txt; do echo $datafile stats-$datafile; done
 ~~~
 {: .language-bash}
 
-Using the left arrow key,
-Nelle backs up and changes the command `echo` to `bash goostats.sh`:
+Using the <kbd>←</kbd>,
+Nelle navigates to the `echo` command and changes it to `bash goostats.sh`:
 
 ~~~
 $ for datafile in NENE*A.txt NENE*B.txt; do bash goostats.sh $datafile stats-$datafile; done
@@ -693,16 +698,17 @@ so she decides to get some coffee and catch up on her reading.
 > ~~~
 > {: .language-bash}
 > ~~~
->   456  ls -l NENE0*.txt
->   457  rm stats-NENE01729B.txt.txt
->   458  bash goostats.sh NENE01729B.txt stats-NENE01729B.txt
->   459  ls -l NENE0*.txt
->   460  history
+> 456  for datafile in NENE*A.txt NENE*B.txt; do   echo $datafile stats-$datafile; done
+> 457  for datafile in NENE*A.txt NENE*B.txt; do echo $datafile stats-$datafile; done
+> 458  for datafile in NENE*A.txt NENE*B.txt; do bash goostats.sh $datafile stats-$datafile; done
+> 459  for datafile in NENE*A.txt NENE*B.txt; do echo $datafile; bash goostats.sh $datafile
+> stats-$datafile; done
+> 460  history | tail -n 5
 > ~~~
 > {: .output}
 >
-> then she can re-run `goostats.sh` on `NENE01729B.txt` simply by typing
-> `!458`.
+> then she can re-run `goostats.sh` on the files simply by typing
+> `!459`.
 {: .callout}
 
 > ## Other History Commands

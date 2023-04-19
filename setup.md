@@ -64,7 +64,7 @@ menu.
 **For advanced users:**
 
 As an alternative to Git for Windows you may wish to [Install the Windows Subsystem for Linux][wsl]
-which gives access to a Bash shell command-line tool in Windows 10.
+which gives access to a Bash shell command-line tool in Windows 10 and above.
 
 Please note that commands in the Windows Subsystem for Linux (WSL) may differ slightly
 from those shown in the lesson or presented in the workshop.
@@ -102,7 +102,7 @@ you can run it by opening a terminal and typing `bash`.
 </div>
 
 [zip-file]: {{ page.root }}/data/shell-lesson-data.zip
-[wsl]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+[wsl]: https://learn.microsoft.com/en-us/windows/wsl/install
 [mac-terminal]: http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/
 [gnome-terminal]: https://help.gnome.org/users/gnome-terminal/stable/
 [kde-konsole]: https://konsole.kde.org/
