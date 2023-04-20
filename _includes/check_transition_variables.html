@@ -1,0 +1,22 @@
+{% assign date = include.need_transition_date %}
+
+{% if date == "true" %}
+{% unless site.transition_date_prebeta %}
+<div class="alert alert-danger">
+  you need to specify the variable <code>transition_date_prebeta</code>
+  in <code>_config.yml</code>.
+</div>
+{% endunless %}
+{% unless site.transition_date_beta %}
+<div class="alert alert-danger">
+  you need to specify the variable <code>transition_date_beta</code>
+  in <code>_config.yml</code>.
+</div>
+{% endunless %}
+{% unless site.transition_date_prerelease %}
+<div class="alert alert-danger">
+  you need to specify the variable <code>transition_date_prerelease</code>
+  in <code>_config.yml</code>.
+</div>
+{% endunless %}
+{% endif %}
