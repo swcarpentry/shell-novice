@@ -194,9 +194,7 @@ $ nano draft.txt
 
 Let's type in a few lines of text.
 
-<div style="width:80%; margin: auto;"><img alt="screenshot of nano text editor in
-  action with the text `It's not publish or perish any more, it's share and thrive`"
-src="../fig/nano-screenshot.png"></div>
+![screenshot of nano text editor in action with the text `It's not publish or perish any more, it's share and thrive`](../fig/nano-screenshot.png)
 
 Once we're happy with our text, we can press <kbd>Ctrl</kbd>+<kbd>O</kbd>
 (press the <kbd>Ctrl</kbd> or <kbd>Control</kbd> key and, while
