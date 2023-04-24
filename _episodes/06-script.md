@@ -492,7 +492,7 @@ Of course, this introduces another tradeoff between flexibility and complexity.
 > > ## Solution
 > > The correct answer is 2.
 > >
-> > The special variables $1, $2 and $3 represent the command line arguments given to the
+> > The special variables `$1`, `$2` and `$3` represent the command line arguments given to the
 > > script, such that the commands run are:
 > >
 > > ```
