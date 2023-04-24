@@ -2,571 +2,377 @@
   "contributors": [
     {
       "type": "Editor",
-      "name": "Gabriel Devenyi",
-      "orcid": "0000-0002-7766-1187"
-    },
-    {
-      "type": "Editor",
-      "name": "colinmorris"
-    },
-    {
-      "type": "Editor",
-      "name": "Will Pitchers",
-      "orcid": "0000-0003-0385-5939"
-    },
-    {
-      "type": "Editor",
       "name": "Gerard Capes"
+    },
+    {
+      "type": "Editor",
+      "name": "Jacob Deppen",
+      "orcid": "0000-0003-3768-4277"
+    },
+    {
+      "type": "Editor",
+      "name": "bkmgit"
     }
   ],
   "creators": [
     {
-      "name": "Greg Wilson",
-      "orcid": "0000-0001-8659-8979"
-    },
-    {
       "name": "Gerard Capes"
     },
     {
-      "name": "Gabriel A. Devenyi",
+      "name": "bkmgit"
+    },
+    {
+      "name": "Jacob Deppen",
+      "orcid": "0000-0003-3768-4277"
+    },
+    {
+      "name": "G. A. Devenyi",
       "orcid": "0000-0002-7766-1187"
     },
     {
-      "name": "Christina Koch",
-      "orcid": "0000-0001-8600-8158"
+      "name": "Alexander James Ball"
     },
     {
-      "name": "Raniere Silva"
+      "name": "Piper Fowler-Wright"
     },
     {
-      "name": "Ashwin Srinath"
+      "name": "Alessia Visconti"
     },
     {
-      "name": "Colin Morris"
+      "name": "Jeff Dusenberry"
     },
     {
-      "name": "Mike Jackson",
-      "orcid": "0000-0002-1765-8234"
+      "name": "Jessica Vera"
     },
     {
-      "name": "Andrew Boughton",
-      "orcid": "0000-0002-0318-4912"
+      "name": "Randal Sean Harrison"
     },
     {
-      "name": "Rémi Emonet",
-      "orcid": "0000-0002-1870-1329"
+      "name": "Andreas Bilke"
     },
     {
-      "name": "Francis Gacenga"
+      "name": "Jessica Nicole Welch"
     },
     {
-      "name": "Lex Nederbragt",
-      "orcid": "0000-0001-5539-0999"
+      "name": "Kelly Thorp",
+      "orcid": "0000-0001-9168-875X"
     },
     {
-      "name": "csqrs"
+      "name": "Alfredo Hernandez"
     },
     {
-      "name": "Damien Irving",
-      "orcid": "0000-0003-1258-5002"
+      "name": "Ashkan Mirzaee"
     },
     {
-      "name": "Erin Alison Becker",
-      "orcid": "0000-0002-6832-0233"
+      "name": "Benjamin Winjum"
     },
     {
-      "name": "Fatma Deniz",
-      "orcid": "0000-0001-6051-7288"
+      "name": "Chris Daley"
     },
     {
-      "name": "Marcel Stimberg",
-      "orcid": "0000-0002-2648-4790"
+      "name": "Clay Wright",
+      "orcid": "0000-0001-7125-3943"
     },
     {
-      "name": "Robert A Beagrie",
-      "orcid": "0000-0003-1076-5595"
+      "name": "colinmorris"
     },
     {
-      "name": "Daniel McCloy"
+      "name": "Dave George"
+    },
+    {
+      "name": "Ephantus2017"
+    },
+    {
+      "name": "Erik Myklebust"
+    },
+    {
+      "name": "Frank Löffler",
+      "orcid": "0000-0001-6643-6323"
+    },
+    {
+      "name": "HariEpuri"
+    },
+    {
+      "name": "Holger Wolff"
+    },
+    {
+      "name": "Kairsten Fay"
+    },
+    {
+      "name": "Luna Luisa Sanchez Reyes",
+      "orcid": "0000-0001-7668-2528"
+    },
+    {
+      "name": "Marius Politze",
+      "orcid": "0000-0003-3175-0659"
+    },
+    {
+      "name": "Maxim Belkin"
+    },
+    {
+      "name": "Nathaniel Porter",
+      "orcid": "0000-0002-0479-6777"
+    },
+    {
+      "name": "nkicg6",
+      "orcid": "0000-0002-1903-3713"
+    },
+    {
+      "name": "Norman Ziegner",
+      "orcid": "0000-0001-7579-216X"
+    },
+    {
+      "name": "Sarah LR Stevens",
+      "orcid": "0000-0002-7040-548X"
+    },
+    {
+      "name": "Sean McCartney"
+    },
+    {
+      "name": "Serah Njambi",
+      "orcid": "0000-0002-7834-1038"
+    },
+    {
+      "name": "ramisetti"
+    },
+    {
+      "name": "Stacey Borrego"
+    },
+    {
+      "name": "Andrew Christopher Brown",
+      "orcid": "0000-0001-5652-1495"
+    },
+    {
+      "name": "Ashley Cryan",
+      "orcid": "0000-0002-5410-2163"
+    },
+    {
+      "name": "mehrdadbn9"
+    },
+    {
+      "name": "Md Intekhabul Hafiz"
+    },
+    {
+      "name": "niketagrawal"
+    },
+    {
+      "name": "Noah Benson",
+      "orcid": "0000-0002-2365-8265"
+    },
+    {
+      "name": "Aaron McDivitt"
+    },
+    {
+      "name": "Aidan Budd",
+      "orcid": "0000-0003-0196-9051"
+    },
+    {
+      "name": "Amanda Stahlke",
+      "orcid": "0000-0001-5724-598X"
+    },
+    {
+      "name": "Andraš Tšitškan"
+    },
+    {
+      "name": "Andrew Stewart"
+    },
+    {
+      "name": "Becky Smith"
+    },
+    {
+      "name": "Catherine Martlin",
+      "orcid": "0000-0002-3300-4185"
+    },
+    {
+      "name": "Christian Knüpfer",
+      "orcid": "0000-0002-1323-5445"
+    },
+    {
+      "name": "David McKain"
+    },
+    {
+      "name": "David Wilby",
+      "orcid": "0000-0002-6553-8739"
+    },
+    {
+      "name": "Dimitra Salmanidou"
+    },
+    {
+      "name": "Dave Turner"
+    },
+    {
+      "name": "Edan Scriven"
+    },
+    {
+      "name": "Edward Wallace",
+      "orcid": "0000-0001-8025-6361"
+    },
+    {
+      "name": "Elizabeth McAulay",
+      "orcid": "0000-0002-8679-9727"
+    },
+    {
+      "name": "Etienne Roesch",
+      "orcid": "0000-0002-8913-4173"
+    },
+    {
+      "name": "Frank Solinsky"
+    },
+    {
+      "name": "Giordano Lipari",
+      "orcid": "0000-0002-5680-2809"
+    },
+    {
+      "name": "Hamish Starling"
+    },
+    {
+      "name": "Iain Barrass",
+      "orcid": "0000-0002-6823-1900"
+    },
+    {
+      "name": "Isil Poyraz Bilgin"
+    },
+    {
+      "name": "JSheffield159"
+    },
+    {
+      "name": "James Acris"
+    },
+    {
+      "name": "Jonathan Bradley"
+    },
+    {
+      "name": "Matti Juvonen"
+    },
+    {
+      "name": "Kathryn Napier",
+      "orcid": "0000-0003-1202-7238"
+    },
+    {
+      "name": "Kenton Ross"
+    },
+    {
+      "name": "Kevin Ernst"
+    },
+    {
+      "name": "Lukas Trombach"
+    },
+    {
+      "name": "Martin Chorley"
+    },
+    {
+      "name": "Melissa"
+    },
+    {
+      "name": "Mike Lake"
+    },
+    {
+      "name": "Mike Renfro"
+    },
+    {
+      "name": "Mike Renfro",
+      "orcid": "0000-0002-2086-5963"
+    },
+    {
+      "name": "NJ"
+    },
+    {
+      "name": "Natali"
+    },
+    {
+      "name": "Nathan McKinlay"
     },
     {
       "name": "Nicola Soranzo",
       "orcid": "0000-0003-3627-5340"
     },
     {
-      "name": "Noam Ross",
-      "orcid": "0000-0002-2136-0000"
+      "name": "Pablo Rodríguez-Sánchez"
     },
     {
-      "name": "Ashwin Srinath"
+      "name": "Peter Wiringa",
+      "orcid": "0000-0003-2230-2862"
     },
     {
-      "name": "Colin Sauze",
-      "orcid": "0000-0001-5368-9217"
+      "name": "Petr Viktorin"
     },
     {
-      "name": "François Michonneau",
-      "orcid": "0000-0002-9092-966X"
+      "name": "Richard Rigby"
     },
     {
-      "name": "Kunal Marwaha",
-      "orcid": "0000-0001-9084-6971"
+      "name": "rkm",
+      "orcid": "0000-0002-2641-2543"
     },
     {
-      "name": "Stéphane Guillou",
-      "orcid": "0000-0001-8992-0951"
+      "name": "Ryan S. Elliott",
+      "orcid": "0000-0003-4988-8306"
     },
     {
-      "name": "Tobin Magle"
+      "name": "Samuel Lelièvre",
+      "orcid": "0000-0002-7275-0965"
     },
     {
-      "name": "Eric Jankowski"
+      "name": "Santiago Lacalle"
     },
     {
-      "name": "Ethan P White",
-      "orcid": "0000-0001-6728-7745"
+      "name": "Sujai Kumar",
+      "orcid": "0000-0001-5902-6641"
     },
     {
-      "name": "John Blischak",
-      "orcid": "0000-0003-2634-9879"
+      "name": "Tong Liang"
     },
     {
-      "name": "Filipe Fernandes",
-      "orcid": "0000-0003-4165-2913"
+      "name": "Winfred Gatua",
+      "orcid": "0000-0002-1945-3371"
     },
     {
-      "name": "Trevor Bekolay",
-      "orcid": "0000-0001-5215-7999"
+      "name": "Yi Sun"
     },
     {
-      "name": "Jake Cowper Szamosi"
+      "name": "cgmerrick"
     },
     {
-      "name": "Norman Gray",
-      "orcid": "0000-0002-1941-9202"
+      "name": "daking4"
     },
     {
-      "name": "Varda F. Hagh"
+      "name": "Deep Patel"
     },
     {
-      "name": "Daniel Baird"
+      "name": "erich333"
     },
     {
-      "name": "Dustin Lang"
+      "name": "karl-holten"
     },
     {
-      "name": "Evgenij Belikov"
+      "name": "kathymd"
     },
     {
-      "name": "Jarek Bryk",
-      "orcid": "0000-0002-2791-9709"
+      "name": "laporpe"
     },
     {
-      "name": "Kathy Chung"
+      "name": "naveendangeti"
     },
     {
-      "name": "Mahdi Sadjadi",
-      "orcid": "0000-0003-4770-3881"
+      "name": "nbehrnd"
     },
     {
-      "name": "Marie-Helene Burle",
-      "orcid": "0000-0003-4853-4901"
+      "name": "sophie"
     },
     {
-      "name": "Marisa Lim"
+      "name": "tbert"
     },
     {
-      "name": "Pauline Barmby",
-      "orcid": "0000-0003-2767-0090"
+      "name": "Tom Couch",
+      "orcid": "0000-0002-1581-5865"
     },
     {
-      "name": "Steve Leak",
-      "orcid": "0000-0003-1991-9300"
+      "name": "Ram Krishna Shrestha"
     },
     {
-      "name": "Chris Mentzel",
-      "orcid": "0000-0002-2831-5632"
+      "name": "zzhang60"
     },
     {
-      "name": "Daniel Standage",
-      "orcid": "0000-0003-0342-8531"
-    },
-    {
-      "name": "David Eyers",
-      "orcid": "0000-0002-7284-8006"
-    },
-    {
-      "name": "Dean Attali",
-      "orcid": "0000-0002-5645-3493"
-    },
-    {
-      "name": "Danielle M. Nielsen"
-    },
-    {
-      "name": "Donny Winston"
-    },
-    {
-      "name": "John Simpson"
-    },
-    {
-      "name": "Jonah Duckles",
-      "orcid": "0000-0002-8985-3119"
-    },
-    {
-      "name": "Joshua Madin"
-    },
-    {
-      "name": "Kevin M. Buckley"
-    },
-    {
-      "name": "Laurence"
-    },
-    {
-      "name": "Martha Robinson"
-    },
-    {
-      "name": "Martin Feller"
-    },
-    {
-      "name": "Megan Fritz"
-    },
-    {
-      "name": "Paul Gardner"
-    },
-    {
-      "name": "Peter Steinbach",
-      "orcid": "0000-0002-4974-230X"
-    },
-    {
-      "name": "Rafi Ullah",
-      "orcid": "0000-0002-8468-4678"
-    },
-    {
-      "name": "Ruud Steltenpool"
-    },
-    {
-      "name": "s-boardman"
-    },
-    {
-      "name": "Yee Mey"
-    },
-    {
-      "name": "Alex Kassil"
-    },
-    {
-      "name": "Alex Mac"
-    },
-    {
-      "name": "Alexander Morley"
-    },
-    {
-      "name": "Bartosz Telenczuk"
-    },
-    {
-      "name": "Dana Brunson"
-    },
-    {
-      "name": "Devinsuit"
-    },
-    {
-      "name": "Elena Denisenko"
-    },
-    {
-      "name": "Emily Dolson",
-      "orcid": "0000-0001-8616-4898"
-    },
-    {
-      "name": "Halle Burns"
-    },
-    {
-      "name": "Hannah Burkhardt"
-    },
-    {
-      "name": "Harriet Alexander"
-    },
-    {
-      "name": "Hugues Fontenelle"
-    },
-    {
-      "name": "Jay van Schyndel"
-    },
-    {
-      "name": "Jens vdL"
-    },
-    {
-      "name": "Jonny Williams"
-    },
-    {
-      "name": "Katrin Leinweber",
-      "orcid": "0000-0001-5135-5758"
-    },
-    {
-      "name": "Lee Zamparo"
-    },
-    {
-      "name": "Jason Macklin",
-      "orcid": "0000-0002-3356-3139"
-    },
-    {
-      "name": "Orion Buske"
-    },
-    {
-      "name": "reshama shaikh"
-    },
-    {
-      "name": "Ry4an Brase"
-    },
-    {
-      "name": "Thomas Mellan"
-    },
-    {
-      "name": "Adam Huffman"
-    },
-    {
-      "name": "Adam James Orr",
-      "orcid": "0000-0001-9074-4799"
-    },
-    {
-      "name": "Adam Richie-Halford"
-    },
-    {
-      "name": "AidaMirsalehi"
-    },
-    {
-      "name": "Alexander Konovalov"
-    },
-    {
-      "name": "Alix Keener"
-    },
-    {
-      "name": "Amy Brown"
-    },
-    {
-      "name": "Andrea Bedini"
-    },
-    {
-      "name": "Andrew Reid",
-      "orcid": "0000-0002-1564-5640"
-    },
-    {
-      "name": "Andrew T. T. McRae"
-    },
-    {
-      "name": "Andrew Walker"
-    },
-    {
-      "name": "Ariel Rokem",
-      "orcid": "0000-0003-0679-1985"
-    },
-    {
-      "name": "Armin Sobhani"
-    },
-    {
-      "name": "Bagus Tris Atmaja"
-    },
-    {
-      "name": "Ben Bolker",
-      "orcid": "0000-0002-2127-0443"
-    },
-    {
-      "name": "Benjamin Gabriel"
-    },
-    {
-      "name": "Bertie Seyffert"
-    },
-    {
-      "name": "Bill Mills",
-      "orcid": "0000-0002-5887-6270"
-    },
-    {
-      "name": "Brian Ballsun-Stanton"
-    },
-    {
-      "name": "BrianBill"
-    },
-    {
-      "name": "Camille Marini",
-      "orcid": "0000-0002-1590-3697"
-    },
-    {
-      "name": "Dan Jones"
-    },
-    {
-      "name": "Dave Bridges"
-    },
-    {
-      "name": "David McKain"
-    },
-    {
-      "name": "David Vollmer"
-    },
-    {
-      "name": "Dmytro Lituiev"
-    },
-    {
-      "name": "Doug Latornell",
-      "orcid": "0000-0002-7951-114X"
-    },
-    {
-      "name": "earkpr"
-    },
-    {
-      "name": "ekaterinailin"
-    },
-    {
-      "name": "Emily Jane McTavish"
-    },
-    {
-      "name": "Farah Shamma"
-    },
-    {
-      "name": "Giuseppe Profiti"
-    },
-    {
-      "name": "Ian van der Linde"
-    },
-    {
-      "name": "Inigo Aldazabal Mensa"
-    },
-    {
-      "name": "Jarno Rantaharju",
-      "orcid": "0000-0002-0072-7707"
-    },
-    {
-      "name": "Jackie Milhans"
-    },
-    {
-      "name": "James Guelfi"
-    },
-    {
-      "name": "Jan T. Kim"
-    },
-    {
-      "name": "John Pellman"
-    },
-    {
-      "name": "Kai Blin",
-      "orcid": "0000-0003-3764-6051"
-    },
-    {
-      "name": "Kristopher Keipert",
-      "orcid": "0000-0003-1476-8582"
-    },
-    {
-      "name": "Kirill Palamartchouk"
-    },
-    {
-      "name": "Klemens Noga",
-      "orcid": "0000-0002-1135-167X"
-    },
-    {
-      "name": "M Carlise"
-    },
-    {
-      "name": "Marc Rajeev Gouw",
-      "orcid": "0000-0001-9248-8450"
-    },
-    {
-      "name": "Mark Mandel"
-    },
-    {
-      "name": "Matthew Gidden",
-      "orcid": "0000-0003-0687-414X"
-    },
-    {
-      "name": "Matthew Peterson"
-    },
-    {
-      "name": "Maria Doyle"
-    },
-    {
-      "name": "Michael Zingale",
-      "orcid": "0000-0001-8401-030X"
-    },
-    {
-      "name": "Mike Henry"
-    },
-    {
-      "name": "Morgan Oneka"
-    },
-    {
-      "name": "Murray Hoggett",
-      "orcid": "0000-0002-4694-2621"
-    },
-    {
-      "name": "Nicolas Barral",
-      "orcid": "0000-0003-2079-5819"
-    },
-    {
-      "name": "Noah D Brenowitz"
-    },
-    {
-      "name": "nther"
-    },
-    {
-      "name": "Owen Kaluza",
-      "orcid": "0000-0001-6303-5671"
-    },
-    {
-      "name": "Patrick McCann",
-      "orcid": "0000-0002-9324-2775"
-    },
-    {
-      "name": "Phillip Doehle",
-      "orcid": "0000-0002-3006-0683"
-    },
-    {
-      "name": "Peter R. Hoyt",
-      "orcid": "0000-0002-2767-0923"
-    },
-    {
-      "name": "Philip Lijnzaad"
-    },
-    {
-      "name": "Piotr Banaszkiewicz"
-    },
-    {
-      "name": "Sarah Mount"
-    },
-    {
-      "name": "Sarah Simpkin"
-    },
-    {
-      "name": "Scott Ritchie",
-      "orcid": "0000-0002-8454-9548"
-    },
-    {
-      "name": "sjnair"
-    },
-    {
-      "name": "Stephan Schmeing",
-      "orcid": "0000-0001-9735-2931"
-    },
-    {
-      "name": "Stephen Jones"
-    },
-    {
-      "name": "Stephen Turner",
-      "orcid": "0000-0001-9140-9028"
-    },
-    {
-      "name": "Susan Miller",
-      "orcid": "0000-0002-3759-7547"
-    },
-    {
-      "name": "Tim Keighley"
-    },
-    {
-      "name": "Tim Keighley"
-    },
-    {
-      "name": "Tom Dowrick"
-    },
-    {
-      "name": "Victor Koppejan"
-    },
-    {
-      "name": "Vikram Chhatre"
+      "name": "“Eli"
     }
   ],
   "license": {
