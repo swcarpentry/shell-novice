@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg:svg
+   viewBox="0 0 16 16"
+   fill="#0c63e4"
+   version="1.1"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <svg:path
+     fill-rule="evenodd"
+     d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+     style="fill:#000000;fill-opacity:1" />
+  <script />
+</svg:svg>
