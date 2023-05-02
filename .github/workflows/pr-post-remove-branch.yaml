@@ -1,0 +1,32 @@
+name: "Bot: Remove Temporary PR Branch"
+
+on:
+  workflow_run:
+    workflows: ["Bot: Send Close Pull Request Signal"]
+    types:
+      - completed
+
+jobs:
+  delete:
+    name: "Delete branch from Pull Request"
+    runs-on: ubuntu-latest
+    if: >
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
+    permissions:
+      contents: write
+    steps:
+      - name: 'Download artifact'
+        uses: carpentries/actions/download-workflow-artifact@main
+        with:
+          run: ${{ github.event.workflow_run.id }}
+          name: pr
+      - name: "Get PR Number"
+        id: get-pr
+        run: |
+          unzip pr.zip
+          echo "NUM=$(<./NUM)" >> $GITHUB_OUTPUT
+      - name: 'Remove branch'
+        uses: carpentries/actions/remove-branch@main
+        with:
+          pr: ${{ steps.get-pr.outputs.NUM }}

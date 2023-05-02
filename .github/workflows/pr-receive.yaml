@@ -1,0 +1,131 @@
+name: "Receive Pull Request"
+
+on:
+  pull_request:
+    types:
+      [opened, synchronize, reopened]
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-pr:
+    name: "Record PR number"
+    if: ${{ github.event.action != 'closed' }}
+    runs-on: ubuntu-latest
+    outputs:
+      is_valid: ${{ steps.check-pr.outputs.VALID }}
+    steps:
+      - name: "Record PR number"
+        id: record
+        if: ${{ always() }}
+        run: |
+          echo ${{ github.event.number }} > ${{ github.workspace }}/NR # 2022-03-02: artifact name fixed to be NR
+      - name: "Upload PR number"
+        id: upload
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: pr
+          path: ${{ github.workspace }}/NR
+      - name: "Get Invalid Hashes File"
+        id: hash
+        run: |
+          echo "json<<EOF
+          $(curl -sL https://files.carpentries.org/invalid-hashes.json)
+          EOF" >> $GITHUB_OUTPUT
+      - name: "echo output"
+        run: |
+          echo "${{ steps.hash.outputs.json }}"
+      - name: "Check PR"
+        id: check-pr
+        uses: carpentries/actions/check-valid-pr@main
+        with:
+          pr: ${{ github.event.number }}
+          invalid: ${{ fromJSON(steps.hash.outputs.json)[github.repository] }}
+
+  build-md-source:
+    name: "Build markdown source files if valid"
+    needs: test-pr
+    runs-on: ubuntu-latest
+    if: ${{ needs.test-pr.outputs.is_valid == 'true' }}
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      RENV_PATHS_ROOT: ~/.local/share/renv/
+      CHIVE: ${{ github.workspace }}/site/chive
+      PR: ${{ github.workspace }}/site/pr
+      MD: ${{ github.workspace }}/site/built
+    steps:
+      - name: "Check Out Main Branch"
+        uses: actions/checkout@v3
+
+      - name: "Check Out Staging Branch"
+        uses: actions/checkout@v3
+        with:
+          ref: md-outputs
+          path: ${{ env.MD }}
+
+      - name: "Set up R"
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+          install-r: false
+
+      - name: "Set up Pandoc"
+        uses: r-lib/actions/setup-pandoc@v2
+
+      - name: "Setup Lesson Engine"
+        uses: carpentries/actions/setup-sandpaper@main
+        with:
+          cache-version: ${{ secrets.CACHE_VERSION }}
+
+      - name: "Setup Package Cache"
+        uses: carpentries/actions/setup-lesson-deps@main
+        with:
+          cache-version: ${{ secrets.CACHE_VERSION }}
+
+      - name: "Validate and Build Markdown"
+        id: build-site
+        run: |
+          sandpaper::package_cache_trigger(TRUE)
+          sandpaper::validate_lesson(path = '${{ github.workspace }}')
+          sandpaper:::build_markdown(path = '${{ github.workspace }}', quiet = FALSE)
+        shell: Rscript {0}
+
+      - name: "Generate Artifacts"
+        id: generate-artifacts
+        run: |
+          sandpaper:::ci_bundle_pr_artifacts(
+            repo         = '${{ github.repository }}',
+            pr_number    = '${{ github.event.number }}',
+            path_md      = '${{ env.MD }}',
+            path_pr      = '${{ env.PR }}',
+            path_archive = '${{ env.CHIVE }}',
+            branch       = 'md-outputs'
+          )
+        shell: Rscript {0}
+
+      - name: "Upload PR"
+        uses: actions/upload-artifact@v3
+        with:
+          name: pr
+          path: ${{ env.PR }}
+
+      - name: "Upload Diff"
+        uses: actions/upload-artifact@v3
+        with:
+          name: diff
+          path: ${{ env.CHIVE }}
+          retention-days: 1
+
+      - name: "Upload Build"
+        uses: actions/upload-artifact@v3
+        with:
+          name: built
+          path: ${{ env.MD }}
+          retention-days: 1
+
+      - name: "Teardown"
+        run: sandpaper::reset_site()
+        shell: Rscript {0}

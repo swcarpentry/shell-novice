@@ -1,0 +1,39 @@
+name: "Pull Request Preflight Check"
+
+on:
+  pull_request_target:
+    branches:
+      ["main"]
+    types:
+      ["opened", "synchronize", "reopened"]
+
+jobs:
+  test-pr:
+    name: "Test if pull request is valid"
+    if: ${{ github.event.action != 'closed' }}
+    runs-on: ubuntu-latest
+    outputs:
+      is_valid: ${{ steps.check-pr.outputs.VALID }}
+    permissions:
+      pull-requests: write
+    steps:
+      - name: "Get Invalid Hashes File"
+        id: hash
+        run: |
+          echo "json<<EOF
+          $(curl -sL https://files.carpentries.org/invalid-hashes.json)
+          EOF" >> $GITHUB_OUTPUT
+      - name: "Check PR"
+        id: check-pr
+        uses: carpentries/actions/check-valid-pr@main
+        with:
+          pr: ${{ github.event.number }}
+          invalid: ${{ fromJSON(steps.hash.outputs.json)[github.repository] }}
+          fail_on_error: true
+      - name: "Comment result of validation"
+        id: comment-diff
+        if: ${{ always() }}
+        uses: carpentries/actions/comment-diff@main
+        with:
+          pr: ${{ github.event.number }}
+          body: ${{ steps.check-pr.outputs.MSG }}

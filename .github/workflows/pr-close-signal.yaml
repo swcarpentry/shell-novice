@@ -1,0 +1,23 @@
+name: "Bot: Send Close Pull Request Signal"
+
+on:
+  pull_request:
+    types:
+      [closed]
+
+jobs:
+  send-close-signal:
+    name: "Send closing signal"
+    runs-on: ubuntu-latest
+    if: ${{ github.event.action == 'closed' }}
+    steps:
+      - name: "Create PRtifact"
+        run: |
+          mkdir -p ./pr
+          printf ${{ github.event.number }} > ./pr/NUM
+      - name: Upload Diff
+        uses: actions/upload-artifact@v3
+        with:
+          name: pr
+          path: ./pr
+
