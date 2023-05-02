@@ -1,0 +1,61 @@
+name: "Pull Request in wrong branch"
+
+on:
+  pull_request_target:
+    types:
+      ["opened", "synchronize", "reopened"]
+
+jobs:
+  close-pr:
+    permissions:
+      pull-requests: write
+    name: "Inform of Workbench and Close"
+    if: ${{ github.event.action != 'closed' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Provide Guidance
+        id: comment-diff
+        if: ${{ always() }}
+        uses: carpentries/actions/comment-diff@main
+        with:
+          pr: ${{ github.event.number }}
+          body: >
+            # :no_entry_sign: The `gh-pages` branch is no longer editable :no_entry_sign:
+            
+            Thank you for your contribution. This lesson has migrated to use
+            [The Carpentries Workbench](https://carpentries.github.io/workbench) 
+            and the `gh-pages` branch is now automatically generated. This
+            means in order to contribute, **you will need to delete and re-fork
+            this repository.**
+
+            ## How to contribute
+            
+            If you wish to contribute, you will need to use the following steps
+            to delete, re-fork, and re-create your pull request (aka the [burn
+            it all down strategy](https://happygitwithr.com/burn.html)):
+
+            1. Save your edits on locally or in a scratch space.
+
+            2. **[Delete your fork](https://docs.github.com/en/repositories/creating-and-managing-repositories/deleting-a-repository)** 
+
+            3. **[Create a new fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo)** or use the "edit" button on the page you wish to edit.
+
+            4. Apply your changes (**NOTE The Workbench uses a different syntax.** Here is a [Transition Guide from Styles to Workbench](https://carpentries.github.io/workbench/transition-guide.html) for your reference).
+
+            ## Questions
+            
+            If you have any questions or would like assistance, please contact
+            @core-team-curriculum (curriculum@carpentries.org) or you can
+            respond to this message.
+
+      - name: Close Pull Request
+        uses: actions/github-script@v6
+        if: ${{ always() }}
+        with:
+          script: |
+            github.rest.pulls.update({
+              pull_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed'
+            })
