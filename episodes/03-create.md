@@ -120,7 +120,6 @@ the `thesis` directory will appear there too.
 While the shell and the file explorer are two different ways of interacting with the files,
 the files and directories themselves are the same.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -132,28 +131,27 @@ when working on the command line. Here we provide a few useful
 tips for the names of your files and directories.
 
 1. Don't use spaces.
-  
-  Spaces can make a name more meaningful,
-  but since spaces are used to separate arguments on the command line
-  it is better to avoid them in names of files and directories.
-  You can use `-` or `_` instead (e.g. `north-pacific-gyre/` rather than `north pacific gyre/`).
-  To test this out, try typing `mkdir north pacific gyre`and see what directory (or directories!)
-  are made when you check with `ls -F`.
+
+Spaces can make a name more meaningful,
+but since spaces are used to separate arguments on the command line
+it is better to avoid them in names of files and directories.
+You can use `-` or `_` instead (e.g. `north-pacific-gyre/` rather than `north pacific gyre/`).
+To test this out, try typing `mkdir north pacific gyre`and see what directory (or directories!)
+are made when you check with `ls -F`.
 
 2. Don't begin the name with `-` (dash).
-  
-  Commands treat names starting with `-` as options.
+
+Commands treat names starting with `-` as options.
 
 3. Stick with letters, numbers, `.` (period or 'full stop'), `-` (dash) and `_` (underscore).
-  
-  Many other characters have special meanings on the command line.
-  We will learn about some of these during this lesson.
-  There are special characters that can cause your command to not work as
-  expected and can even result in data loss.
+
+Many other characters have special meanings on the command line.
+We will learn about some of these during this lesson.
+There are special characters that can cause your command to not work as
+expected and can even result in data loss.
 
 If you need to refer to names of files or directories that have spaces
 or other special characters, you should surround the name in quotes (`""`).
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -192,7 +190,6 @@ your computer's start menu, it may want to save files in your Desktop or
 Documents directory instead. You can change this by navigating to
 another directory the first time you 'Save As...'
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Let's type in a few lines of text.
@@ -227,7 +224,6 @@ press the <kbd>X</kbd> key, described as any of:
 In nano, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
 This means that you can use `Control-G` to get help and `Control-O` to save your
 file.
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -281,7 +277,6 @@ $ touch my_file.txt
   populate with its output.  The touch command allows you to
   efficiently generate a blank text file to be used by such
   programs.
-  
 
 :::::::::::::::::::::::::
 
@@ -322,7 +317,6 @@ cause the operating system to associate the file with a music player
 program. In this case, if someone double-clicked `whale.mp3` in a file
 explorer program,the music player will automatically (and erroneously)
 attempt to open the `whale.mp3` file.
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -448,8 +442,6 @@ $ mv sucrose.dat maltose.dat ../raw
 Recall that `..` refers to the parent directory (i.e. one above the current directory)
 and that `.` refers to the current directory.
 
-
-
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -521,8 +513,6 @@ correct the mistake, which of the following commands could you use to do so?
   cannot be created.
 4. No, the period(.) indicates where to copy the file, but does not provide a new file name;
   identical file names cannot be created.
-  
-  
 
 :::::::::::::::::::::::::
 
@@ -579,8 +569,6 @@ So, the only thing that will show using ls (in `/Users/jamie/data`) is the recom
 2. Yes
 3. No, see explanation above.  `proteins.dat` is located at `/Users/jamie/data/recombined`
 4. No, see explanation above.  `proteins-saved.dat` is located at `/Users/jamie`
-  
-  
 
 :::::::::::::::::::::::::
 
@@ -618,7 +606,6 @@ recovering deleted files do exist, but there's no guarantee they'll
 work in any particular situation, since the computer may recycle the
 file's disk space right away.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -641,8 +628,6 @@ or <kbd>N</kbd> to keep the file).
 The Unix shell doesn't have a trash bin, so all the files removed will disappear forever.
 By using the `-i` option, we have the chance to check that we are deleting only the files
 that we want to remove.
-
-
 
 :::::::::::::::::::::::::
 
@@ -760,7 +745,6 @@ file names matching these expressions, but not the wildcards
 themselves. It is the shell, not the other programs, that expands
 the wildcards.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -798,8 +782,6 @@ which ends in `thane.pdb`.
 This is the solution.
 
 `4.` only shows files starting with `ethane.`.
-
-
 
 :::::::::::::::::::::::::
 
@@ -954,8 +936,6 @@ Jamie needs to move her files `fructose.dat` and `sucrose.dat` to the `analyzed`
 The shell will expand \*.dat to match all .dat files in the current directory.
 The `mv` command then moves the list of .dat files to the 'analyzed' directory.
 
-
-
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1034,13 +1014,9 @@ directories, will cause `mkdir` to create any intermediate subdirectories as req
 The final set of commands generates the 'raw' and 'processed' directories at the same level
 as the 'data' directory.
 
-
-
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
