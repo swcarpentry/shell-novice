@@ -5,10 +5,9 @@
 # shell-novice
 
 An introduction to the Unix shell for people who have never used the command line before.
-Please see [https://swcarpentry.github.io/shell-novice/](https://swcarpentry.github.io/shell-novice/) for a rendered version of this material,
-[the lesson template documentation][lesson-example]
-for instructions on formatting, building, and submitting material,
-or run `make` in this directory for a list of helpful commands.
+Please see [https://swcarpentry.github.io/shell-novice/](https://swcarpentry.github.io/shell-novice/)
+for a rendered version of this material, [the lesson template documentation][lesson-example]
+for instructions on formatting, building, and submitting material.
 
 ## Maintainers
 
@@ -19,7 +18,7 @@ or run `make` in this directory for a list of helpful commands.
 ## Contributing
 
 If you would like to contribute to the development of the lesson, you can find details in our
-[CONTRIBUTING guide](https://github.com/swcarpentry/shell-novice/blob/gh-pages/CONTRIBUTING.md).
+[CONTRIBUTING guide](https://github.com/swcarpentry/shell-novice/blob/main/CONTRIBUTING.md).
 Contributions can come in many different forms: typo and formatting fixes, additions or subtractions
 of content, suggestions, clarifications, and more.
 
