@@ -31,7 +31,13 @@
     <loc>https://swcarpentry.github.io/shell-novice/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://swcarpentry.github.io/shell-novice/aio.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/shell-novice/discuss.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/shell-novice/images.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/shell-novice/index.html</loc>
@@ -67,16 +73,34 @@
     <loc>https://swcarpentry.github.io/shell-novice/instructor/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://swcarpentry.github.io/shell-novice/instructor/aio.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/shell-novice/instructor/discuss.html</loc>
   </url>
   <url>
+    <loc>https://swcarpentry.github.io/shell-novice/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/shell-novice/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/shell-novice/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/shell-novice/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/shell-novice/instructor/profiles.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/shell-novice/instructor/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/shell-novice/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/shell-novice/key-points.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/shell-novice/profiles.html</loc>
