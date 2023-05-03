@@ -464,11 +464,11 @@ quotes.txt   thesis/quotations.txt
 ```
 
 We can also copy a directory and all its contents by using the
-[recursive](https://en.wikipedia.org/wiki/Recursion) option `-r`,
+[recursive](https://en.wikipedia.org/wiki/Recursion) option `-R`,
 e.g. to back up a directory:
 
 ```bash
-$ cp -r thesis thesis_backup
+$ cp -R thesis thesis_backup
 ```
 
 We can check the result by listing the contents of both the `thesis` and `thesis_backup` directory:
