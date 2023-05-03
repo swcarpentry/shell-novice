@@ -28,7 +28,7 @@ of content, suggestions, clarifications, and more.
 [slack_status_svg]: https://img.shields.io/badge/Slack_Channel-swc--shell-E01563.svg
 [doi]: https://doi.org/10.5281/zenodo.3266823
 [doi_svg]: https://zenodo.org/badge/DOI/10.5281/zenodo.3266823.svg
-[lesson-example]: https://carpentries.github.io/lesson-example/
+[lesson-example]: https://carpentries.github.io/sandpaper-docs/
 [gerard_capes]: https://carpentries.org/instructors/#capes_gerard
 [jacob_deppen]: https://deppen8.github.io/
 [benson_muite]: https://carpentries.org/instructors/#benson_muite
