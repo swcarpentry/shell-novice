@@ -42,13 +42,8 @@ $ pwd
 
 Next we'll move to the `exercise-data/writing` directory and see what it contains:
 
-```
-$ cd exercise-data/writing/
-```
-
-{:  .language-bash}
-
 ```bash
+$ cd exercise-data/writing/
 $ ls -F
 ```
 
