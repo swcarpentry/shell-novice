@@ -48,10 +48,11 @@ We'll use a loop to solve this problem, but first let's look at the general form
 using the pseudo-code below:
 
 ```bash
-for thing in list_of_things
-do
-    operation_using $thing    # Indentation within the loop is not required, but aids legibility
-done
+for thing in list_of_things # The word "for" indicated the start of a
+"For-loop" command
+do #The word "do" indicates the start of job execution list
+    operation_using/command $thing    # Indentation within the loop is not required, but aids legibility
+done  # The word "done" indicates the end of a loop
 ```
 
 and we can apply this to our example like this:
