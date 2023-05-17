@@ -148,19 +148,10 @@ expected and can even result in data loss.
 If you need to refer to names of files or directories that have spaces
 or other special characters, you should surround the name in quotes (`""`).
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+Whether or not your Bash shell is case-sensitive is normally determined by the underlying operating system. In most implementations of Bash it is case sensitive. On MacOS, however, it is not case sensitive.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+It can be a good practice to use all lowercase for files and directories, but this is not a rule; you are likely to see uppercase used in practice. This effect is negligible if the letter isn't the first letter in the name, so it's not an issue if you use naming standards such as camelCase.
 
-## Case Sensitivity
-
-This is normally driven by the underlying OS. In most implementations of BASH it is case sensitive, with the exception of MacOS which is case insensitive. Some OSs have predefined directories that use a capital letter at the start, such as Download, and Desktop. This is used to make these directors stand out.
-
-It is standard practice to use lowercase for your files and directories, but this is only a guideline.
-
-If you choose to use capital letters at the start of your file names, you should bear in mind the fact that sorting order in Unix is (sometimes) case sensitive, and some commands such as grep you may need additional options to achieve the desired result.
-
-Also this effect is negligible if the letter isn't the first letter in the name, so it's not an issue if you use naming standards such as camelCase.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
