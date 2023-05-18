@@ -293,5 +293,23 @@ And please also make use of our
 [shebang]: https://www.in-ulm.de/~mascheck/various/shebang/
 [windows-installer]: https://github.com/swcarpentry/windows-installer
 
+## Mac OSX
 
+The default shell with Mac OS X Ventura and newer versions is ZSH. This is not common for non-Mac users, so we want to switch the default shell to bash before we begin the lesson. The command to do this is:
+
+```bash
+$ chsh -s /bin/bash
+```
+
+To switch back to the default, you can enter the following:
+
+```bash
+$ chsh -s /bin/zsh
+```
+
+For a complete list of available shells, you can type:
+
+```bash
+$ cat /etc/shells
+```
 
