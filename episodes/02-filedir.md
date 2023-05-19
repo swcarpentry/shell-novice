@@ -83,7 +83,7 @@ On Nelle's computer, the filesystem looks like this:
 
 ![](fig/filesystem.svg){alt='The file system is made up of a root directory that contains sub-directoriestitled bin, data, users, and tmp'}
 
-At the top is the **root directory**
+Notice how the filesystem looks like an upside down tree. Later in the lessons you will see references to the filesystem "tree". Continuing with the tree analogy the topmost directory  is the **root directory** (remember the tree is upside down so the root is at the top) 
 that holds everything else.
 We refer to it using a slash character, `/`, on its own;
 this character is the leading slash in `/Users/nelle`.
