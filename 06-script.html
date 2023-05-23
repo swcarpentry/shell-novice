@@ -353,12 +353,12 @@ ATOM     13  H           1      -3.172  -1.337   0.206  1.00  0.00</code></pre>
 </div>
 <p>Sure enough, our script’s output is exactly what we would get if we
 ran that pipeline directly.</p>
-<div id="callout1" class="callout callout">
+<div id="text-vs.-whatever" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="text-vs.-whatever" class="callout-inner">
-<h3 class="callout-title">Text vs. Whatever<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Text vs. Whatever<a class="anchor" aria-label="anchor" href="#text-vs.-whatever"></a>
 </h3>
 <div class="callout-content">
 <p>We usually call programs like Microsoft Word or LibreOffice Writer
@@ -419,12 +419,12 @@ ATOM     11  H           1      -0.074  -0.384   1.288  1.00  0.00
 ATOM     12  H           1      -0.048  -1.362  -0.205  1.00  0.00
 ATOM     13  H           1      -1.183   0.500  -1.412  1.00  0.00</code></pre>
 </div>
-<div id="callout2" class="callout callout">
+<div id="double-quotes-around-arguments" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="double-quotes-around-arguments" class="callout-inner">
-<h3 class="callout-title">Double-Quotes Around Arguments<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<h3 class="callout-title">Double-Quotes Around Arguments<a class="anchor" aria-label="anchor" href="#double-quotes-around-arguments"></a>
 </h3>
 <div class="callout-content">
 <p>For the same reason that we put the loop variable inside
@@ -548,12 +548,12 @@ wc -l "$@" | sort -n</code></pre>
 163 ../creatures/unicorn.dat
 596 total</code></pre>
 </div>
-<div id="challenge1" class="callout challenge">
+<div id="list-unique-species" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="list-unique-species" class="callout-inner">
-<h3 class="callout-title">List Unique Species<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">List Unique Species<a class="anchor" aria-label="anchor" href="#list-unique-species"></a>
 </h3>
 <div class="callout-content">
 <p>Leah has several hundred data files, each of which is formatted like
@@ -587,7 +587,7 @@ each of those files separately.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -627,13 +627,13 @@ potentially getting them wrong) we can do this:</p>
 the commands, and to remove the final line where we called the
 <code>history</code> command, we have a completely accurate record of
 how we created that figure.</p>
-<div id="challenge2" class="callout challenge">
+<div id="why-record-commands-in-the-history-before-running-them" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="why-record-commands-in-the-history-before-running-them" class="callout-inner">
 <h3 class="callout-title">Why Record Commands in the History Before
-Running Them?<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+Running Them?<a class="anchor" aria-label="anchor" href="#why-record-commands-in-the-history-before-running-them"></a>
 </h3>
 <div class="callout-content">
 <p>If you run the command:</p>
@@ -657,7 +657,7 @@ this?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>If a command causes something to crash or hang, it might be useful to
 know what that command was, in order to investigate the problem. Were
@@ -738,12 +738,12 @@ she wanted to be more adventurous, she could modify her script to check
 for command-line arguments, and use <code>NENE*A.txt NENE*B.txt</code>
 if none were provided. Of course, this introduces another tradeoff
 between flexibility and complexity.</p>
-<div id="challenge3" class="callout challenge">
+<div id="variables-in-shell-scripts" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="variables-in-shell-scripts" class="callout-inner">
-<h3 class="callout-title">Variables in Shell Scripts<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Variables in Shell Scripts<a class="anchor" aria-label="anchor" href="#variables-in-shell-scripts"></a>
 </h3>
 <div class="callout-content">
 <p>In the <code>alkanes</code> directory, imagine you have a shell
@@ -781,7 +781,7 @@ directory</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The correct answer is 2.</p>
 <p>The special variables <code>$1</code>, <code>$2</code> and
@@ -801,13 +801,13 @@ by quote marks. As such, the first argument to the script is
 </div>
 </div>
 </div>
-<div id="challenge4" class="callout challenge">
+<div id="find-the-longest-file-with-a-given-extension" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="find-the-longest-file-with-a-given-extension" class="callout-inner">
 <h3 class="callout-title">Find the Longest File With a Given
-Extension<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+Extension<a class="anchor" aria-label="anchor" href="#find-the-longest-file-with-a-given-extension"></a>
 </h3>
 <div class="callout-content">
 <p>Write a shell script called <code>longest.sh</code> that takes the
@@ -838,7 +838,7 @@ lines.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -864,12 +864,12 @@ understand the output.</p>
 </div>
 </div>
 </div>
-<div id="challenge5" class="callout challenge">
+<div id="script-reading-comprehension" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="script-reading-comprehension" class="callout-inner">
-<h3 class="callout-title">Script Reading Comprehension<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+<h3 class="callout-title">Script Reading Comprehension<a class="anchor" aria-label="anchor" href="#script-reading-comprehension"></a>
 </h3>
 <div class="callout-content">
 <p>For this question, consider the
@@ -910,7 +910,7 @@ three scripts would do when run as <code>bash script1.sh *.pdb</code>,
   Solutions
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>In each case, the shell expands the wildcard in <code>*.pdb</code>
 before passing the resulting list of file names as arguments to the
@@ -934,12 +934,12 @@ refers to <em>all</em> the arguments given to a shell script.</p>
 </div>
 </div>
 </div>
-<div id="challenge6" class="callout challenge">
+<div id="debugging-scripts" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="debugging-scripts" class="callout-inner">
-<h3 class="callout-title">Debugging Scripts<a class="anchor" aria-label="anchor" href="#challenge6"></a>
+<h3 class="callout-title">Debugging Scripts<a class="anchor" aria-label="anchor" href="#debugging-scripts"></a>
 </h3>
 <div class="callout-content">
 <p>Suppose you have saved the following script in a file called
@@ -981,7 +981,7 @@ error?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>The <code>-x</code> option causes <code>bash</code> to run in debug
 mode. This prints out each command as it is run, which will help you to
@@ -1048,7 +1048,7 @@ consistent with built-in Unix commands.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -1072,7 +1072,7 @@ consistent with built-in Unix commands.</li>
   "identifier": "https://swcarpentry.github.io/shell-novice/06-script.html",
   "dateCreated": "2014-10-22",
   "dateModified": "2023-05-02",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>

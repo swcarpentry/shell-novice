@@ -516,12 +516,12 @@ Regexp selection and interpretation:
 Miscellaneous:
 ...        ...        ...</code></pre>
 </div>
-<div id="challenge1" class="callout challenge">
+<div id="using-grep" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="using-grep" class="callout-inner">
-<h3 class="callout-title">Using <code>grep</code><a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Using <code>grep</code><a class="anchor" aria-label="anchor" href="#using-grep"></a>
 </h3>
 <div class="callout-content">
 <p>Which command would result in the following output:</p>
@@ -544,7 +544,7 @@ Miscellaneous:
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The correct answer is 3, because the <code>-w</code> option looks
 only for whole-word matches. The other options will also match ‘of’ when
@@ -553,12 +553,12 @@ part of another word.</p>
 </div>
 </div>
 </div>
-<div id="callout1" class="callout callout">
+<div id="wildcards" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="wildcards" class="callout-inner">
-<h3 class="callout-title">Wildcards<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Wildcards<a class="anchor" aria-label="anchor" href="#wildcards"></a>
 </h3>
 <div class="callout-content">
 <p><code>grep</code>‘s real power doesn’t come from its options, though;
@@ -591,12 +591,12 @@ character (just like <code>?</code> in the shell), while the
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="tracking-a-species" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="tracking-a-species" class="callout-inner">
-<h3 class="callout-title">Tracking a Species<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Tracking a Species<a class="anchor" aria-label="anchor" href="#tracking-a-species"></a>
 </h3>
 <div class="callout-content">
 <p>Leah has several hundred data files saved in one directory, each of
@@ -646,7 +646,7 @@ one field in a line.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <pre class="source"><code>grep -w $1 -r $2 | cut -d : -f 2 | cut -d , -f 1,3 &gt; $1.txt</code></pre>
 <p>Actually, you can swap the order of the two cut commands and it still
@@ -663,12 +663,12 @@ case.</p>
 </div>
 </div>
 </div>
-<div id="challenge3" class="callout challenge">
+<div id="little-women" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="little-women" class="callout-inner">
-<h3 class="callout-title">Little Women<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Little Women<a class="anchor" aria-label="anchor" href="#little-women"></a>
 </h3>
 <div class="callout-content">
 <p>You and your friend, having just finished reading <em>Little
@@ -696,7 +696,7 @@ speed.</p>
   Solutions
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <pre class="source"><code>for sis in Jo Meg Beth Amy
 do
@@ -871,12 +871,12 @@ pattern <code>*.txt</code>, not the expanded filename
 <span><span class="va">.</span><span class="op">/</span><span class="va">writing</span><span class="op">/</span><span class="va">haiku.txt</span></span>
 <span><span class="va">.</span><span class="op">/</span><span class="va">numbers.txt</span></span></code></pre>
 </div>
-<div id="callout2" class="callout callout">
+<div id="listing-vs.-finding" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="listing-vs.-finding" class="callout-inner">
-<h3 class="callout-title">Listing vs. Finding<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<h3 class="callout-title">Listing vs. Finding<a class="anchor" aria-label="anchor" href="#listing-vs.-finding"></a>
 </h3>
 <div class="callout-content">
 <p><code>ls</code> and <code>find</code> can be made to do similar
@@ -938,12 +938,12 @@ the current directory:</p>
 <pre class="output" tabindex="0"><code>./writing/LittleWomen.txt:sitting on the top step, affected to be searching for her book, but was
 ./writing/haiku.txt:With searching comes loss</code></pre>
 </div>
-<div id="challenge4" class="callout challenge">
+<div id="matching-and-subtracting" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="matching-and-subtracting" class="callout-inner">
-<h3 class="callout-title">Matching and Subtracting<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<h3 class="callout-title">Matching and Subtracting<a class="anchor" aria-label="anchor" href="#matching-and-subtracting"></a>
 </h3>
 <div class="callout-content">
 <p>The <code>-v</code> option to <code>grep</code> inverts pattern
@@ -966,7 +966,7 @@ you have thought about your answer, you can test the commands in the
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Option 1. is correct. Putting the match expression in quotes prevents
 the shell expanding it, so it gets passed to the <code>find</code>
@@ -982,12 +982,12 @@ names.</p>
 </div>
 </div>
 </div>
-<div id="callout3" class="callout callout">
+<div id="binary-files" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="binary-files" class="callout-inner">
-<h3 class="callout-title">Binary Files<a class="anchor" aria-label="anchor" href="#callout3"></a>
+<h3 class="callout-title">Binary Files<a class="anchor" aria-label="anchor" href="#binary-files"></a>
 </h3>
 <div class="callout-content">
 <p>We have focused exclusively on finding patterns in text files. What
@@ -1019,14 +1019,14 @@ at first, but once learned, the productivity in the shell is unbeatable.
 And as Alfred North Whitehead wrote in 1911, ‘Civilization advances by
 extending the number of important operations which we can perform
 without thinking about them.’</p>
-<div id="challenge5" class="callout challenge">
+<div id="find-pipeline-reading-comprehension" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="find-pipeline-reading-comprehension" class="callout-inner">
 <h3 class="callout-title">
 <code>find</code> Pipeline Reading
-Comprehension<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+Comprehension<a class="anchor" aria-label="anchor" href="#find-pipeline-reading-comprehension"></a>
 </h3>
 <div class="callout-content">
 <p>Write a short explanatory comment for the following shell script:</p>
@@ -1045,7 +1045,7 @@ Comprehension<a class="anchor" aria-label="anchor" href="#challenge5"></a>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>Find all files with a <code>.dat</code> extension recursively from
 the current directory</li>
@@ -1113,7 +1113,7 @@ command.</li>
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -1137,7 +1137,7 @@ command.</li>
   "identifier": "https://swcarpentry.github.io/shell-novice/instructor/07-find.html",
   "dateCreated": "2014-10-22",
   "dateModified": "2023-05-02",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>

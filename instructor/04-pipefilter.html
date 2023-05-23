@@ -379,12 +379,12 @@ output shows only the number of lines per file:</p>
 <p>The <code>-m</code> and <code>-w</code> options can also be used with
 the <code>wc</code> command to show only the number of characters or the
 number of words, respectively.</p>
-<div id="callout1" class="callout callout">
+<div id="why-isnt-it-doing-anything" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="why-isnt-it-doing-anything" class="callout-inner">
-<h3 class="callout-title">Why Isn’t It Doing Anything?<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Why Isn’t It Doing Anything?<a class="anchor" aria-label="anchor" href="#why-isnt-it-doing-anything"></a>
 </h3>
 <div class="callout-content">
 <p>What happens if a command is supposed to process a file, but we don’t
@@ -457,12 +457,12 @@ so <code>cat</code> just shows us what it contains:</p>
   15  propane.pdb
  107  total</code></pre>
 </div>
-<div id="callout2" class="callout callout">
+<div id="output-page-by-page" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="output-page-by-page" class="callout-inner">
-<h3 class="callout-title">Output Page by Page<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<h3 class="callout-title">Output Page by Page<a class="anchor" aria-label="anchor" href="#output-page-by-page"></a>
 </h3>
 <div class="callout-content">
 <p>We’ll continue to use <code>cat</code> in this lesson, for
@@ -480,12 +480,12 @@ screenful by pressing the spacebar, or back one by pressing
 <hr class="half-width"><p>Next we’ll use the <code>sort</code> command to sort the contents of
 the <code>lengths.txt</code> file. But first we’ll do an exercise to
 learn a little about the sort command:</p>
-<div id="challenge1" class="callout challenge">
+<div id="what-does-sort--n-do" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="what-does-sort--n-do" class="callout-inner">
-<h3 class="callout-title">What Does <code>sort -n</code> Do?<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">What Does <code>sort -n</code> Do?<a class="anchor" aria-label="anchor" href="#what-does-sort--n-do"></a>
 </h3>
 <div class="callout-content">
 <p>The file <code>shell-lesson-data/exercise-data/numbers.txt</code>
@@ -577,12 +577,12 @@ want the first line of the file; <code>-n 20</code> would get the first
 20, and so on. Since <code>sorted-lengths.txt</code> contains the
 lengths of our files ordered from least to greatest, the output of
 <code>head</code> must be the file with the fewest lines.</p>
-<div id="callout3" class="callout callout">
+<div id="redirecting-to-the-same-file" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="redirecting-to-the-same-file" class="callout-inner">
-<h3 class="callout-title">Redirecting to the same file<a class="anchor" aria-label="anchor" href="#callout3"></a>
+<h3 class="callout-title">Redirecting to the same file<a class="anchor" aria-label="anchor" href="#redirecting-to-the-same-file"></a>
 </h3>
 <div class="callout-content">
 <p>It’s a very bad idea to try redirecting the output of a command that
@@ -597,12 +597,12 @@ delete the contents of <code>lengths.txt</code>.</p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="what-does-mean" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="what-does-mean" class="callout-inner">
-<h3 class="callout-title">What Does <code>&gt;&gt;</code> Mean?<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">What Does <code>&gt;&gt;</code> Mean?<a class="anchor" aria-label="anchor" href="#what-does-mean"></a>
 </h3>
 <div class="callout-content">
 <p>We have seen the use of <code>&gt;</code>, but there is a similar
@@ -658,12 +658,12 @@ it already exists (i.e. when we run it for the second time).</p>
 </div>
 </div>
 </div>
-<div id="challenge3" class="callout challenge">
+<div id="appending-data" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="appending-data" class="callout-inner">
-<h3 class="callout-title">Appending Data<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Appending Data<a class="anchor" aria-label="anchor" href="#appending-data"></a>
 </h3>
 <div class="callout-content">
 <p>We have already met the <code>head</code> command, which prints lines
@@ -778,12 +778,12 @@ case, the algorithm is ‘head of sort of line count of
 <code>*.pdb</code>’.</p>
 <p>The redirection and pipes used in the last few commands are
 illustrated below:</p>
-<figure><img src="../fig/redirects-and-pipes.svg" alt='Redirects and Pipes of different commands: "wc -l *.pdb" will direct theoutput to the shell. "wc -l *.pdb &gt; lengths" will direct output to the file"lengths". "wc -l *.pdb | sort -n | head -n 1" will build a pipeline where theoutput of the "wc" command is the input to the "sort" command, the output ofthe "sort" command is the input to the "head" command and the output of the"head" command is directed to the shell' class="figure mx-auto d-block"></figure><div id="challenge4" class="callout challenge">
+<figure><img src="../fig/redirects-and-pipes.svg" alt='Redirects and Pipes of different commands: "wc -l *.pdb" will direct theoutput to the shell. "wc -l *.pdb &gt; lengths" will direct output to the file"lengths". "wc -l *.pdb | sort -n | head -n 1" will build a pipeline where theoutput of the "wc" command is the input to the "sort" command, the output ofthe "sort" command is the input to the "head" command and the output of the"head" command is directed to the shell' class="figure mx-auto d-block"></figure><div id="piping-commands-together" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="piping-commands-together" class="callout-inner">
-<h3 class="callout-title">Piping Commands Together<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<h3 class="callout-title">Piping Commands Together<a class="anchor" aria-label="anchor" href="#piping-commands-together"></a>
 </h3>
 <div class="callout-content">
 <p>In our current directory, we want to find the 3 files which have the
@@ -830,12 +830,12 @@ input and writes lines of text to standard output can be combined with
 every other program that behaves this way as well. You can <em>and
 should</em> write your programs this way so that you and other people
 can put those programs into pipes to multiply their power.</p>
-<div id="challenge5" class="callout challenge">
+<div id="pipe-reading-comprehension" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="pipe-reading-comprehension" class="callout-inner">
-<h3 class="callout-title">Pipe Reading Comprehension<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+<h3 class="callout-title">Pipe Reading Comprehension<a class="anchor" aria-label="anchor" href="#pipe-reading-comprehension"></a>
 </h3>
 <div class="callout-content">
 <p>A file called <code>animals.csv</code> (in the
@@ -886,12 +886,12 @@ lines:</p>
 </div>
 </div>
 </div>
-<div id="challenge6" class="callout challenge">
+<div id="pipe-construction" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="pipe-construction" class="callout-inner">
-<h3 class="callout-title">Pipe Construction<a class="anchor" aria-label="anchor" href="#challenge6"></a>
+<h3 class="callout-title">Pipe Construction<a class="anchor" aria-label="anchor" href="#pipe-construction"></a>
 </h3>
 <div class="callout-content">
 <p>For the file <code>animals.csv</code> from the previous exercise,
@@ -946,12 +946,12 @@ duplicates in their names)?</p>
 </div>
 </div>
 </div>
-<div id="challenge7" class="callout challenge">
+<div id="which-pipe" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="which-pipe" class="callout-inner">
-<h3 class="callout-title">Which Pipe?<a class="anchor" aria-label="anchor" href="#challenge7"></a>
+<h3 class="callout-title">Which Pipe?<a class="anchor" aria-label="anchor" href="#which-pipe"></a>
 </h3>
 <div class="callout-content">
 <p>The file <code>animals.csv</code> contains 8 lines of data formatted
@@ -1076,12 +1076,12 @@ analysis. She could delete them using <code>rm</code>, but there are
 actually some analyses she might do later where depth doesn’t matter, so
 instead, she’ll have to be careful later on to select files using the
 wildcard expressions <code>NENE*A.txt NENE*B.txt</code>.</p>
-<div id="challenge8" class="callout challenge">
+<div id="removing-unneeded-files" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="removing-unneeded-files" class="callout-inner">
-<h3 class="callout-title">Removing Unneeded Files<a class="anchor" aria-label="anchor" href="#challenge8"></a>
+<h3 class="callout-title">Removing Unneeded Files<a class="anchor" aria-label="anchor" href="#removing-unneeded-files"></a>
 </h3>
 <div class="callout-content">
 <p>Suppose you want to delete your processed data files, and only keep
@@ -1181,7 +1181,7 @@ single-purpose programs (filters).</li>
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -1205,7 +1205,7 @@ single-purpose programs (filters).</li>
   "identifier": "https://swcarpentry.github.io/shell-novice/instructor/04-pipefilter.html",
   "dateCreated": "2014-10-22",
   "dateModified": "2023-05-02",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>
