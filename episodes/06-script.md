@@ -609,7 +609,7 @@ cubane.pdb ethane.pdb methane.pdb octane.pdb pentane.pdb propane.pdb.pdb
 ## Debugging Scripts
 
 Suppose you have saved the following script in a file called `do-errors.sh`
-in Nelle's `north-pacific-gyre/scripts` directory:
+in Nelle's `north-pacific-gyre` directory:
 
 ```bash
 # Calculate stats for data files.
