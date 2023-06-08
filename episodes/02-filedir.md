@@ -768,8 +768,8 @@ $ ls -F /
 `ls` is the **command**, with an **option** `-F` and an
 **argument** `/`.
 We've already encountered options  which
-either start with a single dash (`-`) or two dashes (`--`),
-and they change the behavior of a command.
+either start with a single dash (`-`), known as **short options**, or two dashes (`--`), known as **long options**.
+[Options] change the behavior of a command and
 [Arguments] tell the command what to operate on (e.g. files and directories).
 Sometimes options and arguments are referred to as **parameters**.
 A command can be called with more than one option and more than one argument, but a
@@ -820,6 +820,23 @@ Applications/         System/
 Library/              Users/
 Network/              Volumes/
 ```
+
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+### When to use short or long options
+Sometimes options exist as both short and long options.
+In this case there are no rules about which to choose, but there is a good
+practice rule-of-thumb:
+
+- Use the short option when typing commands directly into bash. 
+  This helps to minimise typing and enable you to get your task done faster.
+- Use the long option when using commands in a bash script.
+  Long options are preferred in this situation because you will probably end up
+  writing the command only once but you, or other people, may need to read it many times! 
+  The long option is a better choice in this situation because it provides
+  greater clarity about the option being used.
+  
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Nelle's Pipeline: Organizing Files
 
