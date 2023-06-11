@@ -824,17 +824,12 @@ Network/              Volumes/
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 ### When to use short or long options
-Sometimes options exist as both short and long options.
-In this case there are no rules about which to choose, but there is a good
-practice rule-of-thumb:
+When options exist as both short and long options:
 
-- Use the short option when typing commands directly into bash. 
-  This helps to minimise typing and enable you to get your task done faster.
-- Use the long option when using commands in a bash script.
-  Long options are preferred in this situation because you will probably end up
-  writing the command only once but you, or other people, may need to read it many times! 
-  The long option is a better choice in this situation because it provides
-  greater clarity about the option being used.
+- Use the short option when typing commands directly into bash to minimise typing.
+  This enables you to get your task done faster.
+- Use the long option in scripts to provide clarity.
+  It will be read many times and typed ones.
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
