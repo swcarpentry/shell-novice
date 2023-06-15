@@ -75,7 +75,7 @@ three.
 ### Using GitHub
 
 If you choose to contribute via GitHub, you may want to look at [How to
-Contribute to an Open Source Project on GitHub][how-contribute]. In brief, we
+Contribute to an Open Source Project on GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github). In brief, we
 use [GitHub flow][github-flow] to manage changes:
 
 1. Create a new branch in your desktop copy of this repository for each
