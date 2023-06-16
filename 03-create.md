@@ -480,6 +480,15 @@ thesis_backup:
 quotations.txt
 ```
 
+It is important to include the `-r` flag. If you want to copy a directory and you omit this option
+you will see a message that the directory has been omitted because `-r not specified`.
+
+``` bash
+$ cp thesis thesis_backup
+cp: -r not specified; omitting directory 'thesis'
+```
+
+
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Renaming Files
@@ -1027,5 +1036,3 @@ as the 'data' directory.
 - Depending on the type of work you do, you may need a more powerful text editor than Nano.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
