@@ -480,7 +480,7 @@ thesis_backup:
 quotations.txt
 ```
 
-It is important to include the `-r` flag if you want to copy a directory and you omit this option
+It is important to include the `-r` flag. If you want to copy a directory and you omit this option
 you will see a message that the directory has been omitted because `-r not specified`.
 
 ``` bash
