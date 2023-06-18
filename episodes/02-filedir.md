@@ -768,7 +768,8 @@ $ ls -F /
 `ls` is the **command**, with an **option** `-F` and an
 **argument** `/`.
 We've already encountered options  which
-either start with a single dash (`-`), known as **short options**, or two dashes (`--`), known as **long options**.
+either start with a single dash (`-`), known as **short options**,
+or two dashes (`--`), known as **long options**.
 [Options] change the behavior of a command and
 [Arguments] tell the command what to operate on (e.g. files and directories).
 Sometimes options and arguments are referred to as **parameters**.
