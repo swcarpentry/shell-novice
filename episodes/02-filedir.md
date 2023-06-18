@@ -826,10 +826,10 @@ Network/              Volumes/
 ### When to use short or long options
 When options exist as both short and long options:
 
-- Use the short option when typing commands directly into bash to minimise typing.
-  This enables you to get your task done faster.
+- Use the short option when typing commands directly into
+the shell to minimize keystrokes and get your task done faster.
 - Use the long option in scripts to provide clarity.
-  It will be read many times and typed ones.
+  It will be read many times and typed once.
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
