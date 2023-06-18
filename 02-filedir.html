@@ -259,7 +259,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Navigating Files and Directories</h1>
-        <p> Last updated on 2023-05-02 | 
+        <p> Last updated on 2023-06-18 | 
         
         <a href="https://github.com/swcarpentry/shell-novice/edit/main/episodes/02-filedir.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -623,7 +623,7 @@ useful nevertheless.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The <code>-l</code> option makes <code>ls</code> use a
 <strong>l</strong>ong listing format, showing not only the
@@ -661,7 +661,7 @@ option to see the last changed dates.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The most recently changed file is listed last when using
 <code>-rt</code>. This can be very useful for finding your most recent
@@ -1010,7 +1010,7 @@ commands could Amanda use to navigate to her home directory, which is
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>No: <code>.</code> stands for the current directory.</li>
 <li>No: <code>/</code> stands for the root directory.</li>
@@ -1053,7 +1053,7 @@ display?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>No: there <em>is</em> a directory <code>backup</code> in
 <code>/Users</code>.</li>
@@ -1097,7 +1097,7 @@ following output:</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>No: <code>pwd</code> is not the name of a directory.</li>
 <li>Yes: <code>ls</code> without directory argument lists files and
@@ -1122,8 +1122,9 @@ we will dissect into its component parts:</p>
 <figure><img src="fig/shell_command_syntax.svg" alt="General syntax of a shell command" class="figure mx-auto d-block"></figure><p><code>ls</code> is the <strong>command</strong>, with an
 <strong>option</strong> <code>-F</code> and an <strong>argument</strong>
 <code>/</code>. We’ve already encountered options which either start
-with a single dash (<code>-</code>) or two dashes (<code>--</code>), and
-they change the behavior of a command. <a href="https://swcarpentry.github.io/shell-novice/reference.html#argument" class="external-link">Arguments</a>
+with a single dash (<code>-</code>), known as <strong>short
+options</strong>, or two dashes (<code>--</code>), known as <strong>long
+options</strong>. [Options] change the behavior of a command and <a href="https://swcarpentry.github.io/shell-novice/reference.html#argument" class="external-link">Arguments</a>
 tell the command what to operate on (e.g. files and directories).
 Sometimes options and arguments are referred to as
 <strong>parameters</strong>. A command can be called with more than one
@@ -1180,6 +1181,22 @@ command is given below:</p>
 <pre class="output" tabindex="0"><code>Applications/         System/
 Library/              Users/
 Network/              Volumes/</code></pre>
+</div>
+<div id="when-to-use-short-or-long-options" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="when-to-use-short-or-long-options" class="callout-inner">
+<h3 class="callout-title">When to use short or long options<a class="anchor" aria-label="anchor" href="#when-to-use-short-or-long-options"></a>
+</h3>
+<div class="callout-content">
+<p>When options exist as both short and long options:</p>
+<ul><li>Use the short option when typing commands directly into the shell to
+minimize keystrokes and get your task done faster.</li>
+<li>Use the long option in scripts to provide clarity. It will be read
+many times and typed once.</li>
+</ul></div>
+</div>
 </div>
 <div class="section level3">
 <h3 id="nelles-pipeline-organizing-files">Nelle’s Pipeline: Organizing Files<a class="anchor" aria-label="anchor" href="#nelles-pipeline-organizing-files"></a></h3>
@@ -1309,7 +1326,7 @@ location.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.3" class="external-link">sandpaper (0.12.3)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.4" class="external-link">sandpaper (0.12.4)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.17" class="external-link">varnish (0.2.17)</a>.</p>
 			</div>
@@ -1332,8 +1349,8 @@ location.</li>
   "url": "https://swcarpentry.github.io/shell-novice/02-filedir.html",
   "identifier": "https://swcarpentry.github.io/shell-novice/02-filedir.html",
   "dateCreated": "2014-10-22",
-  "dateModified": "2023-05-02",
-  "datePublished": "2023-06-16"
+  "dateModified": "2023-06-18",
+  "datePublished": "2023-06-18"
 }
 
   </script><script>
