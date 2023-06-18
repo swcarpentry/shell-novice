@@ -153,7 +153,12 @@ or other special characters, you should surround the name in quotes (`""`).
 
 :::::::::::::::::::::::::::::::::::::::::  instructor
 
-Learners can sometimes get trapped within command-line text editors such as Vim, Emacs, or Nano. Closing the terminal emulator and opening a new one can be frustrating as learners will have to navigate to the correct folder again. Our recommendation to mitigate this problem is that instructors should use the same text editor as the learners during workshops (in most cases Nano).
+Learners can sometimes get trapped within command-line text editors
+such as Vim, Emacs, or Nano. Closing the terminal emulator and opening
+a new one can be frustrating as learners will have to navigate to the
+correct folder again. Our recommendation to mitigate this problem is that
+instructors should use the same text editor as the learners during workshops
+(in most cases Nano).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
