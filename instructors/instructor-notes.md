@@ -140,13 +140,6 @@ as long as learners using Windows do not run into roadblocks such as:
 - Resources for "splitting" your shell so that recent commands
   remain in view: [https://github.com/rgaiacs/swc-shell-split-window](https://github.com/rgaiacs/swc-shell-split-window).
 
-- Learners can sometimes get trapped within command-line text editors such as
-  Vim, Emacs, or Nano.
-  Closing the terminal emulator and opening a new one can be frustrating
-  as learners will have to navigate to the correct folder again.
-  Our recommendation to mitigate this problem is that instructors should use
-  the same text editor as the learners during workshops (in most cases Nano).
-
 - Tab completion sounds like a small thing: it isn't.
   Re-running old commands using `!123` or `!wc`
   isn't a small thing either,
