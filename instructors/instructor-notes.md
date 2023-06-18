@@ -140,12 +140,6 @@ as long as learners using Windows do not run into roadblocks such as:
 - Resources for "splitting" your shell so that recent commands
   remain in view: [https://github.com/rgaiacs/swc-shell-split-window](https://github.com/rgaiacs/swc-shell-split-window).
 
-- Introducing and navigating the filesystem in the shell (covered in
-  [Navigating Files and Directories](02-filedir.md\) section)
-  can be confusing.
-  You may have both terminal and GUI file explorer open side by side so learners can see the
-  content and file structure while they're using terminal to navigate the system.
-
 - Tab completion sounds like a small thing: it isn't.
   Re-running old commands using `!123` or `!wc`
   isn't a small thing either,

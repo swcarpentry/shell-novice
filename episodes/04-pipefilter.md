@@ -327,7 +327,7 @@ In the first example with `>`, the string 'hello' is written to `testfile01.txt`
 but the file gets overwritten each time we run the command.
 
 We see from the second example that the `>>` operator also writes 'hello' to a file
-(in this case`testfile02.txt`),
+(in this case `testfile02.txt`),
 but appends the string to the file if it already exists
 (i.e. when we run it for the second time).
 
