@@ -26,12 +26,13 @@ introduce yourself and to meet some of our community members.
 
 2. If you have a [GitHub][github] account, or are willing to [create
    one][github-join], but do not know how to use Git, you can report problems
-   or suggest improvements by [creating an issue][issues]. This allows us to
-   assign the item to someone and to respond to it in a threaded discussion.
+   or suggest improvements by [creating an issue][repo-issues]. This allows us
+   to assign the item to someone and to respond to it in a threaded discussion.
 
 3. If you are comfortable with Git, and would like to add or change material,
    you can submit a pull request (PR). Instructions for doing this are
-   [included below](#using-github).
+   [included below](#using-github). For inspiration about changes that need to
+   be made, check out the [list of open issues][issues] across the Carpentries.
 
 Note: if you want to build the website locally, please refer to [The Workbench
 documentation][template-doc].
@@ -49,8 +50,8 @@ There are many ways to contribute, from writing new exercises and improving
 existing ones to updating or filling in the documentation and submitting [bug
 reports][issues] about things that do not work, are not clear, or are missing.
 If you are looking for ideas, please see [the list of issues for this
-repository][repo], or the issues for [Data Carpentry][dc-issues], [Library
-Carpentry][lc-issues], and [Software Carpentry][swc-issues] projects.
+repository][repo-issues], or the issues for [Data Carpentry][dc-issues],
+[Library Carpentry][lc-issues], and [Software Carpentry][swc-issues] projects.
 
 Comments on issues and reviews of pull requests are just as welcome: we are
 smarter together than we are on our own. **Reviews from novices and newcomers
@@ -102,6 +103,7 @@ media, slack, newsletters, and email lists. You can also [reach us by
 email][contact].
 
 [repo]: https://github.com/swcarpentry/shell-novice
+[repo-issues]: https://github.com/swcarpentry/shell-novice/issues
 [contact]: mailto:team@carpentries.org
 [cp-site]: https://carpentries.org/
 [dc-issues]: https://github.com/issues?q=user%3Adatacarpentry
