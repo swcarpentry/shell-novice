@@ -597,7 +597,7 @@ these are ones whose names end in 'A' or 'B', rather than 'Z'.
 Starting from her home directory, Nelle types:
 
 ```bash
-$ cd north-pacific-gyre
+$ cd Desktop/shell-lesson-data/north-pacific-gyre
 $ for datafile in NENE*A.txt NENE*B.txt
 > do
 >     echo $datafile
