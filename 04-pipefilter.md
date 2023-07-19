@@ -729,8 +729,8 @@ and *only* the processed data files?
 3. The shell would expand `*` to match everything in the current directory,
   so the command would try to remove all matched files and an additional
   file called `.txt`
-4. The shell would expand `*.*` to match all files with any extension,
-  so this command would delete all files
+4. The shell expands `*.*` to match all filenames containing at least one
+  `.`, including the processed files (`.txt`) *and* raw files (`.dat`)
   
   
 
