@@ -259,7 +259,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Loops</h1>
-        <p> Last updated on 2023-05-16 | 
+        <p> Last updated on 2023-07-23 | 
         
         <a href="https://github.com/swcarpentry/shell-novice/edit/main/episodes/05-loop.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -962,16 +962,17 @@ arguments:</p>
 </ol><p>Since she’s still learning how to use the shell, she decides to build
 up the required commands in stages. Her first step is to make sure that
 she can select the right input files — remember, these are ones whose
-names end in ‘A’ or ‘B’, rather than ‘Z’. Starting from her home
-directory, Nelle types:</p>
+names end in ‘A’ or ‘B’, rather than ‘Z’. Moving to the
+<code>north-pacific-gyre</code> directory, Nelle types:</p>
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd north-pacific-gyre</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> for datafile in NENE<span class="pp">*</span>A.txt NENE<span class="pp">*</span>B.txt</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> do</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>     echo <span class="va">$datafile</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd Desktop/shell-lesson-data/north-pacific-gyre</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> for datafile in NENE<span class="pp">*</span>A.txt NENE<span class="pp">*</span>B.txt</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> do</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span>     echo <span class="va">$datafile</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1327,7 +1328,7 @@ entered commands.</li>
   "url": "https://swcarpentry.github.io/shell-novice/05-loop.html",
   "identifier": "https://swcarpentry.github.io/shell-novice/05-loop.html",
   "dateCreated": "2014-10-22",
-  "dateModified": "2023-05-16",
+  "dateModified": "2023-07-23",
   "datePublished": "2023-07-23"
 }
 
