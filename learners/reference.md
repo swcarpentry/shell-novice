@@ -179,7 +179,7 @@ See also: [absolute path](#absolute-path).
 Its name is "/" on Unix (including Linux and macOS) and "\\" on Microsoft Windows.
 
 [shell]{#shell}
-:   A [command-line interface](#cli) such as Bash (the Bourne-Again Shell)
+:   A [command-line interface](#command-line-interface) such as Bash (the Bourne-Again Shell)
 or the Microsoft Windows DOS shell
 that allows a user to interact with the [operating system](#operating-system).
 
