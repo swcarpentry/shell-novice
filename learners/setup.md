@@ -107,7 +107,7 @@ you can run it by opening a terminal and typing `bash`.
 ::::::::::::
 
 [zip-file]: data/shell-lesson-data.zip
-[install_shell]: https://carpentries.github.io/workshop-template/#shell
+[install_shell]: https://carpentries.github.io/workshop-template/install_instructions/#shell
 [wsl]: https://learn.microsoft.com/en-us/windows/wsl/install
 [mac-terminal]: https://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/
 [gnome-terminal]: https://help.gnome.org/users/gnome-terminal/stable/
