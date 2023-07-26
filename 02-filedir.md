@@ -465,7 +465,7 @@ $ ls -F
 ```
 
 ```output
-animal-counts/  creatures/  numbers.txt  alkanes/  writing/
+alkanes/  animal-counts/  creatures/  numbers.txt  writing/
 ```
 
 We now know how to go down the directory tree (i.e. how to go into a subdirectory),
