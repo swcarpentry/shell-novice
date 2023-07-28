@@ -132,7 +132,7 @@ Spaces can make a name more meaningful,
 but since spaces are used to separate arguments on the command line
 it is better to avoid them in names of files and directories.
 You can use `-` or `_` instead (e.g. `north-pacific-gyre/` rather than `north pacific gyre/`).
-To test this out, try typing `mkdir north pacific gyre`and see what directory (or directories!)
+To test this out, try typing `mkdir north pacific gyre` and see what directory (or directories!)
 are made when you check with `ls -F`.
 
 2. Don't begin the name with `-` (dash).
