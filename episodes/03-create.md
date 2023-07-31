@@ -657,7 +657,7 @@ $ rm thesis
 ```
 
 ```error
-rm: cannot remove `thesis': Is a directory
+rm: cannot remove 'thesis': Is a directory
 ```
 
 This happens because `rm` by default only works on files, not directories.
