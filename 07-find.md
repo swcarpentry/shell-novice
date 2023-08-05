@@ -115,7 +115,7 @@ The Tao that is seen
 Note that a 'word boundary' includes the start and end of a line, so not
 just letters surrounded by spaces.
 Sometimes we don't
-want to search for a single word, but a phrase. This is also easy to do with
+want to search for a single word, but a phrase. We can also do this with
 `grep` by putting the phrase in quotes.
 
 ```bash
