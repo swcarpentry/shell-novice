@@ -48,7 +48,7 @@ We'll use a loop to solve this problem, but first let's look at the general form
 using the pseudo-code below:
 
 ```bash
-# The word "for" indicated the start of a "For-loop" command
+# The word "for" indicates the start of a "For-loop" command
 for thing in list_of_things 
 #The word "do" indicates the start of job execution list
 do 
