@@ -263,6 +263,18 @@ Mandatory arguments to long options are mandatory for short options, too.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
+### When to use short or long options
+When options exist as both short and long options:
+
+- Use the short option when typing commands directly into the
+   shell to minimize keystrokes and get your task done faster.
+- Use the long option in scripts to provide clarity.
+  It will be read many times and typed once.
+  
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
 ## Unsupported command-line options
 
 If you try to use an option that is not supported, `ls` and other commands
@@ -832,18 +844,6 @@ Applications/         System/
 Library/              Users/
 Network/              Volumes/
 ```
-
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-### When to use short or long options
-When options exist as both short and long options:
-
-- Use the short option when typing commands directly into the
-   shell to minimize keystrokes and get your task done faster.
-- Use the long option in scripts to provide clarity.
-  It will be read many times and typed once.
-  
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Nelle's Pipeline: Organizing Files
 
