@@ -663,13 +663,13 @@ Run `cd -` again and you're back in `~/Desktop/shell-lesson-data/exercise-data/c
 
 ## Absolute vs Relative Paths
 
-Starting from `/Users/amanda/data`,
-which of the following commands could Amanda use to navigate to her home directory,
-which is `/Users/amanda`?
+Starting from `/Users/nelle/data`,
+which of the following commands could Nelle use to navigate to her home directory,
+which is `/Users/nelle`?
 
 1. `cd .`
 2. `cd /`
-3. `cd /home/amanda`
+3. `cd /home/nelle`
 4. `cd ../..`
 5. `cd ~`
 6. `cd home`
@@ -683,9 +683,9 @@ which is `/Users/amanda`?
 
 1. No: `.` stands for the current directory.
 2. No: `/` stands for the root directory.
-3. No: Amanda's home directory is `/Users/amanda`.
+3. No: Nelle's home directory is `/Users/nelle`.
 4. No: this command goes up two levels, i.e. ends in `/Users`.
-5. Yes: `~` stands for the user's home directory, in this case `/Users/amanda`.
+5. Yes: `~` stands for the user's home directory, in this case `/Users/nelle`.
 6. No: this command would navigate into a directory `home` in the current directory
   if it exists.
 7. Yes: unnecessarily complicated, but correct.
