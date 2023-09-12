@@ -96,7 +96,7 @@ are okay.
 
 This update is run ~~weekly or~~ on demand.
 
-### 03 Maintain: Update Pacakge Cache (update-cache.yaml)
+### 03 Maintain: Update Package Cache (update-cache.yaml)
 
 For lessons that have generated content, we use {renv} to ensure that the output
 is stable. This is controlled by a single lockfile which documents the packages
