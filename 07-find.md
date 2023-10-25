@@ -272,7 +272,7 @@ the fact that patterns can include wildcards. (The technical name for
 these is **regular expressions**, which
 is what the 're' in 'grep' stands for.) Regular expressions are both complex
 and powerful; if you want to do complex searches, please look at the lesson
-on [our website](https://v4.software-carpentry.org/regexp/index.html). As a taster, we can
+on [our website](https://librarycarpentry.org/lc-data-intro/01-regular-expressions.html). As a taster, we can
 find lines that have an 'o' in the second position like this:
 
 ```bash
