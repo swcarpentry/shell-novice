@@ -650,10 +650,10 @@ Once you have thought about your answer, you can test the commands in the
 
 ## Solution
 
-Option 1. is correct. Putting the match expression in quotes prevents the shell
+Option 1 is correct. Putting the match expression in quotes prevents the shell
 expanding it, so it gets passed to the `find` command.
 
-Option 2 is also works in this instance because the shell tries to expand `*.dat`
+Option 2 also works in this instance because the shell tries to expand `*.dat`
 but there are no `*.dat` files in the current directory,
 so the wildcard expression gets passed to `find`.
 We first encountered this in
