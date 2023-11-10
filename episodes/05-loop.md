@@ -104,9 +104,8 @@ In this example, the list is three filenames: `basilisk.dat`, `minotaur.dat`, an
 Each time the loop iterates, we first use `echo` to print the value that the variable
 `$filename` currently holds. This is not necessary for the result, but beneficial for us here to
 have an easier time to follow along.
-Next, we will run the `head` command on the file currently referred to by $filename.
-The first time through the loop,
-`$filename` is `basilisk.dat`.
+Next, we will run the `head` command on the file currently referred to by `$filename`.
+The first time through the loop, `$filename` is `basilisk.dat`.
 The interpreter runs the command `head` on `basilisk.dat`
 and pipes the first two lines to the `tail` command,
 which then prints the second line of `basilisk.dat`.
