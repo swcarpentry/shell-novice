@@ -128,7 +128,7 @@ Underneath `/Users`,
 we find one directory for each user with an account on Nelle's machine,
 her colleagues *imhotep* and *larry*.
 
-![](fig/home-directories.svg){alt='Like other directories, home directories are sub-directories underneath"/Users" like "/Users/imhotep", "/Users/larry" or"/Users/nelle"'}
+![](fig/home-directories.svg){alt='Like other directories, home directories are sub-directories underneath "/Users" like "/Users/imhotep", "/Users/larry" or"/Users/nelle"'}
 
 The user *imhotep*'s files are stored in `/Users/imhotep`,
 user *larry*'s in `/Users/larry`,
@@ -710,7 +710,7 @@ what will `ls -F ../backup` display?
 3. `2012-12-01/ 2013-01-08/ 2013-01-27/`
 4. `original/ pnas_final/ pnas_sub/`
 
-![](fig/filesystem-challenge.svg){alt='A directory tree below the Users directory where "/Users" contains thedirectories "backup" and "thing"; "/Users/backup" contains "original","pnas\_final" and "pnas\_sub"; "/Users/thing" contains "backup"; and"/Users/thing/backup" contains "2012-12-01", "2013-01-08" and"2013-01-27"'}
+![](fig/filesystem-challenge.svg){alt='A directory tree below the Users directory where "/Users" contains the directories "backup" and "thing"; "/Users/backup" contains "original","pnas\_final" and "pnas\_sub"; "/Users/thing" contains "backup"; and"/Users/thing/backup" contains "2012-12-01", "2013-01-08" and"2013-01-27"'}
 
 :::::::::::::::  solution
 
@@ -741,7 +741,7 @@ what command(s) will result in the following output:
 pnas_sub/ pnas_final/ original/
 ```
 
-![](fig/filesystem-challenge.svg){alt='A directory tree below the Users directory where "/Users" contains thedirectories "backup" and "thing"; "/Users/backup" contains "original","pnas\_final" and "pnas\_sub"; "/Users/thing" contains "backup"; and"/Users/thing/backup" contains "2012-12-01", "2013-01-08" and"2013-01-27"'}
+![](fig/filesystem-challenge.svg){alt='A directory tree below the Users directory where "/Users" contains the directories "backup" and "thing"; "/Users/backup" contains "original","pnas\_final" and "pnas\_sub"; "/Users/thing" contains "backup"; and"/Users/thing/backup" contains "2012-12-01", "2013-01-08" and"2013-01-27"'}
 
 1. `ls pwd`
 2. `ls -r -F`
