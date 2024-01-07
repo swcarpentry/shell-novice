@@ -91,7 +91,7 @@ which will be constructed in a similar way, but not be exactly identical.
 
 On Nelle's computer, the filesystem looks like this:
 
-![](fig/filesystem.svg){alt='The file system is made up of a root directory that contains sub-directoriestitled bin, data, users, and tmp'}
+![](fig/filesystem.svg){alt='The file system is made up of a root directory that contains sub-directories titled bin, data, users, and tmp'}
 
 The filesystem looks like an upside down tree. 
 The topmost directory  is the **root directory**
