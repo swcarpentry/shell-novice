@@ -538,7 +538,7 @@ commands need to be run and how to run them.</li>
 </div>
 </section></section><section id="aio-02-filedir"><p>Content from <a href="02-filedir.html">Navigating Files and Directories</a></p>
 <hr>
-<p>Last updated on 2023-08-14 |
+<p>Last updated on 2024-01-08 |
         
         <a href="https://github.com/swcarpentry/shell-novice/edit/main/episodes/02-filedir.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 40 minutes</p>
@@ -587,7 +587,7 @@ advantages.</li>
   <h3 class="accordion-header" id="headingInstructor1">
 <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>Instructor Note</h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Introducing and navigating the filesystem in the shell (covered in <a href="02-filedir.html">Navigating Files and Directories</a> section) can
 be confusing. You may have both terminal and GUI file explorer open side
@@ -655,7 +655,7 @@ After this illustration, you’ll be learning commands to explore your own
 filesystem, which will be constructed in a similar way, but not be
 exactly identical.</p>
 <p>On Nelle’s computer, the filesystem looks like this:</p>
-<figure><img src="../fig/filesystem.svg" alt="The file system is made up of a root directory that contains sub-directoriestitled bin, data, users, and tmp" class="figure mx-auto d-block"></figure><p>The filesystem looks like an upside down tree. The topmost directory
+<figure><img src="../fig/filesystem.svg" alt="The file system is made up of a root directory that contains sub-directories titled bin, data, users, and tmp" class="figure mx-auto d-block"></figure><p>The filesystem looks like an upside down tree. The topmost directory
 is the <strong>root directory</strong> that holds everything else. We
 refer to it using a slash character, <code>/</code>, on its own; this
 character is the leading slash in <code>/Users/nelle</code>.</p>
@@ -687,7 +687,7 @@ separator.</p>
 <p>Underneath <code>/Users</code>, we find one directory for each user
 with an account on Nelle’s machine, her colleagues <em>imhotep</em> and
 <em>larry</em>.</p>
-<figure><img src="../fig/home-directories.svg" alt='Like other directories, home directories are sub-directories underneath"/Users" like "/Users/imhotep", "/Users/larry" or"/Users/nelle"' class="figure mx-auto d-block"></figure><p>The user <em>imhotep</em>’s files are stored in
+<figure><img src="../fig/home-directories.svg" alt='Like other directories, home directories are sub-directories underneath "/Users" like "/Users/imhotep", "/Users/larry" or"/Users/nelle"' class="figure mx-auto d-block"></figure><p>The user <em>imhotep</em>’s files are stored in
 <code>/Users/imhotep</code>, user <em>larry</em>’s in
 <code>/Users/larry</code>, and Nelle’s in <code>/Users/nelle</code>.
 Nelle is the user in our examples here; therefore, we get
@@ -924,7 +924,7 @@ useful nevertheless.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The <code>-l</code> option makes <code>ls</code> use a
 <strong>l</strong>ong listing format, showing not only the
@@ -960,7 +960,7 @@ option to see the last changed dates.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The most recently changed file is listed last when using
 <code>-rt</code>. This can be very useful for finding your most recent
@@ -1311,7 +1311,7 @@ commands could Nelle use to navigate to her home directory, which is
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>No: <code>.</code> stands for the current directory.</li>
@@ -1348,7 +1348,7 @@ display?</p>
 <li><code>2012-12-01/ 2013-01-08/ 2013-01-27/</code></li>
 <li><code>original/ pnas_final/ pnas_sub/</code></li>
 </ol>
-<figure><img src="../fig/filesystem-challenge.svg" alt='A directory tree below the Users directory where "/Users" contains thedirectories "backup" and "thing"; "/Users/backup" contains "original","pnas_final" and "pnas_sub"; "/Users/thing" contains "backup"; and"/Users/thing/backup" contains "2012-12-01", "2013-01-08" and"2013-01-27"' class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/filesystem-challenge.svg" alt='A directory tree below the Users directory where "/Users" contains the directories "backup" and "thing"; "/Users/backup" contains "original","pnas_final" and "pnas_sub"; "/Users/thing" contains "backup"; and"/Users/thing/backup" contains "2012-12-01", "2013-01-08" and"2013-01-27"' class="figure mx-auto d-block"></figure>
 </div>
 </div>
 </div>
@@ -1357,7 +1357,7 @@ display?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Show me the solution</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>No: there <em>is</em> a directory <code>backup</code> in
@@ -1390,7 +1390,7 @@ following output:</p>
 </h3>
 <pre class="output" tabindex="0"><code>pnas_sub/ pnas_final/ original/</code></pre>
 </div>
-<figure><img src="../fig/filesystem-challenge.svg" alt='A directory tree below the Users directory where "/Users" contains thedirectories "backup" and "thing"; "/Users/backup" contains "original","pnas_final" and "pnas_sub"; "/Users/thing" contains "backup"; and"/Users/thing/backup" contains "2012-12-01", "2013-01-08" and"2013-01-27"' class="figure mx-auto d-block"></figure><ol style="list-style-type: decimal">
+<figure><img src="../fig/filesystem-challenge.svg" alt='A directory tree below the Users directory where "/Users" contains the directories "backup" and "thing"; "/Users/backup" contains "original","pnas_final" and "pnas_sub"; "/Users/thing" contains "backup"; and"/Users/thing/backup" contains "2012-12-01", "2013-01-08" and"2013-01-27"' class="figure mx-auto d-block"></figure><ol style="list-style-type: decimal">
 <li><code>ls pwd</code></li>
 <li><code>ls -r -F</code></li>
 <li><code>ls -r -F /Users/backup</code></li>
@@ -1403,7 +1403,7 @@ following output:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5">Show me the solution</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>No: <code>pwd</code> is not the name of a directory.</li>
@@ -6443,8 +6443,8 @@ command.</li>
   "url": "https://swcarpentry.github.io/shell-novice/instructor/aio.html",
   "identifier": "https://swcarpentry.github.io/shell-novice/instructor/aio.html",
   "dateCreated": "2014-10-22",
-  "dateModified": "2024-01-02",
-  "datePublished": "2024-01-02"
+  "dateModified": "2024-01-08",
+  "datePublished": "2024-01-08"
 }
 
   </script><script>
