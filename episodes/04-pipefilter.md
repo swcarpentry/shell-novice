@@ -550,7 +550,7 @@ $ cut -d , -f 2 animals.csv
 
 The `cut` command is used to remove or 'cut out' certain sections of each line in the file,
 and `cut` expects the lines to be separated into columns by a <kbd>Tab</kbd> character.
-A character used in this way is a called a **delimiter**.
+A character used in this way is called a **delimiter**.
 In the example above we use the `-d` option to specify the comma as our delimiter character.
 We have also used the `-f` option to specify that we want to extract the second field (column).
 This gives the following output:
