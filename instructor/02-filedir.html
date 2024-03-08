@@ -268,7 +268,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Navigating Files and Directories</h1>
-        <p>Last updated on 2024-01-08 |
+        <p>Last updated on 2024-03-08 |
         
         <a href="https://github.com/swcarpentry/shell-novice/edit/main/episodes/02-filedir.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -320,7 +320,7 @@ advantages.</li>
   <h3 class="accordion-header" id="headingInstructor1">
 <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>Instructor Note</h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Introducing and navigating the filesystem in the shell (covered in <a href="02-filedir.html">Navigating Files and Directories</a> section) can
 be confusing. You may have both terminal and GUI file explorer open side
@@ -563,6 +563,21 @@ Mandatory arguments to long options are mandatory for short options, too.
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="when-to-use-short-or-long-options">When to use short or long options<a class="anchor" aria-label="anchor" href="#when-to-use-short-or-long-options"></a></h3>
+<div class="callout-content">
+<p>When options exist as both short and long options:</p>
+<ul><li>Use the short option when typing commands directly into the shell to
+minimize keystrokes and get your task done faster.</li>
+<li>Use the long option in scripts to provide clarity. It will be read
+many times and typed once.</li>
+</ul></div>
+</div>
+</div>
+<div id="callout6" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="section level3 callout-title callout-inner">
 <h3 class="callout-title" id="unsupported-command-line-options">Unsupported command-line options<a class="anchor" aria-label="anchor" href="#unsupported-command-line-options"></a></h3>
 <div class="callout-content">
 <p>If you try to use an option that is not supported, <code>ls</code>
@@ -602,7 +617,7 @@ using <kbd>N</kbd> (for moving forward) and
 <kbd>Shift</kbd>+<kbd>N</kbd> (for moving backward).</p>
 <p>To <strong>quit</strong> the <code>man</code> pages, press
 <kbd>Q</kbd>.</p>
-<div id="callout6" class="callout">
+<div id="callout7" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -642,7 +657,7 @@ useful nevertheless.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The <code>-l</code> option makes <code>ls</code> use a
 <strong>l</strong>ong listing format, showing not only the
@@ -678,7 +693,7 @@ option to see the last changed dates.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The most recently changed file is listed last when using
 <code>-rt</code>. This can be very useful for finding your most recent
@@ -855,7 +870,7 @@ soon.</p>
 <p>Note that in most command line tools, multiple options can be
 combined with a single <code>-</code> and no spaces between the options;
 <code>ls -F -a</code> is equivalent to <code>ls -Fa</code>.</p>
-<div id="callout7" class="callout">
+<div id="callout8" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -946,7 +961,7 @@ move to <code>shell-lesson-data</code>.</p>
 </div>
 <p>Run <code>pwd</code> and <code>ls -F</code> to ensure that we’re in
 the directory we expect.</p>
-<div id="callout8" class="callout">
+<div id="callout9" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -1023,7 +1038,7 @@ commands could Nelle use to navigate to her home directory, which is
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>No: <code>.</code> stands for the current directory.</li>
 <li>No: <code>/</code> stands for the root directory.</li>
@@ -1064,7 +1079,7 @@ display?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Show me the solution</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>No: there <em>is</em> a directory <code>backup</code> in
 <code>/Users</code>.</li>
@@ -1106,7 +1121,7 @@ following output:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5">Show me the solution</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>No: <code>pwd</code> is not the name of a directory.</li>
 <li>Yes: <code>ls</code> without directory argument lists files and
@@ -1190,21 +1205,6 @@ command is given below:</p>
 <pre class="output" tabindex="0"><code>Applications/         System/
 Library/              Users/
 Network/              Volumes/</code></pre>
-</div>
-<div id="callout9" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="when-to-use-short-or-long-options">When to use short or long options<a class="anchor" aria-label="anchor" href="#when-to-use-short-or-long-options"></a></h3>
-<div class="callout-content">
-<p>When options exist as both short and long options:</p>
-<ul><li>Use the short option when typing commands directly into the shell to
-minimize keystrokes and get your task done faster.</li>
-<li>Use the long option in scripts to provide clarity. It will be read
-many times and typed once.</li>
-</ul></div>
-</div>
 </div>
 <div class="section level3">
 <h3 id="nelles-pipeline-organizing-files">Nelle’s Pipeline: Organizing Files<a class="anchor" aria-label="anchor" href="#nelles-pipeline-organizing-files"></a></h3>
@@ -1340,7 +1340,7 @@ location.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.2" class="external-link">sandpaper (0.16.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.3" class="external-link">pegboard (0.7.3)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.1" class="external-link">varnish (1.0.1)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.2" class="external-link">sandpaper (0.16.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.4" class="external-link">pegboard (0.7.4)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.1" class="external-link">varnish (1.0.1)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1362,8 +1362,8 @@ location.</li>
   "url": "https://swcarpentry.github.io/shell-novice/instructor/02-filedir.html",
   "identifier": "https://swcarpentry.github.io/shell-novice/instructor/02-filedir.html",
   "dateCreated": "2014-10-22",
-  "dateModified": "2024-01-08",
-  "datePublished": "2024-03-05"
+  "dateModified": "2024-03-08",
+  "datePublished": "2024-03-08"
 }
 
   </script><script>
