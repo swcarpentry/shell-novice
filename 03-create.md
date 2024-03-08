@@ -322,7 +322,7 @@ Naming a PNG image of a whale as `whale.mp3` doesn't somehow
 magically turn it into a recording of whale song, though it *might*
 cause the operating system to associate the file with a music player
 program. In this case, if someone double-clicked `whale.mp3` in a file
-explorer program,the music player will automatically (and erroneously)
+explorer program, the music player will automatically (and erroneously)
 attempt to open the `whale.mp3` file.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
