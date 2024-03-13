@@ -331,7 +331,7 @@ sequence in one command in order to achieve Leah's goal:
 cut -d : -f 2
 >
 |
-grep -w $1 -r $2
+grep -w -n $1 -r $2
 |
 $1.txt
 cut -d , -f 1,3
