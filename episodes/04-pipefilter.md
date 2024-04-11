@@ -6,16 +6,17 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Redirect a command's output to a file.
-- Construct command pipelines with two or more stages.
-- Explain what usually happens if a program or pipeline isn't given any input to process.
 - Explain the advantage of linking commands with pipes and filters.
+- Combine commands in more than one stages to get new output
+- Redirect a command's output to a file.
+- Explain what usually happens if a program or pipeline isn't given any input to process.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I combine existing commands to do new things?
+- How can I produce various forms of the output of existing commands? How to show only part of the output? ( -> command line switches and pipes)
+- How can I combine existing commands to do new things? ( -> pipes)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
