@@ -15,7 +15,8 @@ exercises: 10
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I produce various forms of the output of existing commands? How to show only part of the output? ( -> command line switches and pipes)
+- How can I combine existing commands to produce a desired output?
+- How can I show only part of the output? 
 - How can I combine existing commands to do new things? ( -> pipes)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
