@@ -17,7 +17,6 @@ exercises: 10
 
 - How can I combine existing commands to produce a desired output?
 - How can I show only part of the output? 
-- How can I combine existing commands to do new things? ( -> pipes)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
