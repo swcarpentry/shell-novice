@@ -7,7 +7,7 @@ exercises: 10
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Explain the advantage of linking commands with pipes and filters.
-- Combine commands in more than one stages to get new output
+- Combine sequences of commands to get new output
 - Redirect a command's output to a file.
 - Explain what usually happens if a program or pipeline isn't given any input to process.
 
