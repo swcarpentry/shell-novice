@@ -311,7 +311,7 @@ Sometimes a search will result in multiple hits.
 If so, you can move between hits using <kbd>N</kbd> (for moving forward) and
 <kbd>Shift</kbd>\+<kbd>N</kbd> (for moving backward).
 
-To **quit** the `man` pages, press <kbd>Q</kbd>.
+To **quit** the `man` pages, press <kbd>q</kbd>.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
