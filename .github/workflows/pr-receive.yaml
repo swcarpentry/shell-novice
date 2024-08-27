@@ -25,7 +25,7 @@ jobs:
       - name: "Upload PR number"
         id: upload
         if: ${{ always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pr
           path: ${{ github.workspace }}/NR
@@ -58,10 +58,10 @@ jobs:
       MD: ${{ github.workspace }}/site/built
     steps:
       - name: "Check Out Main Branch"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: "Check Out Staging Branch"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: md-outputs
           path: ${{ env.MD }}
@@ -107,20 +107,20 @@ jobs:
         shell: Rscript {0}
 
       - name: "Upload PR"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pr
           path: ${{ env.PR }}
 
       - name: "Upload Diff"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: diff
           path: ${{ env.CHIVE }}
           retention-days: 1
 
       - name: "Upload Build"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: built
           path: ${{ env.MD }}
