@@ -111,6 +111,7 @@ jobs:
         with:
           name: pr
           path: ${{ env.PR }}
+          overwrite: true
 
       - name: "Upload Diff"
         uses: actions/upload-artifact@v4
