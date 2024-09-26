@@ -605,10 +605,11 @@ $ for datafile in NENE*A.txt NENE*B.txt
 
 ```output
 NENE01729A.txt
-NENE01729B.txt
 NENE01736A.txt
+NENE01751A.txt
+
 ...
-NENE02043A.txt
+NENE02040B.txt
 NENE02043B.txt
 ```
 
@@ -626,10 +627,10 @@ $ for datafile in NENE*A.txt NENE*B.txt
 
 ```output
 NENE01729A.txt stats-NENE01729A.txt
-NENE01729B.txt stats-NENE01729B.txt
-NENE01736A.txt stats-NENE01736A.txt
+NENE01736A.txt stats-NENE01729A.txt
+NENE01751A.txt stats-NENE01729A.txt
 ...
-NENE02043A.txt stats-NENE02043A.txt
+NENE02040B.txt stats-NENE02040B.txt
 NENE02043B.txt stats-NENE02043B.txt
 ```
 
@@ -685,8 +686,8 @@ it produces one line of output every five seconds or so:
 
 ```output
 NENE01729A.txt
-NENE01729B.txt
 NENE01736A.txt
+NENE01751A.txt
 ...
 ```
 
