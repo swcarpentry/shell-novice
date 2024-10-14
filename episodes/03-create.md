@@ -161,6 +161,12 @@ correct folder again. Our recommendation to mitigate this problem is that
 instructors should use the same text editor as the learners during workshops
 (in most cases Nano).
 
+Whether or not your Bash shell is case-sensitive is normally determined by the underlying operating system. In most implementations of Bash it is case sensitive. On MacOS, however, it is not case sensitive.
+
+It can be a good practice to use all lowercase for files and directories, but this is not a rule; you are likely to see uppercase used in practice. This effect is negligible if the letter isn't the first letter in the name, so it's not an issue if you use naming standards such as camelCase.
+
+
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Create a text file
