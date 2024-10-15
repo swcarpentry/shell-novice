@@ -21,7 +21,10 @@ on:
 jobs:
   full-build:
     name: "Build Full Site"
-    runs-on: ubuntu-latest
+
+    # 2024-10-01: ubuntu-latest is now 24.04 and R is not installed by default in the runner image
+    # pin to 22.04 for now
+    runs-on: ubuntu-22.04
     permissions:
       checks: write
       contents: write
