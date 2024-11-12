@@ -13,7 +13,7 @@ jobs:
   test-pr:
     name: "Record PR number"
     if: ${{ github.event.action != 'closed' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       is_valid: ${{ steps.check-pr.outputs.VALID }}
     steps:
@@ -48,7 +48,7 @@ jobs:
   build-md-source:
     name: "Build markdown source files if valid"
     needs: test-pr
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: ${{ needs.test-pr.outputs.is_valid == 'true' }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
