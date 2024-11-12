@@ -20,7 +20,7 @@ jobs:
   #  - no .github files were committed
   test-pr:
     name: "Test if pull request is valid"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: >
       github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.conclusion == 'success'
@@ -74,7 +74,7 @@ jobs:
   create-branch:
     name: "Create Git Branch"
     needs: test-pr
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: ${{ needs.test-pr.outputs.is_valid == 'true' }}
     env:
       NR: ${{ needs.test-pr.outputs.number }}
@@ -120,7 +120,7 @@ jobs:
   comment-pr:
     name: "Comment on Pull Request"
     needs: [test-pr, create-branch]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: ${{ needs.test-pr.outputs.is_valid == 'true' }}
     env:
       NR: ${{ needs.test-pr.outputs.number }}
@@ -150,7 +150,7 @@ jobs:
   comment-changed-workflow:
     name: "Comment if workflow files have changed"
     needs: test-pr
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: ${{ always() && needs.test-pr.outputs.is_valid == 'false' }}
     env:
       NR: ${{ github.event.workflow_run.pull_requests[0].number }}
@@ -182,4 +182,3 @@ jobs:
         with:
           pr: ${{ env.NR }}
           body: ${{ env.body }}
-

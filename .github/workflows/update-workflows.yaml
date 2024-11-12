@@ -18,7 +18,7 @@ on:
 jobs:
   check_token:
     name: "Check SANDPAPER_WORKFLOW token"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       workflow: ${{ steps.validate.outputs.wf }}
       repo: ${{ steps.validate.outputs.repo }}
@@ -31,7 +31,7 @@ jobs:
 
   update_workflow:
     name: "Update Workflow"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: check_token
     if: ${{ needs.check_token.outputs.workflow == 'true' }}
     steps:

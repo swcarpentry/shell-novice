@@ -11,7 +11,7 @@ jobs:
   test-pr:
     name: "Test if pull request is valid"
     if: ${{ github.event.action != 'closed' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       is_valid: ${{ steps.check-pr.outputs.VALID }}
     permissions:
