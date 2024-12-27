@@ -755,7 +755,7 @@ list of matching filenames *before* running the preceding command.
 As an exception, if a wildcard expression does not match
 any file, Bash will pass the expression as an argument to the command
 as it is. For example, typing `ls *.pdf` in the `alkanes` directory
-(which contains only files with names ending with `.pdb`) results in
+(which contains only files with names ending with `.pdf`) results in
 an error message that there is no file called `*.pdf`.
 However, generally commands like `wc` and `ls` see the lists of
 file names matching these expressions, but not the wildcards
