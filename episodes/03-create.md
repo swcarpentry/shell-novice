@@ -31,7 +31,7 @@ using the `exercise-data/writing` directory as an example.
 ### Step one: see where we are and what we already have
 
 We should still be in the `shell-lesson-data` directory on the Desktop,
-which we can check using:
+which we can check using (pwd stands for print working directory):
 
 ```bash
 $ pwd
