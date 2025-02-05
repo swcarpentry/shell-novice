@@ -405,6 +405,35 @@ Note that if a directory named `Desktop` does not exist in your current working 
 this command will return an error. Typically, a `Desktop` directory exists in your
 home directory, which we assume is the current working directory of your bash shell.
 
+:::::::::::::: callout
+
+### OneDrive Variations
+
+If a Windows machine is backed up with OneDrive, your Desktop may
+  be rendered from a folder within OneDrive, which will not match the contents of `~/Desktop`.
+  The OneDrive desktop should be accessible using one of the following commands
+  (if the name of the enterprise/org isn't clear, look through the output of `ls` to find
+  the right folder):
+  
+  ```bash
+  $ cd "~/OneDrive - Name Of Enterprise/Desktop"
+  $ cd "C:/Users/Username/OneDrive - Name Of Enterprise/Desktop"
+  ```
+
+Note: The quotation marks are needed since the Unix shell interprets spaces to be meaningful separators between files/commands/options.
+
+::: instructor
+
+  One way to spot if the computer is using this kind of configuration is to look at files,
+  folders or links on the desktop. Usually the icon contains a shortcut/arrow symbol if it
+  is a link, or just the plain icon if the file is just saved in the `Desktop` folder.
+  Files synced with OneDrive contain an additional symbol indicating the sync status
+  (typically blue arrows for 'sync pending' or a green tick for 'synced').
+
+::::::::::::::
+
+::::::::::::::::::::::
+
 Your output should be a list of all the files and sub-directories in your
 Desktop directory, including the `shell-lesson-data` directory you downloaded at
 the [setup for this lesson](../learners/setup.md). (On most systems, the
