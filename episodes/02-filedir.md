@@ -69,7 +69,7 @@ The home directory path will look different on different operating systems.
 On Linux, it may look like `/home/nelle`,
 and on Windows, it will be similar to `C:\Documents and Settings\nelle` or
 `C:\Users\nelle`.
-(Note that it may look slightly different for different versions of Windows.)
+(Note that Windows OneDrive does not follow these expectations.)
 In future examples, we've used Mac output as the default - Linux and Windows
 output may differ slightly but should be generally similar.
 
