@@ -424,7 +424,7 @@ Note: The quotation marks are needed since the Unix shell interprets spaces to b
 
 ::: instructor
 
-  One way to spot if the computer is using this kind of configuration is to look at files,
+  One way to spot if the computer is using this kind of configuration with OneDrive is to look at files,
   folders or links on the desktop. Usually the icon contains a shortcut/arrow symbol if it
   is a link, or just the plain icon if the file is just saved in the `Desktop` folder.
   Files synced with OneDrive contain an additional symbol indicating the sync status
