@@ -410,16 +410,23 @@ home directory, which we assume is the current working directory of your bash sh
 ### OneDrive Variations
 
 If a Windows machine is backed up with OneDrive, your Desktop may
-  have been moved within OneDrive and you will get an error when you try `ls -F Desktop`.
-  The OneDrive desktop should be accessible using one of the following commands
-  (if the name of the enterprise/org isn't clear, look through the output of `ls` to find
-  the right folder):
-  
-  ```bash
-  $ cd "~/OneDrive - Name Of Enterprise/Desktop"
-  $ cd "C:/Users/Username/OneDrive - Name Of Enterprise/Desktop"
-  ```
+have been moved within OneDrive and you will get an error when you try `ls -F Desktop`.
 
+To check if this is true for you, run the command `ls` and look through the output for a folder that has "OneDrive" in the name and note that folder name. It will likely include the name of your organization in it.  It may be something like `OneDrive - University of Example`. 
+  
+If you don't see a "OneDrive" folder, you may not be in your home folder or there may be another issue going on.  To check you are in your home folder, type `pwd` and it should show something like `C:/Users/Username` or `/c/Users/Username`.
+
+If you do see the "OneDrive" folder, going forward whenever the lesson or instructor uses the `Desktop` folder, you will need to include the OneDrive folder as well. For example if the instructor types...
+
+``` bash
+ls -F Desktop
+```
+
+You will need to type:
+
+```bash
+ls -F "OneDrive - Name Of Enterprise/Desktop"
+```
 Note: The quotation marks are needed for this folder because the Unix shell interprets spaces to be meaningful separators between files/commands/options but this folder has spaces in the name.
 
 ::: instructor
