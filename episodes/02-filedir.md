@@ -410,7 +410,7 @@ home directory, which we assume is the current working directory of your bash sh
 ### OneDrive Variations
 
 If a Windows machine is backed up with OneDrive, your Desktop may
-  be rendered from a folder within OneDrive, which will not match the contents of `~/Desktop`.
+  have been moved within OneDrive and you will get an error when you try `ls -F Desktop`.
   The OneDrive desktop should be accessible using one of the following commands
   (if the name of the enterprise/org isn't clear, look through the output of `ls` to find
   the right folder):
@@ -420,7 +420,7 @@ If a Windows machine is backed up with OneDrive, your Desktop may
   $ cd "C:/Users/Username/OneDrive - Name Of Enterprise/Desktop"
   ```
 
-Note: The quotation marks are needed since the Unix shell interprets spaces to be meaningful separators between files/commands/options.
+Note: The quotation marks are needed for this folder because the Unix shell interprets spaces to be meaningful separators between files/commands/options but this folder has spaces in the name.
 
 ::: instructor
 
