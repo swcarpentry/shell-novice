@@ -425,7 +425,7 @@ ls -F Desktop
 You will need to type:
 
 ```bash
-ls -F "OneDrive - Name Of Enterprise/Desktop"
+ls -F "OneDrive - University of Example/Desktop"
 ```
 Note: The quotation marks are needed for this folder because the Unix shell interprets spaces to be meaningful separators between files/commands/options but this folder has spaces in the name.
 
