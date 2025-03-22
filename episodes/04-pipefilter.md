@@ -614,7 +614,7 @@ the total count of each type of animal in the file?
 
 ## Solution
 
-Option 4. is the correct answer.
+Option 4 is the correct answer.
 If you have difficulty understanding why, try running the commands, or sub-sections of
 the pipelines (make sure you are in the `shell-lesson-data/exercise-data/animal-counts`
 directory).
