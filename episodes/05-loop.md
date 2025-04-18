@@ -204,7 +204,7 @@ $ for loop_variable in 0 1 2 3 4 5 6 7 8 9
 8
 9
 ```
-
+Alternatively, try replacing the enumeration of integers `0 1 2 3 4 5 6 7 8 9` by `{0..9}` to obtain an identical output.    
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
