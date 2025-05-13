@@ -405,6 +405,42 @@ Note that if a directory named `Desktop` does not exist in your current working 
 this command will return an error. Typically, a `Desktop` directory exists in your
 home directory, which we assume is the current working directory of your bash shell.
 
+:::::::::::::: callout
+
+### OneDrive Variations
+
+If a Windows machine is backed up with OneDrive, your Desktop may
+have been moved within OneDrive and you will get an error when you try `ls -F Desktop`.
+
+To check if this is true for you, run the command `ls` and look through the output for a folder that has "OneDrive" in the name and note that folder name. It will likely include the name of your organization in it.  It may be something like `OneDrive - University of Example`. 
+  
+If you don't see a "OneDrive" folder, you may not be in your home folder or there may be another issue going on.  To check you are in your home folder, type `pwd` and it should show something like `C:/Users/Username` or `/c/Users/Username`.
+
+If you do see the "OneDrive" folder, going forward whenever the lesson or instructor uses the `Desktop` folder, you will need to include the OneDrive folder as well. For example if the instructor types...
+
+``` bash
+ls -F Desktop
+```
+
+You will need to type:
+
+```bash
+ls -F "OneDrive - University of Example/Desktop"
+```
+Note: The quotation marks are needed for this folder because the Unix shell interprets spaces to be meaningful separators between files/commands/options but this folder has spaces in the name.
+
+::: instructor
+
+  One way to spot if the computer is using this kind of configuration with OneDrive is to look at files,
+  folders or links on the desktop. Usually the icon contains a shortcut/arrow symbol if it
+  is a link, or just the plain icon if the file is just saved in the `Desktop` folder.
+  Files synced with OneDrive contain an additional symbol indicating the sync status
+  (typically blue arrows for 'sync pending' or a green tick for 'synced').
+
+::::::::::::::
+
+::::::::::::::::::::::
+
 Your output should be a list of all the files and sub-directories in your
 Desktop directory, including the `shell-lesson-data` directory you downloaded at
 the [setup for this lesson](../learners/setup.md). (On most systems, the
