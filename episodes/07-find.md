@@ -397,6 +397,8 @@ do
 done
 ```
 
+The `-o` option for `grep` (short for --only-matching) prints each matched part of the line on a separate output line. This is useful when you want to count the total number of occurrences of a pattern, rather than the number of lines containing the pattern. By piping the output of `grep -o` to `wc -l` (word count - lines), we can count each occurrence individually.
+
 Alternative, slightly inferior solution:
 
 ```source
