@@ -97,6 +97,9 @@
     <loc>https://swcarpentry.github.io/shell-novice/instructor/reference.html</loc>
   </url>
   <url>
+    <loc>https://swcarpentry.github.io/shell-novice/instructor/resources.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/shell-novice/instructor-notes.html</loc>
   </url>
   <url>
@@ -107,5 +110,8 @@
   </url>
   <url>
     <loc>https://swcarpentry.github.io/shell-novice/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/shell-novice/resources.html</loc>
   </url>
 </urlset>
