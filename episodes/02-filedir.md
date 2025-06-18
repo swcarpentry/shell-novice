@@ -179,13 +179,15 @@ we can see that the home directory contains only **sub-directories**.
 Any names in the output that don't have a classification symbol
 are **files** in the current working directory.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+:::::::::::::::::::::::::::::::::::::::::  spoiler
 
 ## Clearing your terminal
 
 If your screen gets too cluttered, you can clear your terminal using the
 `clear` command. You can still access previous commands using <kbd>↑</kbd>
 and <kbd>↓</kbd> to move line-by-line, or by scrolling in your terminal.
+
+For some Linux systems, `clear` may also clear the scrollbuffer and you will not be able to scroll back when using `clear` without changing other settings.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
