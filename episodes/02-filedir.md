@@ -187,7 +187,9 @@ If your screen gets too cluttered, you can clear your terminal using the
 `clear` command. You can still access previous commands using <kbd>↑</kbd>
 and <kbd>↓</kbd> to move line-by-line, or by scrolling in your terminal.
 
-For some Linux systems, `clear` may also clear the scrollbuffer and you will not be able to scroll back when using `clear` without changing other settings.
+For some Linux systems, `clear` may also clear the scrollbuffer and you 
+will not be able to scroll back when using `clear` without changing other 
+settings.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
