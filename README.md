@@ -38,10 +38,3 @@ of content, suggestions, clarifications, and more.
 [lesson-example]: https://carpentries.github.io/sandpaper-docs/
 [current_maintainers]: https://carpentries.org/community/maintainers/
 [maintainers_alumni]: https://carpentries.org/community/maintainer-alumni/
-
-
-
-
-
-
-
