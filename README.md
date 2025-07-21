@@ -11,10 +11,17 @@ for instructions on formatting, building, and submitting material.
 
 ## Maintainers
 
-- [Gerard Capes][gerard_capes]
-- [Jacob Deppen][jacob_deppen]
-- [Benson Muite][benson_muite]
+[Current Maintainers][current_maintainers]
 
+- Benson Muite
+- Ahmed Unshur
+- Pariksheet Nanda
+
+[Maintainers Alumni][maintainers_alumni]
+
+- Gerard Capes
+- Jacob Deppen
+  
 ## Contributing
 
 If you would like to contribute to the development of the lesson, you can find details in our
@@ -29,9 +36,5 @@ of content, suggestions, clarifications, and more.
 [doi]: https://doi.org/10.5281/zenodo.3266823
 [doi_svg]: https://zenodo.org/badge/DOI/10.5281/zenodo.3266823.svg
 [lesson-example]: https://carpentries.github.io/sandpaper-docs/
-[gerard_capes]: https://carpentries.org/instructors/#capes_gerard
-[jacob_deppen]: https://deppen8.github.io/
-[benson_muite]: https://carpentries.org/instructors/#benson_muite
-
-
-
+[current_maintainers]: https://carpentries.org/community/maintainers/
+[maintainers_alumni]: https://carpentries.org/community/maintainer-alumni/
