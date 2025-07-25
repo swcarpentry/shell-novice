@@ -330,7 +330,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Pipes and Filters</h1>
-        <p>Last updated on 2025-03-22 |
+        <p>Last updated on 2025-07-25 |
 
         <a href="https://github.com/swcarpentry/shell-novice/edit/main/episodes/04-pipefilter.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -944,14 +944,15 @@ consider the following command:</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="ex">$</span> cut <span class="at">-d</span> , <span class="at">-f</span> 2 animals.csv</span></code></pre>
 </div>
-<p>The <code>cut</code> command is used to remove or ‘cut out’ certain
-sections of each line in the file, and <code>cut</code> expects the
+<p>The <code>cut</code> command is used to select or ‘cut out’ certain
+sections of each line in the file for further processing while leaving
+the original file unchanged. By default, <code>cut</code> expects the
 lines to be separated into columns by a <kbd>Tab</kbd> character. A
-character used in this way is called a <strong>delimiter</strong>. In
-the example above we use the <code>-d</code> option to specify the comma
-as our delimiter character. We have also used the <code>-f</code> option
-to specify that we want to extract the second field (column). This gives
-the following output:</p>
+character used in this way is called a <strong>delimiter</strong>.<br>
+In the example above we use the <code>-d</code> option to specify the
+comma as our delimiter character instead of <kbd>Tab</kbd>. We have also
+used the <code>-f</code> option to specify that we want to extract the
+second field (column). This gives the following output:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1245,7 +1246,7 @@ single-purpose programs (filters).</li>
   "url": "https://swcarpentry.github.io/shell-novice/04-pipefilter.html",
   "identifier": "https://swcarpentry.github.io/shell-novice/04-pipefilter.html",
   "dateCreated": "2014-10-22",
-  "dateModified": "2025-03-22",
+  "dateModified": "2025-07-25",
   "datePublished": "2025-07-25"
 }
 
