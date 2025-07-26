@@ -139,7 +139,7 @@ are made when you check with `ls -F`.
 
 Commands treat names starting with `-` as options.
 
-3. Stick with letters, numbers, `.` (period or 'full stop'), `-` (dash) and `_` (underscore).
+3. Stick with lowercase letters, numbers, `.` (period or 'full stop'), `-` (dash) and `_` (underscore).
 
 Many other characters have special meanings on the command line.
 We will learn about some of these during this lesson.
@@ -149,6 +149,12 @@ expected and can even result in data loss.
 If you need to refer to names of files or directories that have spaces
 or other special characters, you should surround the name in single
 [quotes](https://www.gnu.org/software/bash/manual/html_node/Quoting.html) (`''`).
+
+It is often good practice
+to use all lowercase letters in names of files and directories;
+Windows and macOS file systems are typically case insensitive
+and therefore unable to distinguish between
+`thesis` and `Thesis` in the same directory.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
