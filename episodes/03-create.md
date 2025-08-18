@@ -500,7 +500,7 @@ you will see a message that the directory has been omitted because `-r not speci
 $ cp thesis thesis_backup
 ```
 
-```output
+```error
 cp: -r not specified; omitting directory 'thesis'
 ```
 
