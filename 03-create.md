@@ -504,6 +504,9 @@ you will see a message that the directory has been omitted because `-r not speci
 
 ``` bash
 $ cp thesis thesis_backup
+```
+
+```error
 cp: -r not specified; omitting directory 'thesis'
 ```
 
