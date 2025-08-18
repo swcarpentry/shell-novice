@@ -7,7 +7,7 @@ if [ $# -ne 2 ]
 then
     echo "call goostats with two arguments:"
     echo "  $0 input_file result_file"
-    exit 0
+    exit 1
 fi
 
 # check if files already exist (good for $1, bad for $2)

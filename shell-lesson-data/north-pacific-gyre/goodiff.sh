@@ -6,7 +6,7 @@ if [ $# -ne 2 ]
   then
     echo "call goodiff with two arguments:"
     echo "  $0 file1 file2"
-    exit 0
+    exit 1
 fi
 
 # check read permissions
