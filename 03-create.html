@@ -329,7 +329,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Working With Files and Directories</h1>
-        <p>Last updated on 2025-07-26 |
+        <p>Last updated on 2025-08-18 |
 
         <a href="https://github.com/swcarpentry/shell-novice/edit/main/episodes/03-create.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -899,8 +899,12 @@ the directory has been omitted because
 <div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="ex">$</span> cp thesis thesis_backup</span>
-<span id="cb36-2"><a href="#cb36-2" tabindex="-1"></a><span class="ex">cp:</span> <span class="at">-r</span> not specified<span class="kw">;</span> <span class="ex">omitting</span> directory <span class="st">'thesis'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="ex">$</span> cp thesis thesis_backup</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>cp: -r not specified; omitting directory 'thesis'</code></pre>
 </div>
 <div id="renaming-files" class="callout challenge">
 <div class="callout-square">
@@ -952,33 +956,33 @@ provide a new file name; identical file names cannot be created.</li>
 <div class="callout-content">
 <p>What is the output of the closing <code>ls</code> command in the
 sequence shown below?</p>
-<div class="codewrapper sourceCode" id="cb37">
+<div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="ex">$</span> pwd</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a><span class="ex">$</span> pwd</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>/Users/jamie/data</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb39">
+<div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="va">proteins.dat</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb41">
+<div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="ex">$</span> mkdir recombined</span>
-<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a><span class="ex">$</span> mv proteins.dat recombined/</span>
-<span id="cb41-3"><a href="#cb41-3" tabindex="-1"></a><span class="ex">$</span> cp recombined/proteins.dat ../proteins-saved.dat</span>
-<span id="cb41-4"><a href="#cb41-4" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a><span class="ex">$</span> mkdir recombined</span>
+<span id="cb42-2"><a href="#cb42-2" tabindex="-1"></a><span class="ex">$</span> mv proteins.dat recombined/</span>
+<span id="cb42-3"><a href="#cb42-3" tabindex="-1"></a><span class="ex">$</span> cp recombined/proteins.dat ../proteins-saved.dat</span>
+<span id="cb42-4"><a href="#cb42-4" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
 </div>
 <ol style="list-style-type: decimal"><li><code>proteins-saved.dat recombined</code></li>
 <li><code>recombined</code></li>
@@ -1024,16 +1028,16 @@ located at <code>/Users/jamie</code>
 directory, let’s tidy up this directory by removing the
 <code>quotes.txt</code> file we created. The Unix command we’ll use for
 this is <code>rm</code> (short for ‘remove’):</p>
-<div class="codewrapper sourceCode" id="cb42">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a><span class="ex">$</span> rm quotes.txt</span></code></pre>
-</div>
-<p>We can confirm the file has gone using <code>ls</code>:</p>
 <div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a><span class="ex">$</span> ls quotes.txt</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a><span class="ex">$</span> rm quotes.txt</span></code></pre>
+</div>
+<p>We can confirm the file has gone using <code>ls</code>:</p>
+<div class="codewrapper sourceCode" id="cb44">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a><span class="ex">$</span> ls quotes.txt</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1096,10 +1100,10 @@ remove.</p>
 </div>
 <p>If we try to remove the <code>thesis</code> directory using
 <code>rm thesis</code>, we get an error message:</p>
-<div class="codewrapper sourceCode" id="cb46">
+<div class="codewrapper sourceCode" id="cb47">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a><span class="ex">$</span> rm thesis</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="ex">$</span> rm thesis</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1111,10 +1115,10 @@ not directories.</p>
 <p><code>rm</code> can remove a directory <em>and all its contents</em>
 if we use the recursive option <code>-r</code>, and it will do so
 <em>without any confirmation prompts</em>:</p>
-<div class="codewrapper sourceCode" id="cb48">
+<div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-r</span> thesis</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-r</span> thesis</span></code></pre>
 </div>
 <p>Given that there is no way to retrieve files deleted using the shell,
 <code>rm -r</code> <em>should be used with great caution</em> (you might
@@ -1137,29 +1141,29 @@ navigating the Unix file system.</p>
 <code>shell-lesson-data/exercise-data</code> directory.</p>
 <p>In the example below, what does <code>cp</code> do when given several
 filenames and a directory name?</p>
-<div class="codewrapper sourceCode" id="cb49">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a><span class="ex">$</span> mkdir backup</span>
-<span id="cb49-2"><a href="#cb49-2" tabindex="-1"></a><span class="ex">$</span> cp creatures/minotaur.dat creatures/unicorn.dat backup/</span></code></pre>
-</div>
-<p>In the example below, what does <code>cp</code> do when given three
-or more file names?</p>
 <div class="codewrapper sourceCode" id="cb50">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a><span class="ex">$</span> cd creatures</span>
-<span id="cb50-2"><a href="#cb50-2" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a><span class="ex">$</span> mkdir backup</span>
+<span id="cb50-2"><a href="#cb50-2" tabindex="-1"></a><span class="ex">$</span> cp creatures/minotaur.dat creatures/unicorn.dat backup/</span></code></pre>
+</div>
+<p>In the example below, what does <code>cp</code> do when given three
+or more file names?</p>
+<div class="codewrapper sourceCode" id="cb51">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a><span class="ex">$</span> cd creatures</span>
+<span id="cb51-2"><a href="#cb51-2" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>basilisk.dat  minotaur.dat  unicorn.dat</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb52">
+<div class="codewrapper sourceCode" id="cb53">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a><span class="ex">$</span> cp minotaur.dat unicorn.dat basilisk.dat</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" tabindex="-1"></a><span class="ex">$</span> cp minotaur.dat unicorn.dat basilisk.dat</span></code></pre>
 </div>
 </div>
 </div>
@@ -1282,86 +1286,86 @@ This is the solution.</p>
 <div class="callout-content">
 <p>Sam has a directory containing calibration data, datasets, and
 descriptions of the datasets:</p>
-<div class="codewrapper sourceCode" id="cb54">
+<div class="codewrapper sourceCode" id="cb55">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a><span class="bu">.</span></span>
-<span id="cb54-2"><a href="#cb54-2" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-calibration.txt</span>
-<span id="cb54-3"><a href="#cb54-3" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-dataset1.txt</span>
-<span id="cb54-4"><a href="#cb54-4" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-dataset2.txt</span>
-<span id="cb54-5"><a href="#cb54-5" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-dataset_overview.txt</span>
-<span id="cb54-6"><a href="#cb54-6" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-calibration.txt</span>
-<span id="cb54-7"><a href="#cb54-7" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-dataset1.txt</span>
-<span id="cb54-8"><a href="#cb54-8" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-dataset2.txt</span>
-<span id="cb54-9"><a href="#cb54-9" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-dataset_overview.txt</span>
-<span id="cb54-10"><a href="#cb54-10" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-calibration.txt</span>
-<span id="cb54-11"><a href="#cb54-11" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-dataset1.txt</span>
-<span id="cb54-12"><a href="#cb54-12" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-dataset2.txt</span>
-<span id="cb54-13"><a href="#cb54-13" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-dataset_overview.txt</span>
-<span id="cb54-14"><a href="#cb54-14" tabindex="-1"></a><span class="ex">├──</span> backup</span>
-<span id="cb54-15"><a href="#cb54-15" tabindex="-1"></a><span class="ex">│  </span> ├── calibration</span>
-<span id="cb54-16"><a href="#cb54-16" tabindex="-1"></a><span class="ex">│  </span> └── datasets</span>
-<span id="cb54-17"><a href="#cb54-17" tabindex="-1"></a><span class="ex">└──</span> send_to_bob</span>
-<span id="cb54-18"><a href="#cb54-18" tabindex="-1"></a>    <span class="ex">├──</span> all_datasets_created_on_a_23rd</span>
-<span id="cb54-19"><a href="#cb54-19" tabindex="-1"></a>    <span class="ex">└──</span> all_november_files</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1" tabindex="-1"></a><span class="bu">.</span></span>
+<span id="cb55-2"><a href="#cb55-2" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-calibration.txt</span>
+<span id="cb55-3"><a href="#cb55-3" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-dataset1.txt</span>
+<span id="cb55-4"><a href="#cb55-4" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-dataset2.txt</span>
+<span id="cb55-5"><a href="#cb55-5" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-dataset_overview.txt</span>
+<span id="cb55-6"><a href="#cb55-6" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-calibration.txt</span>
+<span id="cb55-7"><a href="#cb55-7" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-dataset1.txt</span>
+<span id="cb55-8"><a href="#cb55-8" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-dataset2.txt</span>
+<span id="cb55-9"><a href="#cb55-9" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-dataset_overview.txt</span>
+<span id="cb55-10"><a href="#cb55-10" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-calibration.txt</span>
+<span id="cb55-11"><a href="#cb55-11" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-dataset1.txt</span>
+<span id="cb55-12"><a href="#cb55-12" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-dataset2.txt</span>
+<span id="cb55-13"><a href="#cb55-13" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-dataset_overview.txt</span>
+<span id="cb55-14"><a href="#cb55-14" tabindex="-1"></a><span class="ex">├──</span> backup</span>
+<span id="cb55-15"><a href="#cb55-15" tabindex="-1"></a><span class="ex">│  </span> ├── calibration</span>
+<span id="cb55-16"><a href="#cb55-16" tabindex="-1"></a><span class="ex">│  </span> └── datasets</span>
+<span id="cb55-17"><a href="#cb55-17" tabindex="-1"></a><span class="ex">└──</span> send_to_bob</span>
+<span id="cb55-18"><a href="#cb55-18" tabindex="-1"></a>    <span class="ex">├──</span> all_datasets_created_on_a_23rd</span>
+<span id="cb55-19"><a href="#cb55-19" tabindex="-1"></a>    <span class="ex">└──</span> all_november_files</span></code></pre>
 </div>
 <p>Before heading off to another field trip, she wants to back up her
 data and send some datasets to her colleague Bob. Sam uses the following
 commands to get the job done:</p>
-<div class="codewrapper sourceCode" id="cb55">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1" tabindex="-1"></a><span class="ex">$</span> cp <span class="pp">*</span>dataset<span class="pp">*</span> backup/datasets</span>
-<span id="cb55-2"><a href="#cb55-2" tabindex="-1"></a><span class="ex">$</span> cp ____calibration____ backup/calibration</span>
-<span id="cb55-3"><a href="#cb55-3" tabindex="-1"></a><span class="ex">$</span> cp 2015-____-____ send_to_bob/all_november_files/</span>
-<span id="cb55-4"><a href="#cb55-4" tabindex="-1"></a><span class="ex">$</span> cp ____ send_to_bob/all_datasets_created_on_a_23rd/</span></code></pre>
-</div>
-<p>Help Sam by filling in the blanks.</p>
-<p>The resulting directory structure should look like this</p>
 <div class="codewrapper sourceCode" id="cb56">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a><span class="bu">.</span></span>
-<span id="cb56-2"><a href="#cb56-2" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-calibration.txt</span>
-<span id="cb56-3"><a href="#cb56-3" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-dataset1.txt</span>
-<span id="cb56-4"><a href="#cb56-4" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-dataset2.txt</span>
-<span id="cb56-5"><a href="#cb56-5" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-dataset_overview.txt</span>
-<span id="cb56-6"><a href="#cb56-6" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-calibration.txt</span>
-<span id="cb56-7"><a href="#cb56-7" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-dataset1.txt</span>
-<span id="cb56-8"><a href="#cb56-8" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-dataset2.txt</span>
-<span id="cb56-9"><a href="#cb56-9" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-dataset_overview.txt</span>
-<span id="cb56-10"><a href="#cb56-10" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-calibration.txt</span>
-<span id="cb56-11"><a href="#cb56-11" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-dataset1.txt</span>
-<span id="cb56-12"><a href="#cb56-12" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-dataset2.txt</span>
-<span id="cb56-13"><a href="#cb56-13" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-dataset_overview.txt</span>
-<span id="cb56-14"><a href="#cb56-14" tabindex="-1"></a><span class="ex">├──</span> backup</span>
-<span id="cb56-15"><a href="#cb56-15" tabindex="-1"></a><span class="ex">│  </span> ├── calibration</span>
-<span id="cb56-16"><a href="#cb56-16" tabindex="-1"></a><span class="ex">│  </span> │   ├── 2015-10-23-calibration.txt</span>
-<span id="cb56-17"><a href="#cb56-17" tabindex="-1"></a><span class="ex">│  </span> │   ├── 2015-10-26-calibration.txt</span>
-<span id="cb56-18"><a href="#cb56-18" tabindex="-1"></a><span class="ex">│  </span> │   └── 2015-11-23-calibration.txt</span>
-<span id="cb56-19"><a href="#cb56-19" tabindex="-1"></a><span class="ex">│  </span> └── datasets</span>
-<span id="cb56-20"><a href="#cb56-20" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-10-23-dataset1.txt</span>
-<span id="cb56-21"><a href="#cb56-21" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-10-23-dataset2.txt</span>
-<span id="cb56-22"><a href="#cb56-22" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-10-23-dataset_overview.txt</span>
-<span id="cb56-23"><a href="#cb56-23" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-10-26-dataset1.txt</span>
-<span id="cb56-24"><a href="#cb56-24" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-10-26-dataset2.txt</span>
-<span id="cb56-25"><a href="#cb56-25" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-10-26-dataset_overview.txt</span>
-<span id="cb56-26"><a href="#cb56-26" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-11-23-dataset1.txt</span>
-<span id="cb56-27"><a href="#cb56-27" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-11-23-dataset2.txt</span>
-<span id="cb56-28"><a href="#cb56-28" tabindex="-1"></a><span class="ex">│  </span>     └── 2015-11-23-dataset_overview.txt</span>
-<span id="cb56-29"><a href="#cb56-29" tabindex="-1"></a><span class="ex">└──</span> send_to_bob</span>
-<span id="cb56-30"><a href="#cb56-30" tabindex="-1"></a>    <span class="ex">├──</span> all_datasets_created_on_a_23rd</span>
-<span id="cb56-31"><a href="#cb56-31" tabindex="-1"></a>    <span class="ex">│  </span> ├── 2015-10-23-dataset1.txt</span>
-<span id="cb56-32"><a href="#cb56-32" tabindex="-1"></a>    <span class="ex">│  </span> ├── 2015-10-23-dataset2.txt</span>
-<span id="cb56-33"><a href="#cb56-33" tabindex="-1"></a>    <span class="ex">│  </span> ├── 2015-10-23-dataset_overview.txt</span>
-<span id="cb56-34"><a href="#cb56-34" tabindex="-1"></a>    <span class="ex">│  </span> ├── 2015-11-23-dataset1.txt</span>
-<span id="cb56-35"><a href="#cb56-35" tabindex="-1"></a>    <span class="ex">│  </span> ├── 2015-11-23-dataset2.txt</span>
-<span id="cb56-36"><a href="#cb56-36" tabindex="-1"></a>    <span class="ex">│  </span> └── 2015-11-23-dataset_overview.txt</span>
-<span id="cb56-37"><a href="#cb56-37" tabindex="-1"></a>    <span class="ex">└──</span> all_november_files</span>
-<span id="cb56-38"><a href="#cb56-38" tabindex="-1"></a>        <span class="ex">├──</span> 2015-11-23-calibration.txt</span>
-<span id="cb56-39"><a href="#cb56-39" tabindex="-1"></a>        <span class="ex">├──</span> 2015-11-23-dataset1.txt</span>
-<span id="cb56-40"><a href="#cb56-40" tabindex="-1"></a>        <span class="ex">├──</span> 2015-11-23-dataset2.txt</span>
-<span id="cb56-41"><a href="#cb56-41" tabindex="-1"></a>        <span class="ex">└──</span> 2015-11-23-dataset_overview.txt</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a><span class="ex">$</span> cp <span class="pp">*</span>dataset<span class="pp">*</span> backup/datasets</span>
+<span id="cb56-2"><a href="#cb56-2" tabindex="-1"></a><span class="ex">$</span> cp ____calibration____ backup/calibration</span>
+<span id="cb56-3"><a href="#cb56-3" tabindex="-1"></a><span class="ex">$</span> cp 2015-____-____ send_to_bob/all_november_files/</span>
+<span id="cb56-4"><a href="#cb56-4" tabindex="-1"></a><span class="ex">$</span> cp ____ send_to_bob/all_datasets_created_on_a_23rd/</span></code></pre>
+</div>
+<p>Help Sam by filling in the blanks.</p>
+<p>The resulting directory structure should look like this</p>
+<div class="codewrapper sourceCode" id="cb57">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1" tabindex="-1"></a><span class="bu">.</span></span>
+<span id="cb57-2"><a href="#cb57-2" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-calibration.txt</span>
+<span id="cb57-3"><a href="#cb57-3" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-dataset1.txt</span>
+<span id="cb57-4"><a href="#cb57-4" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-dataset2.txt</span>
+<span id="cb57-5"><a href="#cb57-5" tabindex="-1"></a><span class="ex">├──</span> 2015-10-23-dataset_overview.txt</span>
+<span id="cb57-6"><a href="#cb57-6" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-calibration.txt</span>
+<span id="cb57-7"><a href="#cb57-7" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-dataset1.txt</span>
+<span id="cb57-8"><a href="#cb57-8" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-dataset2.txt</span>
+<span id="cb57-9"><a href="#cb57-9" tabindex="-1"></a><span class="ex">├──</span> 2015-10-26-dataset_overview.txt</span>
+<span id="cb57-10"><a href="#cb57-10" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-calibration.txt</span>
+<span id="cb57-11"><a href="#cb57-11" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-dataset1.txt</span>
+<span id="cb57-12"><a href="#cb57-12" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-dataset2.txt</span>
+<span id="cb57-13"><a href="#cb57-13" tabindex="-1"></a><span class="ex">├──</span> 2015-11-23-dataset_overview.txt</span>
+<span id="cb57-14"><a href="#cb57-14" tabindex="-1"></a><span class="ex">├──</span> backup</span>
+<span id="cb57-15"><a href="#cb57-15" tabindex="-1"></a><span class="ex">│  </span> ├── calibration</span>
+<span id="cb57-16"><a href="#cb57-16" tabindex="-1"></a><span class="ex">│  </span> │   ├── 2015-10-23-calibration.txt</span>
+<span id="cb57-17"><a href="#cb57-17" tabindex="-1"></a><span class="ex">│  </span> │   ├── 2015-10-26-calibration.txt</span>
+<span id="cb57-18"><a href="#cb57-18" tabindex="-1"></a><span class="ex">│  </span> │   └── 2015-11-23-calibration.txt</span>
+<span id="cb57-19"><a href="#cb57-19" tabindex="-1"></a><span class="ex">│  </span> └── datasets</span>
+<span id="cb57-20"><a href="#cb57-20" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-10-23-dataset1.txt</span>
+<span id="cb57-21"><a href="#cb57-21" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-10-23-dataset2.txt</span>
+<span id="cb57-22"><a href="#cb57-22" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-10-23-dataset_overview.txt</span>
+<span id="cb57-23"><a href="#cb57-23" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-10-26-dataset1.txt</span>
+<span id="cb57-24"><a href="#cb57-24" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-10-26-dataset2.txt</span>
+<span id="cb57-25"><a href="#cb57-25" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-10-26-dataset_overview.txt</span>
+<span id="cb57-26"><a href="#cb57-26" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-11-23-dataset1.txt</span>
+<span id="cb57-27"><a href="#cb57-27" tabindex="-1"></a><span class="ex">│  </span>     ├── 2015-11-23-dataset2.txt</span>
+<span id="cb57-28"><a href="#cb57-28" tabindex="-1"></a><span class="ex">│  </span>     └── 2015-11-23-dataset_overview.txt</span>
+<span id="cb57-29"><a href="#cb57-29" tabindex="-1"></a><span class="ex">└──</span> send_to_bob</span>
+<span id="cb57-30"><a href="#cb57-30" tabindex="-1"></a>    <span class="ex">├──</span> all_datasets_created_on_a_23rd</span>
+<span id="cb57-31"><a href="#cb57-31" tabindex="-1"></a>    <span class="ex">│  </span> ├── 2015-10-23-dataset1.txt</span>
+<span id="cb57-32"><a href="#cb57-32" tabindex="-1"></a>    <span class="ex">│  </span> ├── 2015-10-23-dataset2.txt</span>
+<span id="cb57-33"><a href="#cb57-33" tabindex="-1"></a>    <span class="ex">│  </span> ├── 2015-10-23-dataset_overview.txt</span>
+<span id="cb57-34"><a href="#cb57-34" tabindex="-1"></a>    <span class="ex">│  </span> ├── 2015-11-23-dataset1.txt</span>
+<span id="cb57-35"><a href="#cb57-35" tabindex="-1"></a>    <span class="ex">│  </span> ├── 2015-11-23-dataset2.txt</span>
+<span id="cb57-36"><a href="#cb57-36" tabindex="-1"></a>    <span class="ex">│  </span> └── 2015-11-23-dataset_overview.txt</span>
+<span id="cb57-37"><a href="#cb57-37" tabindex="-1"></a>    <span class="ex">└──</span> all_november_files</span>
+<span id="cb57-38"><a href="#cb57-38" tabindex="-1"></a>        <span class="ex">├──</span> 2015-11-23-calibration.txt</span>
+<span id="cb57-39"><a href="#cb57-39" tabindex="-1"></a>        <span class="ex">├──</span> 2015-11-23-dataset1.txt</span>
+<span id="cb57-40"><a href="#cb57-40" tabindex="-1"></a>        <span class="ex">├──</span> 2015-11-23-dataset2.txt</span>
+<span id="cb57-41"><a href="#cb57-41" tabindex="-1"></a>        <span class="ex">└──</span> 2015-11-23-dataset_overview.txt</span></code></pre>
 </div>
 </div>
 </div>
@@ -1373,12 +1377,12 @@ commands to get the job done:</p>
 </button>
 <div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb57">
+<div class="codewrapper sourceCode" id="cb58">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1" tabindex="-1"></a><span class="ex">$</span> cp <span class="pp">*</span>calibration.txt backup/calibration</span>
-<span id="cb57-2"><a href="#cb57-2" tabindex="-1"></a><span class="ex">$</span> cp 2015-11-<span class="pp">*</span> send_to_bob/all_november_files/</span>
-<span id="cb57-3"><a href="#cb57-3" tabindex="-1"></a><span class="ex">$</span> cp <span class="pp">*</span>-23-dataset<span class="pp">*</span> send_to_bob/all_datasets_created_on_a_23rd/</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a><span class="ex">$</span> cp <span class="pp">*</span>calibration.txt backup/calibration</span>
+<span id="cb58-2"><a href="#cb58-2" tabindex="-1"></a><span class="ex">$</span> cp 2015-11-<span class="pp">*</span> send_to_bob/all_november_files/</span>
+<span id="cb58-3"><a href="#cb58-3" tabindex="-1"></a><span class="ex">$</span> cp <span class="pp">*</span>-23-dataset<span class="pp">*</span> send_to_bob/all_datasets_created_on_a_23rd/</span></code></pre>
 </div>
 </div>
 </div>
@@ -1394,10 +1398,10 @@ commands to get the job done:</p>
 <div class="callout-content">
 <p>Jamie is working on a project, and she sees that her files aren’t
 very well organized:</p>
-<div class="codewrapper sourceCode" id="cb58">
+<div class="codewrapper sourceCode" id="cb59">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1408,20 +1412,20 @@ very well organized:</p>
 contain output from her data analysis. What command(s) covered in this
 lesson does she need to run so that the commands below will produce the
 output shown?</p>
-<div class="codewrapper sourceCode" id="cb60">
+<div class="codewrapper sourceCode" id="cb61">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>analyzed/   raw/</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb62">
+<div class="codewrapper sourceCode" id="cb63">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1" tabindex="-1"></a><span class="ex">$</span> ls analyzed</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a><span class="ex">$</span> ls analyzed</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1438,10 +1442,10 @@ output shown?</p>
 </button>
 <div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb64">
+<div class="codewrapper sourceCode" id="cb65">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1" tabindex="-1"></a><span class="fu">mv</span> <span class="pp">*</span>.dat analyzed</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a><span class="fu">mv</span> <span class="pp">*</span>.dat analyzed</span></code></pre>
 </div>
 <p>Jamie needs to move her files <code>fructose.dat</code> and
 <code>sucrose.dat</code> to the <code>analyzed</code> directory. The
@@ -1480,42 +1484,42 @@ looks like this:</p>
 </div>
 <p>Which of the following set of commands would achieve this objective?
 What would the other commands do?</p>
-<div class="codewrapper sourceCode" id="cb66">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20</span>
-<span id="cb66-2"><a href="#cb66-2" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20/data</span>
-<span id="cb66-3"><a href="#cb66-3" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20/data/processed</span>
-<span id="cb66-4"><a href="#cb66-4" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20/data/raw</span></code></pre>
-</div>
 <div class="codewrapper sourceCode" id="cb67">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20</span>
-<span id="cb67-2"><a href="#cb67-2" tabindex="-1"></a><span class="ex">$</span> cd 2016-05-20</span>
-<span id="cb67-3"><a href="#cb67-3" tabindex="-1"></a><span class="ex">$</span> mkdir data</span>
-<span id="cb67-4"><a href="#cb67-4" tabindex="-1"></a><span class="ex">$</span> cd data</span>
-<span id="cb67-5"><a href="#cb67-5" tabindex="-1"></a><span class="ex">$</span> mkdir raw processed</span></code></pre>
+<span id="cb67-2"><a href="#cb67-2" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20/data</span>
+<span id="cb67-3"><a href="#cb67-3" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20/data/processed</span>
+<span id="cb67-4"><a href="#cb67-4" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20/data/raw</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb68">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20/data/raw</span>
-<span id="cb68-2"><a href="#cb68-2" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20/data/processed</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20</span>
+<span id="cb68-2"><a href="#cb68-2" tabindex="-1"></a><span class="ex">$</span> cd 2016-05-20</span>
+<span id="cb68-3"><a href="#cb68-3" tabindex="-1"></a><span class="ex">$</span> mkdir data</span>
+<span id="cb68-4"><a href="#cb68-4" tabindex="-1"></a><span class="ex">$</span> cd data</span>
+<span id="cb68-5"><a href="#cb68-5" tabindex="-1"></a><span class="ex">$</span> mkdir raw processed</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb69">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> 2016-05-20/data/raw</span>
-<span id="cb69-2"><a href="#cb69-2" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> 2016-05-20/data/processed</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20/data/raw</span>
+<span id="cb69-2"><a href="#cb69-2" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20/data/processed</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb70">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20</span>
-<span id="cb70-2"><a href="#cb70-2" tabindex="-1"></a><span class="ex">$</span> cd 2016-05-20</span>
-<span id="cb70-3"><a href="#cb70-3" tabindex="-1"></a><span class="ex">$</span> mkdir data</span>
-<span id="cb70-4"><a href="#cb70-4" tabindex="-1"></a><span class="ex">$</span> mkdir raw processed</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> 2016-05-20/data/raw</span>
+<span id="cb70-2"><a href="#cb70-2" tabindex="-1"></a><span class="ex">$</span> mkdir <span class="at">-p</span> 2016-05-20/data/processed</span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb71">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb71-1"><a href="#cb71-1" tabindex="-1"></a><span class="ex">$</span> mkdir 2016-05-20</span>
+<span id="cb71-2"><a href="#cb71-2" tabindex="-1"></a><span class="ex">$</span> cd 2016-05-20</span>
+<span id="cb71-3"><a href="#cb71-3" tabindex="-1"></a><span class="ex">$</span> mkdir data</span>
+<span id="cb71-4"><a href="#cb71-4" tabindex="-1"></a><span class="ex">$</span> mkdir raw processed</span></code></pre>
 </div>
 </div>
 </div>
@@ -1638,8 +1642,8 @@ text editor than Nano.</li>
   "url": "https://swcarpentry.github.io/shell-novice/03-create.html",
   "identifier": "https://swcarpentry.github.io/shell-novice/03-create.html",
   "dateCreated": "2014-10-22",
-  "dateModified": "2025-07-26",
-  "datePublished": "2025-08-12"
+  "dateModified": "2025-08-18",
+  "datePublished": "2025-08-18"
 }
 
   </script><script>
