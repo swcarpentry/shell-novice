@@ -415,7 +415,7 @@ Given the output from the `cat` command has been redirected, nothing is printed 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Let's continue with our example in the `shell-lesson-data/exercise-data/creatures` directory.
-Here's a slightly more complicated loop:
+Here's another example:
 
 ```bash
 $ for filename in *.dat
@@ -428,37 +428,9 @@ $ for filename in *.dat
 The shell starts by expanding `*.dat` to create the list of files it will process.
 The **loop body**
 then executes two commands for each of those files.
-The first command, `echo`, prints its command-line arguments to standard output.
-For example:
-
-```bash
-$ echo hello there
-```
-
-prints:
-
-```output
-hello there
-```
-
-In this case,
-since the shell expands `$filename` to be the name of a file,
-`echo $filename` prints the name of the file.
-Note that we can't write this as:
-
-```bash
-$ for filename in *.dat
-> do
->     $filename
->     head -n 100 $filename | tail -n 20
-> done
-```
-
-because then the first time through the loop,
-when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as
-a program.
-Finally,
-the `head` and `tail` combination selects lines 81-100
+In the first command, `$filename` is expanded to the name of the file,
+so `echo $filename` prints the name of the file.
+Then, the `head` and `tail` combination selects lines 81-100
 from whatever file is being processed
 (assuming the file has at least 100 lines).
 
