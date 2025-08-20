@@ -325,7 +325,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Loops</h1>
-        <p>Last updated on 2025-04-18 |
+        <p>Last updated on 2025-08-20 |
 
         <a href="https://github.com/swcarpentry/shell-novice/edit/main/episodes/05-loop.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -544,7 +544,7 @@ like a list of numbers or a subset of data.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -618,7 +618,7 @@ identical output.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The first code block gives the same output on each iteration through
 the loop. Bash expands the wildcard <code>*.pdb</code> within the loop
@@ -691,7 +691,7 @@ The value of the <code>datafile</code> variable is evaluated using
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>4 is the correct answer. <code>*</code> matches zero or more
 characters, so any file name starting with the letter c, followed by
@@ -733,7 +733,7 @@ be listed.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>4 is the correct answer. <code>*</code> matches zero or more
 characters, so a file name with zero or more characters before a letter
@@ -782,7 +782,7 @@ will be saved to a file called <code>alkanes.pdb</code>.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>The text from each file in turn gets written to the
 <code>alkanes.pdb</code> file. However, the file gets overwritten on
@@ -834,7 +834,7 @@ file called <code>all.pdb</code>.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>3 is the correct answer. <code>&gt;&gt;</code> appends to a file,
 rather than overwriting it with the redirected output from a command.
@@ -846,7 +846,7 @@ nothing is printed to the screen.</p>
 </div>
 <p>Let’s continue with our example in the
 <code>shell-lesson-data/exercise-data/creatures</code> directory. Here’s
-a slightly more complicated loop:</p>
+another example:</p>
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -858,35 +858,9 @@ a slightly more complicated loop:</p>
 </div>
 <p>The shell starts by expanding <code>*.dat</code> to create the list
 of files it will process. The <strong>loop body</strong> then executes
-two commands for each of those files. The first command,
-<code>echo</code>, prints its command-line arguments to standard output.
-For example:</p>
-<div class="codewrapper sourceCode" id="cb20">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">$</span> echo hello there</span></code></pre>
-</div>
-<p>prints:</p>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>hello there</code></pre>
-</div>
-<p>In this case, since the shell expands <code>$filename</code> to be
-the name of a file, <code>echo $filename</code> prints the name of the
-file. Note that we can’t write this as:</p>
-<div class="codewrapper sourceCode" id="cb22">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="ex">$</span> for filename in <span class="pp">*</span>.dat</span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="op">&gt;</span> do</span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="op">&gt;</span>     <span class="va">$filename</span></span>
-<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="op">&gt;</span>     head <span class="ex">-n</span> 100 <span class="va">$filename</span> <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 20</span>
-<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
-</div>
-<p>because then the first time through the loop, when
-<code>$filename</code> expanded to <code>basilisk.dat</code>, the shell
-would try to run <code>basilisk.dat</code> as a program. Finally, the
+two commands for each of those files. In the first command,
+<code>$filename</code> is expanded to the name of the file, so
+<code>echo $filename</code> prints the name of the file. Then, the
 <code>head</code> and <code>tail</code> combination selects lines 81-100
 from whatever file is being processed (assuming the file has at least
 100 lines).</p>
@@ -906,13 +880,13 @@ variable. Suppose our data files are named:</p>
 purple unicorn.dat</code></pre>
 <p>To loop over these files, we would need to add double quotes like
 so:</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">$</span> for filename in <span class="st">"red dragon.dat"</span> <span class="st">"purple unicorn.dat"</span></span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="op">&gt;</span> do</span>
-<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="op">&gt;</span>     head <span class="ex">-n</span> 100 <span class="st">"</span><span class="va">$filename</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 20</span>
-<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="ex">$</span> for filename in <span class="st">"red dragon.dat"</span> <span class="st">"purple unicorn.dat"</span></span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="op">&gt;</span> do</span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="op">&gt;</span>     head <span class="ex">-n</span> 100 <span class="st">"</span><span class="va">$filename</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 20</span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
 </div>
 <p>It is simpler to avoid using spaces (or other special characters) in
 filenames.</p>
@@ -949,16 +923,16 @@ CAAGTGTTCC
 version of the original files. We want to copy the original files to new
 files named <code>original-basilisk.dat</code> and
 <code>original-unicorn.dat</code>, for example. We can’t use:</p>
-<div class="codewrapper sourceCode" id="cb27">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="ex">$</span> cp <span class="pp">*</span>.dat original-<span class="pp">*</span>.dat</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">$</span> cp <span class="pp">*</span>.dat original-<span class="pp">*</span>.dat</span></code></pre>
 </div>
 <p>because that would expand to:</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="ex">$</span> cp basilisk.dat minotaur.dat unicorn.dat original-<span class="pp">*</span>.dat</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="ex">$</span> cp basilisk.dat minotaur.dat unicorn.dat original-<span class="pp">*</span>.dat</span></code></pre>
 </div>
 <p>This wouldn’t back up our files, instead we get an error:</p>
 <div class="codewrapper">
@@ -972,33 +946,33 @@ where it can copy all the files it was passed. Since there is no
 directory named <code>original-*.dat</code> in the
 <code>creatures</code> directory, we get an error.</p>
 <p>Instead, we can use a loop:</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="ex">$</span> for filename in <span class="pp">*</span>.dat</span>
-<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a><span class="op">&gt;</span> do</span>
-<span id="cb30-3"><a href="#cb30-3" tabindex="-1"></a><span class="op">&gt;</span>     cp <span class="va">$filename</span> original-<span class="va">$filename</span></span>
-<span id="cb30-4"><a href="#cb30-4" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="ex">$</span> for filename in <span class="pp">*</span>.dat</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a><span class="op">&gt;</span> do</span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a><span class="op">&gt;</span>     cp <span class="va">$filename</span> original-<span class="va">$filename</span></span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
 </div>
 <p>This loop runs the <code>cp</code> command once for each filename.
 The first time, when <code>$filename</code> expands to
 <code>basilisk.dat</code>, the shell executes:</p>
-<div class="codewrapper sourceCode" id="cb31">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="fu">cp</span> basilisk.dat original-basilisk.dat</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="fu">cp</span> basilisk.dat original-basilisk.dat</span></code></pre>
 </div>
 <p>The second time, the command is:</p>
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="fu">cp</span> minotaur.dat original-minotaur.dat</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">cp</span> minotaur.dat original-minotaur.dat</span></code></pre>
 </div>
 <p>The third and last time, the command is:</p>
-<div class="codewrapper sourceCode" id="cb33">
+<div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="fu">cp</span> unicorn.dat original-unicorn.dat</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="fu">cp</span> unicorn.dat original-unicorn.dat</span></code></pre>
 </div>
 <p>Since the <code>cp</code> command does not normally produce any
 output, it’s hard to check that the loop is working correctly. However,
@@ -1021,15 +995,15 @@ up the required commands in stages. Her first step is to make sure that
 she can select the right input files — remember, these are ones whose
 names end in ‘A’ or ‘B’, rather than ‘Z’. Moving to the
 <code>north-pacific-gyre</code> directory, Nelle types:</p>
-<div class="codewrapper sourceCode" id="cb34">
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="ex">$</span> cd</span>
-<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a><span class="ex">$</span> cd Desktop/shell-lesson-data/north-pacific-gyre</span>
-<span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a><span class="ex">$</span> for datafile in NENE<span class="pp">*</span>A.txt NENE<span class="pp">*</span>B.txt</span>
-<span id="cb34-4"><a href="#cb34-4" tabindex="-1"></a><span class="op">&gt;</span> do</span>
-<span id="cb34-5"><a href="#cb34-5" tabindex="-1"></a><span class="op">&gt;</span>     echo <span class="va">$datafile</span></span>
-<span id="cb34-6"><a href="#cb34-6" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="ex">$</span> cd</span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a><span class="ex">$</span> cd Desktop/shell-lesson-data/north-pacific-gyre</span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a><span class="ex">$</span> for datafile in NENE<span class="pp">*</span>A.txt NENE<span class="pp">*</span>B.txt</span>
+<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a><span class="op">&gt;</span> do</span>
+<span id="cb31-5"><a href="#cb31-5" tabindex="-1"></a><span class="op">&gt;</span>     echo <span class="va">$datafile</span></span>
+<span id="cb31-6"><a href="#cb31-6" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1046,13 +1020,13 @@ names end in ‘A’ or ‘B’, rather than ‘Z’. Moving to the
 <code>goostats.sh</code> analysis program will create. Prefixing each
 input file’s name with ‘stats’ seems simple, so she modifies her loop to
 do that:</p>
-<div class="codewrapper sourceCode" id="cb36">
+<div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="ex">$</span> for datafile in NENE<span class="pp">*</span>A.txt NENE<span class="pp">*</span>B.txt</span>
-<span id="cb36-2"><a href="#cb36-2" tabindex="-1"></a><span class="op">&gt;</span> do</span>
-<span id="cb36-3"><a href="#cb36-3" tabindex="-1"></a><span class="op">&gt;</span>     echo <span class="va">$datafile</span> stats-<span class="va">$datafile</span></span>
-<span id="cb36-4"><a href="#cb36-4" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="ex">$</span> for datafile in NENE<span class="pp">*</span>A.txt NENE<span class="pp">*</span>B.txt</span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="op">&gt;</span> do</span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a><span class="op">&gt;</span>     echo <span class="va">$datafile</span> stats-<span class="va">$datafile</span></span>
+<span id="cb33-4"><a href="#cb33-4" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1072,17 +1046,17 @@ and Nelle is worried about making mistakes, so instead of re-entering
 her loop, she presses <kbd>↑</kbd>. In response, the shell redisplays
 the whole loop on one line (using semi-colons to separate the
 pieces):</p>
-<div class="codewrapper sourceCode" id="cb38">
+<div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a><span class="ex">$</span> for datafile in NENE<span class="pp">*</span>A.txt NENE<span class="pp">*</span>B.txt<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$datafile</span> stats-<span class="va">$datafile</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="ex">$</span> for datafile in NENE<span class="pp">*</span>A.txt NENE<span class="pp">*</span>B.txt<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$datafile</span> stats-<span class="va">$datafile</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre>
 </div>
 <p>Using the <kbd>←</kbd>, Nelle navigates to the <code>echo</code>
 command and changes it to <code>bash goostats.sh</code>:</p>
-<div class="codewrapper sourceCode" id="cb39">
+<div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="ex">$</span> for datafile in NENE<span class="pp">*</span>A.txt NENE<span class="pp">*</span>B.txt<span class="kw">;</span> <span class="cf">do</span> <span class="fu">bash</span> goostats.sh <span class="va">$datafile</span> stats-<span class="va">$datafile</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="ex">$</span> for datafile in NENE<span class="pp">*</span>A.txt NENE<span class="pp">*</span>B.txt<span class="kw">;</span> <span class="cf">do</span> <span class="fu">bash</span> goostats.sh <span class="va">$datafile</span> stats-<span class="va">$datafile</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre>
 </div>
 <p>When she presses <kbd>Enter</kbd>, the shell runs the modified
 command. However, nothing appears to happen — there is no output. After
@@ -1091,11 +1065,11 @@ the screen any longer, she has no idea whether it is running, much less
 how quickly. She kills the running command by typing
 <kbd>Ctrl</kbd>+<kbd>C</kbd>, uses <kbd>↑</kbd> to repeat the command,
 and edits it to read:</p>
-<div class="codewrapper sourceCode" id="cb40">
+<div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a><span class="ex">$</span> for datafile in NENE<span class="pp">*</span>A.txt NENE<span class="pp">*</span>B.txt<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$datafile</span><span class="kw">;</span></span>
-<span id="cb40-2"><a href="#cb40-2" tabindex="-1"></a><span class="fu">bash</span> goostats.sh <span class="va">$datafile</span> stats-<span class="va">$datafile</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="ex">$</span> for datafile in NENE<span class="pp">*</span>A.txt NENE<span class="pp">*</span>B.txt<span class="kw">;</span> <span class="cf">do</span> <span class="bu">echo</span> <span class="va">$datafile</span><span class="kw">;</span></span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a><span class="fu">bash</span> goostats.sh <span class="va">$datafile</span> stats-<span class="va">$datafile</span><span class="kw">;</span> <span class="cf">done</span></span></code></pre>
 </div>
 <div id="beginning-and-end" class="callout">
 <div class="callout-square">
@@ -1141,10 +1115,10 @@ It</h3>
 commands that have been executed, and then to use <code>!123</code>
 (where ‘123’ is replaced by the command number) to repeat one of those
 commands. For example, if Nelle types this:</p>
-<div class="codewrapper sourceCode" id="cb42">
+<div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a><span class="ex">$</span> history <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 5</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="ex">$</span> history <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> 5</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1205,33 +1179,33 @@ at once if it does the wrong thing. One way to check what a loop
 instead of actually running them.</p>
 <p>Suppose we want to preview the commands the following loop will
 execute without actually running those commands:</p>
-<div class="codewrapper sourceCode" id="cb44">
+<div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a><span class="ex">$</span> for datafile in <span class="pp">*</span>.pdb</span>
-<span id="cb44-2"><a href="#cb44-2" tabindex="-1"></a><span class="op">&gt;</span> do</span>
-<span id="cb44-3"><a href="#cb44-3" tabindex="-1"></a><span class="op">&gt;</span>     cat <span class="va">$datafile</span> <span class="op">&gt;&gt;</span> all.pdb</span>
-<span id="cb44-4"><a href="#cb44-4" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="ex">$</span> for datafile in <span class="pp">*</span>.pdb</span>
+<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a><span class="op">&gt;</span> do</span>
+<span id="cb41-3"><a href="#cb41-3" tabindex="-1"></a><span class="op">&gt;</span>     cat <span class="va">$datafile</span> <span class="op">&gt;&gt;</span> all.pdb</span>
+<span id="cb41-4"><a href="#cb41-4" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
 </div>
 <p>What is the difference between the two loops below, and which one
 would we want to run?</p>
-<div class="codewrapper sourceCode" id="cb45">
+<div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a><span class="co"># Version 1</span></span>
-<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a><span class="ex">$</span> for datafile in <span class="pp">*</span>.pdb</span>
-<span id="cb45-3"><a href="#cb45-3" tabindex="-1"></a><span class="op">&gt;</span> do</span>
-<span id="cb45-4"><a href="#cb45-4" tabindex="-1"></a><span class="op">&gt;</span>     echo <span class="fu">cat</span> <span class="va">$datafile</span> <span class="op">&gt;&gt;</span> all.pdb</span>
-<span id="cb45-5"><a href="#cb45-5" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a><span class="co"># Version 1</span></span>
+<span id="cb42-2"><a href="#cb42-2" tabindex="-1"></a><span class="ex">$</span> for datafile in <span class="pp">*</span>.pdb</span>
+<span id="cb42-3"><a href="#cb42-3" tabindex="-1"></a><span class="op">&gt;</span> do</span>
+<span id="cb42-4"><a href="#cb42-4" tabindex="-1"></a><span class="op">&gt;</span>     echo <span class="fu">cat</span> <span class="va">$datafile</span> <span class="op">&gt;&gt;</span> all.pdb</span>
+<span id="cb42-5"><a href="#cb42-5" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb46">
+<div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a><span class="co"># Version 2</span></span>
-<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a><span class="ex">$</span> for datafile in <span class="pp">*</span>.pdb</span>
-<span id="cb46-3"><a href="#cb46-3" tabindex="-1"></a><span class="op">&gt;</span> do</span>
-<span id="cb46-4"><a href="#cb46-4" tabindex="-1"></a><span class="op">&gt;</span>     echo <span class="st">"cat </span><span class="va">$datafile</span><span class="st"> &gt;&gt; all.pdb"</span></span>
-<span id="cb46-5"><a href="#cb46-5" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a><span class="co"># Version 2</span></span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a><span class="ex">$</span> for datafile in <span class="pp">*</span>.pdb</span>
+<span id="cb43-3"><a href="#cb43-3" tabindex="-1"></a><span class="op">&gt;</span> do</span>
+<span id="cb43-4"><a href="#cb43-4" tabindex="-1"></a><span class="op">&gt;</span>     echo <span class="st">"cat </span><span class="va">$datafile</span><span class="st"> &gt;&gt; all.pdb"</span></span>
+<span id="cb43-5"><a href="#cb43-5" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
 </div>
 </div>
 </div>
@@ -1241,7 +1215,7 @@ would we want to run?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <p>The second version is the one we want to run. This prints to screen
 everything enclosed in the quote marks, expanding the loop variable name
@@ -1271,16 +1245,16 @@ file will just contain the list; <code>cat cubane.pdb</code>,
 experiments measuring reaction rate constants with different compounds
 <em>and</em> different temperatures. What would be the result of the
 following code:</p>
-<div class="codewrapper sourceCode" id="cb47">
+<div class="codewrapper sourceCode" id="cb44">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="ex">$</span> for species in cubane ethane methane</span>
-<span id="cb47-2"><a href="#cb47-2" tabindex="-1"></a><span class="op">&gt;</span> do</span>
-<span id="cb47-3"><a href="#cb47-3" tabindex="-1"></a><span class="op">&gt;</span>     for <span class="ex">temperature</span> in 25 30 37 40</span>
-<span id="cb47-4"><a href="#cb47-4" tabindex="-1"></a><span class="op">&gt;</span>     do</span>
-<span id="cb47-5"><a href="#cb47-5" tabindex="-1"></a><span class="op">&gt;</span>         mkdir <span class="va">$species</span><span class="ex">-</span><span class="va">$temperature</span></span>
-<span id="cb47-6"><a href="#cb47-6" tabindex="-1"></a><span class="op">&gt;</span>     done</span>
-<span id="cb47-7"><a href="#cb47-7" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a><span class="ex">$</span> for species in cubane ethane methane</span>
+<span id="cb44-2"><a href="#cb44-2" tabindex="-1"></a><span class="op">&gt;</span> do</span>
+<span id="cb44-3"><a href="#cb44-3" tabindex="-1"></a><span class="op">&gt;</span>     for <span class="ex">temperature</span> in 25 30 37 40</span>
+<span id="cb44-4"><a href="#cb44-4" tabindex="-1"></a><span class="op">&gt;</span>     do</span>
+<span id="cb44-5"><a href="#cb44-5" tabindex="-1"></a><span class="op">&gt;</span>         mkdir <span class="va">$species</span><span class="ex">-</span><span class="va">$temperature</span></span>
+<span id="cb44-6"><a href="#cb44-6" tabindex="-1"></a><span class="op">&gt;</span>     done</span>
+<span id="cb44-7"><a href="#cb44-7" tabindex="-1"></a><span class="op">&gt;</span> done</span></code></pre>
 </div>
 </div>
 </div>
@@ -1290,7 +1264,7 @@ following code:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
   <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
 <div class="accordion-body">
 <p>We have a nested loop, i.e. contained within another loop, so for
 each species in the outer loop, the inner loop (the nested loop)
@@ -1386,8 +1360,8 @@ entered commands.</li>
   "url": "https://swcarpentry.github.io/shell-novice/05-loop.html",
   "identifier": "https://swcarpentry.github.io/shell-novice/05-loop.html",
   "dateCreated": "2014-10-22",
-  "dateModified": "2025-04-18",
-  "datePublished": "2025-08-19"
+  "dateModified": "2025-08-20",
+  "datePublished": "2025-08-20"
 }
 
   </script><script>
