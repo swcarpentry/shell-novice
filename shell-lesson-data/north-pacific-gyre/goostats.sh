@@ -11,11 +11,11 @@ then
 fi
 
 # check if files already exist (good for $1, bad for $2)
-if [ ! -a "$1" ]
+if [ ! -f "$1" ]
 then
     echo "error reading input: $1"
     exit 2
-elif [ -a "$2" ]
+elif [ -e "$2" ]
 then
     echo "error writing result: $2"
     exit 2
