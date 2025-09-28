@@ -24,5 +24,5 @@ pipx upgrade --include-injected pytest
 ## Run the tests
 
 ```shell
-pytest --pdb test/
+pytest --pdb -vv test/
 ```
