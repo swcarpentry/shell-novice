@@ -325,7 +325,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Navigating Files and Directories</h1>
-        <p>Last updated on 2024-07-24 |
+        <p>Last updated on 2025-10-24 |
 
         <a href="https://github.com/swcarpentry/shell-novice/edit/main/episodes/02-filedir.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -526,18 +526,23 @@ Desktop/      Downloads/    Movies/       Pictures/</code></pre>
 <strong>sub-directories</strong>. Any names in the output that don’t
 have a classification symbol are <strong>files</strong> in the current
 working directory.</p>
-<div id="clearing-your-terminal" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="clearing-your-terminal" class="callout-inner">
-<h3 class="callout-title">Clearing your terminal</h3>
-<div class="callout-content">
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Clearing your terminal </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div class="accordion-body">
 <p>If your screen gets too cluttered, you can clear your terminal using
-the <code>clear</code> command. You can still access previous commands
-using <kbd>↑</kbd> and <kbd>↓</kbd> to move line-by-line, or by
+the <code>clear -x</code> command. You can still access previous
+commands using <kbd>↑</kbd> and <kbd>↓</kbd> to move line-by-line, or by
 scrolling in your terminal.</p>
+<p>For some Bash configurations, <code>clear</code> may also clear the
+scrollbuffer and you will not be able to scroll back after using
+<code>clear</code>; using <code>clear -x</code> prevents this. An
+alternative to <code>clear -x</code> is the keyboard shortcut
+<code>Control-L</code>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1425,8 +1430,8 @@ location.</li>
   "url": "https://swcarpentry.github.io/shell-novice/instructor/02-filedir.html",
   "identifier": "https://swcarpentry.github.io/shell-novice/instructor/02-filedir.html",
   "dateCreated": "2014-10-22",
-  "dateModified": "2024-07-24",
-  "datePublished": "2025-10-21"
+  "dateModified": "2025-10-24",
+  "datePublished": "2025-10-24"
 }
 
   </script><script>
