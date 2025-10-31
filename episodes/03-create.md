@@ -726,11 +726,15 @@ $ cp minotaur.dat unicorn.dat basilisk.dat
 
 ## Solution
 
-When `cp` is given two arguments and the second is a destination directory
-`cp` copies the files to the destination directory.
+When `cp` is given three or more arguments,
+the last argument is interpretted as the "destination
+directory".
+In that case, `cp` copies all files (or directories)
+into that "destination directory".
+If the final argument is not a directory,
+it's unclear what should be copied where so 
+`cp` throws an error such as the one below.
 
-If given three or more arguments, `cp` throws an error such as the one below,
-because it is expecting a destination directory name as the last argument.
 
 ```error
 cp: target 'basilisk.dat' is not a directory
