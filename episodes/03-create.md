@@ -697,8 +697,10 @@ or sets of characters when navigating the Unix file system.
 
 For this exercise, you can test the commands in the `shell-lesson-data/exercise-data` directory.
 
-We have seen how `cp` behaves when given two arguments,
-but `cp` behaves differently when given three or more arguments.
+We have seen how `cp` behaves when given two arguments. The second argument can
+be a filename (what to name the copy) or an existing directory (where to put the copy).
+
+`cp` behaves slightly differently when given three or more arguments.
 Let's try giving `cp` three arguments.
 In the example below, what does `cp` do when given several filenames and a directory name?
 
@@ -726,11 +728,12 @@ $ cp minotaur.dat unicorn.dat basilisk.dat
 
 ## Solution
 
-When `cp` is given two arguments and the second is a destination directory
-`cp` copies the files to the destination directory.
+When `cp` is given three or more arguments,
+the last argument must be a directory.
+`cp` copies the other files specified
+into that directory. If the last argument
+is a file name, you get an error:
 
-If given three or more arguments, `cp` throws an error such as the one below,
-because it is expecting a destination directory name as the last argument.
 
 ```error
 cp: target 'basilisk.dat' is not a directory
