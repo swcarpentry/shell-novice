@@ -47,10 +47,9 @@ Using a CLI, you can write a series of commands that does this consistently and 
 
 The shell can be used for simple tasks like creating an empty folder
 and for launching (even complex) programs with a single command.
-In fact, some specialized tools and resources
-such as high-performance computing systems
-virtually require users to be familliar with the shell.
-Shell commands can be combined together and saved into reddproducible *scripts*
+In fact, some tools and resources such as cloud computing systems
+usually require users to be familiar with the shell.
+Shell commands can be combined together and saved into reproducible *scripts*
 that handle large volumes of data automatically.
 
 Using the shell will take some effort and some time to learn.
