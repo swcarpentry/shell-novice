@@ -28,7 +28,8 @@ With a GUI, we give instructions by clicking a mouse and using menu-driven inter
 While the visual aid of a GUI makes it intuitive to learn,
 this way of interacting scales very poorly for some tasks.
 
-A **command-line interface** (CLI) allows users to to interact with computer by reading and writing text. It excels at making repetitive tasks automatic and fast.
+A **command-line interface** (CLI) allows users to to interact with computer by reading
+and writing text. It excels at making repetitive tasks automatic and fast.
 
 A **shell** is a particular program that lets you type commands.
 In this workshop, we will be using "Bash" which is the most popular Unix shell.
