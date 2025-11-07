@@ -340,7 +340,7 @@ cut -d , -f 1,3
 ```
 
 Hint: use `man grep` to remind ourselves how to find text in a directory
-in recursively (meaning include all subdirectories in the search)
+recursively (meaning include all subdirectories in the search)
 and `man cut` to select more than one field in a line.
 
 An example of such a file is provided in
