@@ -93,6 +93,17 @@ The `-R` option to the `ls` command will list all nested subdirectories within a
 Let's use `ls -FR` to recursively list the new directory hierarchy we just created in the
 `project` directory:
 
+The `-R` option to the `ls` command will list all nested subdirectories within a directory.
+`R` in `-R` stands for "Recursive" which refers to the idea that the output of a process
+becomes the input of another iteration of that same process.
+So in this case, `ls -R` lists the contents of a directory, and for every directory
+it finds, it lists the contents of that directory,
+and for every directory inside those subdirectories,
+it lists the contents, and so on.
+
+Let's use `ls -FR` to recursively list the new directory hierarchy we just created in the
+`project` directory:
+
 ```bash
 $ ls -FR ../project
 ```
@@ -477,8 +488,12 @@ $ ls quotes.txt thesis/quotations.txt
 quotes.txt   thesis/quotations.txt
 ```
 
-We can also copy a directory and all its contents by using the
-[recursive](https://en.wikipedia.org/wiki/Recursion) option `-r`,
+Just like the recursive (`-R`) option for `ls`,
+the `-r` option for `cp`
+applies the command not just to the specifed directory,
+but to all its contents.
+
+We can use this option to copy a directory and all its contents
 e.g. to back up a directory:
 
 ```bash

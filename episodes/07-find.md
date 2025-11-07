@@ -192,9 +192,11 @@ $ grep -n -w -v "the" haiku.txt
 ```
 
 If we use the `-r` (recursive) option,
-`grep` can search for a pattern recursively through a set of files in subdirectories.
+`grep` can search for a pattern through all the files in
+in a directory and its subdirectories subdirectories.
 
-Let's search recursively for `Yesterday` in the `shell-lesson-data/exercise-data/writing` directory:
+Let's search "recursively" for `Yesterday`
+in the `shell-lesson-data/exercise-data/writing` directory:
 
 ```bash
 $ grep -r Yesterday .
@@ -337,7 +339,8 @@ $1.txt
 cut -d , -f 1,3
 ```
 
-Hint: use `man grep` to look for how to grep text recursively in a directory
+Hint: use `man grep` to remind ourselves how to grep text in a directory
+in recursively (meaning include all subdirectories in the search)
 and `man cut` to select more than one field in a line.
 
 An example of such a file is provided in
