@@ -493,8 +493,7 @@ the `-r` option for `cp`
 applies the command not just to the specifed directory,
 but to all its contents.
 
-We can use this option to copy a directory and all its contents
-e.g. to back up a directory:
+As an example, we can use this to back up a directory:
 
 ```bash
 $ cp -r thesis thesis_backup
