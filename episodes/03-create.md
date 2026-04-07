@@ -193,7 +193,7 @@ not be powerful enough or flexible enough for the work you need to do
 after this workshop. On Unix systems (such as Linux and macOS),
 many programmers use [Emacs](https://www.gnu.org/software/emacs/) or
 [Vim](https://www.vim.org/) (both of which require more time to learn),
-or a graphical editor such as [Gedit](https://projects.gnome.org/gedit/)
+or a graphical editor such as [Gedit](https://gedit-text-editor.org/)
 or [VScode](https://code.visualstudio.com/). On Windows, you may wish to
 use [Notepad++](https://notepad-plus-plus.org/).  Windows also has a built-in
 editor called `notepad` that can be run from the command line in the same
