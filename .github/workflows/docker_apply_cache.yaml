@@ -132,7 +132,7 @@ jobs:
         - ${{ github.workspace }}:/home/rstudio/lesson
       options: --cpus 2
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: "Debugging Info"
         run: |
@@ -187,7 +187,7 @@ jobs:
           steps.validate-org-workflow.outputs.is_valid == 'true' &&
           env.role-to-assume != '' &&
           env.aws-region != ''
-        uses: aws-actions/configure-aws-credentials@v5.0.0
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: ${{ env.role-to-assume }}
           aws-region: ${{ env.aws-region }}
@@ -195,7 +195,7 @@ jobs:
 
       - name: "Upload cache object to S3"
         id: upload-cache
-        uses: carpentries/actions-cache@frog-matchedkey-1
+        uses: tespkg/actions-cache@v1.10.0
         with:
           accessKey: ${{ steps.aws-creds.outputs.aws-access-key-id }}
           secretKey: ${{ steps.aws-creds.outputs.aws-secret-access-key }}
@@ -223,7 +223,7 @@ jobs:
         shell: bash
 
       - name: "Upload cache result"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: apply-cache-result
           path: ${{ github.workspace }}/apply-cache-result

@@ -29,7 +29,7 @@ jobs:
       id-token: write
     steps:
       - name: "Checkout Repository"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: "Validate Current Org and Workflow"
         id: validate-org-workflow
@@ -46,7 +46,7 @@ jobs:
           steps.validate-org-workflow.outputs.is_valid == 'true' &&
           env.role-to-assume != '' &&
           env.aws-region != ''
-        uses: aws-actions/configure-aws-credentials@v5.0.0
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: ${{ env.role-to-assume }}
           aws-region: ${{ env.aws-region }}

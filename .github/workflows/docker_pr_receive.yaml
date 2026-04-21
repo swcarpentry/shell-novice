@@ -26,7 +26,7 @@ jobs:
       branch-exists: ${{ steps.check.outputs.exists }}
     steps:
       - name: "Checkout Lesson"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: "Check if md-outputs branch exists"
         id: check
@@ -76,7 +76,7 @@ jobs:
       - name: "Upload PR number"
         id: upload
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pr
           path: ${{ github.workspace }}/NR
@@ -109,7 +109,7 @@ jobs:
       renv-cache-hashsum: ${{ steps.renv-check.outputs.renv-cache-hashsum }}
     steps:
       - name: "Checkout Lesson"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: "Is renv required?"
         id: renv-check
@@ -153,10 +153,10 @@ jobs:
       workbench-update: ${{ steps.wb-vers.outputs.workbench-update }}
       build-site: ${{ steps.build-site.outcome }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: "Check Out Staging Branch"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: md-outputs
           path: ${{ env.GHWMD }}
@@ -205,7 +205,7 @@ jobs:
           needs.check-renv.outputs.renv-needed == 'true' &&
           env.role-to-assume != '' &&
           env.aws-region != ''
-        uses: aws-actions/configure-aws-credentials@v5.0.0
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: ${{ env.role-to-assume }}
           aws-region: ${{ env.aws-region }}
@@ -213,7 +213,7 @@ jobs:
 
       - name: Get cache object from S3
         id: s3-cache
-        uses: carpentries/actions-cache/restore@frog-matchedkey-1
+        uses: tespkg/actions-cache/restore@v1.10.0
         if: needs.check-renv.outputs.renv-needed == 'true'
         with:
           # insecure: false # optional, use http instead of https. default false
@@ -258,21 +258,21 @@ jobs:
         shell: Rscript {0}
 
       - name: "Upload PR"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pr
           path: ${{ env.PR }}
           overwrite: true
 
       - name: "Upload Diff"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: diff
           path: ${{ env.CHIVE }}
           retention-days: 1
 
       - name: "Upload Build"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: built
           path: ${{ env.GHWMD }}
