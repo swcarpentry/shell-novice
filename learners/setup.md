@@ -11,6 +11,20 @@ You need to download some files to follow this lesson.
   **Let your instructor know if you need help with this step**.
   You should end up with a new folder called **`shell-lesson-data`** on your Desktop.
 
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Unzip duplicated shell-lesson-data directory
+
+In some cases, your extracted zip folder may be duplicated, namely on
+your Desktop the extracted folder **`shell-lesson-data`** contains
+another folder with the same name: **`shell-lesson-data`**.  On
+Windows this happens when double-clicking to unpack the zip file,
+which creates the additional folder using the zip file name.  On
+Windows this can be avoided by right-clicking on the zip file and
+choosing "Extract All..." instead of double-clicking the zip file.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Install software
 
 If you do not already have the shell software installed, you will need to
