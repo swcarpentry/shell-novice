@@ -61,7 +61,7 @@ jobs:
 
       - name: "Checkout Lesson"
         if: steps.build-check.outputs.do-build == 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: "Get container version info"
         id: wb-vers
@@ -99,7 +99,7 @@ jobs:
         - ${{ github.workspace }}:/home/rstudio/lesson
       options: --cpus 1
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: "Debugging Info"
         run: |

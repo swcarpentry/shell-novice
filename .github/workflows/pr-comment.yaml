@@ -42,7 +42,7 @@ jobs:
           exit 1
 
       - name: "Checkout Lesson"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: "Verify committed files"
         id: changed-files
@@ -112,7 +112,7 @@ jobs:
       contents: write
     steps:
       - name: "Checkout md outputs"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: md-outputs
           path: built
