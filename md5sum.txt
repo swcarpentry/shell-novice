@@ -14,5 +14,5 @@
 "learners/discuss.md" "e3a807a008ea41b21938c026470d4ca3" "site/built/discuss.md" "2023-05-02"
 "learners/reference.md" "fbc15cee3df7c52ebc9ab4e73de1a7e7" "site/built/reference.md" "2026-04-20"
 "learners/resources.md" "fe6c03a2836d994896b420b9bea43896" "site/built/resources.md" "2025-06-18"
-"learners/setup.md" "e199126c6946c49457e1b9c617f0eda7" "site/built/setup.md" "2026-04-20"
+"learners/setup.md" "328bac3bcb0f2cf62ec9d8f868b4776d" "site/built/setup.md" "2026-04-22"
 "profiles/learner-profiles.md" "60b93493cf1da06dfd63255d73854461" "site/built/learner-profiles.md" "2023-05-02"
