@@ -19,9 +19,9 @@ for instructions on formatting, building, and submitting material.
 
 [Maintainers Alumni][maintainers_alumni]
 
+- Ahmed Unshur
 - Gerard Capes
 - Jacob Deppen
-- Ahmed Unshur
   
 ## Contributing
 
