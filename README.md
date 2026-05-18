@@ -14,13 +14,14 @@ for instructions on formatting, building, and submitting material.
 [Current Maintainers][current_maintainers]
 
 - Benson Muite
-- Ahmed Unshur
 - Pariksheet Nanda
+- Amanda Kis
 
 [Maintainers Alumni][maintainers_alumni]
 
 - Gerard Capes
 - Jacob Deppen
+- Ahmed Unshur
   
 ## Contributing
 
