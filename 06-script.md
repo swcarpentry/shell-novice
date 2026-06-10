@@ -597,7 +597,7 @@ followed by `.pdb`.
 `$@` refers to *all* the arguments given to a shell script.
 
 ```output
-cubane.pdb ethane.pdb methane.pdb octane.pdb pentane.pdb propane.pdb
+cubane.pdb ethane.pdb methane.pdb octane.pdb pentane.pdb propane.pdb.pdb
 ```
 
 :::::::::::::::::::::::::
