@@ -589,10 +589,6 @@ list of file names as arguments to the script.
 Script 1 would print out a list of all files containing a dot in their name.
 The arguments passed to the script are not actually used anywhere in the script.
 
-```output
-cubane.pdb ethane.pdb methane.pdb octane.pdb pentane.pdb propane.pdb
-```
-
 Script 2 would print the contents of the first 3 files with a `.pdb` file extension.
 `$1`, `$2`, and `$3` refer to the first, second, and third argument respectively.
 
