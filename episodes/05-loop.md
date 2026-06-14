@@ -663,7 +663,7 @@ NENE01751A.txt
 ...
 ```
 
-1518 times 5 seconds,
+1520 times 5 seconds,
 divided by 60,
 tells her that her script will take about two hours to run.
 As a final check,
