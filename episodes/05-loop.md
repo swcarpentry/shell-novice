@@ -663,16 +663,17 @@ NENE01751A.txt
 ...
 ```
 
-1518 times 5 seconds,
-divided by 60,
-tells her that her script will take about two hours to run.
+The reduced sample  dataset used here has 17 files.
+Thus, 17 times 5 seconds,
+tells her that her script will take about 85 seconds to run.
+The full dataset has 1520 files, which would take about 2 hours to run.
 As a final check,
 she opens another terminal window,
 goes into `north-pacific-gyre`,
 and uses `cat stats-NENE01729B.txt`
 to examine one of the output files.
 It looks good,
-so she decides to get some coffee and catch up on her reading.
+so she decides to catch up on social media posts while waiting.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
