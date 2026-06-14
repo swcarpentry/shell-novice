@@ -663,8 +663,10 @@ NENE01751A.txt
 ...
 ```
 
-17 times 5 seconds,
+The reduced sample  dataset used here has 17 files.
+Thus, 17 times 5 seconds,
 tells her that her script will take about 85 seconds to run.
+The full dataset has 1520 files, which would take about 2 hours to run.
 As a final check,
 she opens another terminal window,
 goes into `north-pacific-gyre`,
