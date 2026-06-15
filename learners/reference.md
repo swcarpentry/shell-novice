@@ -84,6 +84,10 @@ process it, and write the result to [standard output](#standard-output).
 :   A loop that is executed once for each value in some kind of set, list, or range.
 See also: [while loop](#while-loop).
 
+[glob]{#glob}
+:   String pattern matching against filenames and directories.
+See also: [wildcard](#wildcard).
+
 [graphical user interface]{#graphical-user-interface}
 :   A user interface based on selecting items and actions from a graphical display,
 usually controlled by using a mouse.
@@ -223,10 +227,11 @@ pressing the Tab key triggers automatic completion of the current word or comman
 See also: [for loop](#for-loop).
 
 [wildcard]{#wildcard}
-:   A character used in pattern matching.
-In the Unix shell,
+:   A character used in string pattern matching.
+For example, in the Unix shell,
 the wildcard `*` matches zero or more characters,
 so that `*.txt` matches all files whose names end in `.txt`.
+See also: [glob](#glob).
 
 ## External references
 
