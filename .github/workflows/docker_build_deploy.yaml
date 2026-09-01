@@ -48,6 +48,7 @@ jobs:
       do-build: ${{ steps.build-check.outputs.do-build }}
       renv-needed: ${{ steps.build-check.outputs.renv-needed }}
       renv-cache-hashsum: ${{ steps.build-check.outputs.renv-cache-hashsum }}
+      dependency-image-ref: ${{ steps.build-check.outputs.dependency-image-ref }}
       workbench-container-file-exists: ${{ steps.wb-vers.outputs.workbench-container-file-exists }}
       wb-vers: ${{ steps.wb-vers.outputs.container-version }}
       last-wb-vers: ${{ steps.wb-vers.outputs.last-container-version }}
@@ -57,7 +58,7 @@ jobs:
     steps:
       - name: "Should we run build and deploy?"
         id: build-check
-        uses: carpentries/actions/build-preflight@main
+        uses: carpentries/actions/build-preflight@v1
 
       - name: "Checkout Lesson"
         if: steps.build-check.outputs.do-build == 'true'
@@ -66,7 +67,7 @@ jobs:
       - name: "Get container version info"
         id: wb-vers
         if: steps.build-check.outputs.do-build == 'true'
-        uses: carpentries/actions/container-version@main
+        uses: carpentries/actions/container-version@v1
         with:
           WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG }}
           renv-needed: ${{ steps.build-check.outputs.renv-needed }}
@@ -86,9 +87,8 @@ jobs:
       checks: write
       contents: write
       pages: write
-      id-token: write
     container:
-      image: ghcr.io/carpentries/workbench-docker:${{ vars.WORKBENCH_TAG || 'latest' }}
+      image: ${{ needs.preflight.outputs.dependency-image-ref }}
       env:
         WORKBENCH_PROFILE: "ci"
         GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -116,23 +116,12 @@ jobs:
           git config --global --add safe.directory $(pwd)
         shell: bash
 
-      - name: "Setup Lesson Dependencies"
-        id: build-container-deps
-        uses: carpentries/actions/build-container-deps@main
-        with:
-          CACHE_VERSION: ${{ vars.CACHE_VERSION || github.event.inputs.CACHE_VERSION || '' }}
-          WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG || 'latest' }}
-          LESSON_PATH: ${{ vars.LESSON_PATH || '/home/rstudio/lesson' }}
-          role-to-assume: ${{ secrets.AWS_GH_OIDC_ARN }}
-          aws-region: ${{ secrets.AWS_GH_OIDC_REGION }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: "Run Container and Build Site"
         id: build-and-deploy
-        uses: carpentries/actions/build-and-deploy@main
+        uses: carpentries/actions/build-and-deploy@v1
         with:
           reset: ${{ vars.BUILD_RESET || github.event.inputs.reset || 'false' }}
-          skip-manage-deps: ${{ github.event.inputs.force-skip-manage-deps == 'true' || steps.build-container-deps.outputs.renv-cache-available || steps.build-container-deps.outputs.backup-cache-used || 'false' }}
+          skip-manage-deps: ${{ github.event.inputs.force-skip-manage-deps == 'true' || contains(needs.preflight.outputs.dependency-image-ref, '-deps:') }}
           lang-code: ${{ vars.LANG_CODE || '' }}
 
   update-container-version:
@@ -152,7 +141,7 @@ jobs:
       )
     steps:
       - name: "Record container version used"
-        uses: carpentries/actions/record-container-version@main
+        uses: carpentries/actions/record-container-version@v1
         with:
           CONTAINER_VER: ${{ needs.preflight.outputs.wb-vers }}
           AUTO_MERGE: ${{ vars.AUTO_MERGE_CONTAINER_VERSION_UPDATE || 'true' }}

@@ -2,7 +2,7 @@ name: "02 Maintain: Check for Updated Packages"
 description: "Check for updated R packages and create a pull request to update the lesson's renv lockfile and package cache"
 on:
   schedule:
-    - cron: '0 0 * * 2'
+    - cron: '0 0 * * 2' # every Tuesday at midnight UTC
   workflow_dispatch:
     inputs:
       name:
@@ -67,7 +67,7 @@ jobs:
 
       - name: "Is renv required?"
         id: renv-check
-        uses: carpentries/actions/renv-checks@main
+        uses: carpentries/actions/renv-checks@v1
         with:
           CACHE_VERSION: ${{ inputs.CACHE_VERSION || '' }}
           skip-cache-check: true
@@ -99,7 +99,7 @@ jobs:
 
       - name: "Update {renv} deps and determine if a PR is needed"
         id: update
-        uses: carpentries/actions/update-lockfile@main
+        uses: carpentries/actions/update-lockfile@v1
         with:
           update: ${{ env.UPDATE_PACKAGES }}
           force-renv-init: ${{ env.FORCE_RENV_INIT }}
@@ -108,7 +108,7 @@ jobs:
 
       - name: "Validate Current Org and Workflow"
         id: validate-org-workflow
-        uses: carpentries/actions/validate-org-workflow@main
+        uses: carpentries/actions/validate-org-workflow@v1
         with:
           repo: ${{ github.repository }}
           workflow: ${{ github.workflow }}
