@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: "Download PR artifact"
         id: dl
-        uses: carpentries/actions/download-workflow-artifact@main
+        uses: carpentries/actions/download-workflow-artifact@v1
         with:
           run: ${{ github.event.workflow_run.id }}
           name: 'pr'
@@ -81,7 +81,7 @@ jobs:
       - name: "Check PR"
         id: check-pr
         if: ${{ steps.dl.outputs.success == 'true' }}
-        uses: carpentries/actions/check-valid-pr@main
+        uses: carpentries/actions/check-valid-pr@v1
         with:
           pr: ${{ steps.get-pr.outputs.NUM }}
           sha: ${{ github.event.workflow_run.head_sha }}
@@ -92,7 +92,7 @@ jobs:
       - name: "Comment result of validation"
         id: comment-diff
         if: always()
-        uses: carpentries/actions/comment-diff@main
+        uses: carpentries/actions/comment-diff@v1
         with:
           pr: ${{ steps.get-pr.outputs.NUM }}
           body: ${{ steps.check-pr.outputs.MSG }}
@@ -120,7 +120,7 @@ jobs:
 
       - name: "Download built markdown"
         id: dl
-        uses: carpentries/actions/download-workflow-artifact@main
+        uses: carpentries/actions/download-workflow-artifact@v1
         with:
           run: ${{ github.event.workflow_run.id }}
           name: 'built'
@@ -159,7 +159,7 @@ jobs:
     steps:
       - name: "Download comment artifact"
         id: dl
-        uses: carpentries/actions/download-workflow-artifact@main
+        uses: carpentries/actions/download-workflow-artifact@v1
         with:
           run: ${{ github.event.workflow_run.id }}
           name: 'diff'
@@ -170,7 +170,7 @@ jobs:
       - name: "Comment on PR"
         id: comment-diff
         if: steps.dl.outputs.success == 'true'
-        uses: carpentries/actions/comment-diff@main
+        uses: carpentries/actions/comment-diff@v1
         with:
           pr: ${{ env.NR }}
           path: ${{ github.workspace }}/diff.md
@@ -192,7 +192,7 @@ jobs:
     steps:
       - name: "Check for spoofing"
         id: dl
-        uses: carpentries/actions/download-workflow-artifact@main
+        uses: carpentries/actions/download-workflow-artifact@v1
         with:
           run: ${{ github.event.workflow_run.id }}
           name: 'built'
@@ -210,7 +210,7 @@ jobs:
 
       - name: "Comment on PR"
         id: comment-diff
-        uses: carpentries/actions/comment-diff@main
+        uses: carpentries/actions/comment-diff@v1
         with:
           pr: ${{ env.NR }}
           body: ${{ env.body }}

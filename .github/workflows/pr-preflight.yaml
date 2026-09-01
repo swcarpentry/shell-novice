@@ -25,7 +25,7 @@ jobs:
           EOF" >> $GITHUB_OUTPUT
       - name: "Check PR"
         id: check-pr
-        uses: carpentries/actions/check-valid-pr@main
+        uses: carpentries/actions/check-valid-pr@v1
         with:
           pr: ${{ github.event.number }}
           invalid: ${{ fromJSON(steps.hash.outputs.json)[github.repository] }}
@@ -33,7 +33,7 @@ jobs:
       - name: "Comment result of validation"
         id: comment-diff
         if: ${{ always() }}
-        uses: carpentries/actions/comment-diff@main
+        uses: carpentries/actions/comment-diff@v1
         with:
           pr: ${{ github.event.number }}
           body: ${{ steps.check-pr.outputs.MSG }}
