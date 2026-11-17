@@ -8,6 +8,7 @@ on:
     paths-ignore:
       - '.github/workflows/**.yaml'
       - '.github/workbench-docker-version.txt'
+      - '.devcontainer'
   schedule:
     - cron: '0 0 * * 2'
   workflow_run:
@@ -37,7 +38,7 @@ on:
 
 # only one build/deploy at a time
 concurrency:
-  group: docker-build-deploy
+  group: docker-build-deploy-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:

@@ -74,7 +74,7 @@ jobs:
 
   update_cache:
     name: "Create Package Update Pull Request"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     needs: check-renv
     permissions:
       contents: write
@@ -95,7 +95,7 @@ jobs:
         uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
-          install-r: false
+          install-r: true
 
       - name: "Update {renv} deps and determine if a PR is needed"
         id: update
